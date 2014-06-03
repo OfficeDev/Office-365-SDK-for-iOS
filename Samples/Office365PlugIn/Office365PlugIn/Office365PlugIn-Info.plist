@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string></string>
 	<key>CFBundleIdentifier</key>
-	<string>marcote.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.microsoft.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -29,7 +29,7 @@
 		<string>A2E4D43F-41F4-4FB9-BB94-7177011C9AED</string>
 	</array>
 	<key>NSPrincipalClass</key>
-	<string>MSsample.plugin</string>
+	<string>ToDoOffice365PlugIn</string>
 	<key>XC4Compatible</key>
 	<true/>
 	<key>XC5Compatible</key>

@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>sample.plugin.xcscheme</key>
+		<key>Office365PlugIn.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3CC72E99193CCD100046ED78</key>
+		<key>3C139EE7193E479F00493413</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,21 +1,22 @@
 //
-//  MSsample.plugin.m
-//  MSsample.plugin
+//  ToDoOffice365PlugIn.m
+//  ToDoOffice365PlugIn
 //
-//  Created by Lagash on 6/2/14.
-//    Copyright (c) 2014 Lagash Systems. All rights reserved.
+//  Created by Lagash on 6/3/14.
+//    Copyright (c) 2014 microsoft. All rights reserved.
 //
 
-#import "MSsample.plugin.h"
+#import "ToDoOffice365PlugIn.h"
+#import "OfficeWindowController.h"
+static ToDoOffice365PlugIn *sharedPlugin;
 
-static MSsample.plugin *sharedPlugin;
-
-@interface MSsample.plugin()
+@interface ToDoOffice365PlugIn()
 
 @property (nonatomic, strong) NSBundle *bundle;
+@property (nonatomic, strong) OfficeWindowController *officeWindowController;
 @end
 
-@implementation MSsample.plugin
+@implementation ToDoOffice365PlugIn
 
 + (void)pluginDidLoad:(NSBundle *)plugin
 {
@@ -40,7 +41,7 @@ static MSsample.plugin *sharedPlugin;
         NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"File"];
         if (menuItem) {
             [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
+            NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Office 365 Service" action:@selector(doMenuAction) keyEquivalent:@""];
             [actionMenuItem setTarget:self];
             [[menuItem submenu] addItem:actionMenuItem];
         }
@@ -51,8 +52,10 @@ static MSsample.plugin *sharedPlugin;
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:@"Hello, World" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
-    [alert runModal];
+    self.officeWindowController= [[OfficeWindowController alloc] initWithWindowNibName: @"Office365"];
+    [self.officeWindowController showWindow:self];
+  //  NSAlert *alert = [NSAlert alertWithMessageText:@"Hola, World" defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+  //  [alert runModal];
 }
 
 - (void)dealloc

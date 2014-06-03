@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3CC72E99193CCD100046ED78"
-               BuildableName = "sample.plugin.xcplugin"
-               BlueprintName = "sample.plugin"
-               ReferencedContainer = "container:sample.plugin.xcodeproj">
+               BlueprintIdentifier = "3C139EE7193E479F00493413"
+               BuildableName = "Office365PlugIn.xcplugin"
+               BlueprintName = "Office365PlugIn"
+               ReferencedContainer = "container:Office365PlugIn.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
