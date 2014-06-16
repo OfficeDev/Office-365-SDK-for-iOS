@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Sdk/office365-base-sdk/office365-base-sdk.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/ADALiOS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Samples/file-discovery-app/file-discovery-app.xcodeproj">
+   </FileRef>
+</Workspace>
