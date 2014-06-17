@@ -28,18 +28,13 @@ class BaseClient : NSObject{
         self.data.appendData(data);
     }
     
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
+    func connectionDidFinishLoading(connection: NSURLConnection!) -> NSDictionary{
         var dataAsString: NSString = NSString(data: self.data, encoding: NSUTF8StringEncoding)
         
         // Convert the retrieved data in to an object through JSON deserialization
         var err: NSError;
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary;
-        
-        if jsonResult.count>0 && jsonResult["results"].count>0 {
-            var results: NSArray = jsonResult["results"] as NSArray;
-            // self.tableData = results
-            // self.appsTableView.reloadData()
-        }
-    }
 
+        return jsonResult;
+    }
 }

@@ -31,7 +31,7 @@ Credentials* credentials;
     clientId = [NSString alloc];
     redirectUriString = [NSString alloc];
     authority = @"https://login.windows.net/common";
-    resourceId = @"https://outlook.office365.com/";
+    resourceId = @"Microsoft.SharePoint";//@"https://api.office.com/discovery/me/services";
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
 
@@ -58,10 +58,6 @@ Credentials* credentials;
         [authentication setToken:accessToken];
         FileDiscoveryClient* client = [FileDiscoveryClient alloc];
         [client getDiscoveryInfo:authentication];
-       /* HttpConnection* connection = [HttpConnection alloc];
-        [connection initializeWith:@"https://api.office.com/discovery/me/services" credentials:authentication];
-        [connection execute:@"GET"];*/
-      //  NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
     }];
 }
 

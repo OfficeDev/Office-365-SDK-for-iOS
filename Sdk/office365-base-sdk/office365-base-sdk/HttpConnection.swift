@@ -14,9 +14,7 @@ class HttpConnection : NSObject{
 
     var credentials : Credentials = Credentials();
     
-    init (){
-    
-    }
+    init(){ }
     
     func initializeWith(url : String, credentials : Credentials){
         
@@ -26,10 +24,9 @@ class HttpConnection : NSObject{
         
         //request.HTTPBody = (data as NSString).dataUsingEncoding(NSUTF8StringEncoding);
     
-        request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Accept");
+        request.addValue("application/json;odata=verbose", forHTTPHeaderField: "Accept");
         request.addValue("100-continue", forHTTPHeaderField: "Expect");
         request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Content-Type");
-       // request.addValue("Accept", forHTTPHeaderField: "application/json;odata=verbose");
       	request.addValue("SDK-Swift", forHTTPHeaderField:"X-ClientService-ClientTag" );
         credentials.prepareRequest(request);
     }
