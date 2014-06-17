@@ -8,17 +8,28 @@
 
 import Foundation
 
-class FileDiscoveryClient: NSObject{
-
-    let url = "https://api.office.com/discovery/me/services";
+class FileDiscoveryClient: BaseClient{
     
-    func getDiscoveryInfo() -> DiscoveryInformation{
-        var credentials = OAuthentication();
-        credentials.setToken("");
+    func getDiscoveryInfo(credentials : Credentials) -> DiscoveryInformation{
+     
         var connection = HttpConnection();
-        connection.initializeWith(self.url,credentials: credentials);
-        connection.execute( "GET");
+        connection.initializeWith("https://api.office.com/discovery/me/services",credentials: credentials);
+        connection.execute(Constants.Method_Get, client: self);
         
         return DiscoveryInformation();
+    }
+    
+    override func connectionDidFinishLoading(connection: NSURLConnection!) {
+        var dataAsString: NSString = NSString(data: self.data, encoding: NSUTF8StringEncoding)
+        
+        // Convert the retrieved data in to an object through JSON deserialization
+        var err: NSError;
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary;
+        
+        if jsonResult.count>0 && jsonResult["results"].count>0 {
+            var results: NSArray = jsonResult["results"] as NSArray;
+            // self.tableData = results
+            // self.appsTableView.reloadData()
+        }
     }
 }

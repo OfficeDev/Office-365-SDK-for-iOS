@@ -56,9 +56,11 @@ Credentials* credentials;
         
         OAuthentication* authentication = [OAuthentication alloc];
         [authentication setToken:accessToken];
-        HttpConnection* connection = [HttpConnection alloc];
+        FileDiscoveryClient* client = [FileDiscoveryClient alloc];
+        [client getDiscoveryInfo:authentication];
+       /* HttpConnection* connection = [HttpConnection alloc];
         [connection initializeWith:@"https://api.office.com/discovery/me/services" credentials:authentication];
-        [connection execute:@"GET"];
+        [connection execute:@"GET"];*/
       //  NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
     }];
 }

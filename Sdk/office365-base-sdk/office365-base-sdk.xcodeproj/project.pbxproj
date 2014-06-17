@@ -15,6 +15,8 @@
 		3C65C437194F362900AE2CBE /* FileDiscoveryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */; };
 		3C65C438194F362900AE2CBE /* HttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C433194F362900AE2CBE /* HttpConnection.swift */; };
 		3C65C439194F362900AE2CBE /* OAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C434194F362900AE2CBE /* OAuthentication.swift */; };
+		3C67FA4F19506F460045B544 /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FA4E19506F460045B544 /* BaseClient.swift */; };
+		3C67FA51195074AE0045B544 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FA50195074AE0045B544 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDiscoveryClient.swift; sourceTree = "<group>"; };
 		3C65C433194F362900AE2CBE /* HttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpConnection.swift; sourceTree = "<group>"; };
 		3C65C434194F362900AE2CBE /* OAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthentication.swift; sourceTree = "<group>"; };
+		3C67FA4E19506F460045B544 /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
+		3C67FA50195074AE0045B544 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +85,13 @@
 		3C154CF5194F353500BDD736 /* office365-base-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				3C67FA4E19506F460045B544 /* BaseClient.swift */,
 				3C65C43A194F364800AE2CBE /* http */,
 				3C65C431194F362900AE2CBE /* DiscoveryInformation.swift */,
 				3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */,
 				3C154CF8194F353500BDD736 /* office365-base-sdk.h */,
 				3C154CF6194F353500BDD736 /* Supporting Files */,
+				3C67FA50195074AE0045B544 /* Constants.swift */,
 			);
 			path = "office365-base-sdk";
 			sourceTree = "<group>";
@@ -234,8 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C65C435194F362900AE2CBE /* Credentials.swift in Sources */,
+				3C67FA4F19506F460045B544 /* BaseClient.swift in Sources */,
 				3C65C436194F362900AE2CBE /* DiscoveryInformation.swift in Sources */,
 				3C65C437194F362900AE2CBE /* FileDiscoveryClient.swift in Sources */,
+				3C67FA51195074AE0045B544 /* Constants.swift in Sources */,
 				3C65C438194F362900AE2CBE /* HttpConnection.swift in Sources */,
 				3C65C439194F362900AE2CBE /* OAuthentication.swift in Sources */,
 			);
