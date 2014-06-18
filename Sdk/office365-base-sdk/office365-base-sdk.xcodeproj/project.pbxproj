@@ -10,6 +10,7 @@
 		3C154CF9194F353500BDD736 /* office365-base-sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C154CF8194F353500BDD736 /* office365-base-sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3C154CFF194F353500BDD736 /* office365-base-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C154CF3194F353500BDD736 /* office365-base-sdk.framework */; };
 		3C154D06194F353500BDD736 /* office365_base_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C154D05194F353500BDD736 /* office365_base_sdkTests.swift */; };
+		3C25B7921950CFD900E38E8F /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25B7911950CFD900E38E8F /* BaseEntity.swift */; };
 		3C65C435194F362900AE2CBE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C430194F362900AE2CBE /* Credentials.swift */; };
 		3C65C436194F362900AE2CBE /* DiscoveryInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C431194F362900AE2CBE /* DiscoveryInformation.swift */; };
 		3C65C437194F362900AE2CBE /* FileDiscoveryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */; };
@@ -36,6 +37,7 @@
 		3C154CFE194F353500BDD736 /* office365-base-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-base-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C154D04194F353500BDD736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C154D05194F353500BDD736 /* office365_base_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = office365_base_sdkTests.swift; sourceTree = "<group>"; };
+		3C25B7911950CFD900E38E8F /* BaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
 		3C65C430194F362900AE2CBE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		3C65C431194F362900AE2CBE /* DiscoveryInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryInformation.swift; sourceTree = "<group>"; };
 		3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDiscoveryClient.swift; sourceTree = "<group>"; };
@@ -87,11 +89,11 @@
 			children = (
 				3C67FA4E19506F460045B544 /* BaseClient.swift */,
 				3C65C43A194F364800AE2CBE /* http */,
-				3C65C431194F362900AE2CBE /* DiscoveryInformation.swift */,
 				3C65C432194F362900AE2CBE /* FileDiscoveryClient.swift */,
 				3C154CF8194F353500BDD736 /* office365-base-sdk.h */,
 				3C154CF6194F353500BDD736 /* Supporting Files */,
 				3C67FA50195074AE0045B544 /* Constants.swift */,
+				3C25B7931950D07400E38E8F /* entities */,
 			);
 			path = "office365-base-sdk";
 			sourceTree = "<group>";
@@ -119,6 +121,15 @@
 				3C154D04194F353500BDD736 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3C25B7931950D07400E38E8F /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				3C25B7911950CFD900E38E8F /* BaseEntity.swift */,
+				3C65C431194F362900AE2CBE /* DiscoveryInformation.swift */,
+			);
+			name = entities;
 			sourceTree = "<group>";
 		};
 		3C65C43A194F364800AE2CBE /* http */ = {
@@ -242,6 +253,7 @@
 				3C65C435194F362900AE2CBE /* Credentials.swift in Sources */,
 				3C67FA4F19506F460045B544 /* BaseClient.swift in Sources */,
 				3C65C436194F362900AE2CBE /* DiscoveryInformation.swift in Sources */,
+				3C25B7921950CFD900E38E8F /* BaseEntity.swift in Sources */,
 				3C65C437194F362900AE2CBE /* FileDiscoveryClient.swift in Sources */,
 				3C67FA51195074AE0045B544 /* Constants.swift in Sources */,
 				3C65C438194F362900AE2CBE /* HttpConnection.swift in Sources */,

@@ -8,7 +8,9 @@
 
 import Foundation
 
-class DiscoveryInformation: NSObject{
-
-    var theString : String = "";
+class DiscoveryInformation: BaseEntity{
+    var ServiceName : String = "";
+    var ServiceResourceId: String = "";
+    var Capability : String = "";
+    var ServiceEndpointUri: String = "";
 }

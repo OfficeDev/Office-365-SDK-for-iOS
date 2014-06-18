@@ -10,22 +10,35 @@ import Foundation
 
 class FileDiscoveryClient: BaseClient{
     
-    func getDiscoveryInfo(credentials : Credentials) -> DiscoveryInformation {
+    func getDiscoveryInfo(credentials : Credentials, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
      
         var connection = HttpConnection();
         connection.initializeWith("https://api.office.com/discovery/me/services",credentials: credentials);
-        connection.execute(Constants.Method_Get, client: self);
         
-        return DiscoveryInformation();
+        return connection.execute(Constants.Method_Get, client: self, callback : callback);
     }
-    
-    override func connectionDidFinishLoading(connection: NSURLConnection!) -> NSDictionary{
-        var dataAsString: NSString = NSString(data: self.data, encoding: NSUTF8StringEncoding)
-        
-        // Convert the retrieved data in to an object through JSON deserialization
+      
+    override func parseData(data : NSData) -> NSMutableArray{
+        var array = NSMutableArray();
         var err: NSError;
+        
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary;
+        
+        var jsonArray : NSArray = (jsonResult.valueForKey("d") as NSDictionary).valueForKey("results") as NSArray;
+        
+        for value : AnyObject in jsonArray{
+            var dinformation = DiscoveryInformation();
+            var diccionary = value as NSDictionary;
+            
+            dinformation.Capability = diccionary.valueForKey("Capability") as String;
+            dinformation.ServiceName = diccionary.valueForKey("ServiceName") as String;
+            dinformation.ServiceEndpointUri = diccionary.valueForKey("ServiceEndpointUri") as String;
+            dinformation.ServiceResourceId = diccionary.valueForKey("ServiceResourceId") as String;
+            //dinformation.Id = diccionary.valueForKey("id") as String;
 
-        return jsonResult;
+            array.addObject(dinformation);
+        }
+        
+        return array;
     }
 }

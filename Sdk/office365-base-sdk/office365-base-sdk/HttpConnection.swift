@@ -31,11 +31,11 @@ class HttpConnection : NSObject{
         credentials.prepareRequest(request);
     }
     
-    func execute(method : String, client : BaseClient){
-        request.HTTPMethod = method;
+    func execute(method : String, client : BaseClient, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask{
+        var session =  NSURLSession.sharedSession();
+        var task = session.dataTaskWithRequest(request,
+            completionHandler: callback);
         
-        var connection = NSURLConnection(request: request, delegate: client, startImmediately: false);
-        
-        connection.start();
+        return task;
     }
 }

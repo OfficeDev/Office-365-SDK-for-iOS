@@ -12,6 +12,7 @@
 		3C65C444194F802D00AE2CBE /* office365-base-sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C65C443194F802D00AE2CBE /* office365-base-sdk.framework */; };
 		3C65C447194F831D00AE2CBE /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C65C445194F831D00AE2CBE /* IPAL_iPad_Storyboard.storyboard */; };
 		3C65C448194F831D00AE2CBE /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C65C446194F831D00AE2CBE /* IPAL_iPhone_Storyboard.storyboard */; };
+		3CA8FC0E1950B41F00078C67 /* ServiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA8FC0D1950B41F00078C67 /* ServiceTableViewController.m */; };
 		3CBB909F194F9386003F9CC5 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB909D194F9386003F9CC5 /* ADALiOSBundle-Info.plist */; };
 		3CBB90A2194F93C5003F9CC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3CBB90A0194F93C5003F9CC5 /* InfoPlist.strings */; };
 		3CC346E9194F2FD70013BDEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC346E8194F2FD70013BDEF /* main.m */; };
@@ -39,6 +40,8 @@
 		3C65C443194F802D00AE2CBE /* office365-base-sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "office365-base-sdk.framework"; path = "../../Sdk/office365-base-sdk/build/Debug-iphoneos/office365-base-sdk.framework"; sourceTree = "<group>"; };
 		3C65C445194F831D00AE2CBE /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
 		3C65C446194F831D00AE2CBE /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		3CA8FC0C1950B3FB00078C67 /* ServiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceTableViewController.h; sourceTree = "<group>"; };
+		3CA8FC0D1950B41F00078C67 /* ServiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceTableViewController.m; sourceTree = "<group>"; };
 		3CBB909D194F9386003F9CC5 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
 		3CBB909E194F9386003F9CC5 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
 		3CBB90A1194F93C5003F9CC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				3CC346F3194F2FD70013BDEF /* Main.storyboard */,
 				3CC346F6194F2FD70013BDEF /* Images.xcassets */,
 				3CC346ED194F2FD70013BDEF /* file_discovery_app.xcdatamodeld */,
+				3CA8FC0C1950B3FB00078C67 /* ServiceTableViewController.h */,
+				3CA8FC0D1950B41F00078C67 /* ServiceTableViewController.m */,
 			);
 			path = "file-discovery-app";
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				3CC346EF194F2FD70013BDEF /* file_discovery_app.xcdatamodeld in Sources */,
 				3CC346F2194F2FD70013BDEF /* ViewController.m in Sources */,
 				3CC346E9194F2FD70013BDEF /* main.m in Sources */,
+				3CA8FC0E1950B41F00078C67 /* ServiceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

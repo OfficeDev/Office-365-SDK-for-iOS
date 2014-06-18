@@ -28,6 +28,7 @@
 		3CC8FFF6191BD39500E6889C /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC8FFF5191BD39500E6889C /* Storyboard.storyboard */; };
 		3CC8FFF9191C0AF200E6889C /* AddToDoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8FFF8191C0AF200E6889C /* AddToDoItemViewController.m */; };
 		3CC8FFFC191C0E2B00E6889C /* ToDoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC8FFFB191C0E2B00E6889C /* ToDoListTableViewController.m */; };
+		3CDCC38F1950B4AF00C48FC1 /* ServiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDCC38E1950B4AF00C48FC1 /* ServiceTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		3CC8FFFA191C0E2B00E6889C /* ToDoListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoListTableViewController.h; sourceTree = "<group>"; };
 		3CC8FFFB191C0E2B00E6889C /* ToDoListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoListTableViewController.m; sourceTree = "<group>"; };
 		3CC8FFFF191C276200E6889C /* ToDoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoItem.h; sourceTree = "<group>"; };
+		3CDCC38D1950B4AF00C48FC1 /* ServiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceTableViewController.h; sourceTree = "<group>"; };
+		3CDCC38E1950B4AF00C48FC1 /* ServiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				3CC8FFF8191C0AF200E6889C /* AddToDoItemViewController.m */,
 				3CC8FFFA191C0E2B00E6889C /* ToDoListTableViewController.h */,
 				3CC8FFFB191C0E2B00E6889C /* ToDoListTableViewController.m */,
+				3CDCC38D1950B4AF00C48FC1 /* ServiceTableViewController.h */,
+				3CDCC38E1950B4AF00C48FC1 /* ServiceTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				3CC8FFFC191C0E2B00E6889C /* ToDoListTableViewController.m in Sources */,
 				3C23E8A0191D60FE00A29D28 /* DataBaseAccess.m in Sources */,
 				3CC8FFF9191C0AF200E6889C /* AddToDoItemViewController.m in Sources */,
+				3CDCC38F1950B4AF00C48FC1 /* ServiceTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

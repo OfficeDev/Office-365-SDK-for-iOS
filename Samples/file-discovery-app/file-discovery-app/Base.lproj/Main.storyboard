@@ -4,25 +4,28 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Office365 Services-->
+        <!--Service Table View Controller - Office365 Services-->
         <scene sceneID="d8L-kn-Lqi">
             <objects>
-                <tableViewController id="ZlV-eq-U3Y" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GoT-q7-V9i">
+                <tableViewController id="ZlV-eq-U3Y" customClass="ServiceTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="GoT-q7-V9i">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" id="pa1-R3-Uao">
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListPrototypeCell" rowHeight="50" id="pa1-R3-Uao">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pa1-R3-Uao" id="0I9-Eo-Swx">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="ZlV-eq-U3Y" id="Ofg-KJ-sa0"/>
+                            <outlet property="dataSource" destination="ZlV-eq-U3Y" id="MgK-kX-7t5"/>
                             <outlet property="delegate" destination="ZlV-eq-U3Y" id="lmY-hR-k5s"/>
                         </connections>
                     </tableView>
@@ -30,7 +33,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Ld-Zs-qtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1254" y="123"/>
+            <point key="canvasLocation" x="1530" y="141"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pc6-Tn-0Vf">
@@ -68,16 +71,28 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fwp-eb-tm0">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="Klt-qJ-Uho">
+                            <connections>
+                                <segue destination="ZlV-eq-U3Y" kind="show" id="c4i-qF-gp3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="LogIn" id="mXR-F1-Tkn">
                             <connections>
                                 <action selector="LogIn:" destination="2Bf-ye-xo9" id="Axr-59-tyh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ZlV-eq-U3Y" kind="show" identifier="ShowServices" id="z4M-YZ-gfs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhJ-yl-4IL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="646" y="146"/>
+            <point key="canvasLocation" x="742" y="155"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="z4M-YZ-gfs"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
 </document>

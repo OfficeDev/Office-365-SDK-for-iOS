@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "ServiceTableViewController.h";
 
 @interface ViewController ()
             
@@ -22,6 +22,7 @@ NSString* redirectUriString;
 NSString* resourceId;
 NSString* clientId;
 Credentials* credentials;
+NSString* token;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,22 +32,14 @@ Credentials* credentials;
     clientId = [NSString alloc];
     redirectUriString = [NSString alloc];
     authority = @"https://login.windows.net/common";
-    resourceId = @"Microsoft.SharePoint";//@"https://api.office.com/discovery/me/services";
+    resourceId = @"Microsoft.SharePoint";
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
-
-  //  HttpConnection* connection = [[HttpConnection alloc] init];
-  //  OAuthentication* credentials = [OAuthentication alloc];
-  //  [connection initializeWith: @"" credentials: credentials];
-  //  [connection execute: @"GET"];
-    
-    
+    token = [NSString alloc];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-  
-    
   
     // Dispose of any resources that can be recreated.
 }
@@ -54,11 +47,34 @@ Credentials* credentials;
 - (IBAction)LogIn:(id)sender {
     [self getToken:true completionHandler:^(NSString* accessToken){
         
-        OAuthentication* authentication = [OAuthentication alloc];
+       /* OAuthentication* authentication = [OAuthentication alloc];
         [authentication setToken:accessToken];
         FileDiscoveryClient* client = [FileDiscoveryClient alloc];
-        [client getDiscoveryInfo:authentication];
+        NSURLSessionDataTask* task = [client getDiscoveryInfo:authentication callback:^(NSData* data, NSURLResponse* response, NSError* error) {
+            
+            [self redirectToServices];
+            if(error != nil){
+            }
+        }];
+        
+        [task resume];*/
+       // [self redirectToServices : accessToken];
+   
+        token = accessToken;
     }];
+}
+
+-(void) redirectToServices:(NSString*)token{
+    ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    
+    [destinationController addToken: token];
+    
+    //[UIView transitionWithView:self.navigationController.view duration:0.2
+      //                 options:UIViewAnimationOptionTransitionFlipFromLeft
+       //             animations:^{
+        //                [self.navigationController pushViewController:destinationController animated:NO];
+         //           }
+          //          completion:NULL];
 }
 
 -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
@@ -95,6 +111,14 @@ Credentials* credentials;
     dispatch_async(dispatch_get_main_queue(), ^{
         // [self.resultLabel setText:status];
     });
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //if ([segue.identifier isEqualToString:...]) {
+        
+        ServiceTableViewController *controller = (ServiceTableViewController *)segue.destinationViewController;
+        controller.token = token;
 }
 
 @end
