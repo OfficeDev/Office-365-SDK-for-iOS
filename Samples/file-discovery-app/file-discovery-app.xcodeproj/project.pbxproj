@@ -22,6 +22,7 @@
 		3CC346F5194F2FD70013BDEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC346F3194F2FD70013BDEF /* Main.storyboard */; };
 		3CC346F7194F2FD70013BDEF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC346F6194F2FD70013BDEF /* Images.xcassets */; };
 		3CC34703194F2FD70013BDEF /* file_discovery_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC34702194F2FD70013BDEF /* file_discovery_appTests.m */; };
+		3CC50975195225D8001774EB /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CC50974195225D8001774EB /* office365.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		3CC346FC194F2FD70013BDEF /* file-discovery-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "file-discovery-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC34701194F2FD70013BDEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC34702194F2FD70013BDEF /* file_discovery_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = file_discovery_appTests.m; sourceTree = "<group>"; };
+		3CC50974195225D8001774EB /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = office365.png; path = ../../../../Desktop/office365.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		3CC346E6194F2FD70013BDEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CC50974195225D8001774EB /* office365.png */,
 				3CBB909C194F9328003F9CC5 /* ADALiOSBundle */,
 				3CC346E7194F2FD70013BDEF /* Info.plist */,
 				3CC346E8194F2FD70013BDEF /* main.m */,
@@ -252,6 +255,7 @@
 				3CBB909F194F9386003F9CC5 /* ADALiOSBundle-Info.plist in Resources */,
 				3CC346F5194F2FD70013BDEF /* Main.storyboard in Resources */,
 				3CC346F7194F2FD70013BDEF /* Images.xcassets in Resources */,
+				3CC50975195225D8001774EB /* office365.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

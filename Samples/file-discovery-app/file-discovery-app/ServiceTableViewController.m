@@ -32,6 +32,19 @@
 
 -(void)loadData{
 
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    spinner.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin |
+    UIViewAutoresizingFlexibleHeight |
+    UIViewAutoresizingFlexibleLeftMargin |
+    UIViewAutoresizingFlexibleRightMargin |
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleWidth;
+    [spinner startAnimating];
+    
     OAuthentication* authentication = [OAuthentication alloc];
     [authentication setToken:self.token];
     FileDiscoveryClient* client = [FileDiscoveryClient alloc];
@@ -44,6 +57,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
            [self.tableView reloadData];
+            [spinner stopAnimating];
         });
     }];
     
@@ -66,7 +80,7 @@
     UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier forIndexPath:indexPath];
  
     DiscoveryInformation *item = [self.servicesItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.ServiceName;
+    cell.textLabel.text =[NSString stringWithFormat:@"%@ - %@", item.ServiceName, item.Capability];
     
     return cell;
 }

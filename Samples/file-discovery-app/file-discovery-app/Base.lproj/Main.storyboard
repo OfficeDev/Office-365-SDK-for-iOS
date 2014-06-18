@@ -63,7 +63,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YqA-dX-9d9">
+                            <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="office365.png" translatesAutoresizingMaskIntoConstraints="NO" id="YqA-dX-9d9">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                             </imageView>
                         </subviews>
@@ -71,7 +71,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fwp-eb-tm0">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Klt-qJ-Uho">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Get Services" id="Klt-qJ-Uho">
                             <connections>
                                 <segue destination="ZlV-eq-U3Y" kind="show" id="c4i-qF-gp3"/>
                             </connections>
@@ -83,6 +83,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="GetServicesButton" destination="Klt-qJ-Uho" id="U52-Ob-Hqu"/>
                         <segue destination="ZlV-eq-U3Y" kind="show" identifier="ShowServices" id="z4M-YZ-gfs"/>
                     </connections>
                 </viewController>
@@ -91,6 +92,9 @@
             <point key="canvasLocation" x="742" y="155"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="office365.png" width="290" height="163"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="z4M-YZ-gfs"/>
     </inferredMetricsTieBreakers>

@@ -61,6 +61,8 @@ NSString* token;
        // [self redirectToServices : accessToken];
    
         token = accessToken;
+        self.GetServicesButton.enabled = true;
+        
     }];
 }
 

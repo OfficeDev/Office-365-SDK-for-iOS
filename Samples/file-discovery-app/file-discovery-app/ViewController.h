@@ -16,6 +16,7 @@
 #import <ADALiOS/ADInstanceDiscovery.h>
 
 @interface ViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetServicesButton;
 
 - (IBAction)LogIn:(id)sender;
 
