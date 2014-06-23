@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
             endingLineNumber = "35"
-            landmarkName = "execute(_:client:callback:)"
+            landmarkName = "execute(_:callback:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ViewController.m"
-            timestampString = "424813659.594579"
+            filePath = "Sdk/office365-base-sdk/office365-base-sdk/OAuthentication.swift"
+            timestampString = "425223989.249505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "-prepareForSegue:sender:"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setToken(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ViewController.m"
-            timestampString = "424813659.594579"
+            filePath = "Sdk/office365-base-sdk/office365-base-sdk/DiscoveryInformation.swift"
+            timestampString = "425229367.082426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-redirectToServices:"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "createFromJson(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,45 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ViewController.m"
-            timestampString = "424813659.594579"
+            filePath = "Sdk/office365_base_sdk/office365_base_sdk/FileDiscoveryClient.swift"
+            timestampString = "425242444.616299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "-getToken:completionHandler:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ViewController.m"
-            timestampString = "424813659.594579"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-LogIn:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ViewController.m"
-            timestampString = "424813659.594579"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-getToken:completionHandler:"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "getDiscoveryInfo(_:callback:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

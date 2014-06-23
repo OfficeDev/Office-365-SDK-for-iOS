@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>file-discovery-app.xcscheme</key>
+		<key>file-app.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3CC346E2194F2FD70013BDEF</key>
+		<key>3C8607F919589CCD00111B6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CC346FB194F2FD70013BDEF</key>
+		<key>3C86080E19589CCD00111B6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -28,6 +28,7 @@
 		3C3236AE193E5DC30006DED1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3C56EC10193E62E800DF614A /* OfficeWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfficeWindowController.h; sourceTree = "<group>"; };
 		3C56EC11193E62E800DF614A /* OfficeWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfficeWindowController.m; sourceTree = "<group>"; };
+		3C62FF4419532DB60057DEA0 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		3CF2CB4D193E566C0039FA15 /* Office365.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Office365.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +75,7 @@
 		3C139EEA193E479F00493413 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C62FF4419532DB60057DEA0 /* libADALiOS.a */,
 				3C3236AE193E5DC30006DED1 /* Cocoa.framework */,
 				3C139EEB193E479F00493413 /* AppKit.framework */,
 				3C139EED193E479F00493413 /* Foundation.framework */,
@@ -282,6 +284,10 @@
 				GCC_PREFIX_HEADER = "Office365PlugIn/Office365PlugIn-Prefix.pch";
 				INFOPLIST_FILE = "Office365PlugIn/Office365PlugIn-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/lagash/Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -297,6 +303,10 @@
 				GCC_PREFIX_HEADER = "Office365PlugIn/Office365PlugIn-Prefix.pch";
 				INFOPLIST_FILE = "Office365PlugIn/Office365PlugIn-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/lagash/Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};

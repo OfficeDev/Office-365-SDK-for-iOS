@@ -84,6 +84,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="GetServicesButton" destination="Klt-qJ-Uho" id="U52-Ob-Hqu"/>
+                        <outlet property="LogInButton" destination="mXR-F1-Tkn" id="aNv-qB-NoD"/>
                         <segue destination="ZlV-eq-U3Y" kind="show" identifier="ShowServices" id="z4M-YZ-gfs"/>
                     </connections>
                 </viewController>

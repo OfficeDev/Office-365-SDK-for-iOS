@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ServiceTableViewController.h";
+#import "ServiceTableViewController.h"
 
 @interface ViewController ()
             
@@ -62,6 +62,7 @@ NSString* token;
    
         token = accessToken;
         self.GetServicesButton.enabled = true;
+        self.LogInButton.enabled = false;
         
     }];
 }

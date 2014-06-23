@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>file-discovery-app.xcscheme</key>
+		<key>office365_files_sdk.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3CC346E2194F2FD70013BDEF</key>
+		<key>3C0915D01958B0D7000A7BE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CC346FB194F2FD70013BDEF</key>
+		<key>3C0915DB1958B0D7000A7BE2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
