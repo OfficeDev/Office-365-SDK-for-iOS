@@ -2,13 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Samples/file-app/file-app.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Sdk/office365_files_sdk/office365_files_sdk.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Sdk/office365_base_sdk/office365_base_sdk.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Samples/file-app/file-app.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Samples/Office365PlugIn/Office365PlugIn.xcodeproj">

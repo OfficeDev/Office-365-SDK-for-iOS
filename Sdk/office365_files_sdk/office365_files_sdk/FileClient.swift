@@ -9,23 +9,38 @@
 import Foundation
 import office365_base_sdk
 class FileClient : BaseClient{
-    
-    let credentials : Credentials;
-    let url :NSString;
+
     let apiUrl = "/_api/"
-    init(url : NSString ,credentials : Credentials){
+    
+    func getFiles(callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
         
-        self.credentials = credentials;
-        self.url = url;
-        
-  
+        return self.getFiles(nil, callback);
     }
     
-    func getFiles(folder : NSString, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
+    func getFiles(folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
         
         var connection = HttpConnection();
-        connection.initializeWith(self.url + self.apiUrl + "files" ,credentials: self.credentials);
+        connection.initializeWith(self.Url + self.apiUrl + "files" ,credentials: self.Credential);
         
         return connection.execute(Constants.Method_Get, callback : callback);
+    }
+    
+    override func parseData(data : NSData) -> NSMutableArray{
+        var array = NSMutableArray();
+        var err: NSError;
+        
+        var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary;
+        
+        var jsonArray : NSArray = (jsonResult.valueForKey("d") as NSDictionary).valueForKey("results") as NSArray;
+        
+        for value : AnyObject in jsonArray{
+            var file = FileEntity();
+            
+            file.createFromJson(value as NSDictionary)
+            
+            array.addObject(file);
+        }
+        
+        return array;
     }
 }

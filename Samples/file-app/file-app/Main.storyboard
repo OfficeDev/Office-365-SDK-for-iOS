@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PZv-Pd-Ma3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="yx9-rm-M9n">
+            <objects>
+                <navigationController id="PZv-Pd-Ma3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2PQ-Lj-aTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FFy-2w-Hh0" kind="relationship" relationship="rootViewController" id="Mid-8o-wdB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9UN-C2-cae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95" y="281"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dq6-Lo-yP2">
+            <objects>
+                <viewController id="FFy-2w-Hh0" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QJm-Dx-7JT"/>
+                        <viewControllerLayoutGuide type="bottom" id="f8y-Gg-Eg7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9XX-Yh-udk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="office365.png" translatesAutoresizingMaskIntoConstraints="NO" id="soN-sN-pi4">
+                                <rect key="frame" x="46" y="185" width="229" height="198"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4iE-00-6mX">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Get Files" id="ojz-pJ-aeV">
+                            <connections>
+                                <segue destination="8OI-97-zND" kind="push" id="W00-M9-dnU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="LogIn" id="NiM-DN-qbH">
+                            <connections>
+                                <action selector="LogIn:" destination="FFy-2w-Hh0" id="NHW-VI-wnG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="GetFilesButton" destination="ojz-pJ-aeV" id="l4Z-hO-vdP"/>
+                        <outlet property="LogInButton" destination="NiM-DN-qbH" id="n59-G7-m8m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iBD-oI-6fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="272"/>
+        </scene>
+        <!--File Table View Controller-->
+        <scene sceneID="S5H-0O-SCu">
+            <objects>
+                <tableViewController id="8OI-97-zND" customClass="FileTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="g8L-os-twk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FileListCell" id="mCy-da-gem">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mCy-da-gem" id="2Uk-5N-p86">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8OI-97-zND" id="1wA-sD-WUa"/>
+                            <outlet property="delegate" destination="8OI-97-zND" id="eHV-eA-cff"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DIM-TL-Mrc"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZB-gE-7RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1017" y="262"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="office365.png" width="290" height="163"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

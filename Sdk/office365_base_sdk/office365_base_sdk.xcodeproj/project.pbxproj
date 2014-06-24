@@ -21,6 +21,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3C07B6DE1958CEB40057D25C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C9310C41958AE05002D675E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C9310CC1958AE06002D675E;
+			remoteInfo = office365_base_sdk;
+		};
+		3C07B6E01958CEB40057D25C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C9310C41958AE05002D675E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C9310CC1958AE06002D675E;
+			remoteInfo = office365_base_sdk;
+		};
 		3C9310DA1958AE06002D675E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3C9310C41958AE05002D675E /* Project object */;
@@ -194,6 +208,8 @@
 			);
 			dependencies = (
 				3C9310DB1958AE06002D675E /* PBXTargetDependency */,
+				3C07B6DF1958CEB40057D25C /* PBXTargetDependency */,
+				3C07B6E11958CEB40057D25C /* PBXTargetDependency */,
 			);
 			name = office365_base_sdkTests;
 			productName = office365_base_sdkTests;
@@ -280,6 +296,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3C07B6DF1958CEB40057D25C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C9310CC1958AE06002D675E /* office365_base_sdk */;
+			targetProxy = 3C07B6DE1958CEB40057D25C /* PBXContainerItemProxy */;
+		};
+		3C07B6E11958CEB40057D25C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C9310CC1958AE06002D675E /* office365_base_sdk */;
+			targetProxy = 3C07B6E01958CEB40057D25C /* PBXContainerItemProxy */;
+		};
 		3C9310DB1958AE06002D675E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3C9310CC1958AE06002D675E /* office365_base_sdk */;

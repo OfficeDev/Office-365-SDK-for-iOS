@@ -9,7 +9,16 @@
 import Foundation
 
 class BaseClient : NSObject{
-
+    
+    var Credential : Credentials;
+    var Url : NSString;
+    
+    init(url : NSString ,credentials : Credentials){
+        
+        self.Credential = credentials;
+        self.Url = url;
+    }
+    
     var data: NSMutableData = NSMutableData();
     
     func parseData(data : NSData) -> NSMutableArray{

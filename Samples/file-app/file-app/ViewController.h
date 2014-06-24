@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  file-discovery-app
+//  file-app
 //
-//  Created by Lagash on 6/16/14.
+//  Created by Lagash on 6/23/14.
 //  Copyright (c) 2014 microsoft. All rights reserved.
 //
 
@@ -16,8 +16,9 @@
 #import <ADALiOS/ADInstanceDiscovery.h>
 
 @interface ViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetServicesButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetFilesButton;
 
 - (IBAction)LogIn:(id)sender;
 

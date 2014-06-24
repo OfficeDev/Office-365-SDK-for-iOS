@@ -37,19 +37,13 @@
     [self.view addSubview:spinner];
     spinner.hidesWhenStopped = YES;
     
-    spinner.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin |
-    UIViewAutoresizingFlexibleHeight |
-    UIViewAutoresizingFlexibleLeftMargin |
-    UIViewAutoresizingFlexibleRightMargin |
-    UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleWidth;
     [spinner startAnimating];
     
     OAuthentication* authentication = [OAuthentication alloc];
     [authentication setToken:self.token];
-    FileDiscoveryClient* client = [FileDiscoveryClient alloc];
+    FileDiscoveryClient* client = [[FileDiscoveryClient alloc] initWithUrl:@"" credentials:authentication];
     
-    NSURLSessionDataTask* task = [client getDiscoveryInfo:authentication callback:^(NSData* data, NSURLResponse* response, NSError* error) {
+    NSURLSessionDataTask* task = [client getDiscoveryInfo:^(NSData* data, NSURLResponse* response, NSError* error) {
 
         NSError* parseError = nil;
         

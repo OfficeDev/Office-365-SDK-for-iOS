@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <office365-base-sdk/office365_base_sdk-Swift.h>
+#import <office365_base_sdk/office365_base_sdk-Swift.h>
 
 @interface ServiceTableViewController : UITableViewController
     @property NSMutableArray *servicesItems;

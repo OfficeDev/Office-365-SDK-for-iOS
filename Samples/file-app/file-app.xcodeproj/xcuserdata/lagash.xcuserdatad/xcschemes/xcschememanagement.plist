@@ -7,17 +7,17 @@
 		<key>file-app.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3C8607F919589CCD00111B6D</key>
+		<key>3CC805C81958BA4D00E9590E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C86080E19589CCD00111B6D</key>
+		<key>3CC805E11958BA4D00E9590E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
