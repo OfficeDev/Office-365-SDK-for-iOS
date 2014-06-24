@@ -12,8 +12,7 @@ class FileDiscoveryClient: BaseClient{
     
     func getDiscoveryInfo(callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
      
-        var connection = HttpConnection();
-        connection.initializeWith("https://api.office.com/discovery/me/services",credentials: self.Credential);
+        var connection = HttpConnection(credentials: self.Credential, url: "https://api.office.com/discovery/me/services");
         
         return connection.execute(Constants.Method_Get, callback : callback);
     }

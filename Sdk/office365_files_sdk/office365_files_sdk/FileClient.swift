@@ -19,10 +19,25 @@ class FileClient : BaseClient{
     
     func getFiles(folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
         
-        var connection = HttpConnection();
-        connection.initializeWith(self.Url + self.apiUrl + "files" ,credentials: self.Credential);
+        var url = self.Url + self.apiUrl + "files";
+        var connection = HttpConnection(credentials: self.Credential, url : url);
         
         return connection.execute(Constants.Method_Get, callback : callback);
+    }
+    
+    func createEmptyFile(name : NSString,folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!)-> NSURLSessionDataTask {
+        
+        var url = self.Url + self.apiUrl + "files";
+        var body = NSString(format: "{ '__metadata': { 'type': 'MS.FileServices.File' }, Name : '%@'}", name);
+        var connection = HttpConnection(credentials: self.Credential, url : url, body: body);
+        return connection.execute(Constants.Method_Post, callback : callback);
+    }
+    
+    func createFile(name: NSString, overwrite : Bool ,body : NSData,folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!)-> NSURLSessionDataTask {
+        
+        var url = self.Url + self.apiUrl + NSString(format: "files/Add(name='%@',overwrite='%@')", name, overwrite ? "true" : "false");
+        var connection = HttpConnection(credentials: self.Credential, url : url, bodyArray: body);
+        return connection.execute(Constants.Method_Post, callback : callback);
     }
     
     override func parseData(data : NSData) -> NSMutableArray{

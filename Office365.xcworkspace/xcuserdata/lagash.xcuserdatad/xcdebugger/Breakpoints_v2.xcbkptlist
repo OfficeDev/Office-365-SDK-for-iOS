@@ -105,13 +105,59 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-app/file-app/FileTableViewController.m"
-            timestampString = "425312843.105357"
+            filePath = "Sdk/office365_base_sdk/office365_base_sdk/HttpConnection.swift"
+            timestampString = "425326988.049117"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "init(credentials:url:body:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "office365_base_sdk.HttpConnection.init (office365_base_sdk.HttpConnection.Type)(credentials : office365_base_sdk.Credentials, url : Swift.String, body : ObjectiveC.NSString) -&gt; office365_base_sdk.HttpConnection"
+                  moduleName = "office365_base_sdk"
+                  urlString = "file:///Users/lagash/MSOpenTech/Sdk/office365_base_sdk/office365_base_sdk/HttpConnection.swift"
+                  timestampString = "425328561.050771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "405">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "office365_base_sdk.HttpConnection.init (office365_base_sdk.HttpConnection.Type)(credentials : office365_base_sdk.Credentials, url : Swift.String, body : ObjectiveC.NSString) -&gt; office365_base_sdk.HttpConnection"
+                  moduleName = "office365_base_sdk"
+                  urlString = "file:///Users/lagash/MSOpenTech/Sdk/office365_base_sdk/office365_base_sdk/HttpConnection.swift"
+                  timestampString = "425328561.051478"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "432">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk/office365_base_sdk/office365_base_sdk/HttpConnection.swift"
+            timestampString = "425332084.03742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "init(credentials:url:body:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>85AC49E9-9A6B-4304-9739-65F8A6B8ACF9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Office365</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE21A8C9-7A64-4462-84D2-8B354D4259D1</key>
+		<string>https://github.com/LagashSystemsArgentina/MSOpenTech.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Office365.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE21A8C9-7A64-4462-84D2-8B354D4259D1</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/LagashSystemsArgentina/MSOpenTech.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE21A8C9-7A64-4462-84D2-8B354D4259D1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE21A8C9-7A64-4462-84D2-8B354D4259D1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MSOpenTech</string>
+		</dict>
+	</array>
+</dict>
+</plist>

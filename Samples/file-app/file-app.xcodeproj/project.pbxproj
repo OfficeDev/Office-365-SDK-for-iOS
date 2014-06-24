@@ -22,6 +22,7 @@
 		3CC805D51958BA4D00E9590E /* file_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805D31958BA4D00E9590E /* file_app.xcdatamodeld */; };
 		3CC805DD1958BA4D00E9590E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CC805DC1958BA4D00E9590E /* Images.xcassets */; };
 		3CC805E91958BA4D00E9590E /* file_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805E81958BA4D00E9590E /* file_appTests.m */; };
+		3CCE264B1959EC4400CBD116 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCE264A1959EC4400CBD116 /* CreateViewController.m */; };
 		3CE88DCB1958C37700593D00 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE88DCA1958C37700593D00 /* libADALiOS.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		3CC805E21958BA4D00E9590E /* file-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "file-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CC805E71958BA4D00E9590E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CC805E81958BA4D00E9590E /* file_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = file_appTests.m; sourceTree = "<group>"; };
+		3CCE26491959EC4400CBD116 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
+		3CCE264A1959EC4400CBD116 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		3CE88DCA1958C37700593D00 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,17 +121,14 @@
 		3CC805CB1958BA4D00E9590E /* file-app */ = {
 			isa = PBXGroup;
 			children = (
+				3CCE264C1959EC6100CBD116 /* controllers */,
 				3C07B6DA1958CCFF0057D25C /* Main.storyboard */,
-				3C07B6D71958C8C20057D25C /* FilesTableViewController.h */,
-				3C2067641958C20F00DCEBE6 /* ViewController.h */,
-				3C2067651958C20F00DCEBE6 /* ViewController.m */,
 				3C88DE891958BE9400D105A6 /* office365.png */,
 				3CC805D01958BA4D00E9590E /* AppDelegate.h */,
 				3CC805D11958BA4D00E9590E /* AppDelegate.m */,
 				3CC805DC1958BA4D00E9590E /* Images.xcassets */,
 				3CC805D31958BA4D00E9590E /* file_app.xcdatamodeld */,
 				3CC805CC1958BA4D00E9590E /* Supporting Files */,
-				3C07B6D81958C8EB0057D25C /* FileTableViewController.m */,
 			);
 			path = "file-app";
 			sourceTree = "<group>";
@@ -158,6 +158,19 @@
 				3CC805E71958BA4D00E9590E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3CCE264C1959EC6100CBD116 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3CCE26491959EC4400CBD116 /* CreateViewController.h */,
+				3CCE264A1959EC4400CBD116 /* CreateViewController.m */,
+				3C07B6D71958C8C20057D25C /* FilesTableViewController.h */,
+				3C2067641958C20F00DCEBE6 /* ViewController.h */,
+				3C2067651958C20F00DCEBE6 /* ViewController.m */,
+				3C07B6D81958C8EB0057D25C /* FileTableViewController.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +280,7 @@
 				3CC805D51958BA4D00E9590E /* file_app.xcdatamodeld in Sources */,
 				3CC805D21958BA4D00E9590E /* AppDelegate.m in Sources */,
 				3C88DE7E1958BB0E00D105A6 /* file_app.xcdatamodeld in Sources */,
+				3CCE264B1959EC4400CBD116 /* CreateViewController.m in Sources */,
 				3C07B6D91958C8EB0057D25C /* FileTableViewController.m in Sources */,
 				3CC805CF1958BA4D00E9590E /* main.m in Sources */,
 				3C2067661958C20F00DCEBE6 /* ViewController.m in Sources */,

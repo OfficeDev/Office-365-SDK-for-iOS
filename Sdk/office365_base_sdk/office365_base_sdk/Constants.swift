@@ -11,4 +11,5 @@ import Foundation
 struct Constants{
 
     static let Method_Get = "GET";
+    static let Method_Post = "POST";
 }

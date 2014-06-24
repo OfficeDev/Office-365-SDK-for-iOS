@@ -63,4 +63,12 @@
     return [self.fileItems count];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //if ([segue.identifier isEqualToString:...]) {
+    
+    CreateViewController *controller = (CreateViewController *)segue.destinationViewController;
+    controller.token = self.token;
+}
+
 @end
