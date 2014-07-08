@@ -24,6 +24,7 @@
 		3CC805E91958BA4D00E9590E /* file_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805E81958BA4D00E9590E /* file_appTests.m */; };
 		3CCE264B1959EC4400CBD116 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CCE264A1959EC4400CBD116 /* CreateViewController.m */; };
 		3CE88DCB1958C37700593D00 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE88DCA1958C37700593D00 /* libADALiOS.a */; };
+		EC1E66DA1961E92B00A0843D /* FileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1E66D91961E92B00A0843D /* FileTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		3CCE26491959EC4400CBD116 /* CreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateViewController.h; sourceTree = "<group>"; };
 		3CCE264A1959EC4400CBD116 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		3CE88DCA1958C37700593D00 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		EC1E66D81961E92B00A0843D /* FileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTableViewCell.h; sourceTree = "<group>"; };
+		EC1E66D91961E92B00A0843D /* FileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,9 +169,11 @@
 				3CCE26491959EC4400CBD116 /* CreateViewController.h */,
 				3CCE264A1959EC4400CBD116 /* CreateViewController.m */,
 				3C07B6D71958C8C20057D25C /* FilesTableViewController.h */,
+				3C07B6D81958C8EB0057D25C /* FileTableViewController.m */,
 				3C2067641958C20F00DCEBE6 /* ViewController.h */,
 				3C2067651958C20F00DCEBE6 /* ViewController.m */,
-				3C07B6D81958C8EB0057D25C /* FileTableViewController.m */,
+				EC1E66D81961E92B00A0843D /* FileTableViewCell.h */,
+				EC1E66D91961E92B00A0843D /* FileTableViewCell.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC805D51958BA4D00E9590E /* file_app.xcdatamodeld in Sources */,
+				EC1E66DA1961E92B00A0843D /* FileTableViewCell.m in Sources */,
 				3CC805D21958BA4D00E9590E /* AppDelegate.m in Sources */,
 				3C88DE7E1958BB0E00D105A6 /* file_app.xcdatamodeld in Sources */,
 				3CCE264B1959EC4400CBD116 /* CreateViewController.m in Sources */,

@@ -13,6 +13,9 @@
 		3CC805B11958B15E00E9590E /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805AF1958B15E00E9590E /* FileClient.swift */; };
 		3CC805B21958B15E00E9590E /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805B01958B15E00E9590E /* FileEntity.swift */; };
 		3CC805B41958B16F00E9590E /* office365_base_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC805B31958B16F00E9590E /* office365_base_sdk.framework */; };
+		EC98DD4C19670E84003FD80E /* ExtendedHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC98DD4B19670E84003FD80E /* ExtendedHttpConnection.swift */; };
+		EC9B9BCF195CA93E006C3C06 /* FileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805AF1958B15E00E9590E /* FileClient.swift */; };
+		EC9B9BD0195CA942006C3C06 /* FileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC805B01958B15E00E9590E /* FileEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,7 @@
 		3CC805AF1958B15E00E9590E /* FileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileClient.swift; sourceTree = "<group>"; };
 		3CC805B01958B15E00E9590E /* FileEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEntity.swift; sourceTree = "<group>"; };
 		3CC805B31958B16F00E9590E /* office365_base_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_base_sdk.framework; path = "../office365_base_sdk/build/Debug-iphoneos/office365_base_sdk.framework"; sourceTree = "<group>"; };
+		EC98DD4B19670E84003FD80E /* ExtendedHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendedHttpConnection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 				3CC805B01958B15E00E9590E /* FileEntity.swift */,
 				3C0915D61958B0D7000A7BE2 /* office365_files_sdk.h */,
 				3C0915D41958B0D7000A7BE2 /* Supporting Files */,
+				EC98DD4B19670E84003FD80E /* ExtendedHttpConnection.swift */,
 			);
 			path = office365_files_sdk;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC805B21958B15E00E9590E /* FileEntity.swift in Sources */,
+				EC98DD4C19670E84003FD80E /* ExtendedHttpConnection.swift in Sources */,
 				3CC805B11958B15E00E9590E /* FileClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9B9BCF195CA93E006C3C06 /* FileClient.swift in Sources */,
+				EC9B9BD0195CA942006C3C06 /* FileEntity.swift in Sources */,
 				3C0915E41958B0D7000A7BE2 /* office365_files_sdkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

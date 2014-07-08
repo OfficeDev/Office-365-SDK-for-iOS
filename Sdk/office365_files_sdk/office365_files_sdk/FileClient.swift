@@ -8,6 +8,7 @@
 
 import Foundation
 import office365_base_sdk
+
 class FileClient : BaseClient{
 
     let apiUrl = "/_api/"
@@ -17,7 +18,7 @@ class FileClient : BaseClient{
         return self.getFiles(nil, callback);
     }
     
-    func getFiles(folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask {
+    func getFiles(folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask { 
         
         var url = self.Url + self.apiUrl + "files";
         var connection = HttpConnection(credentials: self.Credential, url : url);
@@ -28,9 +29,18 @@ class FileClient : BaseClient{
     func createEmptyFile(name : NSString,folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!)-> NSURLSessionDataTask {
         
         var url = self.Url + self.apiUrl + "files";
-        var body = NSString(format: "{ '__metadata': { 'type': 'MS.FileServices.File' }, Name : '%@'}", name);
+        var body = NSString(format: "{'__metadata':{'type':'MS.FileServices.File'},Name:'%@'}", name);
         var connection = HttpConnection(credentials: self.Credential, url : url, body: body);
         return connection.execute(Constants.Method_Post, callback : callback);
+    }
+    
+    func createFolder(name : NSString, parentFolder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!) -> NSURLSessionDataTask{
+        
+        var url = self.Url + self.apiUrl + "files";
+        var body = NSString(format: "{'__metadata':{'type':'MS.FileServices.Folder'},Name:'%@'}", name);
+        
+        var connection = HttpConnection(credentials: self.Credential, url: url, body: body);
+        return connection.execute(Constants.Method_Post, callback: callback);
     }
     
     func createFile(name: NSString, overwrite : Bool ,body : NSData,folder : NSString?, callback : ((NSData!, NSURLResponse!, NSError!) -> Void)!)-> NSURLSessionDataTask {
@@ -38,6 +48,14 @@ class FileClient : BaseClient{
         var url = self.Url + self.apiUrl + NSString(format: "files/Add(name='%@',overwrite='%@')", name, overwrite ? "true" : "false");
         var connection = HttpConnection(credentials: self.Credential, url : url, bodyArray: body);
         return connection.execute(Constants.Method_Post, callback : callback);
+    }
+    
+    func download(name: NSString, delegate: NSURLSessionDelegate) -> NSURLSessionDownloadTask {
+        
+        var url = self.Url + self.apiUrl + NSString(format: "files('%@')/download", name);
+        var connection = ExtendedHttpConnection(credentials: self.Credential, url : url);
+            
+        return connection.download(Constants.Method_Get, delegate: delegate);
     }
     
     override func parseData(data : NSData) -> NSMutableArray{

@@ -15,4 +15,6 @@
 @property NSMutableArray *fileItems;
 @property NSString* token;
 
+- (IBAction)Download:(id)sender;
+
 @end

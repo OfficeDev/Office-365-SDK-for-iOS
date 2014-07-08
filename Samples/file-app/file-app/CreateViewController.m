@@ -10,6 +10,12 @@
 
 @implementation CreateViewController
 
+-(void)viewDidLoad{
+    self.ContentText.layer.borderWidth = 0.5f;
+    self.ContentText.layer.cornerRadius = 8;
+    self.ContentText.layer.borderColor = [[UIColor grayColor] CGColor];
+}
+
 - (IBAction)CreateFile:(id)sender {
     [self CreateFile];
 }
@@ -31,6 +37,16 @@
     NSString* fileName = self.FileNameTxt.text;
     NSData* data =  [self.ContentText.text dataUsingEncoding:NSUTF8StringEncoding];
 
+    NSURLSessionTask* task = [client createEmptyFile:fileName
+                                              folder:nil callback:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                dispatch_async(dispatch_get_main_queue(),
+                                                               ^{
+                                                                   [spinner stopAnimating];
+                                                                   [self.navigationController popViewControllerAnimated:YES];
+                                                               });
+                                              }
+    ];
+    /*
     NSURLSessionTask* task = [client createFile:fileName overwrite :true body:data folder:nil
                                        callback:^(NSData * data, NSURLResponse * response, NSError * error) {
                                            NSError* parseError = nil;
@@ -43,7 +59,7 @@
                                                [self.navigationController popViewControllerAnimated:YES];
                                            });
                                        }];
-    
+    */
     [task resume];
 }
 @end

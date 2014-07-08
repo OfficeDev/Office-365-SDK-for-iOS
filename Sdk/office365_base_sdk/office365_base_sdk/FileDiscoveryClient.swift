@@ -21,6 +21,7 @@ class FileDiscoveryClient: BaseClient{
         var array = NSMutableArray();
         var err: NSError;
         
+        var p = Error().setError(data);
         var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary;
         
         var jsonArray : NSArray = (jsonResult.valueForKey("d") as NSDictionary).valueForKey("results") as NSArray;

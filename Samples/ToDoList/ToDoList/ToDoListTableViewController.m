@@ -69,8 +69,10 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
+    
     ToDoItem *item = [self.toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = item.name;
+    
     
     if(item.isCompleted)
         cell.accessoryType = UITableViewCellAccessoryCheckmark;

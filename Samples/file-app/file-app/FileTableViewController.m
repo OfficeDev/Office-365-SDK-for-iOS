@@ -6,16 +6,71 @@
 //  Copyright (c) 2014 microsoft. All rights reserved.
 //
 #import "FilesTableViewController.h"
-
+#import "FileTableViewCell.h"
 @implementation FileTableViewController
+
+UIView* popUpView;
+UILabel* popUpLabel;
+UIView* blockerPanel;
+FileEntity* currentEntity;
+NSURLSessionDownloadTask* task;
+
+- (void)Cancel{
+    [task cancel];
+    [self disposeBlockerPanel];
+    [self.navigationItem.rightBarButtonItem setTitle: @"Create"];
+}
 
 - (void)viewDidLoad
 {
+    [self.navigationItem.rightBarButtonItem  setTitle: @"Create"];
     [super viewDidLoad];
     
     self.fileItems = [[NSMutableArray alloc] init];
     
     [self loadData];
+}
+
+-(void)disposeBlockerPanel{
+    
+    blockerPanel.hidden = true;
+    popUpView = nil;
+    blockerPanel = nil;
+    self.tableView.scrollEnabled = true;
+    [self.navigationController.navigationItem.backBarButtonItem  setEnabled:true];
+}
+
+-(void)createBlockerPanel{
+    [self.navigationController.navigationItem.backBarButtonItem setEnabled:false];
+    [self.navigationItem.rightBarButtonItem  setTitle: @"Cancel"];
+    
+    int y = self.tableView.contentOffset.y;
+    int width = self.view.frame.size.width;
+    int height = self.view.frame.size.height;
+    
+    blockerPanel = [[UIView alloc] initWithFrame:CGRectMake(0,y,width,height)];
+    blockerPanel.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.7];
+    
+    popUpView = [[UIView alloc]initWithFrame:CGRectMake(40, 50, 250, 80)];
+    popUpView.backgroundColor = [UIColor whiteColor];
+    popUpView.layer.borderColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0].CGColor;
+    popUpView.layer.borderWidth = 1.0f;
+    popUpView.layer.shadowColor = [UIColor grayColor].CGColor;
+    popUpView.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    popUpView.layer.shadowOpacity =1.0f;
+    
+    popUpLabel= [[UILabel alloc] initWithFrame:CGRectMake(30, 10, 190, 60)];
+    popUpLabel.textColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
+    popUpLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    popUpLabel.numberOfLines = 2;
+    
+    blockerPanel.hidden = true;
+    
+    [blockerPanel addSubview:popUpView];
+    [self.view addSubview:blockerPanel];
+    
+    self.tableView.scrollEnabled = false;
+    blockerPanel.hidden = false;
 }
 
 -(void)loadData{
@@ -24,12 +79,12 @@
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
     spinner.hidesWhenStopped = YES;
-
+    
     [spinner startAnimating];
     
     OAuthentication* authentication = [OAuthentication alloc];
     [authentication setToken:self.token];
-
+    
     FileClient* client = [[FileClient alloc] initWithUrl:@"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com" credentials: authentication];
     
     NSURLSessionTask* task = [client getFiles: nil
@@ -45,15 +100,17 @@
                                      }];
     
     [task resume];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* identifier = @"FileListCell";
-    UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier forIndexPath:indexPath];
-    	
+    FileTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier: identifier ];
+    
+    cell.DownloadButton.hidden = true;
     FileEntity *item = [self.fileItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = item.Name;
+    cell.FileName.text = item.Name;
     
     return cell;
 }
@@ -65,10 +122,89 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //if ([segue.identifier isEqualToString:...]) {
+    if ([segue.identifier isEqualToString:@"CreateSegue"]) {
+        CreateViewController *controller = (CreateViewController *)segue.destinationViewController;
+        controller.token = self.token;
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    NSString* name = self.navigationItem.rightBarButtonItem.title ;
+    if([name isEqualToString:@"Create"]){
+        return true;
+    }
+    [self Cancel];
     
-    CreateViewController *controller = (CreateViewController *)segue.destinationViewController;
-    controller.token = self.token;
+    return false;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self loadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 40;
+}
+
+- (IBAction)Download:(id)sender {
+    
+    [self createBlockerPanel];
+    
+    OAuthentication* authentication = [OAuthentication alloc];
+    [authentication setToken:self.token];
+    
+    FileClient* client = [[FileClient alloc] initWithUrl:@"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com" credentials: authentication];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    task = [client download:currentEntity.Id delegate: weakSelf];
+    [task resume];
+    
+}
+
+-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location
+{
+    NSLog(@"Temporary File :%@\n", location);
+    NSError *err = nil;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *docsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSURL *docsDirURL = [NSURL fileURLWithPath:[docsDir stringByAppendingPathComponent:currentEntity.Name]];
+    if ([fileManager moveItemAtURL:location toURL:docsDirURL error: &err])
+    {
+        NSLog(@"File is saved to =%@",docsDir);
+    }
+    else
+    {
+        NSLog(@"failed to move: %@",[err userInfo]);
+    }
+    
+    [self disposeBlockerPanel];
+}
+
+-(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
+{
+    int size = currentEntity.Size;
+    popUpLabel.text = [NSString stringWithFormat: @"Downloaded: %lld of %d bytes.", totalBytesWritten, size];
+    [popUpView addSubview:popUpLabel];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger lastSelected = [self.fileItems indexOfObject:currentEntity];
+    
+    if(lastSelected != NSIntegerMax){
+        NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:lastSelected inSection:0];
+        FileTableViewCell* lastCell = (FileTableViewCell*)[tableView cellForRowAtIndexPath:oldIndexPath];
+        lastCell.DownloadButton.hidden = true;
+    }
+    
+    FileTableViewCell* cell =(FileTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.DownloadButton.hidden = false;
+    currentEntity= [self.fileItems objectAtIndex:indexPath.row];
 }
 
 @end

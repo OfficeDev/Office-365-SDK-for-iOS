@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../azure-activedirectory-library-for-ios/ADALiOS/ADALiOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Samples/file-app/file-app.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,9 +15,6 @@
    </FileRef>
    <FileRef
       location = "group:Samples/Office365PlugIn/Office365PlugIn.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Desktop/azure-activedirectory-library-for-ios-master/ADALiOS/ADALiOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Samples/file-discovery-app/file-discovery-app.xcodeproj">

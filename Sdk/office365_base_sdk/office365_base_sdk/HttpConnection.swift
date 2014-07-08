@@ -34,7 +34,6 @@ class HttpConnection : NSObject{
         self.request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Content-Type");
         self.request.addValue(length, forHTTPHeaderField: "Content-Length");
         
-        //[request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
         self.createRequest();
     }
     
@@ -48,8 +47,6 @@ class HttpConnection : NSObject{
         var length = NSString(format:"%d", bodyArray.length);
         self.request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Content-Type");
         self.request.addValue(length, forHTTPHeaderField: "Content-Length");
-        
-        //[request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
         self.createRequest();
     }
     
@@ -69,5 +66,4 @@ class HttpConnection : NSObject{
         
         return task;
     }
-
 }
