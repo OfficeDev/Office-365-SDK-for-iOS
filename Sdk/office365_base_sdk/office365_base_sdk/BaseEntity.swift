@@ -12,8 +12,16 @@ class BaseEntity: NSObject{
 
     var Id : String = "";
     
+    var Metadata : MetaData = MetaData();
     
     func createFromJson(data : NSDictionary) -> BaseEntity{
         return self;
     }
+}
+
+class MetaData : NSObject{
+
+    var Id : String = "";
+    var Uri : String = "";
+    var type : String = "";
 }

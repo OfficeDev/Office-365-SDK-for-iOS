@@ -203,8 +203,10 @@ NSURLSessionDownloadTask* task;
     
     FileTableViewCell* cell =(FileTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     
-    cell.DownloadButton.hidden = false;
     currentEntity= [self.fileItems objectAtIndex:indexPath.row];
+    
+    if(![currentEntity isFolder])
+        cell.DownloadButton.hidden = false;
 }
 
 @end
