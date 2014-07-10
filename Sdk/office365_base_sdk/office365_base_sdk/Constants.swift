@@ -12,4 +12,5 @@ struct Constants{
 
     static let Method_Get = "GET";
     static let Method_Post = "POST";
+    static let Method_Delete = "DELETE";
 }

@@ -209,4 +209,37 @@ NSURLSessionDownloadTask* task;
         cell.DownloadButton.hidden = false;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        FileEntity* file = [self.fileItems objectAtIndex:indexPath.row];
+        
+        OAuthentication* authentication = [OAuthentication alloc];
+        [authentication setToken:self.token];
+        
+        FileClient* client = [[FileClient alloc] initWithUrl:@"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com" credentials: authentication];
+        
+        UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+        spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+        [self.view addSubview:spinner];
+        spinner.hidesWhenStopped = YES;
+        
+        [spinner startAnimating];
+        
+        NSURLSessionDataTask* task = [client delete: file.Name
+                     callback:^(NSData * data, NSURLResponse * response, NSError * error) {
+                         NSError* parseError = nil;
+
+                         dispatch_async(dispatch_get_main_queue(), ^{
+                             [self.fileItems removeObject:file];
+                             [self.tableView reloadData];
+                             [spinner stopAnimating];
+                         });
+                     }];
+        
+        [task resume];
+    }
+}
+
 @end
