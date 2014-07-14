@@ -54,9 +54,9 @@ NSString* token;
 }
 
 -(void) redirectToServices:(NSString*)token{
-    //ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
+  // ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
     
-  //  [destinationController addToken: token];
+  // [destinationController addToken: token];
 }
 
 -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
@@ -85,8 +85,8 @@ NSString* token;
 }
 
 -(void)showError : (NSString*) errorDetails{
+    
 }
-
 
 -(void) setStatus: (NSString*) status
 {
@@ -102,7 +102,5 @@ NSString* token;
         FileTableViewController *controller = (FileTableViewController *)segue.destinationViewController;
         controller.token = token;
 }
-
-
 
 @end
