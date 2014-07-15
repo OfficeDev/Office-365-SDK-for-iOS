@@ -33,8 +33,8 @@ NSString* token;
     clientId = [NSString alloc];
     redirectUriString = [NSString alloc];
     authority = @"https://login.windows.net/common";
-    resourceId = @"https://lagashsystems365-my.sharepoint.com/";
-    clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
+    resourceId = @"https://lagashsystems365.sharepoint.com";//@"https://lagashsystems365-my.sharepoint.com/";
+    clientId = @"778a099e-ed6e-49a2-9f15-92c01366ad7d";//@"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
     token = [NSString alloc];
 }
@@ -92,7 +92,7 @@ NSString* token;
     //if ([segue.identifier isEqualToString:...]) {
     
     ListTableViewController *controller = (ListTableViewController *)segue.destinationViewController;
-  //  controller.token = token;
+    controller.token = token;
 }
 
 - (IBAction)LogIn:(id)sender {

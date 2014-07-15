@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC8218D61975AC3C00981E4D /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8218D51975AC3C00981E4D /* ListTableViewController.m */; };
 		EC8218DF1975AD3900981E4D /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC8218D81975AD3900981E4D /* ADALiOSBundle-Info.plist */; };
 		EC8218E01975AD3900981E4D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC8218DA1975AD3900981E4D /* InfoPlist.strings */; };
 		EC8218E11975AD3900981E4D /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8218DC1975AD3900981E4D /* IPAL_iPad_Storyboard.storyboard */; };
 		EC8218E21975AD3900981E4D /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8218DD1975AD3900981E4D /* IPAL_iPhone_Storyboard.storyboard */; };
+		EC8218E61975BAAA00981E4D /* ListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8218E51975BAAA00981E4D /* ListTableViewController.m */; };
 		ECF2F6C01975A20100F74623 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF2F6BF1975A20100F74623 /* main.m */; };
 		ECF2F6C31975A20100F74623 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF2F6C21975A20100F74623 /* AppDelegate.m */; };
 		ECF2F6C61975A20100F74623 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF2F6C51975A20100F74623 /* ViewController.m */; };
@@ -33,13 +33,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC8218D41975AC3C00981E4D /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
-		EC8218D51975AC3C00981E4D /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		EC8218D81975AD3900981E4D /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
 		EC8218D91975AD3900981E4D /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
 		EC8218DB1975AD3900981E4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EC8218DC1975AD3900981E4D /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
 		EC8218DD1975AD3900981E4D /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		EC8218E41975BAAA00981E4D /* ListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewController.h; sourceTree = "<group>"; };
+		EC8218E51975BAAA00981E4D /* ListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewController.m; sourceTree = "<group>"; };
 		ECF2F6BA1975A20100F74623 /* list-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "list-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF2F6BE1975A20100F74623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECF2F6BF1975A20100F74623 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 			children = (
 				ECF2F6C41975A20100F74623 /* ViewController.h */,
 				ECF2F6C51975A20100F74623 /* ViewController.m */,
-				EC8218D41975AC3C00981E4D /* ListTableViewController.h */,
-				EC8218D51975AC3C00981E4D /* ListTableViewController.m */,
+				EC8218E41975BAAA00981E4D /* ListTableViewController.h */,
+				EC8218E51975BAAA00981E4D /* ListTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -273,7 +273,7 @@
 				ECF2F6C61975A20100F74623 /* ViewController.m in Sources */,
 				ECF2F6C31975A20100F74623 /* AppDelegate.m in Sources */,
 				ECF2F6C01975A20100F74623 /* main.m in Sources */,
-				EC8218D61975AC3C00981E4D /* ListTableViewController.m in Sources */,
+				EC8218E61975BAAA00981E4D /* ListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
