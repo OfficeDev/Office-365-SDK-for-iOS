@@ -1,11 +1,10 @@
 //
 //  ViewController.h
-//  file-discovery-app
+//  list-app
 //
-//  Created by Lagash on 6/16/14.
-//  Copyright (c) 2014 microsoft. All rights reserved.
+//  Created by Gustavo on 7/15/14.
+//  Copyright (c) 2014 Lagash. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <office365_base_sdk/office365_base_sdk-Swift.h>
@@ -16,11 +15,13 @@
 #import <ADALiOS/ADInstanceDiscovery.h>
 
 @interface ViewController : UIViewController
+
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetServicesButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetItems;
+
 
 - (IBAction)LogIn:(id)sender;
 
-- (IBAction)LogIn:(id)sender;
 @end
-

@@ -22,5 +22,6 @@
 
 - (IBAction)LogIn:(id)sender;
 
+- (IBAction)LogIn:(id)sender;
 @end
 

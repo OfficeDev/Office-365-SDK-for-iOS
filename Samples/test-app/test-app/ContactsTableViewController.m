@@ -88,12 +88,9 @@
                 
                 ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressBook,contactToDelete);
                 
-                
-                
-                
                 CFErrorRef error = nil;
-                bool l = ABAddressBookRemoveRecord(addressBook, person, &error);
-                bool ll = ABAddressBookSave(addressBook, &error);
+                ABAddressBookRemoveRecord(addressBook, person, &error);
+                ABAddressBookSave(addressBook, &error);
                 
                 CFRelease(addressBook);
                 

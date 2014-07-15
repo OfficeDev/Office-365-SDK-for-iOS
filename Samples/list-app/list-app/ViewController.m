@@ -1,21 +1,22 @@
 //
 //  ViewController.m
-//  file-app
+//  list-app
 //
-//  Created by Lagash on 6/23/14.
-//  Copyright (c) 2014 microsoft. All rights reserved.
+//  Created by Gustavo on 7/15/14.
+//  Copyright (c) 2014 Lagash. All rights reserved.
 //
+
 
 #import "ViewController.h"
-#import "FilesTableViewController.h"
+#import "ListTableViewController.h"
 
 @interface ViewController ()
-            
+
 
 @end
 
 @implementation ViewController
-            
+
 ADAuthenticationContext* authContext;
 NSString* authority;
 NSString* redirectUriString;
@@ -44,22 +45,10 @@ NSString* token;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)LogIn:(id)sender {
-    [self getToken:true completionHandler:^(NSString* accessToken){
-        
-        token = accessToken;
-        self.GetFilesButton.enabled = true;
-        self.LogInButton.enabled = false;
-    }];
-}
-
-- (IBAction)LogIn:(id)sender {
-}
-
 -(void) redirectToServices:(NSString*)token{
-  // ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
+    // ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
     
-  // [destinationController addToken: token];
+    // [destinationController addToken: token];
 }
 
 -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
@@ -102,8 +91,16 @@ NSString* token;
 {
     //if ([segue.identifier isEqualToString:...]) {
     
-        FileTableViewController *controller = (FileTableViewController *)segue.destinationViewController;
-        controller.token = token;
+    ListTableViewController *controller = (ListTableViewController *)segue.destinationViewController;
+  //  controller.token = token;
 }
 
+- (IBAction)LogIn:(id)sender {
+    [self getToken:true completionHandler:^(NSString* accessToken){
+        
+        token = accessToken;
+        //self.GetFilesButton.enabled = true;
+        self.LogInButton.enabled = false;
+    }];
+}
 @end

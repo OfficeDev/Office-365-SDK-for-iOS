@@ -104,8 +104,7 @@
 		3CC805C01958BA4D00E9590E = {
 			isa = PBXGroup;
 			children = (
-				3C07B6DC1958CE5E0057D25C /* office365_files_sdk.framework */,
-				3CE88DCA1958C37700593D00 /* libADALiOS.a */,
+				ECF2F6E51975A2C800F74623 /* libs */,
 				3CC805CB1958BA4D00E9590E /* file-app */,
 				3CC805E51958BA4D00E9590E /* file-appTests */,
 				3CC805CA1958BA4D00E9590E /* Products */,
@@ -176,6 +175,15 @@
 				EC1E66D91961E92B00A0843D /* FileTableViewCell.m */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		ECF2F6E51975A2C800F74623 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3C07B6DC1958CE5E0057D25C /* office365_files_sdk.framework */,
+				3CE88DCA1958C37700593D00 /* libADALiOS.a */,
+			);
+			name = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

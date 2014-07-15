@@ -67,6 +67,9 @@ NSString* token;
     }];
 }
 
+- (IBAction)LogIn:(id)sender {
+}
+
 -(void) redirectToServices:(NSString*)token{
     ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
     
