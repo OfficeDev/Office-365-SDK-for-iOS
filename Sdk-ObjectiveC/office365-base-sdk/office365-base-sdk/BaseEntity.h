@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Metadata.h"
 
 @interface BaseEntity : NSObject
 
-@property int Id;
+@property NSString* Id;
+@property Metadata* Metadata;
+-(void) createMetadata : (NSDictionary*) data;
 
 @end

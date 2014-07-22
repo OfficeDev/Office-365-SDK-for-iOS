@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "FilesTableViewController.h"
+#import <office365-base-sdk/Credentials.h>
 
 @interface ViewController ()
             

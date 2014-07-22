@@ -7,6 +7,9 @@
       <FileRef
          location = "group:office365-base-sdk/office365-base-sdk.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:office365-files-sdk/office365-files-sdk.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:"

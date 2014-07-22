@@ -7,6 +7,11 @@
 //
 #import "FilesTableViewController.h"
 #import "FileTableViewCell.h"
+#import <office365-files-sdk/FileEntity.h>
+#import <office365-files-sdk/FileClient.h>
+
+#import <office365-base-sdk/OAuthentication.h>
+
 @implementation FileTableViewController
 
 UIView* popUpView;

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <office365_base_sdk/office365_base_sdk-Swift.h>
-#import <office365_files_sdk/office365_files_sdk-Swift.h>
 
 @interface CreateViewController : UIViewController
 

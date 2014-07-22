@@ -8,7 +8,7 @@
 
 #import "FileDiscoveryClient.h"
 #import "DiscoveryInformation.h"
-#import "HttpConection.h"
+#import "HttpConnection.h"
 #import "Constants.h"
 
 @implementation FileDiscoveryClient
@@ -21,7 +21,7 @@
 
 - (NSURLSessionDataTask *)getDiscoveryInfo:(void (^)(NSData *, NSURLResponse *, NSError *))callback
 {
-    HttpConection* connection = [[HttpConection alloc] initWithCredentials:self.Credential
+    HttpConnection* connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                        url: @"https://api.office.com/discovery/me/services"];
 
     NSString* method = (NSString*)[[Constants alloc] init].Method_Get;

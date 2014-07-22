@@ -10,4 +10,8 @@
 
 @implementation BaseEntity
 
+-(void) createMetadata : (NSDictionary*) data{
+    self.Metadata = [[Metadata alloc] initWith:data];
+}
+
 @end

@@ -18,7 +18,7 @@
 		EC053601197D9109009D45F4 /* office365_base_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053600197D9109009D45F4 /* office365_base_sdkTests.m */; };
 		EC053612197D913C009D45F4 /* BaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360B197D913C009D45F4 /* BaseClient.m */; };
 		EC053613197D913C009D45F4 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360D197D913C009D45F4 /* Credentials.m */; };
-		EC053614197D913C009D45F4 /* HttpConection.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360F197D913C009D45F4 /* HttpConection.m */; };
+		EC053614197D913C009D45F4 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360F197D913C009D45F4 /* HttpConnection.m */; };
 		EC053615197D913C009D45F4 /* OAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053611197D913C009D45F4 /* OAuthentication.m */; };
 		EC053620197DAA33009D45F4 /* FileDiscoveryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05361F197DAA33009D45F4 /* FileDiscoveryClient.m */; };
 		EC053624197DADCF009D45F4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053623197DADCF009D45F4 /* Constants.m */; };
@@ -27,11 +27,13 @@
 		ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360C197D913C009D45F4 /* Credentials.h */; };
 		ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360A197D913C009D45F4 /* BaseClient.h */; };
 		ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */; };
-		ECE57132197EA13C00FDAE94 /* HttpConection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360E197D913C009D45F4 /* HttpConection.h */; };
 		ECE57133197EA13C00FDAE94 /* OAuthentication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053610197D913C009D45F4 /* OAuthentication.h */; };
-		ECE57134197EA13C00FDAE94 /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053617197D96AA009D45F4 /* Constants.h */; };
-		ECE57135197EA13C00FDAE94 /* BaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053625197DB3E2009D45F4 /* BaseEntity.h */; };
 		ECE57136197EA13C00FDAE94 /* DiscoveryInformation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */; };
+		ECE57172197EB23800FDAE94 /* BaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053625197DB3E2009D45F4 /* BaseEntity.h */; };
+		ECE57175197EB36F00FDAE94 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE57174197EB36F00FDAE94 /* Metadata.m */; };
+		ECE57176197EB94C00FDAE94 /* Metadata.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE57173197EB36F00FDAE94 /* Metadata.h */; };
+		ECE57177197EBD8B00FDAE94 /* HttpConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360E197D913C009D45F4 /* HttpConnection.h */; };
+		ECE57178197EBE6C00FDAE94 /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053617197D96AA009D45F4 /* Constants.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,12 +53,13 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				ECE57178197EBE6C00FDAE94 /* Constants.h in CopyFiles */,
+				ECE57177197EBD8B00FDAE94 /* HttpConnection.h in CopyFiles */,
+				ECE57176197EB94C00FDAE94 /* Metadata.h in CopyFiles */,
+				ECE57172197EB23800FDAE94 /* BaseEntity.h in CopyFiles */,
 				ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */,
 				ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */,
-				ECE57132197EA13C00FDAE94 /* HttpConection.h in CopyFiles */,
 				ECE57133197EA13C00FDAE94 /* OAuthentication.h in CopyFiles */,
-				ECE57134197EA13C00FDAE94 /* Constants.h in CopyFiles */,
-				ECE57135197EA13C00FDAE94 /* BaseEntity.h in CopyFiles */,
 				ECE57136197EA13C00FDAE94 /* DiscoveryInformation.h in CopyFiles */,
 				ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */,
 				EC0535EA197D9109009D45F4 /* office365_base_sdk.h in CopyFiles */,
@@ -81,8 +84,8 @@
 		EC05360B197D913C009D45F4 /* BaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClient.m; sourceTree = "<group>"; };
 		EC05360C197D913C009D45F4 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		EC05360D197D913C009D45F4 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
-		EC05360E197D913C009D45F4 /* HttpConection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConection.h; sourceTree = "<group>"; };
-		EC05360F197D913C009D45F4 /* HttpConection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConection.m; sourceTree = "<group>"; };
+		EC05360E197D913C009D45F4 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		EC05360F197D913C009D45F4 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
 		EC053610197D913C009D45F4 /* OAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthentication.h; sourceTree = "<group>"; };
 		EC053611197D913C009D45F4 /* OAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthentication.m; sourceTree = "<group>"; };
 		EC053617197D96AA009D45F4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 		EC053626197DB3E2009D45F4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
 		EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryInformation.h; sourceTree = "<group>"; };
 		EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryInformation.m; sourceTree = "<group>"; };
+		ECE57173197EB36F00FDAE94 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
+		ECE57174197EB36F00FDAE94 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,17 +155,10 @@
 		EC0535E6197D9109009D45F4 /* office365-base-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				ECE57137197EAE6400FDAE94 /* entities */,
 				EC053621197DAA3F009D45F4 /* clients */,
 				EC053616197D92C8009D45F4 /* http */,
-				EC0535E9197D9109009D45F4 /* office365_base_sdk.h */,
-				EC0535EB197D9109009D45F4 /* office365_base_sdk.m */,
 				EC0535E7197D9109009D45F4 /* Supporting Files */,
-				EC053617197D96AA009D45F4 /* Constants.h */,
-				EC053623197DADCF009D45F4 /* Constants.m */,
-				EC053625197DB3E2009D45F4 /* BaseEntity.h */,
-				EC053626197DB3E2009D45F4 /* BaseEntity.m */,
-				EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */,
-				EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */,
 			);
 			path = "office365-base-sdk";
 			sourceTree = "<group>";
@@ -168,6 +166,10 @@
 		EC0535E7197D9109009D45F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EC0535E9197D9109009D45F4 /* office365_base_sdk.h */,
+				EC0535EB197D9109009D45F4 /* office365_base_sdk.m */,
+				EC053617197D96AA009D45F4 /* Constants.h */,
+				EC053623197DADCF009D45F4 /* Constants.m */,
 				EC0535E8197D9109009D45F4 /* office365-base-sdk-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -196,8 +198,8 @@
 			children = (
 				EC05360C197D913C009D45F4 /* Credentials.h */,
 				EC05360D197D913C009D45F4 /* Credentials.m */,
-				EC05360E197D913C009D45F4 /* HttpConection.h */,
-				EC05360F197D913C009D45F4 /* HttpConection.m */,
+				EC05360E197D913C009D45F4 /* HttpConnection.h */,
+				EC05360F197D913C009D45F4 /* HttpConnection.m */,
 				EC053610197D913C009D45F4 /* OAuthentication.h */,
 				EC053611197D913C009D45F4 /* OAuthentication.m */,
 			);
@@ -213,6 +215,19 @@
 				EC05361F197DAA33009D45F4 /* FileDiscoveryClient.m */,
 			);
 			name = clients;
+			sourceTree = "<group>";
+		};
+		ECE57137197EAE6400FDAE94 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				EC053625197DB3E2009D45F4 /* BaseEntity.h */,
+				EC053626197DB3E2009D45F4 /* BaseEntity.m */,
+				EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */,
+				EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */,
+				ECE57173197EB36F00FDAE94 /* Metadata.h */,
+				ECE57174197EB36F00FDAE94 /* Metadata.m */,
+			);
+			name = entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC053614197D913C009D45F4 /* HttpConection.m in Sources */,
+				EC053614197D913C009D45F4 /* HttpConnection.m in Sources */,
 				EC053615197D913C009D45F4 /* OAuthentication.m in Sources */,
 				EC053624197DADCF009D45F4 /* Constants.m in Sources */,
 				EC05362A197DB3F3009D45F4 /* DiscoveryInformation.m in Sources */,
@@ -304,6 +319,7 @@
 				EC053620197DAA33009D45F4 /* FileDiscoveryClient.m in Sources */,
 				EC053612197D913C009D45F4 /* BaseClient.m in Sources */,
 				EC053613197D913C009D45F4 /* Credentials.m in Sources */,
+				ECE57175197EB36F00FDAE94 /* Metadata.m in Sources */,
 				EC053627197DB3E2009D45F4 /* BaseEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
