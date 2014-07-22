@@ -7,6 +7,9 @@
 //
 
 #import "ListTableViewController.h"
+#import <office365-lists-sdk/ListEntity.h>
+#import <office365-lists-sdk/ListClient.h>
+#import <office365-base-sdk/OAuthentication.h>
 
 @interface ListTableViewController ()
 

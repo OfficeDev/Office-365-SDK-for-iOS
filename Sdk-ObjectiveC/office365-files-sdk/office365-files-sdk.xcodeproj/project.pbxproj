@@ -125,10 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				ECE57147197EAFC200FDAE94 /* Supporting Files */,
-				ECE5716C197EB16100FDAE94 /* FileClient.h */,
-				ECE5716D197EB16100FDAE94 /* FileClient.m */,
-				ECE5716F197EB17400FDAE94 /* FileEntity.h */,
-				ECE57170197EB17400FDAE94 /* FileEntity.m */,
+				ECE571B1197EEAC900FDAE94 /* clients */,
+				ECE571B2197EEAD800FDAE94 /* entities */,
 			);
 			path = "office365-files-sdk";
 			sourceTree = "<group>";
@@ -159,6 +157,24 @@
 				ECE5715D197EAFC200FDAE94 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECE571B1197EEAC900FDAE94 /* clients */ = {
+			isa = PBXGroup;
+			children = (
+				ECE5716C197EB16100FDAE94 /* FileClient.h */,
+				ECE5716D197EB16100FDAE94 /* FileClient.m */,
+			);
+			name = clients;
+			sourceTree = "<group>";
+		};
+		ECE571B2197EEAD800FDAE94 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				ECE5716F197EB17400FDAE94 /* FileEntity.h */,
+				ECE57170197EB17400FDAE94 /* FileEntity.m */,
+			);
+			name = entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

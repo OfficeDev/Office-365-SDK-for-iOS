@@ -72,34 +72,4 @@
     
     return task;
 }
-
-/*
- init(credentials : Credentials, url : String, body : NSString){
- super.init();
- 
- var contentBody = body.dataUsingEncoding(NSUTF8StringEncoding);
- self.credentials = credentials;
- self.request = NSMutableURLRequest(URL : NSURL(string : url));
- self.request.HTTPBody = contentBody;
- 
- var length = NSString(format:"%d", contentBody.length);
- self.request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Content-Type");
- self.request.addValue(length, forHTTPHeaderField: "Content-Length");
- 
- self.createRequest();
- }
- 
- init(credentials : Credentials, url : String, bodyArray : NSData){
- super.init();
- 
- self.credentials = credentials;
- self.request = NSMutableURLRequest(URL : NSURL(string : url));
- self.request.HTTPBody = bodyArray;
- self.request.timeoutInterval = 60;
- var length = NSString(format:"%d", bodyArray.length);
- self.request.addValue("application/json;odata.metadata=full", forHTTPHeaderField: "Content-Type");
- self.request.addValue(length, forHTTPHeaderField: "Content-Length");
- self.createRequest();
- }
- */
 @end

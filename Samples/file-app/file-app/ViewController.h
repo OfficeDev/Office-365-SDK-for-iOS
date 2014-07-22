@@ -20,7 +20,4 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *GetFilesButton;
 
 - (IBAction)LogIn:(id)sender;
-
-- (IBAction)LogIn:(id)sender;
 @end
-

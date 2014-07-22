@@ -23,7 +23,7 @@ class ListEntity: BaseEntity{
         
         var metadata = data.valueForKey("__metadata") as NSDictionary;
         self.setMetadata(metadata);
-        self.setAditionalProperties(properties :NSArray);
+       // self.setAditionalProperties(properties :NSArray);
         
         self.Id = data.valueForKey("Id") as String;
         self.Title = data.valueForKey("Title") as String;

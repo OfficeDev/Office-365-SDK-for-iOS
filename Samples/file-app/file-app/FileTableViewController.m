@@ -58,7 +58,7 @@ NSURLSessionDownloadTask* task;
     
     NSURLSessionTask* task = [client getFiles: nil
                                      callback:^(NSData * data, NSURLResponse * response, NSError * error) {
-                                         NSError* parseError = nil;
+                                       //  NSError* parseError = nil;
                                          
                                          self.fileItems  =[client parseData : data];
                                          
@@ -123,7 +123,7 @@ NSURLSessionDownloadTask* task;
     
     __weak typeof(self) weakSelf = self;
     
-    task = [[self getClient] download:currentEntity.Id delegate: weakSelf];
+    task = [[self getClient] download:currentEntity.Id delegate: (id)weakSelf];
     [task resume];
 }
 
@@ -149,8 +149,8 @@ NSURLSessionDownloadTask* task;
 
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
 {
-    int size = currentEntity.Size;
-    popUpLabel.text = [NSString stringWithFormat: @"Downloaded: %lld of %d bytes.", totalBytesWritten, size];
+    NSInteger size = currentEntity.Size;
+    popUpLabel.text = [NSString stringWithFormat: @"Downloaded: %lld of %ld bytes.", totalBytesWritten, (long)size];
     [popUpView addSubview:popUpLabel];
 }
 
@@ -181,7 +181,7 @@ NSURLSessionDownloadTask* task;
         
         NSURLSessionDataTask* task = [[self getClient] delete: file.Name
                      callback:^(NSData * data, NSURLResponse * response, NSError * error) {
-                         NSError* parseError = nil;
+                      //   NSError* parseError = nil;
 
                          dispatch_async(dispatch_get_main_queue(), ^{
                              [self.fileItems removeObject:file];

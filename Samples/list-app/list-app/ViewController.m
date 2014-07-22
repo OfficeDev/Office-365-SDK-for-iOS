@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import "ListTableViewController.h"
+#import <office365-base-sdk/Credentials.h>
 
 @interface ViewController ()
 

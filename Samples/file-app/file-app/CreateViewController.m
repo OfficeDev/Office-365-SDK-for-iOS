@@ -52,7 +52,7 @@
    */
     NSURLSessionTask* task = [client createFile:fileName overwrite :true body:data folder:nil
                                        callback:^(NSData * data, NSURLResponse * response, NSError * error) {
-                                           NSError* parseError = nil;
+                                           //NSError* parseError = nil;
                                            
                                           //[client parseData : data];
                                            
