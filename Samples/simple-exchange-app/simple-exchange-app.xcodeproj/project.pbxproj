@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECD9F40819784BB600ABB418 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40719784BB600ABB418 /* main.m */; };
+		ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40A19784BB600ABB418 /* AppDelegate.m */; };
+		ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41219784BB600ABB418 /* Main.storyboard */; };
+		ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41519784BB600ABB418 /* Images.xcassets */; };
+		ECD9F42219784BB600ABB418 /* simple_exchange_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */; };
+		ECD9F42D19784F8900ABB418 /* MailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F42C19784F8900ABB418 /* MailsTableViewController.m */; };
+		ECD9F4351978523B00ABB418 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F42F1978523B00ABB418 /* ADALiOSBundle-Info.plist */; };
+		ECD9F4361978523B00ABB418 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F4311978523B00ABB418 /* InfoPlist.strings */; };
+		ECD9F4371978523B00ABB418 /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F4331978523B00ABB418 /* IPAL_iPad_Storyboard.storyboard */; };
+		ECD9F4381978523B00ABB418 /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F4341978523B00ABB418 /* IPAL_iPhone_Storyboard.storyboard */; };
+		ECD9F43B197854D200ABB418 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD9F43A197854D200ABB418 /* libADALiOS.a */; };
+		ECD9F43E1978551D00ABB418 /* LogInSerivce.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F43D1978551D00ABB418 /* LogInSerivce.m */; };
+		ECD9F51D197D571300ABB418 /* exchange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F51B197D571300ABB418 /* exchange.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECD9F41C19784BB600ABB418 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECD9F3FA19784BB600ABB418 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECD9F40119784BB600ABB418;
+			remoteInfo = "simple-exchange-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECD9F40219784BB600ABB418 /* simple-exchange-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-exchange-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD9F40619784BB600ABB418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD9F40719784BB600ABB418 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECD9F40919784BB600ABB418 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECD9F40A19784BB600ABB418 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECD9F41319784BB600ABB418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECD9F41519784BB600ABB418 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-exchange-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD9F42019784BB600ABB418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_exchange_appTests.m; sourceTree = "<group>"; };
+		ECD9F42B19784F8900ABB418 /* MailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailsTableViewController.h; sourceTree = "<group>"; };
+		ECD9F42C19784F8900ABB418 /* MailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailsTableViewController.m; sourceTree = "<group>"; };
+		ECD9F42F1978523B00ABB418 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		ECD9F4301978523B00ABB418 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		ECD9F4321978523B00ABB418 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ECD9F4331978523B00ABB418 /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECD9F4341978523B00ABB418 /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECD9F43A197854D200ABB418 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		ECD9F43C1978551D00ABB418 /* LogInSerivce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInSerivce.h; sourceTree = "<group>"; };
+		ECD9F43D1978551D00ABB418 /* LogInSerivce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInSerivce.m; sourceTree = "<group>"; };
+		ECD9F51B197D571300ABB418 /* exchange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exchange.cpp; sourceTree = "<group>"; };
+		ECD9F51C197D571300ABB418 /* exchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exchange.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECD9F3FF19784BB600ABB418 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD9F43B197854D200ABB418 /* libADALiOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECD9F41819784BB600ABB418 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECD9F3F919784BB600ABB418 = {
+			isa = PBXGroup;
+			children = (
+				ECD9F43A197854D200ABB418 /* libADALiOS.a */,
+				ECD9F40419784BB600ABB418 /* simple-exchange-app */,
+				ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */,
+				ECD9F40319784BB600ABB418 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECD9F40319784BB600ABB418 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F40219784BB600ABB418 /* simple-exchange-app.app */,
+				ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECD9F40419784BB600ABB418 /* simple-exchange-app */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F51A197D571300ABB418 /* model */,
+				ECD9F4391978541200ABB418 /* controllers */,
+				ECD9F42E1978523B00ABB418 /* ADALiOSBundle */,
+				ECD9F40919784BB600ABB418 /* AppDelegate.h */,
+				ECD9F40A19784BB600ABB418 /* AppDelegate.m */,
+				ECD9F41219784BB600ABB418 /* Main.storyboard */,
+				ECD9F41519784BB600ABB418 /* Images.xcassets */,
+				ECD9F40519784BB600ABB418 /* Supporting Files */,
+			);
+			path = "simple-exchange-app";
+			sourceTree = "<group>";
+		};
+		ECD9F40519784BB600ABB418 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F40619784BB600ABB418 /* Info.plist */,
+				ECD9F40719784BB600ABB418 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */,
+				ECD9F41F19784BB600ABB418 /* Supporting Files */,
+			);
+			path = "simple-exchange-appTests";
+			sourceTree = "<group>";
+		};
+		ECD9F41F19784BB600ABB418 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F42019784BB600ABB418 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECD9F42E1978523B00ABB418 /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F42F1978523B00ABB418 /* ADALiOSBundle-Info.plist */,
+				ECD9F4301978523B00ABB418 /* ADALiOSBundle-Prefix.pch */,
+				ECD9F4311978523B00ABB418 /* InfoPlist.strings */,
+				ECD9F4331978523B00ABB418 /* IPAL_iPad_Storyboard.storyboard */,
+				ECD9F4341978523B00ABB418 /* IPAL_iPhone_Storyboard.storyboard */,
+			);
+			path = ADALiOSBundle;
+			sourceTree = "<group>";
+		};
+		ECD9F4391978541200ABB418 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F42B19784F8900ABB418 /* MailsTableViewController.h */,
+				ECD9F42C19784F8900ABB418 /* MailsTableViewController.m */,
+				ECD9F43C1978551D00ABB418 /* LogInSerivce.h */,
+				ECD9F43D1978551D00ABB418 /* LogInSerivce.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		ECD9F51A197D571300ABB418 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				ECD9F51B197D571300ABB418 /* exchange.cpp */,
+				ECD9F51C197D571300ABB418 /* exchange.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECD9F40119784BB600ABB418 /* simple-exchange-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */;
+			buildPhases = (
+				ECD9F3FE19784BB600ABB418 /* Sources */,
+				ECD9F3FF19784BB600ABB418 /* Frameworks */,
+				ECD9F40019784BB600ABB418 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "simple-exchange-app";
+			productName = "simple-exchange-app";
+			productReference = ECD9F40219784BB600ABB418 /* simple-exchange-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECD9F41A19784BB600ABB418 /* simple-exchange-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECD9F42819784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */;
+			buildPhases = (
+				ECD9F41719784BB600ABB418 /* Sources */,
+				ECD9F41819784BB600ABB418 /* Frameworks */,
+				ECD9F41919784BB600ABB418 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECD9F41D19784BB600ABB418 /* PBXTargetDependency */,
+			);
+			name = "simple-exchange-appTests";
+			productName = "simple-exchange-appTests";
+			productReference = ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECD9F3FA19784BB600ABB418 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Lagash;
+				TargetAttributes = {
+					ECD9F40119784BB600ABB418 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					ECD9F41A19784BB600ABB418 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = ECD9F40119784BB600ABB418;
+					};
+				};
+			};
+			buildConfigurationList = ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "simple-exchange-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECD9F3F919784BB600ABB418;
+			productRefGroup = ECD9F40319784BB600ABB418 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECD9F40119784BB600ABB418 /* simple-exchange-app */,
+				ECD9F41A19784BB600ABB418 /* simple-exchange-appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECD9F40019784BB600ABB418 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD9F4351978523B00ABB418 /* ADALiOSBundle-Info.plist in Resources */,
+				ECD9F4361978523B00ABB418 /* InfoPlist.strings in Resources */,
+				ECD9F4381978523B00ABB418 /* IPAL_iPhone_Storyboard.storyboard in Resources */,
+				ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */,
+				ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */,
+				ECD9F4371978523B00ABB418 /* IPAL_iPad_Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECD9F41919784BB600ABB418 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECD9F3FE19784BB600ABB418 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */,
+				ECD9F42D19784F8900ABB418 /* MailsTableViewController.m in Sources */,
+				ECD9F40819784BB600ABB418 /* main.m in Sources */,
+				ECD9F43E1978551D00ABB418 /* LogInSerivce.m in Sources */,
+				ECD9F51D197D571300ABB418 /* exchange.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECD9F41719784BB600ABB418 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD9F42219784BB600ABB418 /* simple_exchange_appTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECD9F41D19784BB600ABB418 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECD9F40119784BB600ABB418 /* simple-exchange-app */;
+			targetProxy = ECD9F41C19784BB600ABB418 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECD9F41219784BB600ABB418 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD9F41319784BB600ABB418 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECD9F4311978523B00ABB418 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD9F4321978523B00ABB418 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECD9F42319784BB600ABB418 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECD9F42419784BB600ABB418 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECD9F42619784BB600ABB418 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365_base_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk/office365_base_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECD9F42719784BB600ABB418 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365_base_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk/office365_base_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECD9F42919784BB600ABB418 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		ECD9F42A19784BB600ABB418 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "simple-exchange-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD9F42319784BB600ABB418 /* Debug */,
+				ECD9F42419784BB600ABB418 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD9F42619784BB600ABB418 /* Debug */,
+				ECD9F42719784BB600ABB418 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD9F42819784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD9F42919784BB600ABB418 /* Debug */,
+				ECD9F42A19784BB600ABB418 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECD9F3FA19784BB600ABB418 /* Project object */;
+}

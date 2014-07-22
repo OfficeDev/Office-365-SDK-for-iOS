@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ServiceTableViewController.h"
+#import <office365-base-sdk/Credentials.h>
 
 @interface ViewController ()
             
@@ -65,9 +66,6 @@ NSString* token;
         self.LogInButton.enabled = false;
         
     }];
-}
-
-- (IBAction)LogIn:(id)sender {
 }
 
 -(void) redirectToServices:(NSString*)token{

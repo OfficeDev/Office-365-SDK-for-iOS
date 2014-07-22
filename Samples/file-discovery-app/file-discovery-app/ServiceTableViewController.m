@@ -7,6 +7,9 @@
 //
 
 #import "ServiceTableViewController.h"
+#import <office365-base-sdk/DiscoveryInformation.h>
+#import <office365-base-sdk/OAuthentication.h>
+#import <office365-base-sdk/FileDiscoveryClient.h>
 
 @implementation ServiceTableViewController
 

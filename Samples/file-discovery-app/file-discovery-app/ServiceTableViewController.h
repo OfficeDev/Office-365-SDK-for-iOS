@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <office365_base_sdk/office365_base_sdk-Swift.h>
+
+@class OAuthentication;
 
 @interface ServiceTableViewController : UITableViewController
     @property NSMutableArray *servicesItems;
     @property NSString* token;
+
 
 -(void)addToken:(NSString*) accesToken;
 
