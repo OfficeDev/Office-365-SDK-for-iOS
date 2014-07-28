@@ -5,6 +5,9 @@
       location = "group:Sdk-ObjectiveC"
       name = "Sdk-ObjectiveC">
       <FileRef
+         location = "group:office365-e2end-tests/office365-e2end-tests.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:office365-base-sdk/office365-base-sdk.xcodeproj">
       </FileRef>
       <FileRef
@@ -31,13 +34,13 @@
       location = "container:"
       name = "Samples">
       <FileRef
+         location = "group:Samples/list-app/list-app.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Samples/file-discovery-app/file-discovery-app.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Samples/file-app/file-app.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Samples/list-app/list-app.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Samples/test-app/test-app.xcodeproj">

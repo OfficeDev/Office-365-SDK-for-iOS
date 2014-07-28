@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-discovery-app/file-discovery-app/ServiceTableViewController.m"
-            timestampString = "427730915.746641"
+            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/ListTestTableViewController.m"
+            timestampString = "428250981.129564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-loadData"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sdk-ObjectiveC/office365-base-sdk/office365-base-sdk/DiscoveryInformation.m"
-            timestampString = "427730987.112714"
+            filePath = "Samples/file-app/file-app/CreateViewController.m"
+            timestampString = "428263789.187814"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-createFromJson:"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-CreateFile"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,14 +41,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sdk-ObjectiveC/office365-files-sdk/office365-files-sdk/FileEntity.m"
-            timestampString = "427735518.538236"
+            filePath = "Samples/list-app/list-app/ViewController.m"
+            timestampString = "428263805.386844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "@implementation FileEntity"
-            landmarkType = "3">
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-LogIn:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,13 +57,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-app/file-app/FileTableViewController.m"
-            timestampString = "427745787.823722"
+            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/ListTests.m"
+            timestampString = "428263994.809941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-URLSession:downloadTask:didFinishDownloadingToURL:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-TestGetListsWithCompletionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/LogInController.m"
+            timestampString = "428264252.874023"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "-getTokenWith::completionHandler:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/LogInController.m"
+            timestampString = "428264294.085297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-getTokenWith::completionHandler:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

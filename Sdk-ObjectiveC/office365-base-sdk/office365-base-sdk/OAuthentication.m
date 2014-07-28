@@ -10,18 +10,17 @@
 
 @implementation OAuthentication : Credentials
 
-NSString * token;
+-(id)initWith : (NSString*)token{
+    self.token = token;
+    return self;
+};
 
 - (void)prepareRequest:(NSMutableURLRequest *)request{
-    [request addValue:[NSString stringWithFormat: @"Bearer %@", token] forHTTPHeaderField: @"Authorization"];
-}
-
-- (void)setToken:(NSString *)token{
-    token = token;
+    [request addValue:[NSString stringWithFormat: @"Bearer %@", self.token] forHTTPHeaderField: @"Authorization"];
 }
 
 -(NSString*)getToken{
-    return token;
+    return self.token;
 }
 
 @end

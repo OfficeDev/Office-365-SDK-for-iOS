@@ -10,8 +10,10 @@
 
 @interface OAuthentication : Credentials
 
+@property ()NSString * token;
+-(id)initWith : (NSString*)token;
 - (void)prepareRequest:(NSMutableURLRequest *)request;
-- (void)setToken:(NSString *)token;
+
 -(NSString*)getToken;
 
 @end

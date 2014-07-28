@@ -15,7 +15,7 @@
 @property (nonatomic) NSString * Url;
 @property (nonatomic) NSMutableData * data;
 
-- (instancetype)initWithUrl:(NSString *)url credentials:(Credentials *)credentials;
+- (id)initWithUrl:(NSString *)url credentials:(Credentials *)credentials;
 - (NSMutableArray *)parseData:(NSData *)data;
 
 @end

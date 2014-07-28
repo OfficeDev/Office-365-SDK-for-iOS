@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Foundation/Foundation.h>
 #import <ADALiOS/ADAuthenticationContext.h>
 #import <ADALiOS/ADAuthenticationParameters.h>
 #import <ADALiOS/ADAuthenticationSettings.h>

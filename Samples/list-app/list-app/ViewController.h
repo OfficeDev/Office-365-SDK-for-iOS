@@ -15,11 +15,9 @@
 
 @interface ViewController : UIViewController
 
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *GetItems;
-
 
 - (IBAction)LogIn:(id)sender;
 

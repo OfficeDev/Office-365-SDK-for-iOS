@@ -232,6 +232,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		EC7EB0F01986B5DE0070DB56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		EC0535E0197D9109009D45F4 /* office365-base-sdk */ = {
 			isa = PBXNativeTarget;
@@ -240,6 +250,7 @@
 				EC0535DD197D9109009D45F4 /* Sources */,
 				EC0535DE197D9109009D45F4 /* Frameworks */,
 				EC0535DF197D9109009D45F4 /* CopyFiles */,
+				EC7EB0F01986B5DE0070DB56 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -428,8 +439,10 @@
 				DSTROOT = /tmp/office365_base_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -440,8 +453,10 @@
 				DSTROOT = /tmp/office365_base_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

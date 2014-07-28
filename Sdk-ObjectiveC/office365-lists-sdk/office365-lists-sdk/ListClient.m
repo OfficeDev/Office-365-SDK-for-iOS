@@ -15,14 +15,22 @@
 
 const NSString* apiUrl = @"/_api/lists";
 
-- (NSURLSessionDataTask *)getLists:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
- 
+- (NSURLSessionDataTask *)getLists:(void (^)(NSMutableArray* lists, NSError *error))callback{
+    
     NSString* url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     HttpConnection* connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
     
     NSString* method = (NSString*)[[Constants alloc] init].Method_Get;
     
-    return [connection execute:method callback:callback];
+    return [connection execute:method callback:^(NSData * data, NSURLResponse *reponse, NSError *error) {
+        NSMutableArray* array = [NSMutableArray array];
+        
+        if(error == nil){
+            array = [self parseData : data];
+        }
+        
+        callback(array, error);
+    }];
 }
 
 - (NSURLSessionDataTask *)getList:(NSString *)name callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{

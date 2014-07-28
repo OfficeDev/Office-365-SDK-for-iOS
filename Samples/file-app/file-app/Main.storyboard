@@ -152,7 +152,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="afg-vT-MZn"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="SbY-Rn-XSu">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7sX-iG-IVZ">
-                                <rect key="frame" x="254" y="131" width="46" height="30"/>
+                                <rect key="frame" x="258" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

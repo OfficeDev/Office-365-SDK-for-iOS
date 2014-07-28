@@ -7,18 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECAF85261986C3DF000B6DD2 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */; };
 		ECE5718C197EEAAE00FDAE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE5718B197EEAAE00FDAE94 /* Foundation.framework */; };
 		ECE57191197EEAAE00FDAE94 /* office365_lists_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE57190197EEAAE00FDAE94 /* office365_lists_sdk.h */; };
 		ECE57193197EEAAE00FDAE94 /* office365_lists_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE57192197EEAAE00FDAE94 /* office365_lists_sdk.m */; };
-		ECE5719A197EEAAE00FDAE94 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE57199197EEAAE00FDAE94 /* XCTest.framework */; };
 		ECE5719B197EEAAE00FDAE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE5718B197EEAAE00FDAE94 /* Foundation.framework */; };
-		ECE5719D197EEAAE00FDAE94 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE5719C197EEAAE00FDAE94 /* UIKit.framework */; };
 		ECE571A0197EEAAE00FDAE94 /* liboffice365-lists-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */; };
-		ECE571A6197EEAAE00FDAE94 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECE571A4197EEAAE00FDAE94 /* InfoPlist.strings */; };
-		ECE571A8197EEAAF00FDAE94 /* office365_lists_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE571A7197EEAAF00FDAE94 /* office365_lists_sdkTests.m */; };
 		ECE571B5197EED5800FDAE94 /* ListClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE571B4197EED5800FDAE94 /* ListClient.m */; };
 		ECE571B8197EED6600FDAE94 /* ListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE571B7197EED6600FDAE94 /* ListEntity.m */; };
-		ECE571BA197EED8C00FDAE94 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE571B9197EED8C00FDAE94 /* liboffice365-base-sdk.a */; };
 		ECE571BD197EF38300FDAE94 /* ListClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE571B3197EED5800FDAE94 /* ListClient.h */; };
 		ECE571BE197EF38300FDAE94 /* ListEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE571B6197EED6600FDAE94 /* ListEntity.h */; };
 /* End PBXBuildFile section */
@@ -49,22 +45,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-lists-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE5718B197EEAAE00FDAE94 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECE5718F197EEAAE00FDAE94 /* office365-lists-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-lists-sdk-Prefix.pch"; sourceTree = "<group>"; };
 		ECE57190197EEAAE00FDAE94 /* office365_lists_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_lists_sdk.h; sourceTree = "<group>"; };
 		ECE57192197EEAAE00FDAE94 /* office365_lists_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_lists_sdk.m; sourceTree = "<group>"; };
 		ECE57198197EEAAE00FDAE94 /* office365-lists-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-lists-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE57199197EEAAE00FDAE94 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		ECE5719C197EEAAE00FDAE94 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		ECE571A3197EEAAE00FDAE94 /* office365-lists-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "office365-lists-sdkTests-Info.plist"; sourceTree = "<group>"; };
-		ECE571A5197EEAAE00FDAE94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ECE571A7197EEAAF00FDAE94 /* office365_lists_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_lists_sdkTests.m; sourceTree = "<group>"; };
 		ECE571B3197EED5800FDAE94 /* ListClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListClient.h; sourceTree = "<group>"; };
 		ECE571B4197EED5800FDAE94 /* ListClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListClient.m; sourceTree = "<group>"; };
 		ECE571B6197EED6600FDAE94 /* ListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEntity.h; sourceTree = "<group>"; };
 		ECE571B7197EED6600FDAE94 /* ListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEntity.m; sourceTree = "<group>"; };
-		ECE571B9197EED8C00FDAE94 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE571BA197EED8C00FDAE94 /* liboffice365-base-sdk.a in Frameworks */,
+				ECAF85261986C3DF000B6DD2 /* liboffice365-base-sdk.a in Frameworks */,
 				ECE5718C197EEAAE00FDAE94 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,8 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE5719A197EEAAE00FDAE94 /* XCTest.framework in Frameworks */,
-				ECE5719D197EEAAE00FDAE94 /* UIKit.framework in Frameworks */,
 				ECE5719B197EEAAE00FDAE94 /* Foundation.framework in Frameworks */,
 				ECE571A0197EEAAE00FDAE94 /* liboffice365-lists-sdk.a in Frameworks */,
 			);
@@ -95,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				ECE5718D197EEAAE00FDAE94 /* office365-lists-sdk */,
-				ECE571A1197EEAAE00FDAE94 /* office365-lists-sdkTests */,
 				ECE5718A197EEAAE00FDAE94 /* Frameworks */,
 				ECE57189197EEAAE00FDAE94 /* Products */,
 			);
@@ -113,10 +101,8 @@
 		ECE5718A197EEAAE00FDAE94 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ECE571B9197EED8C00FDAE94 /* liboffice365-base-sdk.a */,
+				ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */,
 				ECE5718B197EEAAE00FDAE94 /* Foundation.framework */,
-				ECE57199197EEAAE00FDAE94 /* XCTest.framework */,
-				ECE5719C197EEAAE00FDAE94 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,24 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				ECE5718F197EEAAE00FDAE94 /* office365-lists-sdk-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ECE571A1197EEAAE00FDAE94 /* office365-lists-sdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECE571A7197EEAAF00FDAE94 /* office365_lists_sdkTests.m */,
-				ECE571A2197EEAAE00FDAE94 /* Supporting Files */,
-			);
-			path = "office365-lists-sdkTests";
-			sourceTree = "<group>";
-		};
-		ECE571A2197EEAAE00FDAE94 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ECE571A3197EEAAE00FDAE94 /* office365-lists-sdkTests-Info.plist */,
-				ECE571A4197EEAAE00FDAE94 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,7 +199,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE571A6197EEAAE00FDAE94 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE571A8197EEAAF00FDAE94 /* office365_lists_sdkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,17 +231,6 @@
 			targetProxy = ECE5719E197EEAAE00FDAE94 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		ECE571A4197EEAAE00FDAE94 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECE571A5197EEAAE00FDAE94 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ECE571A9197EEAAF00FDAE94 /* Debug */ = {
@@ -350,14 +305,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/office365_lists_sdk.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/base/build/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -366,14 +326,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/office365_lists_sdk.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/base/build/Debug",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -433,6 +398,7 @@
 				ECE571AD197EEAAF00FDAE94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECE571AE197EEAAF00FDAE94 /* Build configuration list for PBXNativeTarget "office365-lists-sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +407,7 @@
 				ECE571B0197EEAAF00FDAE94 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

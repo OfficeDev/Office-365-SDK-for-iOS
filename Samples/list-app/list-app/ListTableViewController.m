@@ -133,10 +133,9 @@
     
     ListClient* client = [self getClient];
     
-    NSURLSessionTask* task = [client getLists: ^(NSData * data, NSURLResponse * response, NSError * error) {
-                                         NSError* parseError = nil;
+    NSURLSessionTask* task = [client getLists:^(NSMutableArray *lists, NSError *error) {
                                          
-                                         self.SharepointList  =[client parseData : data];
+                                         self.SharepointList  = lists;
                                          
                                          dispatch_async(dispatch_get_main_queue(), ^{
                                              [self.tableView reloadData];

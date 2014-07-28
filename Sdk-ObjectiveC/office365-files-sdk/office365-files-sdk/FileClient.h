@@ -7,7 +7,6 @@
 //
 
 #import <office365-base-sdk/BaseClient.h>
-
 @interface FileClient : BaseClient
 
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSData *, NSURLResponse *, NSError *))callback;

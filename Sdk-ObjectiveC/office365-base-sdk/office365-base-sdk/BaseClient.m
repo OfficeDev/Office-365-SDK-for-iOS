@@ -10,7 +10,7 @@
 
 @implementation BaseClient
 
-- (instancetype)initWithUrl:(NSString *)url credentials:(Credentials *)credentials
+- (id)initWithUrl:(NSString *)url credentials:(Credentials *)credentials
 {
     self.Credential = credentials;
     self.Url = url;
