@@ -11,16 +11,24 @@
 @implementation LogInController
 
 ADAuthenticationContext* authContext;
-NSString* authority;
 NSString* redirectUriString;
+NSString* authority;
 NSString* clientId;
 NSString* token;
 
 -(id)init{
     
-    authority = @"https://login.windows.net/common";
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    redirectUriString = [userDefaults objectForKey: @"RedirectUrl"];
+    authority = [userDefaults objectForKey: @"AuthorityUrl"];
+    clientId =[userDefaults objectForKey: @"CliendId"];
+    
+/*  authority = @"https://login.windows.net/common";
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
+*/
+    
     token = [NSString alloc];
     
     return self;
@@ -28,26 +36,28 @@ NSString* token;
 
 -(void) getTokenWith :(NSString*)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
 {
+    if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
+    
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
     
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     
-    if(clearCache){
-        [authContext.tokenCacheStore removeAll];
-    }
-    
-   /* completionBlock(@"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cdng2OHNrVDgtbVBBQjNCc2VlQSJ9.eyJhdWQiOiJodHRwczovL2xhZ2FzaHN5c3RlbXMzNjUuc2hhcmVwb2ludC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC81YWI5YWY5Yi00NTM0LTRjMzEtOGU1MC0xZTA5ODQ2MTQ4MWMvIiwiaWF0IjoxNDA2NTcwNzQxLCJuYmYiOjE0MDY1NzA3NDEsImV4cCI6MTQwNjU3NDY0MSwidmVyIjoiMS4wIiwidGlkIjoiNWFiOWFmOWItNDUzNC00YzMxLThlNTAtMWUwOTg0NjE0ODFjIiwiYW1yIjpbInB3ZCJdLCJvaWQiOiJmNzlmNWQyYy1lN2MyLTQwYTctOTFkZi02MjhhNmYxMzlmNDEiLCJ1cG4iOiJndXN0YXZvaEBsYWdhc2guY29tIiwidW5pcXVlX25hbWUiOiJndXN0YXZvaEBsYWdhc2guY29tIiwic3ViIjoiN0FGOEVFbjlYcTMzcVp0TEpXSkN6eGpQcUp3NXY1Vjhkd19jYTlTcU1FTSIsInB1aWQiOiIxMDAzQkZGRDg4QzFFNzZDIiwiZmFtaWx5X25hbWUiOiJIYW5zZW4iLCJnaXZlbl9uYW1lIjoiR3VzdGF2byIsImFwcGlkIjoiNzc4YTA5OWUtZWQ2ZS00OWEyLTlmMTUtOTJjMDEzNjZhZDdkIiwiYXBwaWRhY3IiOiIwIiwic2NwIjoiTXlGaWxlcy5Xcml0ZSBNeUZpbGVzLlJlYWQgQWxsU2l0ZXMuRnVsbENvbnRyb2wgQWxsU2l0ZXMuTWFuYWdlIEFsbFNpdGVzLldyaXRlIEFsbFNpdGVzLlJlYWQiLCJhY3IiOiIxIn0.DOHpDmcIoZsqp9O3nYcaf4GS5gmS3g_2a8I-_aStltbov4qVZJ546BeD6wln4ivcoS7n8I5TCD3-S97tazE_tcx7eOWZkTdzmLYCJcp7kP7tQrUmHXUg_3QYLRFSXjpSP7eOhyAmecgkZUWIUA2q8-9IVKnCJTb74kUkvsX2YUKlPvT3Rc0ApVQu5oHCw4Da4ikr6Lr1a3T-pUayTpeW04XtdKerPNqhelPmRp7dOW_kPQzZFHPKBtlY7dQctn9iidDEFXi_m8OIUQ5u_J4xTs1zO41KhCUZTjvwpwyVueBtRJe823ZnM79rt_rvjZlmwrS9EAVonfTgXZbUfWCXHg")
-    ;*/
+    if(clearCache) [authContext.tokenCacheStore removeAll];
     
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
                               redirectUri:redirectUri
                           completionBlock:^(ADAuthenticationResult * result) {
+                              
                               if (AD_SUCCEEDED != result.status){
                                   [self showError:result.error.errorDetails];
                               }
                               else{
+                                  NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+                                  [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LogInUser"];
+                                  [userDefaults synchronize];
+                                  
                                   completionBlock(result.accessToken);
                               }
                           }];
@@ -64,13 +74,67 @@ NSString* token;
     });
 }
 
--(NSString*)getTokenString{
+-(void)clearCredentials{
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
     
-    return token;
-};
+    if (cache.allItems.count > 0) [cache removeAll];
+}
 
--(BOOL)isAuthenticated{
-    return token == nil;
+-(BOOL)getCacheToken : (NSString*)resourceId  completionHandler:(void (^) (NSString*))completionBlock {
+    
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    NSArray* array = cache.allItems;
+    
+    if([array count] == 0) return false;
+    
+    ADTokenCacheStoreItem* cacheItem = [array objectAtIndex:0];
+    ADUserInformation* user = cacheItem.userInformation;
+    
+    if([cacheItem isExpired]){
+        return [self refreshToken:resourceId completionHandler:completionBlock];
+    }
+    else
+    {
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:user.userId forKey:@"LogInUser"];
+        [userDefaults synchronize];
+        
+        completionBlock(cacheItem.accessToken);
+        return true;
+    }
+}
+
+-(BOOL)refreshToken : (NSString*)resourceId  completionHandler:(void (^) (NSString*))completionBlock{
+    
+    ADAuthenticationError* error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+   
+    ADTokenCacheStoreKey* key = [ADTokenCacheStoreKey keyWithAuthority:authority resource:nil clientId:clientId error:&error];
+   
+    if (!key)
+    {
+        [self setStatus:error.errorDetails];
+        return false;
+    }
+   
+    id<ADTokenCacheStoring> cache = authContext.tokenCacheStore;
+    ADTokenCacheStoreItem* item = [cache getItemWithKey:key userId:nil];
+    
+    if (!item)
+    {
+        [self setStatus:@"Missing cache item."];
+        return false;
+    }
+    
+    [authContext acquireTokenByRefreshToken:item.refreshToken
+                               clientId:clientId
+                               resource:resourceId
+                        completionBlock:^(ADAuthenticationResult *result)
+     {
+         completionBlock(result.tokenCacheStoreItem.accessToken);
+     }];
+    
+    return true;
 }
 
 @end

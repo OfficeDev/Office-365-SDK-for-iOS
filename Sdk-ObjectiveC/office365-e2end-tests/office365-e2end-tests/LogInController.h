@@ -13,12 +13,10 @@
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
 
-
 @interface LogInController : NSObject
 
 -(id)init;
+-(void)clearCredentials;
 -(void) getTokenWith :(NSString*)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
--(NSString*)getTokenString;
--(BOOL)isAuthenticated;
 
 @end

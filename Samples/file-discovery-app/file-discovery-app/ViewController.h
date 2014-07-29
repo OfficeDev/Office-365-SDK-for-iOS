@@ -14,6 +14,7 @@
 #import <ADALiOS/ADInstanceDiscovery.h>
 
 @interface ViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *GetServicesButton;
 

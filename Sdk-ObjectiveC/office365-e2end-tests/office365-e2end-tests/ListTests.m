@@ -24,6 +24,24 @@
     
     [array addObject:test];
     
+    
+    Test* test2 = [Test alloc];
+    test2.TestRunner = self;
+    
+    test2.Name = @"TestGetLists";
+    test2.DisplayName = @"Get Lists2";
+    
+    [array addObject:test2];
+
+    Test* test3 = [Test alloc];
+    test3.TestRunner = self;
+    
+    test3.Name = @"TestGetLists";
+    test3.DisplayName = @"Get Lists3";
+    
+    [array addObject:test3];
+
+    
     return array;
 }
 
@@ -45,7 +63,6 @@
         test.ExecutionMessages = [NSMutableArray array];
         
         NSString* message = [lists count] > 0 ? @"Ok - ": @"Not - ";
-        
         test.Passed = true;
         [test.ExecutionMessages addObject:message];
         

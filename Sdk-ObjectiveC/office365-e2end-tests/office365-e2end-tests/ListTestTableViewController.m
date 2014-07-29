@@ -40,6 +40,11 @@ ListTests* testRunner;
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self LogIn];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,7 +64,6 @@ ListTests* testRunner;
 {
     return [self.Tests count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -134,33 +138,35 @@ ListTests* testRunner;
 
 - (IBAction)RunAllTests:(id)sender {
     
-    for (Test* test in self.Tests) {
-        NSURLSessionDataTask* task = [test Run:^(Test * result) {
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    [spinner startAnimating];
+    
+    __block int executed = 0;
+    
+    for (int i = 0; i < [self.Tests count]; i++) {
+        NSURLSessionDataTask* task = [[self.Tests objectAtIndex:i] Run:^(Test * result) {
             
-            Test* test = [self.Tests objectAtIndex:0];
+            Test* test = [self.Tests objectAtIndex:i];
+           // [[self.Tests objectAtIndex:i] setObject:result atIndex:i];
             test.Passed = result.Passed;
-            // UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ListTests" forIndexPath:0];
+            executed++;
             
-            // cell.textLabel.text = @"Passed";
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
-                //[spinner stopAnimating];
+                
+                if(executed == [self.Tests count]) [spinner stopAnimating];
             });
-            
-            //[self.tableView reloadData];
-            
         }];
         
         [task resume];
     }
 }
 
-
 -(void)LogIn{
-    
-    if(loginController.isAuthenticated) {
-        return;
-    }
     
     [loginController getTokenWith : @"https://lagashsystems365.sharepoint.com" :true completionHandler:^(NSString *token) {
         testParameters = [TestParameters alloc];

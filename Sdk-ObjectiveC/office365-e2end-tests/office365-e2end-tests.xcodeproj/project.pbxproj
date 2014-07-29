@@ -11,6 +11,7 @@
 		EC348B9E1986D13E002754F7 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348B9A1986D13E002754F7 /* liboffice365-base-sdk.a */; };
 		EC348B9F1986D13E002754F7 /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348B9B1986D13E002754F7 /* liboffice365-files-sdk.a */; };
 		EC348BA01986D13E002754F7 /* liboffice365-lists-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348B9C1986D13E002754F7 /* liboffice365-lists-sdk.a */; };
+		EC495F6D1987E04D0003F06D /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC495F6C1987E04D0003F06D /* UserSettingsViewController.m */; };
 		EC7EB056198690E90070DB56 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB054198690E90070DB56 /* failed.png */; };
 		EC7EB057198690E90070DB56 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB055198690E90070DB56 /* passed.png */; };
 		ECE571CC197EF6B400FDAE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE571CB197EF6B400FDAE94 /* Foundation.framework */; };
@@ -51,6 +52,8 @@
 		EC348B9A1986D13E002754F7 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		EC348B9B1986D13E002754F7 /* liboffice365-files-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-files-sdk.a"; path = "../office365-files-sdk/build/Debug-iphoneos/liboffice365-files-sdk.a"; sourceTree = "<group>"; };
 		EC348B9C1986D13E002754F7 /* liboffice365-lists-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-lists-sdk.a"; path = "../office365-lists-sdk/build/Debug-iphoneos/liboffice365-lists-sdk.a"; sourceTree = "<group>"; };
+		EC495F6B1987E04D0003F06D /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		EC495F6C1987E04D0003F06D /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		EC7EB054198690E90070DB56 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		EC7EB055198690E90070DB56 /* passed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passed.png; sourceTree = "<group>"; };
 		ECAF85291986C4F5000B6DD2 /* liboffice365-lists-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-lists-sdk.a"; path = "../office365-lists-sdk/build/Debug-iphoneos/liboffice365-lists-sdk.a"; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				ECE57204197EF80500FDAE94 /* ListTestTableViewController.m */,
 				ECE5722C198143DF00FDAE94 /* LogInController.h */,
 				ECE5722D198143DF00FDAE94 /* LogInController.m */,
+				EC495F6B1987E04D0003F06D /* UserSettingsViewController.h */,
+				EC495F6C1987E04D0003F06D /* UserSettingsViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				ECE5721F1980293E00FDAE94 /* BaseTestRunner.m in Sources */,
 				ECE5721C198000FD00FDAE94 /* ListTests.m in Sources */,
 				ECE5720B197F056F00FDAE94 /* FileTests.m in Sources */,
+				EC495F6D1987E04D0003F06D /* UserSettingsViewController.m in Sources */,
 				ECE571DC197EF6B400FDAE94 /* AppDelegate.m in Sources */,
 				ECE57208197F04DD00FDAE94 /* Test.m in Sources */,
 				ECE57205197EF80500FDAE94 /* ListTestTableViewController.m in Sources */,
