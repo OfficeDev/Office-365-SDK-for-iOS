@@ -31,7 +31,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     self.txtAuthorityUrl.text = [userDefaults objectForKey: @"AuthorityUrl"];
     self.txtRedirectUrl.text = [userDefaults objectForKey: @"RedirectUrl"];
     self.txtClientId.text =[userDefaults objectForKey: @"CliendId"];

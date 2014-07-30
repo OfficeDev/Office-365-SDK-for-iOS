@@ -10,10 +10,10 @@
 
 @interface DiscoveryInformation : BaseEntity
 
-@property (nonatomic) NSString * ServiceName;
-@property (nonatomic) NSString * ServiceResourceId;
-@property (nonatomic) NSString * Capability;
-@property (nonatomic) NSString * ServiceEndpointUri;
+@property (nonatomic) NSString *ServiceName;
+@property (nonatomic) NSString *ServiceResourceId;
+@property (nonatomic) NSString *Capability;
+@property (nonatomic) NSString *ServiceEndpointUri;
 
 - (BaseEntity *)createFromJson:(NSDictionary *)data;
 

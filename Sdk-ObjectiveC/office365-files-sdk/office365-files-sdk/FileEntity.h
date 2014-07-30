@@ -9,11 +9,11 @@
 
 @interface FileEntity : BaseEntity
 
-@property (nonatomic) NSString * Name;
-@property (nonatomic) NSString * Url;
-@property (nonatomic) NSString * TimeLastModified;
-@property (nonatomic) NSString * TimeCreated;
-@property (nonatomic) NSInteger Size;
+@property (nonatomic) NSString *Name;
+@property (nonatomic) NSString *Url;
+@property (nonatomic) NSString *TimeLastModified;
+@property (nonatomic) NSString *TimeCreated;
+@property (nonatomic) int Size;
 
 - (BaseEntity *)createFromJson:(NSDictionary *)data;
 - (BOOL)isFolder;

@@ -10,9 +10,9 @@
 
 @interface Metadata : NSObject
 
-@property (nonatomic) NSString * Id;
-@property (nonatomic) NSString * Uri;
-@property (nonatomic) NSString * type;
-- (instancetype)initWith:(NSDictionary*) data;
+@property (nonatomic) NSString *Id;
+@property (nonatomic) NSString *Uri;
+@property (nonatomic) NSString *type;
+- (instancetype)initWith:(NSDictionary *) data;
 
 @end

@@ -11,9 +11,9 @@
 
 @interface BaseClient : NSObject
 
-@property (nonatomic) Credentials * Credential;
-@property (nonatomic) NSString * Url;
-@property (nonatomic) NSMutableData * data;
+@property (nonatomic) Credentials *Credential;
+@property (nonatomic) NSString *Url;
+@property (nonatomic) NSMutableData *data;
 
 - (id)initWithUrl:(NSString *)url credentials:(Credentials *)credentials;
 - (NSMutableArray *)parseData:(NSData *)data;

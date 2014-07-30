@@ -11,12 +11,12 @@
 
 @interface Test : NSObject
 
-@property NSMutableArray* ExecutionMessages;
-@property NSString* Name;
-@property NSString* DisplayName;
-@property Boolean* Passed;
-@property BaseTestRunner* TestRunner;
+@property NSMutableArray *ExecutionMessages;
+@property NSString *Name;
+@property NSString *DisplayName;
+@property BOOL Passed;
+@property BaseTestRunner *TestRunner;
 
--(NSURLSessionDataTask*)Run :(void (^) (Test*))result;
+-(NSURLSessionDataTask*)Run :(void (^) (Test *))result;
 
 @end

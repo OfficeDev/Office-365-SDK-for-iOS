@@ -17,6 +17,6 @@
 
 -(id)init;
 -(void)clearCredentials;
--(void) getTokenWith :(NSString*)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
+-(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
 
 @end

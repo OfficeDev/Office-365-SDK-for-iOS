@@ -56,17 +56,14 @@ NSURLSessionDownloadTask* task;
     
     FileClient* client = [self getClient];
     
-    NSURLSessionTask* task = [client getFiles: nil
-                                     callback:^(NSData * data, NSURLResponse * response, NSError * error) {
-                                       //  NSError* parseError = nil;
-                                         
-                                         self.fileItems  =[client parseData : data];
-                                         
-                                         dispatch_async(dispatch_get_main_queue(), ^{
-                                             [self.tableView reloadData];
-                                             [spinner stopAnimating];
-                                         });
-                                     }];
+    NSURLSessionTask* task = [client getFiles:^(NSMutableArray *files, NSError *error) {
+        self.fileItems  = files;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [spinner stopAnimating];
+        });
+    }];
     
     [task resume];
 }
@@ -123,7 +120,7 @@ NSURLSessionDownloadTask* task;
     
     __weak typeof(self) weakSelf = self;
     
-    task = [[self getClient] download:currentEntity.Id delegate: (id)weakSelf];
+  //  task = [[self getClient] download:currentEntity.Id delegate: (id)weakSelf];
     [task resume];
 }
 
@@ -178,7 +175,7 @@ NSURLSessionDownloadTask* task;
         FileEntity* file = [self.fileItems objectAtIndex:indexPath.row];
         UIActivityIndicatorView* spinner = [self loadingProgress];
         
-        
+      /*
         NSURLSessionDataTask* task = [[self getClient] delete: file.Name
                      callback:^(NSData * data, NSURLResponse * response, NSError * error) {
                       //   NSError* parseError = nil;
@@ -191,7 +188,7 @@ NSURLSessionDownloadTask* task;
                              [spinner stopAnimating];
                              blockerPanel.hidden = true;
                          });
-                     }];
+                     }];*/
     
         [task resume];
     }

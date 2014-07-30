@@ -10,7 +10,7 @@
 
 @interface FileDiscoveryClient : BaseClient
 
-- (NSURLSessionDataTask *)getDiscoveryInfo:(void (^)(NSData *, NSURLResponse *, NSError *))callback;
+- (NSURLSessionDataTask *)getDiscoveryInfo:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 - (NSMutableArray *)parseData:(NSData *)data;
 - (instancetype)initWithUrl:(NSString *)url credentials:(Credentials *)credentials;
 

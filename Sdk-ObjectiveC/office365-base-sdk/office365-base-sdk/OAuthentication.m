@@ -10,7 +10,7 @@
 
 @implementation OAuthentication : Credentials
 
--(id)initWith : (NSString*)token{
+-(id)initWith : (NSString *)token{
     self.token = token;
     return self;
 };
@@ -19,7 +19,7 @@
     [request addValue:[NSString stringWithFormat: @"Bearer %@", self.token] forHTTPHeaderField: @"Authorization"];
 }
 
--(NSString*)getToken{
+-(NSString *)getToken{
     return self.token;
 }
 

@@ -50,7 +50,16 @@
                                               }
     ];
    */
-    NSURLSessionTask* task = [client createFile:fileName overwrite :true body:data folder:nil
+    NSURLSessionTask* task = [client createFile:fileName overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //  [self.tableView reloadData];
+            [spinner stopAnimating];
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+    }];
+    
+    
+   /* [client createFile:fileName overwrite :true body:data folder:nil
                                        callback:^(NSData * data, NSURLResponse * response, NSError * error) {
                                            //NSError* parseError = nil;
                                            
@@ -61,7 +70,7 @@
                                                [spinner stopAnimating];
                                                [self.navigationController popViewControllerAnimated:YES];
                                            });
-                                       }];
+                                       }];*/
    
     [task resume];
 }

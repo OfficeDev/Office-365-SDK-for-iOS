@@ -33,7 +33,7 @@
     self.request.HTTPBody = bodyArray;
     self.request.timeoutInterval = 60;
     
-    NSString* length = [NSString stringWithFormat: @"%lu", (unsigned long)[bodyArray length]];
+    NSString *length = [NSString stringWithFormat: @"%lu", (unsigned long)[bodyArray length]];
     
     [self.request addValue: @"application/json;odata.metadata=full" forHTTPHeaderField: @"Content-Type"];
     [self.request addValue: length forHTTPHeaderField: @"Content-Length"];
@@ -51,24 +51,24 @@
     [self.credentials prepareRequest:self.request];
 }
 
-- (NSURLSessionDataTask *)execute:(NSString *)method callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+- (NSURLSessionDataTask *)execute:(NSString *)method callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
     self.request.HTTPMethod = method;
-    NSURLSession* session = [NSURLSession sharedSession];
-    NSURLSessionDataTask* task = [session dataTaskWithRequest:self.request completionHandler:callback];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:self.request completionHandler:callback];
     
     return task;
 }
 
--(NSURLSessionDownloadTask*) download: (NSString*) method delegate:(id <NSURLSessionDelegate>)delegate{
+-(NSURLSessionDownloadTask *) download: (NSString *) method delegate:(id <NSURLSessionDelegate>)delegate{
     
     self.request.HTTPMethod = method;
     
-    NSURLSessionConfiguration* conf = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession* session = [NSURLSession sessionWithConfiguration:conf delegate:delegate
+    NSURLSessionConfiguration *conf = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:conf delegate:delegate
                                                      delegateQueue: [NSOperationQueue mainQueue]];
     
-    NSURLSessionDownloadTask* task = [session downloadTaskWithRequest:self.request];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:self.request];
     
     return task;
 }

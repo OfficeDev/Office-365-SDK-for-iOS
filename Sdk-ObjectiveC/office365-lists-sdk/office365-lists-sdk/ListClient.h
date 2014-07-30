@@ -10,7 +10,7 @@
 
 @interface ListClient : BaseClient
 
-- (NSURLSessionDataTask *)getLists:(void (^)(NSMutableArray* lists, NSError *error))callback;
-- (NSURLSessionDataTask *)getList:(NSString *)name callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback;
+- (NSURLSessionDataTask *)getLists:(void (^)(NSMutableArray *lists, NSError *error))callback;
+- (NSURLSessionDataTask *)getList:(NSString *)name callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 @end

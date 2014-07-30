@@ -11,8 +11,8 @@
 
 @interface HttpConnection : NSObject
 
-@property (nonatomic) NSMutableURLRequest * request;
-@property (nonatomic) Credentials * credentials;
+@property (nonatomic) NSMutableURLRequest *request;
+@property (nonatomic) Credentials *credentials;
 
 - (instancetype)initWithCredentials:(Credentials *)credentials url:(NSString *)url;
 - (instancetype)initWithCredentials:(Credentials *)credentials url:(NSString *)url body:(NSString *)body;

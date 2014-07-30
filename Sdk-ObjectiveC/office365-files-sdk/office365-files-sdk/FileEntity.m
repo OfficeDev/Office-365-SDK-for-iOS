@@ -12,7 +12,7 @@
 
 - (BaseEntity *)createFromJson:(NSDictionary *)data{
     
-    NSDictionary* metadata = [data valueForKey : @"__metadata"];
+    NSDictionary *metadata = [data valueForKey : @"__metadata"];
     
     [super createMetadata : metadata];
     
@@ -21,7 +21,7 @@
     self.Url = [data valueForKey : @"Url"];
     self.TimeLastModified = [data valueForKey : @"TimeLastModified"];
     self.TimeCreated = [data valueForKey : @"TimeCreated" ];
-    self.Size = (NSInteger)[data valueForKey : @"Size"];
+    self.Size = [[data valueForKey : @"Size"] intValue];
     
     return self;
 }

@@ -10,7 +10,7 @@
 
 @interface ListEntity : BaseEntity
 
-@property (nonatomic) NSString * Title;
+@property (nonatomic) NSString *Title;
 
 - (BaseEntity *)createFromJson:(NSDictionary *)data;
 

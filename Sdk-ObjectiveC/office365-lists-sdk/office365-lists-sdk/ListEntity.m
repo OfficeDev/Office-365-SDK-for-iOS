@@ -12,7 +12,7 @@
 
 - (BaseEntity *)createFromJson:(NSDictionary *)data{
     
-    NSDictionary* metadata = [data valueForKey : @"__metadata"];
+    NSDictionary *metadata = [data valueForKey : @"__metadata"];
     
     [super createMetadata : metadata];
     

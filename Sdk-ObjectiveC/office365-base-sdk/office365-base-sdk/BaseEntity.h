@@ -11,8 +11,8 @@
 
 @interface BaseEntity : NSObject
 
-@property NSString* Id;
-@property Metadata* Metadata;
+@property NSString *Id;
+@property Metadata *Metadata;
 -(void) createMetadata : (NSDictionary*) data;
 
 @end

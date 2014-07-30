@@ -10,9 +10,9 @@
 
 @implementation Test
 
--(NSURLSessionDataTask*)Run :(void (^) (Test*))result{
+-(NSURLSessionDataTask *)Run :(void (^) (Test*))result{
 
-    return [self.TestRunner Run:self.Name completionHandler:^(Test* test) {
+    return [self.TestRunner Run:self.Name completionHandler:^(Test *test) {
         result(test);
     }];
 }

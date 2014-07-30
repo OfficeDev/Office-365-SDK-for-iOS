@@ -10,7 +10,7 @@
 
 @implementation Metadata
 
-- (instancetype)initWith:(NSDictionary*) data{
+- (instancetype)initWith:(NSDictionary *) data{
     
     self.Id = [data valueForKey:@"id"];
     self.Uri = [data valueForKey :@"uri"];

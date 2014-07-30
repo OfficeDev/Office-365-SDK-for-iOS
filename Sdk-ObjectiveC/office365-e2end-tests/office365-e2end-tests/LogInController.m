@@ -10,21 +10,21 @@
 
 @implementation LogInController
 
-ADAuthenticationContext* authContext;
-NSString* redirectUriString;
-NSString* authority;
-NSString* clientId;
-NSString* token;
+ADAuthenticationContext *authContext;
+NSString *redirectUriString;
+NSString *authority;
+NSString *clientId;
+NSString *token;
 
 -(id)init{
     
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     redirectUriString = [userDefaults objectForKey: @"RedirectUrl"];
     authority = [userDefaults objectForKey: @"AuthorityUrl"];
     clientId =[userDefaults objectForKey: @"CliendId"];
     
-/*  authority = @"https://login.windows.net/common";
+/* authority = @"https://login.windows.net/common";
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
 */
@@ -34,7 +34,7 @@ NSString* token;
     return self;
 }
 
--(void) getTokenWith :(NSString*)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
+-(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
 {
     if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
     
@@ -43,18 +43,18 @@ NSString* token;
     
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     
-    if(clearCache) [authContext.tokenCacheStore removeAll];
+    //if(clearCache) [authContext.tokenCacheStore removeAll];
     
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
                               redirectUri:redirectUri
-                          completionBlock:^(ADAuthenticationResult * result) {
+                          completionBlock:^(ADAuthenticationResult  *result) {
                               
                               if (AD_SUCCEEDED != result.status){
                                   [self showError:result.error.errorDetails];
                               }
                               else{
-                                  NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+                                  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                                   [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LogInUser"];
                                   [userDefaults synchronize];
                                   
@@ -63,11 +63,11 @@ NSString* token;
                           }];
 }
 
--(void)showError : (NSString*) errorDetails{
+-(void)showError : (NSString *) errorDetails{
     
 }
 
--(void) setStatus: (NSString*) status
+-(void) setStatus: (NSString *) status
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         // [self.resultLabel setText:status];
@@ -80,36 +80,48 @@ NSString* token;
     if (cache.allItems.count > 0) [cache removeAll];
 }
 
--(BOOL)getCacheToken : (NSString*)resourceId  completionHandler:(void (^) (NSString*))completionBlock {
+-(BOOL)getCacheToken : (NSString *)resourceId  completionHandler:(void (^) (NSString *))completionBlock {
     
     id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
-    NSArray* array = cache.allItems;
+    NSArray *array = cache.allItems;
     
     if([array count] == 0) return false;
     
-    ADTokenCacheStoreItem* cacheItem = [array objectAtIndex:0];
-    ADUserInformation* user = cacheItem.userInformation;
+    
+    ADTokenCacheStoreItem *cacheItem;
+    
+    for (ADTokenCacheStoreItem *item in array) {
+        if([item.resource isEqualToString:resourceId]){
+            cacheItem = item;
+            break;
+        }
+    }
+    
+    ADUserInformation *user = cacheItem.userInformation;
+    
+    if(user == nil) return false;
     
     if([cacheItem isExpired]){
         return [self refreshToken:resourceId completionHandler:completionBlock];
     }
     else
     {
-        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         [userDefaults setObject:user.userId forKey:@"LogInUser"];
         [userDefaults synchronize];
         
         completionBlock(cacheItem.accessToken);
+        
         return true;
     }
 }
 
--(BOOL)refreshToken : (NSString*)resourceId  completionHandler:(void (^) (NSString*))completionBlock{
+-(BOOL)refreshToken : (NSString*)resourceId  completionHandler:(void (^) (NSString *))completionBlock{
     
-    ADAuthenticationError* error;
+    ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
    
-    ADTokenCacheStoreKey* key = [ADTokenCacheStoreKey keyWithAuthority:authority resource:nil clientId:clientId error:&error];
+    ADTokenCacheStoreKey *key = [ADTokenCacheStoreKey keyWithAuthority:authority resource:nil clientId:clientId error:&error];
    
     if (!key)
     {
@@ -118,7 +130,7 @@ NSString* token;
     }
    
     id<ADTokenCacheStoring> cache = authContext.tokenCacheStore;
-    ADTokenCacheStoreItem* item = [cache getItemWithKey:key userId:nil];
+    ADTokenCacheStoreItem *item = [cache getItemWithKey:key userId:nil];
     
     if (!item)
     {
