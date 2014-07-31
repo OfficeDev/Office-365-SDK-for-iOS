@@ -11,10 +11,11 @@
 
 @interface FileClient : BaseClient
 
-
+- (NSURLSessionDataTask *)createFolder:(NSString *)name parentFolder:(NSString *)parentFolder callback:(void (^)(FileEntity *folder, NSError *))callback;
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSMutableArray *files, NSError *error))callback;
 - (NSURLSessionDataTask *)getFiles:(NSString *)folder callback:(void (^)(NSMutableArray *files, NSError *))callback;
 - (NSURLSessionDataTask *)createFile:(NSString *)name overwrite:(BOOL)overwrite body:(NSData *)body folder:(NSString *)folder : (void (^)(FileEntity *file, NSError *error))callback;
+
 /*
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSData *, NSURLResponse *, NSError *))callback;
 - (NSURLSessionDataTask *)getFiles:(NSString *)folder callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback;

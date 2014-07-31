@@ -16,12 +16,14 @@
     if([testName isEqualToString:@"TestCreateFileWithContent"]){
         return [self TestCreateFileWithContentWithCompletionHandler:result];
     }
+    if([testName isEqualToString:@"TestCreateFolder"]){
+        return [self TestCreateFolderWithCompletionHandler:result];
+    }
     
     return nil;
 }
 
 -(NSURLSessionDataTask*)TestCreateFileWithContentWithCompletionHandler:(void (^) (Test*))result{
-    
     
     NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -32,6 +34,29 @@
            ![file.Id  isEqualToString: @"test.txt"] ||
            ![file.Metadata.type  isEqualToString: @"MS.FileServices.File"] ||
            file.Size != 30){
+            passed = false;
+        }
+        
+        Test *test = [Test alloc];
+        
+        test.Passed = passed;
+        test.ExecutionMessages = [NSMutableArray array];
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCreateFolderWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+        
+        BOOL passed = true;
+        
+        if(![folder.Name  isEqualToString: @"testFolder"] ||
+           ![folder.Id  isEqualToString: @"testFolder"] ||
+           ![folder isFolder] ||
+           folder.Size != 0){
             passed = false;
         }
         
@@ -58,11 +83,17 @@
 -(NSMutableArray *)getTests{
     NSMutableArray *array = [NSMutableArray array];
     
+    Test *folderTest = [Test alloc];
+    folderTest.TestRunner = self;
+    folderTest.Name = @"TestCreateFolder";
+    folderTest.DisplayName = @"Create Folder";
+    
     Test *test = [Test alloc];
     test.TestRunner = self;
     test.Name = @"TestCreateFileWithContent";
     test.DisplayName = @"Create File With Content";
     
+    [array addObject:folderTest];
     [array addObject:test];
     
     return array;

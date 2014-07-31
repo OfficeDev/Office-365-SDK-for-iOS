@@ -35,7 +35,7 @@
     
     NSString *length = [NSString stringWithFormat: @"%lu", (unsigned long)[bodyArray length]];
     
-    [self.request addValue: @"application/json;odata.metadata=full" forHTTPHeaderField: @"Content-Type"];
+  //  [self.request addValue: @"application/json;odata.metadata=full" forHTTPHeaderField: @"Content-Type"];
     [self.request addValue: length forHTTPHeaderField: @"Content-Length"];
     [self createRequest];
     
