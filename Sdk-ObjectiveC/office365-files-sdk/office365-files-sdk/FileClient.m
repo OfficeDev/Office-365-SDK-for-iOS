@@ -33,6 +33,7 @@ const NSString *apiUrl = @"/_api/files";
                                                                    bodyArray:body];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
+    
     return [connection execute:method callback:^(NSData *data, NSURLResponse *response, NSError *error) {
         FileEntity *file = [[FileEntity alloc] init];
         
@@ -50,7 +51,7 @@ const NSString *apiUrl = @"/_api/files";
     }];
 }
 
-- (NSURLSessionDataTask *)createEmptyFile:(NSString *)name folder:(NSString *)folder callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+- (NSURLSessionDataTask *)createEmptyFile:(NSString *)name folder:(NSString *)folder callback:(void (^)(FileEntity *file, NSError * error))callback{
     
     NSString* url;
     
@@ -66,7 +67,23 @@ const NSString *apiUrl = @"/_api/files";
                                                                    bodyArray:nil];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
-    return [connection execute:method callback:callback];
+  //  return [connection execute:method callback:callback];
+    
+    return [connection execute:method callback:^(NSData *data, NSURLResponse *response, NSError *error) {
+        FileEntity *file = [[FileEntity alloc] init];
+        
+        NSDictionary *jsonResult = [NSJSONSerialization JSONObjectWithData:data
+                                                                   options: NSJSONReadingMutableContainers
+                                                                     error:nil];
+        
+        NSDictionary *jsonArray = [jsonResult valueForKey : @"d"];
+        
+        if(error == nil){
+            [file createFromJson: jsonArray];
+        }
+        
+        callback(file, error);
+    }];
 }
 
 - (NSURLSessionDataTask *)createFile:(NSString *)name overwrite:(BOOL)overwrite body:(NSData *)body folder:(NSString *)folder : (void (^)(FileEntity *file, NSError *error))callback{
@@ -170,8 +187,7 @@ const NSString *apiUrl = @"/_api/files";
     NSMutableArray *array = [NSMutableArray array];
     
     NSDictionary *jsonResult = [NSJSONSerialization JSONObjectWithData:data
-                                                               options: NSJSONReadingMutableContainers
-                                                                 error:nil];
+                                                               options: NSJSONReadingMutableContainers error:nil];
     
     NSArray *jsonArray = [[jsonResult valueForKey : @"d"] valueForKey : @"results"];
     
