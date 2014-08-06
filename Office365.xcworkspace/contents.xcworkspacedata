@@ -48,6 +48,9 @@
       <FileRef
          location = "group:Samples/simple-exchange-app/simple-exchange-app.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:Samples/simple-onedrive-test/simple-onedrive-test.xcodeproj">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:Samples/Office365PlugIn/Office365PlugIn.xcodeproj">

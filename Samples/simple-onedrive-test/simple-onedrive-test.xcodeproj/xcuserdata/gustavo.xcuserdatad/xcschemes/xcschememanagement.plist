@@ -4,20 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>office365-files-sdk.xcscheme</key>
+		<key>simple-onedrive-test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>ECE57140197EAFC200FDAE94</key>
+		<key>EC6ED1A619926F35002F062A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECE57150197EAFC200FDAE94</key>
+		<key>EC6ED1C719926F35002F062A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
