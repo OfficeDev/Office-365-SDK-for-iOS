@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:azure-activedirectory-library-for-ios/ADALiOS/ADALiOS.xcodeproj">
+   </FileRef>
    <Group
       location = "group:Sdk-ObjectiveC"
       name = "Sdk-ObjectiveC">
@@ -54,8 +57,5 @@
    </Group>
    <FileRef
       location = "group:Samples/Office365PlugIn/Office365PlugIn.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../azure-activedirectory-library-for-ios/ADALiOS/ADALiOS.xcodeproj">
    </FileRef>
 </Workspace>
