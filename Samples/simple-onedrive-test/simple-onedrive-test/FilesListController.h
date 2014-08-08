@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <office365-base-sdk/LoginClient.h>
 @interface FilesListController : UITableViewController
 - (IBAction)getFiles:(id)sender;
 

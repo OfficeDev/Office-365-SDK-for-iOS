@@ -50,6 +50,7 @@
 
 - (IBAction)addItem:(id)sender {
     
+    
     NSString *url =@"https://lagashsystems365-my.sharepoint.com/personal/anahih_lagash_com";
     OAuthentication *cred = [[OAuthentication alloc] initWith:self.token];
     
@@ -62,6 +63,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:YES];
+            
         });
         
     }];

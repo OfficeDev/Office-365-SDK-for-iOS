@@ -7,11 +7,13 @@
 //
 
 #import "FilesListController.h"
+
+
 #import "AddViewController.h"
-#import <ADALiOS/ADAuthenticationContext.h>
-//#import "ADAuthenticationContext.h"
+
 #import <office365-files-sdk/FileClient.h>
 #import <office365-base-sdk/OAuthentication.h>
+#import <office365-base-sdk/LoginClient.h>
 @interface FilesListController ()
 
 @end
@@ -34,7 +36,7 @@ NSMutableArray *files;
     [super viewDidLoad];
     
     files = [NSMutableArray array];
-    
+    token = [NSString alloc];
     [self login];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -68,14 +70,31 @@ NSString* token;
     resourceId = @"https://lagashsystems365.sharepoint.com";//@"https://lagashsystems365-my.sharepoint.com/";
     clientId = @"778a099e-ed6e-49a2-9f15-92c01366ad7d";//@"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";*/
-    token = [NSString alloc];
     
+    /*
+    LoginController *loginController = [[LoginController alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
+    
+    [loginController login:true completionHandler:^(NSString *t) {
+        token = t;
+        [self getFiles:nil];
+    }];
+    */
+    
+    LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
+    [client login:TRUE completionHandler:^(NSString *t) {
+        token = t;
+        [self getFiles:nil];
+    }];
+    
+    /*
     [self getToken:true completionHandler:^(NSString * t) {
         token = t;
         [self getFiles:nil];
     }];
+     */
 }
 
+/*
 -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
 {
     ADAuthenticationError *error;
@@ -101,11 +120,13 @@ NSString* token;
                               }
                           }];
 }
+ */
+
 /*
 - (void) viewDidAppear:(BOOL)animated{
-    [self.tableView reloadData];
-}*/
-
+        [self getFiles:nil];
+}
+*/
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -192,14 +213,13 @@ NSString* token;
 
 
 - (IBAction)getFiles:(id)sender {
-    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
-
-    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     
-    spinner.hidesWhenStopped = YES;
+    if(token == nil){
+        return;
+    }
     
-    
-    [self.view addSubview:spinner];
+    UIActivityIndicatorView* spinner = [self getSpinner];
+    [self.view addSubview: spinner];
     [spinner startAnimating];
     NSString *url = @"https://lagashsystems365-my.sharepoint.com/personal/anahih_lagash_com";
     OAuthentication * cred = [[OAuthentication alloc] initWith:token];
@@ -219,4 +239,15 @@ NSString* token;
     [task resume];
     
 }
+
+- (UIActivityIndicatorView*) getSpinner{
+    UIActivityIndicatorView* spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    
+    spinner.hidesWhenStopped = YES;
+    
+    return spinner;
+}
+
 @end
