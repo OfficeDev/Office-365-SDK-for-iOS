@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3C0BEEA61993FB0D0044F6FA /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BEEA51993FB0D0044F6FA /* liboffice365-base-sdk.a */; };
 		3C0BEEA81993FB170044F6FA /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BEEA71993FB170044F6FA /* liboffice365-files-sdk.a */; };
+		EC5C05071995158C00B46C7C /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC5C05011995158C00B46C7C /* ADAL_iPad_Storyboard.storyboard */; };
+		EC5C05081995158C00B46C7C /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC5C05021995158C00B46C7C /* ADAL_iPhone_Storyboard.storyboard */; };
+		EC5C05091995158C00B46C7C /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC5C05031995158C00B46C7C /* ADALiOSBundle-Info.plist */; };
+		EC5C050A1995158C00B46C7C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC5C05051995158C00B46C7C /* InfoPlist.strings */; };
 		EC6ED1AB19926F35002F062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AA19926F35002F062A /* Foundation.framework */; };
 		EC6ED1AD19926F35002F062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AC19926F35002F062A /* CoreGraphics.framework */; };
 		EC6ED1AF19926F35002F062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AE19926F35002F062A /* UIKit.framework */; };
@@ -41,6 +45,11 @@
 /* Begin PBXFileReference section */
 		3C0BEEA51993FB0D0044F6FA /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../../Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		3C0BEEA71993FB170044F6FA /* liboffice365-files-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-files-sdk.a"; path = "../../Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos/liboffice365-files-sdk.a"; sourceTree = "<group>"; };
+		EC5C05011995158C00B46C7C /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		EC5C05021995158C00B46C7C /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		EC5C05031995158C00B46C7C /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		EC5C05041995158C00B46C7C /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		EC5C05061995158C00B46C7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EC6ED1A719926F35002F062A /* simple-onedrive-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-onedrive-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6ED1AA19926F35002F062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC6ED1AC19926F35002F062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +105,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC5C05001995158C00B46C7C /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C05011995158C00B46C7C /* ADAL_iPad_Storyboard.storyboard */,
+				EC5C05021995158C00B46C7C /* ADAL_iPhone_Storyboard.storyboard */,
+				EC5C05031995158C00B46C7C /* ADALiOSBundle-Info.plist */,
+				EC5C05041995158C00B46C7C /* ADALiOSBundle-Prefix.pch */,
+				EC5C05051995158C00B46C7C /* InfoPlist.strings */,
+			);
+			path = ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		EC6ED19E19926F35002F062A = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +155,7 @@
 		EC6ED1B019926F35002F062A /* simple-onedrive-test */ = {
 			isa = PBXGroup;
 			children = (
+				EC5C05001995158C00B46C7C /* ADALiOSBundle */,
 				EC6ED1F61992A413002F062A /* Controllers */,
 				EC6ED1B919926F35002F062A /* AppDelegate.h */,
 				EC6ED1BA19926F35002F062A /* AppDelegate.m */,
@@ -262,8 +284,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5C05091995158C00B46C7C /* ADALiOSBundle-Info.plist in Resources */,
+				EC5C050A1995158C00B46C7C /* InfoPlist.strings in Resources */,
 				EC6ED1C319926F35002F062A /* Images.xcassets in Resources */,
+				EC5C05071995158C00B46C7C /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				EC6ED1B519926F35002F062A /* InfoPlist.strings in Resources */,
+				EC5C05081995158C00B46C7C /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				EC6ED1BE19926F35002F062A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +336,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EC5C05051995158C00B46C7C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC5C05061995158C00B46C7C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		EC6ED1B319926F35002F062A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -415,14 +449,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "simple-onedrive-test/simple-onedrive-test-Prefix.pch";
 				INFOPLIST_FILE = "simple-onedrive-test/simple-onedrive-test-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos",
-					"/Users/lagash/Documents/o365sdk-ios/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
-					"/Users/lagash/Documents/o365sdk-ios/Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -437,14 +464,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "simple-onedrive-test/simple-onedrive-test-Prefix.pch";
 				INFOPLIST_FILE = "simple-onedrive-test/simple-onedrive-test-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos",
-					"/Users/lagash/Documents/o365sdk-ios/Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos",
-					"/Users/lagash/Documents/o365sdk-ios/Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
