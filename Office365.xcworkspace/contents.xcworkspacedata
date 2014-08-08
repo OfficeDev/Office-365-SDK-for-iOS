@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:azure-activedirectory-library-for-objc/ADALiOS/ADALiOS.xcodeproj">
+      location = "group:../azure-activedirectory-library-for-objc/ADALiOS/ADALiOS.xcodeproj">
    </FileRef>
    <Group
       location = "group:Sdk-ObjectiveC"
@@ -36,6 +36,29 @@
    <Group
       location = "container:"
       name = "Samples">
+      <Group
+         location = "group:Samples/ADALiOSBundle"
+         name = "ADALiOSBundle">
+         <FileRef
+            location = "group:ADAL_iPad_Storyboard.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:ADAL_iPhone_Storyboard.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:ADALiOSBundle-Info.plist">
+         </FileRef>
+         <FileRef
+            location = "group:ADALiOSBundle-Prefix.pch">
+         </FileRef>
+         <Group
+            location = "group:en.lproj"
+            name = "en.lproj">
+            <FileRef
+               location = "group:InfoPlist.strings">
+            </FileRef>
+         </Group>
+      </Group>
       <FileRef
          location = "group:Samples/list-app/list-app.xcodeproj">
       </FileRef>

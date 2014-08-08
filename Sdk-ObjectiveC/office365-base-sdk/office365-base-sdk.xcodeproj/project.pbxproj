@@ -426,7 +426,7 @@
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
 				);
 				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -445,7 +445,7 @@
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
 				);
 				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
