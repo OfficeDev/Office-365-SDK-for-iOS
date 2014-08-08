@@ -22,6 +22,10 @@
 		EC053624197DADCF009D45F4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053623197DADCF009D45F4 /* Constants.m */; };
 		EC053627197DB3E2009D45F4 /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053626197DB3E2009D45F4 /* BaseEntity.m */; };
 		EC05362A197DB3F3009D45F4 /* DiscoveryInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */; };
+		EC5C04ED19950B4600B46C7C /* LoginClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C04EB19950B4600B46C7C /* LoginClient.h */; };
+		EC5C04EE19950B4600B46C7C /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C04EC19950B4600B46C7C /* LoginClient.m */; };
+		EC5C04F719950BBF00B46C7C /* LoginClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC5C04EB19950B4600B46C7C /* LoginClient.h */; };
+		EC5C04FD19950FB100B46C7C /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5C04FC19950FB100B46C7C /* libADALiOS.a */; };
 		ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360C197D913C009D45F4 /* Credentials.h */; };
 		ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360A197D913C009D45F4 /* BaseClient.h */; };
 		ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */; };
@@ -51,6 +55,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				EC5C04F719950BBF00B46C7C /* LoginClient.h in CopyFiles */,
 				ECE57178197EBE6C00FDAE94 /* Constants.h in CopyFiles */,
 				ECE57177197EBD8B00FDAE94 /* HttpConnection.h in CopyFiles */,
 				ECE57176197EB94C00FDAE94 /* Metadata.h in CopyFiles */,
@@ -91,6 +96,11 @@
 		EC053626197DB3E2009D45F4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
 		EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryInformation.h; sourceTree = "<group>"; };
 		EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryInformation.m; sourceTree = "<group>"; };
+		EC5C04EB19950B4600B46C7C /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginClient.h; sourceTree = "<group>"; };
+		EC5C04EC19950B4600B46C7C /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginClient.m; sourceTree = "<group>"; };
+		EC5C04F819950C4700B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		EC5C04FA19950EDA00B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		EC5C04FC19950FB100B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		ECE57173197EB36F00FDAE94 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		ECE57174197EB36F00FDAE94 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5C04FD19950FB100B46C7C /* libADALiOS.a in Frameworks */,
 				EC0535E5197D9109009D45F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +150,9 @@
 		EC0535E3197D9109009D45F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC5C04FC19950FB100B46C7C /* libADALiOS.a */,
+				EC5C04FA19950EDA00B46C7C /* libADALiOS.a */,
+				EC5C04F819950C4700B46C7C /* libADALiOS.a */,
 				EC0535E4197D9109009D45F4 /* Foundation.framework */,
 				EC0535F2197D9109009D45F4 /* XCTest.framework */,
 				EC0535F5197D9109009D45F4 /* UIKit.framework */,
@@ -185,6 +199,8 @@
 		EC053621197DAA3F009D45F4 /* clients */ = {
 			isa = PBXGroup;
 			children = (
+				EC5C04EB19950B4600B46C7C /* LoginClient.h */,
+				EC5C04EC19950B4600B46C7C /* LoginClient.m */,
 				EC05360A197D913C009D45F4 /* BaseClient.h */,
 				EC05360B197D913C009D45F4 /* BaseClient.m */,
 				EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */,
@@ -213,6 +229,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5C04ED19950B4600B46C7C /* LoginClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5C04EE19950B4600B46C7C /* LoginClient.m in Sources */,
 				EC053614197D913C009D45F4 /* HttpConnection.m in Sources */,
 				EC053615197D913C009D45F4 /* OAuthentication.m in Sources */,
 				EC053624197DADCF009D45F4 /* Constants.m in Sources */,
@@ -402,6 +420,11 @@
 				DSTROOT = /tmp/office365_base_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +439,11 @@
 				DSTROOT = /tmp/office365_base_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

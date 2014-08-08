@@ -14,6 +14,8 @@
 		<string>https://github.com/MSOpenTech/o365sdk-ios.git</string>
 		<key>623BA217-1D09-48D6-AAB2-99EE519876CF</key>
 		<string>https://github.com/MSOpenTech/azure-activedirectory-library-for-ios.git</string>
+		<key>DF8BE10C-32D7-4AE2-9408-36FDC8C797DE</key>
+		<string>https://github.com/AzureAD/azure-activedirectory-library-for-objc.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Office365.xcworkspace</string>
@@ -23,9 +25,11 @@
 		<string>..</string>
 		<key>623BA217-1D09-48D6-AAB2-99EE519876CF</key>
 		<string>../../azure-activedirectory-library-for-ios</string>
+		<key>DF8BE10C-32D7-4AE2-9408-36FDC8C797DE</key>
+		<string>../azure-activedirectory-library-for-objc</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/MSOpenTech/o365sdk-ios.git</string>
+	<string>file:///Users/gustavo/Documents/MSOpenTech/o365sdk-ios/Office365.xcworkspace/</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -39,6 +43,14 @@
 			<string>623BA217-1D09-48D6-AAB2-99EE519876CF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>azure-activedirectory-library-for-ios</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DF8BE10C-32D7-4AE2-9408-36FDC8C797DE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>azure-activedirectory-library-for-objc</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
