@@ -20,7 +20,6 @@
     NSString* redirectUriString;
     NSString* resourceId;
     NSString* token;
-    NSString* status;
 
     - (id)initWithParameters: (NSString *)cliId : (NSString *)retUrl : (NSString *)resId : (NSString *)authority
     {
@@ -29,7 +28,6 @@
         resourceId = [NSString alloc];
         adalAuthority = [NSString alloc];
         token = [NSString alloc];
-        status = [NSString alloc];
 
         clientId = cliId;
         redirectUriString = retUrl;
@@ -50,20 +48,20 @@
             [cache removeAllWithError:&error];
     }
 
-    -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token))completionBlock;{
+    -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token, NSError * error))completionBlock;{
         if(clearCache)
             [self clearCredentials];
         
         if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
         
-        [self getToken:clearCache completionHandler:^(NSString *t){
+        [self getToken:clearCache completionHandler:^(NSString *t, NSError *e){
             token = t;
-            completionBlock(t);
+            completionBlock(t,e);
         }];
     }
 
 
-    -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
+    -(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError *e))completionBlock;
     {
         ADAuthenticationError *error;
         authContext = [ADAuthenticationContext authenticationContextWithAuthority:adalAuthority
@@ -80,27 +78,16 @@
                                   redirectUri:redirectUri
                               completionBlock:^(ADAuthenticationResult *result) {
                                   if (AD_SUCCEEDED != result.status){
-                                      // display error on the screen
-                                      [self setLoginStatus:result.error.errorDetails];
-                                      completionBlock(nil);
+                                      completionBlock(nil, result.error);
                                   }
                                   else{
-                                      completionBlock(result.accessToken);
+                                      completionBlock(result.accessToken, nil);
                                   }
                               }];
     }
 
 
-    -(NSString*) getLoginStatus{
-        
-        return status;
-    }
-
-    - (void) setLoginStatus: (NSString*) s{
-        status = s;
-    }
-
-    -(BOOL)getCacheToken : (NSString *)resourceId  completionHandler:(void (^) (NSString *))completionBlock {
+    -(BOOL)getCacheToken : (NSString *)resourceId  completionHandler:(void (^) (NSString *t, NSError *e))completionBlock {
         ADAuthenticationError * error;
         id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
         NSArray *array = [cache allItemsWithError:&error];
@@ -130,13 +117,13 @@
             [userDefaults setObject:user.userId forKey:@"LogInUser"];
             [userDefaults synchronize];
             
-            completionBlock(cacheItem.accessToken);
+            completionBlock(cacheItem.accessToken, error);
             
             return true;
         }
     }
 
-    -(BOOL)refreshToken : (NSString*)resourceId  completionHandler:(void (^) (NSString *))completionBlock{
+    -(BOOL)refreshToken : (NSString*)resourceId  completionHandler:(void (^) (NSString *, NSError *e))completionBlock{
         ADAuthenticationError *error;
         authContext = [ADAuthenticationContext authenticationContextWithAuthority:adalAuthority error:&error];
         
@@ -144,8 +131,7 @@
         
         if (!key)
         {
-            [self setLoginStatus: error.errorDetails];
-            return false;
+           return false;
         }
         
         id<ADTokenCacheStoring> cache = authContext.tokenCacheStore;
@@ -153,7 +139,6 @@
         
         if (!item)
         {
-            [self setLoginStatus:@"Missing cache item."];
             return false;
         }
         
@@ -162,10 +147,9 @@
                                        resource:resourceId
                                 completionBlock:^(ADAuthenticationResult *result)
          {
-             completionBlock(result.tokenCacheStoreItem.accessToken);
+             completionBlock(result.tokenCacheStoreItem.accessToken, error);
          }];
         
         return true;
     }
 @end
-
