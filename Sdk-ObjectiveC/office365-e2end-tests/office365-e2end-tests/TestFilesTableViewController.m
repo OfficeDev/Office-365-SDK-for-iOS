@@ -21,27 +21,10 @@ LoginClient *loginClient;
 TestParameters *testParameters;
 FileTestRunner *testRunner;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) { }
-    
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     [self logIn];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -102,25 +85,35 @@ FileTestRunner *testRunner;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    loginClient = [loginClient initWithParameters:[userDefaults objectForKey: @"CliendId"]
-                                                 :[userDefaults objectForKey: @"RedirectUrl"]
-                                                 :@"https://lagashsystems365-my.sharepoint.com"
-                                                 :[userDefaults objectForKey: @"AuthorityUrl"]
+    loginClient = [[LoginClient alloc] initWithParameters:[userDefaults objectForKey: @"CliendId"]
+                                                  :[userDefaults objectForKey: @"RedirectUrl"]
+                                                  :@"https://lagashsystems365-my.sharepoint.com"
+                                                  :[userDefaults objectForKey: @"AuthorityUrl"]
                    ];
     
-    [loginClient login:true completionHandler:^(NSString *token) {
-       
-        testParameters = [TestParameters alloc];
-        testParameters.Credentials = [[OAuthentication alloc] initWith:token];
-        testParameters.ServiceUrl = @"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com";
+    [loginClient login:true completionHandler:^(NSString *token, NSError *error) {
         
-        testRunner = [FileTestRunner alloc];
-        testRunner.Parameters = testParameters;
-        
-        self.Tests = [testRunner getTests];
-        
-        [self.tableView reloadData];
-
+        if(error != nil){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Adal Error" message:error.description delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            
+            [alert show];
+            
+        }else{
+            
+            testParameters = [TestParameters alloc];
+            testParameters.Credentials = [[OAuthentication alloc] initWith:token];
+            testParameters.ServiceUrl = @"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com";
+            
+            testRunner = [FileTestRunner alloc];
+            testRunner.Parameters = testParameters;
+            
+            self.Tests = [testRunner getTests];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
     }];
 }
 
