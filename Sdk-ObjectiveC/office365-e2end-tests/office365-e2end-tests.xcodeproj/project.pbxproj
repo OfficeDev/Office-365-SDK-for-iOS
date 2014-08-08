@@ -34,7 +34,6 @@
 		ECE5722819813C2600FDAE94 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECE5722319813C2600FDAE94 /* InfoPlist.strings */; };
 		ECE5722919813C2600FDAE94 /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE5722519813C2600FDAE94 /* IPAL_iPad_Storyboard.storyboard */; };
 		ECE5722A19813C2600FDAE94 /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE5722619813C2600FDAE94 /* IPAL_iPhone_Storyboard.storyboard */; };
-		ECE5722E198143DF00FDAE94 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE5722D198143DF00FDAE94 /* LogInController.m */; };
 		ECF8D71419892C6200FE031C /* TestFilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF8D71319892C6200FE031C /* TestFilesTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -87,8 +86,6 @@
 		ECE5722419813C2600FDAE94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ECE5722519813C2600FDAE94 /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
 		ECE5722619813C2600FDAE94 /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
-		ECE5722C198143DF00FDAE94 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		ECE5722D198143DF00FDAE94 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
 		ECF8D70F19882FE100FE031C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ECF8D71219892C6200FE031C /* TestFilesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFilesTableViewController.h; sourceTree = "<group>"; };
 		ECF8D71319892C6200FE031C /* TestFilesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestFilesTableViewController.m; sourceTree = "<group>"; };
@@ -222,8 +219,6 @@
 			children = (
 				ECE57203197EF80500FDAE94 /* ListTestTableViewController.h */,
 				ECE57204197EF80500FDAE94 /* ListTestTableViewController.m */,
-				ECE5722C198143DF00FDAE94 /* LogInController.h */,
-				ECE5722D198143DF00FDAE94 /* LogInController.m */,
 				EC495F6B1987E04D0003F06D /* UserSettingsViewController.h */,
 				EC495F6C1987E04D0003F06D /* UserSettingsViewController.m */,
 				ECF8D71219892C6200FE031C /* TestFilesTableViewController.h */,
@@ -345,7 +340,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE5722E198143DF00FDAE94 /* LogInController.m in Sources */,
 				ECE5721F1980293E00FDAE94 /* BaseTestRunner.m in Sources */,
 				ECE5721C198000FD00FDAE94 /* ListTestRunner.m in Sources */,
 				ECE5720B197F056F00FDAE94 /* FileTestRunner.m in Sources */,

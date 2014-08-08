@@ -7,13 +7,11 @@
 //
 
 #import "FilesListController.h"
-
-
 #import "AddViewController.h"
-
 #import <office365-files-sdk/FileClient.h>
 #import <office365-base-sdk/OAuthentication.h>
 #import <office365-base-sdk/LoginClient.h>
+
 @interface FilesListController ()
 
 @end

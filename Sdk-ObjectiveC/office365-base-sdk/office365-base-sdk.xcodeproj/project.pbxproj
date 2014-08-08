@@ -25,7 +25,7 @@
 		EC5C04ED19950B4600B46C7C /* LoginClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C04EB19950B4600B46C7C /* LoginClient.h */; };
 		EC5C04EE19950B4600B46C7C /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C04EC19950B4600B46C7C /* LoginClient.m */; };
 		EC5C04F719950BBF00B46C7C /* LoginClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC5C04EB19950B4600B46C7C /* LoginClient.h */; };
-		EC5C04FD19950FB100B46C7C /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5C04FC19950FB100B46C7C /* libADALiOS.a */; };
+		EC5C050C19951E8200B46C7C /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5C050B19951E8200B46C7C /* libADALiOS.a */; };
 		ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360C197D913C009D45F4 /* Credentials.h */; };
 		ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360A197D913C009D45F4 /* BaseClient.h */; };
 		ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */; };
@@ -98,9 +98,7 @@
 		EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryInformation.m; sourceTree = "<group>"; };
 		EC5C04EB19950B4600B46C7C /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginClient.h; sourceTree = "<group>"; };
 		EC5C04EC19950B4600B46C7C /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginClient.m; sourceTree = "<group>"; };
-		EC5C04F819950C4700B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
-		EC5C04FA19950EDA00B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
-		EC5C04FC19950FB100B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		EC5C050B19951E8200B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		ECE57173197EB36F00FDAE94 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
 		ECE57174197EB36F00FDAE94 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC5C04FD19950FB100B46C7C /* libADALiOS.a in Frameworks */,
+				EC5C050C19951E8200B46C7C /* libADALiOS.a in Frameworks */,
 				EC0535E5197D9109009D45F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,9 +148,7 @@
 		EC0535E3197D9109009D45F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EC5C04FC19950FB100B46C7C /* libADALiOS.a */,
-				EC5C04FA19950EDA00B46C7C /* libADALiOS.a */,
-				EC5C04F819950C4700B46C7C /* libADALiOS.a */,
+				EC5C050B19951E8200B46C7C /* libADALiOS.a */,
 				EC0535E4197D9109009D45F4 /* Foundation.framework */,
 				EC0535F2197D9109009D45F4 /* XCTest.framework */,
 				EC0535F5197D9109009D45F4 /* UIKit.framework */,
@@ -426,7 +422,7 @@
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
 				);
 				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -445,7 +441,7 @@
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
 				);
 				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;

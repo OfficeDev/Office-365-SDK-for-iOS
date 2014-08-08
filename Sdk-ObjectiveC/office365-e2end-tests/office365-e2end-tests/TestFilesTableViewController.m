@@ -7,7 +7,7 @@
 //
 
 #import "TestFilesTableViewController.h"
-#import "LogInController.h"
+#import <office365-base-sdk/LoginClient.h>
 #import "TestParameters.h"
 #import "FileTestRunner.h"
 
@@ -17,16 +17,15 @@
 
 @implementation TestFilesTableViewController
 
-LogInController *loginController;
+LoginClient *loginClient;
 TestParameters *testParameters;
 FileTestRunner *testRunner;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
+    if (self) { }
+    
     return self;
 }
 
@@ -37,23 +36,13 @@ FileTestRunner *testRunner;
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self LogIn];
+    [self logIn];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
-
-/*
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -80,55 +69,6 @@ FileTestRunner *testRunner;
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (IBAction)RunAllTests:(id)sender {
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
@@ -143,7 +83,6 @@ FileTestRunner *testRunner;
         NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
             
             Test *test = [self.Tests objectAtIndex:i];
-            // [[self.Tests objectAtIndex:i] setObject:result atIndex:i];
             test.Passed = result.Passed;
             test.ExecutionMessages = result.ExecutionMessages;
             executed++;
@@ -159,13 +98,21 @@ FileTestRunner *testRunner;
     }
 }
 
--(void)LogIn{
+-(void)logIn{
     
-    [loginController getTokenWith : @"https://lagashsystems365-my.sharepoint.com"
-    /*@"https://lagashsystems365.sharepoint.com"*/ :true completionHandler:^(NSString *token) {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    loginClient = [loginClient initWithParameters:[userDefaults objectForKey: @"CliendId"]
+                                                 :[userDefaults objectForKey: @"RedirectUrl"]
+                                                 :@"https://lagashsystems365-my.sharepoint.com"
+                                                 :[userDefaults objectForKey: @"AuthorityUrl"]
+                   ];
+    
+    [loginClient login:true completionHandler:^(NSString *token) {
+       
         testParameters = [TestParameters alloc];
         testParameters.Credentials = [[OAuthentication alloc] initWith:token];
-        testParameters.ServiceUrl = @"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com";//@"https://lagashsystems365.sharepoint.com/sites/Argentina/Produccion/MSOpenTechLagash";
+        testParameters.ServiceUrl = @"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com";
         
         testRunner = [FileTestRunner alloc];
         testRunner.Parameters = testParameters;
@@ -173,6 +120,7 @@ FileTestRunner *testRunner;
         self.Tests = [testRunner getTests];
         
         [self.tableView reloadData];
+
     }];
 }
 
