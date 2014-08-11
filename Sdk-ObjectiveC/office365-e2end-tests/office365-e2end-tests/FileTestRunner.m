@@ -16,8 +16,11 @@
     if([testName isEqualToString:@"TestCreateFileWithContent"]){
         return [self TestCreateFileWithContentWithCompletionHandler:result];
     }
-    if([testName isEqualToString:@"TestCreateFolder"]){
+    else if([testName isEqualToString:@"TestCreateFolder"]){
         return [self TestCreateFolderWithCompletionHandler:result];
+    }
+    else if([testName isEqualToString:@"TestGetFiles"]){
+        return [self TestGetFilesWithCompletionHandler:result];
     }
     
     return nil;
@@ -70,6 +73,32 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestGetFilesWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] getFiles:^(NSMutableArray *files, NSError *error) {
+        BOOL passed = true;
+        
+        if([files count] == 0){
+            passed = false;
+        }
+        
+        for (FileEntity* file in files) {
+            if(file.Id == nil){
+                passed = false;
+                break;
+            }
+        }
+        
+        Test *test = [Test alloc];
+        
+        test.Passed = passed;
+        test.ExecutionMessages = [NSMutableArray array];
+        result(test);
+    }];
+    
+    return task;
+}
+
 -(FileClient *)getClient{
     
     if(self.Client != nil) return self.Client;
@@ -93,8 +122,15 @@
     test.Name = @"TestCreateFileWithContent";
     test.DisplayName = @"Create File With Content";
     
+    
+    Test *getFilesTest = [Test alloc];
+    getFilesTest.TestRunner = self;
+    getFilesTest.Name = @"TestGetFiles";
+    getFilesTest.DisplayName = @"Get Files";
+    
     [array addObject:folderTest];
     [array addObject:test];
+    [array addObject:getFilesTest];
     
     return array;
 }
