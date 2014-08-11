@@ -32,31 +32,6 @@ NSString* token;
     return self;
 }
 
--(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
-{
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    
-    NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
-    
-    if(clearCache){
-        [authContext.tokenCacheStore removeAll];
-    }
-    
-    [authContext acquireTokenWithResource:resourceId
-                                 clientId:clientId
-                              redirectUri:redirectUri
-                          completionBlock:^(ADAuthenticationResult * result) {
-                              if (AD_SUCCEEDED != result.status){
-                                  // display error on the screen
-                                  [self showError:result.error.errorDetails];
-                              }
-                              else{
-                                  completionBlock(result.accessToken);
-                              }
-                          }];
-}
-
 -(void)showError : (NSString*) errorDetails{
     
 }

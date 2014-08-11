@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "FilesTableViewController.h"
 #import "office365-base-sdk/Credentials.h"
-
+#import <office365-base-sdk/LoginClient.h>
 @interface ViewController ()
             
 
@@ -46,11 +46,21 @@ NSString* token;
 }
 
 - (IBAction)LogIn:(id)sender {
-    [self getToken:true completionHandler:^(NSString* accessToken){
+    LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
+    [client login:TRUE completionHandler:^(NSString *t, NSError *e) {
+        if(e == nil)
+        {
+            token = t;
+            self.GetFilesButton.enabled = true;
+            self.LogInButton.enabled = false;
+        }
+        else
+        {
+            NSString *errorMessage = [@"Login failed. Reason: " stringByAppendingString: e.description];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+            [alert show];
+        }
         
-        token = accessToken;
-        self.GetFilesButton.enabled = true;
-        self.LogInButton.enabled = false;
     }];
 }
 
@@ -58,31 +68,6 @@ NSString* token;
   // ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
     
   // [destinationController addToken: token];
-}
-
--(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
-{
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    
-    NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
-    
-    if(clearCache){
-        [authContext.tokenCacheStore removeAll];
-    }
-    
-    [authContext acquireTokenWithResource:resourceId
-                                 clientId:clientId
-                              redirectUri:redirectUri
-                          completionBlock:^(ADAuthenticationResult * result) {
-                              if (AD_SUCCEEDED != result.status){
-                                  // display error on the screen
-                                  [self showError:result.error.errorDetails];
-                              }
-                              else{
-                                  completionBlock(result.accessToken);
-                              }
-                          }];
 }
 
 -(void)showError : (NSString*) errorDetails{

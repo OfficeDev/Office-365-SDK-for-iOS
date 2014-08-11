@@ -20,4 +20,4 @@
 -(void)clearCredentials;
 
 -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token, NSError *error))completionBlock;
-@end
+@end	

@@ -10,6 +10,10 @@
 		3C07B6D91958C8EB0057D25C /* FileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C07B6D81958C8EB0057D25C /* FileTableViewController.m */; };
 		3C07B6DB1958CCFF0057D25C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C07B6DA1958CCFF0057D25C /* Main.storyboard */; };
 		3C2067661958C20F00DCEBE6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2067651958C20F00DCEBE6 /* ViewController.m */; };
+		3C2B76F119991661006156A3 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76EB19991661006156A3 /* ADAL_iPad_Storyboard.storyboard */; };
+		3C2B76F219991661006156A3 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76EC19991661006156A3 /* ADAL_iPhone_Storyboard.storyboard */; };
+		3C2B76F319991661006156A3 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76ED19991661006156A3 /* ADALiOSBundle-Info.plist */; };
+		3C2B76F419991661006156A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76EF19991661006156A3 /* InfoPlist.strings */; };
 		3C88DE7C1958BB0E00D105A6 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C88DE741958BB0E00D105A6 /* ADALiOSBundle-Info.plist */; };
 		3C88DE7D1958BB0E00D105A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C88DE761958BB0E00D105A6 /* InfoPlist.strings */; };
 		3C88DE7E1958BB0E00D105A6 /* file_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C88DE781958BB0E00D105A6 /* file_app.xcdatamodeld */; };
@@ -45,6 +49,11 @@
 		3C07B6DA1958CCFF0057D25C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3C2067641958C20F00DCEBE6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3C2067651958C20F00DCEBE6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3C2B76EB19991661006156A3 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		3C2B76EC19991661006156A3 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		3C2B76ED19991661006156A3 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		3C2B76EE19991661006156A3 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		3C2B76F019991661006156A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C88DE741958BB0E00D105A6 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
 		3C88DE751958BB0E00D105A6 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
 		3C88DE771958BB0E00D105A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -95,6 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C2B76EA19991661006156A3 /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				3C2B76EB19991661006156A3 /* ADAL_iPad_Storyboard.storyboard */,
+				3C2B76EC19991661006156A3 /* ADAL_iPhone_Storyboard.storyboard */,
+				3C2B76ED19991661006156A3 /* ADALiOSBundle-Info.plist */,
+				3C2B76EE19991661006156A3 /* ADALiOSBundle-Prefix.pch */,
+				3C2B76EF19991661006156A3 /* InfoPlist.strings */,
+			);
+			name = ADALiOSBundle;
+			path = ../ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		3C88DE811958BB1900D105A6 /* ADALiOSBundle */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,7 @@
 		3CC805C01958BA4D00E9590E = {
 			isa = PBXGroup;
 			children = (
+				3C2B76EA19991661006156A3 /* ADALiOSBundle */,
 				ECF2F6E51975A2C800F74623 /* Frameworks */,
 				3CC805CB1958BA4D00E9590E /* file-app */,
 				3CC805CA1958BA4D00E9590E /* Products */,
@@ -260,11 +283,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C07B6DB1958CCFF0057D25C /* Main.storyboard in Resources */,
+				3C2B76F219991661006156A3 /* ADAL_iPhone_Storyboard.storyboard in Resources */,
+				3C2B76F319991661006156A3 /* ADALiOSBundle-Info.plist in Resources */,
 				3C88DE7C1958BB0E00D105A6 /* ADALiOSBundle-Info.plist in Resources */,
 				3C88DE7D1958BB0E00D105A6 /* InfoPlist.strings in Resources */,
 				3C88DE801958BB0E00D105A6 /* IPAL_iPhone_Storyboard.storyboard in Resources */,
 				3CC805DD1958BA4D00E9590E /* Images.xcassets in Resources */,
+				3C2B76F119991661006156A3 /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				3C88DE7F1958BB0E00D105A6 /* IPAL_iPad_Storyboard.storyboard in Resources */,
+				3C2B76F419991661006156A3 /* InfoPlist.strings in Resources */,
 				3C88DE8A1958BE9400D105A6 /* office365.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +339,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3C2B76EF19991661006156A3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C2B76F019991661006156A3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		3C88DE761958BB0E00D105A6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
