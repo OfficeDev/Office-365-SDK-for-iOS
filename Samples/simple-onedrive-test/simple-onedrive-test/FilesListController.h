@@ -11,4 +11,6 @@
 @interface FilesListController : UITableViewController
 - (IBAction)getFiles:(id)sender;
 
+@property NSString* token;
+
 @end

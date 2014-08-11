@@ -10,6 +10,7 @@
 		3C0BEEA61993FB0D0044F6FA /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BEEA51993FB0D0044F6FA /* liboffice365-base-sdk.a */; };
 		3C0BEEA81993FB170044F6FA /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BEEA71993FB170044F6FA /* liboffice365-files-sdk.a */; };
 		3C2B76C11995470F006156A3 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B76C01995470F006156A3 /* libADALiOS.a */; };
+		3C2B76C71995527D006156A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B76C61995527D006156A3 /* LoginViewController.m */; };
 		EC6ED1AB19926F35002F062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AA19926F35002F062A /* Foundation.framework */; };
 		EC6ED1AD19926F35002F062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AC19926F35002F062A /* CoreGraphics.framework */; };
 		EC6ED1AF19926F35002F062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AE19926F35002F062A /* UIKit.framework */; };
@@ -17,7 +18,6 @@
 		EC6ED1B719926F35002F062A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6ED1B619926F35002F062A /* main.m */; };
 		EC6ED1BB19926F35002F062A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6ED1BA19926F35002F062A /* AppDelegate.m */; };
 		EC6ED1BE19926F35002F062A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6ED1BC19926F35002F062A /* Main.storyboard */; };
-		EC6ED1C119926F35002F062A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6ED1C019926F35002F062A /* ViewController.m */; };
 		EC6ED1C319926F35002F062A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6ED1C219926F35002F062A /* Images.xcassets */; };
 		EC6ED1CA19926F35002F062A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1C919926F35002F062A /* XCTest.framework */; };
 		EC6ED1CB19926F35002F062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AA19926F35002F062A /* Foundation.framework */; };
@@ -42,6 +42,8 @@
 		3C0BEEA51993FB0D0044F6FA /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../../Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		3C0BEEA71993FB170044F6FA /* liboffice365-files-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-files-sdk.a"; path = "../../Sdk-ObjectiveC/office365-files-sdk/build/Debug-iphoneos/liboffice365-files-sdk.a"; sourceTree = "<group>"; };
 		3C2B76C01995470F006156A3 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		3C2B76C51995527D006156A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3C2B76C61995527D006156A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EC6ED1A719926F35002F062A /* simple-onedrive-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-onedrive-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6ED1AA19926F35002F062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC6ED1AC19926F35002F062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,8 +55,6 @@
 		EC6ED1B919926F35002F062A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EC6ED1BA19926F35002F062A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EC6ED1BD19926F35002F062A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EC6ED1BF19926F35002F062A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EC6ED1C019926F35002F062A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EC6ED1C219926F35002F062A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC6ED1C819926F35002F062A /* simple-onedrive-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-onedrive-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6ED1C919926F35002F062A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -180,10 +180,10 @@
 			children = (
 				EC6ED1E219927A0F002F062A /* AddViewController.h */,
 				EC6ED1E319927A0F002F062A /* AddViewController.m */,
-				EC6ED1BF19926F35002F062A /* ViewController.h */,
-				EC6ED1C019926F35002F062A /* ViewController.m */,
 				EC6ED1DF199271C5002F062A /* FilesListController.h */,
 				EC6ED1E0199271C5002F062A /* FilesListController.m */,
+				3C2B76C51995527D006156A3 /* LoginViewController.h */,
+				3C2B76C61995527D006156A3 /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6ED1E419927A0F002F062A /* AddViewController.m in Sources */,
-				EC6ED1C119926F35002F062A /* ViewController.m in Sources */,
+				3C2B76C71995527D006156A3 /* LoginViewController.m in Sources */,
 				EC6ED1BB19926F35002F062A /* AppDelegate.m in Sources */,
 				EC6ED1B719926F35002F062A /* main.m in Sources */,
 				EC6ED1E1199271C5002F062A /* FilesListController.m in Sources */,
