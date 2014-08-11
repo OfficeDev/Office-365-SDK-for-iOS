@@ -16,8 +16,17 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)Clear:(id)sender;
+- (IBAction)Login:(id)sender;
+- (IBAction)Clear:(id)sender;
+- (IBAction)asdas:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
+- (IBAction)Clear:(id)sender;
+- (IBAction)Clear:(id)sender;
+- (IBAction)Clear:(id)sender;
+- (IBAction)Clear:(UIBarButtonItem *)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *GetFilesButton;
+- (IBAction)Clear:(id)sender;
 
 - (IBAction)LogIn:(id)sender;
 @end

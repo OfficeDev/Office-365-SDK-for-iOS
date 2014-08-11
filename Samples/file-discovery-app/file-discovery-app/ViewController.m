@@ -111,4 +111,8 @@ NSString* token;
         controller.token = token;
 }
 
+- (IBAction)Clear:(id)sender {
+}
+- (IBAction)Clear:(id)sender {
+}
 @end

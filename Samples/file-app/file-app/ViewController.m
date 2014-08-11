@@ -45,6 +45,27 @@ NSString* token;
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)Clear:(id)sender {
+}
+
+- (IBAction)Login:(id)sender {
+}
+
+- (IBAction)Clear:(id)sender {
+}
+
+- (IBAction)asdas:(id)sender {
+}
+
+- (IBAction)Clear:(id)sender {
+}
+
+- (IBAction)Clear:(id)sender {
+}
+
+- (IBAction)Clear:(UIBarButtonItem *)sender {
+}
+
 - (IBAction)LogIn:(id)sender {
     LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
     [client login:TRUE completionHandler:^(NSString *t, NSError *e) {
@@ -89,4 +110,8 @@ NSString* token;
         controller.token = token;
 }
 
+- (IBAction)Clear:(id)sender {
+}
+- (IBAction)Clear:(id)sender {
+}
 @end

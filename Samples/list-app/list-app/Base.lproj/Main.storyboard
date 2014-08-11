@@ -34,21 +34,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="wIP-tQ-KUC">
-                        <barButtonItem key="leftBarButtonItem" title="Get Items" id="Knq-58-AP6">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="Knq-58-AP6">
                             <connections>
-                                <segue destination="40i-Sz-3Ln" kind="push" id="lFg-rW-yox"/>
+                                <action selector="Clear:" destination="L17-xZ-Jnk" id="U3k-nc-Bjc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="LogIn" id="njj-CV-ype">
                             <connections>
-                                <action selector="LogIn:" destination="L17-xZ-Jnk" id="tAB-N7-kfq"/>
+                                <action selector="Login:" destination="L17-xZ-Jnk" id="yvW-zx-KPf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="GetItems" destination="Knq-58-AP6" id="0eV-LJ-YfR"/>
-                        <outlet property="LogInButton" destination="njj-CV-ype" id="L58-e1-yrz"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lnl-38-51q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,14 +53,14 @@
         <!--List Table View Controller-->
         <scene sceneID="kX3-sD-Q2Z">
             <objects>
-                <tableViewController id="40i-Sz-3Ln" customClass="ListTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listvc" id="40i-Sz-3Ln" customClass="ListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cZs-sd-ZI5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SharepointList" id="oW8-HV-COd">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oW8-HV-COd" id="1ug-yu-sCB">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>

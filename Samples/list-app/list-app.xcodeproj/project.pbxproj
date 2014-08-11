@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C2B76CB199908E7006156A3 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B76CA199908E7006156A3 /* liboffice365-base-sdk.a */; };
 		3C2B76CD19990A38006156A3 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B76CC19990A38006156A3 /* libADALiOS.a */; };
 		3C2B76D519990CE4006156A3 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76CF19990CE4006156A3 /* ADAL_iPad_Storyboard.storyboard */; };
 		3C2B76D619990CE4006156A3 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76D019990CE4006156A3 /* ADAL_iPhone_Storyboard.storyboard */; };
 		3C2B76D719990CE4006156A3 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76D119990CE4006156A3 /* ADALiOSBundle-Info.plist */; };
 		3C2B76D819990CE4006156A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C2B76D319990CE4006156A3 /* InfoPlist.strings */; };
+		3CE01F0B1999584900A3E30C /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE01F0A1999584900A3E30C /* liboffice365-base-sdk.a */; };
 		EC348BA41986D1A0002754F7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348BA31986D1A0002754F7 /* Foundation.framework */; };
 		EC348BA61986D203002754F7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348BA51986D203002754F7 /* UIKit.framework */; };
 		EC348BA81986D244002754F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348BA71986D244002754F7 /* CoreGraphics.framework */; };
@@ -40,13 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C2B76CA199908E7006156A3 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../../Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		3C2B76CC19990A38006156A3 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		3C2B76CF19990CE4006156A3 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
 		3C2B76D019990CE4006156A3 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
 		3C2B76D119990CE4006156A3 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
 		3C2B76D219990CE4006156A3 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
 		3C2B76D419990CE4006156A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3CE01F0A1999584900A3E30C /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../../Sdk-ObjectiveC/office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 		EC348BA31986D1A0002754F7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC348BA51986D203002754F7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EC348BA71986D244002754F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CE01F0B1999584900A3E30C /* liboffice365-base-sdk.a in Frameworks */,
 				3C2B76CD19990A38006156A3 /* libADALiOS.a in Frameworks */,
-				3C2B76CB199908E7006156A3 /* liboffice365-base-sdk.a in Frameworks */,
 				ECC4325F1986E44C00D497F5 /* liboffice365-lists-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,9 +133,9 @@
 		ECF2F6B11975A20100F74623 = {
 			isa = PBXGroup;
 			children = (
+				3CE01F0A1999584900A3E30C /* liboffice365-base-sdk.a */,
 				3C2B76CE19990CE4006156A3 /* ADALiOSBundle */,
 				3C2B76CC19990A38006156A3 /* libADALiOS.a */,
-				3C2B76CA199908E7006156A3 /* liboffice365-base-sdk.a */,
 				ECC4325D1986E44C00D497F5 /* liboffice365-lists-sdk.a */,
 				EC348BA71986D244002754F7 /* CoreGraphics.framework */,
 				EC348BA51986D203002754F7 /* UIKit.framework */,

@@ -38,14 +38,45 @@
     }
 
     -(void)clearCredentials{
-        
-        
-        id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
-        
         ADAuthenticationError* error;
-       
-        if ([cache allItemsWithError:&error].count > 0)
+        id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+        NSArray* allItems = [cache allItemsWithError:&error];
+        if (error)
+        {
+
+            return;
+        }
+        NSString* status = nil;
+        if (allItems.count > 0)
+        {
             [cache removeAllWithError:&error];
+            if (error)
+            {
+                status = error.errorDetails;
+            }
+            else
+            {
+                status = @"Items removed.";
+            }
+        }
+        else
+        {
+            status = @"Nothing in the cache.";
+        }
+        
+        NSHTTPCookieStorage* cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        NSArray* cookies = cookieStorage.cookies;
+        if (cookies.count)
+        {
+            for(NSHTTPCookie* cookie in cookies)
+            {
+                [cookieStorage deleteCookie:cookie];
+            }
+            status = [status stringByAppendingString:@" Cookies cleared."];
+        }
+
+    
+
     }
 
     -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token, NSError * error))completionBlock;{

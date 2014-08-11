@@ -39,6 +39,8 @@ NSString* token;
     clientId = @"778a099e-ed6e-49a2-9f15-92c01366ad7d";//@"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
     token = [NSString alloc];
+    
+    [self performLogin:FALSE];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,15 +75,32 @@ NSString* token;
     controller.token = token;
 }
 
-- (IBAction)LogIn:(id)sender {
+
+
+- (IBAction)Login:(id)sender {
+    [self performLogin:FALSE];
+
+}
+
+- (IBAction)Clear:(id)sender {
     LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
     
-    [client login:TRUE completionHandler:^(NSString *t, NSError *e) {
+    [client clearCredentials];
+}
+
+- (void) performLogin: (BOOL) clearCache{
+    LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
+    
+    [client login:clearCache completionHandler:^(NSString *t, NSError *e) {
         if(e == nil)
         {
             token = t;
             //self.GetFilesButton.enabled = true;
-            self.LogInButton.enabled = false;
+            //self.LogInButton.enabled = false;
+            ListTableViewController *controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"listvc"];
+            controller.token = t;
+            
+            [self.navigationController pushViewController:controller animated:YES];
         }
         else
         {
@@ -91,4 +110,5 @@ NSString* token;
         }
     }];
 }
+
 @end
