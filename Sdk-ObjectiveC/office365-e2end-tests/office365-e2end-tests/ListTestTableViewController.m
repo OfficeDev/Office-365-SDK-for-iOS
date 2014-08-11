@@ -7,7 +7,7 @@
 //
 
 #import "ListTestTableViewController.h"
-#import "LogInController.h"
+//#import "LogInController.h"
 #import "TestParameters.h"
 #import "ListTestRunner.h"
 
@@ -17,7 +17,7 @@
 
 @implementation ListTestTableViewController
 
-LogInController *loginController;
+//LogInController *loginController;
 TestParameters *testParameters;
 ListTestRunner *testRunner;
 
@@ -33,7 +33,7 @@ ListTestRunner *testRunner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    loginController = [[LogInController alloc] init];//initWith:];
+ //   loginController = [[LogInController alloc] init];//initWith:];
     
    // [self LogIn];
     
@@ -168,7 +168,7 @@ ListTestRunner *testRunner;
 
 -(void)LogIn{
     
-    [loginController getTokenWith : @"https://lagashsystems365.sharepoint.com" :true completionHandler:^(NSString *token) {
+    /*[loginController getTokenWith : @"https://lagashsystems365.sharepoint.com" :true completionHandler:^(NSString *token) {
         testParameters = [TestParameters alloc];
         testParameters.Credentials = [[OAuthentication alloc] initWith:token];
         testParameters.ServiceUrl = @"https://lagashsystems365.sharepoint.com/sites/Argentina/Produccion/MSOpenTechLagash";
@@ -179,6 +179,6 @@ ListTestRunner *testRunner;
         self.Tests = [testRunner getTests];
         
         [self.tableView reloadData];
-    }];
+    }];*/
 }
 @end
