@@ -13,7 +13,7 @@
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
 
