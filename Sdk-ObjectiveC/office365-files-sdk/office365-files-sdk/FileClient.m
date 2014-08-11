@@ -22,7 +22,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, parentFolder];
+        url = [NSString stringWithFormat:@"%@%@('%@/%@')", self.Url , apiUrl, parentFolder, name];
     }
     
     NSString *metadata = [NSString stringWithFormat:@"{Name:'%@'}", name];
@@ -59,7 +59,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@/Add(name='%@',overwrite='true')", self.Url , apiUrl,name];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@')/Add(name='%@',overwrite='true')", self.Url , apiUrl, folder, name];
+        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='true')", self.Url , apiUrl, folder, name];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
@@ -88,7 +88,14 @@ const NSString *apiUrl = @"/_api/files";
 
 - (NSURLSessionDataTask *)createFile:(NSString *)name overwrite:(BOOL)overwrite body:(NSData *)body folder:(NSString *)folder : (void (^)(FileEntity *file, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@/Add(name='%@',overwrite='%@')", self.Url , apiUrl, name, overwrite ? @"true" : @"false"];
+    NSString *url;
+    if(folder == nil){
+        url = [NSString stringWithFormat:@"%@%@/Add(name='%@',overwrite='%@')", self.Url , apiUrl,name,overwrite ? @"true" : @"false"];
+    }
+    else{
+        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='%@')", self.Url , apiUrl,folder,name,overwrite ? @"true" : @"false"];
+    }
+    
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                          url:url
                                                                    bodyArray:body];
@@ -125,7 +132,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, folder];
+        url = [NSString stringWithFormat:@"%@%@('%@')/Children", self.Url , apiUrl, folder];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
@@ -139,6 +146,31 @@ const NSString *apiUrl = @"/_api/files";
         }
         
         callback(array, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)getFileById:(NSString *)fId callback :(void (^)(FileEntity *file, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, fId];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
+    
+    NSString *method = (NSString*)[[Constants alloc] init].Method_Get;
+   
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+            FileEntity *file = [[FileEntity alloc] init];
+            
+            NSDictionary *jsonResult = [NSJSONSerialization JSONObjectWithData:data
+                                                                       options: NSJSONReadingMutableContainers
+                                                                         error:nil];
+            
+            NSDictionary *jsonArray = [jsonResult valueForKey : @"d"];
+            
+            if(error == nil){
+                [file createFromJson: jsonArray];
+            }
+            
+            callback(file, error);
     }];
 }
 
@@ -171,15 +203,20 @@ const NSString *apiUrl = @"/_api/files";
     return [connection execute:method callback:callback];
 }
 
-- (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+- (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString *responseCode, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@(%@)/MoveTo('%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/MoveTo('%@/%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder, name];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                          url:url];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
     
-    return [connection execute:method callback:callback];
+    //return [connection execute:method callback:callback];
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        callback(@"Ok", error);
+    }];
+    
 }
 
 - (NSMutableArray *)parseData:(NSData *)data{
