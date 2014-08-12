@@ -45,6 +45,8 @@ NSString* token;
     resourceId = [NSString alloc];
     clientId = [NSString alloc];
     redirectUriString = [NSString alloc];
+    
+    [self performLogin:FALSE];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,18 +67,6 @@ NSString* token;
 }
 
 */
-- (IBAction)login:(UIButton *)sender {
-    [self performLogin:FALSE];
-    
-    
-    
-}
-
-- (IBAction)clear:(UIButton *)sender {
-    [self performLogin:TRUE];
-}
-
-
 
 - (void) performLogin: (BOOL) clearCache {
     UIActivityIndicatorView* spinner = [self getSpinner];
@@ -109,17 +99,11 @@ NSString* token;
         else
         {
             NSString *errorMessage = [@"Login failed. Reason: " stringByAppendingString: e.description];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
             [alert show];
         }
         
     }];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0){
-        [self performLogin:TRUE];
-    }
 }
 
 
@@ -131,5 +115,30 @@ NSString* token;
     spinner.hidesWhenStopped = YES;
     
     return spinner;
+}
+- (IBAction)Clear:(id)sender {
+    NSError *error;
+    LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
+    
+    [client clearCredentials: &error];
+    
+    if(error != nil){
+        NSString *errorMessage = [@"Clear credentials failed. Reason: " stringByAppendingString: error.description];
+        [self showOkOnlyAlert:errorMessage : @"Error"];
+    }
+    else
+    {
+        [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
+    }
+    
+}
+
+-(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
+}
+
+- (IBAction)Login:(id)sender {
+    [self performLogin:FALSE];
 }
 @end

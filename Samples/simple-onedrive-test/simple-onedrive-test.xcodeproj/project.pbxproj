@@ -11,6 +11,7 @@
 		3C0BEEA81993FB170044F6FA /* liboffice365-files-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0BEEA71993FB170044F6FA /* liboffice365-files-sdk.a */; };
 		3C2B76C11995470F006156A3 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B76C01995470F006156A3 /* libADALiOS.a */; };
 		3C2B76C71995527D006156A3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B76C61995527D006156A3 /* LoginViewController.m */; };
+		3C620E88199A65FA00231D4D /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C620E87199A65FA00231D4D /* office365.png */; };
 		EC6ED1AB19926F35002F062A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AA19926F35002F062A /* Foundation.framework */; };
 		EC6ED1AD19926F35002F062A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AC19926F35002F062A /* CoreGraphics.framework */; };
 		EC6ED1AF19926F35002F062A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6ED1AE19926F35002F062A /* UIKit.framework */; };
@@ -44,6 +45,7 @@
 		3C2B76C01995470F006156A3 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		3C2B76C51995527D006156A3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3C2B76C61995527D006156A3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3C620E87199A65FA00231D4D /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = office365.png; sourceTree = "<group>"; };
 		EC6ED1A719926F35002F062A /* simple-onedrive-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-onedrive-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6ED1AA19926F35002F062A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EC6ED1AC19926F35002F062A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +138,7 @@
 		EC6ED1B019926F35002F062A /* simple-onedrive-test */ = {
 			isa = PBXGroup;
 			children = (
+				3C620E87199A65FA00231D4D /* office365.png */,
 				EC6ED1F61992A413002F062A /* Controllers */,
 				EC6ED1B919926F35002F062A /* AppDelegate.h */,
 				EC6ED1BA19926F35002F062A /* AppDelegate.m */,
@@ -266,6 +269,7 @@
 			files = (
 				EC6ED1C319926F35002F062A /* Images.xcassets in Resources */,
 				EC6ED1B519926F35002F062A /* InfoPlist.strings in Resources */,
+				3C620E88199A65FA00231D4D /* office365.png in Resources */,
 				EC6ED1BE19926F35002F062A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

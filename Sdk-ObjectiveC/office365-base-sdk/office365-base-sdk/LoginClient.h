@@ -17,7 +17,7 @@
 
 -(id)initWithParameters: (NSString *)cliId :(NSString *)returnUrl :(NSString *)resId :(NSString *)authority;
 
--(void)clearCredentials;
+-(void)clearCredentials : (NSError*__autoreleasing*) e;
 
 -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token, NSError *error))completionBlock;
 @end	

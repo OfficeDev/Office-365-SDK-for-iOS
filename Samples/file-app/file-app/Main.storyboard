@@ -33,27 +33,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="office365.png" translatesAutoresizingMaskIntoConstraints="NO" id="soN-sN-pi4">
-                                <rect key="frame" x="47" y="185" width="229" height="198"/>
+                                <rect key="frame" x="46" y="185" width="229" height="198"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4iE-00-6mX">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Get Files" id="ojz-pJ-aeV">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="fSn-D3-wGf">
                             <connections>
-                                <segue destination="8OI-97-zND" kind="push" id="W00-M9-dnU"/>
+                                <action selector="Clear:" destination="FFy-2w-Hh0" id="Eg2-3x-yYu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="LogIn" id="NiM-DN-qbH">
                             <connections>
-                                <action selector="LogIn:" destination="FFy-2w-Hh0" id="NHW-VI-wnG"/>
+                                <action selector="Login:" destination="FFy-2w-Hh0" id="JxJ-QC-gbg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="GetFilesButton" destination="ojz-pJ-aeV" id="l4Z-hO-vdP"/>
-                        <outlet property="LogInButton" destination="NiM-DN-qbH" id="n59-G7-m8m"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBD-oI-6fa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,14 +58,14 @@
         <!--File Table View Controller - Files&Folders-->
         <scene sceneID="S5H-0O-SCu">
             <objects>
-                <tableViewController id="8OI-97-zND" customClass="FileTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="filesvc" id="8OI-97-zND" customClass="FileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="g8L-os-twk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FileListCell" id="xGC-8H-r1d" customClass="FileTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xGC-8H-r1d" id="6vM-gY-hIg">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -98,10 +94,6 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="8OI-97-zND" id="1wA-sD-WUa"/>
-                            <outlet property="delegate" destination="8OI-97-zND" id="eHV-eA-cff"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Files&amp;Folders" id="DIM-TL-Mrc">
                         <barButtonItem key="rightBarButtonItem" title="Create" id="aZG-s3-AjX">
