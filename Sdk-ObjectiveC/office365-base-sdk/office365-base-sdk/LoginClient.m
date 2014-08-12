@@ -37,33 +37,26 @@
         return self;
     }
 
-    -(void)clearCredentials{
+-(void)clearCredentials : (NSError* __autoreleasing*) e {
         ADAuthenticationError* error;
         id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
         NSArray* allItems = [cache allItemsWithError:&error];
+    
         if (error)
         {
-
+            *e = error;
             return;
         }
-        NSString* status = nil;
+
         if (allItems.count > 0)
         {
             [cache removeAllWithError:&error];
             if (error)
             {
-                status = error.errorDetails;
-            }
-            else
-            {
-                status = @"Items removed.";
+                *e = error;
             }
         }
-        else
-        {
-            status = @"Nothing in the cache.";
-        }
-        
+    
         NSHTTPCookieStorage* cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
         NSArray* cookies = cookieStorage.cookies;
         if (cookies.count)
@@ -72,16 +65,13 @@
             {
                 [cookieStorage deleteCookie:cookie];
             }
-            status = [status stringByAppendingString:@" Cookies cleared."];
         }
-
-    
-
     }
 
     -(void) login: (BOOL) clearCache completionHandler:(void (^) (NSString* token, NSError * error))completionBlock;{
+        NSError *error ;
         if(clearCache)
-            [self clearCredentials];
+            [self clearCredentials: &error];
         
         if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
         

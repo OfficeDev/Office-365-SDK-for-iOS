@@ -83,9 +83,25 @@ NSString* token;
 }
 
 - (IBAction)Clear:(id)sender {
+    NSError *error;
     LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
     
-    [client clearCredentials];
+    [client clearCredentials: &error];
+    
+    if(error != nil){
+        NSString *errorMessage = [@"Clear credentials failed. Reason: " stringByAppendingString: error.description];
+        [self showOkOnlyAlert:errorMessage : @"Error"];
+    }
+    else
+    {
+        [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
+    }
+
+}
+
+-(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
 }
 
 - (void) performLogin: (BOOL) clearCache{
@@ -110,5 +126,7 @@ NSString* token;
         }
     }];
 }
+
+
 
 @end
