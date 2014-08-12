@@ -9,13 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/FileTestRunner.m"
-            timestampString = "429476052.282813"
+            filePath = "Sdk-ObjectiveC/office365-files-sdk/office365-files-sdk/FileClient.m"
+            timestampString = "429555063.965804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "-TestGetFilesByIdCompletionHandler:"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "-move:destinationFolder:callback:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk-ObjectiveC/office365-files-sdk/office365-files-sdk/FileClient.m"
+            timestampString = "429555117.454893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-move:destinationFolder:callback:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk-ObjectiveC/office365-base-sdk/office365-base-sdk/OAuthentication.m"
+            timestampString = "429555760.884906"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-prepareRequest:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

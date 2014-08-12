@@ -67,7 +67,6 @@ const NSString *apiUrl = @"/_api/files";
                                                                    bodyArray:nil];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
-  //  return [connection execute:method callback:callback];
     
     return [connection execute:method callback:^(NSData *data, NSURLResponse *response, NSError *error) {
         FileEntity *file = [[FileEntity alloc] init];
@@ -138,6 +137,7 @@ const NSString *apiUrl = @"/_api/files";
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Get;
+    
     return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
         NSMutableArray *array = [NSMutableArray array];
         
@@ -183,13 +183,17 @@ const NSString *apiUrl = @"/_api/files";
     return [connection download:method delegate:delegate];
 }
 
-- (NSURLSessionDataTask *)delete:(NSString *)name callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+- (NSURLSessionDataTask *)delete:(NSString *)name callback:(void (^)(NSString *status, NSError *error))callback{
     
     NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, name];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Delete;
-    return [connection execute:method callback:callback];
+   
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        callback(@"Ok", error);
+    }];
 }
 
 - (NSURLSessionDataTask *)copy:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
@@ -211,12 +215,10 @@ const NSString *apiUrl = @"/_api/files";
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
     
-    //return [connection execute:method callback:callback];
     return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
         
         callback(@"Ok", error);
     }];
-    
 }
 
 - (NSMutableArray *)parseData:(NSData *)data{

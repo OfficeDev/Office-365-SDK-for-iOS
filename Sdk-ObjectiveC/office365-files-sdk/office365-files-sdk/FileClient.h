@@ -18,6 +18,7 @@
 - (NSURLSessionDataTask *)createFile:(NSString *)name overwrite:(BOOL)overwrite body:(NSData *)body folder:(NSString *)folder : (void (^)(FileEntity *file, NSError *error))callback;
 
 
+- (NSURLSessionDataTask *)delete:(NSString *)name callback:(void (^)(NSString *status, NSError *error))callback;
 - (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString *responseCode, NSError *error))callback;
 /*
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSData *, NSURLResponse *, NSError *))callback;

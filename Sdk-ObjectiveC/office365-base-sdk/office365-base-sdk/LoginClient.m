@@ -12,6 +12,7 @@
 #import <ADALiOS/ADAuthenticationSettings.h>
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
+
 @implementation LoginClient
     NSString *clientId;
 
