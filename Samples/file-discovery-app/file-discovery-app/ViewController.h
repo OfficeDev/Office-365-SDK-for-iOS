@@ -17,9 +17,5 @@
 
 - (IBAction)Clear:(id)sender;
 - (IBAction)Login:(id)sender;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *LogInButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *GetServicesButton;
-
-- (IBAction)LogIn:(id)sender;
 
 @end

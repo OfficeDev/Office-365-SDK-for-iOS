@@ -11,12 +11,7 @@
 
 @interface ViewController : UIViewController<UIAlertViewDelegate>
 
-
-
-- (IBAction)Clear:(id)sender;
 - (IBAction)Login:(id)sender;
-
-
-
+- (IBAction)Clear:(id)sender;
 
 @end
