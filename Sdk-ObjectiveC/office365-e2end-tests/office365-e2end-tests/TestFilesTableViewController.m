@@ -24,7 +24,7 @@ FileTestRunner *testRunner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self logIn];
+    //[self logIn];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

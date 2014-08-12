@@ -10,7 +10,7 @@
 //#import "LogInController.h"
 #import "TestParameters.h"
 #import "ListTestRunner.h"
-
+#import <office365-base-sdk/LoginClient.h>
 @interface ListTestTableViewController ()
 
 @end
@@ -20,6 +20,7 @@
 //LogInController *loginController;
 TestParameters *testParameters;
 ListTestRunner *testRunner;
+LoginClient *loginClient;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,13 +36,12 @@ ListTestRunner *testRunner;
     [super viewDidLoad];
  //   loginController = [[LogInController alloc] init];//initWith:];
     
-   // [self LogIn];
+   [self LogIn];
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self LogIn];
 }
 
 - (void)didReceiveMemoryWarning
@@ -180,5 +180,38 @@ ListTestRunner *testRunner;
         
         [self.tableView reloadData];
     }];*/
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    loginClient = [[LoginClient alloc] initWithParameters:[userDefaults objectForKey: @"CliendId"]
+                                                         :[userDefaults objectForKey: @"RedirectUrl"]
+                                                         :@"https://lagashsystems365.sharepoint.com"
+                                                         :[userDefaults objectForKey: @"AuthorityUrl"]
+                   ];
+    
+    [loginClient login:FALSE completionHandler:^(NSString *token, NSError *error) {
+        
+        if(error != nil){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Adal Error" message:error.description delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            
+            [alert show];
+            
+        }else{
+            
+            testParameters = [TestParameters alloc];
+            testParameters.Credentials = [[OAuthentication alloc] initWith:token];
+            testParameters.ServiceUrl = @"https://lagashsystems365.sharepoint.com/sites/Argentina/Produccion/MSOpenTechLagash";
+            
+            testRunner = [ListTestRunner alloc];
+            testRunner.Parameters = testParameters;
+            
+            self.Tests = [testRunner getTests];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    }];
 }
 @end
