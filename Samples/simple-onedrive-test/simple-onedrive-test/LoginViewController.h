@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController<UIAlertViewDelegate>
-- (IBAction)login:(UIButton *)sender;
-- (IBAction)clear:(UIButton *)sender;
+
+- (IBAction)Clear:(id)sender;
+- (IBAction)Login:(id)sender;
 
 @end
