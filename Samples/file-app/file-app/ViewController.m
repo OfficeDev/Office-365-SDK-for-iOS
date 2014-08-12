@@ -37,6 +37,8 @@ NSString* token;
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
     token = [NSString alloc];
+    
+    [self performLogin:FALSE];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,35 +47,23 @@ NSString* token;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)Clear:(id)sender {
-}
 
 - (IBAction)Login:(id)sender {
+    [self performLogin:FALSE];
 }
 
-- (IBAction)Clear:(id)sender {
-}
-
-- (IBAction)asdas:(id)sender {
-}
-
-- (IBAction)Clear:(id)sender {
-}
-
-- (IBAction)Clear:(id)sender {
-}
-
-- (IBAction)Clear:(UIBarButtonItem *)sender {
-}
-
-- (IBAction)LogIn:(id)sender {
+- (void) performLogin : (BOOL) clearCache{
+    
     LoginClient *client = [[LoginClient alloc] initWithParameters:clientId:redirectUriString:resourceId:authority];
-    [client login:TRUE completionHandler:^(NSString *t, NSError *e) {
+    [client login:clearCache completionHandler:^(NSString *t, NSError *e) {
         if(e == nil)
         {
             token = t;
-            self.GetFilesButton.enabled = true;
-            self.LogInButton.enabled = false;
+            
+            FileTableViewController *controller = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"filesvc"];
+            controller.token = t;
+            
+            [self.navigationController pushViewController:controller animated:YES];
         }
         else
         {
@@ -84,13 +74,13 @@ NSString* token;
         
     }];
 }
-
+/*
 -(void) redirectToServices:(NSString*)token{
   // ServiceTableViewController *destinationController = [[ServiceTableViewController alloc]initWithStyle:UITableViewStylePlain];
     
   // [destinationController addToken: token];
 }
-
+*/
 -(void)showError : (NSString*) errorDetails{
     
 }
@@ -102,6 +92,7 @@ NSString* token;
     });
 }
 
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //if ([segue.identifier isEqualToString:...]) {
@@ -109,9 +100,27 @@ NSString* token;
         FileTableViewController *controller = (FileTableViewController *)segue.destinationViewController;
         controller.token = token;
 }
+*/
+- (IBAction)Clear:(id)sender {
+    NSError *error;
+    LoginClient *client = [[LoginClient alloc] initWithParameters: clientId: redirectUriString:resourceId :authority];
+    
+    [client clearCredentials: &error];
+    
+    if(error != nil){
+        NSString *errorMessage = [@"Clear credentials failed. Reason: " stringByAppendingString: error.description];
+        [self showOkOnlyAlert:errorMessage : @"Error"];
+    }
+    else
+    {
+        [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
+    }
+    
+}
 
-- (IBAction)Clear:(id)sender {
+-(void) showOkOnlyAlert : (NSString*) message : (NSString*) title{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
 }
-- (IBAction)Clear:(id)sender {
-}
+
 @end
