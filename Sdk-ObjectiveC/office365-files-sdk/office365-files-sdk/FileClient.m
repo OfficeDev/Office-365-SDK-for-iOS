@@ -209,7 +209,7 @@ const NSString *apiUrl = @"/_api/files";
 
 - (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString *responseCode, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/MoveTo('%@/%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder, name];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/MoveTo(target='%@/%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder, name];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                          url:url];
     

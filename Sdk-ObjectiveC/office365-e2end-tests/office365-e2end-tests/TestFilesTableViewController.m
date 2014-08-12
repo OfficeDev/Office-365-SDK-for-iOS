@@ -47,17 +47,16 @@ FileTestRunner *testRunner;
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"failed.png"]];
         }
     }
+    else {cell.accessoryView = nil;}
     
     return cell;
 }
 
 - (IBAction)RunAllTests:(id)sender {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
-    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    [self.view addSubview:spinner];
-    spinner.hidesWhenStopped = YES;
     
-    [spinner startAnimating];
+    UIActivityIndicatorView *spinner = [self getSpinner];
+    
+    [self clear];
     
     __block int executed = 0;
     
@@ -80,6 +79,25 @@ FileTestRunner *testRunner;
     }
 }
 
+-(void)clear{
+    for (int i = 0; i < [self.Tests count]; i++) {
+        ((Test*)[self.Tests objectAtIndex:i]).ExecutionMessages = nil;
+    }
+    
+    [self.tableView reloadData];
+}
+
+-(UIActivityIndicatorView*)getSpinner{
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    [spinner startAnimating];
+    
+    return spinner;
+}
+
 -(void)logIn{
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -90,7 +108,7 @@ FileTestRunner *testRunner;
                                                   :[userDefaults objectForKey: @"AuthorityUrl"]
                    ];
     
-    [loginClient login:true completionHandler:^(NSString *token, NSError *error) {
+    [loginClient login:false completionHandler:^(NSString *token, NSError *error) {
         
         if(error != nil){
             

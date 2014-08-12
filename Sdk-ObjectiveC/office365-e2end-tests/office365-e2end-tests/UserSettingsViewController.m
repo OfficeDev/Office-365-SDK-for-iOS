@@ -9,6 +9,8 @@
 #import "UserSettingsViewController.h"
 //#import "LogInController.h"
 
+#import <office365-base-sdk/LoginClient.h>
+
 @interface UserSettingsViewController ()
 
 @end
@@ -65,6 +67,30 @@
 }
 
 - (IBAction)ClearCredentials:(id)sender {
+    
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"LogInUser"];
+    [userDefaults synchronize];
+    
+    self.txtLoggedInUser.text = [userDefaults objectForKey:@"LogInUser"];
+    
+    NSError *error;
+    LoginClient *client = [[LoginClient alloc] initWithParameters:[userDefaults objectForKey: @"CliendId"]
+                                                                 :[userDefaults objectForKey: @"RedirectUrl"]
+                                                                 :@"https://lagashsystems365-my.sharepoint.com"
+                                                                 :[userDefaults objectForKey: @"AuthorityUrl"]
+                           ];
+    
+    [client clearCredentials: &error];
+    
+    if(error != nil){
+        NSString *errorMessage = [@"Clear credentials failed. Reason: " stringByAppendingString: error.description];
+       // [self showOkOnlyAlert:errorMessage : @"Error"];
+    }
+    else
+    {
+     //   [self showOkOnlyAlert:@"Clear credentials success." : @"Success"];
+    }
  /*   LogInController* logInController = [[LogInController alloc] init];
     
     [logInController clearCredentials];
