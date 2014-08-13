@@ -17,12 +17,16 @@
 
 @implementation TestFilesTableViewController
 
+UIActivityIndicatorView *spinner;
 LoginClient *loginClient;
 TestParameters *testParameters;
 FileTestRunner *testRunner;
+NSMutableArray *testTasks;
 
 - (void)viewDidLoad
 {
+    spinner = [self getSpinner];
+    testTasks = [NSMutableArray array];
     [super viewDidLoad];
     [self logIn];
 }
@@ -60,7 +64,8 @@ FileTestRunner *testRunner;
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
 
-        UIActivityIndicatorView *spinner = [self getSpinner];
+        [self changeButtonState];
+        [spinner startAnimating];
 
         NSURLSessionDataTask *task = [[self.Tests objectAtIndex:indexPath.row] Run:^(Test *result) {
             Test *test = [self.Tests objectAtIndex:indexPath.row];
@@ -69,8 +74,7 @@ FileTestRunner *testRunner;
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
-                
-                [spinner stopAnimating];
+                [self disposeTest];
             });
         }];
         
@@ -78,18 +82,26 @@ FileTestRunner *testRunner;
     }
 }
 
+- (IBAction)Cancel:(id)sender {
+    [self disposeTest];
+}
+
 - (IBAction)RunAllTests:(id)sender {
     
     [self logIn];
-    
-    UIActivityIndicatorView *spinner = [self getSpinner];
+    [spinner startAnimating];
+    [self changeButtonState];
     
     [self clear];
     
     __block int executed = 0;
     
     for (int i = 0; i < [self.Tests count]; i++) {
-        NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
+       __block NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
+            
+            if(task.state == NSURLSessionTaskStateCanceling){
+                return ;
+            }
             
             Test *test = [self.Tests objectAtIndex:i];
             test.Passed = result.Passed;
@@ -99,12 +111,35 @@ FileTestRunner *testRunner;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
                 
-                if(executed == [self.Tests count]) [spinner stopAnimating];
+                if(executed == [self.Tests count]) {
+                    [self disposeTest];
+                }
             });
         }];
-        
+        [testTasks addObject: task];
+    }
+    [self runTask];
+}
+
+-(void)runTask{
+    for (NSURLSessionDataTask *task in testTasks) {
         [task resume];
     }
+}
+
+-(void)disposeTest{
+    [spinner stopAnimating];
+    
+    for (int i = 0; i < testTasks.count; i++) {
+        [[testTasks objectAtIndex:i] cancel];
+    }
+    [testTasks removeAllObjects];
+    [self changeButtonState];
+}
+
+-(void)changeButtonState{
+  //  self.CancelBtn.enabled = self.RunAllTest.enabled;
+    self.RunAllTest.enabled = !self.RunAllTest.enabled;
 }
 
 -(void)clear{
@@ -120,8 +155,6 @@ FileTestRunner *testRunner;
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
     spinner.hidesWhenStopped = YES;
-    
-    [spinner startAnimating];
     
     return spinner;
 }

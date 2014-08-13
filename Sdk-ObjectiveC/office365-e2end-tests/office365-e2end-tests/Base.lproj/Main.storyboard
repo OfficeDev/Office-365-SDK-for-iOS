@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="72" y="194"/>
         </scene>
-        <!--Test Files Table View Controller - File Fests-->
+        <!--Test Files Table View Controller - File Tests-->
         <scene sceneID="IBP-iD-Bf1">
             <objects>
                 <tableViewController id="ZAz-fk-owd" customClass="TestFilesTableViewController" sceneMemberID="viewController">
@@ -48,14 +48,22 @@
                             <outlet property="delegate" destination="ZAz-fk-owd" id="VU5-sL-6Qb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="File Fests" id="HvR-fX-cid">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Cancel" id="GT0-Dt-SRE"/>
+                    <navigationItem key="navigationItem" title="File Tests" id="HvR-fX-cid">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Cancel" id="GT0-Dt-SRE">
+                            <connections>
+                                <action selector="Cancel:" destination="ZAz-fk-owd" id="jWS-gj-Min"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Run All" id="cGK-Lx-KN9">
                             <connections>
                                 <action selector="RunAllTests:" destination="ZAz-fk-owd" id="tbK-Qu-qth"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="CancelBtn" destination="GT0-Dt-SRE" id="l7s-gn-Ahg"/>
+                        <outlet property="RunAllTest" destination="cGK-Lx-KN9" id="hlm-8Q-UOa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrG-2H-zLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

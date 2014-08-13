@@ -50,6 +50,9 @@
     if ([testName isEqualToString:@"TestCopyFile"]){
         return [self TestCopyFileWithCompletionHandler:result];
     }
+    if ([testName isEqualToString:@"TestDeleteFile"]){
+        return [self TestDeleteFileWithCompletionHandler:result];
+    }
     
     return nil;
 }
@@ -335,6 +338,40 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestDeleteFileWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSessionDataTask *task = [[self getClient] createFile:@"deleteFileTest.txt" overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
+        
+        [[[self getClient] delete:@"deleteFileTest.txt" callback:^(NSString *status, NSError *error) {
+        
+            [[[self getClient] getFileById:file.Id callback:^(FileEntity *file, NSError *error) {
+                BOOL passed = true;
+                
+                if(file.Name  != nil ||
+                   file.Id  != nil  ||
+                   //file.Metadata  != nil  ||
+                   file.Size != 0){
+                    passed = false;
+                }
+                
+                Test *test = [Test alloc];
+                
+                test.Passed = passed;
+                test.ExecutionMessages = [NSMutableArray array];
+                result(test);
+
+            }] resume];
+        
+        }] resume];
+        
+        
+                   }];
+    
+    
+    return task;
+}
+
 -(FileClient *)getClient{
     
     if(self.Client != nil) return self.Client;
@@ -386,6 +423,16 @@
     moveFileTest.Name = @"TestMoveFile";
     moveFileTest.DisplayName = @"Move File";
     
+    Test *deleteFileTest = [Test alloc];
+    deleteFileTest.TestRunner = self;
+    deleteFileTest.Name = @"TestDeleteFile";
+    deleteFileTest.DisplayName = @"Delete File";
+    
+    Test *downloadFileTest = [Test alloc];
+    downloadFileTest.TestRunner = self;
+    downloadFileTest.Name = @"TestDownloadFile";
+    downloadFileTest.DisplayName = @"Download File";
+    
     [tests addObject:createFolderTest];
     [tests addObject:createFileWithContentTest];
     [tests addObject:testGetById];
@@ -393,6 +440,8 @@
     [tests addObject:getFilesByFolderTest];
     [tests addObject:copyFileTest];
     [tests addObject:moveFileTest];
+    [tests addObject:deleteFileTest];
+   // [tests addObject:downloadFileTest];
     
     return tests;
 }

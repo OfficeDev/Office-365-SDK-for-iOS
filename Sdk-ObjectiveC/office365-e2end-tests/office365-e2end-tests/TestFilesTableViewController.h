@@ -10,8 +10,11 @@
 
 @interface TestFilesTableViewController : UITableViewController
 
-- (IBAction)RunAllTests:(id)sender;
-
 @property NSMutableArray *Tests;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *RunAllTest;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *CancelBtn;
+
+- (IBAction)Cancel:(id)sender;
+- (IBAction)RunAllTests:(id)sender;
 
 @end
