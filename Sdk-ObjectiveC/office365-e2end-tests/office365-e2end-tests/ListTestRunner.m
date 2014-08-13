@@ -21,6 +21,9 @@
     if([testName isEqualToString:@"TestGetClientListError"]){
         return [self TestGetClientListsErrorWithCompletionHandler:result];
     }
+    if([testName isEqualToString:@"TestGetListByName"]){
+        return [self TestGetListWithCompletionHandler:result];
+    }
     else{
         return [self TestDefaultWithCompletionHandler:result];
     }
@@ -64,7 +67,7 @@
 -(NSURLSessionDataTask *)TestGetClientListsErrorWithCompletionHandler:(void (^) (Test *))result{
     
     ListClient *client = [ListClient alloc];
-    self.Client = [client initWithUrl:nil  credentials:self.Parameters.Credentials];
+    client = [client initWithUrl:nil  credentials:self.Parameters.Credentials];
     
     NSURLSessionDataTask *task = [client getLists:^(NSMutableArray *lists, NSError *error) {
    
@@ -72,6 +75,33 @@
         test.Passed = error.code == -1002;
         test.ExecutionMessages = [NSMutableArray array];
         result(test);
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetListWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] getList:@"Activos del sitio" callback:^(ListEntity *list, NSError *error) {
+        
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = list != nil ? @"Ok - ": @"Not - ";
+        
+        if(list != nil && list.Id != nil && list.Title != nil){
+            passed = true;
+        }
+
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
         
         result(test);
     }];
@@ -113,13 +143,21 @@
     
     [array addObject:test];
     
+    
     Test* testClient = [Test alloc];
     testClient.TestRunner = self;
     testClient.Name = @"TestGetClientListError";
     testClient.DisplayName = @"Get Client List Error";
     
-    
     [array addObject:testClient];
+    
+    
+    Test* testListByName = [Test alloc];
+    testListByName.TestRunner = self;
+    testListByName.Name = @"TestGetListByName";
+    testListByName.DisplayName = @"Get List By Name";
+    
+    [array addObject:testListByName];
     
     return array;
 }
