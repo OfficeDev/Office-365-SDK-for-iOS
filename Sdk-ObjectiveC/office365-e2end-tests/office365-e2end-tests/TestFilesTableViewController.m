@@ -52,7 +52,49 @@ FileTestRunner *testRunner;
     return cell;
 }
 
+-(NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Run";
+}
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+   /* if(editingStyle == UITableViewCellAccessoryDetailButton){
+    }
+    */
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self logIn];
+        
+        UIActivityIndicatorView *spinner = [self getSpinner];
+        
+        
+        
+       // test.ExecutionMessages = nil;
+        
+       // [self.tableView reloadData];
+        NSURLSessionDataTask *task = [[self.Tests objectAtIndex:indexPath.row] Run:^(Test *result) {
+            Test *test = [self.Tests objectAtIndex:indexPath.row];
+            test.Passed = result.Passed;
+            test.ExecutionMessages = result.ExecutionMessages;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+                [spinner stopAnimating];
+            });
+        }];
+        
+        [task resume];
+    }
+    /*else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }*/
+}
+
 - (IBAction)RunAllTests:(id)sender {
+    
+    [self logIn];
     
     UIActivityIndicatorView *spinner = [self getSpinner];
     

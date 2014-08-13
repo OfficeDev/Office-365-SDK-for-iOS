@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="72" y="194"/>
         </scene>
-        <!--Test Files Table View Controller - Root View Controller-->
+        <!--Test Files Table View Controller - File Fests-->
         <scene sceneID="IBP-iD-Bf1">
             <objects>
                 <tableViewController id="ZAz-fk-owd" customClass="TestFilesTableViewController" sceneMemberID="viewController">
@@ -48,8 +48,8 @@
                             <outlet property="delegate" destination="ZAz-fk-owd" id="VU5-sL-6Qb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="HvR-fX-cid">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Run" id="GT0-Dt-SRE"/>
+                    <navigationItem key="navigationItem" title="File Fests" id="HvR-fX-cid">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Cancel" id="GT0-Dt-SRE"/>
                         <barButtonItem key="rightBarButtonItem" title="Run All" id="cGK-Lx-KN9">
                             <connections>
                                 <action selector="RunAllTests:" destination="ZAz-fk-owd" id="tbK-Qu-qth"/>
@@ -77,7 +77,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="194"/>
         </scene>
-        <!--List Test Table View Controller - Run File Tests-->
+        <!--List Test Table View Controller - List Tests-->
         <scene sceneID="yGX-4b-6rV">
             <objects>
                 <tableViewController id="Xb0-Ag-Snv" customClass="ListTestTableViewController" sceneMemberID="viewController">
@@ -100,9 +100,8 @@
                             <outlet property="delegate" destination="Xb0-Ag-Snv" id="jzn-Uf-r4Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Run File Tests" id="s4x-R4-ZC1">
-                        <barButtonItem key="leftBarButtonItem" title="Selected" id="XpK-cL-6D6"/>
-                        <barButtonItem key="rightBarButtonItem" title="All" id="f5x-Rf-xtu">
+                    <navigationItem key="navigationItem" title="List Tests" id="s4x-R4-ZC1">
+                        <barButtonItem key="rightBarButtonItem" title="Run All" id="f5x-Rf-xtu">
                             <connections>
                                 <action selector="RunAllTests:" destination="Xb0-Ag-Snv" id="4WG-Wi-BbB"/>
                             </connections>
