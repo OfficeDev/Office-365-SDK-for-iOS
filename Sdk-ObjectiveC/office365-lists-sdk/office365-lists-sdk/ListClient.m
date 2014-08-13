@@ -8,6 +8,7 @@
 
 #import "ListClient.h"
 #import "ListEntity.h"
+#import "ListItem.h"
 #import "office365-base-sdk/HttpConnection.h"
 #import "office365-base-sdk/Constants.h"
 #import "office365-base-sdk/NSString+NSStringExtensions.h"
@@ -27,7 +28,10 @@ const NSString *apiUrl = @"/_api/lists";
         NSMutableArray *array = [NSMutableArray array];
         
         if(error == nil){
-            array = [self parseData : data];
+            NSMutableArray *listsArray =[self parseDataArray: data];
+            for (NSDictionary* value in listsArray) {
+                [array addObject: [[ListEntity alloc] initWithDictionary:value]];
+            }
         }
         
         callback(array, error);
@@ -42,18 +46,38 @@ const NSString *apiUrl = @"/_api/lists";
     NSString *method = (NSString*)[[Constants alloc] init].Method_Get;
     
     return [connection execute:method callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSMutableArray *array = [NSMutableArray array];
         ListEntity *entity;
         if(error == nil){
-            array = [self parseData : data];
-            entity = [array objectAtIndex:0];
+            entity = [[ListEntity alloc] initWithJson:data];
         }
         
         callback(entity ,error);
     }];
 }
 
-- (NSMutableArray *)parseData:(NSData *)data{
+- (NSURLSessionDataTask *)getListItems:(NSString *)name callback:(void (^)(NSMutableArray *listItems, NSError *))callback{
+ 
+    NSString *url = [NSString stringWithFormat:@"%@%@/GetByTitle('%@')/Items", self.Url , apiUrl, [name urlencode]];
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
+    
+    NSString *method = (NSString*)[[Constants alloc] init].Method_Get;
+    
+    return [connection execute:method callback:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSMutableArray *array = [NSMutableArray array];
+
+        NSMutableArray *listsItemsArray =[self parseDataArray: data];
+        for (NSDictionary* value in listsItemsArray) {
+            [array addObject: [[ListItem alloc] initWithDictionary:value]];
+        }
+        
+        callback(array ,error);
+    }];
+  
+    return nil;
+}
+
+
+- (NSMutableArray *)parseDataArray:(NSData *)data{
     
     NSMutableArray *array = [NSMutableArray array];
     
@@ -65,20 +89,16 @@ const NSString *apiUrl = @"/_api/lists";
     
     if(jsonArray != nil){
         for (NSDictionary *value in jsonArray) {
-            ListEntity *sharepointList = [[ListEntity alloc] init];
-            [sharepointList createFromJson:value];
-            [array addObject:sharepointList];
+            [array addObject: value];
         }
     }else{
         NSDictionary *jsonItem =[jsonResult valueForKey : @"d"];
-        ListEntity *sharepointList = [[ListEntity alloc] init];
-        [sharepointList createFromJson:jsonItem];
-        [array addObject:sharepointList];
+        
+        if(jsonItem != nil){
+            [array addObject:jsonItem];
+        }
     }
-    
-    
     
     return array;
 }
-
 @end

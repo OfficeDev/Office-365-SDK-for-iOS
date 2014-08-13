@@ -24,6 +24,9 @@
     if([testName isEqualToString:@"TestGetListByName"]){
         return [self TestGetListWithCompletionHandler:result];
     }
+    if([testName isEqualToString:@"TestNonexistentGetListByName"]){
+        return [self TestGetNonexistentListWithCompletionHandler: result];
+    }
     else{
         return [self TestDefaultWithCompletionHandler:result];
     }
@@ -46,7 +49,7 @@
         if([lists count] > 0){
             
             for (ListEntity *entity in lists) {
-                if(entity.Id == nil || entity.Title == nil){
+                if(entity.Id == nil || [entity getTitle] == nil){
                     passed = false;
                     break;
                 }
@@ -95,10 +98,37 @@
         
         NSString* message = list != nil ? @"Ok - ": @"Not - ";
         
-        if(list != nil && list.Id != nil && list.Title != nil){
+        if(list != nil && list.Id != nil && [list getTitle] != nil){
             passed = true;
         }
 
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetNonexistentListWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] getList:@"Nonexistent list" callback:^(ListEntity *list, NSError *error) {
+        
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = list == nil ? @"Ok - ": @"Not - ";
+        
+        if(list == nil){
+            passed = true;
+        }
+        
         test.Passed = passed;
         
         [test.ExecutionMessages addObject:message];
@@ -158,6 +188,13 @@
     testListByName.DisplayName = @"Get List By Name";
     
     [array addObject:testListByName];
+    
+    Test* testNonexistentListByName = [Test alloc];
+    testNonexistentListByName.TestRunner = self;
+    testNonexistentListByName.Name = @"TestNonexistentGetListByName";
+    testNonexistentListByName.DisplayName = @"Get Nonexistent List By Name";
+    
+    [array addObject:testNonexistentListByName];
     
     return array;
 }

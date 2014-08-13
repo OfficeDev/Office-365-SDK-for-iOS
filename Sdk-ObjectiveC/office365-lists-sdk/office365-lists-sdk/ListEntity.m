@@ -10,6 +10,7 @@
 
 @implementation ListEntity
 
+/* to be deleted
 - (BaseEntity *)createFromJson:(NSDictionary *)data{
     
     NSDictionary *metadata = [data valueForKey : @"__metadata"];
@@ -20,6 +21,11 @@
     self.Title = [data valueForKey : @"Title"];
     
     return self;
+}
+*/
+
+- (NSString*) getTitle{
+    return (NSString*)[self getData : @"Title"];
 }
 
 @end

@@ -9,9 +9,5 @@
 #import "office365-base-sdk/BaseEntity.h"
 
 @interface ListEntity : BaseEntity
-
-@property (nonatomic) NSString *Title;
-
-- (BaseEntity *)createFromJson:(NSDictionary *)data;
-
+-(NSString *) getTitle;
 @end
