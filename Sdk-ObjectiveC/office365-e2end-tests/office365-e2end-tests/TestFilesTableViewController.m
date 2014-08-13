@@ -2,8 +2,8 @@
 //  TestFilesTableViewController.m
 //  office365-e2end-tests
 //
-//  Created by Gustavo on 7/30/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import "TestFilesTableViewController.h"
@@ -24,7 +24,7 @@ FileTestRunner *testRunner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self logIn];
+    [self logIn];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -55,24 +55,13 @@ FileTestRunner *testRunner;
 -(NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
     return @"Run";
 }
-// Override to support editing the table view.
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-   /* if(editingStyle == UITableViewCellAccessoryDetailButton){
-    }
-    */
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        [self logIn];
-        
+
         UIActivityIndicatorView *spinner = [self getSpinner];
-        
-        
-        
-       // test.ExecutionMessages = nil;
-        
-       // [self.tableView reloadData];
+
         NSURLSessionDataTask *task = [[self.Tests objectAtIndex:indexPath.row] Run:^(Test *result) {
             Test *test = [self.Tests objectAtIndex:indexPath.row];
             test.Passed = result.Passed;
@@ -87,9 +76,6 @@ FileTestRunner *testRunner;
         
         [task resume];
     }
-    /*else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }*/
 }
 
 - (IBAction)RunAllTests:(id)sender {

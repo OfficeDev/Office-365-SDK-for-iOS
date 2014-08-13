@@ -2,8 +2,8 @@
 //  FileTests.h
 //  office365-e2end-tests
 //
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

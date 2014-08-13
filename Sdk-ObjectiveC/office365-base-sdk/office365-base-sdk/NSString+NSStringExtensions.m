@@ -2,17 +2,21 @@
 //  NSString+NSStringExtensions.m
 //  office365-base-sdk
 //
-//  Created by Lagash on 8/12/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import "NSString+NSStringExtensions.h"
 
 @implementation NSString (NSStringExtensions)
+
 - (NSString *)urlencode {
+    
     NSMutableString *output = [NSMutableString string];
     const unsigned char *source = (const unsigned char *)[self UTF8String];
-    int sourceLen = strlen((const char *)source);
+    
+    long sourceLen = strlen((const char *)source);
+    
     for (int i = 0; i < sourceLen; ++i) {
         const unsigned char thisChar = source[i];
         if (thisChar == ' '){
@@ -28,4 +32,5 @@
     }
     return output;
 }
+
 @end

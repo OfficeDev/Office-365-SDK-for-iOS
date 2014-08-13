@@ -2,8 +2,8 @@
 //  FileClient.h
 //  office365-files-sdk
 //
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import <office365-base-sdk/BaseClient.h>
@@ -12,13 +12,19 @@
 @interface FileClient : BaseClient
 
 - (NSURLSessionDataTask *)createFolder:(NSString *)name parentFolder:(NSString *)parentFolder callback:(void (^)(FileEntity *folder, NSError *))callback;
+
 - (NSURLSessionDataTask *)getFileById:(NSString *)fId callback :(void (^)(FileEntity *file, NSError *error))callback;
+
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSMutableArray *files, NSError *error))callback;
+
 - (NSURLSessionDataTask *)getFiles:(NSString *)folder callback:(void (^)(NSMutableArray *files, NSError *error))callback;
+
 - (NSURLSessionDataTask *)createFile:(NSString *)name overwrite:(BOOL)overwrite body:(NSData *)body folder:(NSString *)folder : (void (^)(FileEntity *file, NSError *error))callback;
 
-
 - (NSURLSessionDataTask *)delete:(NSString *)name callback:(void (^)(NSString *status, NSError *error))callback;
+
+- (NSURLSessionDataTask *)copy:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString * status, NSError * error))callback;
+
 - (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString *responseCode, NSError *error))callback;
 /*
 - (NSURLSessionDataTask *)getFiles:(void (^)(NSData *, NSURLResponse *, NSError *))callback;

@@ -2,11 +2,12 @@
 //  FileClient.m
 //  office365-files-sdk
 //
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import "FileClient.h"
+#import "office365-base-sdk/NSString+NSStringExtensions.h"
 #import <office365-base-sdk/HttpConnection.h>
 #import <office365-base-sdk/Constants.h>
 
@@ -22,7 +23,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@/%@')", self.Url , apiUrl, parentFolder, name];
+        url = [NSString stringWithFormat:@"%@%@('%@/%@')", self.Url , apiUrl, [parentFolder urlencode], [name urlencode]];
     }
     
     NSString *metadata = [NSString stringWithFormat:@"{Name:'%@'}", name];
@@ -59,7 +60,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@/Add(name='%@',overwrite='true')", self.Url , apiUrl,name];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='true')", self.Url , apiUrl, folder, name];
+        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='true')", self.Url , apiUrl, [folder urlencode], [name urlencode]];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
@@ -92,7 +93,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@/Add(name='%@',overwrite='%@')", self.Url , apiUrl,name,overwrite ? @"true" : @"false"];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='%@')", self.Url , apiUrl,folder,name,overwrite ? @"true" : @"false"];
+        url = [NSString stringWithFormat:@"%@%@/Add(name='%@/%@',overwrite='%@')", self.Url , apiUrl,[folder urlencode],[name urlencode],overwrite ? @"true" : @"false"];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
@@ -131,7 +132,7 @@ const NSString *apiUrl = @"/_api/files";
         url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];
     }
     else{
-        url = [NSString stringWithFormat:@"%@%@('%@')/Children", self.Url , apiUrl, folder];
+        url = [NSString stringWithFormat:@"%@%@('%@')/Children", self.Url , apiUrl, [folder urlencode]];
     }
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
@@ -151,9 +152,9 @@ const NSString *apiUrl = @"/_api/files";
 
 - (NSURLSessionDataTask *)getFileById:(NSString *)fId callback :(void (^)(FileEntity *file, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, fId];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, [fId urlencode]];
     
-    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url ];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Get;
    
@@ -185,7 +186,7 @@ const NSString *apiUrl = @"/_api/files";
 
 - (NSURLSessionDataTask *)delete:(NSString *)name callback:(void (^)(NSString *status, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, name];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')", self.Url , apiUrl, [name urlencode]];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential url:url];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Delete;
@@ -196,20 +197,23 @@ const NSString *apiUrl = @"/_api/files";
     }];
 }
 
-- (NSURLSessionDataTask *)copy:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+- (NSURLSessionDataTask *)copy:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString * status, NSError * error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@(%@)/CopyTo('%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/CopyTo(target='%@/%@',overwrite=true)", self.Url , apiUrl, [name urlencode], [destinationFolder urlencode],[name urlencode]];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                          url:url];
     
     NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
     
-    return [connection execute:method callback:callback];
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        callback(@"Ok", error);
+    }];
 }
 
 - (NSURLSessionDataTask *)move:(NSString *)name destinationFolder:(NSString *)destinationFolder callback:(void (^)(NSString *responseCode, NSError *error))callback{
     
-    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/MoveTo(target='%@/%@',overwrite=true)", self.Url , apiUrl, name, destinationFolder, name];
+    NSString *url = [NSString stringWithFormat:@"%@%@('%@')/MoveTo(target='%@/%@',overwrite=true)", self.Url , apiUrl, [name urlencode], [destinationFolder urlencode], [name urlencode]];
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
                                                                          url:url];
     

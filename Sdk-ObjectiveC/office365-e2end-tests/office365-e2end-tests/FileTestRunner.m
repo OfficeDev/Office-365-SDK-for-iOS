@@ -2,8 +2,8 @@
 //  FileTests.m
 //  office365-e2end-tests
 //
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
+//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
+//  All rights reserved.
 //
 
 #import "FileTestRunner.h"
@@ -11,40 +11,55 @@
 
 @implementation FileTestRunner
 
+-(void)cleanUp{
+    [[[self getClient] delete:@"testFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    
+    [[[self getClient] delete:@"createTestFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"moveTestFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"copyTestFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"getFileByFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    
+    [[[self getClient] delete:@"test.txt" callback:^(NSString *status, NSError *error) {}] resume];
+    
+    [[[self getClient] delete:@"moveTest.txt" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"testFolder" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"copyTest.txt" callback:^(NSString *status, NSError *error) {}] resume];
+    [[[self getClient] delete:@"getFileByFolder.txt" callback:^(NSString *status, NSError *error) {}] resume];
+}
+
 -(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *test))result{
     
-    NSURLSessionDataTask* task = [[self getClient] delete:@"testFolder" callback:^(NSString *status, NSError *error) {
-        [[[self getClient] delete:@"test.txt" callback:^(NSString *status, NSError *error) {
+    if([testName isEqualToString:@"TestCreateFolder"]){
+        return [self TestCreateFolderWithCompletionHandler:result];
+    }
+    if([testName isEqualToString:@"TestCreateFileWithContent"]){
+        return [self TestCreateFileWithContentWithCompletionHandler:result];
+    }
+    if([testName isEqualToString:@"TestGetFiles"]){
+        return [self TestGetFilesWithCompletionHandler:result];
+    }
+    if([testName isEqualToString:@"TestGetFileById"]){
+        return [self TestGetFilesByIdCompletionHandler:result];
+    }
+    if ([testName isEqualToString:@"TestGetFilesByFolder"]){
+        return [self TestGetFilesByFolderCompletionHandler:result];
+    }
+    if ([testName isEqualToString:@"TestMoveFile"]){
+        return [self TestMoveFileWithCompletionHandler:result];
+    }
+    if ([testName isEqualToString:@"TestCopyFile"]){
+        return [self TestCopyFileWithCompletionHandler:result];
+    }
     
-            if([testName isEqualToString:@"TestCreateFolder"]){
-                [[self TestCreateFolderWithCompletionHandler:result] resume];
-            }
-            if([testName isEqualToString:@"TestCreateFileWithContent"]){
-                [[self TestCreateFileWithContentWithCompletionHandler:result] resume];
-            }
-            else if([testName isEqualToString:@"TestGetFiles"]){
-                [[self TestGetFilesWithCompletionHandler:result] resume];
-            }
-            else if([testName isEqualToString:@"TestGetFileById"]){
-                [[self TestGetFilesByIdCompletionHandler:result] resume];
-            }
-            else if ([testName isEqualToString:@"TestGetFilesByFolder"]){
-                [[self TestGetFilesByFolderCompletionHandler:result] resume];
-            }
-            else if ([testName isEqualToString:@"TestMoveFile"]){
-                [[self TestMoveFileWithCompletionHandler:result]resume];
-            }
-        }] resume];
-    }];
-    
-    return task;
+    return nil;
 }
 
 -(NSURLSessionDataTask*)TestCreateFileWithContentWithCompletionHandler:(void (^) (Test*))result{
     
     NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURLSessionDataTask *task = [[self getClient] createFile:@"test.txt" overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
+    NSURLSessionDataTask *task = [[self getClient] delete:@"test.txt" callback:^(NSString *status, NSError *error) {
+        
+     [[[self getClient] createFile:@"test.txt" overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
         BOOL passed = true;
         
         if(![file.Name  isEqualToString: @"test.txt"] ||
@@ -59,6 +74,7 @@
         test.Passed = passed;
         test.ExecutionMessages = [NSMutableArray array];
         result(test);
+    }] resume];
     }];
     
     return task;
@@ -66,7 +82,9 @@
 
 -(NSURLSessionDataTask*)TestCreateFolderInFolderCompletionHandler:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+    NSURLSessionDataTask *task = [[self getClient] delete:@"testFolder" callback:^(NSString *status, NSError *error) {
+        
+     [[[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
         
         NSURLSessionDataTask *folderTask = [[self getClient] createFolder:@"testFolderInFolder" parentFolder:folder.Id callback:^(FileEntity *entity, NSError *error) {
             __block BOOL passed = true;
@@ -104,6 +122,7 @@
         }];
         
         [folderTask resume];
+     }] resume];
     }];
     
     return task;
@@ -111,22 +130,25 @@
 
 -(NSURLSessionDataTask*)TestCreateFolderWithCompletionHandler:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+    NSURLSessionDataTask *task = [[self getClient] delete:@"createTestFolder" callback:^(NSString *status, NSError *error) {
         
-        BOOL passed = true;
-        
-        if(![folder.Name  isEqualToString: @"testFolder"] ||
-           ![folder.Id  isEqualToString: @"testFolder"] ||
-           ![folder isFolder] ||
-           folder.Size != 0){
-            passed = false;
-        }
-        
-        Test *test = [Test alloc];
-        
-        test.Passed = passed;
-        test.ExecutionMessages = [NSMutableArray array];
-        result(test);
+        [[[self getClient] createFolder:@"createTestFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+            
+            BOOL passed = true;
+            
+            if(![folder.Name  isEqualToString: @"createTestFolder"] ||
+               ![folder.Id  isEqualToString: @"createTestFolder"] ||
+               ![folder isFolder] ||
+               folder.Size != 0){
+                passed = false;
+            }
+            
+            Test *test = [Test alloc];
+            
+            test.Passed = passed;
+            test.ExecutionMessages = [NSMutableArray array];
+            result(test);
+        }] resume];
     }];
     
     return task;
@@ -160,48 +182,19 @@
 
 -(NSURLSessionDataTask*)TestGetFilesByIdCompletionHandler:(void (^) (Test*))result{
     
-    NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURLSessionDataTask *task = [[self getClient] createFile:@"test.txt" overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
-        
-        NSURLSessionDataTask *getByIdTask = [[self getClient] getFileById:file.Id callback:^(FileEntity *fileResult, NSError * error) {
-            BOOL passed = true;
-            
-            if(![fileResult.Name  isEqualToString: @"test.txt"] ||
-               ![fileResult.Id  isEqualToString: @"test.txt"] ||
-               ![fileResult.Metadata.type  isEqualToString: @"MS.FileServices.File"] ||
-               fileResult.Size != 30){
-                passed = false;
-            }
-            
-            Test *test = [Test alloc];
-            
-            test.Passed = passed;
-            test.ExecutionMessages = [NSMutableArray array];
-            result(test);
-        }];
-        
-        [getByIdTask resume];
-    }];
-    
-    return task;
-}
-
--(NSURLSessionDataTask*)TestGetFilesByFolderCompletionHandler:(void (^) (Test*))result{
-    
-    NSURLSessionDataTask *task = [[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+    NSURLSessionDataTask *task = [[self getClient] delete:@"test.txt" callback:^(NSString *status, NSError *error) {
         
         NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
         
-        NSURLSessionDataTask *createTask = [[self getClient] createFile:@"test.txt" overwrite:true body:data folder:folder.Id :^(FileEntity *file, NSError *error) {
+        [[[self getClient] createFile:@"test.txt" overwrite:true body:data folder:nil :^(FileEntity *file, NSError *error) {
             
-            NSURLSessionDataTask *getTask = [[self getClient]getFiles:folder.Id callback:^(NSMutableArray *files, NSError *error) {
+            NSURLSessionDataTask *getByIdTask = [[self getClient] getFileById:file.Id callback:^(FileEntity *fileResult, NSError * error) {
                 BOOL passed = true;
                 
-                if ([files count] != 1) {
-                    passed = false;
-                }
-                else if(![((FileEntity*)[files objectAtIndex:0]).Name isEqualToString:@"test.txt"]){
+                if(![fileResult.Name  isEqualToString: @"test.txt"] ||
+                   ![fileResult.Id  isEqualToString: @"test.txt"] ||
+                   ![fileResult.Metadata.type  isEqualToString: @"MS.FileServices.File"] ||
+                   fileResult.Size != 30){
                     passed = false;
                 }
                 
@@ -212,33 +205,30 @@
                 result(test);
             }];
             
-            [getTask resume];
-        }];
-        
-        [createTask resume];
+            [getByIdTask resume];
+        }] resume];
     }];
     
     return task;
 }
 
--(NSURLSessionDataTask*)TestMoveFileWithCompletionHandler:(void (^) (Test*))result{
+-(NSURLSessionDataTask*)TestGetFilesByFolderCompletionHandler:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self getClient] createFolder:@"testFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+    NSURLSessionDataTask *task = [[self getClient] delete:@"getFileByFolder" callback:^(NSString *status, NSError *error) {
         
-        NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
-        
-        NSURLSessionDataTask *createTask = [[self getClient] createFile:@"test.txt" overwrite:true body:data folder:nil:^(FileEntity *file, NSError *error) {
+        [[[self getClient] createFolder:@"getFileByFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
             
-            NSURLSessionDataTask *moveTask = [[self getClient] move:file.Id destinationFolder:folder.Id callback:^(NSString *responseCode, NSError *error) {
+            NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURLSessionDataTask *createTask = [[self getClient] createFile:@"getFileByFolder.txt" overwrite:true body:data folder:folder.Id :^(FileEntity *file, NSError *error) {
                 
-                NSURLSessionDataTask *getFileTask = [[self getClient] getFiles:folder.Id callback:^(NSMutableArray *files, NSError *error) {
-                    
+                NSURLSessionDataTask *getTask = [[self getClient]getFiles:folder.Id callback:^(NSMutableArray *files, NSError *error) {
                     BOOL passed = true;
                     
                     if ([files count] != 1) {
                         passed = false;
                     }
-                    else if(![((FileEntity*)[files objectAtIndex:0]).Name isEqualToString:@"test.txt"]){
+                    else if(![((FileEntity*)[files objectAtIndex:0]).Name isEqualToString:@"getFileByFolder.txt"]){
                         passed = false;
                     }
                     
@@ -249,13 +239,97 @@
                     result(test);
                 }];
                 
-                [getFileTask resume];
+                [getTask resume];
             }];
             
-            [moveTask resume];
-        }];
+            [createTask resume];
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCopyFileWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] delete:@"copyTestFolder" callback:^(NSString *status, NSError *error) {
         
-        [createTask resume];
+        [[[self getClient] createFolder:@"copyTestFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+            
+            NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURLSessionDataTask *createTask = [[self getClient] createFile:@"copyTest.txt" overwrite:true body:data folder:nil:^(FileEntity *file, NSError *error) {
+                
+                NSURLSessionDataTask *copyTask =[[self getClient] copy:file.Id destinationFolder:folder.Id callback:^(NSString *status, NSError *error) {
+                    
+                    NSURLSessionDataTask *getFileTask = [[self getClient] getFiles:folder.Id callback:^(NSMutableArray *files, NSError *error)                 {
+                        
+                        BOOL passed = true;
+                        
+                        if ([files count] != 1) {
+                            passed = false;
+                        }
+                        else if(![((FileEntity*)[files objectAtIndex:0]).Name isEqualToString:@"copyTest.txt"]){
+                            passed = false;
+                        }
+                        
+                        Test *test = [Test alloc];
+                        
+                        test.Passed = passed;
+                        test.ExecutionMessages = [NSMutableArray array];
+                        result(test);
+                    }];
+                    
+                    [getFileTask resume];
+                }];
+                
+                [copyTask resume];
+            }];
+            
+            [createTask resume];
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestMoveFileWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] delete:@"moveTestFolder" callback:^(NSString *status, NSError *error) {
+        
+        [[[self getClient] createFolder:@"moveTestFolder" parentFolder:nil callback:^(FileEntity *folder, NSError *error) {
+            
+            NSData *data =  [@"Test text for testing file sdk" dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSURLSessionDataTask *createTask = [[self getClient] createFile:@"moveTest.txt" overwrite:true body:data folder:nil:^(FileEntity *file, NSError *error) {
+                
+                NSURLSessionDataTask *moveTask = [[self getClient] move:file.Id destinationFolder:folder.Id callback:^(NSString *responseCode, NSError *error) {
+                    
+                    NSURLSessionDataTask *getFileTask = [[self getClient] getFiles:folder.Id callback:^(NSMutableArray *files, NSError *error) {
+                        
+                        BOOL passed = true;
+                        
+                        if ([files count] != 1) {
+                            passed = false;
+                        }
+                        else if(![((FileEntity*)[files objectAtIndex:0]).Name isEqualToString:@"moveTest.txt"]){
+                            passed = false;
+                        }
+                        
+                        Test *test = [Test alloc];
+                        
+                        test.Passed = passed;
+                        test.ExecutionMessages = [NSMutableArray array];
+                        result(test);
+                    }];
+                    
+                    [getFileTask resume];
+                }];
+                
+                [moveTask resume];
+            }];
+            
+            [createTask resume];
+        }] resume];
     }];
     
     return task;
@@ -272,6 +346,9 @@
 }
 
 -(NSMutableArray *)getTests{
+    
+    [self cleanUp];
+    
     NSMutableArray *tests = [NSMutableArray array];
     
     Test *createFolderTest = [Test alloc];
@@ -299,16 +376,22 @@
     getFilesByFolderTest.Name = @"TestGetFilesByFolder";
     getFilesByFolderTest.DisplayName = @"Get Files By Folder";
     
+    Test *copyFileTest = [Test alloc];
+    copyFileTest.TestRunner = self;
+    copyFileTest.Name = @"TestCopyFile";
+    copyFileTest.DisplayName = @"Copy File";
+    
     Test *moveFileTest = [Test alloc];
     moveFileTest.TestRunner = self;
     moveFileTest.Name = @"TestMoveFile";
-    moveFileTest.DisplayName = @"Get Move File";
+    moveFileTest.DisplayName = @"Move File";
     
     [tests addObject:createFolderTest];
-    [tests addObject:testGetById];
     [tests addObject:createFileWithContentTest];
+    [tests addObject:testGetById];
     [tests addObject:getFilesTest];
     [tests addObject:getFilesByFolderTest];
+    [tests addObject:copyFileTest];
     [tests addObject:moveFileTest];
     
     return tests;
