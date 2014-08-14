@@ -19,4 +19,6 @@
 
 -(NSURLSessionDataTask*)Run :(void (^) (Test *))result;
 
+-(instancetype) initWithName:(NSString*) name displayName : (NSString*) displayName runner : (BaseTestRunner*) runner;
+
 @end

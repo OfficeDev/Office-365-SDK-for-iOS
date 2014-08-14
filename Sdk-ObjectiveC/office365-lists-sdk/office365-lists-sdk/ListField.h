@@ -1,15 +1,14 @@
 //
-//  ListItem.h
+//  ListField.h
 //  office365-lists-sdk
 //
-//  Created by Lagash on 8/13/14.
+//  Created by Lagash on 8/14/14.
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
 #import "office365-base-sdk/BaseEntity.h"
 
-@interface ListItem : BaseEntity
-
+@interface ListField : BaseEntity
 - (NSString*) getTitle;
-- (NSUUID*) getGuid;
+- (NSString*) getPropertyName;
 @end

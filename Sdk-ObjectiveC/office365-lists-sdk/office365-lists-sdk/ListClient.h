@@ -14,5 +14,6 @@
 - (NSURLSessionDataTask *)getLists:(void (^)(NSMutableArray *lists, NSError *error))callback;
 - (NSURLSessionDataTask *)getList:(NSString *)name callback:(void (^)(ListEntity *list, NSError *error))callback;
 - (NSURLSessionDataTask *)getListItems:(NSString *)name callback:(void (^)(NSMutableArray *listItems, NSError *error))callback;
+- (NSURLSessionDataTask *)getListFields:(NSString *)name callback:(void (^)(NSMutableArray *listFields, NSError *error))callback;
 
 @end

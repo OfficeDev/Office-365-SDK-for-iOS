@@ -8,11 +8,13 @@
 
 #import "BaseEntity.h"
 
+@interface BaseEntity ()
+@property NSDictionary *jsonData;
+@end
+
 @implementation BaseEntity
 
-NSDictionary *jsonData;
-
-- (instancetype) initWithJson:(NSData *)jsonData{
+- (id) initWithJson:(NSData *)jsonData{
     NSDictionary *jsonResult = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                options: NSJSONReadingMutableContainers
                                                                  error:nil];
@@ -26,7 +28,7 @@ NSDictionary *jsonData;
     return [self initWithDictionary:jsonItem];
 }
 
-- (instancetype) initWithDictionary:(NSDictionary *)dictionary{
+- (id) initWithDictionary:(NSDictionary *)dictionary{
 
     [self createFromJson:dictionary];
     return self;
@@ -41,15 +43,19 @@ NSDictionary *jsonData;
     NSDictionary *metadata = [data valueForKey : @"__metadata"];
     
     [self createMetadata : metadata];
-    
+
     self.Id =[data valueForKey: @"Id"];
-    jsonData = data;
+    self.jsonData = data;
+
     return self;
 }
 
 -(NSObject*) getData:(NSString *)name{
-    return [jsonData valueForKey:name];
+    return [self.jsonData valueForKey:name];
 }
 
+-(NSDictionary*) getRawResults{
+    return self.jsonData;
+}
 
 @end

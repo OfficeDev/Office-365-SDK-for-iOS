@@ -18,9 +18,4 @@
     return (NSUUID*)[self getData: @"GUID"];
 }
 
-- (ListItem*) loadFromData : (NSData*) data{
-    
-    return nil;
-}
-
 @end

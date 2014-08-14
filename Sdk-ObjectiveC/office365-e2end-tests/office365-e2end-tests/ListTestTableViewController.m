@@ -188,7 +188,7 @@ LoginClient *loginClient;
                                                          :@"https://lagashsystems365.sharepoint.com"
                                                          :[userDefaults objectForKey: @"AuthorityUrl"]
                    ];
-    
+    		
     [loginClient login:FALSE completionHandler:^(NSString *token, NSError *error) {
         
         if(error != nil){

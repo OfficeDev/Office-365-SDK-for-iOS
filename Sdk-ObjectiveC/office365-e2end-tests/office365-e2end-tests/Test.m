@@ -10,6 +10,14 @@
 
 @implementation Test
 
+-(instancetype) initWithName:(NSString *)name displayName:(NSString *) displayName runner :(BaseTestRunner *)runner{
+    self.Name = name;
+    self.TestRunner = runner;
+    self.DisplayName = displayName;
+    
+    return self;
+}
+
 -(NSURLSessionDataTask *)Run :(void (^) (Test*))result{
 
     return [self.TestRunner Run:self.Name completionHandler:^(Test *test) {

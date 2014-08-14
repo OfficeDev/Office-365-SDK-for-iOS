@@ -7,7 +7,10 @@
 //
 
 #import "ListTestRunner.h"
+
 #import <office365-lists-sdk/ListEntity.h>
+#import <office365-lists-sdk/ListItem.h>
+#import <office365-lists-sdk/ListField.h>
 #import "TestParameters.h"
 #import "Test.h"
 
@@ -26,6 +29,12 @@
     }
     if([testName isEqualToString:@"TestNonexistentGetListByName"]){
         return [self TestGetNonexistentListWithCompletionHandler: result];
+    }
+    if([testName isEqualToString:@"TestGetListItems"]){
+        return [self TestGetListItemWithCompletionHandler: result];
+    }
+    if ([testName isEqualToString:@"TestGetListFields"]) {
+        return  [self TestGetListFieldWithCompletionHandler :result];
     }
     else{
         return [self TestDefaultWithCompletionHandler:result];
@@ -139,6 +148,73 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestGetListItemWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] getListItems:@"Documentos" callback:^(NSMutableArray *listItems, NSError *error) {
+        
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = listItems != nil ? @"Ok - ": @"Not - ";
+        
+        if([listItems count ] > 0 ){
+            for(ListItem *item in listItems){
+                NSString *title = [NSString alloc];
+                title = [item getTitle] ;
+                if(title != nil && ![title isEqual:[NSNull null]] && [title isEqualToString:@"TEsts"]){
+                    passed = true;
+                }
+            }
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetListFieldWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[self getClient] getListFields:@"AnahiTest" callback:^(NSMutableArray *listFields, NSError *error) {
+        
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = listFields != nil ? @"Ok - ": @"Not - ";
+        
+        if([listFields count ] > 0 ){
+            for(ListField *item in listFields){
+                NSString *title = [NSString alloc];
+                title = [item getTitle] ;
+                if(title != nil && ![title isEqual:[NSNull null]] && [title isEqualToString:@"Campo Compuesto"]){
+                    passed = true;
+                }
+            }
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+
 -(NSURLSessionDataTask*)TestDefaultWithCompletionHandler:(void (^) (Test *))result{
 
     NSURLSessionDataTask* task = [[self getClient] getLists:^(NSMutableArray *lists, NSError *error) {
@@ -166,37 +242,21 @@
 -(NSMutableArray*)getTests{
     NSMutableArray* array = [NSMutableArray array];
     
-    Test *test = [Test alloc];
-    test.TestRunner = self;
-    test.Name = @"TestGetLists";
-    test.DisplayName = @"Get Lists";
+    [array addObject:[[Test alloc] initWithName:@"TestGetLists" displayName:@"Get Lists" runner:self]];
     
-    [array addObject:test];
+    [array addObject:[[Test alloc] initWithName:@"TestGetClientListError" displayName:@"Get Client List Error" runner:self]];
     
+   [array addObject:[[Test alloc] initWithName:@"TestGetListByName" displayName:@"Get List By Name" runner:self]];
     
-    Test* testClient = [Test alloc];
-    testClient.TestRunner = self;
-    testClient.Name = @"TestGetClientListError";
-    testClient.DisplayName = @"Get Client List Error";
+   [array addObject:[[Test alloc] initWithName:@"TestNonexistentGetListByName" displayName:@"Get Nonexistent List By Name" runner:self]];
     
-    [array addObject:testClient];
+    [array addObject:[[Test alloc] initWithName:@"TestGetListItems" displayName:@"Get List Items" runner:self]];
     
-    
-    Test* testListByName = [Test alloc];
-    testListByName.TestRunner = self;
-    testListByName.Name = @"TestGetListByName";
-    testListByName.DisplayName = @"Get List By Name";
-    
-    [array addObject:testListByName];
-    
-    Test* testNonexistentListByName = [Test alloc];
-    testNonexistentListByName.TestRunner = self;
-    testNonexistentListByName.Name = @"TestNonexistentGetListByName";
-    testNonexistentListByName.DisplayName = @"Get Nonexistent List By Name";
-    
-    [array addObject:testNonexistentListByName];
+    [array addObject:[[Test alloc] initWithName:@"TestGetListFields" displayName:@"Get List Fields" runner:self]];
     
     return array;
 }
+
+
 
 @end

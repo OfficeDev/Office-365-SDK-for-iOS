@@ -13,12 +13,13 @@
 
 @property NSString *Id;
 @property Metadata *Metadata;
-//@property NSDictionary *Data;
-- (instancetype) initWithJson:(NSData *)jsonData;
-- (instancetype) initWithDictionary:(NSDictionary *)dictionary;
+
+- (id) initWithJson:(NSData *)jsonData;
+- (id) initWithDictionary:(NSDictionary *)dictionary;
 
 -(void) createMetadata : (NSDictionary*) data;
 -(BaseEntity *)createFromJson:(NSDictionary *)data;
 -(NSObject*) getData : (NSString*) name;
+-(NSDictionary*) getRawResults;
 
 @end
