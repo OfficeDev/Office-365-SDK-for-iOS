@@ -9,5 +9,9 @@
 #import "office365-base-sdk/BaseEntity.h"
 
 @interface ListEntity : BaseEntity
+@property NSString *title;
+@property NSString *description;
+
 -(NSString *) getTitle;
+
 @end

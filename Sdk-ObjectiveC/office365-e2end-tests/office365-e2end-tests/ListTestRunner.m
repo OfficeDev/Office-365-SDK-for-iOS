@@ -36,6 +36,13 @@
     if ([testName isEqualToString:@"TestGetListFields"]) {
         return  [self TestGetListFieldWithCompletionHandler :result];
     }
+    if([testName isEqualToString:@"TestCreateList"]){
+        return  [self TestCreateListsWithCompletionHandler:result];
+    }
+    if([testName isEqualToString:@"TestDeleteList"])
+    {
+        return [self TestDeleteListsWithCompletionHandler:result];
+    }
     else{
         return [self TestDefaultWithCompletionHandler:result];
     }
@@ -214,6 +221,74 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestCreateListsWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSString *UUID = [[NSUUID UUID] UUIDString];
+    
+    ListEntity *newList = [[ListEntity alloc] init];
+    newList.title = [@"List " stringByAppendingString:UUID];
+    newList.description =@"Description 1";
+    
+    NSURLSessionDataTask *task = [[self getClient] createList:newList :^(ListEntity *list, NSError *error) {
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = list != nil ? @"Ok - ": @"Not - ";
+        
+        if([[list getTitle] isEqualToString:newList.title] && [((NSString*)[list getData:@"Description"]) isEqualToString:newList.description] ){
+            passed = TRUE;
+        }
+
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+
+-(NSURLSessionDataTask*)TestDeleteListsWithCompletionHandler:(void (^) (Test*))result{
+    
+    NSString *UUID = [[NSUUID UUID] UUIDString];
+    
+    ListEntity *newList = [[ListEntity alloc] init];
+    newList.title = [@"List " stringByAppendingString:UUID];
+    newList.description =@"Description 1";
+    
+    NSURLSessionDataTask *taskCreate = [[self getClient] createList:newList :^(ListEntity *list, NSError *error) {
+
+        NSURLSessionDataTask *taskDelete = [[self getClient] deleteList:list :^(bool success, NSError *derror) {
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = success ? @"Ok - ": @"Not - ";
+            
+            test.Passed = success;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+            
+        }];
+        
+        [taskDelete resume];
+    }];
+    
+    return taskCreate;
+}
+
+
+
 
 -(NSURLSessionDataTask*)TestDefaultWithCompletionHandler:(void (^) (Test *))result{
 
@@ -254,6 +329,10 @@
     
     [array addObject:[[Test alloc] initWithName:@"TestGetListFields" displayName:@"Get List Fields" runner:self]];
     
+    // Update test to delete list after creating it
+    //[array addObject:[[Test alloc] initWithName:@"TestCreateList" displayName:@"Create List" runner:self]];
+    
+    [array addObject:[[Test alloc] initWithName:@"TestDeleteList" displayName:@"Delete List" runner:self]];
     return array;
 }
 

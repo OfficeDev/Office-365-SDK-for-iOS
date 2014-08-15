@@ -8,21 +8,32 @@
 
 #import "ListEntity.h"
 
+@interface ListEntity ()
+    @property BOOL allowContentTypes;
+    @property BOOL contentTypesEnabled;
+    @property NSNumber* baseTemplate;
+@end
+/*
+'_metadata':{'type':SP.List},
+'AllowContentTypes': true,
+'BaseTemplate': 104,
+'ContentTypesEnabled': true,
+'Description': 'My list description',
+'Title': 'RestTest'
+*/
+
 @implementation ListEntity
 
-/* to be deleted
-- (BaseEntity *)createFromJson:(NSDictionary *)data{
-    
-    NSDictionary *metadata = [data valueForKey : @"__metadata"];
-    
-    [super createMetadata : metadata];
-    
-    self.Id = [data valueForKey : @"Id"];
-    self.Title = [data valueForKey : @"Title"];
-    
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.allowContentTypes = TRUE;
+        self.contentTypesEnabled = TRUE;
+        self.baseTemplate = [[NSNumber alloc] initWithInt:104];
+    }
     return self;
 }
-*/
 
 - (NSString*) getTitle{
     return (NSString*)[self getData : @"Title"];

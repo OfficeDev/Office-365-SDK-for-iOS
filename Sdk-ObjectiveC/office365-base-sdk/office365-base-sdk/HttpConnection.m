@@ -48,6 +48,7 @@
     [self.request addValue:@"100-continue" forHTTPHeaderField: @"Expect"];
     [self.request addValue:@"application/json;odata.metadata=full" forHTTPHeaderField: @"Content-Type"];
     [self.request addValue:@"IOS-SDK" forHTTPHeaderField: @"X-ClientService-ClientTag"];
+    [self.request addValue:@"*" forHTTPHeaderField: @"IF-MATCH"];
     [self.credentials prepareRequest:self.request];
 }
 

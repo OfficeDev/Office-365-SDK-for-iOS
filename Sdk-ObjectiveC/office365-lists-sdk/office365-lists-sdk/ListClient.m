@@ -94,6 +94,100 @@ const NSString *apiUrl = @"/_api/lists";
     }];
 }
 
+- (NSURLSessionDataTask *)createList: (ListEntity *) newList : (void (^)(ListEntity *list, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@", self.Url , apiUrl];;
+    
+   
+    NSString *json = [[NSString alloc] init];
+    json =  @"{'AllowContentTypes': %@,'BaseTemplate': %@,";
+    json = [json stringByAppendingString: @"'ContentTypesEnabled': %@, 'Description': '%@', 'Title': '%@'}"];
+    
+    NSString *formatedJson = [NSString stringWithFormat:json, @"true",@"104" , @"true" , newList.description, newList.title];
+    
+    NSData *jsonData = [formatedJson dataUsingEncoding: NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray: jsonData];
+                                                                              
+    NSString *method = (NSString*)[[Constants alloc] init].Method_Post;
+    
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        ListEntity *list;
+        
+        if(error == nil){
+           list = [[ListEntity alloc] initWithJson:data];
+        }
+        
+        callback(list, error);
+    }];
+}
+
+- (NSURLSessionDataTask *)deleteList: (ListEntity *) deleteList : (void (^)(bool success, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@(guid'%@')", self.Url , apiUrl, deleteList.Id];
+    
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray: nil];
+    
+    NSString *method = (NSString*)[[Constants alloc] init].Method_Delete;
+    
+    return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        BOOL result = FALSE;
+        
+        if(error == nil && [data length] == 0 ){
+            result = TRUE;
+        }
+        
+        callback(result, error);
+    }];
+}
+
+/*
+ NSMutableDictionary *metadata = [[NSMutableDictionary alloc] init];
+ [metadata setValue:@"SP.List" forKey:@"type"];
+ 
+ 
+ NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
+ [payload setObject:metadata forKey:@"_metadata"];
+ [payload setValue:@"true" forKey:@"AllowContentTypes"];
+ [payload setValue:[NSNumber numberWithInteger: 104] forKey:@"BaseTemplate"];
+ [payload setValue:@"true" forKey:@"ContentTypesEnabled"];
+ [payload setValue:newList.description forKey:@"Description"];
+ [payload setValue:newList.title forKey:@"Title"];
+ 
+ NSArray *array = [[NSArray alloc] initWithObjects:payload, nil];
+ 
+ NSData *myData = [NSJSONSerialization dataWithJSONObject:array
+ options:NSJSONWritingPrettyPrinted
+ error:nil];
+ */
+//NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:payload];
+/*
+ NSString *json = [NSJSONSerialization JSONObjectWithData:myData
+ options: NSJSONReadingMutableContainers
+ error:nil];
+ 
+ myData = [NSJSONSerialization JSONObjectWithData:json
+ options: NSJSONReadingMutableContainers
+ error:nil];
+ */
+//NSData *body = [NSKeyedArchiver archivedDataWithRootObject:payload];
+
+/*
+ {
+ '_metadata':{'type':SP.List},
+ 'AllowContentTypes': true,
+ 'BaseTemplate': 104,
+ 'ContentTypesEnabled': true,
+ 'Description': 'My list description',
+ 'Title': 'RestTest'
+ }
+ */
+
 - (NSMutableArray *)parseDataArray:(NSData *)data{
     
     NSMutableArray *array = [NSMutableArray array];
