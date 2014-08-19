@@ -229,6 +229,7 @@
     newList.title = [@"List " stringByAppendingString:UUID];
     newList.description =@"Description 1";
     
+    
     NSURLSessionDataTask *task = [[self getClient] createList:newList :^(ListEntity *list, NSError *error) {
         
         BOOL passed = false;
@@ -248,7 +249,13 @@
         
         [test.ExecutionMessages addObject:message];
         
-        result(test);
+        
+        [self cleanup:list :^(bool success, NSError *error) {
+            if(!success)
+                test.Passed = false;
+            
+            result(test);
+        }];
     }];
     
     return task;
@@ -287,7 +294,13 @@
     return taskCreate;
 }
 
-
+- (void) cleanup : (ListEntity *)list : (void (^)(bool success, NSError *error))callback{
+    NSURLSessionDataTask *task = [[self getClient] deleteList:list :^(BOOL success, NSError *error) {
+        callback(success, error);
+    }];
+    
+    [task resume];
+}
 
 
 -(NSURLSessionDataTask*)TestDefaultWithCompletionHandler:(void (^) (Test *))result{
@@ -329,8 +342,7 @@
     
     [array addObject:[[Test alloc] initWithName:@"TestGetListFields" displayName:@"Get List Fields" runner:self]];
     
-    // Update test to delete list after creating it
-    //[array addObject:[[Test alloc] initWithName:@"TestCreateList" displayName:@"Create List" runner:self]];
+    [array addObject:[[Test alloc] initWithName:@"TestCreateList" displayName:@"Create List" runner:self]];
     
     [array addObject:[[Test alloc] initWithName:@"TestDeleteList" displayName:@"Delete List" runner:self]];
     return array;
