@@ -19,6 +19,9 @@
       <FileRef
          location = "group:office365-lists-sdk/office365-lists-sdk.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:office365-exchange-sdk/office365-exchange-sdk.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:"
