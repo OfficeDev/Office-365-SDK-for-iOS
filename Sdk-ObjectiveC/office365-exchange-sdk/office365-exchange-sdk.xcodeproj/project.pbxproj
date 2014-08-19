@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECF3EBB319A390E800D05D8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBB219A390E800D05D8B /* Foundation.framework */; };
+		ECF3EBB819A390E800D05D8B /* office365_exchange_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */; };
+		ECF3EBBA19A390E800D05D8B /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */; };
+		ECF3EBC119A390E900D05D8B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBC019A390E900D05D8B /* XCTest.framework */; };
+		ECF3EBC219A390E900D05D8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBB219A390E800D05D8B /* Foundation.framework */; };
+		ECF3EBC419A390E900D05D8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBC319A390E900D05D8B /* UIKit.framework */; };
+		ECF3EBC719A390E900D05D8B /* liboffice365-exchange-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */; };
+		ECF3EBCD19A390E900D05D8B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECF3EBCB19A390E900D05D8B /* InfoPlist.strings */; };
+		ECF3EBCF19A390E900D05D8B /* office365_exchange_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBCE19A390E900D05D8B /* office365_exchange_sdkTests.m */; };
+		ECF3EC1419A3913600D05D8B /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBDF19A3913600D05D8B /* Attachment.m */; };
+		ECF3EC1519A3913600D05D8B /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBE119A3913600D05D8B /* Attendee.m */; };
+		ECF3EC1619A3913600D05D8B /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBE519A3913600D05D8B /* Calendar.m */; };
+		ECF3EC1719A3913600D05D8B /* CalendarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBE719A3913600D05D8B /* CalendarGroup.m */; };
+		ECF3EC1819A3913600D05D8B /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBE919A3913600D05D8B /* Contact.m */; };
+		ECF3EC1919A3913600D05D8B /* ContactFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBEB19A3913600D05D8B /* ContactFolder.m */; };
+		ECF3EC1A19A3913600D05D8B /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBED19A3913600D05D8B /* Entity.m */; };
+		ECF3EC1B19A3913600D05D8B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBEF19A3913600D05D8B /* Event.m */; };
+		ECF3EC1C19A3913600D05D8B /* FileAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBF219A3913600D05D8B /* FileAttachment.m */; };
+		ECF3EC1D19A3913600D05D8B /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBF419A3913600D05D8B /* Folder.m */; };
+		ECF3EC1E19A3913600D05D8B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBF819A3913600D05D8B /* Item.m */; };
+		ECF3EC1F19A3913600D05D8B /* ItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBFA19A3913600D05D8B /* ItemAttachment.m */; };
+		ECF3EC2019A3913600D05D8B /* ItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBFC19A3913600D05D8B /* ItemBody.m */; };
+		ECF3EC2119A3913600D05D8B /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBFE19A3913600D05D8B /* Location.m */; };
+		ECF3EC2219A3913600D05D8B /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0119A3913600D05D8B /* Message.m */; };
+		ECF3EC2319A3913600D05D8B /* PatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0319A3913600D05D8B /* PatternedRecurrence.m */; };
+		ECF3EC2419A3913600D05D8B /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0519A3913600D05D8B /* Recipient.m */; };
+		ECF3EC2519A3913600D05D8B /* RecurrencePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0719A3913600D05D8B /* RecurrencePattern.m */; };
+		ECF3EC2619A3913600D05D8B /* RecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0A19A3913600D05D8B /* RecurrenceRange.m */; };
+		ECF3EC2719A3913600D05D8B /* ResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC0D19A3913600D05D8B /* ResponseStatus.m */; };
+		ECF3EC2819A3913600D05D8B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC1019A3913600D05D8B /* User.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECF3EBC519A390E900D05D8B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECF3EBA719A390E800D05D8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECF3EBAE19A390E800D05D8B;
+			remoteInfo = "office365-exchange-sdk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ECF3EBAD19A390E800D05D8B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				ECF3EBB819A390E800D05D8B /* office365_exchange_sdk.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-exchange-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF3EBB219A390E800D05D8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ECF3EBB619A390E800D05D8B /* office365-exchange-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-exchange-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
+		ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
+		ECF3EBBF19A390E900D05D8B /* office365-exchange-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-exchange-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECF3EBC019A390E900D05D8B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		ECF3EBC319A390E900D05D8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		ECF3EBCA19A390E900D05D8B /* office365-exchange-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "office365-exchange-sdkTests-Info.plist"; sourceTree = "<group>"; };
+		ECF3EBCC19A390E900D05D8B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ECF3EBCE19A390E900D05D8B /* office365_exchange_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdkTests.m; sourceTree = "<group>"; };
+		ECF3EBDE19A3913600D05D8B /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
+		ECF3EBDF19A3913600D05D8B /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachment.m; sourceTree = "<group>"; };
+		ECF3EBE019A3913600D05D8B /* Attendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendee.h; sourceTree = "<group>"; };
+		ECF3EBE119A3913600D05D8B /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendee.m; sourceTree = "<group>"; };
+		ECF3EBE219A3913600D05D8B /* AttendeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendeeType.h; sourceTree = "<group>"; };
+		ECF3EBE319A3913600D05D8B /* BodyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyType.h; sourceTree = "<group>"; };
+		ECF3EBE419A3913600D05D8B /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		ECF3EBE519A3913600D05D8B /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
+		ECF3EBE619A3913600D05D8B /* CalendarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarGroup.h; sourceTree = "<group>"; };
+		ECF3EBE719A3913600D05D8B /* CalendarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarGroup.m; sourceTree = "<group>"; };
+		ECF3EBE819A3913600D05D8B /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		ECF3EBE919A3913600D05D8B /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		ECF3EBEA19A3913600D05D8B /* ContactFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFolder.h; sourceTree = "<group>"; };
+		ECF3EBEB19A3913600D05D8B /* ContactFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactFolder.m; sourceTree = "<group>"; };
+		ECF3EBEC19A3913600D05D8B /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		ECF3EBED19A3913600D05D8B /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		ECF3EBEE19A3913600D05D8B /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		ECF3EBEF19A3913600D05D8B /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		ECF3EBF019A3913600D05D8B /* EventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventType.h; sourceTree = "<group>"; };
+		ECF3EBF119A3913600D05D8B /* FileAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttachment.h; sourceTree = "<group>"; };
+		ECF3EBF219A3913600D05D8B /* FileAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttachment.m; sourceTree = "<group>"; };
+		ECF3EBF319A3913600D05D8B /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		ECF3EBF419A3913600D05D8B /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		ECF3EBF519A3913600D05D8B /* FreeBusyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeBusyStatus.h; sourceTree = "<group>"; };
+		ECF3EBF619A3913600D05D8B /* Importance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importance.h; sourceTree = "<group>"; };
+		ECF3EBF719A3913600D05D8B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		ECF3EBF819A3913600D05D8B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		ECF3EBF919A3913600D05D8B /* ItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAttachment.h; sourceTree = "<group>"; };
+		ECF3EBFA19A3913600D05D8B /* ItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAttachment.m; sourceTree = "<group>"; };
+		ECF3EBFB19A3913600D05D8B /* ItemBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBody.h; sourceTree = "<group>"; };
+		ECF3EBFC19A3913600D05D8B /* ItemBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBody.m; sourceTree = "<group>"; };
+		ECF3EBFD19A3913600D05D8B /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		ECF3EBFE19A3913600D05D8B /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		ECF3EBFF19A3913600D05D8B /* MeetingMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingMessageType.h; sourceTree = "<group>"; };
+		ECF3EC0019A3913600D05D8B /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		ECF3EC0119A3913600D05D8B /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		ECF3EC0219A3913600D05D8B /* PatternedRecurrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternedRecurrence.h; sourceTree = "<group>"; };
+		ECF3EC0319A3913600D05D8B /* PatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternedRecurrence.m; sourceTree = "<group>"; };
+		ECF3EC0419A3913600D05D8B /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipient.h; sourceTree = "<group>"; };
+		ECF3EC0519A3913600D05D8B /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipient.m; sourceTree = "<group>"; };
+		ECF3EC0619A3913600D05D8B /* RecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePattern.h; sourceTree = "<group>"; };
+		ECF3EC0719A3913600D05D8B /* RecurrencePattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrencePattern.m; sourceTree = "<group>"; };
+		ECF3EC0819A3913600D05D8B /* RecurrencePatternType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePatternType.h; sourceTree = "<group>"; };
+		ECF3EC0919A3913600D05D8B /* RecurrenceRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRange.h; sourceTree = "<group>"; };
+		ECF3EC0A19A3913600D05D8B /* RecurrenceRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrenceRange.m; sourceTree = "<group>"; };
+		ECF3EC0B19A3913600D05D8B /* RecurrenceRangeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRangeType.h; sourceTree = "<group>"; };
+		ECF3EC0C19A3913600D05D8B /* ResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseStatus.h; sourceTree = "<group>"; };
+		ECF3EC0D19A3913600D05D8B /* ResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseStatus.m; sourceTree = "<group>"; };
+		ECF3EC0E19A3913600D05D8B /* ResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseType.h; sourceTree = "<group>"; };
+		ECF3EC0F19A3913600D05D8B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		ECF3EC1019A3913600D05D8B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		ECF3EC1119A3913600D05D8B /* WeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekIndex.h; sourceTree = "<group>"; };
+		ECF3EC1319A3913600D05D8B /* DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayOfWeek.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECF3EBAC19A390E800D05D8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF3EBB319A390E800D05D8B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF3EBBC19A390E900D05D8B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF3EBC119A390E900D05D8B /* XCTest.framework in Frameworks */,
+				ECF3EBC419A390E900D05D8B /* UIKit.framework in Frameworks */,
+				ECF3EBC719A390E900D05D8B /* liboffice365-exchange-sdk.a in Frameworks */,
+				ECF3EBC219A390E900D05D8B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECF3EBA619A390E800D05D8B = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBB419A390E800D05D8B /* office365-exchange-sdk */,
+				ECF3EBC819A390E900D05D8B /* office365-exchange-sdkTests */,
+				ECF3EBB119A390E800D05D8B /* Frameworks */,
+				ECF3EBB019A390E800D05D8B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECF3EBB019A390E800D05D8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */,
+				ECF3EBBF19A390E900D05D8B /* office365-exchange-sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECF3EBB119A390E800D05D8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBB219A390E800D05D8B /* Foundation.framework */,
+				ECF3EBC019A390E900D05D8B /* XCTest.framework */,
+				ECF3EBC319A390E900D05D8B /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECF3EBB419A390E800D05D8B /* office365-exchange-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBD819A3913600D05D8B /* models */,
+				ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */,
+				ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */,
+				ECF3EBB519A390E800D05D8B /* Supporting Files */,
+			);
+			path = "office365-exchange-sdk";
+			sourceTree = "<group>";
+		};
+		ECF3EBB519A390E800D05D8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBB619A390E800D05D8B /* office365-exchange-sdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECF3EBC819A390E900D05D8B /* office365-exchange-sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBCE19A390E900D05D8B /* office365_exchange_sdkTests.m */,
+				ECF3EBC919A390E900D05D8B /* Supporting Files */,
+			);
+			path = "office365-exchange-sdkTests";
+			sourceTree = "<group>";
+		};
+		ECF3EBC919A390E900D05D8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBCA19A390E900D05D8B /* office365-exchange-sdkTests-Info.plist */,
+				ECF3EBCB19A390E900D05D8B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECF3EBD819A3913600D05D8B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBD919A3913600D05D8B /* microsoft */,
+				ECF3EC1219A3913600D05D8B /* system */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		ECF3EBD919A3913600D05D8B /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBDA19A3913600D05D8B /* exchange */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECF3EBDA19A3913600D05D8B /* exchange */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBDB19A3913600D05D8B /* services */,
+			);
+			path = exchange;
+			sourceTree = "<group>";
+		};
+		ECF3EBDB19A3913600D05D8B /* services */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBDC19A3913600D05D8B /* odata */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		ECF3EBDC19A3913600D05D8B /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBDD19A3913600D05D8B /* model */,
+			);
+			path = odata;
+			sourceTree = "<group>";
+		};
+		ECF3EBDD19A3913600D05D8B /* model */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBDE19A3913600D05D8B /* Attachment.h */,
+				ECF3EBDF19A3913600D05D8B /* Attachment.m */,
+				ECF3EBE019A3913600D05D8B /* Attendee.h */,
+				ECF3EBE119A3913600D05D8B /* Attendee.m */,
+				ECF3EBE219A3913600D05D8B /* AttendeeType.h */,
+				ECF3EBE319A3913600D05D8B /* BodyType.h */,
+				ECF3EBE419A3913600D05D8B /* Calendar.h */,
+				ECF3EBE519A3913600D05D8B /* Calendar.m */,
+				ECF3EBE619A3913600D05D8B /* CalendarGroup.h */,
+				ECF3EBE719A3913600D05D8B /* CalendarGroup.m */,
+				ECF3EBE819A3913600D05D8B /* Contact.h */,
+				ECF3EBE919A3913600D05D8B /* Contact.m */,
+				ECF3EBEA19A3913600D05D8B /* ContactFolder.h */,
+				ECF3EBEB19A3913600D05D8B /* ContactFolder.m */,
+				ECF3EBEC19A3913600D05D8B /* Entity.h */,
+				ECF3EBED19A3913600D05D8B /* Entity.m */,
+				ECF3EBEE19A3913600D05D8B /* Event.h */,
+				ECF3EBEF19A3913600D05D8B /* Event.m */,
+				ECF3EBF019A3913600D05D8B /* EventType.h */,
+				ECF3EBF119A3913600D05D8B /* FileAttachment.h */,
+				ECF3EBF219A3913600D05D8B /* FileAttachment.m */,
+				ECF3EBF319A3913600D05D8B /* Folder.h */,
+				ECF3EBF419A3913600D05D8B /* Folder.m */,
+				ECF3EBF519A3913600D05D8B /* FreeBusyStatus.h */,
+				ECF3EBF619A3913600D05D8B /* Importance.h */,
+				ECF3EBF719A3913600D05D8B /* Item.h */,
+				ECF3EBF819A3913600D05D8B /* Item.m */,
+				ECF3EBF919A3913600D05D8B /* ItemAttachment.h */,
+				ECF3EBFA19A3913600D05D8B /* ItemAttachment.m */,
+				ECF3EBFB19A3913600D05D8B /* ItemBody.h */,
+				ECF3EBFC19A3913600D05D8B /* ItemBody.m */,
+				ECF3EBFD19A3913600D05D8B /* Location.h */,
+				ECF3EBFE19A3913600D05D8B /* Location.m */,
+				ECF3EBFF19A3913600D05D8B /* MeetingMessageType.h */,
+				ECF3EC0019A3913600D05D8B /* Message.h */,
+				ECF3EC0119A3913600D05D8B /* Message.m */,
+				ECF3EC0219A3913600D05D8B /* PatternedRecurrence.h */,
+				ECF3EC0319A3913600D05D8B /* PatternedRecurrence.m */,
+				ECF3EC0419A3913600D05D8B /* Recipient.h */,
+				ECF3EC0519A3913600D05D8B /* Recipient.m */,
+				ECF3EC0619A3913600D05D8B /* RecurrencePattern.h */,
+				ECF3EC0719A3913600D05D8B /* RecurrencePattern.m */,
+				ECF3EC0819A3913600D05D8B /* RecurrencePatternType.h */,
+				ECF3EC0919A3913600D05D8B /* RecurrenceRange.h */,
+				ECF3EC0A19A3913600D05D8B /* RecurrenceRange.m */,
+				ECF3EC0B19A3913600D05D8B /* RecurrenceRangeType.h */,
+				ECF3EC0C19A3913600D05D8B /* ResponseStatus.h */,
+				ECF3EC0D19A3913600D05D8B /* ResponseStatus.m */,
+				ECF3EC0E19A3913600D05D8B /* ResponseType.h */,
+				ECF3EC0F19A3913600D05D8B /* User.h */,
+				ECF3EC1019A3913600D05D8B /* User.m */,
+				ECF3EC1119A3913600D05D8B /* WeekIndex.h */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		ECF3EC1219A3913600D05D8B /* system */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EC1319A3913600D05D8B /* DayOfWeek.h */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECF3EBAE19A390E800D05D8B /* office365-exchange-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF3EBD219A390E900D05D8B /* Build configuration list for PBXNativeTarget "office365-exchange-sdk" */;
+			buildPhases = (
+				ECF3EBAB19A390E800D05D8B /* Sources */,
+				ECF3EBAC19A390E800D05D8B /* Frameworks */,
+				ECF3EBAD19A390E800D05D8B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "office365-exchange-sdk";
+			productName = "office365-exchange-sdk";
+			productReference = ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		ECF3EBBE19A390E900D05D8B /* office365-exchange-sdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECF3EBD519A390E900D05D8B /* Build configuration list for PBXNativeTarget "office365-exchange-sdkTests" */;
+			buildPhases = (
+				ECF3EBBB19A390E900D05D8B /* Sources */,
+				ECF3EBBC19A390E900D05D8B /* Frameworks */,
+				ECF3EBBD19A390E900D05D8B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECF3EBC619A390E900D05D8B /* PBXTargetDependency */,
+			);
+			name = "office365-exchange-sdkTests";
+			productName = "office365-exchange-sdkTests";
+			productReference = ECF3EBBF19A390E900D05D8B /* office365-exchange-sdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECF3EBA719A390E800D05D8B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Microsoft;
+			};
+			buildConfigurationList = ECF3EBAA19A390E800D05D8B /* Build configuration list for PBXProject "office365-exchange-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ECF3EBA619A390E800D05D8B;
+			productRefGroup = ECF3EBB019A390E800D05D8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECF3EBAE19A390E800D05D8B /* office365-exchange-sdk */,
+				ECF3EBBE19A390E900D05D8B /* office365-exchange-sdkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECF3EBBD19A390E900D05D8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF3EBCD19A390E900D05D8B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECF3EBAB19A390E800D05D8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF3EC1E19A3913600D05D8B /* Item.m in Sources */,
+				ECF3EC2119A3913600D05D8B /* Location.m in Sources */,
+				ECF3EC2319A3913600D05D8B /* PatternedRecurrence.m in Sources */,
+				ECF3EC1A19A3913600D05D8B /* Entity.m in Sources */,
+				ECF3EC1919A3913600D05D8B /* ContactFolder.m in Sources */,
+				ECF3EC1419A3913600D05D8B /* Attachment.m in Sources */,
+				ECF3EC2819A3913600D05D8B /* User.m in Sources */,
+				ECF3EC2519A3913600D05D8B /* RecurrencePattern.m in Sources */,
+				ECF3EC1B19A3913600D05D8B /* Event.m in Sources */,
+				ECF3EC1519A3913600D05D8B /* Attendee.m in Sources */,
+				ECF3EC1D19A3913600D05D8B /* Folder.m in Sources */,
+				ECF3EBBA19A390E800D05D8B /* office365_exchange_sdk.m in Sources */,
+				ECF3EC2219A3913600D05D8B /* Message.m in Sources */,
+				ECF3EC1F19A3913600D05D8B /* ItemAttachment.m in Sources */,
+				ECF3EC1C19A3913600D05D8B /* FileAttachment.m in Sources */,
+				ECF3EC2019A3913600D05D8B /* ItemBody.m in Sources */,
+				ECF3EC1619A3913600D05D8B /* Calendar.m in Sources */,
+				ECF3EC2419A3913600D05D8B /* Recipient.m in Sources */,
+				ECF3EC1819A3913600D05D8B /* Contact.m in Sources */,
+				ECF3EC1719A3913600D05D8B /* CalendarGroup.m in Sources */,
+				ECF3EC2719A3913600D05D8B /* ResponseStatus.m in Sources */,
+				ECF3EC2619A3913600D05D8B /* RecurrenceRange.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECF3EBBB19A390E900D05D8B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECF3EBCF19A390E900D05D8B /* office365_exchange_sdkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECF3EBC619A390E900D05D8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECF3EBAE19A390E800D05D8B /* office365-exchange-sdk */;
+			targetProxy = ECF3EBC519A390E900D05D8B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECF3EBCB19A390E900D05D8B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECF3EBCC19A390E900D05D8B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECF3EBD019A390E900D05D8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ECF3EBD119A390E900D05D8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECF3EBD319A390E900D05D8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/office365_exchange_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "office365-exchange-sdk/office365-exchange-sdk-Prefix.pch";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ECF3EBD419A390E900D05D8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/office365_exchange_sdk.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "office365-exchange-sdk/office365-exchange-sdk-Prefix.pch";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		ECF3EBD619A390E900D05D8B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "office365-exchange-sdk/office365-exchange-sdk-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "office365-exchange-sdkTests/office365-exchange-sdkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		ECF3EBD719A390E900D05D8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "office365-exchange-sdk/office365-exchange-sdk-Prefix.pch";
+				INFOPLIST_FILE = "office365-exchange-sdkTests/office365-exchange-sdkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECF3EBAA19A390E800D05D8B /* Build configuration list for PBXProject "office365-exchange-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF3EBD019A390E900D05D8B /* Debug */,
+				ECF3EBD119A390E900D05D8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECF3EBD219A390E900D05D8B /* Build configuration list for PBXNativeTarget "office365-exchange-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF3EBD319A390E900D05D8B /* Debug */,
+				ECF3EBD419A390E900D05D8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ECF3EBD519A390E900D05D8B /* Build configuration list for PBXNativeTarget "office365-exchange-sdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECF3EBD619A390E900D05D8B /* Debug */,
+				ECF3EBD719A390E900D05D8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECF3EBA719A390E800D05D8B /* Project object */;
+}
