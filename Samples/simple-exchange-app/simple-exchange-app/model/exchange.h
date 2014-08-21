@@ -475,7 +475,8 @@ public:
 
 class Event : public Item
 {
-public:
+ public:microsoft
+ system
     DECLARE_ENTITY_CONSTRUCTOR(Event);
     DECLARE_ENTITY_DESTRUCTOR(Event);
     DECLARE_EDM_INFO();

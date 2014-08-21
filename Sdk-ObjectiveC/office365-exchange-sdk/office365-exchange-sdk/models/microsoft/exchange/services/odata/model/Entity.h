@@ -6,10 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
+
 
 
 @interface Entity : NSObject
 
-@property NSString * Id;
+@property NSString *Id;
 
 @end

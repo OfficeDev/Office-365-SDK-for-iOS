@@ -5,7 +5,11 @@
 //  All rights reserved.
 //
 
-enum BodyType {
-	Text,
-	HTML,
-};
+@interface NSObject ()
+
+typedef enum {
+	BodyType_Text = 0,
+	BodyType_HTML = 1,
+} BodyType;
+@end
+

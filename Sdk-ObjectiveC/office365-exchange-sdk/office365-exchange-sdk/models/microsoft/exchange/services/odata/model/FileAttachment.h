@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Attachment.h"
+
 
 @interface FileAttachment : Attachment
 
-@property NSString * ContentId;
-@property NSString * ContentLocation;
+@property NSString *ContentId;
+@property NSString *ContentLocation;
 @property bool IsContactPhoto;
 @property Byte ContentBytes;
 

@@ -6,11 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Attachment.h"
-#import "Item.h"
+
+@class Item;
 
 @interface ItemAttachment : Attachment
 
-@property Item * Item;
+@property Item *Item;
 
 @end

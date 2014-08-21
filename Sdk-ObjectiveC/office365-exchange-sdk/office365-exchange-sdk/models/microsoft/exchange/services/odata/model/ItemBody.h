@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 
-#import "BodyType.h"
+
+@class BodyType;
 
 @interface ItemBody : NSObject
 
-@property enum BodyType * ContentType;
-@property NSString * Content;
+@property BodyType *ContentType;
+@property NSString *Content;
 
 @end

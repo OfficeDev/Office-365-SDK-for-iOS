@@ -6,14 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Entity.h"
+
 
 @interface Attachment : Entity
 
-@property NSString * Name;
-@property NSString * ContentType;
+@property NSString *Name;
+@property NSString *ContentType;
 @property int Size;
 @property bool IsInline;
-@property NSDate * LastModifiedTime;
+@property NSDate *LastModifiedTime;
 
 @end

@@ -6,27 +6,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Entity.h"
-#import "Folder.h"
-#import "Calendar.h"
+
+@class Folder;
+@class Message;
+@class Calendar;
+@class CalendarGroup;
+@class Event;
+@class Contact;
+@class ContactFolder;
 
 @interface User : Entity
 
-@property NSString * DisplayName;
-@property NSString * Alias;
-@property NSString * MailboxGuid;
-@property NSMutableArray * Folders;
-@property NSMutableArray * Messages;
-@property Folder * RootFolder;
-@property Folder * Inbox;
-@property Folder * Drafts;
-@property Folder * SentItems;
-@property Folder * DeletedItems;
-@property NSMutableArray * Calendars;
-@property Calendar * Calendar;
-@property NSMutableArray * CalendarGroups;
-@property NSMutableArray * Events;
-@property NSMutableArray * Contacts;
-@property NSMutableArray * ContactFolders;
+@property NSString *DisplayName;
+@property NSString *Alias;
+@property NSString *MailboxGuid;
+@property NSMutableArray<Folder> *Folders;
+@property NSMutableArray<Message> *Messages;
+@property Folder *RootFolder;
+@property Folder *Inbox;
+@property Folder *Drafts;
+@property Folder *SentItems;
+@property Folder *DeletedItems;
+@property NSMutableArray<Calendar> *Calendars;
+@property Calendar *Calendar;
+@property NSMutableArray<CalendarGroup> *CalendarGroups;
+@property NSMutableArray<Event> *Events;
+@property NSMutableArray<Contact> *Contacts;
+@property NSMutableArray<ContactFolder> *ContactFolders;
 
 @end

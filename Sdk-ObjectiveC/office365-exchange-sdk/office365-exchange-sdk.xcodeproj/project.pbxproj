@@ -63,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		ECD2484E19A6464200464FA0 /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
 		ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-exchange-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF3EBB219A390E800D05D8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECF3EBB619A390E800D05D8B /* office365-exchange-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-exchange-sdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -152,6 +153,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ECD2484D19A6464200464FA0 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ECD2484E19A6464200464FA0 /* Protocols.h */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
 		ECF3EBA619A390E800D05D8B = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +230,7 @@
 		ECF3EBD819A3913600D05D8B /* models */ = {
 			isa = PBXGroup;
 			children = (
+				ECD2484D19A6464200464FA0 /* protocols */,
 				ECF3EBD919A3913600D05D8B /* microsoft */,
 				ECF3EC1219A3913600D05D8B /* system */,
 			);
@@ -611,6 +621,7 @@
 				ECF3EBD419A390E900D05D8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECF3EBD519A390E900D05D8B /* Build configuration list for PBXNativeTarget "office365-exchange-sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -619,6 +630,7 @@
 				ECF3EBD719A390E900D05D8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

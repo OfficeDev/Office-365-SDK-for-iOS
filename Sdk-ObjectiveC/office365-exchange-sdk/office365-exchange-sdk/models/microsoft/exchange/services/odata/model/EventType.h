@@ -5,9 +5,13 @@
 //  All rights reserved.
 //
 
-enum EventType {
-	SingleInstance,
-	Occurrence,
-	Exception,
-	SeriesMaster,
-};
+@interface NSObject ()
+
+typedef enum {
+	EventType_SingleInstance = 0,
+	EventType_Occurrence = 1,
+	EventType_Exception = 2,
+	EventType_SeriesMaster = 3,
+} EventType;
+@end
+

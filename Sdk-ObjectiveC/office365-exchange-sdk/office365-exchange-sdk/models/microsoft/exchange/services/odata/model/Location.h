@@ -6,10 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
+
 
 
 @interface Location : NSObject
 
-@property NSString * DisplayName;
+@property NSString *DisplayName;
 
 @end

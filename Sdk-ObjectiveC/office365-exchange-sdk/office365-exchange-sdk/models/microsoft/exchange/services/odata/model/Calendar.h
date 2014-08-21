@@ -6,12 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Entity.h"
+
+@class Event;
 
 @interface Calendar : Entity
 
-@property NSString * Name;
-@property NSString * ChangeKey;
-@property NSMutableArray * Events;
+@property NSString *Name;
+@property NSString *ChangeKey;
+@property NSMutableArray<Event> *Events;
 
 @end

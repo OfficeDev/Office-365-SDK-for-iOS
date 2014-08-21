@@ -6,13 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 
-#import "RecurrencePattern.h"
-#import "RecurrenceRange.h"
+
+@class RecurrencePattern;
+@class RecurrenceRange;
 
 @interface PatternedRecurrence : NSObject
 
-@property RecurrencePattern * Pattern;
-@property RecurrenceRange * Range;
+@property RecurrencePattern *Pattern;
+@property RecurrenceRange *Range;
 
 @end

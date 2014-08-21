@@ -6,13 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Recipient.h"
-#import "ResponseStatus.h"
-#import "AttendeeType.h"
+
+@class ResponseStatus;
+@class AttendeeType;
 
 @interface Attendee : Recipient
 
-@property ResponseStatus * Status;
-@property enum AttendeeType * Type;
+@property ResponseStatus *Status;
+@property AttendeeType *Type;
 
 @end

@@ -6,13 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Entity.h"
+
+@class Contact;
+@class ContactFolder;
 
 @interface ContactFolder : Entity
 
-@property NSString * ParentFolderId;
-@property NSString * DisplayName;
-@property NSMutableArray * Contacts;
-@property NSMutableArray * ChildFolders;
+@property NSString *ParentFolderId;
+@property NSString *DisplayName;
+@property NSMutableArray<Contact> *Contacts;
+@property NSMutableArray<ContactFolder> *ChildFolders;
 
 @end

@@ -5,8 +5,12 @@
 //  All rights reserved.
 //
 
-enum RecurrenceRangeType {
-	EndDate,
-	NoEnd,
-	Numbered,
-};
+@interface NSObject ()
+
+typedef enum {
+	RecurrenceRangeType_EndDate = 0,
+	RecurrenceRangeType_NoEnd = 1,
+	RecurrenceRangeType_Numbered = 2,
+} RecurrenceRangeType;
+@end
+

@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Recipient.h"
-#import "ResponseType.h"
+
+@class ResponseType;
 
 @interface ResponseStatus : Recipient
 
-@property enum ResponseType * Response;
-@property NSDate * Time;
+@property ResponseType *Response;
+@property NSDate *Time;
 
 @end

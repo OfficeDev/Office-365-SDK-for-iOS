@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/FileTestRunner.m"
-            timestampString = "429649636.90742"
+            filePath = "Samples/file-app/file-app/Parser.m"
+            timestampString = "430240715.85278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
-            landmarkName = "-TestDeleteFileWithCompletionHandler:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-parseWithData:forType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sdk-ObjectiveC/office365-base-sdk/office365-base-sdk/OAuthentication.m"
+            timestampString = "430273140.017753"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-initWith:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

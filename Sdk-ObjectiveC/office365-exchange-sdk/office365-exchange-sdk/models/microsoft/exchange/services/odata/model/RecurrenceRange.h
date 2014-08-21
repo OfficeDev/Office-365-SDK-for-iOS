@@ -6,14 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 
-#import "RecurrenceRangeType.h"
+
+@class RecurrenceRangeType;
 
 @interface RecurrenceRange : NSObject
 
-@property enum RecurrenceRangeType * Type;
-@property NSDate * StartDate;
-@property NSDate * EndDate;
+@property RecurrenceRangeType *Type;
+@property NSDate *StartDate;
+@property NSDate *EndDate;
 @property int NumberOfOccurrences;
 
 @end

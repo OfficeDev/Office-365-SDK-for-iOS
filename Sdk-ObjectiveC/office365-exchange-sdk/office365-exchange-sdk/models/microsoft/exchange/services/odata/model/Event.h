@@ -6,27 +6,30 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Item.h"
-#import "Location.h"
-#import "FreeBusyStatus.h"
-#import "EventType.h"
-#import "PatternedRecurrence.h"
-#import "Calendar.h"
+
+@class Location;
+@class FreeBusyStatus;
+@class EventType;
+@class Attendee;
+@class PatternedRecurrence;
+@class Calendar;
 
 @interface Event : Item
 
-@property NSDate * Start;
-@property NSDate * End;
-@property Location * Location;
-@property enum FreeBusyStatus * ShowAs;
+@property NSDate *Start;
+@property NSDate *End;
+@property Location *Location;
+@property FreeBusyStatus *ShowAs;
 @property bool IsAllDay;
 @property bool IsCancelled;
 @property bool IsOrganizer;
 @property bool ResponseRequested;
-@property enum EventType * Type;
-@property NSString * SeriesId;
-@property NSMutableArray * Attendees;
-@property PatternedRecurrence * Recurrence;
-@property Calendar * Calendar;
+@property EventType *Type;
+@property NSString *SeriesId;
+@property NSMutableArray<Attendee> *Attendees;
+@property PatternedRecurrence *Recurrence;
+@property Calendar *Calendar;
 
 @end

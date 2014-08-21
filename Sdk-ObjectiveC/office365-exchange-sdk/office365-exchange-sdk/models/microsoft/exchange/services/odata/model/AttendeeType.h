@@ -5,8 +5,12 @@
 //  All rights reserved.
 //
 
-enum AttendeeType {
-	Required,
-	Optional,
-	Resource,
-};
+@interface NSObject ()
+
+typedef enum {
+	AttendeeType_Required = 0,
+	AttendeeType_Optional = 1,
+	AttendeeType_Resource = 2,
+} AttendeeType;
+@end
+

@@ -6,17 +6,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Protocols.h"
 #import "Entity.h"
+
+@class Folder;
+@class Message;
 
 @interface Folder : Entity
 
-@property NSString * ParentFolderId;
-@property NSString * DisplayName;
-@property NSString * ClassName;
+@property NSString *ParentFolderId;
+@property NSString *DisplayName;
+@property NSString *ClassName;
 @property int TotalCount;
 @property int ChildFolderCount;
 @property int UnreadItemCount;
-@property NSMutableArray * ChildFolders;
-@property NSMutableArray * Messages;
+@property NSMutableArray<Folder> *ChildFolders;
+@property NSMutableArray<Message> *Messages;
 
 @end
