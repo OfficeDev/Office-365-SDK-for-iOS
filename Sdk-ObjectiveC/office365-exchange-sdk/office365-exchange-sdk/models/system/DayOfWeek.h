@@ -8,13 +8,13 @@
 @interface NSObject ()
 
 typedef enum {
-	DayOfWeek_Sunday = 0,
-	DayOfWeek_Monday = 1,
-	DayOfWeek_Tuesday = 2,
-	DayOfWeek_Wednesday = 3,
-	DayOfWeek_Thursday = 4,
-	DayOfWeek_Friday = 5,
-	DayOfWeek_Saturday = 6,
+	Sunday
+	Monday
+	Tuesday
+	Wednesday
+	Thursday
+	Friday
+	Saturday
 } DayOfWeek;
 @end
 

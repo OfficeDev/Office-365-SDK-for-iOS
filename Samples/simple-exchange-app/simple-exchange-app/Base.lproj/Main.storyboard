@@ -1,185 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EfJ-hF-fXA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Mails Table View Controller - Mails-->
-        <scene sceneID="HRr-Of-9cJ">
+        <!--Message Table View Controller - Root View Controller-->
+        <scene sceneID="5gM-0Y-ypO">
             <objects>
-                <tableViewController id="UJE-KO-vAI" customClass="MailsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OvR-L9-rdx">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                <tableViewController id="kGP-IX-g6e" customClass="MessageTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2w-1d-UJq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="PI9-hI-7Uo">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="LML-ev-vu6">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PI9-hI-7Uo" id="5nK-gm-V22">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LML-ev-vu6" id="709-62-3I2">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="UJE-KO-vAI" id="GcS-A5-FEk"/>
-                            <outlet property="delegate" destination="UJE-KO-vAI" id="Gvh-K7-ZWu"/>
+                            <outlet property="dataSource" destination="kGP-IX-g6e" id="jNq-Fe-3rk"/>
+                            <outlet property="delegate" destination="kGP-IX-g6e" id="TtI-Rv-mlf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mails" id="ylV-Tk-C5H">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dl5-6j-KT6">
-                            <connections>
-                                <segue destination="uy3-dQ-j9c" kind="push" id="zUT-3x-2Jc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f6a-QB-6au" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3612" y="643"/>
+            <point key="canvasLocation" x="4808" y="1114"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="G7i-lS-tz9">
+        <!--Navigation Controller-->
+        <scene sceneID="1Ie-BX-Wym">
             <objects>
-                <viewController id="uy3-dQ-j9c" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NBM-lh-1R8"/>
-                        <viewControllerLayoutGuide type="bottom" id="PN9-fc-OHj"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0eB-yx-LxH">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="dEu-Cs-T4e">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Khe-Uf-w7c">
-                            <connections>
-                                <segue destination="Zgx-ky-t3B" kind="unwind" unwindAction="unwind:" id="VIe-yg-NRi"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="Luf-jB-zdj"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qLE-kq-fRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Zgx-ky-t3B" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4222" y="643"/>
-        </scene>
-        <!--Navigation Controller - SimpleLib-->
-        <scene sceneID="irZ-R9-7y3">
-            <objects>
-                <navigationController id="YFK-i7-9tX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SimpleLib" id="3id-dE-bv6"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m29-qY-oY2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <navigationController definesPresentationContext="YES" id="EfJ-hF-fXA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oro-tC-v8g">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UJE-KO-vAI" kind="relationship" relationship="rootViewController" id="Uzz-2t-6el"/>
+                        <segue destination="kGP-IX-g6e" kind="relationship" relationship="rootViewController" id="eBY-74-3x6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1j2-X6-eec" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3a-yu-vRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912" y="643"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yl2-sM-qoP">
-            <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
-                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="YFK-i7-9tX" kind="relationship" relationship="viewControllers" id="xiG-iI-CLg"/>
-                        <segue destination="WLJ-hz-8Zt" kind="relationship" relationship="viewControllers" id="E7t-9K-A0T"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2283" y="965"/>
-        </scene>
-        <!--Mails Table View Controller - Mails-->
-        <scene sceneID="85O-Ae-fkE">
-            <objects>
-                <tableViewController id="r1Y-UC-Fe5" customClass="MailsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="F2s-mV-ux6">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" id="sFW-Fc-c4g">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sFW-Fc-c4g" id="K9U-g6-EYB">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="r1Y-UC-Fe5" id="u9G-s2-Nta"/>
-                            <outlet property="delegate" destination="r1Y-UC-Fe5" id="NzY-wK-c5p"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Mails" id="ulY-E7-ec5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yLC-yh-zgg">
-                            <connections>
-                                <segue destination="aND-eR-jdK" kind="push" id="02l-wR-00i"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g8O-gf-KZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3612" y="1453"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="g8Z-se-Ha7">
-            <objects>
-                <viewController id="aND-eR-jdK" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MQX-tQ-h4g"/>
-                        <viewControllerLayoutGuide type="bottom" id="cID-65-DH8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YVO-J1-uAY">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="7bq-GA-E2J">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Nll-VT-GfL">
-                            <connections>
-                                <segue destination="IGR-WN-eVy" kind="unwind" unwindAction="unwind:" id="e2w-1p-Azy"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="az3-dg-tS7"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rXg-at-dZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="IGR-WN-eVy" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4179" y="1453"/>
-        </scene>
-        <!--Navigation Controller - OdataCpp-->
-        <scene sceneID="QyR-RR-Sba">
-            <objects>
-                <navigationController id="WLJ-hz-8Zt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="OdataCpp" id="h0y-Qi-g6T"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lfj-AM-dCK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="r1Y-UC-Fe5" kind="relationship" relationship="rootViewController" id="Lxy-QI-5jp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="izx-ML-wYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2912" y="1453"/>
+            <point key="canvasLocation" x="4274" y="1114"/>
         </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>

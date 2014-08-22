@@ -8,12 +8,12 @@
 @interface NSObject ()
 
 typedef enum {
-	FreeBusyStatus_Unknown = 0,
-	FreeBusyStatus_Free = 1,
-	FreeBusyStatus_Tentative = 2,
-	FreeBusyStatus_Busy = 3,
-	FreeBusyStatus_Oof = 4,
-	FreeBusyStatus_WorkingElsewhere = 5,
+	Unknown
+	Free
+	Tentative
+	Busy
+	Oof
+	WorkingElsewhere
 } FreeBusyStatus;
 @end
 

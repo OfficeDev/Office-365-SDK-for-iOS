@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Samples/file-app/file-app/Parser.m"
-            timestampString = "430240715.85278"
+            filePath = "Sdk-ObjectiveC/office365-base-sdk/office365-base-sdk/OAuthentication.m"
+            timestampString = "430405775.682332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-parseWithData:forType:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "-initWith:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sdk-ObjectiveC/office365-base-sdk/office365-base-sdk/OAuthentication.m"
-            timestampString = "430273140.017753"
+            timestampString = "430405778.448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "-initWith:"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-getToken"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

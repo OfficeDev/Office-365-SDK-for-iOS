@@ -8,8 +8,8 @@
 @interface NSObject ()
 
 typedef enum {
-	BodyType_Text = 0,
-	BodyType_HTML = 1,
+	Text
+	HTML
 } BodyType;
 @end
 

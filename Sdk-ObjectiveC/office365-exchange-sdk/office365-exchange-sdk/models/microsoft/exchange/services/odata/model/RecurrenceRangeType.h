@@ -8,9 +8,9 @@
 @interface NSObject ()
 
 typedef enum {
-	RecurrenceRangeType_EndDate = 0,
-	RecurrenceRangeType_NoEnd = 1,
-	RecurrenceRangeType_Numbered = 2,
+	EndDate
+	NoEnd
+	Numbered
 } RecurrenceRangeType;
 @end
 
