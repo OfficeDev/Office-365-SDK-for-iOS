@@ -134,16 +134,7 @@
  }
  */
 
-- (IBAction)unwindToList:(UIStoryboardSegue *)segue{
-    
-    AddToDoItemViewController *controller = [segue sourceViewController];
-    ToDoItem *item = controller.toDoItem;
-    
-    if(item != nil){
-        [self.toDoItems addObject:item];
-        [self.tableView reloadData];
-    }
-}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,7 +148,6 @@
         [dba update:item];
     }
     
-
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
 }

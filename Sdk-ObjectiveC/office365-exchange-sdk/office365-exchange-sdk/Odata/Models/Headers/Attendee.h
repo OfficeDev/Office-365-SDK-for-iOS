@@ -12,7 +12,7 @@
 @class AttendeeType;
 @interface Attendee : Recipient	
 
-@property ResponseStatus *Status
-@property AttendeeType *Type
+@property ResponseStatus *Status;
+@property AttendeeType *Type;
 
 @end

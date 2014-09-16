@@ -5,7 +5,7 @@
 //
 
 #import "Message.h"
-#import "Action.h"
+#import "Actions.h"
 
 @implementation Message
 
@@ -15,7 +15,7 @@ self.Operations = (id)[[ActionMessage alloc] init];
 return self;
 }
 
--(id<>)getOperations{
+-(id<Message>)getOperations{
 	((ActionMessage*)(self.Operations)).EntityId = self.Id;
 	return self.Operations;
 }

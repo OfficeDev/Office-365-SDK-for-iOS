@@ -10,9 +10,9 @@
 
 @interface FileAttachment : Attachment	
 
-@property NSString *ContentId
-@property NSString *ContentLocation
-@property bool IsContactPhoto
-@property Byte ContentBytes
+@property NSString *ContentId;
+@property NSString *ContentLocation;
+@property bool IsContactPhoto;
+@property Byte ContentBytes;
 
 @end

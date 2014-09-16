@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EfJ-hF-fXA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EfJ-hF-fXA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Message Table View Controller - Root View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="5gM-0Y-ypO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="kGP-IX-g6e" customClass="MessageTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2w-1d-UJq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -27,15 +29,91 @@
                             <outlet property="delegate" destination="kGP-IX-g6e" id="TtI-Rv-mlf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="WRF-HZ-xco">
+                            <connections>
+                                <segue destination="SEk-aC-8Qi" kind="modal" id="eAu-9T-TZH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4808" y="1114"/>
+        </scene>
+        <!--New Message View Controller-->
+        <scene sceneID="TlR-Y0-IHf">
+            <objects>
+                <viewController id="SEk-aC-8Qi" customClass="NewMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xVa-g7-LGA"/>
+                        <viewControllerLayoutGuide type="bottom" id="B9D-ja-9Gk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J27-JR-8Fq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0tW-L3-3hM">
+                                <rect key="frame" x="0.0" y="19" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="New Message" id="0Xt-3m-odB">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WSg-tP-0fC">
+                                            <connections>
+                                                <segue destination="HIB-As-war" kind="unwind" unwindAction="unwindExchangeViews:" id="E4B-2a-CrW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Send" id="V8e-7p-aev">
+                                            <connections>
+                                                <action selector="SendMail:" destination="SEk-aC-8Qi" id="E82-HK-vKd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="To: " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="diC-gf-ZsQ">
+                                <rect key="frame" x="16" y="77" width="288" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cc/Bcc: " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4vN-f3-Ii4">
+                                <rect key="frame" x="16" y="110" width="288" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Subject:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zwb-MO-I7S">
+                                <rect key="frame" x="16" y="142" width="288" height="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HrR-rI-zNK">
+                                <rect key="frame" x="11" y="180" width="288" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">
+ Sent from my Office SDK</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtBody" destination="HrR-rI-zNK" id="sOD-pA-igj"/>
+                        <outlet property="txtCc" destination="4vN-f3-Ii4" id="7wc-zD-CAM"/>
+                        <outlet property="txtSubject" destination="zwb-MO-I7S" id="dJ6-I6-gb2"/>
+                        <outlet property="txtTo" destination="diC-gf-ZsQ" id="ESQ-y7-DPp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hV7-D0-QGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HIB-As-war" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5187" y="1114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Ie-BX-Wym">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3a-yu-vRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="EfJ-hF-fXA" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oro-tC-v8g">
                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +122,6 @@
                         <segue destination="kGP-IX-g6e" kind="relationship" relationship="rootViewController" id="eBY-74-3x6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a3a-yu-vRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4274" y="1114"/>
         </scene>

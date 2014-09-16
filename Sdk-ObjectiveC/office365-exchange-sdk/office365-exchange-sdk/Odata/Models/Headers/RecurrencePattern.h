@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Protocols.h"
-#import "NSObject.h"
 
 @class RecurrencePatternType;
 @class DayOfWeek;
@@ -14,12 +13,12 @@
 @class WeekIndex;
 @interface RecurrencePattern : NSObject	
 
-@property RecurrencePatternType *Type
-@property int Interval
-@property int DayOfMonth
-@property int Month
-@property NSMutableArray<DayOfWeek> *DaysOfWeek
-@property DayOfWeek *FirstDayOfWeek
-@property WeekIndex *Index
+@property RecurrencePatternType *Type;
+@property int Interval;
+@property int DayOfMonth;
+@property int Month;
+@property DayOfWeek *DaysOfWeek;
+@property DayOfWeek *FirstDayOfWeek;
+@property WeekIndex *Index;
 
 @end

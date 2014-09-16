@@ -15,13 +15,13 @@
 -(id<Folder>)getOperations;
 
 @property id<Folder> Operations;
-@property NSString *ParentFolderId
-@property NSString *DisplayName
-@property NSString *ClassName
-@property int TotalCount
-@property int ChildFolderCount
-@property int UnreadItemCount
-@property NSMutableArray<Folder> *ChildFolders
-@property NSMutableArray<Message> *Messages
+@property NSString *ParentFolderId;
+@property NSString *DisplayName;
+@property NSString *ClassName;
+@property int TotalCount;
+@property int ChildFolderCount;
+@property int UnreadItemCount;
+@property Folder *ChildFolders;
+@property Message *Messages;
 
 @end

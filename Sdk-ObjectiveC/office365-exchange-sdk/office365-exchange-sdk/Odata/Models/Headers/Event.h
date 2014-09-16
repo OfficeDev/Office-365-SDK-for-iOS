@@ -19,18 +19,18 @@
 -(id<Event>)getOperations;
 
 @property id<Event> Operations;
-@property NSDate *Start
-@property NSDate *End
-@property Location *Location
-@property FreeBusyStatus *ShowAs
-@property bool IsAllDay
-@property bool IsCancelled
-@property bool IsOrganizer
-@property bool ResponseRequested
-@property EventType *Type
-@property NSString *SeriesId
-@property NSMutableArray<Attendee> *Attendees
-@property PatternedRecurrence *Recurrence
-@property Calendar *Calendar
+@property NSDate *Start;
+@property NSDate *End;
+@property Location *Location;
+@property FreeBusyStatus *ShowAs;
+@property bool IsAllDay;
+@property bool IsCancelled;
+@property bool IsOrganizer;
+@property bool ResponseRequested;
+@property EventType *Type;
+@property NSString *SeriesId;
+@property Attendee *Attendees;
+@property PatternedRecurrence *Recurrence;
+@property Calendar *Calendar;
 
 @end

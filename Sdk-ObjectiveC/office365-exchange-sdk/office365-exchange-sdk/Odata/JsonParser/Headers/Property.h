@@ -21,5 +21,5 @@
 -(bool)isComplexType;
 -(NSString*)getCollectionEntity;
 -(bool)isNumber;
-
+-(bool)isBoolean;
 @end

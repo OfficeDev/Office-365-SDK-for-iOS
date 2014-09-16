@@ -5,7 +5,7 @@
 //  All rights reserved.
 //
 
-#import "Action.h"
+#import "Actions.h"
 #import "JsonParser.h"
 
 
@@ -14,16 +14,17 @@
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Folders('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:DestinationId Property:@"DestinationId"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Folder* result = [parser parseWithData:data forType:Folder.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -32,16 +33,17 @@
 -(NSURLSessionDataTask*) Move : (NSString *) DestinationId : (void (^)(Folder *folder, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Folders('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:DestinationId Property:@"DestinationId"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Folder* result = [parser parseWithData:data forType:Folder.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -54,16 +56,17 @@
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:DestinationId Property:@"DestinationId"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Message* result = [parser parseWithData:data forType:Message.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -72,16 +75,17 @@
 -(NSURLSessionDataTask*) Move : (NSString *) DestinationId : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:DestinationId Property:@"DestinationId"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Message* result = [parser parseWithData:data forType:Message.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -90,16 +94,17 @@
 -(NSURLSessionDataTask*) CreateReply : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	
+	NSString *jsonString =nil;
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Message* result = [parser parseWithData:data forType:Message.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -108,16 +113,17 @@
 -(NSURLSessionDataTask*) CreateReplyAll : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	
+	NSString *jsonString =nil;
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Message* result = [parser parseWithData:data forType:Message.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -126,16 +132,17 @@
 -(NSURLSessionDataTask*) CreateForward : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	
+	NSString *jsonString =nil;
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
 		Message* result = [parser parseWithData:data forType:Message.class selector:selectors];
 		callback(result,response,error);
 	}];
@@ -144,17 +151,18 @@
 -(NSURLSessionDataTask*) Reply : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }
@@ -162,17 +170,18 @@
 -(NSURLSessionDataTask*) ReplyAll : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }
@@ -180,17 +189,20 @@
 -(NSURLSessionDataTask*) Forward : (NSString *) Comment : (NSMutableArray<Recipient> *) ToRecipients : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+    NSString* param1 = [parser toJsonString:ToRecipients];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSString *jsonString = [NSString stringWithFormat:@"%@,%@",param0,param1];
+
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }
@@ -198,17 +210,18 @@
 -(NSURLSessionDataTask*) Send : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
-	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/action.Name", self.EntityId];
+	NSString *url = [NSString stringWithFormat:@"/Messages('%@')/Send", self.EntityId];
+	
+	
+	NSString *jsonString =nil;
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
-		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		//NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
+		int result = [parser parseWithData:data forType:nil selector:nil];
 		callback(result,response,error);
 	}];
 }
@@ -220,17 +233,18 @@
 -(NSURLSessionDataTask*) Accept : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Events('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }
@@ -238,17 +252,18 @@
 -(NSURLSessionDataTask*) Decline : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Events('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }
@@ -256,17 +271,18 @@
 -(NSURLSessionDataTask*) TentativelyAccept : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback
 {
 	EntityContainer *container = [EntityContainer getEntityContainer];
+	JsonParser *parser = [[JsonParser alloc] init];
 
 	NSString *url = [NSString stringWithFormat:@"/Events('%@')/action.Name", self.EntityId];
+	
+	NSString* param0 = [parser toJsonString:Comment Property:@"Comment"];
+	NSString *jsonString = [NSString stringWithFormat:@"%@",param0];
 
-	//TODO: Refactor to convert all params in JsonString
-	NSData *d = [DestinationId dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *d = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 
 	return [container executeForPath:url Method:@"POST" Body:d Callback:^(NSData *data, NSURLResponse *response, NSError *error) {
-		JsonParser *parser = [[JsonParser alloc] init];
 		NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
-
-		int result = [parser parseWithData:data forType:int selector:selectors];
+		int result = [parser parseWithData:data forType:nil selector:selectors];
 		callback(result,response,error);
 	}];
 }

@@ -6,11 +6,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Protocols.h"
-#import "NSObject.h"
 
 @interface Recipient : NSObject	
 
-@property NSString *Name
-@property NSString *Address
+@property NSString *Name;
+@property NSString *Address;
 
 @end

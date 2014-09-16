@@ -10,10 +10,10 @@
 
 @interface Attachment : Entity	
 
-@property NSString *Name
-@property NSString *ContentType
-@property int Size
-@property bool IsInline
-@property NSDate *LastModifiedTime
+@property NSString *Name;
+@property NSString *ContentType;
+@property int Size;
+@property bool IsInline;
+@property NSDate *LastModifiedTime;
 
 @end

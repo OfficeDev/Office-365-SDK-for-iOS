@@ -11,7 +11,7 @@
 @class ResponseType;
 @interface ResponseStatus : Recipient	
 
-@property ResponseType *Response
-@property NSDate *Time
+@property ResponseType *Response;
+@property NSDate *Time;
 
 @end

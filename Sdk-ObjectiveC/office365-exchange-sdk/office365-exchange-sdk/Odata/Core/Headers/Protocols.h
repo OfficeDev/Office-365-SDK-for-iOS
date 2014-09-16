@@ -5,6 +5,9 @@
 //  All rights reserved.
 //
 #import <Foundation/Foundation.h>
+@class Folder;
+@class Message;
+@class Recipient;
 
 @protocol BodyType
 @end

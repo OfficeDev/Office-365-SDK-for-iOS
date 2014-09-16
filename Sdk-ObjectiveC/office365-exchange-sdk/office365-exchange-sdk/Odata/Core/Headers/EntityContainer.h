@@ -5,6 +5,7 @@
 //  All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import "NSURLSessionDataTaskOdata.h"
 #import "BaseClient.h"
 #import "JsonParser.h"
 
@@ -48,4 +49,6 @@
 
 - (NSURLSessionDataTask *)executeForPath :(NSString*)path Method:(NSString*)method Body:(NSData *)body Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
+- (NSURLSessionDataTaskOdata *)getMessages : (NSString*)path : (Class)classType;
+- (NSURLSessionDataTask *)create :(id)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback;
 @end

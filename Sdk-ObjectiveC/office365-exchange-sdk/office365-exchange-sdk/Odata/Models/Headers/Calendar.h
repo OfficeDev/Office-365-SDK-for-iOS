@@ -11,8 +11,8 @@
 @class Event;
 @interface Calendar : Entity	
 
-@property NSString *Name
-@property NSString *ChangeKey
-@property NSMutableArray<Event> *Events
+@property NSString *Name;
+@property NSString *ChangeKey;
+@property Event *Events;
 
 @end

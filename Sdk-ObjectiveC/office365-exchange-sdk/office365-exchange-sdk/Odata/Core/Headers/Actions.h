@@ -8,8 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "Protocols.h"
 #import "EntityContainer.h"
+#import "Folder.h"
+#import "Message.h"
+#import "Recipient.h"
 
 @interface ActionFolder : NSObject
+
+@property NSString* EntityId;
 				
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSURLResponse *response, NSError *error))callback;
 				
@@ -18,6 +23,8 @@
 @end
 
 @interface ActionMessage : NSObject
+
+@property NSString* EntityId;
 				
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback;
 				
@@ -40,6 +47,8 @@
 @end
 
 @interface ActionEvent : NSObject
+
+@property NSString* EntityId;
 				
 -(NSURLSessionDataTask*) Accept : (NSString *) Comment : (void (^)(int returnValue, NSURLResponse *response, NSError *error))callback;
 				

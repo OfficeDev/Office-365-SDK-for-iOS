@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NewMessageViewController : UIViewController
+- (IBAction)SendMail:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtTo;
+@property (weak, nonatomic) IBOutlet UITextField *txtCc;
+@property (weak, nonatomic) IBOutlet UITextField *txtSubject;
+@property (weak, nonatomic) IBOutlet UITextView *txtBody;
 
 @end

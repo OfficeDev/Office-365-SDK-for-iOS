@@ -5,7 +5,7 @@
 //
 
 #import "Event.h"
-#import "Action.h"
+#import "Actions.h"
 
 @implementation Event
 
@@ -15,7 +15,7 @@ self.Operations = (id)[[ActionEvent alloc] init];
 return self;
 }
 
--(id<>)getOperations{
+-(id<Event>)getOperations{
 	((ActionEvent*)(self.Operations)).EntityId = self.Id;
 	return self.Operations;
 }

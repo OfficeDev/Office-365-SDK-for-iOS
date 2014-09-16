@@ -13,14 +13,14 @@
 @class Attachment;
 @interface Item : Entity	
 
-@property NSString *ChangeKey
-@property NSString *ClassName
-@property NSString *Subject
-@property ItemBody *Body
-@property NSString *BodyPreview
-@property Importance *Importance
-@property NSMutableArray<NSString> *Categories
-@property bool HasAttachments
-@property NSMutableArray<Attachment> *Attachments
+@property NSString *ChangeKey;
+@property NSString *ClassName;
+@property NSString *Subject;
+@property ItemBody *Body;
+@property NSString *BodyPreview;
+@property Importance *Importance;
+@property NSString *Categories;
+@property bool HasAttachments;
+@property Attachment *Attachments;
 
 @end

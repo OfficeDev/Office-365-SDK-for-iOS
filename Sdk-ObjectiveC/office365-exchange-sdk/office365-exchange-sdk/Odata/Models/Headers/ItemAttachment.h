@@ -11,6 +11,6 @@
 @class Item;
 @interface ItemAttachment : Attachment	
 
-@property Item *Item
+@property Item *Item;
 
 @end

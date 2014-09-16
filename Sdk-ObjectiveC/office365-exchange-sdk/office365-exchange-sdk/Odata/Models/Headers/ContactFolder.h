@@ -12,9 +12,9 @@
 @class ContactFolder;
 @interface ContactFolder : Entity	
 
-@property NSString *ParentFolderId
-@property NSString *DisplayName
-@property NSMutableArray<Contact> *Contacts
-@property NSMutableArray<ContactFolder> *ChildFolders
+@property NSString *ParentFolderId;
+@property NSString *DisplayName;
+@property Contact *Contacts;
+@property ContactFolder *ChildFolders;
 
 @end

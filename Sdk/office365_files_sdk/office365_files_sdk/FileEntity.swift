@@ -12,7 +12,7 @@ class FileEntity : BaseEntity{
 
     var Name : NSString? = "";
     var Url : NSString? = "";
-    var TimeLastModified : NSString? = "";
+    var TimeLastModified : NSArray<BaseEntity> = "";
     var TimeCreated : NSString? = "";
     var Size : Int = 0;
     

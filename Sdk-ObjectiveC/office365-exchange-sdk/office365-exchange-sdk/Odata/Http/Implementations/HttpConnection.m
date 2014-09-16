@@ -41,8 +41,9 @@
 }
 
 -(void)createRequest{
-    
-    [self.request addValue:@"application/json;odata=verbose" forHTTPHeaderField: @"Accept"];
+    [self.request addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+        forHTTPHeaderField:@"Accept"];
+    //[self.request addValue:@"application/json;odata=verbose" forHTTPHeaderField: @"Accept"];
     [self.request addValue:@"100-continue" forHTTPHeaderField: @"Expect"];
     [self.request addValue:@"application/json;odata.metadata=full" forHTTPHeaderField: @"Content-Type"];
     [self.request addValue:@"IOS-SDK" forHTTPHeaderField: @"X-ClientService-ClientTag"];

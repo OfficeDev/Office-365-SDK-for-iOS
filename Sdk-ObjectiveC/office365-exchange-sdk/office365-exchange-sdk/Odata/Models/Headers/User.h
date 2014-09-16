@@ -23,21 +23,21 @@
 @class ContactFolder;
 @interface User : Entity	
 
-@property NSString *DisplayName
-@property NSString *Alias
-@property NSString *MailboxGuid
-@property NSMutableArray<Folder> *Folders
-@property NSMutableArray<Message> *Messages
-@property Folder *RootFolder
-@property Folder *Inbox
-@property Folder *Drafts
-@property Folder *SentItems
-@property Folder *DeletedItems
-@property NSMutableArray<Calendar> *Calendars
-@property Calendar *Calendar
-@property NSMutableArray<CalendarGroup> *CalendarGroups
-@property NSMutableArray<Event> *Events
-@property NSMutableArray<Contact> *Contacts
-@property NSMutableArray<ContactFolder> *ContactFolders
+@property NSString *DisplayName;
+@property NSString *Alias;
+@property NSString *MailboxGuid;
+@property Folder *Folders;
+@property Message *Messages;
+@property Folder *RootFolder;
+@property Folder *Inbox;
+@property Folder *Drafts;
+@property Folder *SentItems;
+@property Folder *DeletedItems;
+@property Calendar *Calendars;
+@property Calendar *Calendar;
+@property CalendarGroup *CalendarGroups;
+@property Event *Events;
+@property Contact *Contacts;
+@property ContactFolder *ContactFolders;
 
 @end

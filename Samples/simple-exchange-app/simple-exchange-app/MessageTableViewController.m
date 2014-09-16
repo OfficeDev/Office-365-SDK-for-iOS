@@ -7,10 +7,13 @@
 //
 
 #import "MessageTableViewController.h"
-#import <office365-base-sdk/LoginClient.h>
-#import <office365-exchange-sdk/ExchangeClient.h>
-#import <office365-base-sdk/OAuthentication.h>
+#import "LoginClient.h"
+#import <office365-exchange-sdk/OAuthentication.h>
 #import <office365-exchange-sdk/Message.h>
+#import <office365-exchange-sdk/ItemBody.h>
+#import <office365-exchange-sdk/EntityContainer.h>
+#import <office365-exchange-sdk/NSURLSessionDataTaskOdata.h>
+
 
 @interface MessageTableViewController ()
 @property NSString *Token;
@@ -33,11 +36,6 @@
 {
     [super viewDidLoad];
     [self logIn];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,15 +43,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}*/
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -67,61 +56,10 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = message.Subject;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject, message.Body.ContentType];//message.Subject;
     
     return cell;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 NSString *token;
 ADAuthenticationContext* authContext;
@@ -132,8 +70,9 @@ NSString* clientId;
 NSString* token;
 
 -(void)logIn{
+    
     authority = @"https://login.windows.net/common";
-    resourceId = @"https://outlook.office365.com";
+    resourceId = @"https://outlook.office365.com";//@"https://graph.windows.net";///lagashsystems";//
     clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
     redirectUriString = @"https://lagash.com/oauth";
  
@@ -142,6 +81,7 @@ NSString* token;
                                                          :resourceId
                                                          :authority];
     
+   // [self.LoginClient clearCredentials:nil];
     [self.LoginClient login:false completionHandler:^(NSString *token, NSError *error) {
         
         if(error != nil){
@@ -154,27 +94,42 @@ NSString* token;
             
             self.Token = token;
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self initContainer];
                 [self getMessages];
                // [self.tableView reloadData];
             });
         }
     }];
 }
-
--(void)getMessages{
+EntityContainer *container;
+-(void)initContainer{
     
     NSString *url = @"https://outlook.office365.com/EWS/OData/Me";
     OAuthentication * credentials = [[OAuthentication alloc] initWith:self.Token];
     
-    ExchangeClient* client = [[ExchangeClient alloc] initWithUrl:url credentials:credentials];
+     container= [EntityContainer initializeEntityContainer:url credentials:credentials];//[EntityContaine
     
-    NSURLSessionDataTask *task = [client getMessages:^(NSMutableArray *messages, NSError *error) {
-        self.Messages = messages;
+}
+
+-(void)getMessages{
+ 
+    NSURLSessionDataTaskOdata* task = [container getMessages:@"Inbox" : [Message class]];
+    
+    [[task top:10] select:@"Id,Subject,Body"];
+    
+    [task execute:^(id data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.Messages = (NSArray<Message>*)data;
+            
             [self.tableView reloadData];
+        
         });
     }];
-    
-    [task resume];
 }
+
+- (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
+    
+}
+
 @end
