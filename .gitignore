@@ -7,3 +7,4 @@
 # Pods/
 azure-activedirectory-library-for-objc
 xcuserdata
+.DS_Store
