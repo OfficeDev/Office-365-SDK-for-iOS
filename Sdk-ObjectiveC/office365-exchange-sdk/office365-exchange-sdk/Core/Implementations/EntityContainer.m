@@ -99,7 +99,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Folders", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Folder class];
     task.method = @"GET";
     
@@ -113,7 +113,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -127,7 +127,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -197,7 +197,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Messages", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Message class];
     task.method = @"GET";
     
@@ -211,7 +211,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -225,7 +225,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -295,7 +295,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Calendars", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Calendar class];
     task.method = @"GET";
     
@@ -309,7 +309,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -323,7 +323,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -393,7 +393,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//CalendarGroups", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [CalendarGroup class];
     task.method = @"GET";
     
@@ -407,7 +407,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -421,7 +421,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -491,7 +491,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Events", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Event class];
     task.method = @"GET";
     
@@ -505,7 +505,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -519,7 +519,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -589,7 +589,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Contacts", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Contact class];
     task.method = @"GET";
     
@@ -603,7 +603,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -617,7 +617,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -687,7 +687,7 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//ContactFolders", path];
     }
 
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [ContactFolder class];
     task.method = @"GET";
     
@@ -701,7 +701,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
@@ -715,7 +715,7 @@ static EntityContainer *entityContainer;
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionODataTask * task = [[NSURLSessionODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
