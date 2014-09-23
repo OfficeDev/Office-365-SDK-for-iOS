@@ -7,38 +7,81 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26E6E4AC19D205AD000E7183 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E45919D205AD000E7183 /* Actions.m */; };
-		26E6E4AD19D205AD000E7183 /* EntityContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E45A19D205AD000E7183 /* EntityContainer.m */; };
-		26E6E4AE19D205AD000E7183 /* BaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46319D205AD000E7183 /* BaseClient.m */; };
-		26E6E4AF19D205AD000E7183 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46419D205AD000E7183 /* Credentials.m */; };
-		26E6E4B019D205AD000E7183 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46519D205AD000E7183 /* HttpConnection.m */; };
-		26E6E4B119D205AD000E7183 /* NSURLSessionODataTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46619D205AD000E7183 /* NSURLSessionODataTask.m */; };
-		26E6E4B219D205AD000E7183 /* OAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46719D205AD000E7183 /* OAuthCredentials.m */; };
-		26E6E4B319D205AD000E7183 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46D19D205AD000E7183 /* JsonParser.m */; };
-		26E6E4B419D205AD000E7183 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E46E19D205AD000E7183 /* Property.m */; };
-		26E6E4B519D205AD000E7183 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49219D205AD000E7183 /* Attachment.m */; };
-		26E6E4B619D205AD000E7183 /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49319D205AD000E7183 /* Attendee.m */; };
-		26E6E4B719D205AD000E7183 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49419D205AD000E7183 /* Calendar.m */; };
-		26E6E4B819D205AD000E7183 /* CalendarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49519D205AD000E7183 /* CalendarGroup.m */; };
-		26E6E4B919D205AD000E7183 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49619D205AD000E7183 /* Contact.m */; };
-		26E6E4BA19D205AD000E7183 /* ContactFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49719D205AD000E7183 /* ContactFolder.m */; };
-		26E6E4BB19D205AD000E7183 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49819D205AD000E7183 /* Entity.m */; };
-		26E6E4BC19D205AD000E7183 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49919D205AD000E7183 /* Event.m */; };
-		26E6E4BD19D205AD000E7183 /* FileAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49A19D205AD000E7183 /* FileAttachment.m */; };
-		26E6E4BE19D205AD000E7183 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49B19D205AD000E7183 /* Folder.m */; };
-		26E6E4BF19D205AD000E7183 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49C19D205AD000E7183 /* Item.m */; };
-		26E6E4C019D205AD000E7183 /* ItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49D19D205AD000E7183 /* ItemAttachment.m */; };
-		26E6E4C119D205AD000E7183 /* ItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49E19D205AD000E7183 /* ItemBody.m */; };
-		26E6E4C219D205AD000E7183 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E49F19D205AD000E7183 /* Location.m */; };
-		26E6E4C319D205AD000E7183 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A019D205AD000E7183 /* Message.m */; };
-		26E6E4C419D205AD000E7183 /* PatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A119D205AD000E7183 /* PatternedRecurrence.m */; };
-		26E6E4C519D205AD000E7183 /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A219D205AD000E7183 /* Recipient.m */; };
-		26E6E4C619D205AD000E7183 /* RecurrencePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A319D205AD000E7183 /* RecurrencePattern.m */; };
-		26E6E4C719D205AD000E7183 /* RecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A419D205AD000E7183 /* RecurrenceRange.m */; };
-		26E6E4C819D205AD000E7183 /* ResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A519D205AD000E7183 /* ResponseStatus.m */; };
-		26E6E4C919D205AD000E7183 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4A619D205AD000E7183 /* User.m */; };
-		26E6E4CA19D205AD000E7183 /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E6E4AB19D205AD000E7183 /* office365_exchange_sdk.m */; };
+		EC08215B19C382DC0083789D /* NSURLSessionDataTaskOdata.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08215A19C382DC0083789D /* NSURLSessionDataTaskOdata.m */; };
+		EC08218A19C751100083789D /* NSURLSessionDataTaskOdata.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC08215919C381390083789D /* NSURLSessionDataTaskOdata.h */; };
+		EC850A1519B8B4CF00448286 /* Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509D919B8B4CF00448286 /* Actions.m */; };
+		EC850A1619B8B4CF00448286 /* EntityContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509DA19B8B4CF00448286 /* EntityContainer.m */; };
+		EC850A1719B8B4CF00448286 /* BaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509E419B8B4CF00448286 /* BaseClient.m */; };
+		EC850A1819B8B4CF00448286 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509E519B8B4CF00448286 /* Credentials.m */; };
+		EC850A1919B8B4CF00448286 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509E619B8B4CF00448286 /* HttpConnection.m */; };
+		EC850A1A19B8B4CF00448286 /* OAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509E719B8B4CF00448286 /* OAuthentication.m */; };
+		EC850A1B19B8B4CF00448286 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509ED19B8B4CF00448286 /* JsonParser.m */; };
+		EC850A1C19B8B4CF00448286 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8509EE19B8B4CF00448286 /* Property.m */; };
+		EC850A1D19B8B4CF00448286 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A1219B8B4CF00448286 /* Event.m */; };
+		EC850A1E19B8B4CF00448286 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A1319B8B4CF00448286 /* Folder.m */; };
+		EC850A1F19B8B4CF00448286 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A1419B8B4CF00448286 /* Message.m */; };
+		EC850A2A19B8E05D00448286 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2019B8E05D00448286 /* Attachment.m */; };
+		EC850A2B19B8E05D00448286 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2119B8E05D00448286 /* Calendar.m */; };
+		EC850A2C19B8E05D00448286 /* CalendarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2219B8E05D00448286 /* CalendarGroup.m */; };
+		EC850A2D19B8E05D00448286 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2319B8E05D00448286 /* Contact.m */; };
+		EC850A2E19B8E05D00448286 /* ContactFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2419B8E05D00448286 /* ContactFolder.m */; };
+		EC850A2F19B8E05D00448286 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2519B8E05D00448286 /* Entity.m */; };
+		EC850A3019B8E05D00448286 /* FileAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2619B8E05D00448286 /* FileAttachment.m */; };
+		EC850A3119B8E05D00448286 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2719B8E05D00448286 /* Item.m */; };
+		EC850A3219B8E05D00448286 /* ItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2819B8E05D00448286 /* ItemAttachment.m */; };
+		EC850A3319B8E05D00448286 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A2919B8E05D00448286 /* User.m */; };
+		EC850A3C19B8E20C00448286 /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3419B8E20C00448286 /* Attendee.m */; };
+		EC850A3D19B8E20C00448286 /* ItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3519B8E20C00448286 /* ItemBody.m */; };
+		EC850A3E19B8E20C00448286 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3619B8E20C00448286 /* Location.m */; };
+		EC850A3F19B8E20C00448286 /* PatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3719B8E20C00448286 /* PatternedRecurrence.m */; };
+		EC850A4019B8E20C00448286 /* Recipient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3819B8E20C00448286 /* Recipient.m */; };
+		EC850A4119B8E20C00448286 /* RecurrencePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3919B8E20C00448286 /* RecurrencePattern.m */; };
+		EC850A4219B8E20C00448286 /* RecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3A19B8E20C00448286 /* RecurrenceRange.m */; };
+		EC850A4319B8E20C00448286 /* ResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EC850A3B19B8E20C00448286 /* ResponseStatus.m */; };
+		EC850A4419B8E28C00448286 /* Actions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509D519B8B4CF00448286 /* Actions.h */; };
+		EC850A4519B8E28C00448286 /* EntityContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509D619B8B4CF00448286 /* EntityContainer.h */; };
+		EC850A4619B8E28C00448286 /* Protocols.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509D719B8B4CF00448286 /* Protocols.h */; };
+		EC850A4719B8E28C00448286 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509DD19B8B4CF00448286 /* BaseClient.h */; };
+		EC850A4819B8E28C00448286 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509DE19B8B4CF00448286 /* Credentials.h */; };
+		EC850A4919B8E28C00448286 /* HttpConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509DF19B8B4CF00448286 /* HttpConnection.h */; };
+		EC850A4A19B8E28C00448286 /* OAuthentication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509E019B8B4CF00448286 /* OAuthentication.h */; };
+		EC850A4C19B8E28C00448286 /* JsonParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509EA19B8B4CF00448286 /* JsonParser.h */; };
+		EC850A4D19B8E28C00448286 /* Property.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509EB19B8B4CF00448286 /* Property.h */; };
+		EC850A4E19B8E28C00448286 /* Attachment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F119B8B4CF00448286 /* Attachment.h */; };
+		EC850A4F19B8E28C00448286 /* Attendee.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F219B8B4CF00448286 /* Attendee.h */; };
+		EC850A5019B8E28C00448286 /* AttendeeType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F319B8B4CF00448286 /* AttendeeType.h */; };
+		EC850A5119B8E28C00448286 /* BodyType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F419B8B4CF00448286 /* BodyType.h */; };
+		EC850A5219B8E28C00448286 /* Calendar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F519B8B4CF00448286 /* Calendar.h */; };
+		EC850A5319B8E28C00448286 /* CalendarGroup.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F619B8B4CF00448286 /* CalendarGroup.h */; };
+		EC850A5419B8E28C00448286 /* Contact.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F719B8B4CF00448286 /* Contact.h */; };
+		EC850A5519B8E28C00448286 /* ContactFolder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F819B8B4CF00448286 /* ContactFolder.h */; };
+		EC850A5619B8E28C00448286 /* DayOfWeek.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509F919B8B4CF00448286 /* DayOfWeek.h */; };
+		EC850A5719B8E28C00448286 /* Entity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FA19B8B4CF00448286 /* Entity.h */; };
+		EC850A5819B8E28C00448286 /* Event.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FB19B8B4CF00448286 /* Event.h */; };
+		EC850A5919B8E28C00448286 /* EventType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FC19B8B4CF00448286 /* EventType.h */; };
+		EC850A5A19B8E28C00448286 /* FileAttachment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FD19B8B4CF00448286 /* FileAttachment.h */; };
+		EC850A5B19B8E28C00448286 /* Folder.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FE19B8B4CF00448286 /* Folder.h */; };
+		EC850A5C19B8E28C00448286 /* FreeBusyStatus.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC8509FF19B8B4CF00448286 /* FreeBusyStatus.h */; };
+		EC850A5D19B8E28C00448286 /* Importance.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0019B8B4CF00448286 /* Importance.h */; };
+		EC850A5E19B8E28C00448286 /* Item.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0119B8B4CF00448286 /* Item.h */; };
+		EC850A5F19B8E28C00448286 /* ItemAttachment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0219B8B4CF00448286 /* ItemAttachment.h */; };
+		EC850A6019B8E28C00448286 /* ItemBody.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0319B8B4CF00448286 /* ItemBody.h */; };
+		EC850A6119B8E28C00448286 /* Location.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0419B8B4CF00448286 /* Location.h */; };
+		EC850A6219B8E28C00448286 /* MeetingMessageType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0519B8B4CF00448286 /* MeetingMessageType.h */; };
+		EC850A6319B8E28C00448286 /* Message.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0619B8B4CF00448286 /* Message.h */; };
+		EC850A6419B8E28C00448286 /* PatternedRecurrence.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0719B8B4CF00448286 /* PatternedRecurrence.h */; };
+		EC850A6519B8E28C00448286 /* Recipient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0819B8B4CF00448286 /* Recipient.h */; };
+		EC850A6619B8E28C00448286 /* RecurrencePattern.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0919B8B4CF00448286 /* RecurrencePattern.h */; };
+		EC850A6719B8E28C00448286 /* RecurrencePatternType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0A19B8B4CF00448286 /* RecurrencePatternType.h */; };
+		EC850A6819B8E28C00448286 /* RecurrenceRange.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0B19B8B4CF00448286 /* RecurrenceRange.h */; };
+		EC850A6919B8E28C00448286 /* RecurrenceRangeType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0C19B8B4CF00448286 /* RecurrenceRangeType.h */; };
+		EC850A6A19B8E28C00448286 /* ResponseStatus.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0D19B8B4CF00448286 /* ResponseStatus.h */; };
+		EC850A6B19B8E28C00448286 /* ResponseType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0E19B8B4CF00448286 /* ResponseType.h */; };
+		EC850A6C19B8E28C00448286 /* User.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A0F19B8B4CF00448286 /* User.h */; };
+		EC850A6D19B8E28C00448286 /* WeekIndex.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC850A1019B8B4CF00448286 /* WeekIndex.h */; };
 		ECF3EBB319A390E800D05D8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBB219A390E800D05D8B /* Foundation.framework */; };
+		ECF3EBB819A390E800D05D8B /* office365_exchange_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */; };
+		ECF3EBBA19A390E800D05D8B /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */; };
 		ECF3EBC119A390E900D05D8B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBC019A390E900D05D8B /* XCTest.framework */; };
 		ECF3EBC219A390E900D05D8B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBB219A390E800D05D8B /* Foundation.framework */; };
 		ECF3EBC419A390E900D05D8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF3EBC319A390E900D05D8B /* UIKit.framework */; };
@@ -64,89 +107,132 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				EC08218A19C751100083789D /* NSURLSessionDataTaskOdata.h in CopyFiles */,
+				EC850A4419B8E28C00448286 /* Actions.h in CopyFiles */,
+				EC850A4519B8E28C00448286 /* EntityContainer.h in CopyFiles */,
+				EC850A4619B8E28C00448286 /* Protocols.h in CopyFiles */,
+				EC850A4719B8E28C00448286 /* BaseClient.h in CopyFiles */,
+				EC850A4819B8E28C00448286 /* Credentials.h in CopyFiles */,
+				EC850A4919B8E28C00448286 /* HttpConnection.h in CopyFiles */,
+				EC850A4A19B8E28C00448286 /* OAuthentication.h in CopyFiles */,
+				EC850A4C19B8E28C00448286 /* JsonParser.h in CopyFiles */,
+				EC850A4D19B8E28C00448286 /* Property.h in CopyFiles */,
+				EC850A4E19B8E28C00448286 /* Attachment.h in CopyFiles */,
+				EC850A4F19B8E28C00448286 /* Attendee.h in CopyFiles */,
+				EC850A5019B8E28C00448286 /* AttendeeType.h in CopyFiles */,
+				EC850A5119B8E28C00448286 /* BodyType.h in CopyFiles */,
+				EC850A5219B8E28C00448286 /* Calendar.h in CopyFiles */,
+				EC850A5319B8E28C00448286 /* CalendarGroup.h in CopyFiles */,
+				EC850A5419B8E28C00448286 /* Contact.h in CopyFiles */,
+				EC850A5519B8E28C00448286 /* ContactFolder.h in CopyFiles */,
+				EC850A5619B8E28C00448286 /* DayOfWeek.h in CopyFiles */,
+				EC850A5719B8E28C00448286 /* Entity.h in CopyFiles */,
+				EC850A5819B8E28C00448286 /* Event.h in CopyFiles */,
+				EC850A5919B8E28C00448286 /* EventType.h in CopyFiles */,
+				EC850A5A19B8E28C00448286 /* FileAttachment.h in CopyFiles */,
+				EC850A5B19B8E28C00448286 /* Folder.h in CopyFiles */,
+				EC850A5C19B8E28C00448286 /* FreeBusyStatus.h in CopyFiles */,
+				EC850A5D19B8E28C00448286 /* Importance.h in CopyFiles */,
+				EC850A5E19B8E28C00448286 /* Item.h in CopyFiles */,
+				EC850A5F19B8E28C00448286 /* ItemAttachment.h in CopyFiles */,
+				EC850A6019B8E28C00448286 /* ItemBody.h in CopyFiles */,
+				EC850A6119B8E28C00448286 /* Location.h in CopyFiles */,
+				EC850A6219B8E28C00448286 /* MeetingMessageType.h in CopyFiles */,
+				EC850A6319B8E28C00448286 /* Message.h in CopyFiles */,
+				EC850A6419B8E28C00448286 /* PatternedRecurrence.h in CopyFiles */,
+				EC850A6519B8E28C00448286 /* Recipient.h in CopyFiles */,
+				EC850A6619B8E28C00448286 /* RecurrencePattern.h in CopyFiles */,
+				EC850A6719B8E28C00448286 /* RecurrencePatternType.h in CopyFiles */,
+				EC850A6819B8E28C00448286 /* RecurrenceRange.h in CopyFiles */,
+				EC850A6919B8E28C00448286 /* RecurrenceRangeType.h in CopyFiles */,
+				EC850A6A19B8E28C00448286 /* ResponseStatus.h in CopyFiles */,
+				EC850A6B19B8E28C00448286 /* ResponseType.h in CopyFiles */,
+				EC850A6C19B8E28C00448286 /* User.h in CopyFiles */,
+				EC850A6D19B8E28C00448286 /* WeekIndex.h in CopyFiles */,
+				ECF3EBB819A390E800D05D8B /* office365_exchange_sdk.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		26E6E45519D205AD000E7183 /* Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actions.h; sourceTree = "<group>"; };
-		26E6E45619D205AD000E7183 /* EntityContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityContainer.h; sourceTree = "<group>"; };
-		26E6E45719D205AD000E7183 /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
-		26E6E45919D205AD000E7183 /* Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actions.m; sourceTree = "<group>"; };
-		26E6E45A19D205AD000E7183 /* EntityContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityContainer.m; sourceTree = "<group>"; };
-		26E6E45D19D205AD000E7183 /* BaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClient.h; sourceTree = "<group>"; };
-		26E6E45E19D205AD000E7183 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
-		26E6E45F19D205AD000E7183 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
-		26E6E46019D205AD000E7183 /* NSURLSessionODataTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLSessionODataTask.h; sourceTree = "<group>"; };
-		26E6E46119D205AD000E7183 /* OAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthCredentials.h; sourceTree = "<group>"; };
-		26E6E46319D205AD000E7183 /* BaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClient.m; sourceTree = "<group>"; };
-		26E6E46419D205AD000E7183 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
-		26E6E46519D205AD000E7183 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
-		26E6E46619D205AD000E7183 /* NSURLSessionODataTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLSessionODataTask.m; sourceTree = "<group>"; };
-		26E6E46719D205AD000E7183 /* OAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthCredentials.m; sourceTree = "<group>"; };
-		26E6E46A19D205AD000E7183 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
-		26E6E46B19D205AD000E7183 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
-		26E6E46D19D205AD000E7183 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
-		26E6E46E19D205AD000E7183 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
-		26E6E47119D205AD000E7183 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
-		26E6E47219D205AD000E7183 /* Attendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendee.h; sourceTree = "<group>"; };
-		26E6E47319D205AD000E7183 /* AttendeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendeeType.h; sourceTree = "<group>"; };
-		26E6E47419D205AD000E7183 /* BodyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyType.h; sourceTree = "<group>"; };
-		26E6E47519D205AD000E7183 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
-		26E6E47619D205AD000E7183 /* CalendarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarGroup.h; sourceTree = "<group>"; };
-		26E6E47719D205AD000E7183 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		26E6E47819D205AD000E7183 /* ContactFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFolder.h; sourceTree = "<group>"; };
-		26E6E47919D205AD000E7183 /* DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayOfWeek.h; sourceTree = "<group>"; };
-		26E6E47A19D205AD000E7183 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
-		26E6E47B19D205AD000E7183 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		26E6E47C19D205AD000E7183 /* EventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventType.h; sourceTree = "<group>"; };
-		26E6E47D19D205AD000E7183 /* FileAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttachment.h; sourceTree = "<group>"; };
-		26E6E47E19D205AD000E7183 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
-		26E6E47F19D205AD000E7183 /* FreeBusyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeBusyStatus.h; sourceTree = "<group>"; };
-		26E6E48019D205AD000E7183 /* Importance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importance.h; sourceTree = "<group>"; };
-		26E6E48119D205AD000E7183 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		26E6E48219D205AD000E7183 /* ItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAttachment.h; sourceTree = "<group>"; };
-		26E6E48319D205AD000E7183 /* ItemBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBody.h; sourceTree = "<group>"; };
-		26E6E48419D205AD000E7183 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		26E6E48519D205AD000E7183 /* MeetingMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingMessageType.h; sourceTree = "<group>"; };
-		26E6E48619D205AD000E7183 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		26E6E48719D205AD000E7183 /* PatternedRecurrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternedRecurrence.h; sourceTree = "<group>"; };
-		26E6E48819D205AD000E7183 /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipient.h; sourceTree = "<group>"; };
-		26E6E48919D205AD000E7183 /* RecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePattern.h; sourceTree = "<group>"; };
-		26E6E48A19D205AD000E7183 /* RecurrencePatternType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePatternType.h; sourceTree = "<group>"; };
-		26E6E48B19D205AD000E7183 /* RecurrenceRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRange.h; sourceTree = "<group>"; };
-		26E6E48C19D205AD000E7183 /* RecurrenceRangeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRangeType.h; sourceTree = "<group>"; };
-		26E6E48D19D205AD000E7183 /* ResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseStatus.h; sourceTree = "<group>"; };
-		26E6E48E19D205AD000E7183 /* ResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseType.h; sourceTree = "<group>"; };
-		26E6E48F19D205AD000E7183 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		26E6E49019D205AD000E7183 /* WeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekIndex.h; sourceTree = "<group>"; };
-		26E6E49219D205AD000E7183 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachment.m; sourceTree = "<group>"; };
-		26E6E49319D205AD000E7183 /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendee.m; sourceTree = "<group>"; };
-		26E6E49419D205AD000E7183 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
-		26E6E49519D205AD000E7183 /* CalendarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarGroup.m; sourceTree = "<group>"; };
-		26E6E49619D205AD000E7183 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
-		26E6E49719D205AD000E7183 /* ContactFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactFolder.m; sourceTree = "<group>"; };
-		26E6E49819D205AD000E7183 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		26E6E49919D205AD000E7183 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		26E6E49A19D205AD000E7183 /* FileAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttachment.m; sourceTree = "<group>"; };
-		26E6E49B19D205AD000E7183 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
-		26E6E49C19D205AD000E7183 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		26E6E49D19D205AD000E7183 /* ItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAttachment.m; sourceTree = "<group>"; };
-		26E6E49E19D205AD000E7183 /* ItemBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBody.m; sourceTree = "<group>"; };
-		26E6E49F19D205AD000E7183 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		26E6E4A019D205AD000E7183 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		26E6E4A119D205AD000E7183 /* PatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternedRecurrence.m; sourceTree = "<group>"; };
-		26E6E4A219D205AD000E7183 /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipient.m; sourceTree = "<group>"; };
-		26E6E4A319D205AD000E7183 /* RecurrencePattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrencePattern.m; sourceTree = "<group>"; };
-		26E6E4A419D205AD000E7183 /* RecurrenceRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrenceRange.m; sourceTree = "<group>"; };
-		26E6E4A519D205AD000E7183 /* ResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseStatus.m; sourceTree = "<group>"; };
-		26E6E4A619D205AD000E7183 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		26E6E4A919D205AD000E7183 /* office365-exchange-sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365-exchange-sdk-Prefix.pch"; sourceTree = "<group>"; };
-		26E6E4AA19D205AD000E7183 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
-		26E6E4AB19D205AD000E7183 /* office365_exchange_sdk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
+		EC08215919C381390083789D /* NSURLSessionDataTaskOdata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLSessionDataTaskOdata.h; sourceTree = "<group>"; };
+		EC08215A19C382DC0083789D /* NSURLSessionDataTaskOdata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLSessionDataTaskOdata.m; sourceTree = "<group>"; };
+		EC8509D519B8B4CF00448286 /* Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actions.h; sourceTree = "<group>"; };
+		EC8509D619B8B4CF00448286 /* EntityContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityContainer.h; sourceTree = "<group>"; };
+		EC8509D719B8B4CF00448286 /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
+		EC8509D919B8B4CF00448286 /* Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Actions.m; sourceTree = "<group>"; };
+		EC8509DA19B8B4CF00448286 /* EntityContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityContainer.m; sourceTree = "<group>"; };
+		EC8509DD19B8B4CF00448286 /* BaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClient.h; sourceTree = "<group>"; };
+		EC8509DE19B8B4CF00448286 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		EC8509DF19B8B4CF00448286 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		EC8509E019B8B4CF00448286 /* OAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthentication.h; sourceTree = "<group>"; };
+		EC8509E419B8B4CF00448286 /* BaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClient.m; sourceTree = "<group>"; };
+		EC8509E519B8B4CF00448286 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		EC8509E619B8B4CF00448286 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
+		EC8509E719B8B4CF00448286 /* OAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthentication.m; sourceTree = "<group>"; };
+		EC8509EA19B8B4CF00448286 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
+		EC8509EB19B8B4CF00448286 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		EC8509ED19B8B4CF00448286 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		EC8509EE19B8B4CF00448286 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		EC8509F119B8B4CF00448286 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
+		EC8509F219B8B4CF00448286 /* Attendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendee.h; sourceTree = "<group>"; };
+		EC8509F319B8B4CF00448286 /* AttendeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendeeType.h; sourceTree = "<group>"; };
+		EC8509F419B8B4CF00448286 /* BodyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyType.h; sourceTree = "<group>"; };
+		EC8509F519B8B4CF00448286 /* Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		EC8509F619B8B4CF00448286 /* CalendarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarGroup.h; sourceTree = "<group>"; };
+		EC8509F719B8B4CF00448286 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		EC8509F819B8B4CF00448286 /* ContactFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFolder.h; sourceTree = "<group>"; };
+		EC8509F919B8B4CF00448286 /* DayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayOfWeek.h; sourceTree = "<group>"; };
+		EC8509FA19B8B4CF00448286 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		EC8509FB19B8B4CF00448286 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		EC8509FC19B8B4CF00448286 /* EventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventType.h; sourceTree = "<group>"; };
+		EC8509FD19B8B4CF00448286 /* FileAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttachment.h; sourceTree = "<group>"; };
+		EC8509FE19B8B4CF00448286 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		EC8509FF19B8B4CF00448286 /* FreeBusyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreeBusyStatus.h; sourceTree = "<group>"; };
+		EC850A0019B8B4CF00448286 /* Importance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Importance.h; sourceTree = "<group>"; };
+		EC850A0119B8B4CF00448286 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		EC850A0219B8B4CF00448286 /* ItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAttachment.h; sourceTree = "<group>"; };
+		EC850A0319B8B4CF00448286 /* ItemBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemBody.h; sourceTree = "<group>"; };
+		EC850A0419B8B4CF00448286 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		EC850A0519B8B4CF00448286 /* MeetingMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingMessageType.h; sourceTree = "<group>"; };
+		EC850A0619B8B4CF00448286 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		EC850A0719B8B4CF00448286 /* PatternedRecurrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatternedRecurrence.h; sourceTree = "<group>"; };
+		EC850A0819B8B4CF00448286 /* Recipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipient.h; sourceTree = "<group>"; };
+		EC850A0919B8B4CF00448286 /* RecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePattern.h; sourceTree = "<group>"; };
+		EC850A0A19B8B4CF00448286 /* RecurrencePatternType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrencePatternType.h; sourceTree = "<group>"; };
+		EC850A0B19B8B4CF00448286 /* RecurrenceRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRange.h; sourceTree = "<group>"; };
+		EC850A0C19B8B4CF00448286 /* RecurrenceRangeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecurrenceRangeType.h; sourceTree = "<group>"; };
+		EC850A0D19B8B4CF00448286 /* ResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseStatus.h; sourceTree = "<group>"; };
+		EC850A0E19B8B4CF00448286 /* ResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseType.h; sourceTree = "<group>"; };
+		EC850A0F19B8B4CF00448286 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		EC850A1019B8B4CF00448286 /* WeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekIndex.h; sourceTree = "<group>"; };
+		EC850A1219B8B4CF00448286 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		EC850A1319B8B4CF00448286 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		EC850A1419B8B4CF00448286 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		EC850A2019B8E05D00448286 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachment.m; sourceTree = "<group>"; };
+		EC850A2119B8E05D00448286 /* Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
+		EC850A2219B8E05D00448286 /* CalendarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarGroup.m; sourceTree = "<group>"; };
+		EC850A2319B8E05D00448286 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		EC850A2419B8E05D00448286 /* ContactFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactFolder.m; sourceTree = "<group>"; };
+		EC850A2519B8E05D00448286 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		EC850A2619B8E05D00448286 /* FileAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileAttachment.m; sourceTree = "<group>"; };
+		EC850A2719B8E05D00448286 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		EC850A2819B8E05D00448286 /* ItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAttachment.m; sourceTree = "<group>"; };
+		EC850A2919B8E05D00448286 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		EC850A3419B8E20C00448286 /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendee.m; sourceTree = "<group>"; };
+		EC850A3519B8E20C00448286 /* ItemBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemBody.m; sourceTree = "<group>"; };
+		EC850A3619B8E20C00448286 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		EC850A3719B8E20C00448286 /* PatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatternedRecurrence.m; sourceTree = "<group>"; };
+		EC850A3819B8E20C00448286 /* Recipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipient.m; sourceTree = "<group>"; };
+		EC850A3919B8E20C00448286 /* RecurrencePattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrencePattern.m; sourceTree = "<group>"; };
+		EC850A3A19B8E20C00448286 /* RecurrenceRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecurrenceRange.m; sourceTree = "<group>"; };
+		EC850A3B19B8E20C00448286 /* ResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseStatus.m; sourceTree = "<group>"; };
 		ECF3EBAF19A390E800D05D8B /* liboffice365-exchange-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-exchange-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF3EBB219A390E800D05D8B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ECF3EBB619A390E800D05D8B /* office365-exchange-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-exchange-sdk-Prefix.pch"; sourceTree = "<group>"; };
+		ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
+		ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
 		ECF3EBBF19A390E900D05D8B /* office365-exchange-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-exchange-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF3EBC019A390E900D05D8B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		ECF3EBC319A390E900D05D8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -178,204 +264,185 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		26E6E45219D205AD000E7183 /* office365-exchange-sdk */ = {
+		EC8509D219B8B4CF00448286 /* Odata */ = {
 			isa = PBXGroup;
 			children = (
-				26E6E45319D205AD000E7183 /* Core */,
-				26E6E45B19D205AD000E7183 /* Http */,
-				26E6E46819D205AD000E7183 /* JsonParser */,
-				26E6E46F19D205AD000E7183 /* Models */,
-				26E6E4A719D205AD000E7183 /* Odata */,
-				26E6E4A919D205AD000E7183 /* office365-exchange-sdk-Prefix.pch */,
-				26E6E4AA19D205AD000E7183 /* office365_exchange_sdk.h */,
-				26E6E4AB19D205AD000E7183 /* office365_exchange_sdk.m */,
-			);
-			path = "office365-exchange-sdk";
-			sourceTree = "<group>";
-		};
-		26E6E45319D205AD000E7183 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E45419D205AD000E7183 /* Headers */,
-				26E6E45819D205AD000E7183 /* Implementations */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		26E6E45419D205AD000E7183 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E45519D205AD000E7183 /* Actions.h */,
-				26E6E45619D205AD000E7183 /* EntityContainer.h */,
-				26E6E45719D205AD000E7183 /* Protocols.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		26E6E45819D205AD000E7183 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E45919D205AD000E7183 /* Actions.m */,
-				26E6E45A19D205AD000E7183 /* EntityContainer.m */,
-			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		26E6E45B19D205AD000E7183 /* Http */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E45C19D205AD000E7183 /* Headers */,
-				26E6E46219D205AD000E7183 /* Implementations */,
-			);
-			path = Http;
-			sourceTree = "<group>";
-		};
-		26E6E45C19D205AD000E7183 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E45D19D205AD000E7183 /* BaseClient.h */,
-				26E6E45E19D205AD000E7183 /* Credentials.h */,
-				26E6E45F19D205AD000E7183 /* HttpConnection.h */,
-				26E6E46019D205AD000E7183 /* NSURLSessionODataTask.h */,
-				26E6E46119D205AD000E7183 /* OAuthCredentials.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		26E6E46219D205AD000E7183 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E46319D205AD000E7183 /* BaseClient.m */,
-				26E6E46419D205AD000E7183 /* Credentials.m */,
-				26E6E46519D205AD000E7183 /* HttpConnection.m */,
-				26E6E46619D205AD000E7183 /* NSURLSessionODataTask.m */,
-				26E6E46719D205AD000E7183 /* OAuthCredentials.m */,
-			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		26E6E46819D205AD000E7183 /* JsonParser */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E46919D205AD000E7183 /* Headers */,
-				26E6E46C19D205AD000E7183 /* Implementations */,
-			);
-			path = JsonParser;
-			sourceTree = "<group>";
-		};
-		26E6E46919D205AD000E7183 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E46A19D205AD000E7183 /* JsonParser.h */,
-				26E6E46B19D205AD000E7183 /* Property.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		26E6E46C19D205AD000E7183 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E46D19D205AD000E7183 /* JsonParser.m */,
-				26E6E46E19D205AD000E7183 /* Property.m */,
-			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		26E6E46F19D205AD000E7183 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E47019D205AD000E7183 /* Headers */,
-				26E6E49119D205AD000E7183 /* Implementations */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		26E6E47019D205AD000E7183 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E47119D205AD000E7183 /* Attachment.h */,
-				26E6E47219D205AD000E7183 /* Attendee.h */,
-				26E6E47319D205AD000E7183 /* AttendeeType.h */,
-				26E6E47419D205AD000E7183 /* BodyType.h */,
-				26E6E47519D205AD000E7183 /* Calendar.h */,
-				26E6E47619D205AD000E7183 /* CalendarGroup.h */,
-				26E6E47719D205AD000E7183 /* Contact.h */,
-				26E6E47819D205AD000E7183 /* ContactFolder.h */,
-				26E6E47919D205AD000E7183 /* DayOfWeek.h */,
-				26E6E47A19D205AD000E7183 /* Entity.h */,
-				26E6E47B19D205AD000E7183 /* Event.h */,
-				26E6E47C19D205AD000E7183 /* EventType.h */,
-				26E6E47D19D205AD000E7183 /* FileAttachment.h */,
-				26E6E47E19D205AD000E7183 /* Folder.h */,
-				26E6E47F19D205AD000E7183 /* FreeBusyStatus.h */,
-				26E6E48019D205AD000E7183 /* Importance.h */,
-				26E6E48119D205AD000E7183 /* Item.h */,
-				26E6E48219D205AD000E7183 /* ItemAttachment.h */,
-				26E6E48319D205AD000E7183 /* ItemBody.h */,
-				26E6E48419D205AD000E7183 /* Location.h */,
-				26E6E48519D205AD000E7183 /* MeetingMessageType.h */,
-				26E6E48619D205AD000E7183 /* Message.h */,
-				26E6E48719D205AD000E7183 /* PatternedRecurrence.h */,
-				26E6E48819D205AD000E7183 /* Recipient.h */,
-				26E6E48919D205AD000E7183 /* RecurrencePattern.h */,
-				26E6E48A19D205AD000E7183 /* RecurrencePatternType.h */,
-				26E6E48B19D205AD000E7183 /* RecurrenceRange.h */,
-				26E6E48C19D205AD000E7183 /* RecurrenceRangeType.h */,
-				26E6E48D19D205AD000E7183 /* ResponseStatus.h */,
-				26E6E48E19D205AD000E7183 /* ResponseType.h */,
-				26E6E48F19D205AD000E7183 /* User.h */,
-				26E6E49019D205AD000E7183 /* WeekIndex.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		26E6E49119D205AD000E7183 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E49219D205AD000E7183 /* Attachment.m */,
-				26E6E49319D205AD000E7183 /* Attendee.m */,
-				26E6E49419D205AD000E7183 /* Calendar.m */,
-				26E6E49519D205AD000E7183 /* CalendarGroup.m */,
-				26E6E49619D205AD000E7183 /* Contact.m */,
-				26E6E49719D205AD000E7183 /* ContactFolder.m */,
-				26E6E49819D205AD000E7183 /* Entity.m */,
-				26E6E49919D205AD000E7183 /* Event.m */,
-				26E6E49A19D205AD000E7183 /* FileAttachment.m */,
-				26E6E49B19D205AD000E7183 /* Folder.m */,
-				26E6E49C19D205AD000E7183 /* Item.m */,
-				26E6E49D19D205AD000E7183 /* ItemAttachment.m */,
-				26E6E49E19D205AD000E7183 /* ItemBody.m */,
-				26E6E49F19D205AD000E7183 /* Location.m */,
-				26E6E4A019D205AD000E7183 /* Message.m */,
-				26E6E4A119D205AD000E7183 /* PatternedRecurrence.m */,
-				26E6E4A219D205AD000E7183 /* Recipient.m */,
-				26E6E4A319D205AD000E7183 /* RecurrencePattern.m */,
-				26E6E4A419D205AD000E7183 /* RecurrenceRange.m */,
-				26E6E4A519D205AD000E7183 /* ResponseStatus.m */,
-				26E6E4A619D205AD000E7183 /* User.m */,
-			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		26E6E4A719D205AD000E7183 /* Odata */ = {
-			isa = PBXGroup;
-			children = (
-				26E6E4A819D205AD000E7183 /* Models */,
+				EC8509D319B8B4CF00448286 /* Core */,
+				EC8509DB19B8B4CF00448286 /* Http */,
+				EC8509E819B8B4CF00448286 /* JsonParser */,
+				EC8509EF19B8B4CF00448286 /* Models */,
 			);
 			path = Odata;
 			sourceTree = "<group>";
 		};
-		26E6E4A819D205AD000E7183 /* Models */ = {
+		EC8509D319B8B4CF00448286 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EC8509D419B8B4CF00448286 /* Headers */,
+				EC8509D819B8B4CF00448286 /* Implementations */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EC8509D419B8B4CF00448286 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509D519B8B4CF00448286 /* Actions.h */,
+				EC8509D619B8B4CF00448286 /* EntityContainer.h */,
+				EC8509D719B8B4CF00448286 /* Protocols.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC8509D819B8B4CF00448286 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509D919B8B4CF00448286 /* Actions.m */,
+				EC8509DA19B8B4CF00448286 /* EntityContainer.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		EC8509DB19B8B4CF00448286 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509DC19B8B4CF00448286 /* Headers */,
+				EC8509E319B8B4CF00448286 /* Implementations */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		EC8509DC19B8B4CF00448286 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509DD19B8B4CF00448286 /* BaseClient.h */,
+				EC8509DE19B8B4CF00448286 /* Credentials.h */,
+				EC8509DF19B8B4CF00448286 /* HttpConnection.h */,
+				EC8509E019B8B4CF00448286 /* OAuthentication.h */,
+				EC08215919C381390083789D /* NSURLSessionDataTaskOdata.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC8509E319B8B4CF00448286 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509E419B8B4CF00448286 /* BaseClient.m */,
+				EC8509E519B8B4CF00448286 /* Credentials.m */,
+				EC8509E619B8B4CF00448286 /* HttpConnection.m */,
+				EC8509E719B8B4CF00448286 /* OAuthentication.m */,
+				EC08215A19C382DC0083789D /* NSURLSessionDataTaskOdata.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		EC8509E819B8B4CF00448286 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509E919B8B4CF00448286 /* Headers */,
+				EC8509EC19B8B4CF00448286 /* Implementations */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		EC8509E919B8B4CF00448286 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509EA19B8B4CF00448286 /* JsonParser.h */,
+				EC8509EB19B8B4CF00448286 /* Property.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC8509EC19B8B4CF00448286 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509ED19B8B4CF00448286 /* JsonParser.m */,
+				EC8509EE19B8B4CF00448286 /* Property.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		EC8509EF19B8B4CF00448286 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509F019B8B4CF00448286 /* Headers */,
+				EC850A1119B8B4CF00448286 /* Implementations */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EC8509F019B8B4CF00448286 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509F119B8B4CF00448286 /* Attachment.h */,
+				EC8509F219B8B4CF00448286 /* Attendee.h */,
+				EC8509F319B8B4CF00448286 /* AttendeeType.h */,
+				EC8509F419B8B4CF00448286 /* BodyType.h */,
+				EC8509F519B8B4CF00448286 /* Calendar.h */,
+				EC8509F619B8B4CF00448286 /* CalendarGroup.h */,
+				EC8509F719B8B4CF00448286 /* Contact.h */,
+				EC8509F819B8B4CF00448286 /* ContactFolder.h */,
+				EC8509F919B8B4CF00448286 /* DayOfWeek.h */,
+				EC8509FA19B8B4CF00448286 /* Entity.h */,
+				EC8509FB19B8B4CF00448286 /* Event.h */,
+				EC8509FC19B8B4CF00448286 /* EventType.h */,
+				EC8509FD19B8B4CF00448286 /* FileAttachment.h */,
+				EC8509FE19B8B4CF00448286 /* Folder.h */,
+				EC8509FF19B8B4CF00448286 /* FreeBusyStatus.h */,
+				EC850A0019B8B4CF00448286 /* Importance.h */,
+				EC850A0119B8B4CF00448286 /* Item.h */,
+				EC850A0219B8B4CF00448286 /* ItemAttachment.h */,
+				EC850A0319B8B4CF00448286 /* ItemBody.h */,
+				EC850A0419B8B4CF00448286 /* Location.h */,
+				EC850A0519B8B4CF00448286 /* MeetingMessageType.h */,
+				EC850A0619B8B4CF00448286 /* Message.h */,
+				EC850A0719B8B4CF00448286 /* PatternedRecurrence.h */,
+				EC850A0819B8B4CF00448286 /* Recipient.h */,
+				EC850A0919B8B4CF00448286 /* RecurrencePattern.h */,
+				EC850A0A19B8B4CF00448286 /* RecurrencePatternType.h */,
+				EC850A0B19B8B4CF00448286 /* RecurrenceRange.h */,
+				EC850A0C19B8B4CF00448286 /* RecurrenceRangeType.h */,
+				EC850A0D19B8B4CF00448286 /* ResponseStatus.h */,
+				EC850A0E19B8B4CF00448286 /* ResponseType.h */,
+				EC850A0F19B8B4CF00448286 /* User.h */,
+				EC850A1019B8B4CF00448286 /* WeekIndex.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC850A1119B8B4CF00448286 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC850A3419B8E20C00448286 /* Attendee.m */,
+				EC850A3519B8E20C00448286 /* ItemBody.m */,
+				EC850A3619B8E20C00448286 /* Location.m */,
+				EC850A3719B8E20C00448286 /* PatternedRecurrence.m */,
+				EC850A3819B8E20C00448286 /* Recipient.m */,
+				EC850A3919B8E20C00448286 /* RecurrencePattern.m */,
+				EC850A3A19B8E20C00448286 /* RecurrenceRange.m */,
+				EC850A3B19B8E20C00448286 /* ResponseStatus.m */,
+				EC850A2019B8E05D00448286 /* Attachment.m */,
+				EC850A2119B8E05D00448286 /* Calendar.m */,
+				EC850A2219B8E05D00448286 /* CalendarGroup.m */,
+				EC850A2319B8E05D00448286 /* Contact.m */,
+				EC850A2419B8E05D00448286 /* ContactFolder.m */,
+				EC850A2519B8E05D00448286 /* Entity.m */,
+				EC850A2619B8E05D00448286 /* FileAttachment.m */,
+				EC850A2719B8E05D00448286 /* Item.m */,
+				EC850A2819B8E05D00448286 /* ItemAttachment.m */,
+				EC850A2919B8E05D00448286 /* User.m */,
+				EC850A1219B8B4CF00448286 /* Event.m */,
+				EC850A1319B8B4CF00448286 /* Folder.m */,
+				EC850A1419B8B4CF00448286 /* Message.m */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 		ECF3EBA619A390E800D05D8B = {
 			isa = PBXGroup;
 			children = (
-				26E6E45219D205AD000E7183 /* office365-exchange-sdk */,
+				ECF3EBB419A390E800D05D8B /* office365-exchange-sdk */,
 				ECF3EBC819A390E900D05D8B /* office365-exchange-sdkTests */,
 				ECF3EBB119A390E800D05D8B /* Frameworks */,
 				ECF3EBB019A390E800D05D8B /* Products */,
@@ -399,6 +466,25 @@
 				ECF3EBC319A390E900D05D8B /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECF3EBB419A390E800D05D8B /* office365-exchange-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				EC8509D219B8B4CF00448286 /* Odata */,
+				ECF3EBB719A390E800D05D8B /* office365_exchange_sdk.h */,
+				ECF3EBB919A390E800D05D8B /* office365_exchange_sdk.m */,
+				ECF3EBB519A390E800D05D8B /* Supporting Files */,
+			);
+			path = "office365-exchange-sdk";
+			sourceTree = "<group>";
+		};
+		ECF3EBB519A390E800D05D8B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EBB619A390E800D05D8B /* office365-exchange-sdk-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		ECF3EBC819A390E900D05D8B /* office365-exchange-sdkTests */ = {
@@ -500,37 +586,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26E6E4BF19D205AD000E7183 /* Item.m in Sources */,
-				26E6E4C319D205AD000E7183 /* Message.m in Sources */,
-				26E6E4BB19D205AD000E7183 /* Entity.m in Sources */,
-				26E6E4CA19D205AD000E7183 /* office365_exchange_sdk.m in Sources */,
-				26E6E4AE19D205AD000E7183 /* BaseClient.m in Sources */,
-				26E6E4BA19D205AD000E7183 /* ContactFolder.m in Sources */,
-				26E6E4AD19D205AD000E7183 /* EntityContainer.m in Sources */,
-				26E6E4BD19D205AD000E7183 /* FileAttachment.m in Sources */,
-				26E6E4B219D205AD000E7183 /* OAuthCredentials.m in Sources */,
-				26E6E4B719D205AD000E7183 /* Calendar.m in Sources */,
-				26E6E4BC19D205AD000E7183 /* Event.m in Sources */,
-				26E6E4B919D205AD000E7183 /* Contact.m in Sources */,
-				26E6E4BE19D205AD000E7183 /* Folder.m in Sources */,
-				26E6E4AF19D205AD000E7183 /* Credentials.m in Sources */,
-				26E6E4C519D205AD000E7183 /* Recipient.m in Sources */,
-				26E6E4B519D205AD000E7183 /* Attachment.m in Sources */,
-				26E6E4C719D205AD000E7183 /* RecurrenceRange.m in Sources */,
-				26E6E4C619D205AD000E7183 /* RecurrencePattern.m in Sources */,
-				26E6E4B619D205AD000E7183 /* Attendee.m in Sources */,
-				26E6E4C219D205AD000E7183 /* Location.m in Sources */,
-				26E6E4B019D205AD000E7183 /* HttpConnection.m in Sources */,
-				26E6E4C919D205AD000E7183 /* User.m in Sources */,
-				26E6E4B819D205AD000E7183 /* CalendarGroup.m in Sources */,
-				26E6E4C819D205AD000E7183 /* ResponseStatus.m in Sources */,
-				26E6E4C119D205AD000E7183 /* ItemBody.m in Sources */,
-				26E6E4B119D205AD000E7183 /* NSURLSessionODataTask.m in Sources */,
-				26E6E4B319D205AD000E7183 /* JsonParser.m in Sources */,
-				26E6E4C419D205AD000E7183 /* PatternedRecurrence.m in Sources */,
-				26E6E4C019D205AD000E7183 /* ItemAttachment.m in Sources */,
-				26E6E4AC19D205AD000E7183 /* Actions.m in Sources */,
-				26E6E4B419D205AD000E7183 /* Property.m in Sources */,
+				EC08215B19C382DC0083789D /* NSURLSessionDataTaskOdata.m in Sources */,
+				EC850A3119B8E05D00448286 /* Item.m in Sources */,
+				EC850A2D19B8E05D00448286 /* Contact.m in Sources */,
+				EC850A3019B8E05D00448286 /* FileAttachment.m in Sources */,
+				ECF3EBBA19A390E800D05D8B /* office365_exchange_sdk.m in Sources */,
+				EC850A2E19B8E05D00448286 /* ContactFolder.m in Sources */,
+				EC850A1F19B8B4CF00448286 /* Message.m in Sources */,
+				EC850A4019B8E20C00448286 /* Recipient.m in Sources */,
+				EC850A3319B8E05D00448286 /* User.m in Sources */,
+				EC850A3F19B8E20C00448286 /* PatternedRecurrence.m in Sources */,
+				EC850A1A19B8B4CF00448286 /* OAuthentication.m in Sources */,
+				EC850A1D19B8B4CF00448286 /* Event.m in Sources */,
+				EC850A2F19B8E05D00448286 /* Entity.m in Sources */,
+				EC850A3D19B8E20C00448286 /* ItemBody.m in Sources */,
+				EC850A3E19B8E20C00448286 /* Location.m in Sources */,
+				EC850A1719B8B4CF00448286 /* BaseClient.m in Sources */,
+				EC850A1619B8B4CF00448286 /* EntityContainer.m in Sources */,
+				EC850A1E19B8B4CF00448286 /* Folder.m in Sources */,
+				EC850A2B19B8E05D00448286 /* Calendar.m in Sources */,
+				EC850A1919B8B4CF00448286 /* HttpConnection.m in Sources */,
+				EC850A2C19B8E05D00448286 /* CalendarGroup.m in Sources */,
+				EC850A1519B8B4CF00448286 /* Actions.m in Sources */,
+				EC850A2A19B8E05D00448286 /* Attachment.m in Sources */,
+				EC850A4319B8E20C00448286 /* ResponseStatus.m in Sources */,
+				EC850A1B19B8B4CF00448286 /* JsonParser.m in Sources */,
+				EC850A3219B8E05D00448286 /* ItemAttachment.m in Sources */,
+				EC850A1819B8B4CF00448286 /* Credentials.m in Sources */,
+				EC850A1C19B8B4CF00448286 /* Property.m in Sources */,
+				EC850A4119B8E20C00448286 /* RecurrencePattern.m in Sources */,
+				EC850A4219B8E20C00448286 /* RecurrenceRange.m in Sources */,
+				EC850A3C19B8E20C00448286 /* Attendee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
