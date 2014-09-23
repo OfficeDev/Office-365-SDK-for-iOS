@@ -90,7 +90,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getFolders : (NSString*)path {
+-(NSURLSessionDataODataTask *)getFolders : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -99,35 +99,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Folders", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Folder class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -188,7 +188,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getMessages : (NSString*)path {
+-(NSURLSessionDataODataTask *)getMessages : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -197,35 +197,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Messages", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Message class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -286,7 +286,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getCalendars : (NSString*)path {
+-(NSURLSessionDataODataTask *)getCalendars : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -295,35 +295,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Calendars", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Calendar class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -384,7 +384,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getCalendarGroups : (NSString*)path {
+-(NSURLSessionDataODataTask *)getCalendarGroups : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -393,35 +393,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//CalendarGroups", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [CalendarGroup class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -482,7 +482,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getEvents : (NSString*)path {
+-(NSURLSessionDataODataTask *)getEvents : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -491,35 +491,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Events", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Event class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -580,7 +580,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getContacts : (NSString*)path {
+-(NSURLSessionDataODataTask *)getContacts : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -589,35 +589,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//Contacts", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [Contact class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
@@ -678,7 +678,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataTaskOdata *)getContactFolders : (NSString*)path {
+-(NSURLSessionDataODataTask *)getContactFolders : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -687,35 +687,35 @@ static EntityContainer *entityContainer;
        [url appendFormat:@"//%@//ContactFolders", path];
     }
 
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = [ContactFolder class];
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)getContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"GET";
     
     return task;
 }
 
--(NSURLSessionDataTaskOdata*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
     
 	NSString *name = NSStringFromClass (classType);
     
-    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    NSURLSessionDataODataTask * task = [[NSURLSessionDataODataTask alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
     task.method = @"DELETE";
     
