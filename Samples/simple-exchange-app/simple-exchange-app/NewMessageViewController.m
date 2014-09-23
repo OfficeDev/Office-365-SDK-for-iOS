@@ -25,7 +25,7 @@
     message.IsDraft = true;
     EntityContainer* container = [EntityContainer getEntityContainer];
     
-    [[container create:message Path:@"Inbox" Callback:^(Message *message, NSURLResponse *response, NSError *error) {
+    [[container createMessage:message Path:@"Inbox" Callback:^(Message *message, NSURLResponse *response, NSError *error) {
         if(error == nil){
             [[[message getOperations] Send:^(int returnValue, NSURLResponse *response, NSError *error)  {
                 

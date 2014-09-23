@@ -8,11 +8,11 @@
 
 #import "MessageTableViewController.h"
 #import "LoginClient.h"
-#import <office365-exchange-sdk/OAuthentication.h>
+#import <office365-exchange-sdk/OAuthCredentials.h>
 #import <office365-exchange-sdk/Message.h>
 #import <office365-exchange-sdk/ItemBody.h>
 #import <office365-exchange-sdk/EntityContainer.h>
-#import <office365-exchange-sdk/NSURLSessionDataTaskOdata.h>
+#import <office365-exchange-sdk/NSURLSessionODataTask.h>
 
 
 @interface MessageTableViewController ()
@@ -71,10 +71,10 @@ NSString* token;
 
 -(void)logIn{
     
-    authority = @"https://login.windows.net/common";
-    resourceId = @"https://outlook.office365.com";//@"https://graph.windows.net";///lagashsystems";//
-    clientId = @"a31be332-2598-42e6-97f1-d8ac87370367";
-    redirectUriString = @"https://lagash.com/oauth";
+    authority = @"https://login.windows-ppe.net/common";
+    resourceId = @"https://sdfpilot.outlook.com";//@"https://graph.windows.net";///lagashsystems";//
+    clientId = @"2662c14f-d33d-4249-bbde-84fad173b865";
+    redirectUriString = @"https://ios365";
  
     self.LoginClient = [[LoginClient alloc] initWithParameters: clientId
                                                          :redirectUriString
@@ -86,7 +86,7 @@ NSString* token;
         
         if(error != nil){
             
-            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Adal Error" message:error.description delegate:nil canchttps://outlook.office365.com/EWS/OData/MeelButtonTitle:@"Cancel" otherButtonTitles: nil];
+            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Adal Error" message:error.description delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
             
            // [alert show];
             
@@ -104,16 +104,16 @@ NSString* token;
 EntityContainer *container;
 -(void)initContainer{
     
-    NSString *url = @"https://outlook.office365.com/EWS/OData/Me";
-    OAuthentication * credentials = [[OAuthentication alloc] initWith:self.Token];
+    NSString *url = @"https://sdfpilot.outlook.com/EWS/OData";
+    OAuthCredentials * credentials = [[OAuthCredentials alloc] initWith:self.Token];
     
-     container= [EntityContainer initializeEntityContainer:url credentials:credentials];//[EntityContaine
+     container= [EntityContainer initializeEntityContainer:url credentials:credentials];
     
 }
 
 -(void)getMessages{
  
-    NSURLSessionDataTaskOdata* task = [container getMessages:@"Inbox" : [Message class]];
+    NSURLSessionODataTask* task = [container getMessages:@"Inbox"];
     
     [[task top:10] select:@"Id,Subject,Body"];
     
