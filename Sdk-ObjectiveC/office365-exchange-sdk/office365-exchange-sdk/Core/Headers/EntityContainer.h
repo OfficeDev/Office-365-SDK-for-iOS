@@ -6,7 +6,7 @@
 //  All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "NSURLSessionDataTaskOdata.h"
+#import "NSURLSessionDataODataTask.h"
 #import "BaseClient.h"
 #import "JsonParser.h"
 
@@ -86,84 +86,84 @@
 
 - (NSURLSessionDataTask *)createFolder :(Folder*)folder Path : (NSString*)path Callback:(void (^)(Folder* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getFolders : (NSString*)path;
+-(NSURLSessionDataODataTask *)getFolders : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateFolder :(Folder*)folder Path : (NSString*)path Callback:(void (^)(Folder* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createMessage :(Message*)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getMessages : (NSString*)path;
+-(NSURLSessionDataODataTask *)getMessages : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateMessage :(Message*)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createCalendar :(Calendar*)calendar Path : (NSString*)path Callback:(void (^)(Calendar* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getCalendars : (NSString*)path;
+-(NSURLSessionDataODataTask *)getCalendars : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateCalendar :(Calendar*)calendar Path : (NSString*)path Callback:(void (^)(Calendar* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createCalendarGroup :(CalendarGroup*)calendargroup Path : (NSString*)path Callback:(void (^)(CalendarGroup* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getCalendarGroups : (NSString*)path;
+-(NSURLSessionDataODataTask *)getCalendarGroups : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateCalendarGroup :(CalendarGroup*)calendargroup Path : (NSString*)path Callback:(void (^)(CalendarGroup* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createEvent :(Event*)event Path : (NSString*)path Callback:(void (^)(Event* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getEvents : (NSString*)path;
+-(NSURLSessionDataODataTask *)getEvents : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateEvent :(Event*)event Path : (NSString*)path Callback:(void (^)(Event* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createContact :(Contact*)contact Path : (NSString*)path Callback:(void (^)(Contact* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getContacts : (NSString*)path;
+-(NSURLSessionDataODataTask *)getContacts : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateContact :(Contact*)contact Path : (NSString*)path Callback:(void (^)(Contact* message, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)createContactFolder :(ContactFolder*)contactfolder Path : (NSString*)path Callback:(void (^)(ContactFolder* message, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata *)getContactFolders : (NSString*)path;
+-(NSURLSessionDataODataTask *)getContactFolders : (NSString*)path;
 
--(NSURLSessionDataTaskOdata*)getContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)getContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
--(NSURLSessionDataTaskOdata*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionDataODataTask*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 - (NSURLSessionDataTask *)updateContactFolder :(ContactFolder*)contactfolder Path : (NSString*)path Callback:(void (^)(ContactFolder* message, NSURLResponse *response, NSError *error))callback;
