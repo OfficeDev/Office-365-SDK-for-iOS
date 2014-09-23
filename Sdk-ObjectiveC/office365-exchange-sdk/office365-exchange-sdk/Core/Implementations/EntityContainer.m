@@ -90,7 +90,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getFolders : (NSString*)path {
+-(NSURLSessionODataTask *)getFolders : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -106,7 +106,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
@@ -120,7 +120,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
@@ -188,7 +188,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getMessages : (NSString*)path {
+-(NSURLSessionODataTask *)getMessages : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -204,7 +204,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
@@ -218,7 +218,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteMessages :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteMessages :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
@@ -286,7 +286,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getCalendars : (NSString*)path {
+-(NSURLSessionODataTask *)getCalendars : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -302,7 +302,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
@@ -316,7 +316,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteCalendars :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteCalendars :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
@@ -384,7 +384,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getCalendarGroups : (NSString*)path {
+-(NSURLSessionODataTask *)getCalendarGroups : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -400,7 +400,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
@@ -414,7 +414,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
@@ -482,7 +482,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getEvents : (NSString*)path {
+-(NSURLSessionODataTask *)getEvents : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -498,7 +498,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
@@ -512,7 +512,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteEvents :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteEvents :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
@@ -580,7 +580,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getContacts : (NSString*)path {
+-(NSURLSessionODataTask *)getContacts : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -596,7 +596,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
@@ -610,7 +610,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteContacts :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteContacts :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
@@ -678,7 +678,7 @@ static EntityContainer *entityContainer;
     }];
 }
 
--(NSURLSessionDataODataTask *)getContactFolders : (NSString*)path {
+-(NSURLSessionODataTask *)getContactFolders : (NSString*)path {
    
     NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
@@ -694,7 +694,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)getContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)getContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
@@ -708,7 +708,7 @@ static EntityContainer *entityContainer;
     return task;
 }
 
--(NSURLSessionDataODataTask*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
+-(NSURLSessionODataTask*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
                            Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
 	NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
