@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="72" y="194"/>
         </scene>
-        <!--Test Files Table View Controller - File Tests-->
+        <!--File Tests-->
         <scene sceneID="IBP-iD-Bf1">
             <objects>
                 <tableViewController id="ZAz-fk-owd" customClass="TestFilesTableViewController" sceneMemberID="viewController">
@@ -69,7 +69,7 @@
             </objects>
             <point key="canvasLocation" x="1185" y="194"/>
         </scene>
-        <!--Navigation Controller - Files Tests-->
+        <!--Files Tests-->
         <scene sceneID="UMm-7V-nms">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Srn-GL-afm" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="194"/>
         </scene>
-        <!--List Test Table View Controller - List Tests-->
+        <!--List Tests-->
         <scene sceneID="yGX-4b-6rV">
             <objects>
                 <tableViewController id="Xb0-Ag-Snv" customClass="ListTestTableViewController" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="1185" y="-515"/>
         </scene>
-        <!--User Settings View Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="fTt-5e-U2c">
             <objects>
                 <viewController id="9jO-8A-gId" customClass="UserSettingsViewController" sceneMemberID="viewController">
@@ -188,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="907"/>
         </scene>
-        <!--Navigation Controller - List Tests-->
+        <!--List Tests-->
         <scene sceneID="Qpm-IV-OoG">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ORC-kV-28Q" sceneMemberID="viewController">

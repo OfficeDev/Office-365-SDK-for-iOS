@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewMessageViewController : UIViewController
+@interface NewMessageViewController : UIViewController<UIAlertViewDelegate>
 - (IBAction)SendMail:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtTo;
 @property (weak, nonatomic) IBOutlet UITextField *txtCc;

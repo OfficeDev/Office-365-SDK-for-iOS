@@ -29,7 +29,7 @@
 @property bool ResponseRequested;
 @property EventType *Type;
 @property NSString *SeriesId;
-@property Attendee *Attendees;
+@property NSMutableArray<Attendee> *Attendees;
 @property PatternedRecurrence *Recurrence;
 @property Calendar *Calendar;
 

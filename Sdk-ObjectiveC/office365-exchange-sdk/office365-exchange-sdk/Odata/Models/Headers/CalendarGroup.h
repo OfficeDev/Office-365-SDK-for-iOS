@@ -14,6 +14,6 @@
 @property NSString *Name;
 @property NSString *ChangeKey;
 @property NSString *ClassId;
-@property Calendar *Calendars;
+@property NSMutableArray<Calendar> *Calendars;
 
 @end

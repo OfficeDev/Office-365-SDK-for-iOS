@@ -12,32 +12,47 @@
 #import <office365-exchange-sdk/ItemBody.h>
 #import <office365-exchange-sdk/EntityContainer.h>
 
-@implementation NewMessageViewController
+@implementation NewMessageViewController 
+
+UIActivityIndicatorView* spinner;
+
+-(void)getSpinner{
+    int width = self.view.frame.size.width;
+    int height = self.view.frame.size.height;
+    spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0,0,width,height)];
+    spinner.hidesWhenStopped = YES;
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    
+    [self.view addSubview:spinner];
+}
 
 - (IBAction)SendMail:(id)sender {
-    
+    [self getSpinner];
+    [spinner startAnimating];
     Message* message = [Message alloc] ;
     message.Subject = self.txtSubject.text;
     message.Body = [[ItemBody alloc] init];
     message.Body.Content = self.txtBody.text;
     message.ToRecipients = [self getRecipients:self.txtTo.text];
-    message.CcRecipients = [self getRecipients:self.txtCc.text];
     message.IsDraft = true;
     EntityContainer* container = [EntityContainer getEntityContainer];
     
-    [[container create:message Path:@"Inbox" Callback:^(Message *message, NSURLResponse *response, NSError *error) {
+    __block UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [[container createMessage:message Path:@"Inbox" Callback:^(Message *message, NSURLResponse *response, NSError *error) {
         if(error == nil){
             [[[message getOperations] Send:^(int returnValue, NSURLResponse *response, NSError *error)  {
-                
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                
-                [alert show];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [spinner stopAnimating];
+                    [alert show];
+                });
                 
             }] resume];
         }
-        
+
     }] resume];
 }
+
 
 
 -(NSMutableArray<Recipient>*)getRecipients : (NSString*)text{
@@ -54,5 +69,9 @@
         [result addObject: recipient];
     }
     return result;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

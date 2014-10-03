@@ -35,6 +35,9 @@
       <FileRef
          location = "group:Sdk/office365_list_sdk/office365_list_sdk.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:Sdk/office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "container:"
@@ -79,6 +82,9 @@
       </FileRef>
       <FileRef
          location = "group:Samples/simple-onedrive-test/simple-onedrive-test.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Samples/mail-app/mail-app.xcodeproj">
       </FileRef>
    </Group>
    <FileRef

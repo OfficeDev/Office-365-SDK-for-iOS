@@ -1,4 +1,4 @@
-﻿//
+//
 //  JsonParser.m
 //  JsonParser
 //
@@ -20,24 +20,24 @@
 @implementation JsonParser
 
 -(NSString*)toJsonString : (id)object{
-
+    
     NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
     
     jsonResult = [self getString :object :jsonResult];
-
+    
     NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
     NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
     
     if([result length] == 0){return nil;}
     
     [result appendString:@"}"];
-
+    
     return result;
 }
 
 -(NSString*)toJsonString:(id)object Property:(NSString*)name{
-
-     NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
+    
+    NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
     
     [jsonResult appendFormat:@"\"%@\" : \"%@\"", name, object];
     [jsonResult appendString:@"}"];
@@ -76,11 +76,11 @@
                         
                         [jsonResult appendString:@"},"];
                     }
-                
+                    
                     NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
                     NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
                     jsonResult = result;
-                
+                    
                     [jsonResult appendString:@"],"];
                 }
             }

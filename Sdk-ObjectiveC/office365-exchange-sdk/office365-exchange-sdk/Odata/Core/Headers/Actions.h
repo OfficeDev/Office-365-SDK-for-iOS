@@ -1,4 +1,4 @@
-﻿//
+//
 //  Action.h
 //
 //  Copyright (c) 2014 Microsoft Open Technologies, Inc.
@@ -25,7 +25,8 @@
 @interface ActionMessage : NSObject
 
 @property NSString* EntityId;
-				
+-(id)setEntityContainer : (EntityContainer*)container;
+
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback;
 				
 -(NSURLSessionDataTask*) Move : (NSString *) DestinationId : (void (^)(Message *message, NSURLResponse *response, NSError *error))callback;

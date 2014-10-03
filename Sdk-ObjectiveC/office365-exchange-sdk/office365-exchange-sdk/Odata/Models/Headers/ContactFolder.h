@@ -14,7 +14,7 @@
 
 @property NSString *ParentFolderId;
 @property NSString *DisplayName;
-@property Contact *Contacts;
-@property ContactFolder *ChildFolders;
+@property NSMutableArray<Contact> *Contacts;
+@property NSMutableArray<ContactFolder> *ChildFolders;
 
 @end

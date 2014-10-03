@@ -13,6 +13,16 @@
 		EC19AA0619CBAF8900F87E5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA0519CBAF8900F87E5A /* Images.xcassets */; };
 		EC19AA0919CBAF8900F87E5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA0719CBAF8900F87E5A /* LaunchScreen.xib */; };
 		EC19AA1519CBAF8900F87E5A /* mail_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA1419CBAF8900F87E5A /* mail_appTests.swift */; };
+		EC19AA1F19CBB58000F87E5A /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19AA1E19CBB58000F87E5A /* libADALiOS.a */; };
+		EC19AA2219CBB62400F87E5A /* LoginClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA2119CBB62400F87E5A /* LoginClient.m */; };
+		EC19AA2819CBB9AA00F87E5A /* LoginClient.h in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA2019CBB62400F87E5A /* LoginClient.h */; };
+		EC19AA2E19CBC4CD00F87E5A /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA2D19CBC4CD00F87E5A /* NewMessageViewController.swift */; };
+		EC19AA3019CC5D8A00F87E5A /* liboffice365-exchange-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC19AA2F19CC5D8A00F87E5A /* liboffice365-exchange-sdk.a */; };
+		EC19AA3819CC6C9C00F87E5A /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA3219CC6C9C00F87E5A /* ADAL_iPad_Storyboard.storyboard */; };
+		EC19AA3919CC6C9C00F87E5A /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA3319CC6C9C00F87E5A /* ADAL_iPhone_Storyboard.storyboard */; };
+		EC19AA3A19CC6C9C00F87E5A /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA3419CC6C9C00F87E5A /* ADALiOSBundle-Info.plist */; };
+		EC19AA3B19CC6C9C00F87E5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA3619CC6C9C00F87E5A /* InfoPlist.strings */; };
+		EC75B61119CCA2DF00A0E14F /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA2319CBB68000F87E5A /* MessageTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +46,18 @@
 		EC19AA0E19CBAF8900F87E5A /* mail-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mail-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC19AA1319CBAF8900F87E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC19AA1419CBAF8900F87E5A /* mail_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mail_appTests.swift; sourceTree = "<group>"; };
+		EC19AA1E19CBB58000F87E5A /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		EC19AA2019CBB62400F87E5A /* LoginClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginClient.h; sourceTree = "<group>"; };
+		EC19AA2119CBB62400F87E5A /* LoginClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginClient.m; sourceTree = "<group>"; };
+		EC19AA2319CBB68000F87E5A /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		EC19AA2919CBBA5200F87E5A /* mail-app-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mail-app-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC19AA2D19CBC4CD00F87E5A /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		EC19AA2F19CC5D8A00F87E5A /* liboffice365-exchange-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-exchange-sdk.a"; path = "../../Sdk-ObjectiveC/office365-exchange-sdk/build/Debug-iphoneos/liboffice365-exchange-sdk.a"; sourceTree = "<group>"; };
+		EC19AA3219CC6C9C00F87E5A /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		EC19AA3319CC6C9C00F87E5A /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		EC19AA3419CC6C9C00F87E5A /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		EC19AA3519CC6C9C00F87E5A /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		EC19AA3719CC6C9C00F87E5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC19AA3019CC5D8A00F87E5A /* liboffice365-exchange-sdk.a in Frameworks */,
+				EC19AA1F19CBB58000F87E5A /* libADALiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +83,10 @@
 		EC19A9F019CBAF8900F87E5A = {
 			isa = PBXGroup;
 			children = (
+				EC19AA3119CC6C9C00F87E5A /* ADALiOSBundle */,
+				EC19AA2F19CC5D8A00F87E5A /* liboffice365-exchange-sdk.a */,
+				EC19AA2919CBBA5200F87E5A /* mail-app-Bridging-Header.h */,
+				EC19AA1E19CBB58000F87E5A /* libADALiOS.a */,
 				EC19A9FB19CBAF8900F87E5A /* mail-app */,
 				EC19AA1119CBAF8900F87E5A /* mail-appTests */,
 				EC19A9FA19CBAF8900F87E5A /* Products */,
@@ -77,12 +105,16 @@
 		EC19A9FB19CBAF8900F87E5A /* mail-app */ = {
 			isa = PBXGroup;
 			children = (
+				EC19AA2019CBB62400F87E5A /* LoginClient.h */,
+				EC19AA2119CBB62400F87E5A /* LoginClient.m */,
 				EC19A9FE19CBAF8900F87E5A /* AppDelegate.swift */,
 				EC19AA0019CBAF8900F87E5A /* ViewController.swift */,
 				EC19AA0219CBAF8900F87E5A /* Main.storyboard */,
 				EC19AA0519CBAF8900F87E5A /* Images.xcassets */,
 				EC19AA0719CBAF8900F87E5A /* LaunchScreen.xib */,
 				EC19A9FC19CBAF8900F87E5A /* Supporting Files */,
+				EC19AA2319CBB68000F87E5A /* MessageTableViewController.swift */,
+				EC19AA2D19CBC4CD00F87E5A /* NewMessageViewController.swift */,
 			);
 			path = "mail-app";
 			sourceTree = "<group>";
@@ -110,6 +142,19 @@
 				EC19AA1319CBAF8900F87E5A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC19AA3119CC6C9C00F87E5A /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				EC19AA3219CC6C9C00F87E5A /* ADAL_iPad_Storyboard.storyboard */,
+				EC19AA3319CC6C9C00F87E5A /* ADAL_iPhone_Storyboard.storyboard */,
+				EC19AA3419CC6C9C00F87E5A /* ADALiOSBundle-Info.plist */,
+				EC19AA3519CC6C9C00F87E5A /* ADALiOSBundle-Prefix.pch */,
+				EC19AA3619CC6C9C00F87E5A /* InfoPlist.strings */,
+			);
+			name = ADALiOSBundle;
+			path = ../ADALiOSBundle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +237,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC19AA3A19CC6C9C00F87E5A /* ADALiOSBundle-Info.plist in Resources */,
+				EC19AA3B19CC6C9C00F87E5A /* InfoPlist.strings in Resources */,
 				EC19AA0419CBAF8900F87E5A /* Main.storyboard in Resources */,
+				EC19AA3819CC6C9C00F87E5A /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				EC19AA0919CBAF8900F87E5A /* LaunchScreen.xib in Resources */,
+				EC19AA3919CC6C9C00F87E5A /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				EC19AA0619CBAF8900F87E5A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC75B61119CCA2DF00A0E14F /* MessageTableViewController.swift in Sources */,
+				EC19AA2819CBB9AA00F87E5A /* LoginClient.h in Sources */,
+				EC19AA2E19CBC4CD00F87E5A /* NewMessageViewController.swift in Sources */,
+				EC19AA2219CBB62400F87E5A /* LoginClient.m in Sources */,
 				EC19AA0119CBAF8900F87E5A /* ViewController.swift in Sources */,
 				EC19A9FF19CBAF8900F87E5A /* AppDelegate.swift in Sources */,
 			);
@@ -250,6 +303,14 @@
 				EC19AA0819CBAF8900F87E5A /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		EC19AA3619CC6C9C00F87E5A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC19AA3719CC6C9C00F87E5A /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -340,7 +401,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "mail-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/Sdk-ObjectiveC/office365-exchange-sdk/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/Samples/mail-app/mail-app-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -350,7 +419,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "mail-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/Sdk-ObjectiveC/office365-exchange-sdk/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/Samples/mail-app/mail-app-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -407,6 +484,7 @@
 				EC19AA1A19CBAF8900F87E5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC19AA1B19CBAF8900F87E5A /* Build configuration list for PBXNativeTarget "mail-appTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +493,7 @@
 				EC19AA1D19CBAF8900F87E5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

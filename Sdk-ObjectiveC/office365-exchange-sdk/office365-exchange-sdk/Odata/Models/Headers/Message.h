@@ -1,4 +1,4 @@
-//
+//  
 //
 //  Copyright (c) 2014 Microsoft Open Technologies, Inc.
 //  All rights reserved.
@@ -16,7 +16,7 @@
 @class Recipient;
 @class ItemBody;
 @class MeetingMessageType;
-@interface Message : Item
+@interface Message : Item	
 
 -(id<Message>)getOperations;
 

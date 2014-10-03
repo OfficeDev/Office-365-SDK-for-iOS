@@ -1,4 +1,4 @@
-﻿//
+//
 //  Protocols.h
 //
 //  Copyright (c) 2014 Microsoft Open Technologies, Inc.
@@ -8,6 +8,7 @@
 @class Folder;
 @class Message;
 @class Recipient;
+@class EntityContainer;
 
 @protocol BodyType
 @end
@@ -87,7 +88,9 @@
 @end
 
 @protocol Message
-				
+
+-(void)setEntityContainer : (EntityContainer*)container;
+
 -(NSURLSessionDataTask*) Copy : (NSString *) DestinationId :  (void (^)(Message *message, NSURLResponse *response, NSError *error))callback;
 				
 -(NSURLSessionDataTask*) Move : (NSString *) DestinationId :  (void (^)(Message *message, NSURLResponse *response, NSError *error))callback;

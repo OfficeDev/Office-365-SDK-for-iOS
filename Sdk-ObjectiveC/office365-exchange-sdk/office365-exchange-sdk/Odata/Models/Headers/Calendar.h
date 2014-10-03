@@ -13,6 +13,6 @@
 
 @property NSString *Name;
 @property NSString *ChangeKey;
-@property Event *Events;
+@property NSMutableArray<Event> *Events;
 
 @end

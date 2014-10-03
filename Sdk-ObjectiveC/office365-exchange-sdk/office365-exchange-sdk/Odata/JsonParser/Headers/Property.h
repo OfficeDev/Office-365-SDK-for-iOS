@@ -1,4 +1,4 @@
-﻿//
+//
 //  Property.h
 //  JsonParser
 //

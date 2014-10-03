@@ -7,6 +7,11 @@
 #import "Message.h"
 #import "Actions.h"
 
+@interface Message()
+//@property id<Message> Operations;
+
+@end
+
 @implementation Message
 
 -(id)init{

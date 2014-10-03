@@ -1,4 +1,4 @@
-﻿//
+//
 //  OAuthentication.m
 //  office365-base-sdk
 //

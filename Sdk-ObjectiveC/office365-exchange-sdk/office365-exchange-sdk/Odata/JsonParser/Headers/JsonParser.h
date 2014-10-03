@@ -1,4 +1,4 @@
-﻿//
+//
 //  JsonParser.h
 //  JsonParser
 //

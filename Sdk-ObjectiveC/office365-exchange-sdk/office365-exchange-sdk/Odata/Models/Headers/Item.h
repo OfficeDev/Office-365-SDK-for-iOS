@@ -19,8 +19,8 @@
 @property ItemBody *Body;
 @property NSString *BodyPreview;
 @property Importance *Importance;
-@property NSString *Categories;
+@property NSMutableArray *Categories;
 @property bool HasAttachments;
-@property Attachment *Attachments;
+@property NSMutableArray<Attachment> *Attachments;
 
 @end

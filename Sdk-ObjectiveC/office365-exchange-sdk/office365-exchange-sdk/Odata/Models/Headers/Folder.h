@@ -21,7 +21,7 @@
 @property int TotalCount;
 @property int ChildFolderCount;
 @property int UnreadItemCount;
-@property Folder *ChildFolders;
-@property Message *Messages;
+@property NSMutableArray<Folder> *ChildFolders;
+@property NSMutableArray<Message> *Messages;
 
 @end

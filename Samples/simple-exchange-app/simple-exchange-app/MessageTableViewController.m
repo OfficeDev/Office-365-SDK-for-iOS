@@ -10,6 +10,7 @@
 #import "LoginClient.h"
 #import <office365-exchange-sdk/OAuthentication.h>
 #import <office365-exchange-sdk/Message.h>
+#import <office365-exchange-sdk/Recipient.h>
 #import <office365-exchange-sdk/ItemBody.h>
 #import <office365-exchange-sdk/EntityContainer.h>
 #import <office365-exchange-sdk/NSURLSessionDataTaskOdata.h>
@@ -32,9 +33,19 @@
     return self;
 }
 
+UIActivityIndicatorView* spinner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    int width = self.view.frame.size.width;
+    int height = self.view.frame.size.height;
+    spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(0,0,width,height)];
+    spinner.hidesWhenStopped = YES;
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    
+    [self.view addSubview:spinner];
+    
     [self logIn];
 }
 
@@ -56,7 +67,7 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject, message.Body.ContentType];//message.Subject;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.From.Name, message.Subject];//message.Subject;
     
     return cell;
 }
@@ -81,7 +92,7 @@ NSString* token;
                                                          :resourceId
                                                          :authority];
     
-   // [self.LoginClient clearCredentials:nil];
+    [self.LoginClient clearCredentials:nil];
     [self.LoginClient login:false completionHandler:^(NSString *token, NSError *error) {
         
         if(error != nil){
@@ -96,15 +107,16 @@ NSString* token;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initContainer];
                 [self getMessages];
-               // [self.tableView reloadData];
             });
         }
     }];
 }
+
 EntityContainer *container;
+
 -(void)initContainer{
     
-    NSString *url = @"https://outlook.office365.com/EWS/OData/Me";
+    NSString *url = @"https://outlook.office365.com/EWS/OData";
     OAuthentication * credentials = [[OAuthentication alloc] initWith:self.Token];
     
      container= [EntityContainer initializeEntityContainer:url credentials:credentials];//[EntityContaine
@@ -113,9 +125,10 @@ EntityContainer *container;
 
 -(void)getMessages{
  
-    NSURLSessionDataTaskOdata* task = [container getMessages:@"Inbox" : [Message class]];
+    [spinner startAnimating];
+    NSURLSessionDataTaskOdata* task = [container getMessages:@"Inbox"];
     
-    [[task top:10] select:@"Id,Subject,Body"];
+    [[task top:50] select:@"Id,Subject,From"];
     
     [task execute:^(id data, NSURLResponse *response, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -123,9 +136,13 @@ EntityContainer *container;
             self.Messages = (NSArray<Message>*)data;
             
             [self.tableView reloadData];
-        
+            [spinner stopAnimating];
         });
     }];
+}
+
+- (IBAction)Refresh:(id)sender{
+    [self getMessages];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

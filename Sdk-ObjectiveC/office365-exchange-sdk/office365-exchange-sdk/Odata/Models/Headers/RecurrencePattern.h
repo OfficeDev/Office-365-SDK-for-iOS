@@ -17,7 +17,7 @@
 @property int Interval;
 @property int DayOfMonth;
 @property int Month;
-@property DayOfWeek *DaysOfWeek;
+@property NSMutableArray<DayOfWeek> *DaysOfWeek;
 @property DayOfWeek *FirstDayOfWeek;
 @property WeekIndex *Index;
 

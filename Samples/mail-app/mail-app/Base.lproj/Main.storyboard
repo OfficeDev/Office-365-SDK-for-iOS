@@ -1,25 +1,125 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ayV-cE-wAT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Root View Controller-->
+        <scene sceneID="Yzk-kF-me3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="wn4-eL-NS5" customClass="MessageTableViewController" customModule="mail_app" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9oz-7p-ukp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Messages" id="vxo-qK-RH4">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vxo-qK-RH4" id="vfL-RC-nfQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wn4-eL-NS5" id="HaO-mT-bgO"/>
+                            <outlet property="delegate" destination="wn4-eL-NS5" id="hK6-dh-3H3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Sxc-rA-w6A">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="WDp-6s-Llj">
+                            <connections>
+                                <action selector="Refresh:" destination="wn4-eL-NS5" id="7k7-51-vxD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="a7w-4n-E6A">
+                            <connections>
+                                <segue destination="KhU-Zj-2gN" kind="show" id="A2s-Eg-OJl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oLF-Fl-XdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="867" y="74"/>
+        </scene>
+        <!--New Message View Controller-->
+        <scene sceneID="vfK-JV-5cX">
+            <objects>
+                <viewController id="KhU-Zj-2gN" customClass="NewMessageViewController" customModule="mail_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nby-WD-6aB"/>
+                        <viewControllerLayoutGuide type="bottom" id="bYn-gb-D4G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SMb-7C-MaT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9P-wb-gHe">
+                                <rect key="frame" x="16" y="95" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-eb-s0r">
+                                <rect key="frame" x="16" y="197" width="568" height="297"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">
+Send from Mail App</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PxH-uv-chW">
+                                <rect key="frame" x="16" y="149" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GZG-eb-s0r" firstAttribute="trailing" secondItem="SMb-7C-MaT" secondAttribute="trailingMargin" id="0Wz-7I-hSz"/>
+                            <constraint firstItem="Y9P-wb-gHe" firstAttribute="trailing" secondItem="SMb-7C-MaT" secondAttribute="trailingMargin" id="4Zv-1l-gwv"/>
+                            <constraint firstItem="PxH-uv-chW" firstAttribute="trailing" secondItem="SMb-7C-MaT" secondAttribute="trailingMargin" id="HCK-Vl-tj4"/>
+                            <constraint firstItem="Y9P-wb-gHe" firstAttribute="top" secondItem="Nby-WD-6aB" secondAttribute="bottom" constant="31" id="Mav-xe-5Ik"/>
+                            <constraint firstItem="GZG-eb-s0r" firstAttribute="top" secondItem="PxH-uv-chW" secondAttribute="bottom" constant="18" id="SSf-ai-cK5"/>
+                            <constraint firstItem="GZG-eb-s0r" firstAttribute="leading" secondItem="SMb-7C-MaT" secondAttribute="leadingMargin" id="X6m-eQ-SB2"/>
+                            <constraint firstItem="bYn-gb-D4G" firstAttribute="top" secondItem="GZG-eb-s0r" secondAttribute="bottom" constant="106" id="aAg-dV-4RO"/>
+                            <constraint firstItem="PxH-uv-chW" firstAttribute="top" secondItem="Y9P-wb-gHe" secondAttribute="bottom" constant="24" id="goK-jU-obJ"/>
+                            <constraint firstItem="PxH-uv-chW" firstAttribute="leading" secondItem="SMb-7C-MaT" secondAttribute="leadingMargin" id="lAt-Ot-7uy"/>
+                            <constraint firstItem="Y9P-wb-gHe" firstAttribute="leading" secondItem="SMb-7C-MaT" secondAttribute="leadingMargin" id="rFy-uE-da5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="zAm-SK-8F9">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="wBa-vg-xgf">
+                            <connections>
+                                <action selector="Send:" destination="KhU-Zj-2gN" id="e9c-eK-xED"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="Subject" destination="PxH-uv-chW" id="IG6-F1-hB5"/>
+                        <outlet property="txtBody" destination="GZG-eb-s0r" id="0L8-Vx-BEz"/>
+                        <outlet property="txtTos" destination="Y9P-wb-gHe" id="bE6-hL-CM4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zq-al-hqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592" y="69"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vlt-Fp-boy">
+            <objects>
+                <navigationController id="ayV-cE-wAT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kl0-xk-76K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wn4-eL-NS5" kind="relationship" relationship="rootViewController" id="900-Nx-91G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S97-uU-7CP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="74"/>
         </scene>
     </scenes>
 </document>

@@ -10,88 +10,104 @@ import UIKit
 
 class MessageTableViewController: UITableViewController {
 
+    var loginClient = LoginClient();
+    var messages = NSArray();
+    var spinner = UIActivityIndicatorView(frame: CGRectMake(135,140,50,50));
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.logIn();
+        var width = self.view.frame.size.width;
+        var height = self.view.frame.size.height;
+        
+        spinner = UIActivityIndicatorView(frame: CGRectMake(0,0, width, height));
+        spinner.activityIndicatorViewStyle =  UIActivityIndicatorViewStyle.Gray;
+        self.view.addSubview(spinner);
+        spinner.hidesWhenStopped = true;
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
     }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+        return self.messages.count;
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    
+     override func tableView(tableView: UITableView?, cellForRowAtIndexPath indexPath: NSIndexPath?) -> UITableViewCell {
+        let cell = tableView!.dequeueReusableCellWithIdentifier("Messages", forIndexPath: indexPath!) as UITableViewCell
 
+        var index : Int = indexPath!.row;
+        var message : Message = self.messages.objectAtIndex(index) as Message;
+        cell.textLabel?.text = message.From.Name + message.Subject;
         // Configure the cell...
 
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        
+        var controller : NewMessageViewController = segue.destinationViewController as NewMessageViewController;
+        
+        controller.container = self.container;
     }
-    */
+    
+    var token = NSString();
+    var authority = NSString();
+    var redirectUriString = NSString();
+    var resourceId = NSString();
+    var clientId = NSString();
+    
+    func logIn(){
+    
+        authority = "https://login.windows.net/common";
+        resourceId = "https://outlook.office365.com";
+        clientId = "a31be332-2598-42e6-97f1-d8ac87370367";
+        redirectUriString = "https://lagash.com/oauth";
+    
+        self.loginClient = LoginClient(parameters: clientId, redirectUriString, resourceId, authority);
+        self.loginClient.clearCredentials(nil);
+        
+        self.loginClient.login(false, completionHandler: { (token, error) -> Void in
+            
+            if(error == nil){
+                
+                
+                self.token = token;
+              
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.initContainer();
+                    self.getMessages();
+                });
+            }});
+    }
 
+    var container = EntityContainer();
+    
+    func initContainer(){
+    
+        var url = "https://outlook.office365.com/EWS/OData";
+        var credentials =  OAuthentication(with: self.token);
+    
+        container = EntityContainer(url: url, credentials: credentials);
+    }
+    
+    func getMessages(){
+    
+        spinner.startAnimating();
+        var messages : NSURLSessionDataTaskOdata =  container.getMessages("Inbox")
+    
+        messages.top(50).select("Id,Subject,From");
+        
+        messages.execute( { (messages, response, error) -> Void in
+            self.messages = messages as NSArray;
+            self.tableView.reloadData();
+            self.spinner.stopAnimating();
+        });
+    }
+    
+    @IBAction func Refresh(sender: AnyObject){
+        self.getMessages();
+    }
 }

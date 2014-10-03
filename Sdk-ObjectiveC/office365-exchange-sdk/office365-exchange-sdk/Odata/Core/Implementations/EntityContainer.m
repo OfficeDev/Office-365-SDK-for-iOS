@@ -1,4 +1,4 @@
-﻿//
+//
 //	EntityContainer.m
 //
 //  Created by Gustavo on 8/25/14.
@@ -7,7 +7,14 @@
 
 #import "EntityContainer.h"
 #import "HttpConnection.h"
+#import "Folder.h"
 #import "Message.h"
+#import "Calendar.h"
+#import "CalendarGroup.h"
+#import "Event.h"
+#import "Contact.h"
+#import "ContactFolder.h"
+
 @implementation EntityContainer
 
 @synthesize Credential;
@@ -35,10 +42,10 @@ static EntityContainer *entityContainer;
 
 - (NSURLSessionDataTask *)executeForPath :(NSString*)path Method:(NSString*)method Body:(NSData *)body Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
-    NSString *url =  [NSString stringWithFormat:@"%@%@", self.Url ,path];
+    //NSString *url =  [NSString stringWithFormat:@"%@%@", self.Url ,path];
     
     HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
-                                                                         url:url
+                                                                         url:path
                                                                    bodyArray:body];
     
     return [connection execute:method callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
@@ -46,15 +53,111 @@ static EntityContainer *entityContainer;
     }];
 }
 
-- (NSURLSessionDataTask *)create :(id)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback{
-    NSString *url;
-    
+- (NSURLSessionDataTask *)createFolder :(Folder*)folder Path : (NSString*)path Callback:(void (^)(Folder* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
     if(path == nil){
-        url =  [NSString stringWithFormat:@"%@/Messages", self.Url];
+        [url appendString:@"//Folders"];
     }else{
-       url =[NSString stringWithFormat:@"%@/%@/Messages", self.Url, path];
+        [url appendFormat:@"//%@//Folders", path];
     }
-       
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:folder];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Folder* result = [[Folder alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+
+-(NSURLSessionDataTaskOdata *)getFolders : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Folders"];
+    }else{
+        [url appendFormat:@"//%@//Folders", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [Folder class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getFolders :(NSString*)entityId Type : (Class) classType
+                                Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteFolders :(NSString*)entityId Type : (Class) classType
+                                   Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Folders('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateFolder :(Folder*)folder Path : (NSString*)path Callback:(void (^)(Folder* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Folders"];
+    }else{
+        [url appendFormat:@"//%@//Folders", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:folder];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Folder* result = [[Folder alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createMessage :(Message*)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Messages"];
+    }else{
+        [url appendFormat:@"//%@//Messages", path];
+    }
+    
     JsonParser *parser = [[JsonParser alloc] init];
     
     NSString* jsonString = [parser toJsonString:message];
@@ -69,29 +172,34 @@ static EntityContainer *entityContainer;
         
         Message* result = [[Message alloc] init];
         result = [parser parseWithData:data forType:[result class] selector:nil];
+        [[result getOperations] setEntityContainer:self];
         
         callback(result, reponse,error);
     }];
 }
 
-- (NSURLSessionDataTask *)delete :(NSString*)entityId Type : (Class) classType Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+-(NSURLSessionDataTaskOdata *)getMessages : (NSString*)path {
     
-    NSString *name = NSStringFromClass (classType);
-    NSString *url =  [NSString stringWithFormat:@"%@/%@('%@')", self.Url , name, entityId];
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Messages"];
+    }else{
+        [url appendFormat:@"//%@//Messages", path];
+    }
     
-    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
-                                                                         url:url];
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [Message class];
+    task.method = @"GET";
     
-    return [connection execute:@"DELETE" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
-        callback(data, reponse,error);
-    }];
+    return task;
 }
 
-- (NSURLSessionDataTaskOdata *)get :(NSString*)entityId Type : (Class) classType
-                           Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+-(NSURLSessionDataTaskOdata*)getMessages :(NSString*)entityId Type : (Class) classType
+                                 Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
     
     NSString *name = NSStringFromClass (classType);
-    NSString *url =  [NSString stringWithFormat:@"%@/%@s('%@')", self.Url , name, entityId];
     
     NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
@@ -100,30 +208,31 @@ static EntityContainer *entityContainer;
     return task;
 }
 
-- (NSURLSessionDataTaskOdata *)getMessages : (NSString*)path : (Class)classType {
-   
-    NSString *url;
+-(NSURLSessionDataTaskOdata*)deleteMessages :(NSString*)entityId Type : (Class) classType
+                                    Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
-    if(path != nil)
-      url =  [NSString stringWithFormat:@"%@/%@/Messages", self.Url ,path];
-    else
-        url =  [NSString stringWithFormat:@"%@/Messages", self.Url];
-
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Messages('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
     NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
     task.ClassType = classType;
-    task.method = @"GET";
+    task.method = @"DELETE";
     
     return task;
 }
 
-- (NSURLSessionDataTask *)update : (id) entity : (NSString*)entityId : (Class) classType Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
-    
-    NSString *name = NSStringFromClass (classType);
-    NSString *url =  [NSString stringWithFormat:@"%@/%@('%@')", self.Url , name, entityId];
+- (NSURLSessionDataTask *)updateMessage :(Message*)message Path : (NSString*)path Callback:(void (^)(Message* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Messages"];
+    }else{
+        [url appendFormat:@"//%@//Messages", path];
+    }
     
     JsonParser *parser = [[JsonParser alloc] init];
     
-    NSString* jsonString = [parser toJsonString:entity];
+    NSString* jsonString = [parser toJsonString:message];
     
     NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -132,8 +241,496 @@ static EntityContainer *entityContainer;
                                                                    bodyArray:body];
     
     return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
-        callback(data, reponse,error);
+        
+        Message* result = [[Message alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createCalendar :(Calendar*)calendar Path : (NSString*)path Callback:(void (^)(Calendar* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Calendars"];
+    }else{
+        [url appendFormat:@"//%@//Calendars", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:calendar];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Calendar* result = [[Calendar alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
     }];
 }
 
+-(NSURLSessionDataTaskOdata *)getCalendars : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Calendars"];
+    }else{
+        [url appendFormat:@"//%@//Calendars", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [Calendar class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getCalendars :(NSString*)entityId Type : (Class) classType
+                                  Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteCalendars :(NSString*)entityId Type : (Class) classType
+                                     Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Calendars('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateCalendar :(Calendar*)calendar Path : (NSString*)path Callback:(void (^)(Calendar* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Calendars"];
+    }else{
+        [url appendFormat:@"//%@//Calendars", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:calendar];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Calendar* result = [[Calendar alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createCalendarGroup :(CalendarGroup*)calendargroup Path : (NSString*)path Callback:(void (^)(CalendarGroup* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//CalendarGroups"];
+    }else{
+        [url appendFormat:@"//%@//CalendarGroups", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:calendargroup];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        CalendarGroup* result = [[CalendarGroup alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+
+-(NSURLSessionDataTaskOdata *)getCalendarGroups : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//CalendarGroups"];
+    }else{
+        [url appendFormat:@"//%@//CalendarGroups", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [CalendarGroup class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getCalendarGroups :(NSString*)entityId Type : (Class) classType
+                                       Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteCalendarGroups :(NSString*)entityId Type : (Class) classType
+                                          Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//CalendarGroups('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateCalendarGroup :(CalendarGroup*)calendargroup Path : (NSString*)path Callback:(void (^)(CalendarGroup* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//CalendarGroups"];
+    }else{
+        [url appendFormat:@"//%@//CalendarGroups", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:calendargroup];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        CalendarGroup* result = [[CalendarGroup alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createEvent :(Event*)event Path : (NSString*)path Callback:(void (^)(Event* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Events"];
+    }else{
+        [url appendFormat:@"//%@//Events", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:event];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Event* result = [[Event alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+
+-(NSURLSessionDataTaskOdata *)getEvents : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Events"];
+    }else{
+        [url appendFormat:@"//%@//Events", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [Event class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getEvents :(NSString*)entityId Type : (Class) classType
+                               Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteEvents :(NSString*)entityId Type : (Class) classType
+                                  Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Events('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateEvent :(Event*)event Path : (NSString*)path Callback:(void (^)(Event* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Events"];
+    }else{
+        [url appendFormat:@"//%@//Events", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:event];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Event* result = [[Event alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createContact :(Contact*)contact Path : (NSString*)path Callback:(void (^)(Contact* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Contacts"];
+    }else{
+        [url appendFormat:@"//%@//Contacts", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:contact];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Contact* result = [[Contact alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+
+-(NSURLSessionDataTaskOdata *)getContacts : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Contacts"];
+    }else{
+        [url appendFormat:@"//%@//Contacts", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [Contact class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getContacts :(NSString*)entityId Type : (Class) classType
+                                 Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteContacts :(NSString*)entityId Type : (Class) classType
+                                    Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//Contacts('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateContact :(Contact*)contact Path : (NSString*)path Callback:(void (^)(Contact* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//Contacts"];
+    }else{
+        [url appendFormat:@"//%@//Contacts", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:contact];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        Contact* result = [[Contact alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+- (NSURLSessionDataTask *)createContactFolder :(ContactFolder*)contactfolder Path : (NSString*)path Callback:(void (^)(ContactFolder* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//ContactFolders"];
+    }else{
+        [url appendFormat:@"//%@//ContactFolders", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:contactfolder];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"POST" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        ContactFolder* result = [[ContactFolder alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
+
+-(NSURLSessionDataTaskOdata *)getContactFolders : (NSString*)path {
+    
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//ContactFolders"];
+    }else{
+        [url appendFormat:@"//%@//ContactFolders", path];
+    }
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = [ContactFolder class];
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)getContactFolders :(NSString*)entityId Type : (Class) classType
+                                       Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"GET";
+    
+    return task;
+}
+
+-(NSURLSessionDataTaskOdata*)deleteContactFolders :(NSString*)entityId Type : (Class) classType
+                                          Callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+    
+    NSString *url = [NSString stringWithFormat:@"%@//Me//ContactFolders('%@')", self.Url, entityId];
+    
+    NSString *name = NSStringFromClass (classType);
+    
+    NSURLSessionDataTaskOdata * task = [[NSURLSessionDataTaskOdata alloc]initWithUrl:url credentials:self.Credential];
+    task.ClassType = classType;
+    task.method = @"DELETE";
+    
+    return task;
+}
+
+- (NSURLSessionDataTask *)updateContactFolder :(ContactFolder*)contactfolder Path : (NSString*)path Callback:(void (^)(ContactFolder* message, NSURLResponse *response, NSError *error))callback{
+    NSMutableString *url = [NSMutableString stringWithFormat:@"%@//Me", self.Url];
+    if(path == nil){
+        [url appendString:@"//ContactFolders"];
+    }else{
+        [url appendFormat:@"//%@//ContactFolders", path];
+    }
+    
+    JsonParser *parser = [[JsonParser alloc] init];
+    
+    NSString* jsonString = [parser toJsonString:contactfolder];
+    
+    NSData *body = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    HttpConnection *connection = [[HttpConnection alloc] initWithCredentials:self.Credential
+                                                                         url:url
+                                                                   bodyArray:body];
+    
+    return [connection execute:@"PATCH" callback:^(NSData  *data, NSURLResponse *reponse, NSError *error) {
+        
+        ContactFolder* result = [[ContactFolder alloc] init];
+        result = [parser parseWithData:data forType:[result class] selector:nil];
+        
+        callback(result, reponse,error);
+    }];
+}
 @end

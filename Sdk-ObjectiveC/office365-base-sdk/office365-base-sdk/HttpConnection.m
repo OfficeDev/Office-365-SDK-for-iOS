@@ -30,7 +30,7 @@
     
     self.credentials = credentials;
     self.request = [[NSMutableURLRequest alloc] initWithURL: [[NSURL alloc] initWithString:url]];
-    self.request.HTTPBody = bodyArray;
+    self.request.HTTPBody = bodyArray == nil ? nil : bodyArray;
     self.request.timeoutInterval = 60;
     
     NSString *length = [NSString stringWithFormat: @"%lu", (unsigned long)[bodyArray length]];
