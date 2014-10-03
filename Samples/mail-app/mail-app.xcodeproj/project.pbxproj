@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC19A9FF19CBAF8900F87E5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19A9FE19CBAF8900F87E5A /* AppDelegate.swift */; };
+		EC19AA0119CBAF8900F87E5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA0019CBAF8900F87E5A /* ViewController.swift */; };
+		EC19AA0419CBAF8900F87E5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA0219CBAF8900F87E5A /* Main.storyboard */; };
+		EC19AA0619CBAF8900F87E5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA0519CBAF8900F87E5A /* Images.xcassets */; };
+		EC19AA0919CBAF8900F87E5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC19AA0719CBAF8900F87E5A /* LaunchScreen.xib */; };
+		EC19AA1519CBAF8900F87E5A /* mail_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19AA1419CBAF8900F87E5A /* mail_appTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC19AA0F19CBAF8900F87E5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC19A9F119CBAF8900F87E5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC19A9F819CBAF8900F87E5A;
+			remoteInfo = "mail-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC19A9F919CBAF8900F87E5A /* mail-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mail-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC19A9FD19CBAF8900F87E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC19A9FE19CBAF8900F87E5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC19AA0019CBAF8900F87E5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC19AA0319CBAF8900F87E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC19AA0519CBAF8900F87E5A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EC19AA0819CBAF8900F87E5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EC19AA0E19CBAF8900F87E5A /* mail-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mail-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC19AA1319CBAF8900F87E5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC19AA1419CBAF8900F87E5A /* mail_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mail_appTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC19A9F619CBAF8900F87E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC19AA0B19CBAF8900F87E5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC19A9F019CBAF8900F87E5A = {
+			isa = PBXGroup;
+			children = (
+				EC19A9FB19CBAF8900F87E5A /* mail-app */,
+				EC19AA1119CBAF8900F87E5A /* mail-appTests */,
+				EC19A9FA19CBAF8900F87E5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC19A9FA19CBAF8900F87E5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC19A9F919CBAF8900F87E5A /* mail-app.app */,
+				EC19AA0E19CBAF8900F87E5A /* mail-appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC19A9FB19CBAF8900F87E5A /* mail-app */ = {
+			isa = PBXGroup;
+			children = (
+				EC19A9FE19CBAF8900F87E5A /* AppDelegate.swift */,
+				EC19AA0019CBAF8900F87E5A /* ViewController.swift */,
+				EC19AA0219CBAF8900F87E5A /* Main.storyboard */,
+				EC19AA0519CBAF8900F87E5A /* Images.xcassets */,
+				EC19AA0719CBAF8900F87E5A /* LaunchScreen.xib */,
+				EC19A9FC19CBAF8900F87E5A /* Supporting Files */,
+			);
+			path = "mail-app";
+			sourceTree = "<group>";
+		};
+		EC19A9FC19CBAF8900F87E5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC19A9FD19CBAF8900F87E5A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC19AA1119CBAF8900F87E5A /* mail-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC19AA1419CBAF8900F87E5A /* mail_appTests.swift */,
+				EC19AA1219CBAF8900F87E5A /* Supporting Files */,
+			);
+			path = "mail-appTests";
+			sourceTree = "<group>";
+		};
+		EC19AA1219CBAF8900F87E5A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC19AA1319CBAF8900F87E5A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC19A9F819CBAF8900F87E5A /* mail-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC19AA1819CBAF8900F87E5A /* Build configuration list for PBXNativeTarget "mail-app" */;
+			buildPhases = (
+				EC19A9F519CBAF8900F87E5A /* Sources */,
+				EC19A9F619CBAF8900F87E5A /* Frameworks */,
+				EC19A9F719CBAF8900F87E5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "mail-app";
+			productName = "mail-app";
+			productReference = EC19A9F919CBAF8900F87E5A /* mail-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC19AA0D19CBAF8900F87E5A /* mail-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC19AA1B19CBAF8900F87E5A /* Build configuration list for PBXNativeTarget "mail-appTests" */;
+			buildPhases = (
+				EC19AA0A19CBAF8900F87E5A /* Sources */,
+				EC19AA0B19CBAF8900F87E5A /* Frameworks */,
+				EC19AA0C19CBAF8900F87E5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC19AA1019CBAF8900F87E5A /* PBXTargetDependency */,
+			);
+			name = "mail-appTests";
+			productName = "mail-appTests";
+			productReference = EC19AA0E19CBAF8900F87E5A /* mail-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC19A9F119CBAF8900F87E5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					EC19A9F819CBAF8900F87E5A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					EC19AA0D19CBAF8900F87E5A = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = EC19A9F819CBAF8900F87E5A;
+					};
+				};
+			};
+			buildConfigurationList = EC19A9F419CBAF8900F87E5A /* Build configuration list for PBXProject "mail-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC19A9F019CBAF8900F87E5A;
+			productRefGroup = EC19A9FA19CBAF8900F87E5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC19A9F819CBAF8900F87E5A /* mail-app */,
+				EC19AA0D19CBAF8900F87E5A /* mail-appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC19A9F719CBAF8900F87E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC19AA0419CBAF8900F87E5A /* Main.storyboard in Resources */,
+				EC19AA0919CBAF8900F87E5A /* LaunchScreen.xib in Resources */,
+				EC19AA0619CBAF8900F87E5A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC19AA0C19CBAF8900F87E5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC19A9F519CBAF8900F87E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC19AA0119CBAF8900F87E5A /* ViewController.swift in Sources */,
+				EC19A9FF19CBAF8900F87E5A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC19AA0A19CBAF8900F87E5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC19AA1519CBAF8900F87E5A /* mail_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC19AA1019CBAF8900F87E5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC19A9F819CBAF8900F87E5A /* mail-app */;
+			targetProxy = EC19AA0F19CBAF8900F87E5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC19AA0219CBAF8900F87E5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC19AA0319CBAF8900F87E5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC19AA0719CBAF8900F87E5A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC19AA0819CBAF8900F87E5A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC19AA1619CBAF8900F87E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC19AA1719CBAF8900F87E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC19AA1919CBAF8900F87E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "mail-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC19AA1A19CBAF8900F87E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "mail-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EC19AA1C19CBAF8900F87E5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "mail-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mail-app.app/mail-app";
+			};
+			name = Debug;
+		};
+		EC19AA1D19CBAF8900F87E5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "mail-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mail-app.app/mail-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC19A9F419CBAF8900F87E5A /* Build configuration list for PBXProject "mail-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC19AA1619CBAF8900F87E5A /* Debug */,
+				EC19AA1719CBAF8900F87E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC19AA1819CBAF8900F87E5A /* Build configuration list for PBXNativeTarget "mail-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC19AA1919CBAF8900F87E5A /* Debug */,
+				EC19AA1A19CBAF8900F87E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EC19AA1B19CBAF8900F87E5A /* Build configuration list for PBXNativeTarget "mail-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC19AA1C19CBAF8900F87E5A /* Debug */,
+				EC19AA1D19CBAF8900F87E5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC19A9F119CBAF8900F87E5A /* Project object */;
+}
