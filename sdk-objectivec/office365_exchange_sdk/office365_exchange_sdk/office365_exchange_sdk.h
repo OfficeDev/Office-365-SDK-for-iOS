@@ -7,4 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <office365-exchange-sdk/Message.h>
+
+@interface office365_exchange_sdk : NSObject
+
+@end
