@@ -13,5 +13,5 @@
 
 @interface UserFetcher : ODataEntityFetcher<User, UserOperations>
 
--(id)initWith : (NSString *)urlComponent : (ODataExecutable*) parent : (Class) clazz : (Class) operationClazz;
+-(id)initWith : (NSString *)urlComponent : (ODataExecutable*) parent;
 @end

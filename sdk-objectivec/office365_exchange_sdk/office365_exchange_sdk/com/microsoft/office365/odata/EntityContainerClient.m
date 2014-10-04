@@ -8,6 +8,7 @@
 
 #import "EntityContainerClient.h"
 #import "FolderFetcher.h"
+#import "UserFetcher.h"
 
 @implementation EntityContainerClient
 
@@ -16,13 +17,11 @@
 }
 
 -(FolderFetcher*) getMe{
-    return nil;
+    return [[FolderFetcher alloc] initWith:@"Me" :self];
 }
-/*
-public UserFetcher getMe() {
-    return new UserFetcher("Me", this);
+
+-(UserFetcher*)getUsers{
+    return [[UserFetcher alloc] initWith:@"Users" : self];
 }
-public UserFetcher getUsers() {
-    return new UserFetcher("Users", this);
-}*/
+
 @end
