@@ -11,7 +11,6 @@
 #import "UserOperations.h"
 #import "User.h"
 
-@interface UserFetcher : ODataEntityFetcher<User, UserOperations>
+@interface UserFetcher : ODataEntityFetcher
 
--(id)initWith : (NSString *)urlComponent : (ODataExecutable*) parent;
 @end

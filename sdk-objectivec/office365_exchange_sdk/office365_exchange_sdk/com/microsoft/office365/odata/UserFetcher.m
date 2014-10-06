@@ -14,13 +14,19 @@
 
 @implementation UserFetcher
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    return [[super init]initWith:urlComponent :parent :[User class] :[UserOperations class]];
+-(UserOperations*) getOperations{
+    return (UserOperations*)[super getOperations];
 }
 
--(FolderFetcher*) getRootFolder {
-    return [[FolderFetcher alloc] initWith:@"RootFolder" :self];
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
+    
+    return [super initWith:urlComponent :parent :[User class] :[UserOperations class]];
 }
+
+-(FolderFetcher*) getFolders{
+    return [[FolderFetcher alloc] initWith:@"Folders" :self :[Message class] : [FolderOperations class]];
+}
+
 
 -(FolderCollectionFetcher*) getFolders{
     return [[FolderCollectionFetcher alloc] initWith:@"Folders" :self :[Message class] : [FolderCollectionOperations class]];

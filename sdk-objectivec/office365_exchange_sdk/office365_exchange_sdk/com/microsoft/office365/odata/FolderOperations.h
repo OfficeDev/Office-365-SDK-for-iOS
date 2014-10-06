@@ -11,8 +11,10 @@
 
 @protocol FolderOperations
 
+-(id)lalal;
 @end
 
-@interface FolderOperations : ODataOperations
+@interface FolderOperations : ODataOperations<FolderOperations>
+
 
 @end

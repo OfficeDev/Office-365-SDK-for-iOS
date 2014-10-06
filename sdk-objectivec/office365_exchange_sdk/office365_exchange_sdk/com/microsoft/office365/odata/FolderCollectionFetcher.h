@@ -12,6 +12,8 @@
 #import "FolderFetcher.h"
 #import "FolderCollectionOperations.h"
 
-@interface FolderCollectionFetcher : ODataCollectionFetcher<Folder, FolderFetcher,FolderCollectionOperations>
+@interface FolderCollectionFetcher : ODataCollectionFetcher
+
 -(id)initWith : (NSString *)urlComponent : (ODataExecutable*) parent : (Class) clazz : (Class) operationClazz;
+
 @end

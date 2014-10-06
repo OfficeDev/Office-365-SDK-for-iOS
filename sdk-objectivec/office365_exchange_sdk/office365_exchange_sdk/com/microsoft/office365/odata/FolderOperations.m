@@ -10,8 +10,6 @@
 
 @implementation FolderOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    [[super init]initWith:urlComponent :parent];
-    return self;
-}
+
+
 @end

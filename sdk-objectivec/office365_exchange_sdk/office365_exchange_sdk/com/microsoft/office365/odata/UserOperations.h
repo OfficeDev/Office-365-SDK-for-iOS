@@ -12,9 +12,7 @@
 #import "User.h"
 #import "UserOperations.h"
 
-@protocol UserOperations
-
-@end
-
 @interface UserOperations : ODataOperations
+
+
 @end

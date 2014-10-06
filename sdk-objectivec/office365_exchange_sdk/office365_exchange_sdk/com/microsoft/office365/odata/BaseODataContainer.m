@@ -28,7 +28,7 @@
     
     HttpTransport* httpTransport = [[self getResolver] getHttpTransport];
     Request* request = [httpTransport createRequest];
-    [request setVerb:verb];
+    [request setVerb:&verb];
     
     [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.url, path]];
     [request setContent:content];
@@ -43,7 +43,6 @@
         callback(response, r, error);
     }];
 }
-
 
 -(DependencyResolver*) getResolver{
     return self.resolver;

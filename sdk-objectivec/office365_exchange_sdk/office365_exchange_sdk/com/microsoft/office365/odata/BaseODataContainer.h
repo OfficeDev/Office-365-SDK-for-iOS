@@ -11,9 +11,6 @@
 
 @interface BaseODataContainer : ODataExecutable
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
-
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb : (void (^)(NSData *, NSURLResponse *, NSError *))callback;
--(DependencyResolver*) getResolver;
+-(id)initWith : (NSString *)url : (DependencyResolver*) resolver;
 
 @end

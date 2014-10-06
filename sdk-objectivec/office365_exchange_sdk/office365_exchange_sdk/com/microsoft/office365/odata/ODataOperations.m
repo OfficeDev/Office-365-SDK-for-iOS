@@ -10,7 +10,7 @@
 @interface ODataOperations()
 
 @property NSString* urlComponent;
-@property ODataOperations* parent;
+@property ODataExecutable* parent;
 
 @end
 
@@ -23,11 +23,11 @@
     return self;
 }
 
-- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb*)verb callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
     
     NSString* url = [[NSString alloc] initWithFormat:@"%@/%@",self.urlComponent,path];
     
-    return [self.parent oDataExecute:url :content :verb callback:callback];
+    return [self.parent oDataExecute:url :content :verb :callback];
 }
 
 -(DependencyResolver*) getResolver{

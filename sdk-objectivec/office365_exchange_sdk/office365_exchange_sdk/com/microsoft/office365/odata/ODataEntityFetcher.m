@@ -32,7 +32,7 @@
     return [self.parent getResolver];
 }
 
--(ODataOperations *)getOperations{
+-(id)getOperations{
     return self.operations;
 }
 
@@ -48,10 +48,10 @@
         [url appendString:path];
     }
     
-    return [self.parent oDataExecute:url :content :verb callback:callback];
+    return [self.parent oDataExecute:url :content :verb :callback];
 }
 
--(NSURLSessionDataTask*) update:(id)updatedEntity callback:(void (^)(id, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSURLResponse *, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
     return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH callback:callback];

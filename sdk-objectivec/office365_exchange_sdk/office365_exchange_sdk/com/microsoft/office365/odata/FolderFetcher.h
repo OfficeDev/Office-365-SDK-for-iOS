@@ -12,11 +12,6 @@
 #import "Folder.h"
 #import "Protocols.h"
 
-@protocol FolderFetcher
-@end
-
-@interface FolderFetcher : ODataEntityFetcher<Folder, FolderOperations>
-
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+@interface FolderFetcher : ODataEntityFetcher
 
 @end

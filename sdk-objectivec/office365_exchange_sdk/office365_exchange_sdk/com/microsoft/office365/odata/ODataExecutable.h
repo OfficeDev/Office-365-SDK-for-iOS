@@ -7,14 +7,18 @@
 //
 #import <office365_odata_interfaces/DependencyResolver.h>
 #import <Foundation/Foundation.h>
-
+/*
 @protocol ODataExecutable
-
-- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb callback:(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
+@required
+- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
 
 -(DependencyResolver*) getResolver;
-@end
 
-@interface ODataExecutable : NSObject<ODataExecutable>
+@end*/
+
+@interface ODataExecutable : NSObject
+- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
+
+-(DependencyResolver*) getResolver;
 
 @end
