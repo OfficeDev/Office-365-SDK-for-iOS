@@ -3,15 +3,15 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "FolderFetcher.h"
+#import "ContactFolderFetcher.h"
 
-@implementation FolderFetcher
+@implementation ContactFolderFetcher
 
--(FolderOperations*) getOperations{
-    return (FolderOperations*)[super getOperations];
+-(ContactFolderOperations*) getOperations{
+    return (ContactFolderOperations*)[super getOperations];
 }
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
--(FolderCollectionFetcher*) getChildFolders;
--(MessageCollectionFetcher*) getMessages;
+-(ContactCollectionFetcher*) getContacts;
+-(ContactFolderCollectionFetcher*) getChildFolders;
 @end

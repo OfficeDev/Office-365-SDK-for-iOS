@@ -1,16 +1,24 @@
-//
-//  UserFetcher.h
-//  office365_exchange_sdk
-//
-//  Created by Gustavo on 10/3/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
+#import "UserFetcher.h"
 
-#import <Foundation/Foundation.h>
-#import "ODataEntityFetcher.h"
-#import "UserOperations.h"
-#import "User.h"
+@implementation UserFetcher
 
-@interface UserFetcher : ODataEntityFetcher
+-(UserOperations*) getOperations{
+    return (UserOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(FolderCollectionFetcher*) getFolders;
+-(MessageCollectionFetcher*) getMessages;
+-(FolderFetcher*) getRootFolder;
+-(CalendarCollectionFetcher*) getCalendars;
+-(CalendarFetcher*) getCalendar;
+-(CalendarGroupCollectionFetcher*) getCalendarGroups;
+-(EventCollectionFetcher*) getEvents;
+-(ContactCollectionFetcher*) getContacts;
+-(ContactFolderCollectionFetcher*) getContactFolders;
 @end

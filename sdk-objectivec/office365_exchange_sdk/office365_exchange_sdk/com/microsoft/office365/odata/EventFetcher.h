@@ -3,11 +3,15 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
+#import "EventFetcher.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation EventFetcher
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(EventOperations*) getOperations{
+    return (EventOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(AttachmentCollectionFetcher*) getAttachments;
+-(CalendarFetcher*) getCalendar;
 @end

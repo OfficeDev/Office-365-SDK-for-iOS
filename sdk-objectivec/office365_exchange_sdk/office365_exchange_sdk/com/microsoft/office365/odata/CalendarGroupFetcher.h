@@ -3,11 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
+#import "CalendarGroupFetcher.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation CalendarGroupFetcher
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(CalendarGroupOperations*) getOperations{
+    return (CalendarGroupOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(CalendarCollectionFetcher*) getCalendars;
 @end

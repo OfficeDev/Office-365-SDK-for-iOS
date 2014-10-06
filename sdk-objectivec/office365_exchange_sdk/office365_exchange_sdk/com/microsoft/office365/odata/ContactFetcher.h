@@ -3,11 +3,13 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
+#import "ContactFetcher.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation ContactFetcher
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(ContactOperations*) getOperations{
+    return (ContactOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 @end

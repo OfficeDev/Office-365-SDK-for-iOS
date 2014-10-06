@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC0ED17519DF37DB00F793B0 /* BaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED17019DF37DB00F793B0 /* BaseODataContainer.m */; };
-		EC0ED17919DF385300F793B0 /* ODataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED17819DF385300F793B0 /* ODataOperations.m */; };
 		EC0ED17B19DF3A4600F793B0 /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0ED17A19DF3A4600F793B0 /* liboffice365_odata_interfaces.a */; };
-		EC0ED18119DF3CC800F793B0 /* ODataEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED18019DF3CC800F793B0 /* ODataEntityFetcher.m */; };
-		EC0ED18519DF53C800F793B0 /* EntityContainerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED18419DF53C800F793B0 /* EntityContainerClient.m */; };
-		EC0ED18919DF5DDA00F793B0 /* ODataCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED18819DF5DDA00F793B0 /* ODataCollectionFetcher.m */; };
-		EC0ED18C19DF5EBC00F793B0 /* UserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED18B19DF5EBC00F793B0 /* UserFetcher.m */; };
-		EC0ED18F19DF5F0200F793B0 /* UserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED18E19DF5F0200F793B0 /* UserOperations.m */; };
-		EC0ED19219DF601C00F793B0 /* FolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED19119DF601C00F793B0 /* FolderFetcher.m */; };
-		EC0ED19519DF606400F793B0 /* FolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED19419DF606400F793B0 /* FolderOperations.m */; };
 		EC3AF52519DF2FE5004283FD /* office365_exchange_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF52419DF2FE5004283FD /* office365_exchange_sdk.h */; };
 		EC3AF52719DF2FE5004283FD /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */; };
 /* End PBXBuildFile section */
@@ -78,36 +69,47 @@
 		EC0ED16B19DF37DB00F793B0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		EC0ED16C19DF37DB00F793B0 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		EC0ED16D19DF37DB00F793B0 /* WeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekIndex.h; sourceTree = "<group>"; };
-		EC0ED16F19DF37DB00F793B0 /* BaseODataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseODataContainer.h; sourceTree = "<group>"; };
-		EC0ED17019DF37DB00F793B0 /* BaseODataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseODataContainer.m; sourceTree = "<group>"; };
-		EC0ED17319DF37DB00F793B0 /* ODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataExecutable.h; sourceTree = "<group>"; };
-		EC0ED17719DF385300F793B0 /* ODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataOperations.h; sourceTree = "<group>"; };
-		EC0ED17819DF385300F793B0 /* ODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODataOperations.m; sourceTree = "<group>"; };
 		EC0ED17A19DF3A4600F793B0 /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
-		EC0ED17F19DF3CC800F793B0 /* ODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataEntityFetcher.h; sourceTree = "<group>"; };
-		EC0ED18019DF3CC800F793B0 /* ODataEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODataEntityFetcher.m; sourceTree = "<group>"; };
-		EC0ED18219DF3E8500F793B0 /* Executable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executable.h; sourceTree = "<group>"; };
-		EC0ED18319DF53C800F793B0 /* EntityContainerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityContainerClient.h; sourceTree = "<group>"; };
-		EC0ED18419DF53C800F793B0 /* EntityContainerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityContainerClient.m; sourceTree = "<group>"; };
 		EC0ED18619DF55D700F793B0 /* odata.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odata.pch; sourceTree = "<group>"; };
-		EC0ED18719DF5DDA00F793B0 /* ODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataCollectionFetcher.h; sourceTree = "<group>"; };
-		EC0ED18819DF5DDA00F793B0 /* ODataCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODataCollectionFetcher.m; sourceTree = "<group>"; };
-		EC0ED18A19DF5EBC00F793B0 /* UserFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFetcher.h; sourceTree = "<group>"; };
-		EC0ED18B19DF5EBC00F793B0 /* UserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFetcher.m; sourceTree = "<group>"; };
-		EC0ED18D19DF5F0200F793B0 /* UserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOperations.h; sourceTree = "<group>"; };
-		EC0ED18E19DF5F0200F793B0 /* UserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOperations.m; sourceTree = "<group>"; };
-		EC0ED19019DF601C00F793B0 /* FolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderFetcher.h; sourceTree = "<group>"; };
-		EC0ED19119DF601C00F793B0 /* FolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderFetcher.m; sourceTree = "<group>"; };
-		EC0ED19319DF606400F793B0 /* FolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderOperations.h; sourceTree = "<group>"; };
-		EC0ED19419DF606400F793B0 /* FolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderOperations.m; sourceTree = "<group>"; };
 		EC0ED19619DF6C9C00F793B0 /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
-		EC0ED19719DF703B00F793B0 /* FolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderCollectionFetcher.h; sourceTree = "<group>"; };
-		EC0ED19A19DF70C000F793B0 /* FolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderCollectionOperations.h; sourceTree = "<group>"; };
 		EC3AF52119DF2FE5004283FD /* liboffice365_exchange_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_exchange_sdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF52419DF2FE5004283FD /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
 		EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
 		EC3AF52C19DF2FE5004283FD /* office365_exchange_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF52F19DF2FE5004283FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECCC3BAE19E3440500768B43 /* AttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentFetcher.h; sourceTree = "<group>"; };
+		ECCC3BAF19E3440500768B43 /* AttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentOperations.h; sourceTree = "<group>"; };
+		ECCC3BB019E3440500768B43 /* BaseODataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseODataContainer.h; sourceTree = "<group>"; };
+		ECCC3BB119E3440500768B43 /* CalendarFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarFetcher.h; sourceTree = "<group>"; };
+		ECCC3BB219E3440500768B43 /* CalendarGroupFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarGroupFetcher.h; sourceTree = "<group>"; };
+		ECCC3BB319E3440500768B43 /* CalendarGroupOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarGroupOperations.h; sourceTree = "<group>"; };
+		ECCC3BB419E3440500768B43 /* CalendarOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarOperations.h; sourceTree = "<group>"; };
+		ECCC3BB519E3440500768B43 /* ContactFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFetcher.h; sourceTree = "<group>"; };
+		ECCC3BB619E3440500768B43 /* ContactFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFolderFetcher.h; sourceTree = "<group>"; };
+		ECCC3BB719E3440500768B43 /* ContactFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactFolderOperations.h; sourceTree = "<group>"; };
+		ECCC3BB819E3440500768B43 /* ContactOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactOperations.h; sourceTree = "<group>"; };
+		ECCC3BB919E3440500768B43 /* EntityContainerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityContainerClient.h; sourceTree = "<group>"; };
+		ECCC3BBA19E3440500768B43 /* EntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFetcher.h; sourceTree = "<group>"; };
+		ECCC3BBB19E3440500768B43 /* EntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityOperations.h; sourceTree = "<group>"; };
+		ECCC3BBC19E3440500768B43 /* EventFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventFetcher.h; sourceTree = "<group>"; };
+		ECCC3BBD19E3440500768B43 /* EventOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventOperations.h; sourceTree = "<group>"; };
+		ECCC3BBE19E3440500768B43 /* Executable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executable.h; sourceTree = "<group>"; };
+		ECCC3BBF19E3440500768B43 /* FileAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttachmentFetcher.h; sourceTree = "<group>"; };
+		ECCC3BC019E3440500768B43 /* FileAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAttachmentOperations.h; sourceTree = "<group>"; };
+		ECCC3BC119E3440500768B43 /* FolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderFetcher.h; sourceTree = "<group>"; };
+		ECCC3BC219E3440500768B43 /* FolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderOperations.h; sourceTree = "<group>"; };
+		ECCC3BC319E3440500768B43 /* ItemAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAttachmentFetcher.h; sourceTree = "<group>"; };
+		ECCC3BC419E3440500768B43 /* ItemAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAttachmentOperations.h; sourceTree = "<group>"; };
+		ECCC3BC519E3440500768B43 /* ItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemFetcher.h; sourceTree = "<group>"; };
+		ECCC3BC619E3440500768B43 /* ItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemOperations.h; sourceTree = "<group>"; };
+		ECCC3BC719E3440500768B43 /* MessageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFetcher.h; sourceTree = "<group>"; };
+		ECCC3BC819E3440500768B43 /* MessageOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageOperations.h; sourceTree = "<group>"; };
+		ECCC3BC919E3440500768B43 /* ODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCC3BCA19E3440500768B43 /* ODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataEntityFetcher.h; sourceTree = "<group>"; };
+		ECCC3BCB19E3440500768B43 /* ODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataExecutable.h; sourceTree = "<group>"; };
+		ECCC3BCC19E3440500768B43 /* ODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODataOperations.h; sourceTree = "<group>"; };
+		ECCC3BCD19E3440500768B43 /* UserFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFetcher.h; sourceTree = "<group>"; };
+		ECCC3BCE19E3440500768B43 /* UserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOperations.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,38 +218,41 @@
 		EC0ED16E19DF37DB00F793B0 /* odata */ = {
 			isa = PBXGroup;
 			children = (
-				EC0ED19E19DF72B900F793B0 /* core */,
-				EC0ED18319DF53C800F793B0 /* EntityContainerClient.h */,
-				EC0ED18419DF53C800F793B0 /* EntityContainerClient.m */,
-				EC0ED18A19DF5EBC00F793B0 /* UserFetcher.h */,
-				EC0ED18B19DF5EBC00F793B0 /* UserFetcher.m */,
-				EC0ED18D19DF5F0200F793B0 /* UserOperations.h */,
-				EC0ED18E19DF5F0200F793B0 /* UserOperations.m */,
-				EC0ED19019DF601C00F793B0 /* FolderFetcher.h */,
-				EC0ED19119DF601C00F793B0 /* FolderFetcher.m */,
-				EC0ED19319DF606400F793B0 /* FolderOperations.h */,
-				EC0ED19419DF606400F793B0 /* FolderOperations.m */,
-				EC0ED19719DF703B00F793B0 /* FolderCollectionFetcher.h */,
-				EC0ED19A19DF70C000F793B0 /* FolderCollectionOperations.h */,
+				ECCC3BAE19E3440500768B43 /* AttachmentFetcher.h */,
+				ECCC3BAF19E3440500768B43 /* AttachmentOperations.h */,
+				ECCC3BB019E3440500768B43 /* BaseODataContainer.h */,
+				ECCC3BB119E3440500768B43 /* CalendarFetcher.h */,
+				ECCC3BB219E3440500768B43 /* CalendarGroupFetcher.h */,
+				ECCC3BB319E3440500768B43 /* CalendarGroupOperations.h */,
+				ECCC3BB419E3440500768B43 /* CalendarOperations.h */,
+				ECCC3BB519E3440500768B43 /* ContactFetcher.h */,
+				ECCC3BB619E3440500768B43 /* ContactFolderFetcher.h */,
+				ECCC3BB719E3440500768B43 /* ContactFolderOperations.h */,
+				ECCC3BB819E3440500768B43 /* ContactOperations.h */,
+				ECCC3BB919E3440500768B43 /* EntityContainerClient.h */,
+				ECCC3BBA19E3440500768B43 /* EntityFetcher.h */,
+				ECCC3BBB19E3440500768B43 /* EntityOperations.h */,
+				ECCC3BBC19E3440500768B43 /* EventFetcher.h */,
+				ECCC3BBD19E3440500768B43 /* EventOperations.h */,
+				ECCC3BBE19E3440500768B43 /* Executable.h */,
+				ECCC3BBF19E3440500768B43 /* FileAttachmentFetcher.h */,
+				ECCC3BC019E3440500768B43 /* FileAttachmentOperations.h */,
+				ECCC3BC119E3440500768B43 /* FolderFetcher.h */,
+				ECCC3BC219E3440500768B43 /* FolderOperations.h */,
+				ECCC3BC319E3440500768B43 /* ItemAttachmentFetcher.h */,
+				ECCC3BC419E3440500768B43 /* ItemAttachmentOperations.h */,
+				ECCC3BC519E3440500768B43 /* ItemFetcher.h */,
+				ECCC3BC619E3440500768B43 /* ItemOperations.h */,
+				ECCC3BC719E3440500768B43 /* MessageFetcher.h */,
+				ECCC3BC819E3440500768B43 /* MessageOperations.h */,
+				ECCC3BC919E3440500768B43 /* ODataCollectionFetcher.h */,
+				ECCC3BCA19E3440500768B43 /* ODataEntityFetcher.h */,
+				ECCC3BCB19E3440500768B43 /* ODataExecutable.h */,
+				ECCC3BCC19E3440500768B43 /* ODataOperations.h */,
+				ECCC3BCD19E3440500768B43 /* UserFetcher.h */,
+				ECCC3BCE19E3440500768B43 /* UserOperations.h */,
 			);
 			path = odata;
-			sourceTree = "<group>";
-		};
-		EC0ED19E19DF72B900F793B0 /* core */ = {
-			isa = PBXGroup;
-			children = (
-				EC0ED18719DF5DDA00F793B0 /* ODataCollectionFetcher.h */,
-				EC0ED18819DF5DDA00F793B0 /* ODataCollectionFetcher.m */,
-				EC0ED16F19DF37DB00F793B0 /* BaseODataContainer.h */,
-				EC0ED17019DF37DB00F793B0 /* BaseODataContainer.m */,
-				EC0ED18219DF3E8500F793B0 /* Executable.h */,
-				EC0ED17F19DF3CC800F793B0 /* ODataEntityFetcher.h */,
-				EC0ED18019DF3CC800F793B0 /* ODataEntityFetcher.m */,
-				EC0ED17319DF37DB00F793B0 /* ODataExecutable.h */,
-				EC0ED17719DF385300F793B0 /* ODataOperations.h */,
-				EC0ED17819DF385300F793B0 /* ODataOperations.m */,
-			);
-			name = core;
 			sourceTree = "<group>";
 		};
 		EC3AF51819DF2FE5004283FD = {
@@ -383,15 +388,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0ED17919DF385300F793B0 /* ODataOperations.m in Sources */,
-				EC0ED19519DF606400F793B0 /* FolderOperations.m in Sources */,
-				EC0ED18519DF53C800F793B0 /* EntityContainerClient.m in Sources */,
-				EC0ED19219DF601C00F793B0 /* FolderFetcher.m in Sources */,
-				EC0ED17519DF37DB00F793B0 /* BaseODataContainer.m in Sources */,
-				EC0ED18C19DF5EBC00F793B0 /* UserFetcher.m in Sources */,
-				EC0ED18919DF5DDA00F793B0 /* ODataCollectionFetcher.m in Sources */,
-				EC0ED18119DF3CC800F793B0 /* ODataEntityFetcher.m in Sources */,
-				EC0ED18F19DF5F0200F793B0 /* UserOperations.m in Sources */,
 				EC3AF52719DF2FE5004283FD /* office365_exchange_sdk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

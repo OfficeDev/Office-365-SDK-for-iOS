@@ -3,11 +3,13 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
+#import "AttachmentFetcher.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation AttachmentFetcher
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(AttachmentOperations*) getOperations{
+    return (AttachmentOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 @end

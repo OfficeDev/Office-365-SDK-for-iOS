@@ -3,11 +3,10 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation CalendarOperations
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 
+-(NSURLSessionDataTask*)calendarView : (NSDate *) StartDate : (NSDate *) EndDate : :(void (^)(Event d, NSError *error))callback;			
 @end

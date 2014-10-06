@@ -3,11 +3,8 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation EntityOperations
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
-
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 @end

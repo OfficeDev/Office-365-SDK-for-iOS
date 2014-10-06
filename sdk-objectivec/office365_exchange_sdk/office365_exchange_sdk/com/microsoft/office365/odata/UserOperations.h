@@ -1,18 +1,14 @@
-//
-//  UserOperations.h
-//  office365_exchange_sdk
-//
-//  Created by Gustavo on 10/3/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
-#import <Foundation/Foundation.h>
-#import "ODataOperations.h"
-#import "FolderFetcher.h"
-#import "User.h"
-#import "UserOperations.h"
+@implementation UserOperations
 
-@interface UserOperations : ODataOperations
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 
+-(NSURLSessionDataTask*)sendMail : (Message *) Message : (bool ) SaveToSentItems : :(void (^)(int d, NSError *error))callback;			
 
+-(NSURLSessionDataTask*)calendarView : (NSDate *) StartDate : (NSDate *) EndDate : :(void (^)(Event d, NSError *error))callback;			
 @end

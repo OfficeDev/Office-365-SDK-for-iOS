@@ -1,20 +1,14 @@
-//
-//  FolderOperations.h
-//  office365_exchange_sdk
-//
-//  Created by Gustavo on 10/3/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
-#import <Foundation/Foundation.h>
-#import "ODataOperations.h"
+@implementation FolderOperations
 
-@protocol FolderOperations
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 
--(id)lalal;
-@end
+-(NSURLSessionDataTask*)copy : (NSString *) DestinationId : :(void (^)(Folder d, NSError *error))callback;			
 
-@interface FolderOperations : ODataOperations<FolderOperations>
-
-
+-(NSURLSessionDataTask*)move : (NSString *) DestinationId : :(void (^)(Folder d, NSError *error))callback;			
 @end

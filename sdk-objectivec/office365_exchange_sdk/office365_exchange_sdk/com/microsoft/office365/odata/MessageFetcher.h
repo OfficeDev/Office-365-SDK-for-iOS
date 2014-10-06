@@ -3,11 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import <Foundation/Foundation.h>
-#import "ODataExecutable.h"
+#import "MessageFetcher.h"
 
-@interface BaseODataContainer : ODataExecutable
+@implementation MessageFetcher
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(MessageOperations*) getOperations{
+    return (MessageOperations*)[super getOperations];
+}
 
+-(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(AttachmentCollectionFetcher*) getAttachments;
 @end
