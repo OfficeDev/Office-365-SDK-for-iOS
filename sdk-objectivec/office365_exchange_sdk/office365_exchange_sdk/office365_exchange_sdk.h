@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "exchange-prefix.pch"
 @interface office365_exchange_sdk : NSObject
 
 @end

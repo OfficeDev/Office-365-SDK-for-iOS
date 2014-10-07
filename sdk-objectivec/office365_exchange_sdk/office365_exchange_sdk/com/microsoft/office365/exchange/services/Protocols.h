@@ -1,14 +1,10 @@
-//
-//  Protocols.h
-//
-//  Copyright (c) 2014 Microsoft Open Technologies, Inc.
-//  All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
+
 #import <Foundation/Foundation.h>
-@class Message;
-@class Event;
-@class Folder;
-@class Recipient;
 
 @protocol DayOfWeek
 @end
@@ -74,56 +70,40 @@
 @end
 
 @protocol Entity
-
 @end
 
 @protocol User
-
 @end
 
 @protocol Folder
-
-
 @end
 
 @protocol Item
-
 @end
 
 @protocol Message
-
 @end
 
 @protocol Attachment
-
 @end
 
 @protocol FileAttachment
-
 @end
 
 @protocol ItemAttachment
-
 @end
 
 @protocol Calendar
-
-
 @end
 
 @protocol CalendarGroup
-
 @end
 
 @protocol Event
-
-
 @end
 
 @protocol Contact
-
 @end
 
 @protocol ContactFolder
-
 @end
