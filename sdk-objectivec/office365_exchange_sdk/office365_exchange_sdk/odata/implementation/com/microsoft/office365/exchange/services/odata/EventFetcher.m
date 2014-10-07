@@ -13,13 +13,13 @@
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     
-    return [super initWith:urlComponent :parent :[Event class] :[EventOperations class]];
+    return [super initWith:urlComponent :parent :[super.class classForClassName:@"Event"] :[EventOperations class]];
 }
 -(AttachmentCollectionFetcher*) getAttachments{
-    return [[AttachmentCollectionFetcher alloc] initWith:@"Attachments" :self :[Attachment class] : [AttachmentCollectionOperations class]];
+    return nil;//[[AttachmentCollectionFetcher alloc] initWith:@"Attachments" :self :[super.class classForClassName:@"Attachment"]  : [AttachmentCollectionOperations class]];
 }
--(CalendarFetcher) getCalendar{
+-(CalendarFetcher*) getCalendar{
 
-    return [[CalendarFetcher alloc] initWith:@"Calendar" :self :[Calendar class] : [CalendarrOperations class]];
+    return nil;//[[CalendarFetcher alloc] initWith:@"Calendar" :self :[super.class classForClassName:@"Calendar"] : [CalendarrOperations class]];
 }
 @end

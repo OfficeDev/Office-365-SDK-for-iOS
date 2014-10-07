@@ -4,9 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "ODataCollectionFetcher.h"
-@interface MessageFetcher : ODataCollectionFetcher
-
--(MessageOperations*) getOperations;
+@interface MessageCollectionFetcher : ODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 

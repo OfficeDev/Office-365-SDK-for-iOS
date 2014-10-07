@@ -4,19 +4,18 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "EntityContainerClient.h"
+#import "User.h"
+#import "UserCollectionOperations.h"
 
-@implementation EntityContainerClientClient
+@implementation EntityContainerClient
 
 -(id)initWit : (NSString *)url : (DependencyResolver*) resolver{
     return [super initWith:url :resolver];
 }
 
 	
--(UserFetcher) getMe{
-	[[UserFetcher alloc] initWith:@"Me" :self :[User class] :[UserOperations class]];
+-(UserFetcher*) getMe{
+	return [[UserFetcher alloc] initWith:@"Me" :self :[User class] :[UserOperations class]];
 }
 
--(UserCollectionFetcher*) getUsers{
-    return [[UserCollectionFetcher alloc] initWith:@"Users" :self :[User class] : [UserCollectionOperations class]];
-}
 @end

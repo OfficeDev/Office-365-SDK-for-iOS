@@ -13,6 +13,6 @@
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     
-    return [super initWith:urlComponent :parent :[FileAttachment class] :[FileAttachmentOperations class]];
+    return [super initWith:urlComponent :parent :[super.class classForClassName:@"FileAttachment"] :[FileAttachmentOperations class]];
 }
 @end

@@ -9,5 +9,7 @@
 
 @interface  RequestImpl : Request
 
+-(id)init;
+-(NSMutableURLRequest*)getMutableRequest;
 
 @end

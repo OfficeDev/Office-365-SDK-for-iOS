@@ -4,7 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "ODataEntityFetcher.h"
-#import "AttachmentsCollectionFetcher.h"
+#import "EventOperations.h"
+#import "AttachmentCollectionFetcher.h"
 #import "CalendarFetcher.h"
 
 @interface EventFetcher : ODataEntityFetcher

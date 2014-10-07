@@ -13,12 +13,12 @@
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     
-    return [super initWith:urlComponent :parent :[Folder class] :[FolderOperations class]];
+    return [super initWith:urlComponent :parent :[super.class classForClassName:@"Folder"] :[FolderOperations class]];
 }
 -(FolderCollectionFetcher*) getChildFolders{
-    return [[FolderCollectionFetcher alloc] initWith:@"ChildFolders" :self :[Folder class] : [FolderCollectionOperations class]];
+    return nil;//[[FolderCollectionFetcher alloc] initWith:@"ChildFolders" :self :[super.class classForClassName:@"Folder"]  : [FolderCollectionOperations class]];
 }
 -(MessageCollectionFetcher*) getMessages{
-    return [[MessageCollectionFetcher alloc] initWith:@"Messages" :self :[Message class] : [MessageCollectionOperations class]];
+    return nil;//[[MessageCollectionFetcher alloc] initWith:@"Messages" :self :[super.class classForClassName:@"Message"]  : [MessageCollectionOperations class]];
 }
 @end

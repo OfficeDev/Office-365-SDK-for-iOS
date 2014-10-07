@@ -10,6 +10,8 @@
 #import "Recipient.h"
 #import "MeetingMessageType.h"
 #import "Attachment.h"
+//todo
+#import "Message.h"
 
 @interface MessageOperations : ODataOperations
 

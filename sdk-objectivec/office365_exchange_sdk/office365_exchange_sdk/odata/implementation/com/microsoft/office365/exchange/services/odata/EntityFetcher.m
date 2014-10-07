@@ -13,6 +13,6 @@
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     
-    return [super initWith:urlComponent :parent :[Entity class] :[EntityOperations class]];
+    return [super initWith:urlComponent :parent :[super.class classForClassName:@"Entity"] :[EntityOperations class]];
 }
 @end

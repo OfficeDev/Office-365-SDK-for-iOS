@@ -11,111 +11,79 @@
 
 //@property HttpVerb* mVerb = HttpVerb.GET;
 
-@property NSData* content;
-@property NSMutableArray* headers;
-@property NSString* url;
-@property HttpVerb verb;
+//@property NSData* content;
+//@property NSMutableArray* headers;
+//@property HttpVerb verb;
+@property NSMutableURLRequest* request;
 
 @end
 
 @implementation RequestImpl 
 
--(id)init{
-    self.content = nil;
-    self.headers = [NSMutableArray array];
-    self.url = [[NSString alloc] init];
-    self.verb =
-}
-/**
- * Sets the request content
- */
-public void setContent(byte[] content) {
-    mContent = content;
-}
-
-/**
- * Returns the request content
- */
-public byte[] getContent() {
-    return mContent;
-}
-
-/**
- * Returns the request headers
- */
-public Map<String, String> getHeaders() {
-    HashMap<String, String> copy = new HashMap<String, String>();
-    copy.putAll(mHeaders);
+-(id)init;{
+    self.request = [NSMutableURLRequest alloc];
     
-    return copy;
+    self.request.timeoutInterval = 60;
+    return self;
 }
 
-/**
- * Sets the request headers
- */
-public void setHeaders(Map<String, String> headers) {
-    mHeaders = new HashMap<String, String>();
-    
-    if (headers != null) {
-        mHeaders.putAll(headers);
+-(void) setContent : (NSData*) content{
+    self.request.HTTPBody = content;
+}
+
+-(NSData*) getContent{
+    return self.request.HTTPBody;
+}
+
+-(NSArray*)getHeaders{ return nil;}
+
+-(void)setHeaders :(NSArray*) headers{
+    for (NSDictionary* dicc in headers) {
+        [self.request addValue:[[dicc allKeys] objectAtIndex:0] forHTTPHeaderField:[[dicc allValues] objectAtIndex:0]];
     }
 }
 
-/**
- * Adds a header to the request
- * @param name The header name
- * @param value The header value
- */
-public void addHeader(String name, String value) {
-    mHeaders.put(name, value);
+-(void)addHeader : (NSString*) name : (NSString*) value{
+    return [self.request addValue:value forHTTPHeaderField:name];
 }
 
-/**
- * Removes a header
- * @param name The header name
- */
-public void removeHeader(String name) {
-    mHeaders.remove(name);
+-(void)removeHeader : (NSString*) name{
 }
 
-/**
- * Sets the request HTTP verb
- */
-public void setVerb(HttpVerb httpVerb) {
-    mVerb = httpVerb;
+-(HttpVerb) getVerb{
+    return nil;
 }
 
-/**
- * Returns the request HTTP verb
- */
-public HttpVerb getVerb() {
-    return mVerb;
+-(void)setVerb : (HttpVerb) httpVerb{
+    NSString* s;
+    switch (httpVerb) {
+        case 0:
+            s = @"GET";
+            break;
+        case 1:
+            s = @"POST";
+            break;
+        case 2:
+            s = @"DELETE";
+        break;
+            case 6:
+            s = @"PATCH";
+        break;
+        default:
+            break;
+    }
+    self.request.HTTPMethod = s;
 }
 
-/**
- * Sets the request URL
- */
-public void setUrl(String url) {
-    mUrl = url;
+-(void)setUrl : (NSString*) url{
+    [self.request setURL:[[NSURL alloc] initWithString:url]];
 }
 
-/**
- * Returns the request URL
- */
-public String getUrl() {
-    return mUrl;
+-(NSMutableURLRequest*)getMutableRequest{
+    return self.request;
 }
-
-
--(void) setContent : (NSData*) content;
--(NSData*) getContent;
--(NSArray*)getHeaders;
--(void)setHeaders :(NSArray*) headers;
--(void)addHeader : (NSString*) name : (NSString*) value;
--(void)removeHeader : (NSString*) name;
--(HttpVerb*) getVerb;
--(void)setVerb : (HttpVerb*) httpVerb;
--(void)setUrl : (NSString*) url;
--(NSString*) getUrl;
 
 @end
+
+
+

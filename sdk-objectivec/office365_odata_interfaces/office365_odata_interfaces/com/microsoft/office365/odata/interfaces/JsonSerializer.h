@@ -12,7 +12,7 @@
 @interface JsonSerializer : NSObject
 
 -(NSString*) serialize : (id) objectToSerialize;
--(id) deserialize : (NSString*) serializedObject : (Class) clazz;
--(id) deserializeList : (NSString*) serializedList : (Class) clazz;
+-(id) deserialize : (NSData*) serializedObject : (Class) clazz;
+-(id) deserializeList : (NSData*) serializedList : (Class) clazz;
 
 @end

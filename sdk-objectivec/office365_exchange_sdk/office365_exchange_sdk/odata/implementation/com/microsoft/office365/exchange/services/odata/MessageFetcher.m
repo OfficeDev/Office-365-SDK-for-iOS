@@ -13,9 +13,9 @@
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     
-    return [super initWith:urlComponent :parent :[Message class] :[MessageOperations class]];
+    return [super initWith:urlComponent :parent :[super.class classForClassName:@"Message"] :[MessageOperations class]];
 }
--(AttachmentCollectionFetcher*) getAttachments{
-    return [[AttachmentCollectionFetcher alloc] initWith:@"Attachments" :self :[Attachment class] : [AttachmentCollectionOperations class]];
-}
+//-(AttachmentCollectionFetcher*) getAttachments{
+//    return nil;//[[AttachmentCollectionFetcher alloc] initWith:@"Attachments" :self :[super.class classForClassName:@"Attachment"]  : [AttachmentCollectionOperations class]];
+//}
 @end

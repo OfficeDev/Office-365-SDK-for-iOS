@@ -4,8 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "ODataEntityFetcher.h"
-#import "ChildFoldersCollectionFetcher.h"
-#import "MessagesCollectionFetcher.h"
+#import "FolderOperations.h"
+#import "FolderCollectionFetcher.h"
+#import "MessageCollectionFetcher.h"
 
 @interface FolderFetcher : ODataEntityFetcher
 

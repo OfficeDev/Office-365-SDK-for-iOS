@@ -10,8 +10,27 @@
 		EC0ED13119DF303A00F793B0 /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0ED13019DF303A00F793B0 /* liboffice365_odata_interfaces.a */; };
 		EC0ED13919DF304600F793B0 /* ResponseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED13819DF304600F793B0 /* ResponseImpl.m */; };
 		EC0ED13B19DF33EF00F793B0 /* RequestImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0ED13A19DF33EF00F793B0 /* RequestImpl.m */; };
+		EC28334D19E46E5700E5FEA4 /* LoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28334C19E46E5700E5FEA4 /* LoggerImpl.m */; };
+		EC28335219E470CF00E5FEA4 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28335119E470CF00E5FEA4 /* HttpConnection.m */; };
+		EC28335519E47B3E00E5FEA4 /* BasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28335419E47B3E00E5FEA4 /* BasicCredentials.m */; };
+		EC28335619E47C9500E5FEA4 /* CredentialsImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECCC3F9219E46C7300768B43 /* CredentialsImpl.h */; };
+		EC28335719E47C9500E5FEA4 /* LoggerImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC28334E19E46ED800E5FEA4 /* LoggerImpl.h */; };
+		EC28335819E47C9500E5FEA4 /* JsonSerializerImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC28334F19E46F3500E5FEA4 /* JsonSerializerImpl.h */; };
+		EC28335919E47C9500E5FEA4 /* HttpConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC28335019E470CF00E5FEA4 /* HttpConnection.h */; };
+		EC28335A19E47C9500E5FEA4 /* BasicCredentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC28335319E47B3E00E5FEA4 /* BasicCredentials.h */; };
 		EC3AF50519DF2FA8004283FD /* office365_odata_impl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF50419DF2FA8004283FD /* office365_odata_impl.h */; };
 		EC3AF50719DF2FA8004283FD /* office365_odata_impl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF50619DF2FA8004283FD /* office365_odata_impl.m */; };
+		ECCC3F7D19E4682F00768B43 /* DefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F7C19E4682F00768B43 /* DefaultDependencyResolver.m */; };
+		ECCC3F7E19E4684300768B43 /* ResponseImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13D19DF356A00F793B0 /* ResponseImpl.h */; };
+		ECCC3F7F19E4684300768B43 /* ResponseImpl.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13819DF304600F793B0 /* ResponseImpl.m */; };
+		ECCC3F8019E4684300768B43 /* RequestImpl.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13A19DF33EF00F793B0 /* RequestImpl.m */; };
+		ECCC3F8119E4684300768B43 /* RequestImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13C19DF355E00F793B0 /* RequestImpl.h */; };
+		ECCC3F8219E4684300768B43 /* DefaultDependencyResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECCC3F7B19E4682F00768B43 /* DefaultDependencyResolver.h */; };
+		ECCC3F8319E4684300768B43 /* DefaultDependencyResolver.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECCC3F7C19E4682F00768B43 /* DefaultDependencyResolver.m */; };
+		ECCC3F8B19E469C200768B43 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F8919E469C200768B43 /* JsonParser.m */; };
+		ECCC3F8C19E469C200768B43 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F8A19E469C200768B43 /* Property.m */; };
+		ECCC3F8E19E469D900768B43 /* JsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F8D19E469D900768B43 /* JsonSerializerImpl.m */; };
+		ECCC3F9119E46C0A00768B43 /* CredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F9019E46C0A00768B43 /* CredentialsImpl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +40,17 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				EC28335619E47C9500E5FEA4 /* CredentialsImpl.h in CopyFiles */,
+				EC28335719E47C9500E5FEA4 /* LoggerImpl.h in CopyFiles */,
+				EC28335819E47C9500E5FEA4 /* JsonSerializerImpl.h in CopyFiles */,
+				EC28335919E47C9500E5FEA4 /* HttpConnection.h in CopyFiles */,
+				EC28335A19E47C9500E5FEA4 /* BasicCredentials.h in CopyFiles */,
+				ECCC3F7E19E4684300768B43 /* ResponseImpl.h in CopyFiles */,
+				ECCC3F7F19E4684300768B43 /* ResponseImpl.m in CopyFiles */,
+				ECCC3F8019E4684300768B43 /* RequestImpl.m in CopyFiles */,
+				ECCC3F8119E4684300768B43 /* RequestImpl.h in CopyFiles */,
+				ECCC3F8219E4684300768B43 /* DefaultDependencyResolver.h in CopyFiles */,
+				ECCC3F8319E4684300768B43 /* DefaultDependencyResolver.m in CopyFiles */,
 				EC3AF50519DF2FA8004283FD /* office365_odata_impl.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -33,11 +63,27 @@
 		EC0ED13A19DF33EF00F793B0 /* RequestImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestImpl.m; sourceTree = "<group>"; };
 		EC0ED13C19DF355E00F793B0 /* RequestImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestImpl.h; sourceTree = "<group>"; };
 		EC0ED13D19DF356A00F793B0 /* ResponseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseImpl.h; sourceTree = "<group>"; };
+		EC28334C19E46E5700E5FEA4 /* LoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerImpl.m; sourceTree = "<group>"; };
+		EC28334E19E46ED800E5FEA4 /* LoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerImpl.h; sourceTree = "<group>"; };
+		EC28334F19E46F3500E5FEA4 /* JsonSerializerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonSerializerImpl.h; sourceTree = "<group>"; };
+		EC28335019E470CF00E5FEA4 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
+		EC28335119E470CF00E5FEA4 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
+		EC28335319E47B3E00E5FEA4 /* BasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicCredentials.h; sourceTree = "<group>"; };
+		EC28335419E47B3E00E5FEA4 /* BasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicCredentials.m; sourceTree = "<group>"; };
 		EC3AF50119DF2FA8004283FD /* liboffice365_odata_impl.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_odata_impl.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF50419DF2FA8004283FD /* office365_odata_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
 		EC3AF50619DF2FA8004283FD /* office365_odata_impl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_impl.m; sourceTree = "<group>"; };
 		EC3AF50C19DF2FA9004283FD /* office365_odata_implTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_odata_implTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF50F19DF2FA9004283FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECCC3F7B19E4682F00768B43 /* DefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultDependencyResolver.h; sourceTree = "<group>"; };
+		ECCC3F7C19E4682F00768B43 /* DefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultDependencyResolver.m; sourceTree = "<group>"; };
+		ECCC3F8619E469C200768B43 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
+		ECCC3F8719E469C200768B43 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		ECCC3F8919E469C200768B43 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		ECCC3F8A19E469C200768B43 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		ECCC3F8D19E469D900768B43 /* JsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonSerializerImpl.m; sourceTree = "<group>"; };
+		ECCC3F9019E46C0A00768B43 /* CredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsImpl.m; sourceTree = "<group>"; };
+		ECCC3F9219E46C7300768B43 /* CredentialsImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CredentialsImpl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +132,10 @@
 		EC0ED13519DF304600F793B0 /* odata */ = {
 			isa = PBXGroup;
 			children = (
+				ECCC3F8419E469C200768B43 /* JsonParser */,
 				EC0ED13619DF304600F793B0 /* http */,
+				ECCC3F7B19E4682F00768B43 /* DefaultDependencyResolver.h */,
+				ECCC3F7C19E4682F00768B43 /* DefaultDependencyResolver.m */,
 			);
 			path = odata;
 			sourceTree = "<group>";
@@ -98,6 +147,16 @@
 				EC0ED13819DF304600F793B0 /* ResponseImpl.m */,
 				EC0ED13A19DF33EF00F793B0 /* RequestImpl.m */,
 				EC0ED13C19DF355E00F793B0 /* RequestImpl.h */,
+				ECCC3F8D19E469D900768B43 /* JsonSerializerImpl.m */,
+				ECCC3F9019E46C0A00768B43 /* CredentialsImpl.m */,
+				ECCC3F9219E46C7300768B43 /* CredentialsImpl.h */,
+				EC28334C19E46E5700E5FEA4 /* LoggerImpl.m */,
+				EC28334E19E46ED800E5FEA4 /* LoggerImpl.h */,
+				EC28334F19E46F3500E5FEA4 /* JsonSerializerImpl.h */,
+				EC28335019E470CF00E5FEA4 /* HttpConnection.h */,
+				EC28335119E470CF00E5FEA4 /* HttpConnection.m */,
+				EC28335319E47B3E00E5FEA4 /* BasicCredentials.h */,
+				EC28335419E47B3E00E5FEA4 /* BasicCredentials.m */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -145,6 +204,33 @@
 				EC3AF50F19DF2FA9004283FD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECCC3F8419E469C200768B43 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC3F8519E469C200768B43 /* Headers */,
+				ECCC3F8819E469C200768B43 /* Implementations */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		ECCC3F8519E469C200768B43 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC3F8619E469C200768B43 /* JsonParser.h */,
+				ECCC3F8719E469C200768B43 /* Property.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ECCC3F8819E469C200768B43 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				ECCC3F8919E469C200768B43 /* JsonParser.m */,
+				ECCC3F8A19E469C200768B43 /* Property.m */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,9 +320,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCC3F7D19E4682F00768B43 /* DefaultDependencyResolver.m in Sources */,
 				EC0ED13919DF304600F793B0 /* ResponseImpl.m in Sources */,
+				ECCC3F8C19E469C200768B43 /* Property.m in Sources */,
+				EC28335219E470CF00E5FEA4 /* HttpConnection.m in Sources */,
+				ECCC3F8B19E469C200768B43 /* JsonParser.m in Sources */,
+				ECCC3F9119E46C0A00768B43 /* CredentialsImpl.m in Sources */,
+				ECCC3F8E19E469D900768B43 /* JsonSerializerImpl.m in Sources */,
 				EC0ED13B19DF33EF00F793B0 /* RequestImpl.m in Sources */,
 				EC3AF50719DF2FA8004283FD /* office365_odata_impl.m in Sources */,
+				EC28334D19E46E5700E5FEA4 /* LoggerImpl.m in Sources */,
+				EC28335519E47B3E00E5FEA4 /* BasicCredentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +425,8 @@
 					"$(inherited)",
 					"/Users/gustavo/Documents/MsTest/office365_odata_interfaces/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -344,7 +439,8 @@
 					"$(inherited)",
 					"/Users/gustavo/Documents/MsTest/office365_odata_interfaces/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

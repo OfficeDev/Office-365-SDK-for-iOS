@@ -8,6 +8,6 @@
 
 @interface BaseODataContainer : ODataExecutable
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver;
+-(id)initWith : (NSString *)url : (DependencyResolver*) resolver;
 
 @end

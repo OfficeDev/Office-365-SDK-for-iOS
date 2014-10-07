@@ -17,4 +17,3 @@
 -(id) getOperations;
 
 @end
-}

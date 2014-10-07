@@ -7,18 +7,16 @@
 //
 
 #import "MessageTableViewController.h"
-#import "LoginClient.h"
-#import <office365-exchange-sdk/OAuthCredentials.h>
-#import <office365-exchange-sdk/Message.h>
-#import <office365-exchange-sdk/ItemBody.h>
-#import <office365-exchange-sdk/EntityContainer.h>
-#import <office365-exchange-sdk/NSURLSessionODataTask.h>
-
+#import <office365_exchange_sdk/EntityContainerClient.h>
+#import <office365_odata_impl/DefaultDependencyResolver.h>
+#import <office365_odata_impl/BasicCredentials.h>
+#import <office365_odata_impl/CredentialsImpl.h>
 
 @interface MessageTableViewController ()
+
 @property NSString *Token;
-@property LoginClient * LoginClient;
 @property NSArray *Messages;
+
 @end
 
 @implementation MessageTableViewController
@@ -26,7 +24,8 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    
+        if (self) {
         // Custom initialization
     }
     return self;
@@ -35,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self logIn];
+    [self getMessagesFromInbox];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,76 +55,30 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject, message.Body.ContentType];//message.Subject;
+  //  cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject, message.Body.ContentType];//message.Subject;
     
     return cell;
 }
 
-NSString *token;
-ADAuthenticationContext* authContext;
-NSString* authority;
-NSString* redirectUriString;
-NSString* resourceId;
-NSString* clientId;
-NSString* token;
-
--(void)logIn{
-    
-    authority = @"https://login.windows-ppe.net/common";
-    resourceId = @"https://sdfpilot.outlook.com";//@"https://graph.windows.net";///lagashsystems";//
-    clientId = @"2662c14f-d33d-4249-bbde-84fad173b865";
-    redirectUriString = @"https://ios365";
+-(void)getMessagesFromInbox{
  
-    self.LoginClient = [[LoginClient alloc] initWithParameters: clientId
-                                                         :redirectUriString
-                                                         :resourceId
-                                                         :authority];
+    DefaultDependencyResolver* resolver = [DefaultDependencyResolver alloc];
+    BasicCredentials* credentials = [BasicCredentials alloc];
+    [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
     
-   // [self.LoginClient clearCredentials:nil];
-    [self.LoginClient login:false completionHandler:^(NSString *token, NSError *error) {
+    CredentialsImpl* credentialsImpl = [CredentialsImpl alloc];
+    [credentialsImpl setCredentials:credentials];
+    [resolver setCredentialsFactory:credentialsImpl];
+    
+    EntityContainerClient* client = [[EntityContainerClient alloc] initWit:@"https://sdfpilot.outlook.com/ews/odata" : resolver];
+    
+    [[[[[[client getMe] getFolders] getById:@"Inbox"] getMessages] execute:^(id messages, NSURLResponse * r, NSError * e) {
         
-        if(error != nil){
-            
-            //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Adal Error" message:error.description delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
-            
-           // [alert show];
-            
-        }else{
-            
-            self.Token = token;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self initContainer];
-                [self getMessages];
-               // [self.tableView reloadData];
-            });
+        if(e != nil){
+             self.Messages = (NSArray<Message>*)messages;
+               [self.tableView reloadData];
         }
-    }];
-}
-EntityContainer *container;
--(void)initContainer{
-    
-    NSString *url = @"https://sdfpilot.outlook.com/EWS/OData";
-    OAuthCredentials * credentials = [[OAuthCredentials alloc] initWith:self.Token];
-    
-     container= [EntityContainer initializeEntityContainer:url credentials:credentials];
-    
-}
-
--(void)getMessages{
- 
-    NSURLSessionODataTask* task = [container getMessages:@"Inbox"];
-    
-    [[task top:10] select:@"Id,Subject,Body"];
-    
-    [task execute:^(id data, NSURLResponse *response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            self.Messages = (NSArray<Message>*)data;
-            
-            [self.tableView reloadData];
-        
-        });
-    }];
+    }] resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

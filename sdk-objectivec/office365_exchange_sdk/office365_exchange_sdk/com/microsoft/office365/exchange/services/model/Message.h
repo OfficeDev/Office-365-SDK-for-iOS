@@ -8,9 +8,9 @@
 #import "Protocols.h"
 #import "Item.h"
 @class ItemBody;
-@class Importance;
+//@class Importance;
 @class Recipient;
-@class MeetingMessageType;
+//@class MeetingMessageType;
 @class Attachment;
 
 
@@ -19,7 +19,7 @@
 @property NSString *Subject;
 @property ItemBody *Body;
 @property NSString *BodyPreview;
-@property Importance *Importance;
+//@property Importance *Importance;
 @property bool HasAttachments;
 @property NSString *ParentFolderId;
 @property Recipient *From;
@@ -37,6 +37,6 @@
 @property bool IsDraft;
 @property bool IsRead;
 @property NSString *EventId;
-@property MeetingMessageType *MeetingMessageType;
+//@property MeetingMessageType *MeetingMessageType;
 
 @end

@@ -4,9 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "ODataCollectionFetcher.h"
-@interface FolderFetcher : ODataCollectionFetcher
-
--(FolderOperations*) getOperations;
+@interface FolderCollectionFetcher : ODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 

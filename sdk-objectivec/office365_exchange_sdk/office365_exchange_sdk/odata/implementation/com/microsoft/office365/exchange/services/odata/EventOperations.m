@@ -4,6 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "EventOperations.h"
+//todo
+#import "Event.h"
 
 @implementation EventOperations
 

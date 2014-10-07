@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC28336519E4846000E5FEA4 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336419E4846000E5FEA4 /* Credentials.m */; };
+		EC28336719E484CD00E5FEA4 /* CredentialsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */; };
+		EC28336919E484F200E5FEA4 /* DependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336819E484F200E5FEA4 /* DependencyResolver.m */; };
+		EC28336B19E4851A00E5FEA4 /* HttpTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336A19E4851A00E5FEA4 /* HttpTransport.m */; };
+		EC28336D19E4854400E5FEA4 /* JsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336C19E4854400E5FEA4 /* JsonSerializer.m */; };
+		EC28336F19E4858600E5FEA4 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336E19E4858600E5FEA4 /* Logger.m */; };
+		EC28337119E485B800E5FEA4 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337019E485B800E5FEA4 /* Request.m */; };
+		EC28337319E485D700E5FEA4 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337219E485D700E5FEA4 /* Response.m */; };
 		EC3AF4CA19DF2ED4004283FD /* office365_odata_interfaces.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4C919DF2ED4004283FD /* office365_odata_interfaces.h */; };
 		EC3AF4CC19DF2ED4004283FD /* office365_odata_interfaces.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF4CB19DF2ED4004283FD /* office365_odata_interfaces.m */; };
 		EC3AF4EC19DF2F23004283FD /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E219DF2F19004283FD /* Credentials.h */; };
@@ -45,6 +53,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC28336419E4846000E5FEA4 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsFactory.m; sourceTree = "<group>"; };
+		EC28336819E484F200E5FEA4 /* DependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DependencyResolver.m; sourceTree = "<group>"; };
+		EC28336A19E4851A00E5FEA4 /* HttpTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTransport.m; sourceTree = "<group>"; };
+		EC28336C19E4854400E5FEA4 /* JsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonSerializer.m; sourceTree = "<group>"; };
+		EC28336E19E4858600E5FEA4 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		EC28337019E485B800E5FEA4 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
+		EC28337219E485D700E5FEA4 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		EC3AF4C619DF2ED4004283FD /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_odata_interfaces.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF4C919DF2ED4004283FD /* office365_odata_interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
 		EC3AF4CB19DF2ED4004283FD /* office365_odata_interfaces.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_interfaces.m; sourceTree = "<group>"; };
@@ -169,6 +185,14 @@
 				EC3AF4E919DF2F19004283FD /* LogLevel.h */,
 				EC3AF4EA19DF2F19004283FD /* Request.h */,
 				EC3AF4EB19DF2F19004283FD /* Response.h */,
+				EC28336419E4846000E5FEA4 /* Credentials.m */,
+				EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */,
+				EC28336819E484F200E5FEA4 /* DependencyResolver.m */,
+				EC28336A19E4851A00E5FEA4 /* HttpTransport.m */,
+				EC28336C19E4854400E5FEA4 /* JsonSerializer.m */,
+				EC28336E19E4858600E5FEA4 /* Logger.m */,
+				EC28337019E485B800E5FEA4 /* Request.m */,
+				EC28337219E485D700E5FEA4 /* Response.m */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -260,7 +284,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC28336919E484F200E5FEA4 /* DependencyResolver.m in Sources */,
+				EC28336519E4846000E5FEA4 /* Credentials.m in Sources */,
 				EC3AF4CC19DF2ED4004283FD /* office365_odata_interfaces.m in Sources */,
+				EC28336D19E4854400E5FEA4 /* JsonSerializer.m in Sources */,
+				EC28336719E484CD00E5FEA4 /* CredentialsFactory.m in Sources */,
+				EC28337119E485B800E5FEA4 /* Request.m in Sources */,
+				EC28337319E485D700E5FEA4 /* Response.m in Sources */,
+				EC28336F19E4858600E5FEA4 /* Logger.m in Sources */,
+				EC28336B19E4851A00E5FEA4 /* HttpTransport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +383,8 @@
 		EC3AF4D819DF2ED4004283FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -360,7 +393,8 @@
 		EC3AF4D919DF2ED4004283FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -415,6 +449,7 @@
 				EC3AF4D919DF2ED4004283FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC3AF4DA19DF2ED4004283FD /* Build configuration list for PBXNativeTarget "office365_odata_interfacesTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +458,7 @@
 				EC3AF4DC19DF2ED4004283FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

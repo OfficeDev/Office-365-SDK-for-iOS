@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Samples/simple-exchange-app/simple-exchange-app.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
    </FileRef>
    <FileRef
