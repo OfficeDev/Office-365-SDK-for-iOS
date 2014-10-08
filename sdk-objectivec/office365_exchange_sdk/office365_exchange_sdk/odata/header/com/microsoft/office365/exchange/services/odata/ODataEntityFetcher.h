@@ -13,7 +13,7 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(id, NSURLResponse *, NSError *))callback;
 -(NSURLSessionDataTask*) delete : (void (^)(id, NSURLResponse *, NSError *))callback;
 -(NSURLSessionDataTask*) execute:(void (^)(id , NSURLResponse *, NSError *))callback;
--(DependencyResolver*) getResolver;
+-(id<MSODependencyResolver>) getResolver;
 -(id) getOperations;
 
 @end

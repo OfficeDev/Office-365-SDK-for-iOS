@@ -5,7 +5,11 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <office365_odata_interfaces/MSOCredentials.h>
+#import <office365_odata_interfaces/MSOCredentialsFactory.h>
 
-@interface office365_odata_interfaces : NSObject
+@interface MSOCredentialsImpl : NSObject<MSOCredentialsFactory>
+    
+-(void)setCredentials : (id<MSOCredentials>) credentials;
 
 @end

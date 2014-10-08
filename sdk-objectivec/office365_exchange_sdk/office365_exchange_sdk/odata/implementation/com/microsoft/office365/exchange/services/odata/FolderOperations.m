@@ -13,12 +13,12 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(Response *r,NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(id<MSOResponse>r,NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class] ];
             callback(result, error);
         }
         else{
@@ -31,12 +31,12 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(Response *r, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(id<MSOResponse>r, NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class]];
             callback(result, error);
         }
         else{

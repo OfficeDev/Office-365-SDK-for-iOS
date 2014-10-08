@@ -6,6 +6,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface office365_odata_interfaces : NSObject
+@interface NSObject ()
+
+typedef enum {
+    GET,
+    POST,
+    DELETE,
+    PUT,
+    HEAD,
+    OPTIONS,
+    PATCH
+} MSOHttpVerb;
 
 @end

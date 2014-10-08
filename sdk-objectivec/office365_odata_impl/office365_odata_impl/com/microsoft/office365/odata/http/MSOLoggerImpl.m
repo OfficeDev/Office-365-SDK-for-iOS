@@ -4,8 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
+#import "MSOLoggerImpl.h"
 
-@interface office365_odata_interfaces : NSObject
+@implementation MSOLoggerImpl
+
+-(void)log:(NSString *)content :(MSOLogLevel *)logLevel{
+    
+}
 
 @end

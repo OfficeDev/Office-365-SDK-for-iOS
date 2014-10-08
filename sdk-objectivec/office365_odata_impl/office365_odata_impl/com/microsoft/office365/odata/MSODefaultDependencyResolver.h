@@ -4,8 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
+#import <office365_odata_interfaces/MSODependencyResolver.h>
 
-@interface office365_odata_interfaces : NSObject
+@interface MSODefaultDependencyResolver : NSObject<MSODependencyResolver>
+
+-(void) setCredentialsFactory : (id<MSOCredentialsFactory>) credentialsFactory;
 
 @end

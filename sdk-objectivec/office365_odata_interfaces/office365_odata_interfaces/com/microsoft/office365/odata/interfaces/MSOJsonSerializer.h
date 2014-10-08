@@ -6,6 +6,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSOJsonSerializer
+
+@required
+-(NSString*) serialize : (id) objectToSerialize;
+-(id) deserialize : (NSData*) serializedObject : (Class) clazz;
+-(id) deserializeList : (NSData*) serializedList : (Class) clazz;
 
 @end

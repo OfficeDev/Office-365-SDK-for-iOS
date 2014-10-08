@@ -5,7 +5,10 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <office365_odata_interfaces/MSORequest.h>
 
-@interface office365_odata_interfaces : NSObject
+@interface MSORequestImpl : NSObject<MSORequest>
+
+-(NSMutableURLRequest*)getMutableRequest;
 
 @end

@@ -5,7 +5,12 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import "MSORequest.h"
+#import "MSOResponse.h"
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSOHttpTransport
+
+-(id<MSORequest>) createRequest;
+-(NSURLSessionDataTask *)execute:(id<MSORequest>)request : (void (^)(id<MSOResponse> response, NSError *error))callback;
 
 @end

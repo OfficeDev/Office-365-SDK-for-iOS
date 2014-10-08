@@ -7,26 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC28336519E4846000E5FEA4 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336419E4846000E5FEA4 /* Credentials.m */; };
-		EC28336719E484CD00E5FEA4 /* CredentialsFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */; };
-		EC28336919E484F200E5FEA4 /* DependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336819E484F200E5FEA4 /* DependencyResolver.m */; };
-		EC28336B19E4851A00E5FEA4 /* HttpTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336A19E4851A00E5FEA4 /* HttpTransport.m */; };
-		EC28336D19E4854400E5FEA4 /* JsonSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336C19E4854400E5FEA4 /* JsonSerializer.m */; };
-		EC28336F19E4858600E5FEA4 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28336E19E4858600E5FEA4 /* Logger.m */; };
-		EC28337119E485B800E5FEA4 /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337019E485B800E5FEA4 /* Request.m */; };
-		EC28337319E485D700E5FEA4 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337219E485D700E5FEA4 /* Response.m */; };
 		EC3AF4CA19DF2ED4004283FD /* office365_odata_interfaces.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4C919DF2ED4004283FD /* office365_odata_interfaces.h */; };
 		EC3AF4CC19DF2ED4004283FD /* office365_odata_interfaces.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF4CB19DF2ED4004283FD /* office365_odata_interfaces.m */; };
-		EC3AF4EC19DF2F23004283FD /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E219DF2F19004283FD /* Credentials.h */; };
-		EC3AF4ED19DF2F23004283FD /* CredentialsFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E319DF2F19004283FD /* CredentialsFactory.h */; };
-		EC3AF4EE19DF2F23004283FD /* DependencyResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E419DF2F19004283FD /* DependencyResolver.h */; };
-		EC3AF4EF19DF2F23004283FD /* HttpTransport.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E519DF2F19004283FD /* HttpTransport.h */; };
-		EC3AF4F019DF2F23004283FD /* HttpVerb.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E619DF2F19004283FD /* HttpVerb.h */; };
-		EC3AF4F119DF2F23004283FD /* JsonSerializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E719DF2F19004283FD /* JsonSerializer.h */; };
-		EC3AF4F219DF2F23004283FD /* Logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E819DF2F19004283FD /* Logger.h */; };
-		EC3AF4F319DF2F23004283FD /* LogLevel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E919DF2F19004283FD /* LogLevel.h */; };
-		EC3AF4F419DF2F23004283FD /* Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EA19DF2F19004283FD /* Request.h */; };
-		EC3AF4F519DF2F23004283FD /* Response.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EB19DF2F19004283FD /* Response.h */; };
+		EC3AF4EC19DF2F23004283FD /* MSOCredentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E219DF2F19004283FD /* MSOCredentials.h */; };
+		EC3AF4ED19DF2F23004283FD /* MSOCredentialsFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E319DF2F19004283FD /* MSOCredentialsFactory.h */; };
+		EC3AF4EE19DF2F23004283FD /* MSODependencyResolver.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E419DF2F19004283FD /* MSODependencyResolver.h */; };
+		EC3AF4EF19DF2F23004283FD /* MSOHttpTransport.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E519DF2F19004283FD /* MSOHttpTransport.h */; };
+		EC3AF4F019DF2F23004283FD /* MSOHttpVerb.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E619DF2F19004283FD /* MSOHttpVerb.h */; };
+		EC3AF4F119DF2F23004283FD /* MSOJsonSerializer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E719DF2F19004283FD /* MSOJsonSerializer.h */; };
+		EC3AF4F219DF2F23004283FD /* MSOLogger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E819DF2F19004283FD /* MSOLogger.h */; };
+		EC3AF4F319DF2F23004283FD /* MSOLogLevel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */; };
+		EC3AF4F419DF2F23004283FD /* MSORequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EA19DF2F19004283FD /* MSORequest.h */; };
+		EC3AF4F519DF2F23004283FD /* MSOResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EB19DF2F19004283FD /* MSOResponse.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,16 +28,16 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				EC3AF4EC19DF2F23004283FD /* Credentials.h in CopyFiles */,
-				EC3AF4ED19DF2F23004283FD /* CredentialsFactory.h in CopyFiles */,
-				EC3AF4EE19DF2F23004283FD /* DependencyResolver.h in CopyFiles */,
-				EC3AF4EF19DF2F23004283FD /* HttpTransport.h in CopyFiles */,
-				EC3AF4F019DF2F23004283FD /* HttpVerb.h in CopyFiles */,
-				EC3AF4F119DF2F23004283FD /* JsonSerializer.h in CopyFiles */,
-				EC3AF4F219DF2F23004283FD /* Logger.h in CopyFiles */,
-				EC3AF4F319DF2F23004283FD /* LogLevel.h in CopyFiles */,
-				EC3AF4F419DF2F23004283FD /* Request.h in CopyFiles */,
-				EC3AF4F519DF2F23004283FD /* Response.h in CopyFiles */,
+				EC3AF4EC19DF2F23004283FD /* MSOCredentials.h in CopyFiles */,
+				EC3AF4ED19DF2F23004283FD /* MSOCredentialsFactory.h in CopyFiles */,
+				EC3AF4EE19DF2F23004283FD /* MSODependencyResolver.h in CopyFiles */,
+				EC3AF4EF19DF2F23004283FD /* MSOHttpTransport.h in CopyFiles */,
+				EC3AF4F019DF2F23004283FD /* MSOHttpVerb.h in CopyFiles */,
+				EC3AF4F119DF2F23004283FD /* MSOJsonSerializer.h in CopyFiles */,
+				EC3AF4F219DF2F23004283FD /* MSOLogger.h in CopyFiles */,
+				EC3AF4F319DF2F23004283FD /* MSOLogLevel.h in CopyFiles */,
+				EC3AF4F419DF2F23004283FD /* MSORequest.h in CopyFiles */,
+				EC3AF4F519DF2F23004283FD /* MSOResponse.h in CopyFiles */,
 				EC3AF4CA19DF2ED4004283FD /* office365_odata_interfaces.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,29 +45,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EC28336419E4846000E5FEA4 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
-		EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialsFactory.m; sourceTree = "<group>"; };
-		EC28336819E484F200E5FEA4 /* DependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DependencyResolver.m; sourceTree = "<group>"; };
-		EC28336A19E4851A00E5FEA4 /* HttpTransport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTransport.m; sourceTree = "<group>"; };
-		EC28336C19E4854400E5FEA4 /* JsonSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonSerializer.m; sourceTree = "<group>"; };
-		EC28336E19E4858600E5FEA4 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
-		EC28337019E485B800E5FEA4 /* Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request.m; sourceTree = "<group>"; };
-		EC28337219E485D700E5FEA4 /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
 		EC3AF4C619DF2ED4004283FD /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_odata_interfaces.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF4C919DF2ED4004283FD /* office365_odata_interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
 		EC3AF4CB19DF2ED4004283FD /* office365_odata_interfaces.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_interfaces.m; sourceTree = "<group>"; };
 		EC3AF4D119DF2ED4004283FD /* office365_odata_interfacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_odata_interfacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF4D419DF2ED4004283FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC3AF4E219DF2F19004283FD /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
-		EC3AF4E319DF2F19004283FD /* CredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialsFactory.h; sourceTree = "<group>"; };
-		EC3AF4E419DF2F19004283FD /* DependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DependencyResolver.h; sourceTree = "<group>"; };
-		EC3AF4E519DF2F19004283FD /* HttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTransport.h; sourceTree = "<group>"; };
-		EC3AF4E619DF2F19004283FD /* HttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpVerb.h; sourceTree = "<group>"; };
-		EC3AF4E719DF2F19004283FD /* JsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonSerializer.h; sourceTree = "<group>"; };
-		EC3AF4E819DF2F19004283FD /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		EC3AF4E919DF2F19004283FD /* LogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogLevel.h; sourceTree = "<group>"; };
-		EC3AF4EA19DF2F19004283FD /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
-		EC3AF4EB19DF2F19004283FD /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		EC3AF4E219DF2F19004283FD /* MSOCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentials.h; sourceTree = "<group>"; };
+		EC3AF4E319DF2F19004283FD /* MSOCredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsFactory.h; sourceTree = "<group>"; };
+		EC3AF4E419DF2F19004283FD /* MSODependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODependencyResolver.h; sourceTree = "<group>"; };
+		EC3AF4E519DF2F19004283FD /* MSOHttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpTransport.h; sourceTree = "<group>"; };
+		EC3AF4E619DF2F19004283FD /* MSOHttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpVerb.h; sourceTree = "<group>"; };
+		EC3AF4E719DF2F19004283FD /* MSOJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializer.h; sourceTree = "<group>"; };
+		EC3AF4E819DF2F19004283FD /* MSOLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogger.h; sourceTree = "<group>"; };
+		EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogLevel.h; sourceTree = "<group>"; };
+		EC3AF4EA19DF2F19004283FD /* MSORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequest.h; sourceTree = "<group>"; };
+		EC3AF4EB19DF2F19004283FD /* MSOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponse.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,24 +159,16 @@
 		EC3AF4E119DF2F19004283FD /* interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				EC3AF4E219DF2F19004283FD /* Credentials.h */,
-				EC3AF4E319DF2F19004283FD /* CredentialsFactory.h */,
-				EC3AF4E419DF2F19004283FD /* DependencyResolver.h */,
-				EC3AF4E519DF2F19004283FD /* HttpTransport.h */,
-				EC3AF4E619DF2F19004283FD /* HttpVerb.h */,
-				EC3AF4E719DF2F19004283FD /* JsonSerializer.h */,
-				EC3AF4E819DF2F19004283FD /* Logger.h */,
-				EC3AF4E919DF2F19004283FD /* LogLevel.h */,
-				EC3AF4EA19DF2F19004283FD /* Request.h */,
-				EC3AF4EB19DF2F19004283FD /* Response.h */,
-				EC28336419E4846000E5FEA4 /* Credentials.m */,
-				EC28336619E484CD00E5FEA4 /* CredentialsFactory.m */,
-				EC28336819E484F200E5FEA4 /* DependencyResolver.m */,
-				EC28336A19E4851A00E5FEA4 /* HttpTransport.m */,
-				EC28336C19E4854400E5FEA4 /* JsonSerializer.m */,
-				EC28336E19E4858600E5FEA4 /* Logger.m */,
-				EC28337019E485B800E5FEA4 /* Request.m */,
-				EC28337219E485D700E5FEA4 /* Response.m */,
+				EC3AF4E219DF2F19004283FD /* MSOCredentials.h */,
+				EC3AF4E319DF2F19004283FD /* MSOCredentialsFactory.h */,
+				EC3AF4E419DF2F19004283FD /* MSODependencyResolver.h */,
+				EC3AF4E519DF2F19004283FD /* MSOHttpTransport.h */,
+				EC3AF4E619DF2F19004283FD /* MSOHttpVerb.h */,
+				EC3AF4E719DF2F19004283FD /* MSOJsonSerializer.h */,
+				EC3AF4E819DF2F19004283FD /* MSOLogger.h */,
+				EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */,
+				EC3AF4EA19DF2F19004283FD /* MSORequest.h */,
+				EC3AF4EB19DF2F19004283FD /* MSOResponse.h */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";
@@ -284,15 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC28336919E484F200E5FEA4 /* DependencyResolver.m in Sources */,
-				EC28336519E4846000E5FEA4 /* Credentials.m in Sources */,
 				EC3AF4CC19DF2ED4004283FD /* office365_odata_interfaces.m in Sources */,
-				EC28336D19E4854400E5FEA4 /* JsonSerializer.m in Sources */,
-				EC28336719E484CD00E5FEA4 /* CredentialsFactory.m in Sources */,
-				EC28337119E485B800E5FEA4 /* Request.m in Sources */,
-				EC28337319E485D700E5FEA4 /* Response.m in Sources */,
-				EC28336F19E4858600E5FEA4 /* Logger.m in Sources */,
-				EC28336B19E4851A00E5FEA4 /* HttpTransport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +291,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -343,6 +312,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"WARNING_LDFLAGS[arch=*]" = "";
 			};
 			name = Debug;
 		};
@@ -363,6 +333,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = default;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

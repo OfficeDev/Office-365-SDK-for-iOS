@@ -5,7 +5,11 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import "MSORequest.h"
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSOCredentials
+
+@required	
+- (void)prepareRequest:(id<MSORequest>)request;
 
 @end

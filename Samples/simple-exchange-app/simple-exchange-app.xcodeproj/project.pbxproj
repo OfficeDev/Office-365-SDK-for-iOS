@@ -64,11 +64,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ECD9F3F919784BB600ABB418 = {
+		EC2833A819E5BAF700E5FEA4 /* libs */ = {
 			isa = PBXGroup;
 			children = (
 				EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */,
 				EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		ECD9F3F919784BB600ABB418 = {
+			isa = PBXGroup;
+			children = (
+				EC2833A819E5BAF700E5FEA4 /* libs */,
 				ECD9F40419784BB600ABB418 /* simple-exchange-app */,
 				ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */,
 				ECD9F40319784BB600ABB418 /* Products */,
@@ -354,11 +362,7 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -373,11 +377,7 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

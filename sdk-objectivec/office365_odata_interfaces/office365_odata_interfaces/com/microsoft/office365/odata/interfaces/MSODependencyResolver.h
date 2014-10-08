@@ -5,7 +5,17 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import "MSOHttpTransport.h"
+#import "MSOLogger.h"
+#import "MSOJsonSerializer.h"
+#import "MSOCredentialsFactory.h"
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSODependencyResolver
+
+@required
+-(id<MSOHttpTransport>)getHttpTransport;
+-(id<MSOLogger>) getLogger;
+-(id<MSOJsonSerializer>) getJsonSerializer;
+-(id<MSOCredentialsFactory>) getCredentialsFactory;
 
 @end

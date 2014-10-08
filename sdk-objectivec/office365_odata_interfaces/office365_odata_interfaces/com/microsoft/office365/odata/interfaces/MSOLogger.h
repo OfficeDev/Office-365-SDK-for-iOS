@@ -5,7 +5,11 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import "MSOLogLevel.h"
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSOLogger
+
+@required
+-(void) log : (NSString*) content : (MSOLogLevel*) logLevel;
 
 @end

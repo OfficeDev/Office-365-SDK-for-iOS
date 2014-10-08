@@ -55,7 +55,7 @@
     return self;
 }
 
--(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (HttpVerb) verb :(void (^)(Response *, NSError *))callback{
+-(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
     if (self.selectedId == nil) {
         NSMutableString* query = [[NSMutableString alloc] initWithString:@"?"];
@@ -91,15 +91,15 @@
     }
 }
 
--(DependencyResolver *)getResolver{
+-(id<MSODependencyResolver>)getResolver{
     return [self.parent getResolver];
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSURLResponse *, NSError *))callback{
     
-    return [self.parent oDataExecute:self.urlComponent :nil :GET :^(Response *d, NSError *e) {
+    return [self.parent oDataExecute:self.urlComponent :nil :GET :^(id<MSOResponse> d, NSError *e) {
 
-        id result = [[[self getResolver]getJsonSerializer] deserialize:[d getData] : [Message class] : @"value"];
+        id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : [Message class]];
         callback(result,nil, e);
     }];
 }

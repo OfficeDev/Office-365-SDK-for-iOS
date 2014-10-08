@@ -6,6 +6,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface office365_odata_interfaces : NSObject
+@interface NSObject ()
+
+typedef enum {
+    VERBOSE,
+    INFO,
+    WARNING,
+    ERROR
+} MSOLogLevel;
 
 @end

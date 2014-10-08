@@ -26,7 +26,7 @@
     return self;
 }
 
--(DependencyResolver*) getResolver{
+-(id<MSODependencyResolver>) getResolver{
     return [self.parent getResolver];
 }
 
@@ -34,7 +34,7 @@
     return self.operations;
 }
 
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb callback:(void (^)(Response *, NSError *))callback{
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb callback:(void (^)(id<MSOResponse>, NSError *))callback{
     NSMutableString* url = [[NSMutableString alloc] initWithString:@""];
     
     if([self.urlComponent length] > 0){
@@ -46,7 +46,7 @@
         [url appendString:path];
     }
     
-    return [self.parent oDataExecute:url :content :verb :^(Response *r, NSError *e) {
+    return [self.parent oDataExecute:url :content :verb :^(id<MSOResponse> r, NSError *e) {
         callback(r,e);
     }];
 }
@@ -54,22 +54,22 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSURLResponse *, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH callback:^(Response *r, NSError *e) {
+    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH callback:^(id<MSOResponse> r, NSError *e) {
         callback(updatedEntity,nil, e);
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(id, NSURLResponse *, NSError *))callback{
-    return [self oDataExecute:@"" :nil :DELETE callback:^(Response *r, NSError *e) {
+    return [self oDataExecute:@"" :nil :DELETE callback:^(id<MSOResponse> r, NSError *e) {
         callback(nil,nil, e);
     }];
 }
 
 -(NSURLSessionDataTask*) execute:(void (^)(id , NSURLResponse *, NSError *))callback{
 
-    return [self oDataExecute:@"" :nil :GET callback:^(Response *r, NSError *e) {
+    return [self oDataExecute:@"" :nil :GET callback:^(id<MSOResponse> r, NSError *e) {
         if (e == nil) {
-            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.clazz : @"value"];
+            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.clazz];
             
             callback(entity, nil, e);
         }

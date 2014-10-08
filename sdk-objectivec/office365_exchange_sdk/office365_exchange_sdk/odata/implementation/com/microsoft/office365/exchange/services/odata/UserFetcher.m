@@ -6,17 +6,15 @@
 #import "UserFetcher.h"
 #import "MessageCollectionOperations.h"
 
-@interface UserFetcher()
-@property ODataExecutable* parent;
-@property NSString* urlComponent;
-@end
 @implementation UserFetcher
+
 
 -(UserOperations*) getOperations{
     return (UserOperations*)[super getOperations];
 }
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
+    
     self.parent = parent;
     self.urlComponent = urlComponent;
     return [super initWith:urlComponent :parent :[super.class classForClassName:@"User"] :[UserOperations class]];
@@ -34,7 +32,7 @@
     return [[MessageCollectionFetcher alloc] initWith:path :self : entityClass :operationClass];
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb :(void (^)(Response *, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
    return [self.parent oDataExecute:path :content :verb :callback];
 }

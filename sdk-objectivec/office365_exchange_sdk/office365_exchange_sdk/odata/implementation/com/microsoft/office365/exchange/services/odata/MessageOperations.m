@@ -13,12 +13,12 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Message *message, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(Response *r, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(id<MSOResponse> r, NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class]];
             callback(result, error);
         }
         else{
@@ -31,12 +31,12 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) DestinationId : (void (^)(Message *message, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(Response *r,  NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(id<MSOResponse> r,  NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class]];
             callback(result, error);
         }
         else{
@@ -46,15 +46,15 @@
     
     return task;
 }			
-
+/*
 -(NSURLSessionDataTask*)createReply : (void (^)(Message *message, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"CreateReply" :nil :POST :^(Response *r, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"CreateReply" :nil :POST :^(id<MSOResponse> r, NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] ];
             callback(result, error);
         }
         else{
@@ -67,12 +67,12 @@
 
 -(NSURLSessionDataTask*)createReplyAll : (void (^)(Message *message, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"CreateReplyAll" :nil :POST :^(Response *r,NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"CreateReplyAll" :nil :POST :^(id<MSOResponse> r,NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class]];
             callback(result, error);
         }
         else{
@@ -85,12 +85,12 @@
 
 -(NSURLSessionDataTask*)createForward : (void (^)(Message *message, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"CreateForward" :nil :POST :^(Response *r,NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"CreateForward" :nil :POST :^(id<MSOResponse>r,NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class] : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Message class]];
             callback(result, error);
         }
         else{
@@ -103,12 +103,12 @@
 
 -(NSURLSessionDataTask*)reply : (NSString *) Comment : (void (^)(int returnValue, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Reply" :nil :POST :^(Response *r, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Reply" :nil :POST :^(id<MSOResponse>r, NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : nil : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : nil];
             callback(result, error);
         }
         else{
@@ -121,12 +121,12 @@
 
 -(NSURLSessionDataTask*)replyAll : (NSString *) Comment : (void (^)(int returnValue, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"ReplyAll" :nil :POST :^(Response *r, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"ReplyAll" :nil :POST :^(id<MSOResponse> r, NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : nil : nil];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : nil];
             callback(result, error);
         }
         else{
@@ -139,7 +139,7 @@
 
 -(NSURLSessionDataTask*)forward : (NSString *) Comment : (NSMutableArray<Recipient> *) ToRecipients : (void (^)(int returnValue, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Forward" :nil :POST :^(Response *r,NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Forward" :nil :POST :^(id<MSOResponse>r,NSError *error) {
         
         if(error != nil){
             NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
@@ -171,6 +171,7 @@
     }];
     
     return task;
-}			
+}
+ */
 
 @end

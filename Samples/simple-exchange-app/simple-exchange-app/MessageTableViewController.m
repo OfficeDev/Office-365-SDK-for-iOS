@@ -8,9 +8,9 @@
 
 #import "MessageTableViewController.h"
 #import <office365_exchange_sdk/EntityContainerClient.h>
-#import <office365_odata_impl/DefaultDependencyResolver.h>
-#import <office365_odata_impl/BasicCredentials.h>
-#import <office365_odata_impl/CredentialsImpl.h>
+#import <office365_odata_impl/MSODefaultDependencyResolver.h>
+#import <office365_odata_impl/MSOBasicCredentials.h>
+#import <office365_odata_impl/MSOCredentialsImpl.h>
 #import <office365_exchange_sdk/Recipient.h>
 #import <office365_exchange_sdk/EmailAddress.h>
 
@@ -64,11 +64,11 @@
 
 -(void)getMessagesFromInbox{
  
-    DefaultDependencyResolver* resolver = [DefaultDependencyResolver alloc];
-    BasicCredentials* credentials = [BasicCredentials alloc];
+    MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
+    MSOBasicCredentials* credentials = [MSOBasicCredentials alloc];
     [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
     
-    CredentialsImpl* credentialsImpl = [CredentialsImpl alloc];
+    MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
     [credentialsImpl setCredentials:credentials];
     [resolver setCredentialsFactory:credentialsImpl];
     

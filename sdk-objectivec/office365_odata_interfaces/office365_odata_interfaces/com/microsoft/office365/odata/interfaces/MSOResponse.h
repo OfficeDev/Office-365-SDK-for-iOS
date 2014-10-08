@@ -6,6 +6,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface office365_odata_interfaces : NSObject
+@protocol MSOResponse
+
+@required
+-(id)initWith : (NSData*)data : (int) status;
+-(int)getStatus;
+-(NSData *)getData;
+
+@optional
+-(void) close;
 
 @end

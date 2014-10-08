@@ -4,10 +4,11 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <office365_odata_interfaces/DependencyResolver.h>
+#import <Foundation/Foundation.h>
+#import <office365_odata_interfaces/MSOJsonSerializer.h>
 
-@interface DefaultDependencyResolver : DependencyResolver
+@interface MSOJsonSerializerImpl : NSObject<MSOJsonSerializer>
 
--(void) setCredentialsFactory : (CredentialsFactory*) credentialsFactory;
+-(void)jsonSerializerImpl;
 
 @end

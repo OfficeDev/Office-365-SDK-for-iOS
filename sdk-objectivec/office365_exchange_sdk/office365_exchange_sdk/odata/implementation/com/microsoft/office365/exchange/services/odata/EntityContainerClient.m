@@ -9,7 +9,7 @@
 
 @implementation EntityContainerClient
 
--(id)initWit : (NSString *)url : (DependencyResolver*) resolver{
+-(id)initWit : (NSString *)url : (id<MSODependencyResolver>) resolver{
     return [super initWith:url :resolver];
 }
 
