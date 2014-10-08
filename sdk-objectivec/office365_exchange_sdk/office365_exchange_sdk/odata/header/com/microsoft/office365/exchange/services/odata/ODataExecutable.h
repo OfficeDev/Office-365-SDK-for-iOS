@@ -8,7 +8,9 @@
 
 @interface ODataExecutable : NSObject
 
-- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
+//- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
+
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb : (void (^)(Response *, NSError *))callback;
 
 -(DependencyResolver*) getResolver;
 

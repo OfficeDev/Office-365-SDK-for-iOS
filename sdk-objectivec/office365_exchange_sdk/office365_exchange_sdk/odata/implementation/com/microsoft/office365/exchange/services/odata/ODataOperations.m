@@ -16,7 +16,7 @@
     return self;
 }
 
-- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback{
+- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(Response* ,NSError *error))callback{
     
     NSString* url = [[NSString alloc] initWithFormat:@"%@/%@",self.urlComponent,path];
     

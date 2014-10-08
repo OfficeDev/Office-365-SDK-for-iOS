@@ -3,6 +3,6 @@
 
 @interface ODataOperations : ODataExecutable
 
--(id)initWith : (NSString*) urlComponent : (ODataExecutable*) parent;
+-(id)initOperationWith : (NSString*) urlComponent : (ODataExecutable*) parent;
 
 @end

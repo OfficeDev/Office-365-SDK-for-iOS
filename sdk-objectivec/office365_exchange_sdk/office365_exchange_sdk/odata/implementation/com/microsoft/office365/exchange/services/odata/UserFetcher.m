@@ -4,7 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "UserFetcher.h"
+#import "MessageCollectionOperations.h"
 
+@interface UserFetcher()
+@property ODataExecutable* parent;
+@property NSString* urlComponent;
+@end
 @implementation UserFetcher
 
 -(UserOperations*) getOperations{
@@ -12,18 +17,28 @@
 }
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    
+    self.parent = parent;
+    self.urlComponent = urlComponent;
     return [super initWith:urlComponent :parent :[super.class classForClassName:@"User"] :[UserOperations class]];
 }
 
 -(FolderCollectionFetcher*) getFolders{
-    return[[FolderCollectionFetcher alloc] initWith:@"Folders" :self :[super.class classForClassName:@"Folder"]   :[super.class classForClassName:@"FolderCollectionOperations"]];
+    return[[FolderCollectionFetcher alloc] initWith:@"Folders" :self :[super.class classForClassName:@"Folder"]   :[super.class classForClassName:@"FolderCollectionOperaoperationClasstions"]];
 }
 
-/*
+
 -(MessageCollectionFetcher*) getMessages{
-    return [[MessageCollectionFetcher alloc] initWith:@"Messages" :self :[super.class classForClassName:@"Message"]  : [MessageCollectionOperations class]];
+    NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.urlComponent, @"Messages" ];
+    Class entityClass = [Message class];
+    Class operationClass = [MessageCollectionOperations class];
+    return [[MessageCollectionFetcher alloc] initWith:path :self : entityClass :operationClass];
 }
+
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb :(void (^)(Response *, NSError *))callback{
+    
+   return [self.parent oDataExecute:path :content :verb :callback];
+}
+/*
 -(FolderFetcher) getRootFolder{
 
     return [[FolderFetcher alloc] initWith:@"RootFolder" :self :[super.class classForClassName:@"Folder"] : [FolderrOperations class]];

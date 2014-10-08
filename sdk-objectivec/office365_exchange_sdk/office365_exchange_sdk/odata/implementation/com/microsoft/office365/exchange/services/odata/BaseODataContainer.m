@@ -21,7 +21,7 @@
     return self;
 }
 
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb : (void (^)(NSData *, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(HttpVerb)verb : (void (^)(Request *, NSError *))callback{
     
     HttpTransport* httpTransport = [[self getResolver] getHttpTransport];
     Request* request = [httpTransport createRequest];
@@ -29,16 +29,19 @@
     
     [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.url, path]];
     [request setContent:content];
-    [[[self getResolver] getLogger] log:[[NSString alloc] initWithData:(content == nil ? [NSData alloc] : content) encoding:NSUTF8StringEncoding] :VERBOSE];
-    
     [request addHeader:@"Content-Type" :@"application/json"];
+    //@"" forHTTPHeaderField: @"Expect"];
+  //  [request addHeader:@"Expect" :@"100-continue"];
     [[[[self getResolver] getCredentialsFactory]getCredentials]prepareRequest:request];
-    [[[self getResolver] getLogger]log:[[NSString alloc] initWithFormat:@"URL: %@", request.getUrl] : VERBOSE];
-    [[[self getResolver] getLogger]log:@"HEADERS : " : VERBOSE];
-
-    return [httpTransport execute:request :^(Response *response, NSURLResponse *r, NSError *error) {
-        callback(response, r, error);
+    //[[[self getResolver] getLogger]log:[[NSString alloc] initWithFormat:@"URL: %@", request.getUrl] : VERBOSE];
+    //[[[self getResolver] getLogger]log:@"HEADERS : " : VERBOSE];
+    return [httpTransport execute:request :^(Response *r, NSError *e) {
+        callback(r,e);
     }];
+    
+   // return [httpTransport execute:request :^(Response *response, NSURLResponse *r, NSError *error) {
+    //    callback(response, r, error);
+    //}];
 }
 
 

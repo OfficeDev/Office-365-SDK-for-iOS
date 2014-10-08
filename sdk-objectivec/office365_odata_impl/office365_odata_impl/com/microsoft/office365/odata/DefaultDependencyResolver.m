@@ -7,6 +7,7 @@
 #import "DefaultDependencyResolver.h"
 #import "LoggerImpl.h"
 #import "JsonSerializerImpl.h"
+#import "HttpConnection.h"
 
 @interface DefaultDependencyResolver()
 @property (nonatomic)  CredentialsFactory* mCredentialsFactory;
@@ -18,7 +19,7 @@
 }
 
 -(HttpTransport*)getHttpTransport{
-    return nil;
+    return [HttpConnection alloc];
 }
 
 -(Logger*) getLogger{

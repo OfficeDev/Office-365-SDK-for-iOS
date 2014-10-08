@@ -9,18 +9,16 @@
 
 @interface ResponseImpl()
 
-@property NSInputStream* stream;
+@property NSData* data;
 @property int status;
-@property NSArray* headers;
 
 @end
 
 @implementation ResponseImpl
 
--(id)initWith : (NSInputStream*)stream : (int) status : (NSArray*) headers{
-    self.stream = stream;
+-(id)initWith : (NSData*)data : (int) status{
+    self.data = data;
     self.status = status;
-    self.headers = headers;
     return self;
 }
 
@@ -28,16 +26,8 @@
     return self.status;
 }
 
--(NSInputStream *)getStream{
-    return self.stream;
-}
-
--(NSArray *)getHeaders{
-    return self.headers;
-}
-
--(NSArray*)getHeaders : (NSString*) headerName{
-    return [self.headers objectAtIndex:0];
+-(NSData *)getData{
+    return self.data;
 }
 
 @end

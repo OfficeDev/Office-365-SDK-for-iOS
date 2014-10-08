@@ -33,6 +33,7 @@
 		EC2833A219E488C800E5FEA4 /* ResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28338C19E488C800E5FEA4 /* ResponseStatus.m */; };
 		EC2833A319E488C800E5FEA4 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28338D19E488C800E5FEA4 /* User.m */; };
 		EC2833A519E48BA800E5FEA4 /* FolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833A419E48BA800E5FEA4 /* FolderCollectionFetcher.m */; };
+		EC2833A719E575FD00E5FEA4 /* MessageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833A619E575FD00E5FEA4 /* MessageCollectionFetcher.m */; };
 		EC3AF52719DF2FE5004283FD /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */; };
 		ECCC3F0319E453A700768B43 /* BaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3ED719E453A700768B43 /* BaseODataContainer.m */; };
 		ECCC3F1019E453A700768B43 /* EntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3EE419E453A700768B43 /* EntityCollectionOperations.m */; };
@@ -214,6 +215,7 @@
 		EC28338C19E488C800E5FEA4 /* ResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseStatus.m; sourceTree = "<group>"; };
 		EC28338D19E488C800E5FEA4 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		EC2833A419E48BA800E5FEA4 /* FolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderCollectionFetcher.m; sourceTree = "<group>"; };
+		EC2833A619E575FD00E5FEA4 /* MessageCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCollectionFetcher.m; sourceTree = "<group>"; };
 		EC3AF52119DF2FE5004283FD /* liboffice365_exchange_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_exchange_sdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
 		EC3AF52C19DF2FE5004283FD /* office365_exchange_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,6 +631,7 @@
 				ECCC3EFE19E453A700768B43 /* UserFetcher.m */,
 				ECCC3EFF19E453A700768B43 /* UserOperations.m */,
 				EC2833A419E48BA800E5FEA4 /* FolderCollectionFetcher.m */,
+				EC2833A619E575FD00E5FEA4 /* MessageCollectionFetcher.m */,
 			);
 			path = odata;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				ECCC3F2319E453A700768B43 /* MessageCollectionOperations.m in Sources */,
 				EC28339119E488C800E5FEA4 /* CalendarGroup.m in Sources */,
 				ECCC3F2419E453A700768B43 /* MessageFetcher.m in Sources */,
+				EC2833A719E575FD00E5FEA4 /* MessageCollectionFetcher.m in Sources */,
 				EC28339A19E488C800E5FEA4 /* ItemBody.m in Sources */,
 				EC28339C19E488C800E5FEA4 /* Message.m in Sources */,
 				EC28339019E488C800E5FEA4 /* Calendar.m in Sources */,

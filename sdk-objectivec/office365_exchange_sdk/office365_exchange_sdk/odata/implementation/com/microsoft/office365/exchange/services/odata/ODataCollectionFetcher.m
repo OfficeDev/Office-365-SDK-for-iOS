@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "ODataCollectionFetcher.h"
-
+#import "Message.h"
 @interface ODataCollectionFetcher()
 
 @property NSString* filter;
@@ -28,7 +28,7 @@
     self.parent = parent;
     self.clazz = clazz;
     [self reset];
-    self.operations = [[operationClazz alloc] initWith:@"" : self];
+   // self.operations = [[operationClazz alloc] initWith:@"" : self];
 
     return self;
 }
@@ -55,7 +55,7 @@
     return self;
 }
 
--(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (HttpVerb) verb :(void (^)(NSData *, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (HttpVerb) verb :(void (^)(Response *, NSError *))callback{
     
     if (self.selectedId == nil) {
         NSMutableString* query = [[NSMutableString alloc] initWithString:@"?"];
@@ -78,7 +78,12 @@
             [query appendFormat:@"$filter=%@", self.filter];
         }
         
-        return [self.parent oDataExecute:[[NSString alloc] initWithFormat:@"%@%@", self.urlComponent, query] :content :verb :callback];
+        if([query  isEqual: @"?"]){
+            query = nil;
+        }
+        NSString* url = query == nil ? self.urlComponent : [[NSString alloc] initWithFormat:@"%@%@", self.urlComponent, query] ;
+        
+        return [self.parent oDataExecute:url:content :verb :callback];
     }
     else {
         NSString* url = [[NSString alloc] initWithFormat:@"%@('%@')/%@", self.urlComponent, self.selectedId,path];
@@ -91,8 +96,12 @@
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSURLResponse *, NSError *))callback{
+    
+    return [self.parent oDataExecute:self.urlComponent :nil :GET :^(Response *d, NSError *e) {
 
-    return [self oDataExecute:@"" :nil :GET :callback];
+        id result = [[[self getResolver]getJsonSerializer] deserialize:[d getData] : [Message class] : @"value"];
+        callback(result,nil, e);
+    }];
 }
 
 -(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSURLResponse *, NSError *))callback{

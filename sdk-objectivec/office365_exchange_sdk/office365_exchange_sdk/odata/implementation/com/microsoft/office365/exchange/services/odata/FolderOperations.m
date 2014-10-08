@@ -8,17 +8,17 @@
 @implementation FolderOperations
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    return [super initWith:urlComponent :parent];
+    return [super initOperationWith:urlComponent :parent];
 }
 
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(Response *r,NSError *error) {
         
         if(error != nil){
-            NSString* entityString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class]];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class] : nil];
             callback(result, error);
         }
         else{
@@ -31,12 +31,12 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback{
     
-    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(Response *r, NSError *error) {
         
         if(error != nil){
-            NSString* entityString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class]];
+            id result = [[[self getResolver]getJsonSerializer] deserialize:entityString : [Folder class] : nil];
             callback(result, error);
         }
         else{

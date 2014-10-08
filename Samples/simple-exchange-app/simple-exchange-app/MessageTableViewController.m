@@ -11,6 +11,8 @@
 #import <office365_odata_impl/DefaultDependencyResolver.h>
 #import <office365_odata_impl/BasicCredentials.h>
 #import <office365_odata_impl/CredentialsImpl.h>
+#import <office365_exchange_sdk/Recipient.h>
+#import <office365_exchange_sdk/EmailAddress.h>
 
 @interface MessageTableViewController ()
 
@@ -55,7 +57,7 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-  //  cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject, message.Body.ContentType];//message.Subject;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Sender.EmailAddress.Name, message.Subject];//message.Subject;
     
     return cell;
 }
@@ -72,6 +74,41 @@
     
     EntityContainerClient* client = [[EntityContainerClient alloc] initWit:@"https://sdfpilot.outlook.com/ews/odata" : resolver];
     
+    NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(id messages, NSURLResponse *r, NSError *e) {
+        if(e == nil){
+            self.Messages = (NSArray<Message>*)messages;
+            [self.tableView reloadData];
+        }
+    }];
+    
+     /* NSURLSessionTask* task =[[[[[client getMe] getFolders] getById:@"Inbox"] getMessages] execute:^(id messages, NSURLResponse * r, NSError * e) {
+        
+        if(e != nil){
+            self.Messages = (NSArray<Message>*)messages;
+            [self.tableView reloadData];
+        }
+    }];*/
+    
+    [task resume];
+    /*
+    NSURLSessionTask* task1 = [[[client getMe] getFolders] execute:^(id a, NSURLResponse *r, NSError *e) {
+        if(e != nil){
+           // self.Messages = (NSArray<Message>*)a;
+            [self.tableView reloadData];
+        }
+    }];
+    
+    [task1 resume];
+    
+    NSURLSessionTask* task2 = [[[[client getMe] getFolders] getById:@"Inbox"] execute:^(id a, NSURLResponse *r, NSError *e) {
+        if(e != nil){
+            // self.Messages = (NSArray<Message>*)a;
+            [self.tableView reloadData];
+        }
+    }];
+    
+    [task2 resume];
+    
     [[[[[[client getMe] getFolders] getById:@"Inbox"] getMessages] execute:^(id messages, NSURLResponse * r, NSError * e) {
         
         if(e != nil){
@@ -79,6 +116,7 @@
                [self.tableView reloadData];
         }
     }] resume];
+     */
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

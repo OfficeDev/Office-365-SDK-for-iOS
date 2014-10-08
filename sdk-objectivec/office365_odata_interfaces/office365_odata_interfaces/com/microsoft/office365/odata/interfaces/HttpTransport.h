@@ -12,7 +12,6 @@
 @interface HttpTransport : NSObject
 
 -(Request*) createRequest;
--(NSURLSessionDataTask *)execute:(Request *)request
-                                 : (void (^)(Response *response, NSURLResponse *r, NSError *error))callback;
+-(NSURLSessionDataTask *)execute:(Request *)request :(void (^)(Response * r, NSError *e))callback;
 
 @end

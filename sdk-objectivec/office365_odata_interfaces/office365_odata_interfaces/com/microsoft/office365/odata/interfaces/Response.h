@@ -9,10 +9,9 @@
 
 @interface Response : NSObject
 
--(NSArray*) getHeaders;
--(NSArray*)getHeaders : (NSString*) headerName;
+-(id)initWith : (NSData*)data : (int) status;
 -(int)getStatus;
--(NSInputStream*)getStream;
+-(NSData *)getData;
 -(void) close;
 
 @end

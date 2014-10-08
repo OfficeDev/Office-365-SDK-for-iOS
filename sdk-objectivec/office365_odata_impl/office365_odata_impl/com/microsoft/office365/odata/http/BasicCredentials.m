@@ -21,6 +21,6 @@
 }
 
 -(void)prepareRequest:(Request *)request{
-    [request addHeader:@"Authorization" :self.token];
+    [request addHeader:@"Authorization" :[[NSString alloc] initWithFormat:@"Basic %@", self.token]];
 }
 @end

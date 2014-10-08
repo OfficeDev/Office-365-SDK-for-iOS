@@ -9,11 +9,6 @@
 
 @interface RequestImpl()
 
-//@property HttpVerb* mVerb = HttpVerb.GET;
-
-//@property NSData* content;
-//@property NSMutableArray* headers;
-//@property HttpVerb verb;
 @property NSMutableURLRequest* request;
 
 @end
@@ -21,9 +16,8 @@
 @implementation RequestImpl 
 
 -(id)init;{
-    self.request = [NSMutableURLRequest alloc];
+    self.request = [[NSMutableURLRequest alloc]init];
     
-    self.request.timeoutInterval = 60;
     return self;
 }
 
@@ -44,7 +38,20 @@
 }
 
 -(void)addHeader : (NSString*) name : (NSString*) value{
-    return [self.request addValue:value forHTTPHeaderField:name];
+
+    //NSString* url = r.URL.absoluteString;
+    
+    //NSMutableURLRequest* request1 = [[NSMutableURLRequest alloc] initWithURL: [[NSURL alloc] initWithString:url]];
+    //[request1 addValue: @"100" forHTTPHeaderField: @"Content-Length"];
+    //[request1 addValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" forHTTPHeaderField: @"Accept"];
+    //[request1 addValue:@"100-continue" forHTTPHeaderField: @"Expect"];
+
+    [self.request addValue:value forHTTPHeaderField: name];
+    //[request1 addValue:@"IOS-SDK" forHTTPHeaderField: @"X-ClientService-ClientTag"];
+    //[request1 addValue:@"*" forHTTPHeaderField: @"IF-MATCH"];
+   // [self.request addValue:@"Basic di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc=" forHTTPHeaderField:@"Authorization"];
+    
+   // return [self.request addValue:value forHTTPHeaderField:name];
 }
 
 -(void)removeHeader : (NSString*) name{

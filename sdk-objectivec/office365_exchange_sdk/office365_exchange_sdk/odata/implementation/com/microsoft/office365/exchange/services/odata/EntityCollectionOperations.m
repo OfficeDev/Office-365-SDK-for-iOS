@@ -8,6 +8,6 @@
 @implementation EntityCollectionOperations
 
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    return [super initWith:urlComponent :parent];
+    return [super initOperationWith:urlComponent :parent];
 }
 @end

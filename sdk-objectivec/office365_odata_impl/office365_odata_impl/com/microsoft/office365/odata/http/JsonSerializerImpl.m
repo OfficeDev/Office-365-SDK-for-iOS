@@ -27,14 +27,14 @@
     return nil;
 }
 
--(id) deserialize : (NSData*) serializedObject : (Class) clazz{
-    NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
+-(id) deserialize : (NSData*) serializedObject : (Class) clazz : (NSString*)selector{
+    NSArray* selectors = [[NSArray alloc] initWithObjects:selector, nil];
     
     return [self.parser parseWithData:serializedObject forType:clazz selector:selectors];
 }
 
--(id) deserializeList : (NSData*) serializedList : (Class) clazz{
-    NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
+-(id) deserializeList : (NSData*) serializedList : (Class) clazz : (NSString*)selector{
+    NSArray* selectors = [[NSArray alloc] initWithObjects:selector, nil];
     
     return [self.parser parseWithData:serializedList forType:clazz selector:selectors];
 }

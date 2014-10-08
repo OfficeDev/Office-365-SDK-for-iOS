@@ -5,6 +5,12 @@
  ******************************************************************************/
 #import "FolderFetcher.h"
 
+@interface FolderFetcher()
+
+@property ODataExecutable* parent;
+
+@end
+
 @implementation FolderFetcher
 
 -(FolderOperations*) getOperations{
@@ -19,6 +25,9 @@
     return nil;//[[FolderCollectionFetcher alloc] initWith:@"ChildFolders" :self :[super.class classForClassName:@"Folder"]  : [FolderCollectionOperations class]];
 }
 -(MessageCollectionFetcher*) getMessages{
-    return nil;//[[MessageCollectionFetcher alloc] initWith:@"Messages" :self :[super.class classForClassName:@"Message"]  : [MessageCollectionOperations class]];
+    
+    return [[MessageCollectionFetcher alloc] initWith:[[NSString alloc]initWithFormat:@"%@/%@", @"Me", @"Messages" ] :self :[super.class classForClassName:@"Message"]  : [super.class classForClassName:@"MessageCollectionOperations"]];
+    
+    
 }
 @end

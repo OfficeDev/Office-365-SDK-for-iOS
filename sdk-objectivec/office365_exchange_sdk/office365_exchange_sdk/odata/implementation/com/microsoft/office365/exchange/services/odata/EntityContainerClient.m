@@ -15,7 +15,8 @@
 
 	
 -(UserFetcher*) getMe{
-	return [[UserFetcher alloc] initWith:@"Me" :self :[User class] :[UserOperations class]];
+    UserFetcher* fetcher = [[UserFetcher alloc] initWith:@"Me" :self :[User class] :[UserOperations class]];
+	return fetcher;
 }
 
 @end
