@@ -69,7 +69,6 @@
 
     return [self oDataExecute:@"" :nil :GET callback:^(Response *r, NSError *e) {
         if (e == nil) {
-           // NSString* entityString = [[NSString alloc] initWithData:[r getData] encoding:NSUTF8StringEncoding];
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.clazz : @"value"];
             
             callback(entity, nil, e);

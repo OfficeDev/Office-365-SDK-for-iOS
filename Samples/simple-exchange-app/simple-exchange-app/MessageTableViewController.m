@@ -57,7 +57,7 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Sender.EmailAddress.Name, message.Subject];//message.Subject;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Sender.EmailAddress.Name, message.Subject];
     
     return cell;
 }
@@ -81,42 +81,7 @@
         }
     }];
     
-     /* NSURLSessionTask* task =[[[[[client getMe] getFolders] getById:@"Inbox"] getMessages] execute:^(id messages, NSURLResponse * r, NSError * e) {
-        
-        if(e != nil){
-            self.Messages = (NSArray<Message>*)messages;
-            [self.tableView reloadData];
-        }
-    }];*/
-    
     [task resume];
-    /*
-    NSURLSessionTask* task1 = [[[client getMe] getFolders] execute:^(id a, NSURLResponse *r, NSError *e) {
-        if(e != nil){
-           // self.Messages = (NSArray<Message>*)a;
-            [self.tableView reloadData];
-        }
-    }];
-    
-    [task1 resume];
-    
-    NSURLSessionTask* task2 = [[[[client getMe] getFolders] getById:@"Inbox"] execute:^(id a, NSURLResponse *r, NSError *e) {
-        if(e != nil){
-            // self.Messages = (NSArray<Message>*)a;
-            [self.tableView reloadData];
-        }
-    }];
-    
-    [task2 resume];
-    
-    [[[[[[client getMe] getFolders] getById:@"Inbox"] getMessages] execute:^(id messages, NSURLResponse * r, NSError * e) {
-        
-        if(e != nil){
-             self.Messages = (NSArray<Message>*)messages;
-               [self.tableView reloadData];
-        }
-    }] resume];
-     */
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

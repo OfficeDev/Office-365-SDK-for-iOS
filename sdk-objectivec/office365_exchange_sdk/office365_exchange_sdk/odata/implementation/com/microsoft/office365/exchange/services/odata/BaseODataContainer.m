@@ -29,21 +29,11 @@
     
     [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.url, path]];
     [request setContent:content];
-    [request addHeader:@"Content-Type" :@"application/json"];
-    //@"" forHTTPHeaderField: @"Expect"];
-  //  [request addHeader:@"Expect" :@"100-continue"];
-    [[[[self getResolver] getCredentialsFactory]getCredentials]prepareRequest:request];
-    //[[[self getResolver] getLogger]log:[[NSString alloc] initWithFormat:@"URL: %@", request.getUrl] : VERBOSE];
-    //[[[self getResolver] getLogger]log:@"HEADERS : " : VERBOSE];
+    [request addHeader:@"Content-Type" :@"application/json"];    [[[[self getResolver] getCredentialsFactory]getCredentials]prepareRequest:request];
     return [httpTransport execute:request :^(Response *r, NSError *e) {
         callback(r,e);
     }];
-    
-   // return [httpTransport execute:request :^(Response *response, NSURLResponse *r, NSError *error) {
-    //    callback(response, r, error);
-    //}];
 }
-
 
 -(DependencyResolver*) getResolver{
     return self.resolver;
