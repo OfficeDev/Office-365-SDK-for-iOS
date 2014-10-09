@@ -1,10 +1,8 @@
-//
-//  MessageTableViewController.h
-//  simple-exchange-app
-//
-//  Created by Gustavo on 8/21/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 

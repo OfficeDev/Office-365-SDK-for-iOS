@@ -19,7 +19,7 @@
 @synthesize UrlComponent;
 
 -(id)initWith : (NSString *)urlComponent : (id<ODataExecutable>) parent : (Class) clazz : (Class) operationClazz {
-    self.UrlComponent = urlComponent;
+    self.UrlComponent = [[NSString alloc] initWithFormat:@"%@/%@", parent.UrlComponent , urlComponent];
     self.Parent = parent;
     self.clazz = clazz;
    // self.operations = [[operationClazz alloc] initOperationWith:@"" : self];

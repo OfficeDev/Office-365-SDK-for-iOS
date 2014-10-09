@@ -8,6 +8,7 @@
 
 @interface ODataEntityFetcher : NSObject<ODataExecutable>
 
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 -(id)initWith : (NSString *)urlComponent : (id<ODataExecutable>) parent : (Class) clazz : (Class) operationClazz;
 
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(id, NSError *))callback;

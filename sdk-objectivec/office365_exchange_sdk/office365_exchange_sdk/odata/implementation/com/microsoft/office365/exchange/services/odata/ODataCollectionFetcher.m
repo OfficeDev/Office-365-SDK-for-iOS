@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "ODataCollectionFetcher.h"
-#import "Message.h"
+
 @interface ODataCollectionFetcher()
 
 @property NSString* filter;
@@ -14,7 +14,7 @@
 @property int skip;
 @property NSString* expand;
 @property NSString* selectedId;
-@property Class clazz;
+@property Class entityClass;
 @property id operations;
 
 @end
@@ -28,7 +28,7 @@
 
     self.urlComponent = urlComponent;
     self.parent = parent;
-    self.clazz = clazz;
+    self.entityClass = clazz;
     [self reset];
    // self.operations = [[operationClazz alloc] initWith:@"" : self];
 
@@ -97,12 +97,12 @@
     return [self.Parent getResolver];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(id, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
     
     return [self.Parent oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> d, NSError *e) {
 
-        id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : [Message class]];
-        callback(result,nil, e);
+        id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : self.entityClass];
+        callback(result, e);
     }];
 }
 

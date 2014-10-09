@@ -4,7 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "EntityContainerClient.h"
 #import "BaseODataContainer.h"
 #import "UserFetcher.h"
 

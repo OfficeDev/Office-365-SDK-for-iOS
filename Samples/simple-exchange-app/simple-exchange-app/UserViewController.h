@@ -6,10 +6,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface UserViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *lblDisplayName;
+@property (weak, nonatomic) IBOutlet UILabel *lblAlias;
+@property (weak, nonatomic) IBOutlet UILabel *lblMailBoxId;
 
 @end
-

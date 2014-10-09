@@ -7,6 +7,7 @@
 #import "FolderOperations.h"
 #import "FolderCollectionFetcher.h"
 #import "MessageCollectionFetcher.h"
+#import "MessageCollectionOperations.h"
 
 @interface FolderFetcher : ODataEntityFetcher
 
@@ -15,4 +16,5 @@
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 -(FolderCollectionFetcher*) getChildFolders;
 -(MessageCollectionFetcher*) getMessages;
+-(NSURLSessionDataTask *)execute:(void (^)(Folder *folder, NSError *error))callback;
 @end

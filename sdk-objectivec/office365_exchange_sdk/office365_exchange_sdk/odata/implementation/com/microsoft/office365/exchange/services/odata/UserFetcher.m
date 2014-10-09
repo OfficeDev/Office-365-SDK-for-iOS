@@ -3,11 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "UserFetcher.h"
 #import "MessageCollectionOperations.h"
-
+#import "FolderCollectionOperations.h"
 @implementation UserFetcher
 
+@synthesize UrlComponent;
+@synthesize Parent;
 
 -(UserOperations*) getOperations{
     return (UserOperations*)[super getOperations];
@@ -17,11 +20,13 @@
     
     self.Parent = parent;
     self.UrlComponent = urlComponent;
-    return [super initWith:urlComponent :parent :[super.class classForClassName:@"User"] :[UserOperations class]];
+    return [super initWith:urlComponent :parent : [User class] :[UserOperations class]];
 }
 
 -(FolderCollectionFetcher*) getFolders{
-    return[[FolderCollectionFetcher alloc] initWith:@"Folders" :self :[super.class classForClassName:@"Folder"]   :[super.class classForClassName:@"FolderCollectionOperaoperationClasstions"]];
+    NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Folders" ];
+    return[[FolderCollectionFetcher alloc] initWith:path :self :[Folder class]
+                                                   :[FolderCollectionOperations class]];
 }
 
 
@@ -41,6 +46,10 @@
     return [super execute:^(id entity, NSError *error) {
         callback(entity, error);
     }];
+}
+
+-(FolderFetcher *)getRootFolder{
+    return [[FolderFetcher alloc] initWith:@"RootFolder" :self];
 }
 /*
 -(FolderFetcher) getRootFolder{

@@ -10,8 +10,8 @@
 
 @interface ODataCollectionFetcher : NSObject<ODataExecutable>
 
--(NSURLSessionDataTask *)execute:(void (^)(id, NSURLResponse *, NSError *))callback;
 
+-(NSURLSessionDataTask *)execute:(void (^)(id entity, NSError *error))callback;
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz;
 -(ODataCollectionFetcher*)select : (NSString*) params;
 -(ODataCollectionFetcher*)filter : (NSString*) params;

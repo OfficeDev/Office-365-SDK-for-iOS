@@ -4,27 +4,26 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
-#import "MessageTableViewController.h"
+#import "FolderTableViewController.h"
 #import "BaseController.h"
 #import <office365_exchange_sdk/Recipient.h>
 #import <office365_exchange_sdk/EmailAddress.h>
 #import <office365_exchange_sdk/User.h>
 #import <office365_exchange_sdk/Folder.h>
 
-@interface MessageTableViewController ()
+@interface FolderTableViewController()
 
-@property NSArray *Messages;
+@property NSArray *Folders;
 
 @end
 
-@implementation MessageTableViewController
+@implementation FolderTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     
-        if (self) {
+    if (self) {
         // Custom initialization
     }
     return self;
@@ -33,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getMessagesFromInbox];
+    [self getFolders];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,49 +43,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.Messages.count;
+    return self.Folders.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FolderCell" forIndexPath:indexPath];
     
-    Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
+    Folder *folder = (Folder*)[self.Folders objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.Sender.EmailAddress.Name, message.Subject];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@" ,folder.DisplayName];
     
     return cell;
 }
 
--(void)getMessagesFromInbox{
- 
-    EntityContainerClient* client = [[BaseController alloc] getClient];
-   
-    /*NSURLSessionTask* task = [[client getMe] execute:^(User *user, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(),
-                       ^{
-                           self.Messages = [[NSArray alloc] initWithObjects:user, nil];
-                           [self.tableView reloadData];
-                       });
-    }];*/
-    //[[client getMe] :^(id folders, NSURLResponse *r, NSError *e) {
-        /*if(e == nil){
-            self.Messages = [[NSArray alloc] initWithObjects:folders, nil];// (NSArray<User>*)folders;
-            [self.tableView reloadData];
-        }
-    }];*/
+-(void)getFolders{
     
-    NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<Message> *messages, NSError *error) {
+    EntityContainerClient* client = [[BaseController alloc] getClient];
+    
+    NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<Folder> *folders, NSError *error) {
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               self.Messages = messages;
+                               self.Folders = folders;
                                [self.tableView reloadData];
                            });
         }
     }];
-
+    
     [task resume];
 }
 

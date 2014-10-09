@@ -15,6 +15,6 @@
 -(UserOperations*) getOperations;
 -(FolderCollectionFetcher*) getFolders;
 -(MessageCollectionFetcher*) getMessages;
-//-(FolderFetcher*) getRootFolder;
+-(FolderFetcher*) getRootFolder;
 -(NSURLSessionDataTask *)execute:(void (^)(User* user, NSError *error))callback;
 @end

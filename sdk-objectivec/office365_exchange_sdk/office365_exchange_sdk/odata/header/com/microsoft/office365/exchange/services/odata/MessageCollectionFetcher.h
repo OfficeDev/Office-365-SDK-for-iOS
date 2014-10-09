@@ -3,10 +3,13 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "ODataCollectionFetcher.h"
+#import "Message.h"
 
 @interface MessageCollectionFetcher : ODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
+-(NSURLSessionDataTask *)execute:(void (^)(NSArray<Message> *messages, NSError *error))callback;
 
 @end

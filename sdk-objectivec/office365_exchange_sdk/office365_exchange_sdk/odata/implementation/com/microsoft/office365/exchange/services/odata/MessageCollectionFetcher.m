@@ -18,4 +18,9 @@
     return [super initWith:urlComponent :parent :clazz :operationClazz];
 }
 
+-(NSURLSessionDataTask *)execute:(void (^)(NSArray<Message> *messages, NSError *error))callback{
+    return [super execute:^(id entity, NSError *error) {
+        callback(entity, error);
+    }];
+}
 @end

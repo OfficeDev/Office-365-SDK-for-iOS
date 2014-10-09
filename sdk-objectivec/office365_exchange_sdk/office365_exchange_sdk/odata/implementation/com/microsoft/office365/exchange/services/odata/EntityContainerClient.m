@@ -5,8 +5,6 @@
  ******************************************************************************/
 
 #import "EntityContainerClient.h"
-#import "User.h"
-#import "UserCollectionOperations.h"
 
 @implementation EntityContainerClient
 
@@ -15,8 +13,7 @@
 }
 	
 -(UserFetcher*) getMe{
-    UserFetcher* fetcher = [[UserFetcher alloc] initWith:@"Me" :self :[User class] :[UserOperations class]];
-	return fetcher;
+    return [[UserFetcher alloc] initWith:@"Me" :self];
 }
 
 @end
