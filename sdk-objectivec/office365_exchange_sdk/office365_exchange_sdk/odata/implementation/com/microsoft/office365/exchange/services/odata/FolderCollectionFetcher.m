@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "FolderCollectionFetcher.h"
+#import "FolderCollectionOperations.h"
 
 @implementation FolderCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
-
-    return [super initWith:urlComponent :parent :clazz :operationClazz];
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
+    return [super initWith:urlComponent :parent :[Folder class] :[FolderCollectionOperations class]];
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(NSArray<Folder> * folder, NSError *error))callback{

@@ -25,16 +25,14 @@
 
 -(FolderCollectionFetcher*) getFolders{
     NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Folders" ];
-    return[[FolderCollectionFetcher alloc] initWith:path :self :[Folder class]
-                                                   :[FolderCollectionOperations class]];
+    return[[FolderCollectionFetcher alloc] initWith:path :self];
 }
 
 
 -(MessageCollectionFetcher*) getMessages{
     NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Messages" ];
-    Class entityClass = [Message class];
-    Class operationClass = [MessageCollectionOperations class];
-    return [[MessageCollectionFetcher alloc] initWith:path :self : entityClass :operationClass];
+    
+    return [[MessageCollectionFetcher alloc] initWith:path :self];
 }
 
 -(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{

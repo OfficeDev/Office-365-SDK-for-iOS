@@ -8,14 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MessageCollectionFetcher.h"
+#import "MessageCollectionOperations.h"
 
 @implementation MessageCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
-    return self;
-}
--(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
-    return [super initWith:urlComponent :parent :clazz :operationClazz];
+    return [super initWith:urlComponent :parent :[Message class] :[MessageCollectionOperations class]];
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(NSArray<Message> *messages, NSError *error))callback{
