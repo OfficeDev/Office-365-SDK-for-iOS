@@ -8,12 +8,13 @@
 #import "FolderCollectionFetcher.h"
 #import "MessageCollectionFetcher.h"
 #import "FolderFetcher.h"
+#import "User.h"
+
 @interface UserFetcher : ODataEntityFetcher
 
 -(UserOperations*) getOperations;
-
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 -(FolderCollectionFetcher*) getFolders;
 -(MessageCollectionFetcher*) getMessages;
--(FolderFetcher*) getRootFolder;
+//-(FolderFetcher*) getRootFolder;
+-(NSURLSessionDataTask *)execute:(void (^)(User* user, NSError *error))callback;
 @end

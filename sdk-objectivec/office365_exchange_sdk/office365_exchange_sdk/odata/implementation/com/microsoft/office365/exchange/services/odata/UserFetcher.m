@@ -13,10 +13,10 @@
     return (UserOperations*)[super getOperations];
 }
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
     
-    self.parent = parent;
-    self.urlComponent = urlComponent;
+    self.Parent = parent;
+    self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent :[super.class classForClassName:@"User"] :[UserOperations class]];
 }
 
@@ -26,7 +26,7 @@
 
 
 -(MessageCollectionFetcher*) getMessages{
-    NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.urlComponent, @"Messages" ];
+    NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Messages" ];
     Class entityClass = [Message class];
     Class operationClass = [MessageCollectionOperations class];
     return [[MessageCollectionFetcher alloc] initWith:path :self : entityClass :operationClass];
@@ -34,7 +34,13 @@
 
 -(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
-   return [self.parent oDataExecute:path :content :verb :callback];
+   return [self.Parent oDataExecute:path :content :verb :callback];
+}
+
+-(NSURLSessionDataTask *)execute:(void (^)(User *user, NSError *error))callback{
+    return [super execute:^(id entity, NSError *error) {
+        callback(entity, error);
+    }];
 }
 /*
 -(FolderFetcher) getRootFolder{

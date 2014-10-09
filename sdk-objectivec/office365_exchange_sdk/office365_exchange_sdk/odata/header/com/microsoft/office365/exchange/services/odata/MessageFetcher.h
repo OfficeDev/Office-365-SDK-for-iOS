@@ -10,5 +10,4 @@
 
 -(MessageOperations*) getOperations;
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 @end

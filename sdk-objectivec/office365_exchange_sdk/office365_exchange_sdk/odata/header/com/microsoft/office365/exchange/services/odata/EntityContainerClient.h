@@ -10,8 +10,9 @@
 
 @interface EntityContainerClient : BaseODataContainer
 
--(id)initWit : (NSString*)url : (id<MSODependencyResolver>) resolver;
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver;
 
 	
 -(UserFetcher*) getMe;
+
 @end

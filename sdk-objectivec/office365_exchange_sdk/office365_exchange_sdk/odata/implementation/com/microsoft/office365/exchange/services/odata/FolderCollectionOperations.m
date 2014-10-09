@@ -7,7 +7,8 @@
 
 @implementation FolderCollectionOperations
 
+/*
 -(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
     return [super initOperationWith:urlComponent :parent];
-}		
+}	*/
 @end

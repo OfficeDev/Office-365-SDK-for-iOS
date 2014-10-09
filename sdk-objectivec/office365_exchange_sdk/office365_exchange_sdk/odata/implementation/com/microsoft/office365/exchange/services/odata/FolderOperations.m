@@ -7,8 +7,8 @@
 
 @implementation FolderOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    return [super initOperationWith:urlComponent :parent];
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
+    return [super initOperationWithUrl:urlComponent Parent:parent];
 }
 
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback{

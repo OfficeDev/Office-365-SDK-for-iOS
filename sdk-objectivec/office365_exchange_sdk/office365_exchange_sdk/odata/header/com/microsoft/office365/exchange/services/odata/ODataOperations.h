@@ -7,8 +7,8 @@
 #import <office365_odata_interfaces/MSODependencyResolver.h>
 #import "ODataExecutable.h"
 
-@interface ODataOperations : ODataExecutable
+@interface ODataOperations : NSObject<ODataExecutable>
 
--(id)initOperationWith : (NSString*) urlComponent : (ODataExecutable*) parent;
+-(id)initOperationWithUrl : (NSString*) urlComponent Parent: (id<ODataExecutable>) parent;
 
 @end

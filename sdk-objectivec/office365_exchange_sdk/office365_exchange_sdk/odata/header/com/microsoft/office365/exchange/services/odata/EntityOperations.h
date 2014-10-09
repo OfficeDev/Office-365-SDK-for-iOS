@@ -8,6 +8,6 @@
 
 @interface EntityOperations : ODataOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 
 @end

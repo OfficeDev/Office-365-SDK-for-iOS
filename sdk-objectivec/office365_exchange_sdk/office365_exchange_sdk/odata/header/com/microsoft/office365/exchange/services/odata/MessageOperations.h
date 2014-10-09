@@ -15,7 +15,7 @@
 
 @interface MessageOperations : ODataOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Message *message, NSError *error))callback;			
 -(NSURLSessionDataTask*)move : (NSString *) DestinationId : (void (^)(Message *message, NSError *error))callback;			
 -(NSURLSessionDataTask*)createReply : (void (^)(Message *message, NSError *error))callback;			

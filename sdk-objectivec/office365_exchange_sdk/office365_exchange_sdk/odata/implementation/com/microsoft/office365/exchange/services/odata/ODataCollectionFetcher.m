@@ -13,16 +13,18 @@
 @property int top;
 @property int skip;
 @property NSString* expand;
-@property ODataExecutable* parent;
 @property NSString* selectedId;
-@property NSString* urlComponent;
 @property Class clazz;
 @property id operations;
+
 @end
 
 @implementation ODataCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent :(Class)clazz :(Class)operationClazz{
+@synthesize Parent;
+@synthesize UrlComponent;
+
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
 
     self.urlComponent = urlComponent;
     self.parent = parent;
@@ -81,30 +83,30 @@
         if([query  isEqual: @"?"]){
             query = nil;
         }
-        NSString* url = query == nil ? self.urlComponent : [[NSString alloc] initWithFormat:@"%@%@", self.urlComponent, query] ;
+        NSString* url = query == nil ? self.UrlComponent : [[NSString alloc] initWithFormat:@"%@%@", self.UrlComponent, query] ;
         
-        return [self.parent oDataExecute:url:content :verb :callback];
+        return [self.Parent oDataExecute:url:content :verb :callback];
     }
     else {
-        NSString* url = [[NSString alloc] initWithFormat:@"%@('%@')/%@", self.urlComponent, self.selectedId,path];
-        return [self.parent oDataExecute:url :content :verb :callback];
+        NSString* url = [[NSString alloc] initWithFormat:@"%@('%@')/%@", self.UrlComponent, self.selectedId,path];
+        return [self.Parent oDataExecute:url :content :verb :callback];
     }
 }
 
 -(id<MSODependencyResolver>)getResolver{
-    return [self.parent getResolver];
+    return [self.Parent getResolver];
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSURLResponse *, NSError *))callback{
     
-    return [self.parent oDataExecute:self.urlComponent :nil :GET :^(id<MSOResponse> d, NSError *e) {
+    return [self.Parent oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> d, NSError *e) {
 
         id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : [Message class]];
         callback(result,nil, e);
     }];
 }
 
--(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSError *))callback{
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     

@@ -15,7 +15,6 @@
 
 @interface UserOperations : ODataOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 -(NSURLSessionDataTask*)sendMail : (Message *) Message : (bool ) SaveToSentItems : (void (^)(int returnValue, NSError *error))callback;			
 -(NSURLSessionDataTask*)calendarView : (NSDate *) StartDate : (NSDate *) EndDate : (void (^)(Event *event, NSError *error))callback;			
 

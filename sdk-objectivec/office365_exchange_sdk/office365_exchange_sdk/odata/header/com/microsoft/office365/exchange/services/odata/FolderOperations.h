@@ -10,7 +10,6 @@
 
 @interface FolderOperations : ODataOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
 -(NSURLSessionDataTask*)copy : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback;			
 -(NSURLSessionDataTask*)move : (NSString *) DestinationId : (void (^)(Folder *folder, NSError *error))callback;			
 

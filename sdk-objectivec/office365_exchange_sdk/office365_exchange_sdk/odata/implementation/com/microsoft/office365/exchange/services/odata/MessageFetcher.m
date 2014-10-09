@@ -11,8 +11,8 @@
     return (MessageOperations*)[super getOperations];
 }
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
+
     return [super initWith:urlComponent :parent :[super.class classForClassName:@"Message"] :[MessageOperations class]];
 }
 //-(AttachmentCollectionFetcher*) getAttachments{

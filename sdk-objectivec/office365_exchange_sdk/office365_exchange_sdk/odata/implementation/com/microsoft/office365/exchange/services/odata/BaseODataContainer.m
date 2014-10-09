@@ -15,7 +15,7 @@
 
 @implementation BaseODataContainer
 
--(id)initWith : (NSString*)url : (id<MSODependencyResolver>) resolver{
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver{
     self.url = url;
     self.resolver = resolver;
     

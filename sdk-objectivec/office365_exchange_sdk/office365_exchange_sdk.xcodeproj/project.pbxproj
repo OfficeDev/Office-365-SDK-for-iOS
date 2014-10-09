@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC0ED17B19DF3A4600F793B0 /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0ED17A19DF3A4600F793B0 /* liboffice365_odata_interfaces.a */; };
-		EC28337519E4866F00E5FEA4 /* ODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337419E4866F00E5FEA4 /* ODataExecutable.m */; };
 		EC28337719E4875800E5FEA4 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337619E4875800E5FEA4 /* Event.m */; };
 		EC28338E19E488C800E5FEA4 /* Attachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337819E488C800E5FEA4 /* Attachment.m */; };
 		EC28338F19E488C800E5FEA4 /* Attendee.m in Sources */ = {isa = PBXBuildFile; fileRef = EC28337919E488C800E5FEA4 /* Attendee.m */; };
@@ -190,7 +189,6 @@
 
 /* Begin PBXFileReference section */
 		EC0ED17A19DF3A4600F793B0 /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
-		EC28337419E4866F00E5FEA4 /* ODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODataExecutable.m; sourceTree = "<group>"; };
 		EC28337619E4875800E5FEA4 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		EC28337819E488C800E5FEA4 /* Attachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachment.m; sourceTree = "<group>"; };
 		EC28337919E488C800E5FEA4 /* Attendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendee.m; sourceTree = "<group>"; };
@@ -625,7 +623,6 @@
 				ECCC3EF919E453A700768B43 /* MessageOperations.m */,
 				ECCC3EFA19E453A700768B43 /* ODataCollectionFetcher.m */,
 				ECCC3EFB19E453A700768B43 /* ODataEntityFetcher.m */,
-				EC28337419E4866F00E5FEA4 /* ODataExecutable.m */,
 				ECCC3EFC19E453A700768B43 /* ODataOperations.m */,
 				ECCC3EFD19E453A700768B43 /* UserCollectionOperations.m */,
 				ECCC3EFE19E453A700768B43 /* UserFetcher.m */,
@@ -765,7 +762,6 @@
 				EC28339B19E488C800E5FEA4 /* Location.m in Sources */,
 				EC2833A519E48BA800E5FEA4 /* FolderCollectionFetcher.m in Sources */,
 				EC28339E19E488C800E5FEA4 /* PhysicalAddress.m in Sources */,
-				EC28337519E4866F00E5FEA4 /* ODataExecutable.m in Sources */,
 				EC2833A119E488C800E5FEA4 /* RecurrenceRange.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

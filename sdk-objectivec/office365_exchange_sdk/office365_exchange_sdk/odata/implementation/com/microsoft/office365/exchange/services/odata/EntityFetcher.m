@@ -11,7 +11,7 @@
     return (EntityOperations*)[super getOperations];
 }
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
     
     return [super initWith:urlComponent :parent :[super.class classForClassName:@"Entity"] :[EntityOperations class]];
 }

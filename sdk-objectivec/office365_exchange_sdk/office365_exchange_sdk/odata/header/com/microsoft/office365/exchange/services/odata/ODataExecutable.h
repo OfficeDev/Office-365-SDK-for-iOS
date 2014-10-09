@@ -3,17 +3,19 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import <office365_odata_interfaces/MSODependencyResolver.h>
 #import <Foundation/Foundation.h>
 
-@interface ODataExecutable : NSObject
+@protocol ODataExecutable
 
-@property ODataExecutable* parent;
-@property NSString* urlComponent;
-//- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (HttpVerb)verb :(void (^)(NSData *data, NSURLResponse *response, NSError *error))callback;
-
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb : (void (^)(id<MSOResponse>, NSError *))callback;
+@required
+@property NSString* UrlComponent;
+@property id<ODataExecutable> Parent;
 
 -(id<MSODependencyResolver>) getResolver;
+
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb
+                                     : (void (^)(id<MSOResponse>, NSError *))callback;
 
 @end

@@ -7,6 +7,6 @@
 
 @interface MessageCollectionFetcher : ODataCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 
 @end

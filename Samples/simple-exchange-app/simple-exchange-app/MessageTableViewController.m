@@ -14,6 +14,9 @@
 #import <office365_exchange_sdk/Recipient.h>
 #import <office365_exchange_sdk/EmailAddress.h>
 
+#import <office365_exchange_sdk/User.h>
+#import <office365_exchange_sdk/Folder.h>
+
 @interface MessageTableViewController ()
 
 @property NSString *Token;
@@ -57,7 +60,7 @@
     
     Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Sender.EmailAddress.Name, message.Subject];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@",message.Subject,message.Sender.EmailAddress.Name, message.Subject];
     
     return cell;
 }
@@ -69,15 +72,33 @@
     [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
     
     MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
+    
     [credentialsImpl setCredentials:credentials];
     [resolver setCredentialsFactory:credentialsImpl];
     
-    EntityContainerClient* client = [[EntityContainerClient alloc] initWit:@"https://sdfpilot.outlook.com/ews/odata" : resolver];
+    EntityContainerClient* client = [[EntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver];
+    
+    /*NSURLSessionTask* task = [[client getMe] execute:^(User *user, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           self.Messages = [[NSArray alloc] initWithObjects:user, nil];
+                           [self.tableView reloadData];
+                       });
+    }];*/
+    //[[client getMe] :^(id folders, NSURLResponse *r, NSError *e) {
+        /*if(e == nil){
+            self.Messages = [[NSArray alloc] initWithObjects:folders, nil];// (NSArray<User>*)folders;
+            [self.tableView reloadData];
+        }
+    }];*/
     
     NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(id messages, NSURLResponse *r, NSError *e) {
         if(e == nil){
-            self.Messages = (NSArray<Message>*)messages;
-            [self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.Messages = (NSArray<Message>*)messages;
+                               [self.tableView reloadData];
+                            });
         }
     }];
     

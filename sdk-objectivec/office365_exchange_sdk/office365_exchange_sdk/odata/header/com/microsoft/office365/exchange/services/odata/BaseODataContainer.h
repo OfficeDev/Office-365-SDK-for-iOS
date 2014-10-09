@@ -7,8 +7,8 @@
 #import <Foundation/Foundation.h>
 #import "ODataExecutable.h"
 
-@interface BaseODataContainer : ODataExecutable
+@interface BaseODataContainer : NSObject<ODataExecutable>
 
--(id)initWith : (NSString *)url : (id<MSODependencyResolver>) resolver;
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver;
 
 @end

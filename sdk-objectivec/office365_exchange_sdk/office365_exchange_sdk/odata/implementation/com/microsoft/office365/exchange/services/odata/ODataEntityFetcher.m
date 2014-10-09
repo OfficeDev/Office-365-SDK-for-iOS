@@ -8,8 +8,6 @@
 
 @interface ODataEntityFetcher()
 
-@property NSString* urlComponent;
-@property ODataExecutable* parent;
 @property Class clazz;
 @property ODataOperations* operations;
 
@@ -17,9 +15,12 @@
 
 @implementation ODataEntityFetcher
 
--(id)initWith : (NSString *)urlComponent : (ODataExecutable*) parent : (Class) clazz : (Class) operationClazz {
-    self.urlComponent = urlComponent;
-    self.parent = parent;
+@synthesize Parent;
+@synthesize UrlComponent;
+
+-(id)initWith : (NSString *)urlComponent : (id<ODataExecutable>) parent : (Class) clazz : (Class) operationClazz {
+    self.UrlComponent = urlComponent;
+    self.Parent = parent;
     self.clazz = clazz;
    // self.operations = [[operationClazz alloc] initOperationWith:@"" : self];
     
@@ -27,7 +28,7 @@
 }
 
 -(id<MSODependencyResolver>) getResolver{
-    return [self.parent getResolver];
+    return [self.Parent getResolver];
 }
 
 -(id)getOperations{
@@ -37,8 +38,8 @@
 -(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb callback:(void (^)(id<MSOResponse>, NSError *))callback{
     NSMutableString* url = [[NSMutableString alloc] initWithString:@""];
     
-    if([self.urlComponent length] > 0){
-        [url appendString:self.urlComponent];
+    if([self.UrlComponent length] > 0){
+        [url appendString:self.UrlComponent];
     }
     
     if([path length]>0){
@@ -46,34 +47,34 @@
         [url appendString:path];
     }
     
-    return [self.parent oDataExecute:url :content :verb :^(id<MSOResponse> r, NSError *e) {
+    return [self.Parent oDataExecute:url :content :verb :^(id<MSOResponse> r, NSError *e) {
         callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
     return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH callback:^(id<MSOResponse> r, NSError *e) {
-        callback(updatedEntity,nil, e);
+        callback(updatedEntity, e);
     }];
 }
 
--(NSURLSessionDataTask*) delete : (void (^)(id, NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*) delete : (void (^)(id,NSError *))callback{
     return [self oDataExecute:@"" :nil :DELETE callback:^(id<MSOResponse> r, NSError *e) {
-        callback(nil,nil, e);
+        callback(r, e);
     }];
 }
 
--(NSURLSessionDataTask*) execute:(void (^)(id , NSURLResponse *, NSError *))callback{
+-(NSURLSessionDataTask*) execute:(void (^)(id , NSError *))callback{
 
     return [self oDataExecute:@"" :nil :GET callback:^(id<MSOResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.clazz];
             
-            callback(entity, nil, e);
+            callback(entity, e);
         }
-        else callback(nil, nil, e);
+        else callback(nil, e);
     }];
 }
 

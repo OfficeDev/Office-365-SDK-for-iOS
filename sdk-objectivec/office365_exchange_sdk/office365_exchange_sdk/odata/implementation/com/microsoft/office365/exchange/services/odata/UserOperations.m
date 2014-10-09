@@ -8,8 +8,8 @@
 
 @implementation UserOperations
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent{
-    return [super initOperationWith:urlComponent :parent];
+-(id)initOperationWithUrl:(NSString *)urlComponent Parent:(id<ODataExecutable>)parent{
+    return [super initOperationWithUrl:urlComponent Parent:parent];
 }
 
 -(NSURLSessionDataTask*)sendMail : (Message *) Message : (bool ) SaveToSentItems : (void (^)(int returnValue, NSError *error))callback{

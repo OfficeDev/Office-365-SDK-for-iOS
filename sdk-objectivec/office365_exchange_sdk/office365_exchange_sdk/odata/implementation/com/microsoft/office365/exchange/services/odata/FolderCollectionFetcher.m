@@ -11,7 +11,7 @@
 
 @implementation FolderCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent :(Class)clazz :(Class)operationClazz{
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
 
     return [super initWith:urlComponent :parent :clazz :operationClazz];
 }

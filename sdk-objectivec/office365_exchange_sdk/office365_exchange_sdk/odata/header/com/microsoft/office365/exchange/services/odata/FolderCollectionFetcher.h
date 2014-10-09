@@ -6,6 +6,6 @@
 #import "ODataCollectionFetcher.h"
 @interface FolderCollectionFetcher : ODataCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(ODataExecutable *)parent;
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 
 @end
