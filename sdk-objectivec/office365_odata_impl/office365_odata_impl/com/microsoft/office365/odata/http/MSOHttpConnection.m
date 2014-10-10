@@ -17,8 +17,19 @@
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:r completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        MSOResponseImpl* responseImpl = [[MSOResponseImpl alloc] initWith:data :0];
-        callback(responseImpl, error);
+        long statusCode = [(NSHTTPURLResponse*)response statusCode];
+        
+        if(statusCode != 200 && statusCode != 201 && statusCode != 202){
+            if(error == nil){
+                NSArray * msj = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
+                error = [[NSError alloc] initWithDomain:@"Error in the Request" code:statusCode userInfo:msj];
+            }
+            
+            callback(nil, error);
+        }else{
+            MSOResponseImpl* responseImpl = [[MSOResponseImpl alloc] initWith:data :0];
+            callback(responseImpl, error);
+        }
     }];
     
     return task;

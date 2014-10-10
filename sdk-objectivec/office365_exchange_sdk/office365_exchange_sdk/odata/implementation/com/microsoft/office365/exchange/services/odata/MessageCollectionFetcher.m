@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "MessageCollectionFetcher.h"
 #import "MessageCollectionOperations.h"
+#import "MessageFetcher.h"
 
 @implementation MessageCollectionFetcher
 
+@synthesize Parent;
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
+    self.Parent = parent;
     return [super initWith:urlComponent :parent :[Message class] :[MessageCollectionOperations class]];
 }
 
@@ -21,4 +24,16 @@
         callback(entity, error);
     }];
 }
+
+-(MessageFetcher*)getById:(NSString *)Id{
+    [super getById:Id];
+    return [[MessageFetcher alloc] initWith:@"" : self :[Message class] :[MessageOperations class]];
+}
+
+-(NSURLSessionDataTask *)add:(Message* )entity :(void (^)(Message*, NSError *e))callback{
+    return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
+    }];
+}
+
 @end

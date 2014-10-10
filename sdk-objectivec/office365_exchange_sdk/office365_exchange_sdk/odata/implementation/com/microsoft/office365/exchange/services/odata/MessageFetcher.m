@@ -7,13 +7,14 @@
 
 @implementation MessageFetcher
 
+@synthesize Parent;
 -(MessageOperations*) getOperations{
-    return (MessageOperations*)[super getOperations];
+    return [[MessageOperations alloc] initOperationWithUrl:@"" Parent:self.Parent];//(MessageOperations*)[super getOperations];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent :(Class)clazz :(Class)operationClazz{
-
-    return [super initWith:urlComponent :parent :[super.class classForClassName:@"Message"] :[MessageOperations class]];
+    self.Parent = parent;
+    return [super initWith:urlComponent :parent :[Message class] :[MessageOperations class]];
 }
 //-(AttachmentCollectionFetcher*) getAttachments{
 //    return nil;//[[AttachmentCollectionFetcher alloc] initWith:@"Attachments" :self :[super.class classForClassName:@"Attachment"]  : [AttachmentCollectionOperations class]];

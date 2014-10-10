@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask*)reply : (NSString *) Comment : (void (^)(int returnValue, NSError *error))callback;			
 -(NSURLSessionDataTask*)replyAll : (NSString *) Comment : (void (^)(int returnValue, NSError *error))callback;			
 -(NSURLSessionDataTask*)forward : (NSString *) Comment : (NSMutableArray<Recipient> *) ToRecipients : (void (^)(int returnValue, NSError *error))callback;			
--(NSURLSessionDataTask*)send : (void (^)(int returnValue, NSError *error))callback;			
+-(NSURLSessionDataTask*)sendMail : (void (^)(int returnValue, NSError *error))callback;
+
 
 @end

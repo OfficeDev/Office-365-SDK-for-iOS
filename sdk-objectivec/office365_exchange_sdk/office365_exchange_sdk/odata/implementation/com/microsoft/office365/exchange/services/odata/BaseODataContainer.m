@@ -30,8 +30,8 @@
     id<MSORequest> request = [httpTransport createRequest];
     
     [request setVerb:verb];
-   // [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
-    [request setUrl:path];
+    [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
+    //[request setUrl:path];
     [request setContent:content];
     [request addHeader:@"Content-Type" :@"application/json"];
     

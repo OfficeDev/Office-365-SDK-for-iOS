@@ -110,12 +110,17 @@
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     
-    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] :POST :callback];
+    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] :POST :^(id<MSOResponse> d, NSError *e) {
+        id result = [[[self getResolver]getJsonSerializer] deserialize:[d getData] : self.entityClass];
+        callback(result, e);
+    }];
 }
 
--(id)getById : (NSString*)Id{
+-(ODataEntityFetcher*)getById : (NSString*)Id{
     
-    ODataEntityFetcher* fetcher = nil;
+    self.selectedId = Id;
+    
+    ODataEntityFetcher* fetcher = [[ODataEntityFetcher alloc] initWith:@"" :self :self.entityClass :nil];
     
     return fetcher;
 }

@@ -9,8 +9,7 @@
 #import "BaseController.h"
 #import <office365_exchange_sdk/Recipient.h>
 #import <office365_exchange_sdk/EmailAddress.h>
-#import <office365_exchange_sdk/User.h>
-#import <office365_exchange_sdk/Folder.h>
+#import <office365_exchange_sdk/Message.h>
 
 @interface MessageTableViewController ()
 

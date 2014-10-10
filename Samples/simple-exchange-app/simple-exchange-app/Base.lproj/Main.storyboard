@@ -63,7 +63,7 @@
                     <connections>
                         <segue destination="Z5r-RN-Aqk" kind="relationship" relationship="viewControllers" id="eOV-BN-kyX"/>
                         <segue destination="WIa-6H-AZJ" kind="relationship" relationship="viewControllers" id="eaL-1Z-WT9"/>
-                        <segue destination="kGP-IX-g6e" kind="relationship" relationship="viewControllers" id="yzH-gP-RP1"/>
+                        <segue destination="1sO-zE-I2Q" kind="relationship" relationship="viewControllers" id="Cat-Cm-XKp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-cU-jx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -97,6 +97,23 @@
             </objects>
             <point key="canvasLocation" x="4818" y="1363"/>
         </scene>
+        <!--Messages-->
+        <scene sceneID="cx5-jQ-BJe">
+            <objects>
+                <navigationController id="1sO-zE-I2Q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" id="O9E-Gs-Y6g"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cak-dS-Gop">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="kGP-IX-g6e" kind="relationship" relationship="rootViewController" id="wNc-zG-i2C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LDs-0Q-inm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4403" y="2017"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="5gM-0Y-ypO">
             <objects>
@@ -121,11 +138,74 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Messages" id="FLa-b6-Frd"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="teb-cp-Qa2">
+                            <connections>
+                                <segue destination="Vfu-F6-Wnk" kind="push" id="cKc-88-bRP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4823" y="2017"/>
+        </scene>
+        <!--New Message-->
+        <scene sceneID="pVj-AE-7Uh">
+            <objects>
+                <viewController id="Vfu-F6-Wnk" customClass="SendMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sn1-Ur-zAc"/>
+                        <viewControllerLayoutGuide type="bottom" id="JN4-oy-LcC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wKF-1T-ByY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-Fc-De1">
+                                <rect key="frame" x="16" y="82" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Vfu-F6-Wnk" id="zLl-vZ-WRV"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Myk-JC-uJr">
+                                <rect key="frame" x="16" y="139" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Body Here" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-VS-VQk">
+                                <rect key="frame" x="16" y="184" width="293" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Message" id="MzE-jC-eCG">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="weL-6r-aqx">
+                            <connections>
+                                <segue destination="drE-ck-vA4" kind="unwind" unwindAction="unwindExchangeViews:" id="epT-y3-WA1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="s3u-da-7Ci">
+                            <connections>
+                                <action selector="SendMail:" destination="Vfu-F6-Wnk" id="Jb1-gK-yyg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="txtBody" destination="AfS-VS-VQk" id="KUW-lU-3f1"/>
+                        <outlet property="txtSubject" destination="Myk-JC-uJr" id="x53-6v-FgU"/>
+                        <outlet property="txtTo" destination="ehK-Fc-De1" id="oju-n6-hmr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCf-0t-ruL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="drE-ck-vA4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5209" y="2016"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

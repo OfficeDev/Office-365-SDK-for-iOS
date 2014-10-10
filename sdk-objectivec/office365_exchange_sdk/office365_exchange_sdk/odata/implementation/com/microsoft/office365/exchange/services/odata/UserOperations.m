@@ -19,11 +19,11 @@
         if(error != nil){
            // NSString* entityString = [[NSString alloc] initWithData:[r getContent] encoding:NSUTF8StringEncoding];
     
-            id result = [[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
-            callback(result, error);
+            //id result = [[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(202, error);
         }
         else{
-            callback(nil, error);
+            callback(400, error);
         }
     }];
     

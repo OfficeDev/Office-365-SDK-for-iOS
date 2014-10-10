@@ -22,9 +22,10 @@
 -(void)jsonSerializerImpl{
      self.parser = [JsonParser alloc];
 }
+
 -(NSString*) serialize : (id) objectToSerialize{
     
-    return nil;
+    return [self.parser toJsonString:objectToSerialize];
 }
 
 -(id) deserialize : (NSData*) serializedObject : (Class) clazz {

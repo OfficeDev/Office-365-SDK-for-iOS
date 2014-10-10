@@ -1,4 +1,3 @@
-
 //
 //  JsonParser.m
 //  JsonParser
@@ -68,7 +67,7 @@
                     
                     for (NSDictionary* dicc in array) {
                         [jsonResult appendString:@"{"];
-                        [self getString:dicc :jsonResult];
+                        jsonResult = [self getString:dicc :jsonResult];
                         
                         NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
                         NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
@@ -95,7 +94,8 @@
                     NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
                     jsonResult = result;
                     
-                    [jsonResult appendString:@"},"];
+                    [result appendString:@"},"];
+                    jsonResult = result;
                 }
             }
             
@@ -135,7 +135,7 @@
         parseResult = [self parseArrayData:jsonResult Type:type];
     }
     else{
-        parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
+        parseResult = [self parseObjectData:jsonArray Type:type];
     }
     
     return parseResult;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */; };
 		EC28336219E482E100E5FEA4 /* liboffice365_exchange_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */; };
 		EC28336319E482E100E5FEA4 /* liboffice365_odata_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */; };
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC1DCEAA19E7192800EF2176 /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
+		EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
 		EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_sdk.a; path = "../../sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos/liboffice365_exchange_sdk.a"; sourceTree = "<group>"; };
 		EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_impl.a; path = "../../sdk-objectivec/office365_odata_impl/build/Debug-iphoneos/liboffice365_odata_impl.a"; sourceTree = "<group>"; };
 		EC2833AD19E6D5BA00E5FEA4 /* FolderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderTableViewController.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */,
 				EC2833B319E6D82800E5FEA4 /* BaseController.h */,
 				EC2833B419E6D82800E5FEA4 /* BaseController.m */,
+				EC1DCEAA19E7192800EF2176 /* SendMessageViewController.h */,
+				EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */,
 				ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */,
 				EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */,
 				EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */,

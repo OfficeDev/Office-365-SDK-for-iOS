@@ -11,5 +11,5 @@
 
 -(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent;
 -(NSURLSessionDataTask *)execute:(void (^)(NSArray<Message> *messages, NSError *error))callback;
-
+-(NSURLSessionDataTask *)add:(Message* )entity :(void (^)(Message*, NSError *e))callback;
 @end

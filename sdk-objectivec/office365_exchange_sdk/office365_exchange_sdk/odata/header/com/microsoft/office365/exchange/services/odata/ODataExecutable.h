@@ -15,7 +15,6 @@
 
 -(id<MSODependencyResolver>) getResolver;
 
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb
-                                     : (void (^)(id<MSOResponse>, NSError *))callback;
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb : (void (^)(id<MSOResponse>, NSError *))callback;
 
 @end

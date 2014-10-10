@@ -20,6 +20,6 @@
 -(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback;
 -(id<MSODependencyResolver>)getResolver;
 -(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSError *))callback;
--(id)getById : (NSString*)Id;
+-(ODataEntityFetcher*)getById : (NSString*)Id;
 
 @end

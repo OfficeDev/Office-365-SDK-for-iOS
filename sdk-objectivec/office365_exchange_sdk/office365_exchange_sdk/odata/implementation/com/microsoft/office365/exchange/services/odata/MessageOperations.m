@@ -45,7 +45,22 @@
     }];
     
     return task;
-}			
+}
+
+-(NSURLSessionDataTask*)sendMail : (void (^)(int returnValue, NSError *error))callback{
+    
+    NSURLSessionDataTask* task = [self.Parent oDataExecute:@"Send" :nil :POST :^(id<MSOResponse> r,  NSError *error) {
+        
+        if(error == nil){
+            callback([r getStatus], error);
+        }
+        else{
+            callback(nil, error);
+        }
+    }];
+    
+    return task;
+}
 /*
 -(NSURLSessionDataTask*)createReply : (void (^)(Message *message, NSError *error))callback{
     

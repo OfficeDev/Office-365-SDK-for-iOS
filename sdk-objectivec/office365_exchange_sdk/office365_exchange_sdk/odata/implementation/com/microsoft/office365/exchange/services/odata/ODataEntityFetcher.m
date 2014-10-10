@@ -18,11 +18,15 @@
 @synthesize Parent;
 @synthesize UrlComponent;
 
+-(id)initWith:(NSString *)urlComponent :(id<ODataExecutable>)parent{
+    return nil;
+}
+
 -(id)initWith : (NSString *)urlComponent : (id<ODataExecutable>) parent : (Class) clazz : (Class) operationClazz {
-    self.UrlComponent = [[NSString alloc] initWithFormat:@"%@/%@", parent.UrlComponent , urlComponent];
+    self.UrlComponent = urlComponent;//[[NSString alloc] initWithFormat:@"%@/%@", parent.UrlComponent , urlComponent];
     self.Parent = parent;
     self.clazz = clazz;
-   // self.operations = [[operationClazz alloc] initOperationWith:@"" : self];
+    self.operations = [[ODataOperations alloc] initOperationWithUrl:@"" Parent:parent];//[[operationClazz alloc] initOperationWith:@"" : self];
     
     return self;
 }
@@ -35,7 +39,7 @@
     return self.operations;
 }
 
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb callback:(void (^)(id<MSOResponse>, NSError *))callback{
+-(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     NSMutableString* url = [[NSMutableString alloc] initWithString:@""];
     
     if([self.UrlComponent length] > 0){
@@ -55,20 +59,20 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH callback:^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH : ^(id<MSOResponse> r, NSError *e) {
         callback(updatedEntity, e);
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(id,NSError *))callback{
-    return [self oDataExecute:@"" :nil :DELETE callback:^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:@"" :nil :DELETE :^(id<MSOResponse> r, NSError *e) {
         callback(r, e);
     }];
 }
 
 -(NSURLSessionDataTask*) execute:(void (^)(id , NSError *))callback{
-
-    return [self oDataExecute:@"" :nil :GET callback:^(id<MSOResponse> r, NSError *e) {
+    //return [self oDataExecute:@"" :nil :GET :^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.clazz];
             
