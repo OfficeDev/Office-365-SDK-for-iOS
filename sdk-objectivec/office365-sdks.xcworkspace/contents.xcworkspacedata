@@ -8,9 +8,12 @@
       location = "group:office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:office365_odata_impl/office365_odata_impl.xcodeproj">
+      location = "group:office365_odata_interfaces/office365_odata_interfaces.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:office365_odata_interfaces/office365_odata_interfaces.xcodeproj">
+      location = "group:office365_exchange_helpers/office365_exchange_helpers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:office365_odata_impl/office365_odata_impl.xcodeproj">
    </FileRef>
 </Workspace>

@@ -8,7 +8,7 @@
 
 @implementation BaseController
 
--(EntityContainerClient*)getClient{
+-(MSOEntityContainerClient*)getClient{
     
     MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
     MSOBasicCredentials* credentials = [MSOBasicCredentials alloc];
@@ -19,6 +19,6 @@
     [credentialsImpl setCredentials:credentials];
     [resolver setCredentialsFactory:credentialsImpl];
 
-    return  [[EntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver];
+    return  [[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver];
 }
 @end

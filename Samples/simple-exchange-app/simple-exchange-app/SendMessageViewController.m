@@ -8,12 +8,12 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/Message.h>
-#import <office365_exchange_sdk/Recipient.h>
-#import <office365_exchange_sdk/EmailAddress.h>
-#import <office365_exchange_sdk/ItemBody.h>
-#import <office365_exchange_sdk/MessageOperations.h>
-#import <office365_exchange_sdk/MessageFetcher.h>
+#import <office365_exchange_sdk/MSOMessage.h>
+#import <office365_exchange_sdk/MSORecipient.h>
+#import <office365_exchange_sdk/MSOEmailAddress.h>
+#import <office365_exchange_sdk/MSOItemBody.h>
+#import <office365_exchange_sdk/MSOMessageOperations.h>
+#import <office365_exchange_sdk/MSOMessageFetcher.h>
 
 @interface SendMessageViewController ()
 
@@ -43,42 +43,42 @@
 
 - (IBAction)SendMail:(id)sender{
 
-    EntityContainerClient* client = [[BaseController alloc] getClient];
-    Message *message = [Message alloc];
+    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
+    MSOMessage *message = [MSOMessage alloc];
     
     message.Subject = self.txtSubject.text;
     message.ToRecipients = [self getRecipients:self.txtTo.text];
-    message.Body = [[ItemBody alloc] init];
+    message.Body = [[MSOItemBody alloc] init];
     message.Body.Content = self.txtBody.text;
-    
-    NSURLSessionDataTask* task = [[[client getMe] getMessages] add:message :^(Message* r, NSError *e) {
+    /*
+    NSURLSessionDataTask* task = [[[client getMe] getMessages] add:message :^(MSOMessage* r, NSError *e) {
         if (e == nil) {
-            MessageFetcher* m = [[[client getMe] getMessages] getById:r.Id];
-            MessageOperations* mf = [m getOperations];
+            MSOMessageFetcher* m = [[[client getMe] getMessages] getById:r.Id];
+            MSOMessageOperations* mf = [m getOperations];
             
-           NSURLSessionDataTask* task = [mf sendMail:^(int returnValue, NSError *error) {
+          NSURLSessionDataTask* task = [mf sendMail:^(int returnValue, NSError *error) {
                 UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                 
                 [alert show];
             }];
-            
+        
             [task resume];
             
         }
     }];
-    [task resume];
+    [task resume];*/
 }
 
--(NSMutableArray<Recipient>*)getRecipients : (NSString*)text{
+-(NSMutableArray<MSORecipient>*)getRecipients : (NSString*)text{
     
-    NSMutableArray<Recipient>* result = (NSMutableArray<Recipient>*)[NSMutableArray array];
+    NSMutableArray<MSORecipient>* result = (NSMutableArray<MSORecipient>*)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
     for (NSString* r in recipients) {
         
-        Recipient* recipient = [[Recipient alloc] init];
-        recipient.EmailAddress = [EmailAddress alloc];
+        MSORecipient* recipient = [[MSORecipient alloc] init];
+        recipient.EmailAddress = [MSOEmailAddress alloc];
         recipient.EmailAddress.Address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         [result addObject: recipient];

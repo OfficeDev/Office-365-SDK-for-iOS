@@ -7,9 +7,11 @@
 
 #import "MessageTableViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/Recipient.h>
-#import <office365_exchange_sdk/EmailAddress.h>
-#import <office365_exchange_sdk/Message.h>
+#import <office365_exchange_sdk/MSORecipient.h>
+#import <office365_exchange_sdk/MSOEmailAddress.h>
+#import <office365_exchange_sdk/MSOMessage.h>
+#import <office365_exchange_sdk/MSOUserFetcher.h>
+#import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
 
 @interface MessageTableViewController ()
 
@@ -51,7 +53,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
-    Message *message = (Message*)[self.Messages objectAtIndex:indexPath.row];
+    MSOMessage *message = (MSOMessage*)[self.Messages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.Sender.EmailAddress.Name, message.Subject];
     
@@ -60,7 +62,7 @@
 
 -(void)getMessagesFromInbox{
  
-    EntityContainerClient* client = [[BaseController alloc] getClient];
+    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
    
     /*NSURLSessionTask* task = [[client getMe] execute:^(User *user, NSError *error) {
         dispatch_async(dispatch_get_main_queue(),
@@ -76,7 +78,7 @@
         }
     }];*/
     
-    NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<Message> *messages, NSError *error) {
+    NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
                            ^{

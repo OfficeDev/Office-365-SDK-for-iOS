@@ -34,9 +34,9 @@
 
 -(void)getMessagesFromInbox{
     
-    EntityContainerClient* client = [[BaseController alloc] getClient];
+    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
-    NSURLSessionTask* task = [[client getMe] execute:^(User *user, NSError *error) {
+    NSURLSessionTask* task = [[client getMe] execute:^(MSOUser *user, NSError *error) {
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
                            ^{

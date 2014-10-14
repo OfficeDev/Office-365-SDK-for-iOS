@@ -225,7 +225,14 @@
     
     if([value isKindOfClass:NSNull.class] || value == nil) return;
     
-    [returnType setValue:value forKeyPath:property.Name];
+    @try {
+        
+        [returnType setValue:value forKeyPath:property.Name];
+    }
+    @catch (NSException *exception) {
+    }
+    @finally {
+    }
 }
 
 -(void)setValueForCollection :(Property*)property : (NSDictionary*)data :(id)returnType{

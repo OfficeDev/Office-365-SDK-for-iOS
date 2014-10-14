@@ -6,10 +6,7 @@
 
 #import "FolderTableViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/Recipient.h>
-#import <office365_exchange_sdk/EmailAddress.h>
-#import <office365_exchange_sdk/User.h>
-#import <office365_exchange_sdk/Folder.h>
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface FolderTableViewController()
 
@@ -51,7 +48,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FolderCell" forIndexPath:indexPath];
     
-    Folder *folder = (Folder*)[self.Folders objectAtIndex:indexPath.row];
+    MSOFolder *folder = (MSOFolder*)[self.Folders objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@" ,folder.DisplayName];
     
@@ -60,9 +57,9 @@
 
 -(void)getFolders{
     
-    EntityContainerClient* client = [[BaseController alloc] getClient];
+    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
     
-    NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<Folder> *folders, NSError *error) {
+    NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSOFolder> *folders, NSError *error) {
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
                            ^{

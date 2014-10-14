@@ -5,13 +5,13 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_exchange_sdk/EntityContainerClient.h>
+#import <office365_exchange_sdk/MSOEntityContainerClient.h>
 #import <office365_odata_impl/MSODefaultDependencyResolver.h>
 #import <office365_odata_impl/MSOBasicCredentials.h>
 #import <office365_odata_impl/MSOCredentialsImpl.h>
 
 @interface BaseController : NSObject
 
--(EntityContainerClient*)getClient;
+-(MSOEntityContainerClient*)getClient;
 
 @end

@@ -19,7 +19,7 @@
         
         long statusCode = [(NSHTTPURLResponse*)response statusCode];
         
-        if(statusCode != 200 && statusCode != 201 && statusCode != 202){
+        if(statusCode < 200 || statusCode > 299){
             if(error == nil){
                 NSArray * msj = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
                 error = [[NSError alloc] initWithDomain:@"Error in the Request" code:statusCode userInfo:msj];

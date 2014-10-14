@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MSORecipient.h"
+#import "MSOEmailAddress.h"
+#import "MSOUser.h"
+#import "MSOFolder.h"
+#import "MSOUserFetcher.h"
+#import "MSOFolderCollectionFetcher.h"
 @interface office365_exchange_sdk : NSObject
 
 @end
