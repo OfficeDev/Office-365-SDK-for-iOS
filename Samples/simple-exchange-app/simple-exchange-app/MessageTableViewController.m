@@ -62,33 +62,20 @@
 
 -(void)getMessagesFromInbox{
  
-    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
-   
-    /*NSURLSessionTask* task = [[client getMe] execute:^(User *user, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(),
-                       ^{
-                           self.Messages = [[NSArray alloc] initWithObjects:user, nil];
-                           [self.tableView reloadData];
-                       });
-    }];*/
-    //[[client getMe] :^(id folders, NSURLResponse *r, NSError *e) {
-        /*if(e == nil){
-            self.Messages = [[NSArray alloc] initWithObjects:folders, nil];// (NSArray<User>*)folders;
-            [self.tableView reloadData];
-        }
-    }];*/
-    
-    NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
-        if(error == nil){
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               self.Messages = messages;
-                               [self.tableView reloadData];
-                           });
-        }
-    }];
-
-    [task resume];
+   [[BaseController alloc] getClient:^(MSOEntityContainerClient *client) {
+       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+           
+           if(error == nil){
+               dispatch_async(dispatch_get_main_queue(),
+                              ^{
+                                  self.Messages = messages;
+                                  [self.tableView reloadData];
+                              });
+           }
+       }];
+       
+       [task resume];
+   }];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

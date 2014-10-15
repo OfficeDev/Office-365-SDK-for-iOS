@@ -13,6 +13,13 @@
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
+		ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* LogInController.m */; };
+		ECD1AE9219EEFEE700C4940F /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE9119EEFEE700C4940F /* libADALiOS.a */; };
+		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
+		ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */; };
+		ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */; };
+		ECD1AEA119EF071600C4940F /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */; };
+		ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9D19EF071600C4940F /* InfoPlist.strings */; };
 		ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */; };
 		ECD9F40819784BB600ABB418 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40719784BB600ABB418 /* main.m */; };
 		ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40A19784BB600ABB418 /* AppDelegate.m */; };
@@ -42,6 +49,16 @@
 		EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		EC2833B319E6D82800E5FEA4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		EC2833B419E6D82800E5FEA4 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		ECD1AE8E19EEFEDA00C4940F /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
+		ECD1AE8F19EEFEDA00C4940F /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		ECD1AE9119EEFEE700C4940F /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		ECD1AE9519EF00DB00C4940F /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		ECD1AE9C19EF071600C4940F /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		ECD1AE9E19EF071600C4940F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ECD2485219A65D2A00464FA0 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
 		ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		ECD9F40219784BB600ABB418 /* simple-exchange-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-exchange-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD1AE9219EEFEE700C4940F /* libADALiOS.a in Frameworks */,
 				EC28336219E482E100E5FEA4 /* liboffice365_exchange_sdk.a in Frameworks */,
 				EC28336319E482E100E5FEA4 /* liboffice365_odata_impl.a in Frameworks */,
 			);
@@ -85,9 +103,22 @@
 			name = libs;
 			sourceTree = "<group>";
 		};
+		ECD1AE9819EF071600C4940F /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */,
+				ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */,
+				ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */,
+				ECD1AE9C19EF071600C4940F /* ADALiOSBundle-Prefix.pch */,
+				ECD1AE9D19EF071600C4940F /* InfoPlist.strings */,
+			);
+			path = ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		ECD9F3F919784BB600ABB418 = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE9119EEFEE700C4940F /* libADALiOS.a */,
 				EC2833A819E5BAF700E5FEA4 /* libs */,
 				ECD9F40419784BB600ABB418 /* simple-exchange-app */,
 				ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */,
@@ -107,6 +138,7 @@
 		ECD9F40419784BB600ABB418 /* simple-exchange-app */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE9819EF071600C4940F /* ADALiOSBundle */,
 				ECD9F4391978541200ABB418 /* controllers */,
 				ECD9F40919784BB600ABB418 /* AppDelegate.h */,
 				ECD9F40A19784BB600ABB418 /* AppDelegate.m */,
@@ -146,6 +178,10 @@
 		ECD9F4391978541200ABB418 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE9519EF00DB00C4940F /* UserSettingsViewController.h */,
+				ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */,
+				ECD1AE8E19EEFEDA00C4940F /* LogInController.h */,
+				ECD1AE8F19EEFEDA00C4940F /* LogInController.m */,
 				ECD2485219A65D2A00464FA0 /* MessageTableViewController.h */,
 				ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */,
 				EC2833AD19E6D5BA00E5FEA4 /* FolderTableViewController.h */,
@@ -240,6 +276,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */,
+				ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */,
+				ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */,
+				ECD1AEA119EF071600C4940F /* ADALiOSBundle-Info.plist in Resources */,
 				ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */,
 				ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */,
 			);
@@ -260,9 +300,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */,
+				ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */,
 				ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */,
 				EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */,
 				EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */,
+				ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */,
 				ECD9F40819784BB600ABB418 /* main.m in Sources */,
 				EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */,
 				ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */,
@@ -288,6 +330,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		ECD1AE9D19EF071600C4940F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD1AE9E19EF071600C4940F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		ECD9F41219784BB600ABB418 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -386,7 +436,10 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-objc-1.0.1/ADALiOS/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -401,7 +454,10 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/azure-activedirectory-library-for-objc-1.0.1/ADALiOS/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -5,7 +5,10 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <office365_odata_interfaces/MSODependencyResolver.h>
 
-@interface office365_exchange_helpers : NSObject
+@interface BaseODataContainerHelper : NSObject
+
+-(NSString*)generatePayload :(NSArray*) parameters : (id<MSODependencyResolver>) resolver;
 
 @end

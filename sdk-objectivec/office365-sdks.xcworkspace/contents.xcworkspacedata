@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/ADALiOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../Samples/simple-exchange-app/simple-exchange-app.xcodeproj">
    </FileRef>
    <FileRef

@@ -28,6 +28,11 @@
     return [self.parser toJsonString:objectToSerialize];
 }
 
+-(NSString*) serialize : (id) objectToSerialize : (NSString*) name{
+    
+    return [self.parser toJsonString:objectToSerialize Property:name];
+}
+
 -(id) deserialize : (NSData*) serializedObject : (Class) clazz {
     return [self.parser parseWithData:serializedObject forType:clazz selector:nil];
 }

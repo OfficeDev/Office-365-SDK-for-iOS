@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC1DCEB919E8422800EF2176 /* office365_exchange_helpers.h */; };
 		EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */; };
+		ECD1AE8119EEBECB00C4940F /* BaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */; };
+		ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */; };
+		ECD1AE8719EEDB6400C4940F /* BaseODataContainerHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,6 +21,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				ECD1AE8719EEDB6400C4940F /* BaseODataContainerHelper.h in CopyFiles */,
 				EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -30,6 +34,9 @@
 		EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_helpers.m; sourceTree = "<group>"; };
 		EC1DCEC119E8422800EF2176 /* office365_exchange_helpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_helpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1DCEC419E8422800EF2176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseODataContainerHelper.m; sourceTree = "<group>"; };
+		ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseODataContainerHelper.h; sourceTree = "<group>"; };
+		ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +61,7 @@
 		EC1DCEAD19E8422800EF2176 = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */,
 				EC1DCEB819E8422800EF2176 /* office365_exchange_helpers */,
 				EC1DCEC219E8422800EF2176 /* office365_exchange_helpersTests */,
 				EC1DCEB719E8422800EF2176 /* Products */,
@@ -71,6 +80,7 @@
 		EC1DCEB819E8422800EF2176 /* office365_exchange_helpers */ = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE7C19EEBECB00C4940F /* com */,
 				EC1DCEB919E8422800EF2176 /* office365_exchange_helpers.h */,
 				EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */,
 			);
@@ -91,6 +101,39 @@
 				EC1DCEC419E8422800EF2176 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECD1AE7C19EEBECB00C4940F /* com */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1AE7D19EEBECB00C4940F /* microsoft */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		ECD1AE7D19EEBECB00C4940F /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1AE7E19EEBECB00C4940F /* office365 */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECD1AE7E19EEBECB00C4940F /* office365 */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1AE7F19EEBECB00C4940F /* odata */,
+			);
+			path = office365;
+			sourceTree = "<group>";
+		};
+		ECD1AE7F19EEBECB00C4940F /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */,
+				ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */,
+			);
+			path = odata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD1AE8119EEBECB00C4940F /* BaseODataContainerHelper.m in Sources */,
 				EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +315,10 @@
 		EC1DCEC819E8422800EF2176 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -280,6 +328,10 @@
 		EC1DCEC919E8422800EF2176 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -335,6 +387,7 @@
 				EC1DCEC919E8422800EF2176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC1DCECA19E8422800EF2176 /* Build configuration list for PBXNativeTarget "office365_exchange_helpersTests" */ = {
 			isa = XCConfigurationList;
@@ -343,6 +396,7 @@
 				EC1DCECC19E8422800EF2176 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

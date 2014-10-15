@@ -43,30 +43,22 @@
 
 - (IBAction)SendMail:(id)sender{
 
-    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
-    MSOMessage *message = [MSOMessage alloc];
-    
-    message.Subject = self.txtSubject.text;
-    message.ToRecipients = [self getRecipients:self.txtTo.text];
-    message.Body = [[MSOItemBody alloc] init];
-    message.Body.Content = self.txtBody.text;
-    /*
-    NSURLSessionDataTask* task = [[[client getMe] getMessages] add:message :^(MSOMessage* r, NSError *e) {
-        if (e == nil) {
-            MSOMessageFetcher* m = [[[client getMe] getMessages] getById:r.Id];
-            MSOMessageOperations* mf = [m getOperations];
-            
-          NSURLSessionDataTask* task = [mf sendMail:^(int returnValue, NSError *error) {
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                
-                [alert show];
-            }];
+    [[BaseController alloc] getClient:^(MSOEntityContainerClient * client) {
+        MSOMessage *message = [MSOMessage alloc];
         
-            [task resume];
+        message.Subject = self.txtSubject.text;
+        message.ToRecipients = [self getRecipients:self.txtTo.text];
+        message.Body = [[MSOItemBody alloc] init];
+        message.Body.Content = self.txtBody.text;
+        
+        NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
-        }
+            [alert show];
+        }];
+        
+        [task resume];
     }];
-    [task resume];*/
 }
 
 -(NSMutableArray<MSORecipient>*)getRecipients : (NSString*)text{

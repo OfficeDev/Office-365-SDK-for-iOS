@@ -56,22 +56,21 @@
 }
 
 -(void)getFolders{
-    
-    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
-    
-    NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSOFolder> *folders, NSError *error) {
-        if(error == nil){
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               self.Folders = folders;
-                               [self.tableView reloadData];
-                           });
-        }
-    }];
-    
-    [task resume];
-}
 
+    [[BaseController alloc] getClient:^(MSOEntityContainerClient *client) {
+        NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSOFolder> *folders, NSError *error) {
+            if(error == nil){
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   self.Folders = folders;
+                                   [self.tableView reloadData];
+                               });
+            }
+        }];
+        
+        [task resume];
+    }];
+}
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
     
 }

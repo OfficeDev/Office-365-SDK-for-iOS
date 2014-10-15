@@ -23,7 +23,7 @@
 @implementation MSOUserFetcher
 
 -(MSOUserOperations*) getOperations{
-    return (MSOUserOperations*)[super getOperations];
+    return [[MSOUserOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{

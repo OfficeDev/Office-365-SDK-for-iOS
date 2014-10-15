@@ -5,20 +5,26 @@
  ******************************************************************************/
 
 #import "BaseController.h"
+#import "LogInController.h"
 
 @implementation BaseController
 
--(MSOEntityContainerClient*)getClient{
+-(void)getClient : (void (^) (MSOEntityContainerClient* ))callback{
     
-    MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-    MSOBasicCredentials* credentials = [MSOBasicCredentials alloc];
-    [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
-
-    MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
-
-    [credentialsImpl setCredentials:credentials];
-    [resolver setCredentialsFactory:credentialsImpl];
-
-    return  [[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver];
+    LogInController* loginController = [[LogInController alloc] init];
+    
+    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+        
+        MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
+        MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
+        [credentials addToken:token];
+        
+        MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
+        
+        [credentialsImpl setCredentials:credentials];
+        [resolver setCredentialsFactory:credentialsImpl];
+        
+        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+    }];
 }
 @end

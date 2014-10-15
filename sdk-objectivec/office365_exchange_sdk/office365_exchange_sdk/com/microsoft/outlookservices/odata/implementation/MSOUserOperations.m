@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "MSOUserOperations.h"
-
+#import  <office365_exchange_helpers/BaseODataContainerHelper.h>
 /**
 * The implementation file for type MSOUserOperations.
 */
@@ -18,11 +18,18 @@
 
 
 -(NSURLSessionDataTask*)sendMail : (MSOMessage *) message : (bool) saveToSentItems : (void (^)(int returnValue, NSError *error))callback{
-
-    NSURLSessionDataTask* task = [self oDataExecute:@"SendMail" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+    
+    NSArray* parameters = [[NSArray alloc] initWithObjects:
+                           [[NSDictionary alloc] initWithObjectsAndKeys :message,@"Message",nil ],
+                           [[NSDictionary alloc] initWithObjectsAndKeys :(saveToSentItems ? @"true" : @"false"),@"SaveToSentItems",nil ],nil];
+    
+    BaseODataContainerHelper * helper = [BaseODataContainerHelper alloc];
+    NSData* payload = [[helper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+    NSURLSessionDataTask* task = [self oDataExecute:@"SendMail" :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
-       if(error == nil){
-            callback([result getData], error);
+        if(error == nil){
+            int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);
@@ -30,7 +37,7 @@
     }];
     
     return task;
-}			
+}
 
 -(NSURLSessionDataTask*)calendarView : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback{
 

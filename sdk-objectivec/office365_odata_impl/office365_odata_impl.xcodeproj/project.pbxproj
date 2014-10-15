@@ -31,6 +31,8 @@
 		ECCC3F8C19E469C200768B43 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F8A19E469C200768B43 /* Property.m */; };
 		ECCC3F8E19E469D900768B43 /* MSOJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F8D19E469D900768B43 /* MSOJsonSerializerImpl.m */; };
 		ECCC3F9119E46C0A00768B43 /* MSOCredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F9019E46C0A00768B43 /* MSOCredentialsImpl.m */; };
+		ECD1AE8A19EEFD5400C4940F /* MSOOAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8919EEFD5400C4940F /* MSOOAuthCredentials.m */; };
+		ECD1AEA319EF09CA00C4940F /* MSOOAuthCredentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8819EEFD5400C4940F /* MSOOAuthCredentials.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +42,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				ECD1AEA319EF09CA00C4940F /* MSOOAuthCredentials.h in CopyFiles */,
 				EC28335619E47C9500E5FEA4 /* MSOCredentialsImpl.h in CopyFiles */,
 				EC28335719E47C9500E5FEA4 /* MSOLoggerImpl.h in CopyFiles */,
 				EC28335819E47C9500E5FEA4 /* MSOJsonSerializerImpl.h in CopyFiles */,
@@ -84,6 +87,8 @@
 		ECCC3F8D19E469D900768B43 /* MSOJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonSerializerImpl.m; sourceTree = "<group>"; };
 		ECCC3F9019E46C0A00768B43 /* MSOCredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCredentialsImpl.m; sourceTree = "<group>"; };
 		ECCC3F9219E46C7300768B43 /* MSOCredentialsImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsImpl.h; sourceTree = "<group>"; };
+		ECD1AE8819EEFD5400C4940F /* MSOOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOAuthCredentials.h; sourceTree = "<group>"; };
+		ECD1AE8919EEFD5400C4940F /* MSOOAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOOAuthCredentials.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +162,8 @@
 				EC0ED13A19DF33EF00F793B0 /* MSORequestImpl.m */,
 				EC0ED13D19DF356A00F793B0 /* MSOResponseImpl.h */,
 				EC0ED13819DF304600F793B0 /* MSOResponseImpl.m */,
+				ECD1AE8819EEFD5400C4940F /* MSOOAuthCredentials.h */,
+				ECD1AE8919EEFD5400C4940F /* MSOOAuthCredentials.m */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -334,6 +341,7 @@
 				EC28335219E470CF00E5FEA4 /* MSOHttpConnection.m in Sources */,
 				ECCC3F8B19E469C200768B43 /* JsonParser.m in Sources */,
 				ECCC3F9119E46C0A00768B43 /* MSOCredentialsImpl.m in Sources */,
+				ECD1AE8A19EEFD5400C4940F /* MSOOAuthCredentials.m in Sources */,
 				ECCC3F8E19E469D900768B43 /* MSOJsonSerializerImpl.m in Sources */,
 				EC0ED13B19DF33EF00F793B0 /* MSORequestImpl.m in Sources */,
 				EC3AF50719DF2FA8004283FD /* office365_odata_impl.m in Sources */,

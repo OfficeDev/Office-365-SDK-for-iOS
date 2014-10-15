@@ -61,6 +61,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Ym9-91-9kL" kind="relationship" relationship="viewControllers" id="BAi-Iy-cgU"/>
                         <segue destination="Z5r-RN-Aqk" kind="relationship" relationship="viewControllers" id="eOV-BN-kyX"/>
                         <segue destination="WIa-6H-AZJ" kind="relationship" relationship="viewControllers" id="eaL-1Z-WT9"/>
                         <segue destination="1sO-zE-I2Q" kind="relationship" relationship="viewControllers" id="Cat-Cm-XKp"/>
@@ -113,6 +114,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LDs-0Q-inm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4403" y="2017"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="Kd9-kS-8xP">
+            <objects>
+                <viewController id="Ym9-91-9kL" customClass="UserSettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WL2-k2-SNE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pty-ns-7Yp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xID-rx-mZ6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Authority Url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkv-cs-bk8">
+                                <rect key="frame" x="16" y="117" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Redirect Url" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Z2-ve-dCO">
+                                <rect key="frame" x="16" y="168" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Client Id" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lnk-FV-Sje">
+                                <rect key="frame" x="16" y="220" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-iL-qvd">
+                                <rect key="frame" x="16" y="79" width="132" height="30"/>
+                                <state key="normal" title="Clear Credentials">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ClearCredentials:" destination="Ym9-91-9kL" eventType="touchUpInside" id="fGx-sj-6nG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-cx-4os">
+                                <rect key="frame" x="247" y="79" width="46" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Save:" destination="Ym9-91-9kL" eventType="touchUpInside" id="L7p-62-lm3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-uZ-2sK">
+                                <rect key="frame" x="16" y="50" width="277" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" id="5WF-sT-Zcg"/>
+                    <connections>
+                        <outlet property="txtAuthorityUrl" destination="xkv-cs-bk8" id="ut1-OF-6m6"/>
+                        <outlet property="txtClientId" destination="Lnk-FV-Sje" id="w8y-0t-6Gq"/>
+                        <outlet property="txtLoggedInUser" destination="c2q-uZ-2sK" id="bvq-ZI-iLl"/>
+                        <outlet property="txtRedirectUrl" destination="8Z2-ve-dCO" id="dVf-4Z-Onz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufe-sr-7p9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3982" y="1862"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="5gM-0Y-ypO">

@@ -183,6 +183,7 @@
 		ECD1AE7919EEB43F00C4940F /* MSOUserFetcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AD8F19EEB3A500C4940F /* MSOUserFetcher.h */; };
 		ECD1AE7A19EEB43F00C4940F /* MSOUserOperations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AD9019EEB3A500C4940F /* MSOUserOperations.h */; };
 		ECD1AE7B19EEB44500C4940F /* MSODayOfWeek.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1ADCD19EEB3A500C4940F /* MSODayOfWeek.h */; };
+		ECD1AE8619EED9C100C4940F /* liboffice365_exchange_helpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE8519EED9C100C4940F /* liboffice365_exchange_helpers.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -472,6 +473,7 @@
 		ECD1ADCA19EEB3A500C4940F /* MSOUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserOperations.m; sourceTree = "<group>"; };
 		ECD1ADCD19EEB3A500C4940F /* MSODayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODayOfWeek.h; sourceTree = "<group>"; };
 		ECD1AE1E19EEB41800C4940F /* MSOODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataOperations.h; sourceTree = "<group>"; };
+		ECD1AE8519EED9C100C4940F /* liboffice365_exchange_helpers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_helpers.a; path = "../office365_exchange_helpers/build/Debug-iphoneos/liboffice365_exchange_helpers.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +481,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD1AE8619EED9C100C4940F /* liboffice365_exchange_helpers.a in Frameworks */,
 				EC0ED17B19DF3A4600F793B0 /* liboffice365_odata_interfaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +499,7 @@
 		EC3AF51819DF2FE5004283FD = {
 			isa = PBXGroup;
 			children = (
+				ECD1AE8519EED9C100C4940F /* liboffice365_exchange_helpers.a */,
 				ECD1AD1519EDC64600C4940F /* office365_exchange_sdk-Prefix.pch */,
 				ECD1AD1619EE9B8E00C4940F /* libs */,
 				EC3AF52319DF2FE5004283FD /* office365_exchange_sdk */,
@@ -1067,7 +1071,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365_exchange_sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1080,7 +1087,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "office365_exchange_sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

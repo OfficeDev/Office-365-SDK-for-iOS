@@ -34,20 +34,22 @@
 
 -(void)getMessagesFromInbox{
     
-    MSOEntityContainerClient* client = [[BaseController alloc] getClient];
+   // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
-    NSURLSessionTask* task = [[client getMe] execute:^(MSOUser *user, NSError *error) {
-        if(error == nil){
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               self.lblDisplayName.text = user.DisplayName;
-                               self.lblAlias.text = user.Alias;
-                               self.lblMailBoxId.text = user.MailboxGuid;
-                           });
-        }
+    [[BaseController alloc] getClient:^(MSOEntityContainerClient * client) {
+        NSURLSessionTask* task = [[client getMe] execute:^(MSOUser *user, NSError *error) {
+            if(error == nil){
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   self.lblDisplayName.text = user.DisplayName;
+                                   self.lblAlias.text = user.Alias;
+                                   self.lblMailBoxId.text = user.MailboxGuid;
+                               });
+            }
+        }];
+        
+        [task resume];
     }];
-
-    [task resume];
 }
 
 @end

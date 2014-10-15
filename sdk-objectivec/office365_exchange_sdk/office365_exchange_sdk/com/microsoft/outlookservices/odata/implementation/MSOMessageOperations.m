@@ -139,13 +139,14 @@
 
 -(NSURLSessionDataTask*)send : (void (^)(int returnValue, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Send" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+    NSURLSessionDataTask* task = [self oDataExecute:@"Send" :nil :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+           int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+           callback(result, error);
         }
         else{
-            callback(nil, error);
+            callback(0, error);
         }
     }];
     

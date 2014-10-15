@@ -35,6 +35,7 @@
     return result;
 }
 
+/*
 -(NSString*)toJsonString:(id)object Property:(NSString*)name{
     
     NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
@@ -43,6 +44,20 @@
     [jsonResult appendString:@"}"];
     
     return jsonResult;
+}*/
+
+-(NSString*)toJsonString:(id)object Property:(NSString*)name{
+    
+    if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
+    {
+        NSMutableString *jsonResult = [[NSMutableString alloc] init];
+
+        [jsonResult appendFormat:@"\"%@\"",object];
+    
+        return jsonResult;
+    }
+
+    return [self toJsonString:object];
 }
 
 -(NSMutableString *)getString : (id)object : (NSMutableString *)jsonResult{
@@ -100,19 +115,27 @@
             }
             
         }else{
-            NSString * result;
-            
-            if(property.isBoolean){
-                NSInteger value = [[object valueForKey:property.Name] integerValue];
+            @try {
+                NSString * result;
                 
-                result = value ? @"true" : @"false";
-            }else {
-                result = [object valueForKey:property.Name];
+                if(property.isBoolean){
+                    NSInteger value = [[object valueForKey:property.Name] integerValue];
+                    
+                    result = value ? @"true" : @"false";
+                }else {
+                    result = [object valueForKey:property.Name];
+                }
+                
+                if(result != nil){
+                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                }
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+                
             }
             
-            if(result != nil){
-                [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
-            }
         }
     }
     return jsonResult;
