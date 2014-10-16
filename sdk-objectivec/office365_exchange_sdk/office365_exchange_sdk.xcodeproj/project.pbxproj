@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC0ED17B19DF3A4600F793B0 /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0ED17A19DF3A4600F793B0 /* liboffice365_odata_interfaces.a */; };
 		EC3AF52719DF2FE5004283FD /* office365_exchange_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */; };
+		EC78D82719F0568C00A443DD /* MSOODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D82619F0568C00A443DD /* MSOODataExecutable.m */; };
 		ECD1AA9019ED961800C4940F /* office365_exchange_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECCC3CD319E4272300768B43 /* office365_exchange_sdk.h */; };
 		ECD1ADCE19EEB3A500C4940F /* MSOAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AD3F19EEB3A500C4940F /* MSOAttachment.m */; };
 		ECD1ADCF19EEB3A500C4940F /* MSOAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AD4019EEB3A500C4940F /* MSOAttendee.m */; };
@@ -298,6 +299,7 @@
 		EC3AF52619DF2FE5004283FD /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
 		EC3AF52C19DF2FE5004283FD /* office365_exchange_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF52F19DF2FE5004283FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC78D82619F0568C00A443DD /* MSOODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataExecutable.m; sourceTree = "<group>"; };
 		ECCC3CD319E4272300768B43 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
 		ECD1AD1519EDC64600C4940F /* office365_exchange_sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365_exchange_sdk-Prefix.pch"; sourceTree = "<group>"; };
 		ECD1AD1C19EEB3A500C4940F /* MSOAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachment.h; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 				ECD1ADC819EEB3A500C4940F /* MSOUserCollectionOperations.m */,
 				ECD1ADC919EEB3A500C4940F /* MSOUserFetcher.m */,
 				ECD1ADCA19EEB3A500C4940F /* MSOUserOperations.m */,
+				EC78D82619F0568C00A443DD /* MSOODataExecutable.m */,
 			);
 			path = implementation;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				ECD1AE0319EEB3A500C4940F /* MSOFileAttachmentCollectionFetcher.m in Sources */,
 				ECD1ADDC19EEB3A500C4940F /* MSOLocation.m in Sources */,
 				ECD1ADF519EEB3A500C4940F /* MSOContactFolderCollectionFetcher.m in Sources */,
+				EC78D82719F0568C00A443DD /* MSOODataExecutable.m in Sources */,
 				ECD1AE0019EEB3A500C4940F /* MSOEventCollectionOperations.m in Sources */,
 				ECD1ADE919EEB3A500C4940F /* MSOBaseODataContainer.m in Sources */,
 				ECD1AE0A19EEB3A500C4940F /* MSOFolderOperations.m in Sources */,

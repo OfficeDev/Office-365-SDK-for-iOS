@@ -20,6 +20,7 @@
 
 @synthesize Parent;
 @synthesize UrlComponent;
+@synthesize CustomParameters;
 
 -(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver{
     self.UrlComponent = url;
@@ -27,10 +28,15 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+    
+    [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     
     return [[[MSOBaseODataContainerHelper alloc] initWitUrl:self.UrlComponent dependencyResolver:self.resolver]
             oDataExecute:path :content :verb : @"office365_exchange_sdk/MSOBaseODataContainer" :callback];
+}
+
+-(void)addCustomParameters:(NSString *)name :(NSString *)value{
 }
 
 -(id<MSODependencyResolver>) getResolver{

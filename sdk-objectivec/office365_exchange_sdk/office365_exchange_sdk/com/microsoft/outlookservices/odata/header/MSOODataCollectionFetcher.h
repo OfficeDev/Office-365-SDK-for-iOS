@@ -13,7 +13,7 @@
 * The header for type MSOODataCollectionFetcher.
 */
 
-@interface MSOODataCollectionFetcher : NSObject<MSOODataExecutable>
+@interface MSOODataCollectionFetcher : MSOODataExecutable
 
 -(NSURLSessionDataTask *)execute:(void (^)(id entity, NSError *error))callback;
 
@@ -22,7 +22,7 @@
 -(MSOODataCollectionFetcher*)filter : (NSString*) params;
 -(MSOODataCollectionFetcher*)top : (int) value;
 -(MSOODataCollectionFetcher*)expand : (NSString*) value;
--(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback;
+-(NSURLSessionDataTask*)oDataExecute : (id<MSOODataURL>) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback;
 -(id<MSODependencyResolver>)getResolver;
 -(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, NSError* error))callback;
 -(MSOODataEntityFetcher*)getById : (NSString*) Id;

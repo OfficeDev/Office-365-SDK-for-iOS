@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOODataOperations.h"
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOODataOperations.
@@ -12,20 +13,17 @@
 
 @implementation MSOODataOperations
 
-@synthesize Parent;
-@synthesize UrlComponent;
-
 -(id)initOperationWithUrl:(NSString *)urlComponent Parent:(id<MSOODataExecutable>)parent{
     self.UrlComponent = urlComponent;
     self.Parent = parent;
     return self;
 }
 
-- (NSURLSessionDataTask *)oDataExecute:(NSString *)path : (NSData *)content : (MSOHttpVerb)verb :(void (^)(id<MSOResponse> ,NSError *error))callback{
+- (NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path : (NSData *)content : (MSOHttpVerb)verb :(void (^)(id<MSOResponse> ,NSError *error))callback{
+    [path appendPathComponent:self.UrlComponent];
+    [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     
-    NSString* url = [[NSString alloc] initWithFormat:@"%@/%@",self.UrlComponent,path];
-    
-    return [self.Parent oDataExecute:url :content :verb :callback];
+    return [self.Parent oDataExecute:path :content :verb :callback];
 }
 
 -(id<MSODependencyResolver>) getResolver{

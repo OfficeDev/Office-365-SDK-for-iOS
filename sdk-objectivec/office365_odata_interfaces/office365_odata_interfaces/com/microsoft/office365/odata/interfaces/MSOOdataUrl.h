@@ -6,11 +6,13 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSOJsonSerializer
+@protocol MSOODataURL
 
 @required
--(NSString*) serialize : (id) objectToSerialize;
--(id) deserialize : (NSData*) serializedObject : (Class) clazz;
--(id) deserializeList : (NSData*) serializedList : (Class) clazz;
--(NSString*) serialize : (id) objectToSerialize : (NSString*) name;
+-(void)setBaseUrl : (NSString*)baseUrl;
+-(void)appendPathComponent: (NSString*) pathComponent;
+-(void)prependPathComponent: (NSString*) pathComponent;
+-(void)addQueryStringParameter : (NSString*) name : (NSString*) value;
+-(NSString*)toString;
+                                                    
 @end

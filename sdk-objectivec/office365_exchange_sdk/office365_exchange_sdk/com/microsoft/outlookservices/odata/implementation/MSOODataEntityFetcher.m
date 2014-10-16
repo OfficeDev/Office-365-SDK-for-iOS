@@ -34,19 +34,11 @@
     return self.operations;
 }
 
--(NSURLSessionDataTask*) oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    NSMutableString* url = [[NSMutableString alloc] initWithString:@""];
-    
-    if([self.UrlComponent length] > 0){
-        [url appendString:self.UrlComponent];
-    }
-    
-    if([path length]>0){
-        [url appendString:@"/"];
-        [url appendString:path];
-    }
-    
-    return [self.Parent oDataExecute:url :content :verb :^(id<MSOResponse> r, NSError *e) {
+-(NSURLSessionDataTask*) oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+    [path appendPathComponent:self.UrlComponent];
+    [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
+
+    return [self.Parent oDataExecute:path :content :verb :^(id<MSOResponse> r, NSError *e) {
         callback(r,e);
     }];
 }
@@ -54,19 +46,19 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH : ^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:[[self getResolver] createODataURL] :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH : ^(id<MSOResponse> r, NSError *e) {
         callback(updatedEntity, e);
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(id,NSError *))callback{
-    return [self oDataExecute:@"" :nil :DELETE :^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:[[self getResolver] createODataURL]  :nil :DELETE :^(id<MSOResponse> r, NSError *e) {
         callback(r, e);
     }];
 }
 
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
-    return [self oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:[[self getResolver] createODataURL]  :nil :GET :^(id<MSOResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];
             

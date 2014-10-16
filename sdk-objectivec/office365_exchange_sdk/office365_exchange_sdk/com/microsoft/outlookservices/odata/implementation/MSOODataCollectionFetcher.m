@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOODataCollectionFetcher.h"
+#import <office365_exchange_helpers/MSOEntityFetcherHelper.h>
 
 @interface MSOODataCollectionFetcher()
 
@@ -24,9 +25,6 @@
 */
 
 @implementation MSOODataCollectionFetcher
-
-@synthesize Parent;
-@synthesize UrlComponent;
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent :(Class)entityClass{
 
@@ -61,40 +59,27 @@
     return self;
 }
 
--(NSURLSessionDataTask*)oDataExecute : (NSString*) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback{
+-(NSURLSessionDataTask*)oDataExecute : (id<MSOODataURL>) path : (NSData*) content : (MSOHttpVerb) verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
+    [path appendPathComponent:self.UrlComponent];
     if (self.selectedId == nil) {
-        NSMutableString* query = [[NSMutableString alloc] initWithString:@"?"];
-
-        if(self.top > -1){
-            [query appendFormat:@"$top=%d", self.top];
-        }
-        
-        if(self.skip > -1){
-            [query appendFormat:@"$skip=%d", self.skip];
-        }
-        
-        if(self.select != nil){
-            [query appendFormat:@"$select=%@", self.select];
-        }
-        if(self.expand != nil){
-            [query appendFormat:@"$expand=%@", self.expand];
-        }
-        if(self.filter > 0){
-            [query appendFormat:@"$filter=%@", self.filter];
-        }
-        
-        if([query  isEqual: @"?"]){
-            query = nil;
-        }
-        NSString* url = query == nil ? self.UrlComponent : [[NSString alloc] initWithFormat:@"%@%@", self.UrlComponent, query] ;
-        
-        return [self.Parent oDataExecute:url:content :verb :callback];
+        [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
     }
     else {
-        NSString* url = [[NSString alloc] initWithFormat:@"%@('%@')/%@", self.UrlComponent, self.selectedId,path];
-        return [self.Parent oDataExecute:url :content :verb :callback];
+        [MSOEntityFetcherHelper setSelectorUrl:path :self.UrlComponent :self.select];
+        [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     }
+    
+    return [self.Parent oDataExecute:path:content :verb :callback];
+}
+
+-(NSDictionary*)getCustomParameters{
+    return self.CustomParameters;
+}
+
+-(void)addCustomParameters : (NSString*)name : (NSString*)value{
+    NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
+    [self.CustomParameters addEntriesFromDictionary:dicc];
 }
 
 -(id<MSODependencyResolver>)getResolver{
@@ -103,7 +88,7 @@
 
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
     
-    return [self.Parent oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> d, NSError *e) {
+    return [self oDataExecute:[[self getResolver] createODataURL] :nil :GET :^(id<MSOResponse> d, NSError *e) {
 
         id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : self.entityClass];
         callback(result, e);
@@ -114,7 +99,7 @@
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     
-    return [self oDataExecute:@"" :[payload dataUsingEncoding:NSUTF8StringEncoding] :POST :^(id<MSOResponse> d, NSError *e) {
+    return [self oDataExecute:[[self getResolver] createODataURL] :[payload dataUsingEncoding:NSUTF8StringEncoding] :POST :^(id<MSOResponse> d, NSError *e) {
         id result = [[[self getResolver]getJsonSerializer] deserialize:[d getData] : self.entityClass];
         callback(result, e);
     }];

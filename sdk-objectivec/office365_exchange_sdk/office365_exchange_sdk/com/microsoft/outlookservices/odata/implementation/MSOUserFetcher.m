@@ -33,7 +33,8 @@
     return [super initWith:urlComponent :parent : [MSOUser class]];
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+/*
+-(NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
    return [self.Parent oDataExecute:path :content :verb :callback];
 }
@@ -42,18 +43,14 @@
     return [super execute:^(id entity, NSError *error) {
         callback(entity, error);
     }];
-}
+}*/
 
 -(MSOFolderCollectionFetcher*) getFolders{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Folders" ];
-  
-    return [[MSOFolderCollectionFetcher alloc] initWith:path :self : [MSOFolder class]];
+    return [[MSOFolderCollectionFetcher alloc] initWith:@"Folders" :self : [MSOFolder class]];
 }
 
 -(MSOMessageCollectionFetcher*) getMessages{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Messages" ];
-  
-    return [[MSOMessageCollectionFetcher alloc] initWith:path :self : [MSOMessage class]];
+    return [[MSOMessageCollectionFetcher alloc] initWith:@"Messages" :self : [MSOMessage class]];
 }
 
 -(MSOFolderFetcher*) getRootFolder{

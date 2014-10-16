@@ -25,6 +25,7 @@
     return [super initWith:urlComponent :parent : [MSOMessage class]];
 }
 
+/*
 -(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
    return [self.Parent oDataExecute:path :content :verb :callback];
@@ -34,7 +35,7 @@
     return [super execute:^(id entity, NSError *error) {
         callback(entity, error);
     }];
-}
+}*/
 
 -(MSOAttachmentCollectionFetcher*) getAttachments{
 	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Attachments" ];

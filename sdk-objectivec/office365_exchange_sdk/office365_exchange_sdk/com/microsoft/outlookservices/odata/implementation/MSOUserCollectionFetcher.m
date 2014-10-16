@@ -16,12 +16,13 @@
     return [super initWith:urlComponent :parent : [MSOUser class]];
 }
 
+/*
 -(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOUser> *user, NSError *error))callback{
     return [super execute:^(id entity, NSError *error) {
         callback(entity, error);
     }];
 }
-
+*/
 -(MSOUserFetcher*)getById:(NSString *)Id{
     [super getById:Id];
     return [[MSOUserFetcher alloc] initWith:@"" : self :[MSOUser class]];

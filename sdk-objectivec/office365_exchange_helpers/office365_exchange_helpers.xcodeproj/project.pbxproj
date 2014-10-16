@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC1DCEB919E8422800EF2176 /* office365_exchange_helpers.h */; };
 		EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */; };
+		EC78D81919F00BF400A443DD /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D81819F00BF400A443DD /* NSString+NSStringExtensions.m */; };
+		EC78D81C19F02A6100A443DD /* MSOODataURLImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D81B19F02A6100A443DD /* MSOODataURLImpl.m */; };
+		EC78D82319F03A3A00A443DD /* MSOEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D82219F03A3A00A443DD /* MSOEntityFetcherHelper.m */; };
+		EC78D82419F03CE200A443DD /* MSOEntityFetcherHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC78D82119F03A3A00A443DD /* MSOEntityFetcherHelper.h */; };
+		EC78D82519F0404000A443DD /* MSOODataURLImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC78D81A19F02A6100A443DD /* MSOODataURLImpl.h */; };
 		ECD1AE8119EEBECB00C4940F /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */; };
 		ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */; };
 		ECD1AE8719EEDB6400C4940F /* MSOBaseODataContainerHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */; };
@@ -21,6 +26,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				EC78D82519F0404000A443DD /* MSOODataURLImpl.h in CopyFiles */,
+				EC78D82419F03CE200A443DD /* MSOEntityFetcherHelper.h in CopyFiles */,
 				ECD1AE8719EEDB6400C4940F /* MSOBaseODataContainerHelper.h in CopyFiles */,
 				EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */,
 			);
@@ -34,6 +41,12 @@
 		EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_helpers.m; sourceTree = "<group>"; };
 		EC1DCEC119E8422800EF2176 /* office365_exchange_helpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_helpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1DCEC419E8422800EF2176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC78D81719F00BB900A443DD /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		EC78D81819F00BF400A443DD /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		EC78D81A19F02A6100A443DD /* MSOODataURLImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataURLImpl.h; sourceTree = "<group>"; };
+		EC78D81B19F02A6100A443DD /* MSOODataURLImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataURLImpl.m; sourceTree = "<group>"; };
+		EC78D82119F03A3A00A443DD /* MSOEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcherHelper.h; sourceTree = "<group>"; };
+		EC78D82219F03A3A00A443DD /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
 		ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
 		ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
 		ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
@@ -132,6 +145,12 @@
 			children = (
 				ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */,
 				ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */,
+				EC78D81719F00BB900A443DD /* NSString+NSStringExtensions.h */,
+				EC78D81819F00BF400A443DD /* NSString+NSStringExtensions.m */,
+				EC78D81A19F02A6100A443DD /* MSOODataURLImpl.h */,
+				EC78D81B19F02A6100A443DD /* MSOODataURLImpl.m */,
+				EC78D82119F03A3A00A443DD /* MSOEntityFetcherHelper.h */,
+				EC78D82219F03A3A00A443DD /* MSOEntityFetcherHelper.m */,
 			);
 			path = odata;
 			sourceTree = "<group>";
@@ -223,8 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC78D82319F03A3A00A443DD /* MSOEntityFetcherHelper.m in Sources */,
 				ECD1AE8119EEBECB00C4940F /* MSOBaseODataContainerHelper.m in Sources */,
 				EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */,
+				EC78D81919F00BF400A443DD /* NSString+NSStringExtensions.m in Sources */,
+				EC78D81C19F02A6100A443DD /* MSOODataURLImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

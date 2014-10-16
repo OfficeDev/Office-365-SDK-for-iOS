@@ -20,6 +20,7 @@
 		EC28335A19E47C9500E5FEA4 /* MSOBasicCredentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC28335319E47B3E00E5FEA4 /* MSOBasicCredentials.h */; };
 		EC3AF50519DF2FA8004283FD /* office365_odata_impl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF50419DF2FA8004283FD /* office365_odata_impl.h */; };
 		EC3AF50719DF2FA8004283FD /* office365_odata_impl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3AF50619DF2FA8004283FD /* office365_odata_impl.m */; };
+		EC78D82019F036DF00A443DD /* liboffice365_exchange_helpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC78D81F19F036DF00A443DD /* liboffice365_exchange_helpers.a */; };
 		ECCC3F7D19E4682F00768B43 /* MSODefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCC3F7C19E4682F00768B43 /* MSODefaultDependencyResolver.m */; };
 		ECCC3F7E19E4684300768B43 /* MSOResponseImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13D19DF356A00F793B0 /* MSOResponseImpl.h */; };
 		ECCC3F7F19E4684300768B43 /* MSOResponseImpl.m in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0ED13819DF304600F793B0 /* MSOResponseImpl.m */; };
@@ -78,6 +79,7 @@
 		EC3AF50619DF2FA8004283FD /* office365_odata_impl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_impl.m; sourceTree = "<group>"; };
 		EC3AF50C19DF2FA9004283FD /* office365_odata_implTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_odata_implTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3AF50F19DF2FA9004283FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC78D81F19F036DF00A443DD /* liboffice365_exchange_helpers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_helpers.a; path = "../office365_exchange_helpers/build/Debug-iphoneos/liboffice365_exchange_helpers.a"; sourceTree = "<group>"; };
 		ECCC3F7B19E4682F00768B43 /* MSODefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODefaultDependencyResolver.h; sourceTree = "<group>"; };
 		ECCC3F7C19E4682F00768B43 /* MSODefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODefaultDependencyResolver.m; sourceTree = "<group>"; };
 		ECCC3F8619E469C200768B43 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC78D82019F036DF00A443DD /* liboffice365_exchange_helpers.a in Frameworks */,
 				EC0ED13119DF303A00F793B0 /* liboffice365_odata_interfaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +182,7 @@
 		EC3AF4F819DF2FA8004283FD = {
 			isa = PBXGroup;
 			children = (
+				EC78D81F19F036DF00A443DD /* liboffice365_exchange_helpers.a */,
 				EC2833A919E5CD7F00E5FEA4 /* libs */,
 				EC3AF50319DF2FA8004283FD /* office365_odata_impl */,
 				EC3AF50D19DF2FA9004283FD /* office365_odata_implTests */,
@@ -437,7 +441,10 @@
 		EC3AF51319DF2FA9004283FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -448,7 +455,10 @@
 		EC3AF51419DF2FA9004283FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
+				);
 				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOBaseODataContainerHelper.h"
+#import "NSString+NSStringExtensions.h"
+#import "MSOODataURLImpl.h"
 
 @interface MSOBaseODataContainerHelper()
 
@@ -21,19 +23,20 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb : (NSString*) productName :(void (^)(id<MSOResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb : (NSString*) productName :(void (^)(id<MSOResponse>, NSError *))callback{
     
+    [path setBaseUrl:self.UrlComponent];
     id<MSOHttpTransport> httpTransport = [self.Resolver getHttpTransport];
     id<MSORequest> request = [httpTransport createRequest];
     
     [request setVerb:verb];
-    [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
+    [request setUrl: [path toString]];
     [request setContent:content];
     [request addHeader:@"Content-Type" :@"application/json"];
     [request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:productName]];
     
     [[[self.Resolver getCredentialsFactory]getCredentials]prepareRequest:request];
-    
+   
     return [httpTransport execute:request :^(id<MSOResponse> r, NSError *e) {
         callback(r,e);
     }];
@@ -63,5 +66,12 @@
     return self.Resolver;
 }
 
++(void)addCustomParametersToODataURL : (id<MSOODataURL>) url : (NSDictionary*) parameters : (id<MSODependencyResolver>) resolver{
+    
+    for (NSString* key in [parameters allKeys]) {
+        NSString* value = [parameters objectForKey:key];
+        [url addQueryStringParameter:value :key];
+    }
+}
 
 @end

@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import <office365_odata_interfaces/MSODependencyResolver.h>
+#import <office365_exchange_helpers/MSOOdataUrlImpl.h>
 
 @interface MSODefaultDependencyResolver : NSObject<MSODependencyResolver>
 

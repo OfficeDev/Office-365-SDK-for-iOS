@@ -16,11 +16,11 @@
     return [super initWith:urlComponent :parent : [MSOMessage class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOMessage> *message, NSError *error))callback{
+/*-(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOMessage> *message, NSError *error))callback{
     return [super execute:^(id entity, NSError *error) {
         callback(entity, error);
     }];
-}
+}*/
 
 -(NSURLSessionDataTask*)add:(MSOMessage* )entity :(void (^)(MSOMessage *message, NSError *e))callback{
 	return nil;

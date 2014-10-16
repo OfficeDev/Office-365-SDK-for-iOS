@@ -19,6 +19,7 @@
 		EC3AF4F319DF2F23004283FD /* MSOLogLevel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */; };
 		EC3AF4F419DF2F23004283FD /* MSORequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EA19DF2F19004283FD /* MSORequest.h */; };
 		EC3AF4F519DF2F23004283FD /* MSOResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC3AF4EB19DF2F19004283FD /* MSOResponse.h */; };
+		EC78D81E19F0342100A443DD /* MSOOdataUrl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC78D81D19F0333800A443DD /* MSOOdataUrl.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				EC78D81E19F0342100A443DD /* MSOOdataUrl.h in CopyFiles */,
 				EC3AF4EC19DF2F23004283FD /* MSOCredentials.h in CopyFiles */,
 				EC3AF4ED19DF2F23004283FD /* MSOCredentialsFactory.h in CopyFiles */,
 				EC3AF4EE19DF2F23004283FD /* MSODependencyResolver.h in CopyFiles */,
@@ -60,6 +62,7 @@
 		EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogLevel.h; sourceTree = "<group>"; };
 		EC3AF4EA19DF2F19004283FD /* MSORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequest.h; sourceTree = "<group>"; };
 		EC3AF4EB19DF2F19004283FD /* MSOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponse.h; sourceTree = "<group>"; };
+		EC78D81D19F0333800A443DD /* MSOOdataUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOdataUrl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,7 @@
 				EC3AF4E919DF2F19004283FD /* MSOLogLevel.h */,
 				EC3AF4EA19DF2F19004283FD /* MSORequest.h */,
 				EC3AF4EB19DF2F19004283FD /* MSOResponse.h */,
+				EC78D81D19F0333800A443DD /* MSOOdataUrl.h */,
 			);
 			path = interfaces;
 			sourceTree = "<group>";

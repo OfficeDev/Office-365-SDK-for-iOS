@@ -5,13 +5,14 @@
  ******************************************************************************/
 
 #import <office365_odata_interfaces/MSODependencyResolver.h>
+#import <office365_odata_interfaces/MSOODataURL.h>
 #import "MSOODataExecutable.h"
 
 /**
 * The header for type MSOODataOperations.
 */
 
-@interface MSOODataOperations : NSObject<MSOODataExecutable>
+@interface MSOODataOperations : MSOODataExecutable
 
 -(id)initOperationWithUrl : (NSString*) urlComponent Parent: (id<MSOODataExecutable>) parent;
 

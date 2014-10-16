@@ -5,7 +5,8 @@
  ******************************************************************************/
 
 #import "MSOUserOperations.h"
-#import  <office365_exchange_helpers/BaseODataContainerHelper.h>
+#import  <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 /**
 * The implementation file for type MSOUserOperations.
 */
@@ -24,7 +25,12 @@
                            [[NSDictionary alloc] initWithObjectsAndKeys :(saveToSentItems ? @"true" : @"false"),@"SaveToSentItems",nil ],nil];
     
     NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-    NSURLSessionDataTask* task = [self oDataExecute:@"SendMail" :payload :POST :^(id<MSOResponse> r, NSError *error) {
+    
+    id<MSOODataURL> url = [[self getResolver] createODataURL];
+    
+    [url appendPathComponent:@"SendMail"];
+    
+    NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
         if(error == nil){
             int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];

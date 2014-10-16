@@ -11,7 +11,7 @@
 * The header for type MSOODataEntityFetcher.
 */
 
-@interface MSOODataEntityFetcher : NSObject<MSOODataExecutable>
+@interface MSOODataEntityFetcher : MSOODataExecutable
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent : (Class) entityClass;
 

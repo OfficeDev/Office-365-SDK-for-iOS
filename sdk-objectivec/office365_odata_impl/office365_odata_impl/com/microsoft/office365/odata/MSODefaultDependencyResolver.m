@@ -45,6 +45,10 @@
     return self.mCredentialsFactory;
 }
 
+-(id<MSOODataURL>)createODataURL{
+    return [[MSOODataURLImpl alloc] init];
+}
+
 -(NSString*)getPlatformUserAgent : (NSString*) productName{
     
     NSMutableString* cpu = [[NSMutableString alloc] init];
