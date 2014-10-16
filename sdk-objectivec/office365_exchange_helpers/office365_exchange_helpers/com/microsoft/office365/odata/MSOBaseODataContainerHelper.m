@@ -4,11 +4,42 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "BaseODataContainerHelper.h"
+#import "MSOBaseODataContainerHelper.h"
 
-@implementation BaseODataContainerHelper
+@interface MSOBaseODataContainerHelper()
 
--(NSString*)generatePayload:(NSArray *)parameters :(id<MSODependencyResolver>)resolver{
+@property id<MSODependencyResolver> Resolver;
+@property NSString* UrlComponent;
+
+@end
+
+@implementation MSOBaseODataContainerHelper
+
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver{
+    self.UrlComponent = url;
+    self.resolver = resolver;
+    return self;
+}
+
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+    
+    id<MSOHttpTransport> httpTransport = [self.Resolver getHttpTransport];
+    id<MSORequest> request = [httpTransport createRequest];
+    
+    [request setVerb:verb];
+    [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
+    //[request setUrl:path];
+    [request setContent:content];
+    [request addHeader:@"Content-Type" :@"application/json"];
+    
+    [[[self.Resolver getCredentialsFactory]getCredentials]prepareRequest:request];
+    
+    return [httpTransport execute:request :^(id<MSOResponse> r, NSError *e) {
+        callback(r,e);
+    }];
+}
+
++(NSString*)generatePayload:(NSArray *)parameters :(id<MSODependencyResolver>)resolver{
     
     NSMutableString* result = [[NSMutableString alloc] initWithString:@"{"];
     for (NSDictionary* item in parameters) {
@@ -27,5 +58,10 @@
     
     return result;
 }
+
+-(id<MSODependencyResolver>)getResolver{
+    return self.Resolver;
+}
+
 
 @end

@@ -158,7 +158,7 @@
         parseResult = [self parseArrayData:jsonResult Type:type];
     }
     else{
-        parseResult = [self parseObjectData:jsonArray Type:type];
+        parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
     }
     
     return parseResult;

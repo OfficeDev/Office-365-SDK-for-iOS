@@ -6,9 +6,12 @@
 
 #import <Foundation/Foundation.h>
 #import <office365_odata_interfaces/MSODependencyResolver.h>
+#import <office365_odata_interfaces/MSOResponse.h>
 
-@interface BaseODataContainerHelper : NSObject
+@interface MSOBaseODataContainerHelper : NSObject
 
--(NSString*)generatePayload :(NSArray*) parameters : (id<MSODependencyResolver>) resolver;
-
+-(id<MSODependencyResolver>) getResolver;
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver;
++(NSString*)generatePayload :(NSArray*) parameters : (id<MSODependencyResolver>) resolver;
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback;
 @end

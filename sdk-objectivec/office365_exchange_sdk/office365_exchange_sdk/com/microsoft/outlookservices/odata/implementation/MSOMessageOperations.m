@@ -140,14 +140,14 @@
 -(NSURLSessionDataTask*)send : (void (^)(int returnValue, NSError *error))callback{
 
     NSURLSessionDataTask* task = [self oDataExecute:@"Send" :nil :POST :^(id<MSOResponse> r, NSError *error) {
-        
-       if(error == nil){
+        	
+       /*if(error == nil){
            int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
            callback(result, error);
         }
         else{
             callback(0, error);
-        }
+        }*/
     }];
     
     return task;

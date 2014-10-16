@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC1DCEB919E8422800EF2176 /* office365_exchange_helpers.h */; };
 		EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */; };
-		ECD1AE8119EEBECB00C4940F /* BaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */; };
+		ECD1AE8119EEBECB00C4940F /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */; };
 		ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */; };
-		ECD1AE8719EEDB6400C4940F /* BaseODataContainerHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */; };
+		ECD1AE8719EEDB6400C4940F /* MSOBaseODataContainerHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +21,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				ECD1AE8719EEDB6400C4940F /* BaseODataContainerHelper.h in CopyFiles */,
+				ECD1AE8719EEDB6400C4940F /* MSOBaseODataContainerHelper.h in CopyFiles */,
 				EC1DCEBA19E8422800EF2176 /* office365_exchange_helpers.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,8 +34,8 @@
 		EC1DCEBB19E8422800EF2176 /* office365_exchange_helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_helpers.m; sourceTree = "<group>"; };
 		EC1DCEC119E8422800EF2176 /* office365_exchange_helpersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_helpersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1DCEC419E8422800EF2176 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseODataContainerHelper.m; sourceTree = "<group>"; };
-		ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseODataContainerHelper.h; sourceTree = "<group>"; };
+		ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
 		ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,8 +130,8 @@
 		ECD1AE7F19EEBECB00C4940F /* odata */ = {
 			isa = PBXGroup;
 			children = (
-				ECD1AE8019EEBECB00C4940F /* BaseODataContainerHelper.m */,
-				ECD1AE8219EEC18900C4940F /* BaseODataContainerHelper.h */,
+				ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */,
+				ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */,
 			);
 			path = odata;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD1AE8119EEBECB00C4940F /* BaseODataContainerHelper.m in Sources */,
+				ECD1AE8119EEBECB00C4940F /* MSOBaseODataContainerHelper.m in Sources */,
 				EC1DCEBC19E8422800EF2176 /* office365_exchange_helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,10 +315,7 @@
 		EC1DCEC819E8422800EF2176 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -328,10 +325,7 @@
 		EC1DCEC919E8422800EF2176 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

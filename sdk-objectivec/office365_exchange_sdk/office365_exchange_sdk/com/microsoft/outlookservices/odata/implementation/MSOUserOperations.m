@@ -23,8 +23,7 @@
                            [[NSDictionary alloc] initWithObjectsAndKeys :message,@"Message",nil ],
                            [[NSDictionary alloc] initWithObjectsAndKeys :(saveToSentItems ? @"true" : @"false"),@"SaveToSentItems",nil ],nil];
     
-    BaseODataContainerHelper * helper = [BaseODataContainerHelper alloc];
-    NSData* payload = [[helper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+    NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSessionDataTask* task = [self oDataExecute:@"SendMail" :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
         if(error == nil){

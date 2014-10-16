@@ -22,11 +22,15 @@
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOUser* )entity :(void (^)(MSOUser *user, NSError *e))callback{
-	return nil;
+-(MSOUserFetcher*)getById:(NSString *)Id{
+    [super getById:Id];
+    return [[MSOUserFetcher alloc] initWith:@"" : self :[MSOUser class]];
 }
 
--(MSOUserFetcher*)getById:(NSString *)Id{
-	return nil;
+-(NSURLSessionDataTask *)add:(MSOUser* )entity :(void (^)(MSOUser*, NSError *e))callback{
+    return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
+    }];
 }
+
 @end

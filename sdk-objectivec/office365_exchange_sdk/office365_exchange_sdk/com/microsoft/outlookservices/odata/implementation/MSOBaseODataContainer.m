@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOBaseODataContainer.h"
 
 @interface MSOBaseODataContainer()
@@ -28,20 +29,8 @@
 
 -(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
-    id<MSOHttpTransport> httpTransport = [[self getResolver] getHttpTransport];
-    id<MSORequest> request = [httpTransport createRequest];
-    
-    [request setVerb:verb];
-    [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
-    //[request setUrl:path];
-    [request setContent:content];
-    [request addHeader:@"Content-Type" :@"application/json"];
-    
-    [[[[self getResolver] getCredentialsFactory]getCredentials]prepareRequest:request];
-    
-    return [httpTransport execute:request :^(id<MSOResponse> r, NSError *e) {
-        callback(r,e);
-    }];
+    return [[[MSOBaseODataContainerHelper alloc] initWitUrl:self.UrlComponent dependencyResolver:self.resolver]
+            oDataExecute:path :content :verb :callback];
 }
 
 -(id<MSODependencyResolver>) getResolver{

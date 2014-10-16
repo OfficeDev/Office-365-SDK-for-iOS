@@ -30,10 +30,6 @@
     return self;
 }
 
--(id<MSODependencyResolver>) getResolver{
-    return [self.Parent getResolver];
-}
-
 -(id)getOperations{
     return self.operations;
 }
@@ -69,8 +65,7 @@
     }];
 }
 
--(NSURLSessionDataTask*) execute:(void (^)(id , NSError *))callback{
-    //return [self oDataExecute:@"" :nil :GET :^(id<MSOResponse> r, NSError *e) {
+-(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
     return [self oDataExecute:self.UrlComponent :nil :GET :^(id<MSOResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];
@@ -79,6 +74,10 @@
         }
         else callback(nil, e);
     }];
+}
+
+-(id<MSODependencyResolver>) getResolver{
+    return [self.Parent getResolver];
 }
 
 @end
