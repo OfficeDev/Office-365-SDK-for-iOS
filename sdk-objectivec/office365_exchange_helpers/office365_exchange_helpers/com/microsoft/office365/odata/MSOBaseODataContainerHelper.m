@@ -21,16 +21,16 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb : (NSString*) productName :(void (^)(id<MSOResponse>, NSError *))callback{
     
     id<MSOHttpTransport> httpTransport = [self.Resolver getHttpTransport];
     id<MSORequest> request = [httpTransport createRequest];
     
     [request setVerb:verb];
     [request setUrl:[[NSMutableString alloc] initWithFormat:@"%@/%@", self.UrlComponent, path]];
-    //[request setUrl:path];
     [request setContent:content];
     [request addHeader:@"Content-Type" :@"application/json"];
+    [request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:productName]];
     
     [[[self.Resolver getCredentialsFactory]getCredentials]prepareRequest:request];
     

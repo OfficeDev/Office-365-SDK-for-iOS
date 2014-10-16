@@ -13,5 +13,5 @@
 -(id<MSODependencyResolver>) getResolver;
 -(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver;
 +(NSString*)generatePayload :(NSArray*) parameters : (id<MSODependencyResolver>) resolver;
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback;
+-(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb : (NSString*) productName :(void (^)(id<MSOResponse>, NSError *))callback;
 @end

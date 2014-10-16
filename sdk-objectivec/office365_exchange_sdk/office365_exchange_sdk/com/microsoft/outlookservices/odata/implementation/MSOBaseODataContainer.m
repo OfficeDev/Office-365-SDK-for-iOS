@@ -30,7 +30,7 @@
 -(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     
     return [[[MSOBaseODataContainerHelper alloc] initWitUrl:self.UrlComponent dependencyResolver:self.resolver]
-            oDataExecute:path :content :verb :callback];
+            oDataExecute:path :content :verb : @"office365_exchange_sdk/MSOBaseODataContainer" :callback];
 }
 
 -(id<MSODependencyResolver>) getResolver{
