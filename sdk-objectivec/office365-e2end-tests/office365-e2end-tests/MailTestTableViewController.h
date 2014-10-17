@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListTestTableViewController : UITableViewController
+@interface MailTestTableViewController : UITableViewController
 
 - (IBAction)RunAllTests:(id)sender;
 

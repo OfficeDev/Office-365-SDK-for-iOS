@@ -6,20 +6,20 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import "ListTestTableViewController.h"
+#import "MailTestTableViewController.h"
 #import "LogInController.h"
 #import "TestParameters.h"
-#import "ListTestRunner.h"
+#import "MailTestRunner.h"
 
-@interface ListTestTableViewController ()
+@interface MailTestTableViewController ()
 
 @end
 
-@implementation ListTestTableViewController
+@implementation MailTestTableViewController
 
 LogInController *loginController;
 TestParameters *testParameters;
-ListTestRunner *testRunner;
+MailTestRunner *testRunner;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,7 +33,14 @@ ListTestRunner *testRunner;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    loginController = [[LogInController alloc] init];//initWith:];
+    loginController = [[LogInController alloc] init];
+    
+    testRunner = [MailTestRunner alloc];
+    testRunner.Parameters = testParameters;
+    
+    self.Tests = [testRunner getTests];
+    
+    [self.tableView reloadData];
     
    // [self LogIn];
     
@@ -70,7 +77,7 @@ ListTestRunner *testRunner;
     
     Test *test = [self.Tests objectAtIndex:indexPath.row];
     cell.textLabel.text = test.DisplayName;
-    
+    	
     if(test.ExecutionMessages != nil){
         if(test.Passed){
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"passed.png"]];
@@ -150,7 +157,6 @@ ListTestRunner *testRunner;
         NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
             
             Test *test = [self.Tests objectAtIndex:i];
-           // [[self.Tests objectAtIndex:i] setObject:result atIndex:i];
             test.Passed = result.Passed;
             test.ExecutionMessages = result.ExecutionMessages;
             executed++;
