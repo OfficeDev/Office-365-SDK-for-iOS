@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 @interface UserSettingsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *txtAuthorityUrl;

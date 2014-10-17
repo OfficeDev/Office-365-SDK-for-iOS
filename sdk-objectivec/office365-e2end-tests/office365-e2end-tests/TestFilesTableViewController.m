@@ -9,7 +9,7 @@
 #import "TestFilesTableViewController.h"
 #import "LogInController.h"
 #import "TestParameters.h"
-#import "FileTestRunner.h"
+//#import "FileTestRunner.h"
 
 @interface TestFilesTableViewController()
 
@@ -19,7 +19,7 @@
 
 LogInController *loginController;
 TestParameters *testParameters;
-FileTestRunner *testRunner;
+//FileTestRunner *testRunner;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,7 +60,7 @@ FileTestRunner *testRunner;
     return [self.Tests count];
 }
 
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileTestsCells" forIndexPath:indexPath];
@@ -78,7 +78,7 @@ FileTestRunner *testRunner;
     }
     
     return cell;
-}
+}*/
 
 
 /*
@@ -138,7 +138,7 @@ FileTestRunner *testRunner;
     [spinner startAnimating];
     
     __block int executed = 0;
-    
+    /*
     for (int i = 0; i < [self.Tests count]; i++) {
         NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
             
@@ -157,12 +157,13 @@ FileTestRunner *testRunner;
         
         [task resume];
     }
+     */
 }
 
 -(void)LogIn{
-    
+    /*
     [loginController getTokenWith : @"https://lagashsystems365-my.sharepoint.com"
-    /*@"https://lagashsystems365.sharepoint.com"*/ :true completionHandler:^(NSString *token) {
+       @"https://lagashsystems365.sharepoint.com" :true completionHandler:^(NSString *token) {
         testParameters = [TestParameters alloc];
         testParameters.Credentials = [[OAuthentication alloc] initWith:token];
         testParameters.ServiceUrl = @"https://lagashsystems365-my.sharepoint.com/personal/gustavoh_lagash_com";//@"https://lagashsystems365.sharepoint.com/sites/Argentina/Produccion/MSOpenTechLagash";
@@ -173,7 +174,7 @@ FileTestRunner *testRunner;
         self.Tests = [testRunner getTests];
         
         [self.tableView reloadData];
-    }];
+    }];*/
 }
 
 @end
