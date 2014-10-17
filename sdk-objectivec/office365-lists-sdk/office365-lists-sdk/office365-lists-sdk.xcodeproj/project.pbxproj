@@ -7,160 +7,142 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C620E9B199BDBE700231D4D /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C620E9A199BDBE700231D4D /* ListItem.m */; };
-		3CB5B486199CED2100772E7A /* ListItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C620E99199BDBE700231D4D /* ListItem.h */; };
-		3CB5B489199D097000772E7A /* ListField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB5B488199D097000772E7A /* ListField.m */; };
-		3CB5B48A199D29C400772E7A /* ListField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3CB5B487199D097000772E7A /* ListField.h */; };
-		ECAF85261986C3DF000B6DD2 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */; };
-		ECE5718C197EEAAE00FDAE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE5718B197EEAAE00FDAE94 /* Foundation.framework */; };
-		ECE57191197EEAAE00FDAE94 /* office365_lists_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE57190197EEAAE00FDAE94 /* office365_lists_sdk.h */; };
-		ECE57193197EEAAE00FDAE94 /* office365_lists_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE57192197EEAAE00FDAE94 /* office365_lists_sdk.m */; };
-		ECE5719B197EEAAE00FDAE94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE5718B197EEAAE00FDAE94 /* Foundation.framework */; };
-		ECE571A0197EEAAE00FDAE94 /* liboffice365-lists-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */; };
-		ECE571B5197EED5800FDAE94 /* ListClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE571B4197EED5800FDAE94 /* ListClient.m */; };
-		ECE571B8197EED6600FDAE94 /* ListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE571B7197EED6600FDAE94 /* ListEntity.m */; };
-		ECE571BD197EF38300FDAE94 /* ListClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE571B3197EED5800FDAE94 /* ListClient.h */; };
-		ECE571BE197EF38300FDAE94 /* ListEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE571B6197EED6600FDAE94 /* ListEntity.h */; };
+		ECBBC9DF19F1B16800DE04A4 /* office365_lists_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBC9DE19F1B16800DE04A4 /* office365_lists_sdk.h */; };
+		ECBBC9E119F1B16800DE04A4 /* office365_lists_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9E019F1B16800DE04A4 /* office365_lists_sdk.m */; };
+		ECBBCA1A19F1B1D000DE04A4 /* ListClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA1319F1B1D000DE04A4 /* ListClient.m */; };
+		ECBBCA1B19F1B1D000DE04A4 /* ListEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA1519F1B1D000DE04A4 /* ListEntity.m */; };
+		ECBBCA1C19F1B1D000DE04A4 /* ListField.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA1719F1B1D000DE04A4 /* ListField.m */; };
+		ECBBCA1D19F1B1D000DE04A4 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA1919F1B1D000DE04A4 /* ListItem.m */; };
+		ECBBCA4119F1B22E00DE04A4 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBBCA4019F1B22E00DE04A4 /* liboffice365-base-sdk.a */; };
+		ECBBCA4C19F1B2B800DE04A4 /* ListClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA1219F1B1D000DE04A4 /* ListClient.h */; };
+		ECBBCA4D19F1B2B800DE04A4 /* ListEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA1419F1B1D000DE04A4 /* ListEntity.h */; };
+		ECBBCA4E19F1B2B800DE04A4 /* ListField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA1619F1B1D000DE04A4 /* ListField.h */; };
+		ECBBCA4F19F1B2B800DE04A4 /* ListItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA1819F1B1D000DE04A4 /* ListItem.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ECE5719E197EEAAE00FDAE94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECE57180197EEAAE00FDAE94 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECE57187197EEAAE00FDAE94;
-			remoteInfo = "office365-lists-sdk";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		ECE57186197EEAAE00FDAE94 /* CopyFiles */ = {
+		ECBBC9D919F1B16800DE04A4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				3CB5B48A199D29C400772E7A /* ListField.h in CopyFiles */,
-				3CB5B486199CED2100772E7A /* ListItem.h in CopyFiles */,
-				ECE571BD197EF38300FDAE94 /* ListClient.h in CopyFiles */,
-				ECE571BE197EF38300FDAE94 /* ListEntity.h in CopyFiles */,
-				ECE57191197EEAAE00FDAE94 /* office365_lists_sdk.h in CopyFiles */,
+				ECBBCA4C19F1B2B800DE04A4 /* ListClient.h in CopyFiles */,
+				ECBBCA4D19F1B2B800DE04A4 /* ListEntity.h in CopyFiles */,
+				ECBBCA4E19F1B2B800DE04A4 /* ListField.h in CopyFiles */,
+				ECBBCA4F19F1B2B800DE04A4 /* ListItem.h in CopyFiles */,
+				ECBBC9DF19F1B16800DE04A4 /* office365_lists_sdk.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3C620E99199BDBE700231D4D /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
-		3C620E9A199BDBE700231D4D /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
-		3CB5B487199D097000772E7A /* ListField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListField.h; sourceTree = "<group>"; };
-		3CB5B488199D097000772E7A /* ListField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListField.m; sourceTree = "<group>"; };
-		ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
-		ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-lists-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE5718B197EEAAE00FDAE94 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		ECE5718F197EEAAE00FDAE94 /* office365-lists-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-lists-sdk-Prefix.pch"; sourceTree = "<group>"; };
-		ECE57190197EEAAE00FDAE94 /* office365_lists_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_lists_sdk.h; sourceTree = "<group>"; };
-		ECE57192197EEAAE00FDAE94 /* office365_lists_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_lists_sdk.m; sourceTree = "<group>"; };
-		ECE57198197EEAAE00FDAE94 /* office365-lists-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-lists-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE571B3197EED5800FDAE94 /* ListClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListClient.h; sourceTree = "<group>"; };
-		ECE571B4197EED5800FDAE94 /* ListClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListClient.m; sourceTree = "<group>"; };
-		ECE571B6197EED6600FDAE94 /* ListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListEntity.h; sourceTree = "<group>"; };
-		ECE571B7197EED6600FDAE94 /* ListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListEntity.m; sourceTree = "<group>"; };
+		ECBBC9DB19F1B16800DE04A4 /* liboffice365-lists-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-lists-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBBC9DE19F1B16800DE04A4 /* office365_lists_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_lists_sdk.h; sourceTree = "<group>"; };
+		ECBBC9E019F1B16800DE04A4 /* office365_lists_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_lists_sdk.m; sourceTree = "<group>"; };
+		ECBBC9E619F1B16800DE04A4 /* office365-lists-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-lists-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBBC9E919F1B16800DE04A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBBCA1219F1B1D000DE04A4 /* ListClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListClient.h; path = "office365-lists-sdk/ListClient.h"; sourceTree = "<group>"; };
+		ECBBCA1319F1B1D000DE04A4 /* ListClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListClient.m; path = "office365-lists-sdk/ListClient.m"; sourceTree = "<group>"; };
+		ECBBCA1419F1B1D000DE04A4 /* ListEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListEntity.h; path = "office365-lists-sdk/ListEntity.h"; sourceTree = "<group>"; };
+		ECBBCA1519F1B1D000DE04A4 /* ListEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListEntity.m; path = "office365-lists-sdk/ListEntity.m"; sourceTree = "<group>"; };
+		ECBBCA1619F1B1D000DE04A4 /* ListField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListField.h; path = "office365-lists-sdk/ListField.h"; sourceTree = "<group>"; };
+		ECBBCA1719F1B1D000DE04A4 /* ListField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListField.m; path = "office365-lists-sdk/ListField.m"; sourceTree = "<group>"; };
+		ECBBCA1819F1B1D000DE04A4 /* ListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListItem.h; path = "office365-lists-sdk/ListItem.h"; sourceTree = "<group>"; };
+		ECBBCA1919F1B1D000DE04A4 /* ListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListItem.m; path = "office365-lists-sdk/ListItem.m"; sourceTree = "<group>"; };
+		ECBBCA4019F1B22E00DE04A4 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboffice365-base-sdk.a"; path = "../office365-base-sdk/build/Debug-iphoneos/liboffice365-base-sdk.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ECE57185197EEAAE00FDAE94 /* Frameworks */ = {
+		ECBBC9D819F1B16800DE04A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECAF85261986C3DF000B6DD2 /* liboffice365-base-sdk.a in Frameworks */,
-				ECE5718C197EEAAE00FDAE94 /* Foundation.framework in Frameworks */,
+				ECBBCA4119F1B22E00DE04A4 /* liboffice365-base-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECE57195197EEAAE00FDAE94 /* Frameworks */ = {
+		ECBBC9E319F1B16800DE04A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE5719B197EEAAE00FDAE94 /* Foundation.framework in Frameworks */,
-				ECE571A0197EEAAE00FDAE94 /* liboffice365-lists-sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C620E98199BDBB700231D4D /* entities */ = {
+		ECBBC9D219F1B16800DE04A4 = {
 			isa = PBXGroup;
 			children = (
-				ECE571B6197EED6600FDAE94 /* ListEntity.h */,
-				ECE571B7197EED6600FDAE94 /* ListEntity.m */,
-				3C620E99199BDBE700231D4D /* ListItem.h */,
-				3C620E9A199BDBE700231D4D /* ListItem.m */,
-				3CB5B487199D097000772E7A /* ListField.h */,
-				3CB5B488199D097000772E7A /* ListField.m */,
-			);
-			name = entities;
-			sourceTree = "<group>";
-		};
-		ECE5717F197EEAAE00FDAE94 = {
-			isa = PBXGroup;
-			children = (
-				ECE5718D197EEAAE00FDAE94 /* office365-lists-sdk */,
-				ECE5718A197EEAAE00FDAE94 /* Frameworks */,
-				ECE57189197EEAAE00FDAE94 /* Products */,
+				ECBBCA4019F1B22E00DE04A4 /* liboffice365-base-sdk.a */,
+				ECBBCA1219F1B1D000DE04A4 /* ListClient.h */,
+				ECBBCA1319F1B1D000DE04A4 /* ListClient.m */,
+				ECBBCA1E19F1B1DB00DE04A4 /* entities */,
+				ECBBC9DD19F1B16800DE04A4 /* office365-lists-sdk */,
+				ECBBC9E719F1B16800DE04A4 /* office365-lists-sdkTests */,
+				ECBBC9DC19F1B16800DE04A4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		ECE57189197EEAAE00FDAE94 /* Products */ = {
+		ECBBC9DC19F1B16800DE04A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */,
-				ECE57198197EEAAE00FDAE94 /* office365-lists-sdkTests.xctest */,
+				ECBBC9DB19F1B16800DE04A4 /* liboffice365-lists-sdk.a */,
+				ECBBC9E619F1B16800DE04A4 /* office365-lists-sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECE5718A197EEAAE00FDAE94 /* Frameworks */ = {
+		ECBBC9DD19F1B16800DE04A4 /* office365-lists-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				ECAF85251986C3DF000B6DD2 /* liboffice365-base-sdk.a */,
-				ECE5718B197EEAAE00FDAE94 /* Foundation.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		ECE5718D197EEAAE00FDAE94 /* office365-lists-sdk */ = {
-			isa = PBXGroup;
-			children = (
-				ECE57190197EEAAE00FDAE94 /* office365_lists_sdk.h */,
-				ECE57192197EEAAE00FDAE94 /* office365_lists_sdk.m */,
-				ECE5718E197EEAAE00FDAE94 /* Supporting Files */,
-				ECE571B3197EED5800FDAE94 /* ListClient.h */,
-				ECE571B4197EED5800FDAE94 /* ListClient.m */,
-				3C620E98199BDBB700231D4D /* entities */,
+				ECBBC9DE19F1B16800DE04A4 /* office365_lists_sdk.h */,
+				ECBBC9E019F1B16800DE04A4 /* office365_lists_sdk.m */,
 			);
 			path = "office365-lists-sdk";
 			sourceTree = "<group>";
 		};
-		ECE5718E197EEAAE00FDAE94 /* Supporting Files */ = {
+		ECBBC9E719F1B16800DE04A4 /* office365-lists-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				ECE5718F197EEAAE00FDAE94 /* office365-lists-sdk-Prefix.pch */,
+				ECBBC9E819F1B16800DE04A4 /* Supporting Files */,
+			);
+			path = "office365-lists-sdkTests";
+			sourceTree = "<group>";
+		};
+		ECBBC9E819F1B16800DE04A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBC9E919F1B16800DE04A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECBBCA1E19F1B1DB00DE04A4 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBCA1419F1B1D000DE04A4 /* ListEntity.h */,
+				ECBBCA1519F1B1D000DE04A4 /* ListEntity.m */,
+				ECBBCA1619F1B1D000DE04A4 /* ListField.h */,
+				ECBBCA1719F1B1D000DE04A4 /* ListField.m */,
+				ECBBCA1819F1B1D000DE04A4 /* ListItem.h */,
+				ECBBCA1919F1B1D000DE04A4 /* ListItem.m */,
+			);
+			name = entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ECE57187197EEAAE00FDAE94 /* office365-lists-sdk */ = {
+		ECBBC9DA19F1B16800DE04A4 /* office365-lists-sdk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECE571AB197EEAAF00FDAE94 /* Build configuration list for PBXNativeTarget "office365-lists-sdk" */;
+			buildConfigurationList = ECBBC9EC19F1B16800DE04A4 /* Build configuration list for PBXNativeTarget "office365-lists-sdk" */;
 			buildPhases = (
-				ECE57184197EEAAE00FDAE94 /* Sources */,
-				ECE57185197EEAAE00FDAE94 /* Frameworks */,
-				ECE57186197EEAAE00FDAE94 /* CopyFiles */,
+				ECBBC9D719F1B16800DE04A4 /* Sources */,
+				ECBBC9D819F1B16800DE04A4 /* Frameworks */,
+				ECBBC9D919F1B16800DE04A4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -168,56 +150,63 @@
 			);
 			name = "office365-lists-sdk";
 			productName = "office365-lists-sdk";
-			productReference = ECE57188197EEAAE00FDAE94 /* liboffice365-lists-sdk.a */;
+			productReference = ECBBC9DB19F1B16800DE04A4 /* liboffice365-lists-sdk.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		ECE57197197EEAAE00FDAE94 /* office365-lists-sdkTests */ = {
+		ECBBC9E519F1B16800DE04A4 /* office365-lists-sdkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECE571AE197EEAAF00FDAE94 /* Build configuration list for PBXNativeTarget "office365-lists-sdkTests" */;
+			buildConfigurationList = ECBBC9EF19F1B16800DE04A4 /* Build configuration list for PBXNativeTarget "office365-lists-sdkTests" */;
 			buildPhases = (
-				ECE57194197EEAAE00FDAE94 /* Sources */,
-				ECE57195197EEAAE00FDAE94 /* Frameworks */,
-				ECE57196197EEAAE00FDAE94 /* Resources */,
+				ECBBC9E219F1B16800DE04A4 /* Sources */,
+				ECBBC9E319F1B16800DE04A4 /* Frameworks */,
+				ECBBC9E419F1B16800DE04A4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				ECE5719F197EEAAE00FDAE94 /* PBXTargetDependency */,
 			);
 			name = "office365-lists-sdkTests";
 			productName = "office365-lists-sdkTests";
-			productReference = ECE57198197EEAAE00FDAE94 /* office365-lists-sdkTests.xctest */;
+			productReference = ECBBC9E619F1B16800DE04A4 /* office365-lists-sdkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		ECE57180197EEAAE00FDAE94 /* Project object */ = {
+		ECBBC9D319F1B16800DE04A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Lagash;
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					ECBBC9DA19F1B16800DE04A4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					ECBBC9E519F1B16800DE04A4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
 			};
-			buildConfigurationList = ECE57183197EEAAE00FDAE94 /* Build configuration list for PBXProject "office365-lists-sdk" */;
+			buildConfigurationList = ECBBC9D619F1B16800DE04A4 /* Build configuration list for PBXProject "office365-lists-sdk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = ECE5717F197EEAAE00FDAE94;
-			productRefGroup = ECE57189197EEAAE00FDAE94 /* Products */;
+			mainGroup = ECBBC9D219F1B16800DE04A4;
+			productRefGroup = ECBBC9DC19F1B16800DE04A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ECE57187197EEAAE00FDAE94 /* office365-lists-sdk */,
-				ECE57197197EEAAE00FDAE94 /* office365-lists-sdkTests */,
+				ECBBC9DA19F1B16800DE04A4 /* office365-lists-sdk */,
+				ECBBC9E519F1B16800DE04A4 /* office365-lists-sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		ECE57196197EEAAE00FDAE94 /* Resources */ = {
+		ECBBC9E419F1B16800DE04A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -227,19 +216,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ECE57184197EEAAE00FDAE94 /* Sources */ = {
+		ECBBC9D719F1B16800DE04A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB5B489199D097000772E7A /* ListField.m in Sources */,
-				3C620E9B199BDBE700231D4D /* ListItem.m in Sources */,
-				ECE571B8197EED6600FDAE94 /* ListEntity.m in Sources */,
-				ECE571B5197EED5800FDAE94 /* ListClient.m in Sources */,
-				ECE57193197EEAAE00FDAE94 /* office365_lists_sdk.m in Sources */,
+				ECBBCA1B19F1B1D000DE04A4 /* ListEntity.m in Sources */,
+				ECBBCA1A19F1B1D000DE04A4 /* ListClient.m in Sources */,
+				ECBBCA1C19F1B1D000DE04A4 /* ListField.m in Sources */,
+				ECBBCA1D19F1B1D000DE04A4 /* ListItem.m in Sources */,
+				ECBBC9E119F1B16800DE04A4 /* office365_lists_sdk.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECE57194197EEAAE00FDAE94 /* Sources */ = {
+		ECBBC9E219F1B16800DE04A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -248,16 +237,8 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		ECE5719F197EEAAE00FDAE94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECE57187197EEAAE00FDAE94 /* office365-lists-sdk */;
-			targetProxy = ECE5719E197EEAAE00FDAE94 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		ECE571A9197EEAAF00FDAE94 /* Debug */ = {
+		ECBBC9EA19F1B16800DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,8 +253,10 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -288,13 +271,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		ECE571AA197EEAAF00FDAE94 /* Release */ = {
+		ECBBC9EB19F1B16800DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -309,9 +293,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -319,111 +305,98 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		ECE571AC197EEAAF00FDAE94 /* Debug */ = {
+		ECBBC9ED19F1B16800DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/office365_lists_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365-lists-sdk/office365-base-sdk/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		ECE571AD197EEAAF00FDAE94 /* Release */ = {
+		ECBBC9EE19F1B16800DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/office365_lists_sdk.dst;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
-				OTHER_LDFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365-lists-sdk/office365-base-sdk/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		ECE571AF197EEAAF00FDAE94 /* Debug */ = {
+		ECBBC9F019F1B16800DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "office365-lists-sdkTests/office365-lists-sdkTests-Info.plist";
+				INFOPLIST_FILE = "office365-lists-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		ECE571B0197EEAAF00FDAE94 /* Release */ = {
+		ECBBC9F119F1B16800DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-lists-sdk/office365-lists-sdk-Prefix.pch";
-				INFOPLIST_FILE = "office365-lists-sdkTests/office365-lists-sdkTests-Info.plist";
+				INFOPLIST_FILE = "office365-lists-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ECE57183197EEAAE00FDAE94 /* Build configuration list for PBXProject "office365-lists-sdk" */ = {
+		ECBBC9D619F1B16800DE04A4 /* Build configuration list for PBXProject "office365-lists-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECE571A9197EEAAF00FDAE94 /* Debug */,
-				ECE571AA197EEAAF00FDAE94 /* Release */,
+				ECBBC9EA19F1B16800DE04A4 /* Debug */,
+				ECBBC9EB19F1B16800DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECE571AB197EEAAF00FDAE94 /* Build configuration list for PBXNativeTarget "office365-lists-sdk" */ = {
+		ECBBC9EC19F1B16800DE04A4 /* Build configuration list for PBXNativeTarget "office365-lists-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECE571AC197EEAAF00FDAE94 /* Debug */,
-				ECE571AD197EEAAF00FDAE94 /* Release */,
+				ECBBC9ED19F1B16800DE04A4 /* Debug */,
+				ECBBC9EE19F1B16800DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		ECE571AE197EEAAF00FDAE94 /* Build configuration list for PBXNativeTarget "office365-lists-sdkTests" */ = {
+		ECBBC9EF19F1B16800DE04A4 /* Build configuration list for PBXNativeTarget "office365-lists-sdkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ECE571AF197EEAAF00FDAE94 /* Debug */,
-				ECE571B0197EEAAF00FDAE94 /* Release */,
+				ECBBC9F019F1B16800DE04A4 /* Debug */,
+				ECBBC9F119F1B16800DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = ECE57180197EEAAE00FDAE94 /* Project object */;
+	rootObject = ECBBC9D319F1B16800DE04A4 /* Project object */;
 }

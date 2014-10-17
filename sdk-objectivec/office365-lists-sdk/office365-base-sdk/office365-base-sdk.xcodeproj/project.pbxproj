@@ -7,245 +7,196 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C620E94199AB0D400231D4D /* NSString+NSStringExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C620E92199AB0D400231D4D /* NSString+NSStringExtensions.h */; };
-		3C620E95199AB0D400231D4D /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C620E93199AB0D400231D4D /* NSString+NSStringExtensions.m */; };
-		3C620E97199AB55E00231D4D /* NSString+NSStringExtensions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C620E92199AB0D400231D4D /* NSString+NSStringExtensions.h */; };
-		EC0535E5197D9109009D45F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0535E4197D9109009D45F4 /* Foundation.framework */; };
-		EC0535EA197D9109009D45F4 /* office365_base_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC0535E9197D9109009D45F4 /* office365_base_sdk.h */; };
-		EC0535EC197D9109009D45F4 /* office365_base_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0535EB197D9109009D45F4 /* office365_base_sdk.m */; };
-		EC0535F3197D9109009D45F4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0535F2197D9109009D45F4 /* XCTest.framework */; };
-		EC0535F4197D9109009D45F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0535E4197D9109009D45F4 /* Foundation.framework */; };
-		EC0535F6197D9109009D45F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0535F5197D9109009D45F4 /* UIKit.framework */; };
-		EC0535F9197D9109009D45F4 /* liboffice365-base-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0535E1197D9109009D45F4 /* liboffice365-base-sdk.a */; };
-		EC053612197D913C009D45F4 /* BaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360B197D913C009D45F4 /* BaseClient.m */; };
-		EC053613197D913C009D45F4 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360D197D913C009D45F4 /* Credentials.m */; };
-		EC053614197D913C009D45F4 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05360F197D913C009D45F4 /* HttpConnection.m */; };
-		EC053615197D913C009D45F4 /* OAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053611197D913C009D45F4 /* OAuthentication.m */; };
-		EC053620197DAA33009D45F4 /* FileDiscoveryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC05361F197DAA33009D45F4 /* FileDiscoveryClient.m */; };
-		EC053624197DADCF009D45F4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053623197DADCF009D45F4 /* Constants.m */; };
-		EC053627197DB3E2009D45F4 /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053626197DB3E2009D45F4 /* BaseEntity.m */; };
-		EC05362A197DB3F3009D45F4 /* DiscoveryInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */; };
-		ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360C197D913C009D45F4 /* Credentials.h */; };
-		ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360A197D913C009D45F4 /* BaseClient.h */; };
-		ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */; };
-		ECE57133197EA13C00FDAE94 /* OAuthentication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053610197D913C009D45F4 /* OAuthentication.h */; };
-		ECE57136197EA13C00FDAE94 /* DiscoveryInformation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */; };
-		ECE57172197EB23800FDAE94 /* BaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053625197DB3E2009D45F4 /* BaseEntity.h */; };
-		ECE57175197EB36F00FDAE94 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE57174197EB36F00FDAE94 /* Metadata.m */; };
-		ECE57176197EB94C00FDAE94 /* Metadata.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECE57173197EB36F00FDAE94 /* Metadata.h */; };
-		ECE57177197EBD8B00FDAE94 /* HttpConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC05360E197D913C009D45F4 /* HttpConnection.h */; };
-		ECE57178197EBE6C00FDAE94 /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC053617197D96AA009D45F4 /* Constants.h */; };
+		ECBBC9FF19F1B17C00DE04A4 /* office365_base_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBC9FE19F1B17C00DE04A4 /* office365_base_sdk.h */; };
+		ECBBCA0119F1B17C00DE04A4 /* office365_base_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA0019F1B17C00DE04A4 /* office365_base_sdk.m */; };
+		ECBBCA3319F1B1ED00DE04A4 /* BaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2019F1B1ED00DE04A4 /* BaseClient.m */; };
+		ECBBCA3419F1B1ED00DE04A4 /* BaseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2219F1B1ED00DE04A4 /* BaseEntity.m */; };
+		ECBBCA3519F1B1ED00DE04A4 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2419F1B1ED00DE04A4 /* Constants.m */; };
+		ECBBCA3619F1B1ED00DE04A4 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2619F1B1ED00DE04A4 /* Credentials.m */; };
+		ECBBCA3719F1B1ED00DE04A4 /* DiscoveryInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2819F1B1ED00DE04A4 /* DiscoveryInformation.m */; };
+		ECBBCA3819F1B1ED00DE04A4 /* FileDiscoveryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2A19F1B1ED00DE04A4 /* FileDiscoveryClient.m */; };
+		ECBBCA3919F1B1ED00DE04A4 /* HttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2C19F1B1ED00DE04A4 /* HttpConnection.m */; };
+		ECBBCA3A19F1B1ED00DE04A4 /* Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA2E19F1B1ED00DE04A4 /* Metadata.m */; };
+		ECBBCA3B19F1B1ED00DE04A4 /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA3019F1B1ED00DE04A4 /* NSString+NSStringExtensions.m */; };
+		ECBBCA3C19F1B1ED00DE04A4 /* OAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBCA3219F1B1ED00DE04A4 /* OAuthentication.m */; };
+		ECBBCA4219F1B28A00DE04A4 /* BaseClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA1F19F1B1ED00DE04A4 /* BaseClient.h */; };
+		ECBBCA4319F1B28A00DE04A4 /* FileDiscoveryClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2919F1B1ED00DE04A4 /* FileDiscoveryClient.h */; };
+		ECBBCA4419F1B28A00DE04A4 /* Metadata.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2D19F1B1ED00DE04A4 /* Metadata.h */; };
+		ECBBCA4519F1B28A00DE04A4 /* BaseEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2119F1B1ED00DE04A4 /* BaseEntity.h */; };
+		ECBBCA4619F1B28A00DE04A4 /* DiscoveryInformation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2719F1B1ED00DE04A4 /* DiscoveryInformation.h */; };
+		ECBBCA4719F1B28A00DE04A4 /* Credentials.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2519F1B1ED00DE04A4 /* Credentials.h */; };
+		ECBBCA4819F1B28A00DE04A4 /* HttpConnection.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2B19F1B1ED00DE04A4 /* HttpConnection.h */; };
+		ECBBCA4919F1B28A00DE04A4 /* OAuthentication.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA3119F1B1ED00DE04A4 /* OAuthentication.h */; };
+		ECBBCA4A19F1B28A00DE04A4 /* NSString+NSStringExtensions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2F19F1B1ED00DE04A4 /* NSString+NSStringExtensions.h */; };
+		ECBBCA4B19F1B2A300DE04A4 /* Constants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECBBCA2319F1B1ED00DE04A4 /* Constants.h */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EC0535F7197D9109009D45F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC0535D9197D9109009D45F4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC0535E0197D9109009D45F4;
-			remoteInfo = "office365-base-sdk";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		EC0535DF197D9109009D45F4 /* CopyFiles */ = {
+		ECBBC9F919F1B17C00DE04A4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				3C620E97199AB55E00231D4D /* NSString+NSStringExtensions.h in CopyFiles */,
-				ECE57178197EBE6C00FDAE94 /* Constants.h in CopyFiles */,
-				ECE57177197EBD8B00FDAE94 /* HttpConnection.h in CopyFiles */,
-				ECE57176197EB94C00FDAE94 /* Metadata.h in CopyFiles */,
-				ECE57172197EB23800FDAE94 /* BaseEntity.h in CopyFiles */,
-				ECE57130197EA13C00FDAE94 /* BaseClient.h in CopyFiles */,
-				ECE57131197EA13C00FDAE94 /* FileDiscoveryClient.h in CopyFiles */,
-				ECE57133197EA13C00FDAE94 /* OAuthentication.h in CopyFiles */,
-				ECE57136197EA13C00FDAE94 /* DiscoveryInformation.h in CopyFiles */,
-				ECE5712F197EA08A00FDAE94 /* Credentials.h in CopyFiles */,
-				EC0535EA197D9109009D45F4 /* office365_base_sdk.h in CopyFiles */,
+				ECBBCA4B19F1B2A300DE04A4 /* Constants.h in CopyFiles */,
+				ECBBCA4219F1B28A00DE04A4 /* BaseClient.h in CopyFiles */,
+				ECBBCA4319F1B28A00DE04A4 /* FileDiscoveryClient.h in CopyFiles */,
+				ECBBCA4419F1B28A00DE04A4 /* Metadata.h in CopyFiles */,
+				ECBBCA4519F1B28A00DE04A4 /* BaseEntity.h in CopyFiles */,
+				ECBBCA4619F1B28A00DE04A4 /* DiscoveryInformation.h in CopyFiles */,
+				ECBBCA4719F1B28A00DE04A4 /* Credentials.h in CopyFiles */,
+				ECBBCA4819F1B28A00DE04A4 /* HttpConnection.h in CopyFiles */,
+				ECBBCA4919F1B28A00DE04A4 /* OAuthentication.h in CopyFiles */,
+				ECBBCA4A19F1B28A00DE04A4 /* NSString+NSStringExtensions.h in CopyFiles */,
+				ECBBC9FF19F1B17C00DE04A4 /* office365_base_sdk.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3C620E92199AB0D400231D4D /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
-		3C620E93199AB0D400231D4D /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
-		EC0535E1197D9109009D45F4 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-base-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC0535E4197D9109009D45F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		EC0535E8197D9109009D45F4 /* office365-base-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365-base-sdk-Prefix.pch"; sourceTree = "<group>"; };
-		EC0535E9197D9109009D45F4 /* office365_base_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_base_sdk.h; sourceTree = "<group>"; };
-		EC0535EB197D9109009D45F4 /* office365_base_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_base_sdk.m; sourceTree = "<group>"; };
-		EC0535F1197D9109009D45F4 /* office365-base-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-base-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC0535F2197D9109009D45F4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		EC0535F5197D9109009D45F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		EC05360A197D913C009D45F4 /* BaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClient.h; sourceTree = "<group>"; };
-		EC05360B197D913C009D45F4 /* BaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClient.m; sourceTree = "<group>"; };
-		EC05360C197D913C009D45F4 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
-		EC05360D197D913C009D45F4 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
-		EC05360E197D913C009D45F4 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnection.h; sourceTree = "<group>"; };
-		EC05360F197D913C009D45F4 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpConnection.m; sourceTree = "<group>"; };
-		EC053610197D913C009D45F4 /* OAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthentication.h; sourceTree = "<group>"; };
-		EC053611197D913C009D45F4 /* OAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthentication.m; sourceTree = "<group>"; };
-		EC053617197D96AA009D45F4 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDiscoveryClient.h; sourceTree = "<group>"; };
-		EC05361F197DAA33009D45F4 /* FileDiscoveryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDiscoveryClient.m; sourceTree = "<group>"; };
-		EC053623197DADCF009D45F4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		EC053625197DB3E2009D45F4 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntity.h; sourceTree = "<group>"; };
-		EC053626197DB3E2009D45F4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntity.m; sourceTree = "<group>"; };
-		EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryInformation.h; sourceTree = "<group>"; };
-		EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryInformation.m; sourceTree = "<group>"; };
-		EC5C050B19951E8200B46C7C /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../azure-activedirectory-library-for-objc/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
-		ECE57173197EB36F00FDAE94 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metadata.h; sourceTree = "<group>"; };
-		ECE57174197EB36F00FDAE94 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metadata.m; sourceTree = "<group>"; };
+		ECBBC9FB19F1B17C00DE04A4 /* liboffice365-base-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liboffice365-base-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBBC9FE19F1B17C00DE04A4 /* office365_base_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_base_sdk.h; sourceTree = "<group>"; };
+		ECBBCA0019F1B17C00DE04A4 /* office365_base_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_base_sdk.m; sourceTree = "<group>"; };
+		ECBBCA0619F1B17C00DE04A4 /* office365-base-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-base-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBBCA0919F1B17C00DE04A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBBCA1F19F1B1ED00DE04A4 /* BaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseClient.h; path = "office365-base-sdk/BaseClient.h"; sourceTree = "<group>"; };
+		ECBBCA2019F1B1ED00DE04A4 /* BaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseClient.m; path = "office365-base-sdk/BaseClient.m"; sourceTree = "<group>"; };
+		ECBBCA2119F1B1ED00DE04A4 /* BaseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseEntity.h; path = "office365-base-sdk/BaseEntity.h"; sourceTree = "<group>"; };
+		ECBBCA2219F1B1ED00DE04A4 /* BaseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseEntity.m; path = "office365-base-sdk/BaseEntity.m"; sourceTree = "<group>"; };
+		ECBBCA2319F1B1ED00DE04A4 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = "office365-base-sdk/Constants.h"; sourceTree = "<group>"; };
+		ECBBCA2419F1B1ED00DE04A4 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constants.m; path = "office365-base-sdk/Constants.m"; sourceTree = "<group>"; };
+		ECBBCA2519F1B1ED00DE04A4 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Credentials.h; path = "office365-base-sdk/Credentials.h"; sourceTree = "<group>"; };
+		ECBBCA2619F1B1ED00DE04A4 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Credentials.m; path = "office365-base-sdk/Credentials.m"; sourceTree = "<group>"; };
+		ECBBCA2719F1B1ED00DE04A4 /* DiscoveryInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscoveryInformation.h; path = "office365-base-sdk/DiscoveryInformation.h"; sourceTree = "<group>"; };
+		ECBBCA2819F1B1ED00DE04A4 /* DiscoveryInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscoveryInformation.m; path = "office365-base-sdk/DiscoveryInformation.m"; sourceTree = "<group>"; };
+		ECBBCA2919F1B1ED00DE04A4 /* FileDiscoveryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileDiscoveryClient.h; path = "office365-base-sdk/FileDiscoveryClient.h"; sourceTree = "<group>"; };
+		ECBBCA2A19F1B1ED00DE04A4 /* FileDiscoveryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileDiscoveryClient.m; path = "office365-base-sdk/FileDiscoveryClient.m"; sourceTree = "<group>"; };
+		ECBBCA2B19F1B1ED00DE04A4 /* HttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpConnection.h; path = "office365-base-sdk/HttpConnection.h"; sourceTree = "<group>"; };
+		ECBBCA2C19F1B1ED00DE04A4 /* HttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpConnection.m; path = "office365-base-sdk/HttpConnection.m"; sourceTree = "<group>"; };
+		ECBBCA2D19F1B1ED00DE04A4 /* Metadata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metadata.h; path = "office365-base-sdk/Metadata.h"; sourceTree = "<group>"; };
+		ECBBCA2E19F1B1ED00DE04A4 /* Metadata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metadata.m; path = "office365-base-sdk/Metadata.m"; sourceTree = "<group>"; };
+		ECBBCA2F19F1B1ED00DE04A4 /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+NSStringExtensions.h"; path = "office365-base-sdk/NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		ECBBCA3019F1B1ED00DE04A4 /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+NSStringExtensions.m"; path = "office365-base-sdk/NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		ECBBCA3119F1B1ED00DE04A4 /* OAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthentication.h; path = "office365-base-sdk/OAuthentication.h"; sourceTree = "<group>"; };
+		ECBBCA3219F1B1ED00DE04A4 /* OAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthentication.m; path = "office365-base-sdk/OAuthentication.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC0535DE197D9109009D45F4 /* Frameworks */ = {
+		ECBBC9F819F1B17C00DE04A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0535E5197D9109009D45F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC0535EE197D9109009D45F4 /* Frameworks */ = {
+		ECBBCA0319F1B17C00DE04A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0535F3197D9109009D45F4 /* XCTest.framework in Frameworks */,
-				EC0535F6197D9109009D45F4 /* UIKit.framework in Frameworks */,
-				EC0535F9197D9109009D45F4 /* liboffice365-base-sdk.a in Frameworks */,
-				EC0535F4197D9109009D45F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3C620E96199AB0E000231D4D /* Extensions */ = {
+		ECBBC9F219F1B17C00DE04A4 = {
 			isa = PBXGroup;
 			children = (
-				3C620E92199AB0D400231D4D /* NSString+NSStringExtensions.h */,
-				3C620E93199AB0D400231D4D /* NSString+NSStringExtensions.m */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		EC0535D8197D9109009D45F4 = {
-			isa = PBXGroup;
-			children = (
-				EC0535E6197D9109009D45F4 /* office365-base-sdk */,
-				EC0535E3197D9109009D45F4 /* Frameworks */,
-				EC0535E2197D9109009D45F4 /* Products */,
+				ECBBCA3D19F1B1F600DE04A4 /* clients */,
+				ECBBCA3E19F1B20800DE04A4 /* entities */,
+				ECBBCA2319F1B1ED00DE04A4 /* Constants.h */,
+				ECBBCA2419F1B1ED00DE04A4 /* Constants.m */,
+				ECBBCA3F19F1B22000DE04A4 /* htpp */,
+				ECBBCA2F19F1B1ED00DE04A4 /* NSString+NSStringExtensions.h */,
+				ECBBCA3019F1B1ED00DE04A4 /* NSString+NSStringExtensions.m */,
+				ECBBC9FD19F1B17C00DE04A4 /* office365-base-sdk */,
+				ECBBCA0719F1B17C00DE04A4 /* office365-base-sdkTests */,
+				ECBBC9FC19F1B17C00DE04A4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EC0535E2197D9109009D45F4 /* Products */ = {
+		ECBBC9FC19F1B17C00DE04A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC0535E1197D9109009D45F4 /* liboffice365-base-sdk.a */,
-				EC0535F1197D9109009D45F4 /* office365-base-sdkTests.xctest */,
+				ECBBC9FB19F1B17C00DE04A4 /* liboffice365-base-sdk.a */,
+				ECBBCA0619F1B17C00DE04A4 /* office365-base-sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC0535E3197D9109009D45F4 /* Frameworks */ = {
+		ECBBC9FD19F1B17C00DE04A4 /* office365-base-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				EC5C050B19951E8200B46C7C /* libADALiOS.a */,
-				EC0535E4197D9109009D45F4 /* Foundation.framework */,
-				EC0535F2197D9109009D45F4 /* XCTest.framework */,
-				EC0535F5197D9109009D45F4 /* UIKit.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EC0535E6197D9109009D45F4 /* office365-base-sdk */ = {
-			isa = PBXGroup;
-			children = (
-				ECE57137197EAE6400FDAE94 /* entities */,
-				EC053621197DAA3F009D45F4 /* clients */,
-				EC053616197D92C8009D45F4 /* http */,
-				EC0535E7197D9109009D45F4 /* Supporting Files */,
-				3C620E96199AB0E000231D4D /* Extensions */,
+				ECBBC9FE19F1B17C00DE04A4 /* office365_base_sdk.h */,
+				ECBBCA0019F1B17C00DE04A4 /* office365_base_sdk.m */,
 			);
 			path = "office365-base-sdk";
 			sourceTree = "<group>";
 		};
-		EC0535E7197D9109009D45F4 /* Supporting Files */ = {
+		ECBBCA0719F1B17C00DE04A4 /* office365-base-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				EC0535E9197D9109009D45F4 /* office365_base_sdk.h */,
-				EC0535EB197D9109009D45F4 /* office365_base_sdk.m */,
-				EC053617197D96AA009D45F4 /* Constants.h */,
-				EC053623197DADCF009D45F4 /* Constants.m */,
-				EC0535E8197D9109009D45F4 /* office365-base-sdk-Prefix.pch */,
+				ECBBCA0819F1B17C00DE04A4 /* Supporting Files */,
+			);
+			path = "office365-base-sdkTests";
+			sourceTree = "<group>";
+		};
+		ECBBCA0819F1B17C00DE04A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBCA0919F1B17C00DE04A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EC053616197D92C8009D45F4 /* http */ = {
+		ECBBCA3D19F1B1F600DE04A4 /* clients */ = {
 			isa = PBXGroup;
 			children = (
-				EC05360C197D913C009D45F4 /* Credentials.h */,
-				EC05360D197D913C009D45F4 /* Credentials.m */,
-				EC05360E197D913C009D45F4 /* HttpConnection.h */,
-				EC05360F197D913C009D45F4 /* HttpConnection.m */,
-				EC053610197D913C009D45F4 /* OAuthentication.h */,
-				EC053611197D913C009D45F4 /* OAuthentication.m */,
-			);
-			name = http;
-			sourceTree = "<group>";
-		};
-		EC053621197DAA3F009D45F4 /* clients */ = {
-			isa = PBXGroup;
-			children = (
-				EC05360A197D913C009D45F4 /* BaseClient.h */,
-				EC05360B197D913C009D45F4 /* BaseClient.m */,
-				EC05361E197DAA33009D45F4 /* FileDiscoveryClient.h */,
-				EC05361F197DAA33009D45F4 /* FileDiscoveryClient.m */,
+				ECBBCA1F19F1B1ED00DE04A4 /* BaseClient.h */,
+				ECBBCA2019F1B1ED00DE04A4 /* BaseClient.m */,
+				ECBBCA2919F1B1ED00DE04A4 /* FileDiscoveryClient.h */,
+				ECBBCA2A19F1B1ED00DE04A4 /* FileDiscoveryClient.m */,
 			);
 			name = clients;
 			sourceTree = "<group>";
 		};
-		ECE57137197EAE6400FDAE94 /* entities */ = {
+		ECBBCA3E19F1B20800DE04A4 /* entities */ = {
 			isa = PBXGroup;
 			children = (
-				EC053625197DB3E2009D45F4 /* BaseEntity.h */,
-				EC053626197DB3E2009D45F4 /* BaseEntity.m */,
-				EC053628197DB3F3009D45F4 /* DiscoveryInformation.h */,
-				EC053629197DB3F3009D45F4 /* DiscoveryInformation.m */,
-				ECE57173197EB36F00FDAE94 /* Metadata.h */,
-				ECE57174197EB36F00FDAE94 /* Metadata.m */,
+				ECBBCA2D19F1B1ED00DE04A4 /* Metadata.h */,
+				ECBBCA2E19F1B1ED00DE04A4 /* Metadata.m */,
+				ECBBCA2119F1B1ED00DE04A4 /* BaseEntity.h */,
+				ECBBCA2219F1B1ED00DE04A4 /* BaseEntity.m */,
+				ECBBCA2719F1B1ED00DE04A4 /* DiscoveryInformation.h */,
+				ECBBCA2819F1B1ED00DE04A4 /* DiscoveryInformation.m */,
 			);
 			name = entities;
 			sourceTree = "<group>";
 		};
+		ECBBCA3F19F1B22000DE04A4 /* htpp */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBCA2519F1B1ED00DE04A4 /* Credentials.h */,
+				ECBBCA2619F1B1ED00DE04A4 /* Credentials.m */,
+				ECBBCA2B19F1B1ED00DE04A4 /* HttpConnection.h */,
+				ECBBCA2C19F1B1ED00DE04A4 /* HttpConnection.m */,
+				ECBBCA3119F1B1ED00DE04A4 /* OAuthentication.h */,
+				ECBBCA3219F1B1ED00DE04A4 /* OAuthentication.m */,
+			);
+			name = htpp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		EC7EB0F01986B5DE0070DB56 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3C620E94199AB0D400231D4D /* NSString+NSStringExtensions.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		EC0535E0197D9109009D45F4 /* office365-base-sdk */ = {
+		ECBBC9FA19F1B17C00DE04A4 /* office365-base-sdk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC053604197D9109009D45F4 /* Build configuration list for PBXNativeTarget "office365-base-sdk" */;
+			buildConfigurationList = ECBBCA0C19F1B17C00DE04A4 /* Build configuration list for PBXNativeTarget "office365-base-sdk" */;
 			buildPhases = (
-				EC0535DD197D9109009D45F4 /* Sources */,
-				EC0535DE197D9109009D45F4 /* Frameworks */,
-				EC0535DF197D9109009D45F4 /* CopyFiles */,
-				EC7EB0F01986B5DE0070DB56 /* Headers */,
+				ECBBC9F719F1B17C00DE04A4 /* Sources */,
+				ECBBC9F819F1B17C00DE04A4 /* Frameworks */,
+				ECBBC9F919F1B17C00DE04A4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -253,56 +204,63 @@
 			);
 			name = "office365-base-sdk";
 			productName = "office365-base-sdk";
-			productReference = EC0535E1197D9109009D45F4 /* liboffice365-base-sdk.a */;
+			productReference = ECBBC9FB19F1B17C00DE04A4 /* liboffice365-base-sdk.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		EC0535F0197D9109009D45F4 /* office365-base-sdkTests */ = {
+		ECBBCA0519F1B17C00DE04A4 /* office365-base-sdkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC053607197D9109009D45F4 /* Build configuration list for PBXNativeTarget "office365-base-sdkTests" */;
+			buildConfigurationList = ECBBCA0F19F1B17C00DE04A4 /* Build configuration list for PBXNativeTarget "office365-base-sdkTests" */;
 			buildPhases = (
-				EC0535ED197D9109009D45F4 /* Sources */,
-				EC0535EE197D9109009D45F4 /* Frameworks */,
-				EC0535EF197D9109009D45F4 /* Resources */,
+				ECBBCA0219F1B17C00DE04A4 /* Sources */,
+				ECBBCA0319F1B17C00DE04A4 /* Frameworks */,
+				ECBBCA0419F1B17C00DE04A4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EC0535F8197D9109009D45F4 /* PBXTargetDependency */,
 			);
 			name = "office365-base-sdkTests";
 			productName = "office365-base-sdkTests";
-			productReference = EC0535F1197D9109009D45F4 /* office365-base-sdkTests.xctest */;
+			productReference = ECBBCA0619F1B17C00DE04A4 /* office365-base-sdkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EC0535D9197D9109009D45F4 /* Project object */ = {
+		ECBBC9F319F1B17C00DE04A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
-				ORGANIZATIONNAME = Lagash;
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					ECBBC9FA19F1B17C00DE04A4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					ECBBCA0519F1B17C00DE04A4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
 			};
-			buildConfigurationList = EC0535DC197D9109009D45F4 /* Build configuration list for PBXProject "office365-base-sdk" */;
+			buildConfigurationList = ECBBC9F619F1B17C00DE04A4 /* Build configuration list for PBXProject "office365-base-sdk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = EC0535D8197D9109009D45F4;
-			productRefGroup = EC0535E2197D9109009D45F4 /* Products */;
+			mainGroup = ECBBC9F219F1B17C00DE04A4;
+			productRefGroup = ECBBC9FC19F1B17C00DE04A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC0535E0197D9109009D45F4 /* office365-base-sdk */,
-				EC0535F0197D9109009D45F4 /* office365-base-sdkTests */,
+				ECBBC9FA19F1B17C00DE04A4 /* office365-base-sdk */,
+				ECBBCA0519F1B17C00DE04A4 /* office365-base-sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC0535EF197D9109009D45F4 /* Resources */ = {
+		ECBBCA0419F1B17C00DE04A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,25 +270,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EC0535DD197D9109009D45F4 /* Sources */ = {
+		ECBBC9F719F1B17C00DE04A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC053614197D913C009D45F4 /* HttpConnection.m in Sources */,
-				EC053615197D913C009D45F4 /* OAuthentication.m in Sources */,
-				3C620E95199AB0D400231D4D /* NSString+NSStringExtensions.m in Sources */,
-				EC053624197DADCF009D45F4 /* Constants.m in Sources */,
-				EC05362A197DB3F3009D45F4 /* DiscoveryInformation.m in Sources */,
-				EC0535EC197D9109009D45F4 /* office365_base_sdk.m in Sources */,
-				EC053620197DAA33009D45F4 /* FileDiscoveryClient.m in Sources */,
-				EC053612197D913C009D45F4 /* BaseClient.m in Sources */,
-				EC053613197D913C009D45F4 /* Credentials.m in Sources */,
-				ECE57175197EB36F00FDAE94 /* Metadata.m in Sources */,
-				EC053627197DB3E2009D45F4 /* BaseEntity.m in Sources */,
+				ECBBCA0119F1B17C00DE04A4 /* office365_base_sdk.m in Sources */,
+				ECBBCA3419F1B1ED00DE04A4 /* BaseEntity.m in Sources */,
+				ECBBCA3819F1B1ED00DE04A4 /* FileDiscoveryClient.m in Sources */,
+				ECBBCA3C19F1B1ED00DE04A4 /* OAuthentication.m in Sources */,
+				ECBBCA3919F1B1ED00DE04A4 /* HttpConnection.m in Sources */,
+				ECBBCA3319F1B1ED00DE04A4 /* BaseClient.m in Sources */,
+				ECBBCA3B19F1B1ED00DE04A4 /* NSString+NSStringExtensions.m in Sources */,
+				ECBBCA3719F1B1ED00DE04A4 /* DiscoveryInformation.m in Sources */,
+				ECBBCA3A19F1B1ED00DE04A4 /* Metadata.m in Sources */,
+				ECBBCA3519F1B1ED00DE04A4 /* Constants.m in Sources */,
+				ECBBCA3619F1B1ED00DE04A4 /* Credentials.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC0535ED197D9109009D45F4 /* Sources */ = {
+		ECBBCA0219F1B17C00DE04A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -339,16 +297,8 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		EC0535F8197D9109009D45F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC0535E0197D9109009D45F4 /* office365-base-sdk */;
-			targetProxy = EC0535F7197D9109009D45F4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		EC053602197D9109009D45F4 /* Debug */ = {
+		ECBBCA0A19F1B17C00DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -363,8 +313,10 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -379,13 +331,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		EC053603197D9109009D45F4 /* Release */ = {
+		ECBBCA0B19F1B17C00DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -400,9 +353,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -410,109 +365,90 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		EC053605197D9109009D45F4 /* Debug */ = {
+		ECBBCA0D19F1B17C00DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/office365_base_sdk.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		EC053606197D9109009D45F4 /* Release */ = {
+		ECBBCA0E19F1B17C00DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DSTROOT = /tmp/office365_base_sdk.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MACH_O_TYPE = mh_dylib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		EC053608197D9109009D45F4 /* Debug */ = {
+		ECBBCA1019F1B17C00DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "office365-base-sdkTests/office365-base-sdkTests-Info.plist";
+				INFOPLIST_FILE = "office365-base-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		EC053609197D9109009D45F4 /* Release */ = {
+		ECBBCA1119F1B17C00DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "office365-base-sdk/office365-base-sdk-Prefix.pch";
-				INFOPLIST_FILE = "office365-base-sdkTests/office365-base-sdkTests-Info.plist";
+				INFOPLIST_FILE = "office365-base-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC0535DC197D9109009D45F4 /* Build configuration list for PBXProject "office365-base-sdk" */ = {
+		ECBBC9F619F1B17C00DE04A4 /* Build configuration list for PBXProject "office365-base-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC053602197D9109009D45F4 /* Debug */,
-				EC053603197D9109009D45F4 /* Release */,
+				ECBBCA0A19F1B17C00DE04A4 /* Debug */,
+				ECBBCA0B19F1B17C00DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC053604197D9109009D45F4 /* Build configuration list for PBXNativeTarget "office365-base-sdk" */ = {
+		ECBBCA0C19F1B17C00DE04A4 /* Build configuration list for PBXNativeTarget "office365-base-sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC053605197D9109009D45F4 /* Debug */,
-				EC053606197D9109009D45F4 /* Release */,
+				ECBBCA0D19F1B17C00DE04A4 /* Debug */,
+				ECBBCA0E19F1B17C00DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		EC053607197D9109009D45F4 /* Build configuration list for PBXNativeTarget "office365-base-sdkTests" */ = {
+		ECBBCA0F19F1B17C00DE04A4 /* Build configuration list for PBXNativeTarget "office365-base-sdkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC053608197D9109009D45F4 /* Debug */,
-				EC053609197D9109009D45F4 /* Release */,
+				ECBBCA1019F1B17C00DE04A4 /* Debug */,
+				ECBBCA1119F1B17C00DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EC0535D9197D9109009D45F4 /* Project object */;
+	rootObject = ECBBC9F319F1B17C00DE04A4 /* Project object */;
 }

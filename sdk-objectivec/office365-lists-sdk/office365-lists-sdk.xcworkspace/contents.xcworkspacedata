@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:office365-base-sdk/office365-base-sdk.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:office365-lists-sdk/office365-lists-sdk.xcodeproj">
+   </FileRef>
+</Workspace>
