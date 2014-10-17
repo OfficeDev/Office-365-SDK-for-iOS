@@ -2,10 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/ADALiOS.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Samples/simple-exchange-app/simple-exchange-app.xcodeproj">
+      location = "group:office365-e2end-tests/office365-e2end-tests.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:office365_exchange_sdk/office365_exchange_sdk.xcodeproj">

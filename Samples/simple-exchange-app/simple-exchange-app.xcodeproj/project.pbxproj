@@ -8,13 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */; };
-		EC28336219E482E100E5FEA4 /* liboffice365_exchange_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */; };
-		EC28336319E482E100E5FEA4 /* liboffice365_odata_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */; };
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
 		ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* LogInController.m */; };
-		ECD1AE9219EEFEE700C4940F /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE9119EEFEE700C4940F /* libADALiOS.a */; };
 		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
 		ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */; };
 		ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */; };
@@ -26,6 +23,11 @@
 		ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41219784BB600ABB418 /* Main.storyboard */; };
 		ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41519784BB600ABB418 /* Images.xcassets */; };
 		ECD9F42219784BB600ABB418 /* simple_exchange_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */; };
+		ECE11D3719F16DB2009E0A0B /* liboffice365_exchange_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE58E4219F1694900D60BBF /* liboffice365_exchange_sdk.a */; };
+		ECE11D3819F16DB2009E0A0B /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE58E4E19F1694900D60BBF /* liboffice365_odata_interfaces.a */; };
+		ECE11D3D19F16DCA009E0A0B /* liboffice365_odata_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE58E4819F1694900D60BBF /* liboffice365_odata_impl.a */; };
+		ECE11D3F19F16EBC009E0A0B /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */; };
+		FF3E47508E4CF90DE4CE38FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4ED5606153B8D7B10F12CE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +38,70 @@
 			remoteGlobalIDString = ECD9F40119784BB600ABB418;
 			remoteInfo = "simple-exchange-app";
 		};
+		ECE58E3B19F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58D3119F1694900D60BBF /* office365_exchange_helpers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC1DCEB619E8422800EF2176;
+			remoteInfo = office365_exchange_helpers;
+		};
+		ECE58E3D19F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58D3119F1694900D60BBF /* office365_exchange_helpers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC1DCEC119E8422800EF2176;
+			remoteInfo = office365_exchange_helpersTests;
+		};
+		ECE58E4119F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58DF419F1694900D60BBF /* office365_exchange_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF52119DF2FE5004283FD;
+			remoteInfo = office365_exchange_sdk;
+		};
+		ECE58E4319F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58DF419F1694900D60BBF /* office365_exchange_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF52C19DF2FE5004283FD;
+			remoteInfo = office365_exchange_sdkTests;
+		};
+		ECE58E4719F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58E1B19F1694900D60BBF /* office365_odata_impl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF50119DF2FA8004283FD;
+			remoteInfo = office365_odata_impl;
+		};
+		ECE58E4919F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58E1B19F1694900D60BBF /* office365_odata_impl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF50C19DF2FA9004283FD;
+			remoteInfo = office365_odata_implTests;
+		};
+		ECE58E4D19F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58E3419F1694900D60BBF /* office365_odata_interfaces.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF4C619DF2ED4004283FD;
+			remoteInfo = office365_odata_interfaces;
+		};
+		ECE58E4F19F1694900D60BBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE58E3419F1694900D60BBF /* office365_odata_interfaces.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC3AF4D119DF2ED4004283FD;
+			remoteInfo = office365_odata_interfacesTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251EBB50F80ED524828D75EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4A4ED5606153B8D7B10F12CE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D4282169EB7A01C11BCB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC1DCEAA19E7192800EF2176 /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
 		EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
-		EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_sdk.a; path = "../../sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos/liboffice365_exchange_sdk.a"; sourceTree = "<group>"; };
 		EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_impl.a; path = "../../sdk-objectivec/office365_odata_impl/build/Debug-iphoneos/liboffice365_odata_impl.a"; sourceTree = "<group>"; };
 		EC2833AD19E6D5BA00E5FEA4 /* FolderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderTableViewController.h; sourceTree = "<group>"; };
 		EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderTableViewController.m; sourceTree = "<group>"; };
@@ -71,6 +131,240 @@
 		ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-exchange-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD9F42019784BB600ABB418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_exchange_appTests.m; sourceTree = "<group>"; };
+		ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		ECE58D1F19F1693700D60BBF /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		ECE58D2719F1694900D60BBF /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		ECE58D2819F1694900D60BBF /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		ECE58D2919F1694900D60BBF /* MSOEntityFetcherHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcherHelper.h; sourceTree = "<group>"; };
+		ECE58D2A19F1694900D60BBF /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
+		ECE58D2B19F1694900D60BBF /* MSOODataURLImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOODataURLImpl.h; sourceTree = "<group>"; };
+		ECE58D2C19F1694900D60BBF /* MSOODataURLImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOODataURLImpl.m; sourceTree = "<group>"; };
+		ECE58D2D19F1694900D60BBF /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		ECE58D2E19F1694900D60BBF /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		ECE58D2F19F1694900D60BBF /* office365_exchange_helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_helpers.h; sourceTree = "<group>"; };
+		ECE58D3019F1694900D60BBF /* office365_exchange_helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_helpers.m; sourceTree = "<group>"; };
+		ECE58D3119F1694900D60BBF /* office365_exchange_helpers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = office365_exchange_helpers.xcodeproj; sourceTree = "<group>"; };
+		ECE58D3519F1694900D60BBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE58D3D19F1694900D60BBF /* MSOAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttachment.h; sourceTree = "<group>"; };
+		ECE58D3E19F1694900D60BBF /* MSOAttendee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttendee.h; sourceTree = "<group>"; };
+		ECE58D3F19F1694900D60BBF /* MSOAttendeeType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttendeeType.h; sourceTree = "<group>"; };
+		ECE58D4019F1694900D60BBF /* MSOBodyType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOBodyType.h; sourceTree = "<group>"; };
+		ECE58D4119F1694900D60BBF /* MSOCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendar.h; sourceTree = "<group>"; };
+		ECE58D4219F1694900D60BBF /* MSOCalendarGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroup.h; sourceTree = "<group>"; };
+		ECE58D4319F1694900D60BBF /* MSOContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContact.h; sourceTree = "<group>"; };
+		ECE58D4419F1694900D60BBF /* MSOContactFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFolder.h; sourceTree = "<group>"; };
+		ECE58D4519F1694900D60BBF /* MSOEmailAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEmailAddress.h; sourceTree = "<group>"; };
+		ECE58D4619F1694900D60BBF /* MSOEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntity.h; sourceTree = "<group>"; };
+		ECE58D4719F1694900D60BBF /* MSOEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEvent.h; sourceTree = "<group>"; };
+		ECE58D4819F1694900D60BBF /* MSOEventType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEventType.h; sourceTree = "<group>"; };
+		ECE58D4919F1694900D60BBF /* MSOFileAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachment.h; sourceTree = "<group>"; };
+		ECE58D4A19F1694900D60BBF /* MSOFolder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFolder.h; sourceTree = "<group>"; };
+		ECE58D4B19F1694900D60BBF /* MSOFreeBusyStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFreeBusyStatus.h; sourceTree = "<group>"; };
+		ECE58D4C19F1694900D60BBF /* MSOImportance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOImportance.h; sourceTree = "<group>"; };
+		ECE58D4D19F1694900D60BBF /* MSOItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItem.h; sourceTree = "<group>"; };
+		ECE58D4E19F1694900D60BBF /* MSOItemAttachment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachment.h; sourceTree = "<group>"; };
+		ECE58D4F19F1694900D60BBF /* MSOItemBody.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemBody.h; sourceTree = "<group>"; };
+		ECE58D5019F1694900D60BBF /* MSOLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOLocation.h; sourceTree = "<group>"; };
+		ECE58D5119F1694900D60BBF /* MSOMeetingMessageType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMeetingMessageType.h; sourceTree = "<group>"; };
+		ECE58D5219F1694900D60BBF /* MSOMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMessage.h; sourceTree = "<group>"; };
+		ECE58D5319F1694900D60BBF /* MSOPatternedRecurrence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOPatternedRecurrence.h; sourceTree = "<group>"; };
+		ECE58D5419F1694900D60BBF /* MSOPhysicalAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOPhysicalAddress.h; sourceTree = "<group>"; };
+		ECE58D5519F1694900D60BBF /* MSOProtocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOProtocols.h; sourceTree = "<group>"; };
+		ECE58D5619F1694900D60BBF /* MSORecipient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORecipient.h; sourceTree = "<group>"; };
+		ECE58D5719F1694900D60BBF /* MSORecurrencePattern.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORecurrencePattern.h; sourceTree = "<group>"; };
+		ECE58D5819F1694900D60BBF /* MSORecurrencePatternType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORecurrencePatternType.h; sourceTree = "<group>"; };
+		ECE58D5919F1694900D60BBF /* MSORecurrenceRange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORecurrenceRange.h; sourceTree = "<group>"; };
+		ECE58D5A19F1694900D60BBF /* MSORecurrenceRangeType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORecurrenceRangeType.h; sourceTree = "<group>"; };
+		ECE58D5B19F1694900D60BBF /* MSOResponseStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOResponseStatus.h; sourceTree = "<group>"; };
+		ECE58D5C19F1694900D60BBF /* MSOResponseType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOResponseType.h; sourceTree = "<group>"; };
+		ECE58D5D19F1694900D60BBF /* MSOUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOUser.h; sourceTree = "<group>"; };
+		ECE58D5E19F1694900D60BBF /* MSOWeekIndex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOWeekIndex.h; sourceTree = "<group>"; };
+		ECE58D6019F1694900D60BBF /* MSOAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttachment.m; sourceTree = "<group>"; };
+		ECE58D6119F1694900D60BBF /* MSOAttendee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttendee.m; sourceTree = "<group>"; };
+		ECE58D6219F1694900D60BBF /* MSOCalendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendar.m; sourceTree = "<group>"; };
+		ECE58D6319F1694900D60BBF /* MSOCalendarGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroup.m; sourceTree = "<group>"; };
+		ECE58D6419F1694900D60BBF /* MSOContact.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContact.m; sourceTree = "<group>"; };
+		ECE58D6519F1694900D60BBF /* MSOContactFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolder.m; sourceTree = "<group>"; };
+		ECE58D6619F1694900D60BBF /* MSOEmailAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEmailAddress.m; sourceTree = "<group>"; };
+		ECE58D6719F1694900D60BBF /* MSOEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntity.m; sourceTree = "<group>"; };
+		ECE58D6819F1694900D60BBF /* MSOEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEvent.m; sourceTree = "<group>"; };
+		ECE58D6919F1694900D60BBF /* MSOFileAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachment.m; sourceTree = "<group>"; };
+		ECE58D6A19F1694900D60BBF /* MSOFolder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFolder.m; sourceTree = "<group>"; };
+		ECE58D6B19F1694900D60BBF /* MSOItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItem.m; sourceTree = "<group>"; };
+		ECE58D6C19F1694900D60BBF /* MSOItemAttachment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachment.m; sourceTree = "<group>"; };
+		ECE58D6D19F1694900D60BBF /* MSOItemBody.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemBody.m; sourceTree = "<group>"; };
+		ECE58D6E19F1694900D60BBF /* MSOLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOLocation.m; sourceTree = "<group>"; };
+		ECE58D6F19F1694900D60BBF /* MSOMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOMessage.m; sourceTree = "<group>"; };
+		ECE58D7019F1694900D60BBF /* MSOPatternedRecurrence.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOPatternedRecurrence.m; sourceTree = "<group>"; };
+		ECE58D7119F1694900D60BBF /* MSOPhysicalAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOPhysicalAddress.m; sourceTree = "<group>"; };
+		ECE58D7219F1694900D60BBF /* MSORecipient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSORecipient.m; sourceTree = "<group>"; };
+		ECE58D7319F1694900D60BBF /* MSORecurrencePattern.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSORecurrencePattern.m; sourceTree = "<group>"; };
+		ECE58D7419F1694900D60BBF /* MSORecurrenceRange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSORecurrenceRange.m; sourceTree = "<group>"; };
+		ECE58D7519F1694900D60BBF /* MSOResponseStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOResponseStatus.m; sourceTree = "<group>"; };
+		ECE58D7619F1694900D60BBF /* MSOUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOUser.m; sourceTree = "<group>"; };
+		ECE58D7919F1694900D60BBF /* MSOAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D7A19F1694900D60BBF /* MSOAttachmentCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D7B19F1694900D60BBF /* MSOAttachmentFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentFetcher.h; sourceTree = "<group>"; };
+		ECE58D7C19F1694900D60BBF /* MSOAttachmentOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentOperations.h; sourceTree = "<group>"; };
+		ECE58D7D19F1694900D60BBF /* MSOBaseODataContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainer.h; sourceTree = "<group>"; };
+		ECE58D7E19F1694900D60BBF /* MSOCalendarCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D7F19F1694900D60BBF /* MSOCalendarCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D8019F1694900D60BBF /* MSOCalendarFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarFetcher.h; sourceTree = "<group>"; };
+		ECE58D8119F1694900D60BBF /* MSOCalendarGroupCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D8219F1694900D60BBF /* MSOCalendarGroupCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D8319F1694900D60BBF /* MSOCalendarGroupFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupFetcher.h; sourceTree = "<group>"; };
+		ECE58D8419F1694900D60BBF /* MSOCalendarGroupOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupOperations.h; sourceTree = "<group>"; };
+		ECE58D8519F1694900D60BBF /* MSOCalendarOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCalendarOperations.h; sourceTree = "<group>"; };
+		ECE58D8619F1694900D60BBF /* MSOContactCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D8719F1694900D60BBF /* MSOContactCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D8819F1694900D60BBF /* MSOContactFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFetcher.h; sourceTree = "<group>"; };
+		ECE58D8919F1694900D60BBF /* MSOContactFolderCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D8A19F1694900D60BBF /* MSOContactFolderCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D8B19F1694900D60BBF /* MSOContactFolderFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderFetcher.h; sourceTree = "<group>"; };
+		ECE58D8C19F1694900D60BBF /* MSOContactFolderOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderOperations.h; sourceTree = "<group>"; };
+		ECE58D8D19F1694900D60BBF /* MSOContactOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOContactOperations.h; sourceTree = "<group>"; };
+		ECE58D8E19F1694900D60BBF /* MSOEntityCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D8F19F1694900D60BBF /* MSOEntityCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D9019F1694900D60BBF /* MSOEntityContainerClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityContainerClient.h; sourceTree = "<group>"; };
+		ECE58D9119F1694900D60BBF /* MSOEntityFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcher.h; sourceTree = "<group>"; };
+		ECE58D9219F1694900D60BBF /* MSOEntityOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEntityOperations.h; sourceTree = "<group>"; };
+		ECE58D9319F1694900D60BBF /* MSOEventCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEventCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D9419F1694900D60BBF /* MSOEventCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEventCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D9519F1694900D60BBF /* MSOEventFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEventFetcher.h; sourceTree = "<group>"; };
+		ECE58D9619F1694900D60BBF /* MSOEventOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOEventOperations.h; sourceTree = "<group>"; };
+		ECE58D9719F1694900D60BBF /* MSOFileAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D9819F1694900D60BBF /* MSOFileAttachmentCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D9919F1694900D60BBF /* MSOFileAttachmentFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentFetcher.h; sourceTree = "<group>"; };
+		ECE58D9A19F1694900D60BBF /* MSOFileAttachmentOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentOperations.h; sourceTree = "<group>"; };
+		ECE58D9B19F1694900D60BBF /* MSOFolderCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58D9C19F1694900D60BBF /* MSOFolderCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58D9D19F1694900D60BBF /* MSOFolderFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFolderFetcher.h; sourceTree = "<group>"; };
+		ECE58D9E19F1694900D60BBF /* MSOFolderOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOFolderOperations.h; sourceTree = "<group>"; };
+		ECE58D9F19F1694900D60BBF /* MSOItemAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58DA019F1694900D60BBF /* MSOItemAttachmentCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58DA119F1694900D60BBF /* MSOItemAttachmentFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentFetcher.h; sourceTree = "<group>"; };
+		ECE58DA219F1694900D60BBF /* MSOItemAttachmentOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentOperations.h; sourceTree = "<group>"; };
+		ECE58DA319F1694900D60BBF /* MSOItemCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58DA419F1694900D60BBF /* MSOItemCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58DA519F1694900D60BBF /* MSOItemFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemFetcher.h; sourceTree = "<group>"; };
+		ECE58DA619F1694900D60BBF /* MSOItemOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOItemOperations.h; sourceTree = "<group>"; };
+		ECE58DA719F1694900D60BBF /* MSOMessageCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMessageCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58DA819F1694900D60BBF /* MSOMessageCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMessageCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58DA919F1694900D60BBF /* MSOMessageFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMessageFetcher.h; sourceTree = "<group>"; };
+		ECE58DAA19F1694900D60BBF /* MSOMessageOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOMessageOperations.h; sourceTree = "<group>"; };
+		ECE58DAB19F1694900D60BBF /* MSOODataCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOODataCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58DAC19F1694900D60BBF /* MSOODataEntityFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOODataEntityFetcher.h; sourceTree = "<group>"; };
+		ECE58DAD19F1694900D60BBF /* MSOODataExecutable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOODataExecutable.h; sourceTree = "<group>"; };
+		ECE58DAE19F1694900D60BBF /* MSOODataOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOODataOperations.h; sourceTree = "<group>"; };
+		ECE58DAF19F1694900D60BBF /* MSOUserCollectionFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOUserCollectionFetcher.h; sourceTree = "<group>"; };
+		ECE58DB019F1694900D60BBF /* MSOUserCollectionOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOUserCollectionOperations.h; sourceTree = "<group>"; };
+		ECE58DB119F1694900D60BBF /* MSOUserFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOUserFetcher.h; sourceTree = "<group>"; };
+		ECE58DB219F1694900D60BBF /* MSOUserOperations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOUserOperations.h; sourceTree = "<group>"; };
+		ECE58DB419F1694900D60BBF /* MSOAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DB519F1694900D60BBF /* MSOAttachmentCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DB619F1694900D60BBF /* MSOAttachmentFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentFetcher.m; sourceTree = "<group>"; };
+		ECE58DB719F1694900D60BBF /* MSOAttachmentOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentOperations.m; sourceTree = "<group>"; };
+		ECE58DB819F1694900D60BBF /* MSOBaseODataContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainer.m; sourceTree = "<group>"; };
+		ECE58DB919F1694900D60BBF /* MSOCalendarCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DBA19F1694900D60BBF /* MSOCalendarCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DBB19F1694900D60BBF /* MSOCalendarFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarFetcher.m; sourceTree = "<group>"; };
+		ECE58DBC19F1694900D60BBF /* MSOCalendarGroupCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DBD19F1694900D60BBF /* MSOCalendarGroupCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DBE19F1694900D60BBF /* MSOCalendarGroupFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupFetcher.m; sourceTree = "<group>"; };
+		ECE58DBF19F1694900D60BBF /* MSOCalendarGroupOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupOperations.m; sourceTree = "<group>"; };
+		ECE58DC019F1694900D60BBF /* MSOCalendarOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarOperations.m; sourceTree = "<group>"; };
+		ECE58DC119F1694900D60BBF /* MSOContactCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DC219F1694900D60BBF /* MSOContactCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DC319F1694900D60BBF /* MSOContactFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFetcher.m; sourceTree = "<group>"; };
+		ECE58DC419F1694900D60BBF /* MSOContactFolderCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DC519F1694900D60BBF /* MSOContactFolderCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DC619F1694900D60BBF /* MSOContactFolderFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderFetcher.m; sourceTree = "<group>"; };
+		ECE58DC719F1694900D60BBF /* MSOContactFolderOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderOperations.m; sourceTree = "<group>"; };
+		ECE58DC819F1694900D60BBF /* MSOContactOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOContactOperations.m; sourceTree = "<group>"; };
+		ECE58DC919F1694900D60BBF /* MSOEntityCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DCA19F1694900D60BBF /* MSOEntityCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DCB19F1694900D60BBF /* MSOEntityContainerClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityContainerClient.m; sourceTree = "<group>"; };
+		ECE58DCC19F1694900D60BBF /* MSOEntityFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcher.m; sourceTree = "<group>"; };
+		ECE58DCD19F1694900D60BBF /* MSOEntityOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEntityOperations.m; sourceTree = "<group>"; };
+		ECE58DCE19F1694900D60BBF /* MSOEventCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEventCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DCF19F1694900D60BBF /* MSOEventCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEventCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DD019F1694900D60BBF /* MSOEventFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEventFetcher.m; sourceTree = "<group>"; };
+		ECE58DD119F1694900D60BBF /* MSOEventOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOEventOperations.m; sourceTree = "<group>"; };
+		ECE58DD219F1694900D60BBF /* MSOFileAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DD319F1694900D60BBF /* MSOFileAttachmentCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DD419F1694900D60BBF /* MSOFileAttachmentFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentFetcher.m; sourceTree = "<group>"; };
+		ECE58DD519F1694900D60BBF /* MSOFileAttachmentOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentOperations.m; sourceTree = "<group>"; };
+		ECE58DD619F1694900D60BBF /* MSOFolderCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DD719F1694900D60BBF /* MSOFolderCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DD819F1694900D60BBF /* MSOFolderFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFolderFetcher.m; sourceTree = "<group>"; };
+		ECE58DD919F1694900D60BBF /* MSOFolderOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOFolderOperations.m; sourceTree = "<group>"; };
+		ECE58DDA19F1694900D60BBF /* MSOItemAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DDB19F1694900D60BBF /* MSOItemAttachmentCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DDC19F1694900D60BBF /* MSOItemAttachmentFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentFetcher.m; sourceTree = "<group>"; };
+		ECE58DDD19F1694900D60BBF /* MSOItemAttachmentOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentOperations.m; sourceTree = "<group>"; };
+		ECE58DDE19F1694900D60BBF /* MSOItemCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DDF19F1694900D60BBF /* MSOItemCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DE019F1694900D60BBF /* MSOItemFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemFetcher.m; sourceTree = "<group>"; };
+		ECE58DE119F1694900D60BBF /* MSOItemOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOItemOperations.m; sourceTree = "<group>"; };
+		ECE58DE219F1694900D60BBF /* MSOMessageCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOMessageCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DE319F1694900D60BBF /* MSOMessageCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOMessageCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DE419F1694900D60BBF /* MSOMessageFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOMessageFetcher.m; sourceTree = "<group>"; };
+		ECE58DE519F1694900D60BBF /* MSOMessageOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOMessageOperations.m; sourceTree = "<group>"; };
+		ECE58DE619F1694900D60BBF /* MSOODataCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOODataCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DE719F1694900D60BBF /* MSOODataEntityFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOODataEntityFetcher.m; sourceTree = "<group>"; };
+		ECE58DE819F1694900D60BBF /* MSOODataExecutable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOODataExecutable.m; sourceTree = "<group>"; };
+		ECE58DE919F1694900D60BBF /* MSOODataOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOODataOperations.m; sourceTree = "<group>"; };
+		ECE58DEA19F1694900D60BBF /* MSOUserCollectionFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOUserCollectionFetcher.m; sourceTree = "<group>"; };
+		ECE58DEB19F1694900D60BBF /* MSOUserCollectionOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOUserCollectionOperations.m; sourceTree = "<group>"; };
+		ECE58DEC19F1694900D60BBF /* MSOUserFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOUserFetcher.m; sourceTree = "<group>"; };
+		ECE58DED19F1694900D60BBF /* MSOUserOperations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOUserOperations.m; sourceTree = "<group>"; };
+		ECE58DF019F1694900D60BBF /* MSODayOfWeek.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSODayOfWeek.h; sourceTree = "<group>"; };
+		ECE58DF119F1694900D60BBF /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
+		ECE58DF219F1694900D60BBF /* office365_exchange_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdk.m; sourceTree = "<group>"; };
+		ECE58DF319F1694900D60BBF /* office365_exchange_sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365_exchange_sdk-Prefix.pch"; sourceTree = "<group>"; };
+		ECE58DF419F1694900D60BBF /* office365_exchange_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = office365_exchange_sdk.xcodeproj; sourceTree = "<group>"; };
+		ECE58DF819F1694900D60BBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE58E0019F1694900D60BBF /* MSOBasicCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOBasicCredentials.h; sourceTree = "<group>"; };
+		ECE58E0119F1694900D60BBF /* MSOBasicCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOBasicCredentials.m; sourceTree = "<group>"; };
+		ECE58E0219F1694900D60BBF /* MSOCredentialsImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsImpl.h; sourceTree = "<group>"; };
+		ECE58E0319F1694900D60BBF /* MSOCredentialsImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOCredentialsImpl.m; sourceTree = "<group>"; };
+		ECE58E0419F1694900D60BBF /* MSOHttpConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOHttpConnection.h; sourceTree = "<group>"; };
+		ECE58E0519F1694900D60BBF /* MSOHttpConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOHttpConnection.m; sourceTree = "<group>"; };
+		ECE58E0619F1694900D60BBF /* MSOJsonSerializerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializerImpl.h; sourceTree = "<group>"; };
+		ECE58E0719F1694900D60BBF /* MSOJsonSerializerImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOJsonSerializerImpl.m; sourceTree = "<group>"; };
+		ECE58E0819F1694900D60BBF /* MSOLoggerImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOLoggerImpl.h; sourceTree = "<group>"; };
+		ECE58E0919F1694900D60BBF /* MSOLoggerImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOLoggerImpl.m; sourceTree = "<group>"; };
+		ECE58E0A19F1694900D60BBF /* MSOOAuthCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOOAuthCredentials.h; sourceTree = "<group>"; };
+		ECE58E0B19F1694900D60BBF /* MSOOAuthCredentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOOAuthCredentials.m; sourceTree = "<group>"; };
+		ECE58E0C19F1694900D60BBF /* MSORequestImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORequestImpl.h; sourceTree = "<group>"; };
+		ECE58E0D19F1694900D60BBF /* MSORequestImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSORequestImpl.m; sourceTree = "<group>"; };
+		ECE58E0E19F1694900D60BBF /* MSOResponseImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOResponseImpl.h; sourceTree = "<group>"; };
+		ECE58E0F19F1694900D60BBF /* MSOResponseImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSOResponseImpl.m; sourceTree = "<group>"; };
+		ECE58E1219F1694900D60BBF /* JsonParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
+		ECE58E1319F1694900D60BBF /* Property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		ECE58E1519F1694900D60BBF /* JsonParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		ECE58E1619F1694900D60BBF /* Property.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		ECE58E1719F1694900D60BBF /* MSODefaultDependencyResolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSODefaultDependencyResolver.h; sourceTree = "<group>"; };
+		ECE58E1819F1694900D60BBF /* MSODefaultDependencyResolver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSODefaultDependencyResolver.m; sourceTree = "<group>"; };
+		ECE58E1919F1694900D60BBF /* office365_odata_impl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
+		ECE58E1A19F1694900D60BBF /* office365_odata_impl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_impl.m; sourceTree = "<group>"; };
+		ECE58E1B19F1694900D60BBF /* office365_odata_impl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = office365_odata_impl.xcodeproj; sourceTree = "<group>"; };
+		ECE58E1F19F1694900D60BBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECE58E2719F1694900D60BBF /* MSOCredentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCredentials.h; sourceTree = "<group>"; };
+		ECE58E2819F1694900D60BBF /* MSOCredentialsFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsFactory.h; sourceTree = "<group>"; };
+		ECE58E2919F1694900D60BBF /* MSODependencyResolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSODependencyResolver.h; sourceTree = "<group>"; };
+		ECE58E2A19F1694900D60BBF /* MSOHttpTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOHttpTransport.h; sourceTree = "<group>"; };
+		ECE58E2B19F1694900D60BBF /* MSOHttpVerb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOHttpVerb.h; sourceTree = "<group>"; };
+		ECE58E2C19F1694900D60BBF /* MSOJsonSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializer.h; sourceTree = "<group>"; };
+		ECE58E2D19F1694900D60BBF /* MSOLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOLogger.h; sourceTree = "<group>"; };
+		ECE58E2E19F1694900D60BBF /* MSOLogLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOLogLevel.h; sourceTree = "<group>"; };
+		ECE58E2F19F1694900D60BBF /* MSOOdataUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOOdataUrl.h; sourceTree = "<group>"; };
+		ECE58E3019F1694900D60BBF /* MSORequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSORequest.h; sourceTree = "<group>"; };
+		ECE58E3119F1694900D60BBF /* MSOResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSOResponse.h; sourceTree = "<group>"; };
+		ECE58E3219F1694900D60BBF /* office365_odata_interfaces.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
+		ECE58E3319F1694900D60BBF /* office365_odata_interfaces.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_interfaces.m; sourceTree = "<group>"; };
+		ECE58E3419F1694900D60BBF /* office365_odata_interfaces.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = office365_odata_interfaces.xcodeproj; sourceTree = "<group>"; };
+		ECE58E3819F1694900D60BBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,9 +372,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD1AE9219EEFEE700C4940F /* libADALiOS.a in Frameworks */,
-				EC28336219E482E100E5FEA4 /* liboffice365_exchange_sdk.a in Frameworks */,
-				EC28336319E482E100E5FEA4 /* liboffice365_odata_impl.a in Frameworks */,
+				ECE11D3F19F16EBC009E0A0B /* libPods-ADALiOS.a in Frameworks */,
+				ECE11D3D19F16DCA009E0A0B /* liboffice365_odata_impl.a in Frameworks */,
+				ECE11D3719F16DB2009E0A0B /* liboffice365_exchange_sdk.a in Frameworks */,
+				ECE11D3819F16DB2009E0A0B /* liboffice365_odata_interfaces.a in Frameworks */,
+				FF3E47508E4CF90DE4CE38FC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +390,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4EDCE105498450ED1D55E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				251EBB50F80ED524828D75EE /* Pods.debug.xcconfig */,
+				A5D4282169EB7A01C11BCB0B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF6F33257D34664DB168A50F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */,
+				ECE58D2119F1694900D60BBF /* office365_exchange_helpers */,
+				ECE58D3619F1694900D60BBF /* office365_exchange_sdk */,
+				ECE58DF919F1694900D60BBF /* office365_odata_impl */,
+				ECE58E2019F1694900D60BBF /* office365_odata_interfaces */,
+				ECE58D1F19F1693700D60BBF /* libPods-ADALiOS.a */,
+				4A4ED5606153B8D7B10F12CE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC2833A819E5BAF700E5FEA4 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				EC28336019E482E100E5FEA4 /* liboffice365_exchange_sdk.a */,
+				ECD1AE9119EEFEE700C4940F /* libADALiOS.a */,
 				EC28336119E482E100E5FEA4 /* liboffice365_odata_impl.a */,
 			);
 			name = libs;
@@ -118,11 +437,12 @@
 		ECD9F3F919784BB600ABB418 = {
 			isa = PBXGroup;
 			children = (
-				ECD1AE9119EEFEE700C4940F /* libADALiOS.a */,
 				EC2833A819E5BAF700E5FEA4 /* libs */,
 				ECD9F40419784BB600ABB418 /* simple-exchange-app */,
 				ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */,
 				ECD9F40319784BB600ABB418 /* Products */,
+				1B4EDCE105498450ED1D55E1 /* Pods */,
+				DF6F33257D34664DB168A50F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +516,594 @@
 			name = controllers;
 			sourceTree = "<group>";
 		};
+		ECE58D2119F1694900D60BBF /* office365_exchange_helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2219F1694900D60BBF /* office365_exchange_helpers */,
+				ECE58D3119F1694900D60BBF /* office365_exchange_helpers.xcodeproj */,
+				ECE58D3419F1694900D60BBF /* office365_exchange_helpersTests */,
+			);
+			name = office365_exchange_helpers;
+			path = "../../sdk-objectivec/office365_exchange_helpers";
+			sourceTree = "<group>";
+		};
+		ECE58D2219F1694900D60BBF /* office365_exchange_helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2319F1694900D60BBF /* com */,
+				ECE58D2F19F1694900D60BBF /* office365_exchange_helpers.h */,
+				ECE58D3019F1694900D60BBF /* office365_exchange_helpers.m */,
+			);
+			path = office365_exchange_helpers;
+			sourceTree = "<group>";
+		};
+		ECE58D2319F1694900D60BBF /* com */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2419F1694900D60BBF /* microsoft */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		ECE58D2419F1694900D60BBF /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2519F1694900D60BBF /* office365 */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECE58D2519F1694900D60BBF /* office365 */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2619F1694900D60BBF /* odata */,
+			);
+			path = office365;
+			sourceTree = "<group>";
+		};
+		ECE58D2619F1694900D60BBF /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D2719F1694900D60BBF /* MSOBaseODataContainerHelper.h */,
+				ECE58D2819F1694900D60BBF /* MSOBaseODataContainerHelper.m */,
+				ECE58D2919F1694900D60BBF /* MSOEntityFetcherHelper.h */,
+				ECE58D2A19F1694900D60BBF /* MSOEntityFetcherHelper.m */,
+				ECE58D2B19F1694900D60BBF /* MSOODataURLImpl.h */,
+				ECE58D2C19F1694900D60BBF /* MSOODataURLImpl.m */,
+				ECE58D2D19F1694900D60BBF /* NSString+NSStringExtensions.h */,
+				ECE58D2E19F1694900D60BBF /* NSString+NSStringExtensions.m */,
+			);
+			path = odata;
+			sourceTree = "<group>";
+		};
+		ECE58D3219F1694900D60BBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E3C19F1694900D60BBF /* liboffice365_exchange_helpers.a */,
+				ECE58E3E19F1694900D60BBF /* office365_exchange_helpersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE58D3419F1694900D60BBF /* office365_exchange_helpersTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3519F1694900D60BBF /* Info.plist */,
+			);
+			path = office365_exchange_helpersTests;
+			sourceTree = "<group>";
+		};
+		ECE58D3619F1694900D60BBF /* office365_exchange_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3719F1694900D60BBF /* office365_exchange_sdk */,
+				ECE58DF319F1694900D60BBF /* office365_exchange_sdk-Prefix.pch */,
+				ECE58DF419F1694900D60BBF /* office365_exchange_sdk.xcodeproj */,
+				ECE58DF719F1694900D60BBF /* office365_exchange_sdkTests */,
+			);
+			name = office365_exchange_sdk;
+			path = "../../sdk-objectivec/office365_exchange_sdk";
+			sourceTree = "<group>";
+		};
+		ECE58D3719F1694900D60BBF /* office365_exchange_sdk */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3819F1694900D60BBF /* com */,
+				ECE58DF119F1694900D60BBF /* office365_exchange_sdk.h */,
+				ECE58DF219F1694900D60BBF /* office365_exchange_sdk.m */,
+			);
+			path = office365_exchange_sdk;
+			sourceTree = "<group>";
+		};
+		ECE58D3819F1694900D60BBF /* com */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3919F1694900D60BBF /* microsoft */,
+				ECE58DEE19F1694900D60BBF /* system */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		ECE58D3919F1694900D60BBF /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3A19F1694900D60BBF /* outlookservices */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECE58D3A19F1694900D60BBF /* outlookservices */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3B19F1694900D60BBF /* model */,
+				ECE58D7719F1694900D60BBF /* odata */,
+			);
+			path = outlookservices;
+			sourceTree = "<group>";
+		};
+		ECE58D3B19F1694900D60BBF /* model */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3C19F1694900D60BBF /* header */,
+				ECE58D5F19F1694900D60BBF /* implementation */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		ECE58D3C19F1694900D60BBF /* header */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D3D19F1694900D60BBF /* MSOAttachment.h */,
+				ECE58D3E19F1694900D60BBF /* MSOAttendee.h */,
+				ECE58D3F19F1694900D60BBF /* MSOAttendeeType.h */,
+				ECE58D4019F1694900D60BBF /* MSOBodyType.h */,
+				ECE58D4119F1694900D60BBF /* MSOCalendar.h */,
+				ECE58D4219F1694900D60BBF /* MSOCalendarGroup.h */,
+				ECE58D4319F1694900D60BBF /* MSOContact.h */,
+				ECE58D4419F1694900D60BBF /* MSOContactFolder.h */,
+				ECE58D4519F1694900D60BBF /* MSOEmailAddress.h */,
+				ECE58D4619F1694900D60BBF /* MSOEntity.h */,
+				ECE58D4719F1694900D60BBF /* MSOEvent.h */,
+				ECE58D4819F1694900D60BBF /* MSOEventType.h */,
+				ECE58D4919F1694900D60BBF /* MSOFileAttachment.h */,
+				ECE58D4A19F1694900D60BBF /* MSOFolder.h */,
+				ECE58D4B19F1694900D60BBF /* MSOFreeBusyStatus.h */,
+				ECE58D4C19F1694900D60BBF /* MSOImportance.h */,
+				ECE58D4D19F1694900D60BBF /* MSOItem.h */,
+				ECE58D4E19F1694900D60BBF /* MSOItemAttachment.h */,
+				ECE58D4F19F1694900D60BBF /* MSOItemBody.h */,
+				ECE58D5019F1694900D60BBF /* MSOLocation.h */,
+				ECE58D5119F1694900D60BBF /* MSOMeetingMessageType.h */,
+				ECE58D5219F1694900D60BBF /* MSOMessage.h */,
+				ECE58D5319F1694900D60BBF /* MSOPatternedRecurrence.h */,
+				ECE58D5419F1694900D60BBF /* MSOPhysicalAddress.h */,
+				ECE58D5519F1694900D60BBF /* MSOProtocols.h */,
+				ECE58D5619F1694900D60BBF /* MSORecipient.h */,
+				ECE58D5719F1694900D60BBF /* MSORecurrencePattern.h */,
+				ECE58D5819F1694900D60BBF /* MSORecurrencePatternType.h */,
+				ECE58D5919F1694900D60BBF /* MSORecurrenceRange.h */,
+				ECE58D5A19F1694900D60BBF /* MSORecurrenceRangeType.h */,
+				ECE58D5B19F1694900D60BBF /* MSOResponseStatus.h */,
+				ECE58D5C19F1694900D60BBF /* MSOResponseType.h */,
+				ECE58D5D19F1694900D60BBF /* MSOUser.h */,
+				ECE58D5E19F1694900D60BBF /* MSOWeekIndex.h */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		ECE58D5F19F1694900D60BBF /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D6019F1694900D60BBF /* MSOAttachment.m */,
+				ECE58D6119F1694900D60BBF /* MSOAttendee.m */,
+				ECE58D6219F1694900D60BBF /* MSOCalendar.m */,
+				ECE58D6319F1694900D60BBF /* MSOCalendarGroup.m */,
+				ECE58D6419F1694900D60BBF /* MSOContact.m */,
+				ECE58D6519F1694900D60BBF /* MSOContactFolder.m */,
+				ECE58D6619F1694900D60BBF /* MSOEmailAddress.m */,
+				ECE58D6719F1694900D60BBF /* MSOEntity.m */,
+				ECE58D6819F1694900D60BBF /* MSOEvent.m */,
+				ECE58D6919F1694900D60BBF /* MSOFileAttachment.m */,
+				ECE58D6A19F1694900D60BBF /* MSOFolder.m */,
+				ECE58D6B19F1694900D60BBF /* MSOItem.m */,
+				ECE58D6C19F1694900D60BBF /* MSOItemAttachment.m */,
+				ECE58D6D19F1694900D60BBF /* MSOItemBody.m */,
+				ECE58D6E19F1694900D60BBF /* MSOLocation.m */,
+				ECE58D6F19F1694900D60BBF /* MSOMessage.m */,
+				ECE58D7019F1694900D60BBF /* MSOPatternedRecurrence.m */,
+				ECE58D7119F1694900D60BBF /* MSOPhysicalAddress.m */,
+				ECE58D7219F1694900D60BBF /* MSORecipient.m */,
+				ECE58D7319F1694900D60BBF /* MSORecurrencePattern.m */,
+				ECE58D7419F1694900D60BBF /* MSORecurrenceRange.m */,
+				ECE58D7519F1694900D60BBF /* MSOResponseStatus.m */,
+				ECE58D7619F1694900D60BBF /* MSOUser.m */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		ECE58D7719F1694900D60BBF /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D7819F1694900D60BBF /* header */,
+				ECE58DB319F1694900D60BBF /* implementation */,
+			);
+			path = odata;
+			sourceTree = "<group>";
+		};
+		ECE58D7819F1694900D60BBF /* header */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58D7919F1694900D60BBF /* MSOAttachmentCollectionFetcher.h */,
+				ECE58D7A19F1694900D60BBF /* MSOAttachmentCollectionOperations.h */,
+				ECE58D7B19F1694900D60BBF /* MSOAttachmentFetcher.h */,
+				ECE58D7C19F1694900D60BBF /* MSOAttachmentOperations.h */,
+				ECE58D7D19F1694900D60BBF /* MSOBaseODataContainer.h */,
+				ECE58D7E19F1694900D60BBF /* MSOCalendarCollectionFetcher.h */,
+				ECE58D7F19F1694900D60BBF /* MSOCalendarCollectionOperations.h */,
+				ECE58D8019F1694900D60BBF /* MSOCalendarFetcher.h */,
+				ECE58D8119F1694900D60BBF /* MSOCalendarGroupCollectionFetcher.h */,
+				ECE58D8219F1694900D60BBF /* MSOCalendarGroupCollectionOperations.h */,
+				ECE58D8319F1694900D60BBF /* MSOCalendarGroupFetcher.h */,
+				ECE58D8419F1694900D60BBF /* MSOCalendarGroupOperations.h */,
+				ECE58D8519F1694900D60BBF /* MSOCalendarOperations.h */,
+				ECE58D8619F1694900D60BBF /* MSOContactCollectionFetcher.h */,
+				ECE58D8719F1694900D60BBF /* MSOContactCollectionOperations.h */,
+				ECE58D8819F1694900D60BBF /* MSOContactFetcher.h */,
+				ECE58D8919F1694900D60BBF /* MSOContactFolderCollectionFetcher.h */,
+				ECE58D8A19F1694900D60BBF /* MSOContactFolderCollectionOperations.h */,
+				ECE58D8B19F1694900D60BBF /* MSOContactFolderFetcher.h */,
+				ECE58D8C19F1694900D60BBF /* MSOContactFolderOperations.h */,
+				ECE58D8D19F1694900D60BBF /* MSOContactOperations.h */,
+				ECE58D8E19F1694900D60BBF /* MSOEntityCollectionFetcher.h */,
+				ECE58D8F19F1694900D60BBF /* MSOEntityCollectionOperations.h */,
+				ECE58D9019F1694900D60BBF /* MSOEntityContainerClient.h */,
+				ECE58D9119F1694900D60BBF /* MSOEntityFetcher.h */,
+				ECE58D9219F1694900D60BBF /* MSOEntityOperations.h */,
+				ECE58D9319F1694900D60BBF /* MSOEventCollectionFetcher.h */,
+				ECE58D9419F1694900D60BBF /* MSOEventCollectionOperations.h */,
+				ECE58D9519F1694900D60BBF /* MSOEventFetcher.h */,
+				ECE58D9619F1694900D60BBF /* MSOEventOperations.h */,
+				ECE58D9719F1694900D60BBF /* MSOFileAttachmentCollectionFetcher.h */,
+				ECE58D9819F1694900D60BBF /* MSOFileAttachmentCollectionOperations.h */,
+				ECE58D9919F1694900D60BBF /* MSOFileAttachmentFetcher.h */,
+				ECE58D9A19F1694900D60BBF /* MSOFileAttachmentOperations.h */,
+				ECE58D9B19F1694900D60BBF /* MSOFolderCollectionFetcher.h */,
+				ECE58D9C19F1694900D60BBF /* MSOFolderCollectionOperations.h */,
+				ECE58D9D19F1694900D60BBF /* MSOFolderFetcher.h */,
+				ECE58D9E19F1694900D60BBF /* MSOFolderOperations.h */,
+				ECE58D9F19F1694900D60BBF /* MSOItemAttachmentCollectionFetcher.h */,
+				ECE58DA019F1694900D60BBF /* MSOItemAttachmentCollectionOperations.h */,
+				ECE58DA119F1694900D60BBF /* MSOItemAttachmentFetcher.h */,
+				ECE58DA219F1694900D60BBF /* MSOItemAttachmentOperations.h */,
+				ECE58DA319F1694900D60BBF /* MSOItemCollectionFetcher.h */,
+				ECE58DA419F1694900D60BBF /* MSOItemCollectionOperations.h */,
+				ECE58DA519F1694900D60BBF /* MSOItemFetcher.h */,
+				ECE58DA619F1694900D60BBF /* MSOItemOperations.h */,
+				ECE58DA719F1694900D60BBF /* MSOMessageCollectionFetcher.h */,
+				ECE58DA819F1694900D60BBF /* MSOMessageCollectionOperations.h */,
+				ECE58DA919F1694900D60BBF /* MSOMessageFetcher.h */,
+				ECE58DAA19F1694900D60BBF /* MSOMessageOperations.h */,
+				ECE58DAB19F1694900D60BBF /* MSOODataCollectionFetcher.h */,
+				ECE58DAC19F1694900D60BBF /* MSOODataEntityFetcher.h */,
+				ECE58DAD19F1694900D60BBF /* MSOODataExecutable.h */,
+				ECE58DAE19F1694900D60BBF /* MSOODataOperations.h */,
+				ECE58DAF19F1694900D60BBF /* MSOUserCollectionFetcher.h */,
+				ECE58DB019F1694900D60BBF /* MSOUserCollectionOperations.h */,
+				ECE58DB119F1694900D60BBF /* MSOUserFetcher.h */,
+				ECE58DB219F1694900D60BBF /* MSOUserOperations.h */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		ECE58DB319F1694900D60BBF /* implementation */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DB419F1694900D60BBF /* MSOAttachmentCollectionFetcher.m */,
+				ECE58DB519F1694900D60BBF /* MSOAttachmentCollectionOperations.m */,
+				ECE58DB619F1694900D60BBF /* MSOAttachmentFetcher.m */,
+				ECE58DB719F1694900D60BBF /* MSOAttachmentOperations.m */,
+				ECE58DB819F1694900D60BBF /* MSOBaseODataContainer.m */,
+				ECE58DB919F1694900D60BBF /* MSOCalendarCollectionFetcher.m */,
+				ECE58DBA19F1694900D60BBF /* MSOCalendarCollectionOperations.m */,
+				ECE58DBB19F1694900D60BBF /* MSOCalendarFetcher.m */,
+				ECE58DBC19F1694900D60BBF /* MSOCalendarGroupCollectionFetcher.m */,
+				ECE58DBD19F1694900D60BBF /* MSOCalendarGroupCollectionOperations.m */,
+				ECE58DBE19F1694900D60BBF /* MSOCalendarGroupFetcher.m */,
+				ECE58DBF19F1694900D60BBF /* MSOCalendarGroupOperations.m */,
+				ECE58DC019F1694900D60BBF /* MSOCalendarOperations.m */,
+				ECE58DC119F1694900D60BBF /* MSOContactCollectionFetcher.m */,
+				ECE58DC219F1694900D60BBF /* MSOContactCollectionOperations.m */,
+				ECE58DC319F1694900D60BBF /* MSOContactFetcher.m */,
+				ECE58DC419F1694900D60BBF /* MSOContactFolderCollectionFetcher.m */,
+				ECE58DC519F1694900D60BBF /* MSOContactFolderCollectionOperations.m */,
+				ECE58DC619F1694900D60BBF /* MSOContactFolderFetcher.m */,
+				ECE58DC719F1694900D60BBF /* MSOContactFolderOperations.m */,
+				ECE58DC819F1694900D60BBF /* MSOContactOperations.m */,
+				ECE58DC919F1694900D60BBF /* MSOEntityCollectionFetcher.m */,
+				ECE58DCA19F1694900D60BBF /* MSOEntityCollectionOperations.m */,
+				ECE58DCB19F1694900D60BBF /* MSOEntityContainerClient.m */,
+				ECE58DCC19F1694900D60BBF /* MSOEntityFetcher.m */,
+				ECE58DCD19F1694900D60BBF /* MSOEntityOperations.m */,
+				ECE58DCE19F1694900D60BBF /* MSOEventCollectionFetcher.m */,
+				ECE58DCF19F1694900D60BBF /* MSOEventCollectionOperations.m */,
+				ECE58DD019F1694900D60BBF /* MSOEventFetcher.m */,
+				ECE58DD119F1694900D60BBF /* MSOEventOperations.m */,
+				ECE58DD219F1694900D60BBF /* MSOFileAttachmentCollectionFetcher.m */,
+				ECE58DD319F1694900D60BBF /* MSOFileAttachmentCollectionOperations.m */,
+				ECE58DD419F1694900D60BBF /* MSOFileAttachmentFetcher.m */,
+				ECE58DD519F1694900D60BBF /* MSOFileAttachmentOperations.m */,
+				ECE58DD619F1694900D60BBF /* MSOFolderCollectionFetcher.m */,
+				ECE58DD719F1694900D60BBF /* MSOFolderCollectionOperations.m */,
+				ECE58DD819F1694900D60BBF /* MSOFolderFetcher.m */,
+				ECE58DD919F1694900D60BBF /* MSOFolderOperations.m */,
+				ECE58DDA19F1694900D60BBF /* MSOItemAttachmentCollectionFetcher.m */,
+				ECE58DDB19F1694900D60BBF /* MSOItemAttachmentCollectionOperations.m */,
+				ECE58DDC19F1694900D60BBF /* MSOItemAttachmentFetcher.m */,
+				ECE58DDD19F1694900D60BBF /* MSOItemAttachmentOperations.m */,
+				ECE58DDE19F1694900D60BBF /* MSOItemCollectionFetcher.m */,
+				ECE58DDF19F1694900D60BBF /* MSOItemCollectionOperations.m */,
+				ECE58DE019F1694900D60BBF /* MSOItemFetcher.m */,
+				ECE58DE119F1694900D60BBF /* MSOItemOperations.m */,
+				ECE58DE219F1694900D60BBF /* MSOMessageCollectionFetcher.m */,
+				ECE58DE319F1694900D60BBF /* MSOMessageCollectionOperations.m */,
+				ECE58DE419F1694900D60BBF /* MSOMessageFetcher.m */,
+				ECE58DE519F1694900D60BBF /* MSOMessageOperations.m */,
+				ECE58DE619F1694900D60BBF /* MSOODataCollectionFetcher.m */,
+				ECE58DE719F1694900D60BBF /* MSOODataEntityFetcher.m */,
+				ECE58DE819F1694900D60BBF /* MSOODataExecutable.m */,
+				ECE58DE919F1694900D60BBF /* MSOODataOperations.m */,
+				ECE58DEA19F1694900D60BBF /* MSOUserCollectionFetcher.m */,
+				ECE58DEB19F1694900D60BBF /* MSOUserCollectionOperations.m */,
+				ECE58DEC19F1694900D60BBF /* MSOUserFetcher.m */,
+				ECE58DED19F1694900D60BBF /* MSOUserOperations.m */,
+			);
+			path = implementation;
+			sourceTree = "<group>";
+		};
+		ECE58DEE19F1694900D60BBF /* system */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DEF19F1694900D60BBF /* header */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		ECE58DEF19F1694900D60BBF /* header */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DF019F1694900D60BBF /* MSODayOfWeek.h */,
+			);
+			path = header;
+			sourceTree = "<group>";
+		};
+		ECE58DF519F1694900D60BBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E4219F1694900D60BBF /* liboffice365_exchange_sdk.a */,
+				ECE58E4419F1694900D60BBF /* office365_exchange_sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE58DF719F1694900D60BBF /* office365_exchange_sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DF819F1694900D60BBF /* Info.plist */,
+			);
+			path = office365_exchange_sdkTests;
+			sourceTree = "<group>";
+		};
+		ECE58DF919F1694900D60BBF /* office365_odata_impl */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFA19F1694900D60BBF /* office365_odata_impl */,
+				ECE58E1B19F1694900D60BBF /* office365_odata_impl.xcodeproj */,
+				ECE58E1E19F1694900D60BBF /* office365_odata_implTests */,
+			);
+			name = office365_odata_impl;
+			path = "../../sdk-objectivec/office365_odata_impl";
+			sourceTree = "<group>";
+		};
+		ECE58DFA19F1694900D60BBF /* office365_odata_impl */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFB19F1694900D60BBF /* com */,
+				ECE58E1919F1694900D60BBF /* office365_odata_impl.h */,
+				ECE58E1A19F1694900D60BBF /* office365_odata_impl.m */,
+			);
+			path = office365_odata_impl;
+			sourceTree = "<group>";
+		};
+		ECE58DFB19F1694900D60BBF /* com */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFC19F1694900D60BBF /* microsoft */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		ECE58DFC19F1694900D60BBF /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFD19F1694900D60BBF /* office365 */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECE58DFD19F1694900D60BBF /* office365 */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFE19F1694900D60BBF /* odata */,
+			);
+			path = office365;
+			sourceTree = "<group>";
+		};
+		ECE58DFE19F1694900D60BBF /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58DFF19F1694900D60BBF /* http */,
+				ECE58E1019F1694900D60BBF /* JsonParser */,
+				ECE58E1719F1694900D60BBF /* MSODefaultDependencyResolver.h */,
+				ECE58E1819F1694900D60BBF /* MSODefaultDependencyResolver.m */,
+			);
+			path = odata;
+			sourceTree = "<group>";
+		};
+		ECE58DFF19F1694900D60BBF /* http */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E0019F1694900D60BBF /* MSOBasicCredentials.h */,
+				ECE58E0119F1694900D60BBF /* MSOBasicCredentials.m */,
+				ECE58E0219F1694900D60BBF /* MSOCredentialsImpl.h */,
+				ECE58E0319F1694900D60BBF /* MSOCredentialsImpl.m */,
+				ECE58E0419F1694900D60BBF /* MSOHttpConnection.h */,
+				ECE58E0519F1694900D60BBF /* MSOHttpConnection.m */,
+				ECE58E0619F1694900D60BBF /* MSOJsonSerializerImpl.h */,
+				ECE58E0719F1694900D60BBF /* MSOJsonSerializerImpl.m */,
+				ECE58E0819F1694900D60BBF /* MSOLoggerImpl.h */,
+				ECE58E0919F1694900D60BBF /* MSOLoggerImpl.m */,
+				ECE58E0A19F1694900D60BBF /* MSOOAuthCredentials.h */,
+				ECE58E0B19F1694900D60BBF /* MSOOAuthCredentials.m */,
+				ECE58E0C19F1694900D60BBF /* MSORequestImpl.h */,
+				ECE58E0D19F1694900D60BBF /* MSORequestImpl.m */,
+				ECE58E0E19F1694900D60BBF /* MSOResponseImpl.h */,
+				ECE58E0F19F1694900D60BBF /* MSOResponseImpl.m */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		ECE58E1019F1694900D60BBF /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E1119F1694900D60BBF /* Headers */,
+				ECE58E1419F1694900D60BBF /* Implementations */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		ECE58E1119F1694900D60BBF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E1219F1694900D60BBF /* JsonParser.h */,
+				ECE58E1319F1694900D60BBF /* Property.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ECE58E1419F1694900D60BBF /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E1519F1694900D60BBF /* JsonParser.m */,
+				ECE58E1619F1694900D60BBF /* Property.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		ECE58E1C19F1694900D60BBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E4819F1694900D60BBF /* liboffice365_odata_impl.a */,
+				ECE58E4A19F1694900D60BBF /* office365_odata_implTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE58E1E19F1694900D60BBF /* office365_odata_implTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E1F19F1694900D60BBF /* Info.plist */,
+			);
+			path = office365_odata_implTests;
+			sourceTree = "<group>";
+		};
+		ECE58E2019F1694900D60BBF /* office365_odata_interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2119F1694900D60BBF /* office365_odata_interfaces */,
+				ECE58E3419F1694900D60BBF /* office365_odata_interfaces.xcodeproj */,
+				ECE58E3719F1694900D60BBF /* office365_odata_interfacesTests */,
+			);
+			name = office365_odata_interfaces;
+			path = "../../sdk-objectivec/office365_odata_interfaces";
+			sourceTree = "<group>";
+		};
+		ECE58E2119F1694900D60BBF /* office365_odata_interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2219F1694900D60BBF /* com */,
+				ECE58E3219F1694900D60BBF /* office365_odata_interfaces.h */,
+				ECE58E3319F1694900D60BBF /* office365_odata_interfaces.m */,
+			);
+			path = office365_odata_interfaces;
+			sourceTree = "<group>";
+		};
+		ECE58E2219F1694900D60BBF /* com */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2319F1694900D60BBF /* microsoft */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		ECE58E2319F1694900D60BBF /* microsoft */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2419F1694900D60BBF /* office365 */,
+			);
+			path = microsoft;
+			sourceTree = "<group>";
+		};
+		ECE58E2419F1694900D60BBF /* office365 */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2519F1694900D60BBF /* odata */,
+			);
+			path = office365;
+			sourceTree = "<group>";
+		};
+		ECE58E2519F1694900D60BBF /* odata */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2619F1694900D60BBF /* interfaces */,
+			);
+			path = odata;
+			sourceTree = "<group>";
+		};
+		ECE58E2619F1694900D60BBF /* interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E2719F1694900D60BBF /* MSOCredentials.h */,
+				ECE58E2819F1694900D60BBF /* MSOCredentialsFactory.h */,
+				ECE58E2919F1694900D60BBF /* MSODependencyResolver.h */,
+				ECE58E2A19F1694900D60BBF /* MSOHttpTransport.h */,
+				ECE58E2B19F1694900D60BBF /* MSOHttpVerb.h */,
+				ECE58E2C19F1694900D60BBF /* MSOJsonSerializer.h */,
+				ECE58E2D19F1694900D60BBF /* MSOLogger.h */,
+				ECE58E2E19F1694900D60BBF /* MSOLogLevel.h */,
+				ECE58E2F19F1694900D60BBF /* MSOOdataUrl.h */,
+				ECE58E3019F1694900D60BBF /* MSORequest.h */,
+				ECE58E3119F1694900D60BBF /* MSOResponse.h */,
+			);
+			path = interfaces;
+			sourceTree = "<group>";
+		};
+		ECE58E3519F1694900D60BBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E4E19F1694900D60BBF /* liboffice365_odata_interfaces.a */,
+				ECE58E5019F1694900D60BBF /* office365_odata_interfacesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE58E3719F1694900D60BBF /* office365_odata_interfacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECE58E3819F1694900D60BBF /* Info.plist */,
+			);
+			path = office365_odata_interfacesTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,9 +1111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */;
 			buildPhases = (
+				76DB3849A1CB1E058C91A5AE /* Check Pods Manifest.lock */,
 				ECD9F3FE19784BB600ABB418 /* Sources */,
 				ECD9F3FF19784BB600ABB418 /* Frameworks */,
 				ECD9F40019784BB600ABB418 /* Resources */,
+				8DB1FFAA8A3D8C26A258E058 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,6 +1173,24 @@
 			mainGroup = ECD9F3F919784BB600ABB418;
 			productRefGroup = ECD9F40319784BB600ABB418 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = ECE58D3219F1694900D60BBF /* Products */;
+					ProjectRef = ECE58D3119F1694900D60BBF /* office365_exchange_helpers.xcodeproj */;
+				},
+				{
+					ProductGroup = ECE58DF519F1694900D60BBF /* Products */;
+					ProjectRef = ECE58DF419F1694900D60BBF /* office365_exchange_sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = ECE58E1C19F1694900D60BBF /* Products */;
+					ProjectRef = ECE58E1B19F1694900D60BBF /* office365_odata_impl.xcodeproj */;
+				},
+				{
+					ProductGroup = ECE58E3519F1694900D60BBF /* Products */;
+					ProjectRef = ECE58E3419F1694900D60BBF /* office365_odata_interfaces.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ECD9F40119784BB600ABB418 /* simple-exchange-app */,
@@ -270,6 +1198,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		ECE58E3C19F1694900D60BBF /* liboffice365_exchange_helpers.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liboffice365_exchange_helpers.a;
+			remoteRef = ECE58E3B19F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E3E19F1694900D60BBF /* office365_exchange_helpersTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = office365_exchange_helpersTests.xctest;
+			remoteRef = ECE58E3D19F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E4219F1694900D60BBF /* liboffice365_exchange_sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liboffice365_exchange_sdk.a;
+			remoteRef = ECE58E4119F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E4419F1694900D60BBF /* office365_exchange_sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = office365_exchange_sdkTests.xctest;
+			remoteRef = ECE58E4319F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E4819F1694900D60BBF /* liboffice365_odata_impl.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liboffice365_odata_impl.a;
+			remoteRef = ECE58E4719F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E4A19F1694900D60BBF /* office365_odata_implTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = office365_odata_implTests.xctest;
+			remoteRef = ECE58E4919F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E4E19F1694900D60BBF /* liboffice365_odata_interfaces.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = liboffice365_odata_interfaces.a;
+			remoteRef = ECE58E4D19F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		ECE58E5019F1694900D60BBF /* office365_odata_interfacesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = office365_odata_interfacesTests.xctest;
+			remoteRef = ECE58E4F19F1694900D60BBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ECD9F40019784BB600ABB418 /* Resources */ = {
@@ -293,6 +1280,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		76DB3849A1CB1E058C91A5AE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8DB1FFAA8A3D8C26A258E058 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECD9F3FE19784BB600ABB418 /* Sources */ = {
@@ -429,6 +1449,7 @@
 		};
 		ECD9F42619784BB600ABB418 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 251EBB50F80ED524828D75EE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -436,7 +1457,10 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -444,6 +1468,7 @@
 		};
 		ECD9F42719784BB600ABB418 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5D4282169EB7A01C11BCB0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -451,7 +1476,10 @@
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
