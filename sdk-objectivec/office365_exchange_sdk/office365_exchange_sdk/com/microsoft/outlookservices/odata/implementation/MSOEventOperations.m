@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOEventOperations.h"
+#import  <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOEventOperations.
@@ -19,10 +21,19 @@
 
 -(NSURLSessionDataTask*)accept : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Accept" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"Accept"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);
@@ -34,10 +45,19 @@
 
 -(NSURLSessionDataTask*)decline : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Decline" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"Decline"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);
@@ -49,10 +69,19 @@
 
 -(NSURLSessionDataTask*)tentativelyAccept : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"TentativelyAccept" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"TentativelyAccept"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);
@@ -64,10 +93,20 @@
 
 -(NSURLSessionDataTask*)instances : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Instances" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :startDate,@"StartDate",nil ],
+	[[NSDictionary alloc] initWithObjectsAndKeys :endDate,@"EndDate",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"Instances"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			MSOEvent * result = (MSOEvent *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);

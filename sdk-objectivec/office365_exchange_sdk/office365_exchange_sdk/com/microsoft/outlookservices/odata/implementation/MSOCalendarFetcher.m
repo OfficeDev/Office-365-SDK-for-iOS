@@ -15,7 +15,7 @@
 @implementation MSOCalendarFetcher
 
 -(MSOCalendarOperations*) getOperations{
-    return (MSOCalendarOperations*)[super getOperations];
+	return [[MSOCalendarOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -25,21 +25,8 @@
     return [super initWith:urlComponent :parent : [MSOCalendar class]];
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOCalendar *mSOCalendar, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
-}
-
 -(MSOEventCollectionFetcher*) getEvents{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Events" ];
-  
-    return [[MSOEventCollectionFetcher alloc] initWith:path :self : [MSOEvent class]];
+    return [[MSOEventCollectionFetcher alloc] initWith:@"Events" :self : [MSOEvent class]];
 }
 
 @end

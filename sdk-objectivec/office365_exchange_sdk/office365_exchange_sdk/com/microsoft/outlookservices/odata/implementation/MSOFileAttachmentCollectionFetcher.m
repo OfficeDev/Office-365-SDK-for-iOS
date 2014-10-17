@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOFileAttachment class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOFileAttachment> *fileAttachment, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOFileAttachment* )entity :(void (^)(MSOFileAttachment *fileAttachment, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOFileAttachment* )entity :(void (^)(MSOFileAttachment *fileAttachment, NSError *e))callback{
-	return nil;
-}
-
 -(MSOFileAttachmentFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOFileAttachmentFetcher alloc] initWith:@"" : self :[MSOFileAttachment class]];
 }
 @end

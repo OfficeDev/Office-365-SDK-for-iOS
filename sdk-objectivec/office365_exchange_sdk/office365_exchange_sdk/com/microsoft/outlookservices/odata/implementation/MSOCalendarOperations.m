@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOCalendarOperations.h"
+#import  <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOCalendarOperations.
@@ -19,10 +21,20 @@
 
 -(NSURLSessionDataTask*)calendarView : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"CalendarView" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :startDate,@"StartDate",nil ],
+	[[NSDictionary alloc] initWithObjectsAndKeys :endDate,@"EndDate",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"CalendarView"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			MSOEvent * result = (MSOEvent *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);

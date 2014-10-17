@@ -14,7 +14,7 @@
 @implementation MSOItemFetcher
 
 -(MSOItemOperations*) getOperations{
-    return (MSOItemOperations*)[super getOperations];
+	return [[MSOItemOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -22,17 +22,6 @@
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOItem class]];
-}
-
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOItem *mSOItem, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
 }
 
 @end

@@ -14,7 +14,7 @@
 @implementation MSOFileAttachmentFetcher
 
 -(MSOFileAttachmentOperations*) getOperations{
-    return (MSOFileAttachmentOperations*)[super getOperations];
+	return [[MSOFileAttachmentOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -22,17 +22,6 @@
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOFileAttachment class]];
-}
-
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOFileAttachment *mSOFileAttachment, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
 }
 
 @end

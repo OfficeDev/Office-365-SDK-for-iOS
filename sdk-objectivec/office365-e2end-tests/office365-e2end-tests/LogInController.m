@@ -9,7 +9,7 @@
 #import "LogInController.h"
 
 @implementation LogInController
-
+/*
 ADAuthenticationContext *authContext;
 NSString *redirectUriString;
 NSString *authority;
@@ -142,6 +142,6 @@ NSString *token;
      }];
     
     return true;
-}
+}*/
 
 @end

@@ -1,13 +1,13 @@
-//
-//  MSOODataExecutable.m
-//  office365_exchange_sdk
-//
-//  Created by Gustavo on 10/16/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
-
-#import <Foundation/Foundation.h>
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 #import "MSOODataExecutable.h"
+
+/**
+* The implementation file for type MSOODataExecutable.
+*/
 
 @implementation MSOODataExecutable
 
@@ -20,3 +20,4 @@
     [self.CustomParameters addEntriesFromDictionary:dicc];
 }
 @end
+

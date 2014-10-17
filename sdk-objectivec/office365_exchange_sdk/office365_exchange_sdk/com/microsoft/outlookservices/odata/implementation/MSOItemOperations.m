@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOItemOperations.h"
+#import  <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOItemOperations.

@@ -16,7 +16,7 @@
 @implementation MSOContactFolderFetcher
 
 -(MSOContactFolderOperations*) getOperations{
-    return (MSOContactFolderOperations*)[super getOperations];
+	return [[MSOContactFolderOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -26,27 +26,12 @@
     return [super initWith:urlComponent :parent : [MSOContactFolder class]];
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOContactFolder *mSOContactFolder, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
-}
-
 -(MSOContactCollectionFetcher*) getContacts{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Contacts" ];
-  
-    return [[MSOContactCollectionFetcher alloc] initWith:path :self : [MSOContact class]];
+    return [[MSOContactCollectionFetcher alloc] initWith:@"Contacts" :self : [MSOContact class]];
 }
 
 -(MSOContactFolderCollectionFetcher*) getChildFolders{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"ChildFolders" ];
-  
-    return [[MSOContactFolderCollectionFetcher alloc] initWith:path :self : [MSOContactFolder class]];
+    return [[MSOContactFolderCollectionFetcher alloc] initWith:@"ChildFolders" :self : [MSOContactFolder class]];
 }
 
 @end

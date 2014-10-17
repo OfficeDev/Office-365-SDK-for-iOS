@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOFolderOperations.h"
+#import  <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
+#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOFolderOperations.
@@ -19,10 +21,19 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOFolder *folder, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Copy" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"Copy"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);
@@ -34,10 +45,19 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOFolder *folder, NSError *error))callback{
 
-    NSURLSessionDataTask* task = [self oDataExecute:@"Move" :nil :POST :^(id<MSOResponse> result, NSError *error) {
+	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+
+	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
+
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+	[url appendPathComponent:@"Move"];
+
+        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-            callback([result getData], error);
+			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+            callback(result, error);
         }
         else{
             callback(nil, error);

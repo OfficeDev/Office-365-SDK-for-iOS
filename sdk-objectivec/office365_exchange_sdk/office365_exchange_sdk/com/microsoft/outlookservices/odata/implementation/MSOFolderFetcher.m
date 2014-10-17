@@ -16,7 +16,7 @@
 @implementation MSOFolderFetcher
 
 -(MSOFolderOperations*) getOperations{
-    return (MSOFolderOperations*)[super getOperations];
+	return [[MSOFolderOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -26,27 +26,12 @@
     return [super initWith:urlComponent :parent : [MSOFolder class]];
 }
 
--(NSURLSessionDataTask *)oDataExecute:(NSString *)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOFolder *mSOFolder, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
-}
-
 -(MSOFolderCollectionFetcher*) getChildFolders{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"ChildFolders" ];
-  
-    return [[MSOFolderCollectionFetcher alloc] initWith:path :self : [MSOFolder class]];
+    return [[MSOFolderCollectionFetcher alloc] initWith:@"ChildFolders" :self : [MSOFolder class]];
 }
 
 -(MSOMessageCollectionFetcher*) getMessages{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Messages" ];
-  
-    return [[MSOMessageCollectionFetcher alloc] initWith:path :self : [MSOMessage class]];
+    return [[MSOMessageCollectionFetcher alloc] initWith:@"Messages" :self : [MSOMessage class]];
 }
 
 @end

@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOFolder class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOFolder> *folder, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOFolder* )entity :(void (^)(MSOFolder *folder, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOFolder* )entity :(void (^)(MSOFolder *folder, NSError *e))callback{
-	return nil;
-}
-
 -(MSOFolderFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOFolderFetcher alloc] initWith:@"" : self :[MSOFolder class]];
 }
 @end

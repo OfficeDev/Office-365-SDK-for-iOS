@@ -21,19 +21,19 @@
 @end
 
 /**
-* The implementation file for type MSOODataCollectionFetcher.
-*/
+ * The implementation file for type MSOODataCollectionFetcher.
+ */
 
 @implementation MSOODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent :(Class)entityClass{
-
+    
     self.urlComponent = urlComponent;
     self.parent = parent;
     self.entityClass = entityClass;
     [self reset];
-   // self.operations = [[operationClass alloc] initWith:@"" : self];
-
+    // self.operations = [[operationClass alloc] initWith:@"" : self];
+    
     return self;
 }
 
@@ -89,7 +89,7 @@
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
     
     return [self oDataExecute:[[self getResolver] createODataURL] :nil :GET :^(id<MSOResponse> d, NSError *e) {
-
+        
         id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : self.entityClass];
         callback(result, e);
     }];

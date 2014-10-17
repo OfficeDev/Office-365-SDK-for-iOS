@@ -6,12 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * This class is for Relfection Purpose
- * Each protocol is created for creat type collections
- *
- */
-
 @protocol MSOBodyType
 @end
 

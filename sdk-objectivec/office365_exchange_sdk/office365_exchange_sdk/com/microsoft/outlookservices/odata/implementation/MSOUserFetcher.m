@@ -23,7 +23,7 @@
 @implementation MSOUserFetcher
 
 -(MSOUserOperations*) getOperations{
-    return [[MSOUserOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
+	return [[MSOUserOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
@@ -32,18 +32,6 @@
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOUser class]];
 }
-
-/*
--(NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
-    
-   return [self.Parent oDataExecute:path :content :verb :callback];
-}
-
--(NSURLSessionDataTask *)execute:(void (^)(MSOUser *mSOUser, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
-}*/
 
 -(MSOFolderCollectionFetcher*) getFolders{
     return [[MSOFolderCollectionFetcher alloc] initWith:@"Folders" :self : [MSOFolder class]];
@@ -58,9 +46,7 @@
 }
 
 -(MSOCalendarCollectionFetcher*) getCalendars{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Calendars" ];
-  
-    return [[MSOCalendarCollectionFetcher alloc] initWith:path :self : [MSOCalendar class]];
+    return [[MSOCalendarCollectionFetcher alloc] initWith:@"Calendars" :self : [MSOCalendar class]];
 }
 
 -(MSOCalendarFetcher*) getCalendar{
@@ -68,27 +54,19 @@
 }
 
 -(MSOCalendarGroupCollectionFetcher*) getCalendarGroups{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"CalendarGroups" ];
-  
-    return [[MSOCalendarGroupCollectionFetcher alloc] initWith:path :self : [MSOCalendarGroup class]];
+    return [[MSOCalendarGroupCollectionFetcher alloc] initWith:@"CalendarGroups" :self : [MSOCalendarGroup class]];
 }
 
 -(MSOEventCollectionFetcher*) getEvents{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Events" ];
-  
-    return [[MSOEventCollectionFetcher alloc] initWith:path :self : [MSOEvent class]];
+    return [[MSOEventCollectionFetcher alloc] initWith:@"Events" :self : [MSOEvent class]];
 }
 
 -(MSOContactCollectionFetcher*) getContacts{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"Contacts" ];
-  
-    return [[MSOContactCollectionFetcher alloc] initWith:path :self : [MSOContact class]];
+    return [[MSOContactCollectionFetcher alloc] initWith:@"Contacts" :self : [MSOContact class]];
 }
 
 -(MSOContactFolderCollectionFetcher*) getContactFolders{
-	NSString* path = [[NSString alloc]initWithFormat:@"%@/%@", self.UrlComponent, @"ContactFolders" ];
-  
-    return [[MSOContactFolderCollectionFetcher alloc] initWith:path :self : [MSOContactFolder class]];
+    return [[MSOContactFolderCollectionFetcher alloc] initWith:@"ContactFolders" :self : [MSOContactFolder class]];
 }
 
 @end

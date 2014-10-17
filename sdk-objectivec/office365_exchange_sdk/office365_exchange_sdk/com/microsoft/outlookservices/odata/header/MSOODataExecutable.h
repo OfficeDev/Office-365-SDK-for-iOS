@@ -5,8 +5,10 @@
  ******************************************************************************/
 
 #import <office365_odata_interfaces/MSODependencyResolver.h>
+#import <office365_odata_interfaces/MSOResponse.h>
 #import <office365_exchange_helpers/MSOBaseODataContainerHelper.h>
 #import <office365_exchange_helpers/MSOODataURLImpl.h>
+
 #import <Foundation/Foundation.h>
 
 /**
@@ -15,8 +17,8 @@
 
 @protocol MSOODataExecutable
 
-@required
-
+@property NSString* UrlComponent;
+@property id<MSOODataExecutable> Parent;
 
 -(id<MSODependencyResolver>) getResolver;
 -(NSURLSessionDataTask*) oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb : (void (^)(id<MSOResponse>, NSError *))callback;

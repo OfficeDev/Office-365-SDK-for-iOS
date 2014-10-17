@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOODataOperations.h"
-#import  <office365_odata_interfaces/MSOOdataUrl.h>
 
 /**
 * The implementation file for type MSOODataOperations.
@@ -19,10 +18,10 @@
     return self;
 }
 
-- (NSURLSessionDataTask *)oDataExecute:(id<MSOODataURL>)path : (NSData *)content : (MSOHttpVerb)verb :(void (^)(id<MSOResponse> ,NSError *error))callback{
+-(NSURLSessionDataTask*)oDataExecute:(id<MSOODataURL>)path : (NSData *)content : (MSOHttpVerb)verb :(void (^)(id<MSOResponse> ,NSError *error))callback{
     [path appendPathComponent:self.UrlComponent];
     [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
-    
+   
     return [self.Parent oDataExecute:path :content :verb :callback];
 }
 

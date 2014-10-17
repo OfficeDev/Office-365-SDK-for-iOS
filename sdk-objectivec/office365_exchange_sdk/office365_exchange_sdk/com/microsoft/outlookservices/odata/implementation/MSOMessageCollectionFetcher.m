@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOMessage class]];
 }
 
-/*-(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOMessage> *message, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
-    }];
-}*/
-
 -(NSURLSessionDataTask*)add:(MSOMessage* )entity :(void (^)(MSOMessage *message, NSError *e))callback{
-	return nil;
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
+    }];
 }
 
 -(MSOMessageFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOMessageFetcher alloc] initWith:@"" : self :[MSOMessage class]];
 }
 @end

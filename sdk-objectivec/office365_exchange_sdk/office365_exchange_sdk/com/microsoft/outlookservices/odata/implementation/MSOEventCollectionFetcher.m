@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOEvent class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOEvent> *event, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOEvent* )entity :(void (^)(MSOEvent *event, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOEvent* )entity :(void (^)(MSOEvent *event, NSError *e))callback{
-	return nil;
-}
-
 -(MSOEventFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOEventFetcher alloc] initWith:@"" : self :[MSOEvent class]];
 }
 @end

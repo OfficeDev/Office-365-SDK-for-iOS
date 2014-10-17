@@ -30,10 +30,6 @@
     return self;
 }
 
--(id)getOperations{
-    return self.operations;
-}
-
 -(NSURLSessionDataTask*) oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback{
     [path appendPathComponent:self.UrlComponent];
     [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];

@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOCalendar class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOCalendar> *calendar, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOCalendar* )entity :(void (^)(MSOCalendar *calendar, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOCalendar* )entity :(void (^)(MSOCalendar *calendar, NSError *e))callback{
-	return nil;
-}
-
 -(MSOCalendarFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOCalendarFetcher alloc] initWith:@"" : self :[MSOCalendar class]];
 }
 @end

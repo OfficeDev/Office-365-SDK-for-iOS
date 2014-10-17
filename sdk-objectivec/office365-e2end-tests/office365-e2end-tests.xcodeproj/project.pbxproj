@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC348B9D1986D13E002754F7 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC348B991986D13E002754F7 /* libADALiOS.a */; };
 		EC495F6D1987E04D0003F06D /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC495F6C1987E04D0003F06D /* UserSettingsViewController.m */; };
 		EC7EB056198690E90070DB56 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB054198690E90070DB56 /* failed.png */; };
 		EC7EB057198690E90070DB56 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = EC7EB055198690E90070DB56 /* passed.png */; };
@@ -90,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC348B9D1986D13E002754F7 /* libADALiOS.a in Frameworks */,
 				ECE571CE197EF6B400FDAE94 /* CoreGraphics.framework in Frameworks */,
 				ECE571D0197EF6B400FDAE94 /* UIKit.framework in Frameworks */,
 				ECE571CC197EF6B400FDAE94 /* Foundation.framework in Frameworks */,

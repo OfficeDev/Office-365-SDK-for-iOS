@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOItem class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOItem> *item, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOItem* )entity :(void (^)(MSOItem *item, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOItem* )entity :(void (^)(MSOItem *item, NSError *e))callback{
-	return nil;
-}
-
 -(MSOItemFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOItemFetcher alloc] initWith:@"" : self :[MSOItem class]];
 }
 @end

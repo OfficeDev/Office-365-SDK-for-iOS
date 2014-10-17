@@ -16,17 +16,14 @@
     return [super initWith:urlComponent :parent : [MSOContactFolder class]];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(NSArray<MSOContactFolder> *contactFolder, NSError *error))callback{
-    return [super execute:^(id entity, NSError *error) {
-        callback(entity, error);
+-(NSURLSessionDataTask*)add:(MSOContactFolder* )entity :(void (^)(MSOContactFolder *contactFolder, NSError *e))callback{
+	return [super add:entity :^(id r, NSError *e) {
+        callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*)add:(MSOContactFolder* )entity :(void (^)(MSOContactFolder *contactFolder, NSError *e))callback{
-	return nil;
-}
-
 -(MSOContactFolderFetcher*)getById:(NSString *)Id{
-	return nil;
+	[super getById:Id];
+    return [[MSOContactFolderFetcher alloc] initWith:@"" : self :[MSOContactFolder class]];
 }
 @end
