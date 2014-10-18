@@ -10,6 +10,7 @@
 #import "BaseTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
+#import "LogInController.h"
 #import <office365_exchange_sdk/MSOEntityContainerClient.h>
 #import <office365_odata_impl/MSODefaultDependencyResolver.h>
 #import <office365_odata_impl/MSOBasicCredentials.h>

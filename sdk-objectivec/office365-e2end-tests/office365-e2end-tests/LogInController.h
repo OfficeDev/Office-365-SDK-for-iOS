@@ -17,7 +17,8 @@
 @interface LogInController : NSObject
 
 -(id)init;
+-(NSString*) getBasicToken;
+
 -(void)clearCredentials;
 -(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
-
 @end

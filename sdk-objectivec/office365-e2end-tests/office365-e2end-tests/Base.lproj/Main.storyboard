@@ -76,7 +76,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="194"/>
         </scene>
-        <!--Run File Tests-->
+        <!--Run Mail Tests-->
         <scene sceneID="yGX-4b-6rV">
             <objects>
                 <tableViewController id="Xb0-Ag-Snv" customClass="ListTestTableViewController" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                             <outlet property="delegate" destination="Xb0-Ag-Snv" id="jzn-Uf-r4Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Run File Tests" id="s4x-R4-ZC1">
+                    <navigationItem key="navigationItem" title="Run Mail Tests" id="s4x-R4-ZC1">
                         <barButtonItem key="leftBarButtonItem" title="Selected" id="XpK-cL-6D6"/>
                         <barButtonItem key="rightBarButtonItem" title="All" id="f5x-Rf-xtu">
                             <connections>

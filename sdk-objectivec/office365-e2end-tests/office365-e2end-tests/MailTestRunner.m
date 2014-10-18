@@ -145,7 +145,7 @@
 }
 
 -(MSOEntityContainerClient*)getClient{
-    NSString *token = @"di1hbmhvam5AbXNvcGVudGVjaC5jY3NjdHAubmV0OjExUGFzc3dvcmQ=";
+    NSString *token = [[[LogInController alloc] init] getBasicToken];
     
     if(self.Client != nil)
         return self.Client;

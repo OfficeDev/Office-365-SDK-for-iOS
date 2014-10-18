@@ -9,8 +9,8 @@
 #import "LogInController.h"
 
 @implementation LogInController
-/*
-ADAuthenticationContext *authContext;
+
+//ADAuthenticationContext *authContext;
 NSString *redirectUriString;
 NSString *authority;
 NSString *clientId;
@@ -29,6 +29,12 @@ NSString *token;
     return self;
 }
 
+-(NSString*) getBasicToken;
+{
+    NSString *basicToken = @"di1hbmhvam5AbXNvcGVudGVjaC5jY3NjdHAubmV0OjExUGFzc3dvcmQ=";
+    return basicToken;
+}
+/*
 -(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
 {
     if([self getCacheToken : resourceId completionHandler:completionBlock]) return;

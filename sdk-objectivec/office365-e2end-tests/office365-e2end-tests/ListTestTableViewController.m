@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import "MailTestTableViewController.h"
+#import "ListTestTableViewController.h"
 #import "LogInController.h"
 #import "TestParameters.h"
 #import "MailTestRunner.h"
 
-@interface MailTestTableViewController ()
+@interface ListTestTableViewController ()
 
 @end
 
-@implementation MailTestTableViewController
+@implementation ListTestTableViewController
 
 LogInController *loginController;
 TestParameters *testParameters;
@@ -40,10 +40,7 @@ MailTestRunner *testRunner;
     
     self.Tests = [testRunner getTests];
     
-    [self.tableView reloadData];
-    
-   // [self LogIn];
-    
+    [self.tableView reloadData];    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
