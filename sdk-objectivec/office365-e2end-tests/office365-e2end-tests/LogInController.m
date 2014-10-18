@@ -31,7 +31,7 @@ NSString *token;
 
 -(NSString*) getBasicToken;
 {
-    NSString *basicToken = @"di1hbmhvam5AbXNvcGVudGVjaC5jY3NjdHAubmV0OjExUGFzc3dvcmQ=";
+    NSString *basicToken = @"";
     return basicToken;
 }
 /*
