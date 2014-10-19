@@ -7,4 +7,16 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../../sdk-objectivec/office365_exchange_helpers/office365_exchange_helpers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../sdk-objectivec/office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../sdk-objectivec/office365_odata_impl/office365_odata_impl.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../sdk-objectivec/office365_odata_interfaces/office365_odata_interfaces.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -15,7 +15,6 @@
 		EC78D82419F03CE200A443DD /* MSOEntityFetcherHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC78D82119F03A3A00A443DD /* MSOEntityFetcherHelper.h */; };
 		EC78D82519F0404000A443DD /* MSOODataURLImpl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC78D81A19F02A6100A443DD /* MSOODataURLImpl.h */; };
 		ECD1AE8119EEBECB00C4940F /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */; };
-		ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */; };
 		ECD1AE8719EEDB6400C4940F /* MSOBaseODataContainerHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +48,6 @@
 		EC78D82219F03A3A00A443DD /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
 		ECD1AE8019EEBECB00C4940F /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
 		ECD1AE8219EEC18900C4940F /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
-		ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECD1AE8419EEC28000C4940F /* liboffice365_odata_interfaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +71,6 @@
 		EC1DCEAD19E8422800EF2176 = {
 			isa = PBXGroup;
 			children = (
-				ECD1AE8319EEC28000C4940F /* liboffice365_odata_interfaces.a */,
 				EC1DCEB819E8422800EF2176 /* office365_exchange_helpers */,
 				EC1DCEC219E8422800EF2176 /* office365_exchange_helpersTests */,
 				EC1DCEB719E8422800EF2176 /* Products */,
