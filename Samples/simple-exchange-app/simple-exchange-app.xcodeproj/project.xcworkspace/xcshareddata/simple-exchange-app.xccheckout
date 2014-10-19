@@ -12,6 +12,8 @@
 	<dict>
 		<key>0C78A7FD9BA3EC8863162717FC77C050E83EA13D</key>
 		<string>https://github.com/MSOpenTech/o365sdk-ios.git</string>
+		<key>49839CDBA3606365C76D6A7C893B03090DA93A68</key>
+		<string>https://github.com/AzureAD/azure-activedirectory-library-for-objc.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Samples/simple-exchange-app/simple-exchange-app.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>0C78A7FD9BA3EC8863162717FC77C050E83EA13D</key>
 		<string>../../../..</string>
+		<key>49839CDBA3606365C76D6A7C893B03090DA93A68</key>
+		<string>../../../../../azure-activedirectory-library-for-objc</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/MSOpenTech/o365sdk-ios.git</string>
@@ -28,6 +32,14 @@
 	<string>0C78A7FD9BA3EC8863162717FC77C050E83EA13D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49839CDBA3606365C76D6A7C893B03090DA93A68</string>
+			<key>IDESourceControlWCCName</key>
+			<string>azure-activedirectory-library-for-objc</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

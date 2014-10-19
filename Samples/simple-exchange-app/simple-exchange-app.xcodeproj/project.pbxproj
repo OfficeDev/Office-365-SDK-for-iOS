@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BC8031D3246EA47BF921D23 /* libPods-simple-exchange-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC34C02621847EEC11B00211 /* libPods-simple-exchange-app.a */; };
+		263BE93019F459CB009CF776 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 263BE92619F4592C009CF776 /* libADALiOS.a */; };
+		263BE93619F4636F009CF776 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263BE93519F4636F009CF776 /* office365_odata_base.framework */; };
+		263BE93819F4638E009CF776 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263BE93719F4638E009CF776 /* office365_exchange_sdk.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		263BE94119F46DB9009CF776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263BE93E19F46D9C009CF776 /* Main.storyboard */; };
 		EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */; };
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
@@ -21,28 +24,38 @@
 		ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */; };
 		ECD9F40819784BB600ABB418 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40719784BB600ABB418 /* main.m */; };
 		ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40A19784BB600ABB418 /* AppDelegate.m */; };
-		ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41219784BB600ABB418 /* Main.storyboard */; };
 		ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41519784BB600ABB418 /* Images.xcassets */; };
-		ECD9F42219784BB600ABB418 /* simple_exchange_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */; };
-		ECE11D3F19F16EBC009E0A0B /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */; };
-		FF3E47508E4CF90DE4CE38FC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4ED5606153B8D7B10F12CE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		ECD9F41C19784BB600ABB418 /* PBXContainerItemProxy */ = {
+		263BE92519F4592C009CF776 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ECD9F3FA19784BB600ABB418 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECD9F40119784BB600ABB418;
-			remoteInfo = "simple-exchange-app";
+			containerPortal = 263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B0965AA17F25770002BDFB8;
+			remoteInfo = ADALiOS;
+		};
+		263BE92719F4592C009CF776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B0965BA17F25770002BDFB8;
+			remoteInfo = ADALiOSTests;
+		};
+		263BE92919F4592C009CF776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BFEF05C182DA57800122C0C;
+			remoteInfo = ADALiOSBundle;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A4ED5606153B8D7B10F12CE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BA28B42A87539ED7F0BCE18 /* Pods-simple-exchange-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-exchange-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simple-exchange-app/Pods-simple-exchange-app.debug.xcconfig"; sourceTree = "<group>"; };
-		7F0CE7EFFEAD6C2D5DF22366 /* Pods-simple-exchange-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-exchange-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-simple-exchange-app/Pods-simple-exchange-app.release.xcconfig"; sourceTree = "<group>"; };
-		DC34C02621847EEC11B00211 /* libPods-simple-exchange-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-simple-exchange-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ADALiOS.xcodeproj; path = "../../../azure-activedirectory-library-for-objc/ADALiOS/ADALiOS.xcodeproj"; sourceTree = "<group>"; };
+		263BE93519F4636F009CF776 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator/office365_odata_base.framework"; sourceTree = "<group>"; };
+		263BE93719F4638E009CF776 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
+		263BE93F19F46D9C009CF776 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = base; path = base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC1DCEAA19E7192800EF2176 /* SendMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMessageViewController.h; sourceTree = "<group>"; };
 		EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMessageViewController.m; sourceTree = "<group>"; };
 		EC2833AD19E6D5BA00E5FEA4 /* FolderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderTableViewController.h; sourceTree = "<group>"; };
@@ -67,12 +80,7 @@
 		ECD9F40719784BB600ABB418 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECD9F40919784BB600ABB418 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD9F40A19784BB600ABB418 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ECD9F41319784BB600ABB418 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECD9F41519784BB600ABB418 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-exchange-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECD9F42019784BB600ABB418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_exchange_appTests.m; sourceTree = "<group>"; };
-		ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,37 +88,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE11D3F19F16EBC009E0A0B /* libPods-ADALiOS.a in Frameworks */,
-				FF3E47508E4CF90DE4CE38FC /* libPods.a in Frameworks */,
-				3BC8031D3246EA47BF921D23 /* libPods-simple-exchange-app.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECD9F41819784BB600ABB418 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				263BE93819F4638E009CF776 /* office365_exchange_sdk.framework in Frameworks */,
+				263BE93619F4636F009CF776 /* office365_odata_base.framework in Frameworks */,
+				263BE93019F459CB009CF776 /* libADALiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B4EDCE105498450ED1D55E1 /* Pods */ = {
+		263BE91F19F4592B009CF776 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6BA28B42A87539ED7F0BCE18 /* Pods-simple-exchange-app.debug.xcconfig */,
-				7F0CE7EFFEAD6C2D5DF22366 /* Pods-simple-exchange-app.release.xcconfig */,
+				263BE92619F4592C009CF776 /* libADALiOS.a */,
+				263BE92819F4592C009CF776 /* ADALiOSTests.xctest */,
+				263BE92A19F4592C009CF776 /* ADALiOS.bundle */,
 			);
-			name = Pods;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		DF6F33257D34664DB168A50F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ECE11D3E19F16EBC009E0A0B /* libPods-ADALiOS.a */,
-				4A4ED5606153B8D7B10F12CE /* libPods.a */,
-				DC34C02621847EEC11B00211 /* libPods-simple-exchange-app.a */,
+				263BE93719F4638E009CF776 /* office365_exchange_sdk.framework */,
+				263BE93519F4636F009CF776 /* office365_odata_base.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,10 +131,9 @@
 		ECD9F3F919784BB600ABB418 = {
 			isa = PBXGroup;
 			children = (
+				263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */,
 				ECD9F40419784BB600ABB418 /* simple-exchange-app */,
-				ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */,
 				ECD9F40319784BB600ABB418 /* Products */,
-				1B4EDCE105498450ED1D55E1 /* Pods */,
 				DF6F33257D34664DB168A50F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -142,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				ECD9F40219784BB600ABB418 /* simple-exchange-app.app */,
-				ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,11 +149,11 @@
 		ECD9F40419784BB600ABB418 /* simple-exchange-app */ = {
 			isa = PBXGroup;
 			children = (
+				263BE93E19F46D9C009CF776 /* Main.storyboard */,
 				ECD1AE9819EF071600C4940F /* ADALiOSBundle */,
 				ECD9F4391978541200ABB418 /* controllers */,
 				ECD9F40919784BB600ABB418 /* AppDelegate.h */,
 				ECD9F40A19784BB600ABB418 /* AppDelegate.m */,
-				ECD9F41219784BB600ABB418 /* Main.storyboard */,
 				ECD9F41519784BB600ABB418 /* Images.xcassets */,
 				ECD9F40519784BB600ABB418 /* Supporting Files */,
 			);
@@ -166,23 +165,6 @@
 			children = (
 				ECD9F40619784BB600ABB418 /* Info.plist */,
 				ECD9F40719784BB600ABB418 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ECD9F41E19784BB600ABB418 /* simple-exchange-appTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECD9F42119784BB600ABB418 /* simple_exchange_appTests.m */,
-				ECD9F41F19784BB600ABB418 /* Supporting Files */,
-			);
-			path = "simple-exchange-appTests";
-			sourceTree = "<group>";
-		};
-		ECD9F41F19784BB600ABB418 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ECD9F42019784BB600ABB418 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -215,11 +197,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */;
 			buildPhases = (
-				76DB3849A1CB1E058C91A5AE /* Check Pods Manifest.lock */,
 				ECD9F3FE19784BB600ABB418 /* Sources */,
 				ECD9F3FF19784BB600ABB418 /* Frameworks */,
 				ECD9F40019784BB600ABB418 /* Resources */,
-				8DB1FFAA8A3D8C26A258E058 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,24 +209,6 @@
 			productName = "simple-exchange-app";
 			productReference = ECD9F40219784BB600ABB418 /* simple-exchange-app.app */;
 			productType = "com.apple.product-type.application";
-		};
-		ECD9F41A19784BB600ABB418 /* simple-exchange-appTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECD9F42819784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */;
-			buildPhases = (
-				ECD9F41719784BB600ABB418 /* Sources */,
-				ECD9F41819784BB600ABB418 /* Frameworks */,
-				ECD9F41919784BB600ABB418 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECD9F41D19784BB600ABB418 /* PBXTargetDependency */,
-			);
-			name = "simple-exchange-appTests";
-			productName = "simple-exchange-appTests";
-			productReference = ECD9F41B19784BB600ABB418 /* simple-exchange-appTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -262,10 +224,6 @@
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = CZ6326VW7H;
 					};
-					ECD9F41A19784BB600ABB418 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = ECD9F40119784BB600ABB418;
-					};
 				};
 			};
 			buildConfigurationList = ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "simple-exchange-app" */;
@@ -275,73 +233,63 @@
 			knownRegions = (
 				en,
 				Base,
+				base,
 			);
 			mainGroup = ECD9F3F919784BB600ABB418;
 			productRefGroup = ECD9F40319784BB600ABB418 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 263BE91F19F4592B009CF776 /* Products */;
+					ProjectRef = 263BE91E19F4592B009CF776 /* ADALiOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				ECD9F40119784BB600ABB418 /* simple-exchange-app */,
-				ECD9F41A19784BB600ABB418 /* simple-exchange-appTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		263BE92619F4592C009CF776 /* libADALiOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libADALiOS.a;
+			remoteRef = 263BE92519F4592C009CF776 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		263BE92819F4592C009CF776 /* ADALiOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ADALiOSTests.xctest;
+			remoteRef = 263BE92719F4592C009CF776 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		263BE92A19F4592C009CF776 /* ADALiOS.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ADALiOS.bundle;
+			remoteRef = 263BE92919F4592C009CF776 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ECD9F40019784BB600ABB418 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263BE94119F46DB9009CF776 /* Main.storyboard in Resources */,
 				ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */,
 				ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				ECD1AEA119EF071600C4940F /* ADALiOSBundle-Info.plist in Resources */,
-				ECD9F41419784BB600ABB418 /* Main.storyboard in Resources */,
 				ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECD9F41919784BB600ABB418 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		76DB3849A1CB1E058C91A5AE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8DB1FFAA8A3D8C26A258E058 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-simple-exchange-app/Pods-simple-exchange-app-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECD9F3FE19784BB600ABB418 /* Sources */ = {
@@ -360,39 +308,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECD9F41719784BB600ABB418 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECD9F42219784BB600ABB418 /* simple_exchange_appTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		ECD9F41D19784BB600ABB418 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECD9F40119784BB600ABB418 /* simple-exchange-app */;
-			targetProxy = ECD9F41C19784BB600ABB418 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		263BE93E19F46D9C009CF776 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				263BE93F19F46D9C009CF776 /* base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		ECD1AE9D19EF071600C4940F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ECD1AE9E19EF071600C4940F /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		ECD9F41219784BB600ABB418 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECD9F41319784BB600ABB418 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -404,7 +336,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -447,7 +379,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -480,18 +412,18 @@
 		};
 		ECD9F42619784BB600ABB418 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BA28B42A87539ED7F0BCE18 /* Pods-simple-exchange-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 0.1.1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
+					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
+				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(INHERITED)",
 					"-ObjC",
@@ -502,59 +434,23 @@
 		};
 		ECD9F42719784BB600ABB418 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F0CE7EFFEAD6C2D5DF22366 /* Pods-simple-exchange-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 0.1.1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
+					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
+				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"$(INHERITED)",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		ECD9F42919784BB600ABB418 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		ECD9F42A19784BB600ABB418 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -575,15 +471,6 @@
 			buildConfigurations = (
 				ECD9F42619784BB600ABB418 /* Debug */,
 				ECD9F42719784BB600ABB418 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECD9F42819784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECD9F42919784BB600ABB418 /* Debug */,
-				ECD9F42A19784BB600ABB418 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
