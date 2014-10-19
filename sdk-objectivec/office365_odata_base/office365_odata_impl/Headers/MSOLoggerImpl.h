@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSOLogger.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSOLoggerImpl : NSObject<MSOLogger>
 

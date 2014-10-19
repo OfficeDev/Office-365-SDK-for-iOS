@@ -6,7 +6,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "MSOResponse.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSOResponseImpl : NSObject<MSOResponse>
 

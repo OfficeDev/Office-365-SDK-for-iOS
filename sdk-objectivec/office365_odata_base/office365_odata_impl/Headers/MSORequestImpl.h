@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSORequest.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSORequestImpl : NSObject<MSORequest>
 

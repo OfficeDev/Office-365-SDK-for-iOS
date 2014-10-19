@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSOODataURL.h"
-#import "MSODependencyResolver.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSOODataURLImpl : NSObject<MSOODataURL>
 

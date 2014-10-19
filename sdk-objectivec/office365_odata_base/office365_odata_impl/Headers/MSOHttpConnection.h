@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSOHttpTransport.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSOHttpConnection : NSObject<MSOHttpTransport>
 @end

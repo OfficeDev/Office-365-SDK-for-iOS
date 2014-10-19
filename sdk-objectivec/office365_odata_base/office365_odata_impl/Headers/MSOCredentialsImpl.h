@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <office365_odata_base/office365_odata_interfaces.h>
 #import "MSOCredentials.h"
 #import "MSOCredentialsFactory.h"
 

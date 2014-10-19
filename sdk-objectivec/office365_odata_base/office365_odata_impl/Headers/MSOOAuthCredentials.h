@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MSOCredentials.h"
+#import <office365_odata_base/office365_odata_interfaces.h>
 
 @interface MSOOAuthCredentials : NSObject<MSOCredentials>
 
