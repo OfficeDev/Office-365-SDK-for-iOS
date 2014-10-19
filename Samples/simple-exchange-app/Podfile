@@ -1,1 +1,12 @@
-pod 'ADALiOS', '~> 1.0.2'
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+xcodeproj 'simple-exchange-app'
+
+target 'simple-exchange-app' do
+  pod 'ADALiOS', '~>1.1'
+end
+
+target 'simple-exchange-appTests' do
+
+end
+
