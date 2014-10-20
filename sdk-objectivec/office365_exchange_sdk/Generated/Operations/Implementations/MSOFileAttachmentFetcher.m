@@ -12,7 +12,6 @@
 */
 
 @implementation MSOFileAttachmentFetcher
-
 -(MSOFileAttachmentOperations*) getOperations{
 	return [[MSOFileAttachmentOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

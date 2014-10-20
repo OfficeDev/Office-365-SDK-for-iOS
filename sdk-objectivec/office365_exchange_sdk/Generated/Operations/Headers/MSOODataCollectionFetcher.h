@@ -5,9 +5,6 @@
  ******************************************************************************/
 
 #import "MSOODataExecutable.h"
-#import "MSOODataEntityFetcher.h"
-#import "MSOODataOperations.h"
-
 /**
 * The header for type MSOODataCollectionFetcher.
 */

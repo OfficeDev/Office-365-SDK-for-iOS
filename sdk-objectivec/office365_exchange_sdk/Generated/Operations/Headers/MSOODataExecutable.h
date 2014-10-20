@@ -4,17 +4,16 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
-#import <office365_odata_base/MSODependencyResolver.h>
-
 /**
 * The header for type MSOODataExecutable.
 */
 
 @protocol MSOODataExecutable
 
+@required
 @property NSString* UrlComponent;
 @property id<MSOODataExecutable> Parent;
+
 
 -(id<MSODependencyResolver>) getResolver;
 -(NSURLSessionDataTask*) oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb : (void (^)(id<MSOResponse>, NSError *))callback;

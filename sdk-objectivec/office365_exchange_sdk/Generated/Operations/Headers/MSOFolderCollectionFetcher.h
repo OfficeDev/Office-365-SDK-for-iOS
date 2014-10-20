@@ -4,8 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataCollectionFetcher.h"
 #import "MSOFolder.h"
+#import "MSOODataCollectionFetcher.h"
 #import "MSOFolderFetcher.h"
 
 /**
@@ -15,7 +15,6 @@
 @interface MSOFolderCollectionFetcher : MSOODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOFolder> *Folder, NSError *error))callback;
 
 -(NSURLSessionDataTask*)add:(MSOFolder* )entity :(void (^)(MSOFolder *folder, NSError *e))callback;
 

@@ -3,11 +3,12 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
-#import "MSOBaseODataContainer.h"
 #import "MSOUserFetcher.h"
+
 #import "MSOUserCollectionFetcher.h"
 
+
+#import "MSOBaseODataContainer.h"
 
 /**
 * The header for type MSOEntityContainerClient.

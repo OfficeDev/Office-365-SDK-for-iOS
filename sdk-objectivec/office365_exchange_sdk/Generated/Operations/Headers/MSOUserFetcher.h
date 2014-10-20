@@ -4,19 +4,20 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+
 #import "MSOODataEntityFetcher.h"
 #import "MSOUserOperations.h"
 #import "MSOUser.h"
 
-#import "MSOFolderCollectionFetcher.h"
-#import "MSOMessageCollectionFetcher.h"
-#import "MSOFolderFetcher.h"
-#import "MSOCalendarCollectionFetcher.h"
-#import "MSOCalendarFetcher.h"
-#import "MSOCalendarGroupCollectionFetcher.h"
-#import "MSOEventCollectionFetcher.h"
-#import "MSOContactCollectionFetcher.h"
-#import "MSOContactFolderCollectionFetcher.h"
+@class MSOFolderCollectionFetcher;
+@class MSOMessageCollectionFetcher;
+@class MSOFolderFetcher;
+@class MSOCalendarCollectionFetcher;
+@class MSOCalendarFetcher;
+@class MSOCalendarGroupCollectionFetcher;
+@class MSOEventCollectionFetcher;
+@class MSOContactCollectionFetcher;
+@class MSOContactFolderCollectionFetcher;
 
 
 /**
@@ -26,7 +27,6 @@
 @interface MSOUserFetcher : MSOODataEntityFetcher
 
 -(MSOUserOperations*) getOperations;
--(NSURLSessionDataTask *)execute:(void (^)(MSOUser* user, NSError *error))callback;
 
 -(MSOFolderCollectionFetcher*) getFolders;
 -(MSOMessageCollectionFetcher*) getMessages;

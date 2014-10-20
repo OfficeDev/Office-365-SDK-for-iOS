@@ -12,7 +12,6 @@
 */
 
 @implementation MSOItemFetcher
-
 -(MSOItemOperations*) getOperations{
 	return [[MSOItemOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

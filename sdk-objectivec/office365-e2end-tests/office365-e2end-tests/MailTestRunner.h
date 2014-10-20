@@ -11,6 +11,7 @@
 #import "TestParameters.h"
 #import "Test.h"
 #import "LogInController.h"
+#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
 #import <office365_exchange_sdk/MSOBaseODataContainer.h>
 #import <office365_exchange_sdk/MSOEntityContainerClient.h>
 #import <office365_exchange_sdk/MSOFolderCollectionFetcher.h>

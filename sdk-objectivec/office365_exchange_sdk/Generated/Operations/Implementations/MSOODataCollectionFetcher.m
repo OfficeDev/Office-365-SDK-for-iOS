@@ -4,10 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataCollectionFetcher.h"
-#import "MSOEntityFetcherHelper.h"
-#import "MSOBaseODataContainerHelper.h"
-
 @interface MSOODataCollectionFetcher()
 
 @property NSString* filter;
@@ -22,19 +18,19 @@
 @end
 
 /**
- * The implementation file for type MSOODataCollectionFetcher.
- */
+* The implementation file for type MSOODataCollectionFetcher.
+*/
 
 @implementation MSOODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent :(Class)entityClass{
-    
+
     self.urlComponent = urlComponent;
     self.parent = parent;
     self.entityClass = entityClass;
     [self reset];
-    // self.operations = [[operationClass alloc] initWith:@"" : self];
-    
+   // self.operations = [[operationClass alloc] initWith:@"" : self];
+
     return self;
 }
 
@@ -67,7 +63,7 @@
         [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
     }
     else {
-        [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
+         [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
         [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     }
     
@@ -90,7 +86,7 @@
 -(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
     
     return [self oDataExecute:[[self getResolver] createODataURL] :nil :GET :^(id<MSOResponse> d, NSError *e) {
-        
+
         id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : self.entityClass];
         callback(result, e);
     }];

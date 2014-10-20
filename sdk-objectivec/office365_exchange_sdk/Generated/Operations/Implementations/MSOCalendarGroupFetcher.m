@@ -13,7 +13,6 @@
 */
 
 @implementation MSOCalendarGroupFetcher
-
 -(MSOCalendarGroupOperations*) getOperations{
 	return [[MSOCalendarGroupOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

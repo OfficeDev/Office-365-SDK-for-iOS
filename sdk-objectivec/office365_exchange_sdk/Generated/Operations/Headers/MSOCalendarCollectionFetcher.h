@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOCalendar.h"
+#import "MSOODataCollectionFetcher.h"
 #import "MSOCalendarFetcher.h"
 
 /**
@@ -14,7 +15,6 @@
 @interface MSOCalendarCollectionFetcher : MSOODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOCalendar> *Calendar, NSError *error))callback;
 
 -(NSURLSessionDataTask*)add:(MSOCalendar* )entity :(void (^)(MSOCalendar *calendar, NSError *e))callback;
 

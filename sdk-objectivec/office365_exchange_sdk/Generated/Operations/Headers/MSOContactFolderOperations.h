@@ -4,8 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
 #import "MSOContactFolder.h"
+#import "MSOODataOperations.h"
 #import "MSOContact.h"
 #import "MSOContactFolder.h"
 

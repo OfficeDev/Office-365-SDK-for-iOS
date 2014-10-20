@@ -4,6 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSOODataExecutable.h"
 /**
 * The header for type MSOODataEntityFetcher.
 */

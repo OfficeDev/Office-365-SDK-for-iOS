@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOMessageOperations.h"
-#import "MSOBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSOMessageOperations.

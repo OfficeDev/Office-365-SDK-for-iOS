@@ -4,8 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
 #import "MSOMessage.h"
+#import "MSOODataOperations.h"
 #import "MSOItemBody.h"
 #import "MSOImportance.h"
 #import "MSORecipient.h"

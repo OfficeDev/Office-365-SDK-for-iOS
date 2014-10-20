@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOAttachment.h"
+#import "MSOODataOperations.h"
+
 
 /**
 * The header for type MSOAttachmentOperations.

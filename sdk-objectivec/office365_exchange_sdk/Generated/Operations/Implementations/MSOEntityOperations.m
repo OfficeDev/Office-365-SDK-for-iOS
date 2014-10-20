@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOEntityOperations.h"
-#import "MSOBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSOEntityOperations.

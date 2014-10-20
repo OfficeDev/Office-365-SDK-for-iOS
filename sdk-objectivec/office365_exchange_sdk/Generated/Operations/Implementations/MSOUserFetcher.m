@@ -21,7 +21,6 @@
 */
 
 @implementation MSOUserFetcher
-
 -(MSOUserOperations*) getOperations{
 	return [[MSOUserOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

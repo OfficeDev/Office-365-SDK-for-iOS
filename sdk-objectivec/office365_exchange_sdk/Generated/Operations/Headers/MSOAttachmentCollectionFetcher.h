@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOAttachment.h"
+#import "MSOODataCollectionFetcher.h"
 #import "MSOAttachmentFetcher.h"
 
 /**
@@ -14,7 +15,6 @@
 @interface MSOAttachmentCollectionFetcher : MSOODataCollectionFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOAttachment> *Attachment, NSError *error))callback;
 
 -(NSURLSessionDataTask*)add:(MSOAttachment* )entity :(void (^)(MSOAttachment *attachment, NSError *e))callback;
 

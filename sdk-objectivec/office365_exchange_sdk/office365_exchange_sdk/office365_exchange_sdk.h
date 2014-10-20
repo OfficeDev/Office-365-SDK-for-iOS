@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <office365_exchange_sdk/PublicHeader.h>
 
 // Models
+/*
 #import <office365_exchange_sdk/MSOAttachment.h>
 #import <office365_exchange_sdk/MSOAttendee.h>
 #import <office365_exchange_sdk/MSOAttendeeType.h>
@@ -52,7 +53,7 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOResponseType.h>
 #import <office365_exchange_sdk/MSOUser.h>
 #import <office365_exchange_sdk/MSOWeekIndex.h>
-
+*/
 //Operation
 #import <office365_exchange_sdk/MSOAttachmentCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOAttachmentCollectionOperations.h>
@@ -112,3 +113,28 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOUserCollectionOperations.h>
 #import <office365_exchange_sdk/MSOUserFetcher.h>
 #import <office365_exchange_sdk/MSOUserOperations.h>
+
+
+//Core
+#import <office365_odata_base/MSOCredentials.h>
+#import <office365_odata_base/MSOCredentialsFactory.h>
+#import <office365_odata_base/MSODependencyResolver.h>
+#import <office365_odata_base/MSOHttpTransport.h>
+#import <office365_odata_base/MSOHttpVerb.h>
+#import <office365_odata_base/MSOJsonSerializer.h>
+#import <office365_odata_base/MSOLogger.h>
+#import <office365_odata_base/MSOLogLevel.h>
+#import <office365_odata_base/MSORequest.h>
+#import <office365_odata_base/MSOResponse.h>
+#import <office365_odata_base/MSOODataUrl.h>
+
+#import <office365_exchange_sdk/MSOODataExecutable.h>
+#import <office365_exchange_sdk/MSOBaseODataContainer.h>
+#import <office365_exchange_sdk/MSOEntityContainerClient.h>
+#import <office365_exchange_sdk/MSOODataEntityFetcher.h>
+#import <office365_exchange_sdk/MSOODataOperations.h>
+#import <office365_exchange_sdk/MSOODataCollectionFetcher.h>
+#import <office365_exchange_sdk/MSOODataOperations.h>
+// Helpers
+#import <office365_exchange_sdk/MSOBaseODataContainerHelper.h>
+#import <office365_exchange_sdk/MSOEntityFetcherHelper.h>

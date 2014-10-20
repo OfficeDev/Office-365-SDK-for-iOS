@@ -12,7 +12,6 @@
 */
 
 @implementation MSOContactFetcher
-
 -(MSOContactOperations*) getOperations{
 	return [[MSOContactOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

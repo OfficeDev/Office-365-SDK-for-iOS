@@ -4,6 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+
 #import "MSOODataEntityFetcher.h"
 #import "MSOMessageOperations.h"
 #import "MSOMessage.h"
@@ -18,7 +19,6 @@
 @interface MSOMessageFetcher : MSOODataEntityFetcher
 
 -(MSOMessageOperations*) getOperations;
--(NSURLSessionDataTask *)execute:(void (^)(MSOMessage* message, NSError *error))callback;
 
 -(MSOAttachmentCollectionFetcher*) getAttachments;
 @end

@@ -14,7 +14,6 @@
 */
 
 @implementation MSOFolderFetcher
-
 -(MSOFolderOperations*) getOperations{
 	return [[MSOFolderOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

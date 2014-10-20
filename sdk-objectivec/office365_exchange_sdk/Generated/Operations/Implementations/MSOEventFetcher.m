@@ -14,7 +14,6 @@
 */
 
 @implementation MSOEventFetcher
-
 -(MSOEventOperations*) getOperations{
 	return [[MSOEventOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

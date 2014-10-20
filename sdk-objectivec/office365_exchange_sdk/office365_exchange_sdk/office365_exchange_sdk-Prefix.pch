@@ -30,10 +30,10 @@
 #import <office365_exchange_sdk/MSOODataExecutable.h>
 #import <office365_exchange_sdk/MSOBaseODataContainer.h>
 #import <office365_exchange_sdk/MSOEntityContainerClient.h>
-#import <office365_exchange_sdk/MSOODataOperations.h>
 #import <office365_exchange_sdk/MSOODataEntityFetcher.h>
+#import <office365_exchange_sdk/MSOODataOperations.h>
 #import <office365_exchange_sdk/MSOODataCollectionFetcher.h>
-
+#import <office365_exchange_sdk/MSOODataOperations.h>
 // Helpers
 #import <office365_exchange_sdk/MSOBaseODataContainerHelper.h>
 #import <office365_exchange_sdk/MSOEntityFetcherHelper.h>

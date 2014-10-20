@@ -12,7 +12,6 @@
 */
 
 @implementation MSOEntityFetcher
-
 -(MSOEntityOperations*) getOperations{
 	return [[MSOEntityOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

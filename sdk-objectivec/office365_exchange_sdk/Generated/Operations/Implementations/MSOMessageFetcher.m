@@ -13,7 +13,6 @@
 */
 
 @implementation MSOMessageFetcher
-
 -(MSOMessageOperations*) getOperations{
 	return [[MSOMessageOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

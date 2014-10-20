@@ -4,6 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+
 #import "MSOODataEntityFetcher.h"
 #import "MSOContactOperations.h"
 #import "MSOContact.h"
@@ -17,6 +18,5 @@
 @interface MSOContactFetcher : MSOODataEntityFetcher
 
 -(MSOContactOperations*) getOperations;
--(NSURLSessionDataTask *)execute:(void (^)(MSOContact* contact, NSError *error))callback;
 
 @end

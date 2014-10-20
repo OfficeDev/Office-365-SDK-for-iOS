@@ -4,8 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
 #import "MSOEvent.h"
+#import "MSOODataOperations.h"
 #import "MSOItemBody.h"
 #import "MSOImportance.h"
 #import "MSOLocation.h"

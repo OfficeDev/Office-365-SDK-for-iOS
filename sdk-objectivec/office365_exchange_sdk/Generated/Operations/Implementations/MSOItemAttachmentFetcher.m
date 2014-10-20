@@ -13,7 +13,6 @@
 */
 
 @implementation MSOItemAttachmentFetcher
-
 -(MSOItemAttachmentOperations*) getOperations{
 	return [[MSOItemAttachmentOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }

@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOODataEntityFetcher.h"
-#import "MSOBaseODataContainerHelper.h"
 
 @interface MSOODataEntityFetcher()
 

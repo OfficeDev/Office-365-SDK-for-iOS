@@ -12,7 +12,6 @@
 */
 
 @implementation MSOAttachmentFetcher
-
 -(MSOAttachmentOperations*) getOperations{
 	return [[MSOAttachmentOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
 }
