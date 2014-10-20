@@ -6,4 +6,4 @@
 2. Open simple-exchange-app.xcworkspace (*not* .xcodeproj).
 3. Click the play button!
 
-Alternatively, use the simple-exchange-sample-pods app with Cocoapods.
+Alternatively, use the [simple-exchange-sample-pods app with Cocoapods](https://github.com/MSOpenTech/o365sdk-ios/tree/dev/Samples/simple-exchange-app-pods).
