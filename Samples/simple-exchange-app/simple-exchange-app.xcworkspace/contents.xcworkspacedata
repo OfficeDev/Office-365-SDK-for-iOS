@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../azure-activedirectory-library-for-objc/ADALiOS/ADALiOS.xcodeproj">
+      location = "group:../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/ADALiOS.xcodeproj">
    </FileRef>
    <Group
       location = "container:"
