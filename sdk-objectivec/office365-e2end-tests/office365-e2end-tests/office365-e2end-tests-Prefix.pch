@@ -88,6 +88,6 @@
 
 // Helpers
 #import <office365_exchange_sdk/MSOBaseODataContainerHelper.h>
-#import <office365_exchange_sdk/MSOEntityFetcherHelper.h>
+#import <office365_exchange_sdk/MSOEntityFetcherHelper.h>*/
 
 #endif

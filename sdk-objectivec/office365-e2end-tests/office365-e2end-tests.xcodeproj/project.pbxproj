@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3CAC071E19F1E128004AF241 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071C19F1E128004AF241 /* failed.png */; };
 		3CAC071F19F1E128004AF241 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071D19F1E128004AF241 /* passed.png */; };
+		3CBE7E8419F59A2500DCF8B8 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */; };
+		3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD5D9719F55A3400C29E3F /* BaseController.m */; };
+		8884089321A7019C55BF67AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9113FD38F6785B8A3229F1 /* libPods.a */; };
 		ECBBC99119F1ACD600DE04A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99019F1ACD600DE04A4 /* main.m */; };
 		ECBBC99419F1ACD600DE04A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99319F1ACD600DE04A4 /* AppDelegate.m */; };
 		ECBBC99719F1ACD600DE04A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99619F1ACD600DE04A4 /* ViewController.m */; };
@@ -25,7 +28,6 @@
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
 		ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */; };
 		ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */; };
-		ECCF422D19F549B300EA6F9D /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422B19F549B300EA6F9D /* office365_exchange_sdk.framework */; };
 		ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,9 @@
 /* Begin PBXFileReference section */
 		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		3CAC071D19F1E128004AF241 /* passed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passed.png; sourceTree = "<group>"; };
+		3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
+		3CDD5D9619F55A3400C29E3F /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		3CDD5D9719F55A3400C29E3F /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		7E9113FD38F6785B8A3229F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECBBC98B19F1ACD600DE04A4 /* office365-e2end-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "office365-e2end-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,9 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECCF422D19F549B300EA6F9D /* office365_exchange_sdk.framework in Frameworks */,
+				3CBE7E8419F59A2500DCF8B8 /* office365_exchange_sdk.framework in Frameworks */,
 				ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */,
 				ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */,
+				8884089321A7019C55BF67AC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +110,7 @@
 		7DBD514BDDC707346FFCC0BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */,
 				ECCF422B19F549B300EA6F9D /* office365_exchange_sdk.framework */,
 				ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */,
 				ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */,
@@ -180,6 +187,8 @@
 		ECBBC9B419F1AD1200DE04A4 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				3CDD5D9619F55A3400C29E3F /* BaseController.h */,
+				3CDD5D9719F55A3400C29E3F /* BaseController.m */,
 				ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */,
 				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
 				ECBBC9B919F1AD2C00DE04A4 /* ListTestTableViewController.h */,
@@ -364,6 +373,7 @@
 				ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */,
 				ECBBC9C919F1AD2C00DE04A4 /* ListTestTableViewController.m in Sources */,
 				ECBBC99419F1ACD600DE04A4 /* AppDelegate.m in Sources */,
+				3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */,
 				ECBBC99119F1ACD600DE04A4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,7 +507,9 @@
 					"$(inherited)",
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -521,7 +533,9 @@
 					"$(inherited)",
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
