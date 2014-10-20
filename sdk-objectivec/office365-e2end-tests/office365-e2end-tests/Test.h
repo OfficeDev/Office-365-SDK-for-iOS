@@ -17,6 +17,8 @@
 @property BOOL Passed;
 @property BaseTestRunner *TestRunner;
 
+
+-(id) initWithData : (BaseTestRunner*) testRunner : (NSString *)name : (NSString *)displyName;
 -(NSURLSessionDataTask*)Run :(void (^) (Test *))result;
 
 @end

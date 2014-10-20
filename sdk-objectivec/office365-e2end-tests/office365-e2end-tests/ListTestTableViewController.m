@@ -35,17 +35,18 @@ MailTestRunner *testRunner;
     [super viewDidLoad];
     loginController = [[LogInController alloc] init];
     
-    testRunner = [MailTestRunner alloc];
-    testRunner.Parameters = testParameters;
-    
-    self.Tests = [testRunner getTests];
-    
-    [self.tableView reloadData];    
+    [[BaseController alloc] getMailClient:^(MSOEntityContainerClient *c) {
+        testRunner = [[MailTestRunner alloc] initWithClient:c];
+        testRunner.Parameters = testParameters;
+        
+        self.Tests = [testRunner getTests];
+        
+        [self.tableView reloadData];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self LogIn];
 }
 
 - (void)didReceiveMemoryWarning
@@ -141,6 +142,8 @@ MailTestRunner *testRunner;
 
 - (IBAction)RunAllTests:(id)sender {
     
+    
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
@@ -151,37 +154,28 @@ MailTestRunner *testRunner;
     __block int executed = 0;
     
     for (int i = 0; i < [self.Tests count]; i++) {
-        NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
-            
-            Test *test = [self.Tests objectAtIndex:i];
-            test.Passed = result.Passed;
-            test.ExecutionMessages = result.ExecutionMessages;
-            executed++;
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
+        @try {
+            NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
                 
-                if(executed == [self.Tests count]) [spinner stopAnimating];
-            });
-        }];
-        
-        [task resume];
-    }
-}
+                Test *test = [self.Tests objectAtIndex:i];
+                test.Passed = result.Passed;
+                test.ExecutionMessages = result.ExecutionMessages;
+                executed++;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    
+                    if(executed == [self.Tests count]) [spinner stopAnimating];
+                });
+            }];
+            
+            [task resume];
+        }
+        @catch (NSException *e) {
+            NSLog(@"Exception: %@", e);
+        }
 
--(void)LogIn{
-    /*
-    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
-        testParameters = [TestParameters alloc];
-        testParameters.Credentials = [[OAuthentication alloc] initWith:token];
-        testParameters.ServiceUrl = @"https://lagashsystems365.sharepoint.com/sites/Argentina/Produccion/MSOpenTechLagash";
         
-        testRunner = [ListTestRunner alloc];
-        testRunner.Parameters = testParameters;
-        
-        self.Tests = [testRunner getTests];
-        
-        [self.tableView reloadData];
-    }];*/
+    }
 }
 @end

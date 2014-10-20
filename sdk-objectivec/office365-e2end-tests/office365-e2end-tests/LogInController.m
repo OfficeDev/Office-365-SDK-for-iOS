@@ -10,7 +10,9 @@
 
 @implementation LogInController
 
-//ADAuthenticationContext *authContext;
+
+
+ADAuthenticationContext *authContext;
 NSString *redirectUriString;
 NSString *authority;
 NSString *clientId;
@@ -23,18 +25,11 @@ NSString *token;
     redirectUriString = [userDefaults objectForKey: @"RedirectUrl"];
     authority = [userDefaults objectForKey: @"AuthorityUrl"];
     clientId =[userDefaults objectForKey: @"CliendId"];
-    
     token = [NSString alloc];
     
     return self;
 }
 
--(NSString*) getBasicToken;
-{
-    NSString *basicToken = @"";
-    return basicToken;
-}
-/*
 -(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
 {
     if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
@@ -43,8 +38,6 @@ NSString *token;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
     
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
-    
-    //if(clearCache) [authContext.tokenCacheStore removeAll];
     
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
@@ -77,14 +70,15 @@ NSString *token;
 
 -(void)clearCredentials{
     id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
-    
-    if([cache allItemsWithError:nil].count > 0)[cache removeAllWithError:nil];
+    ADAuthenticationError * error;
+    if ([[cache allItemsWithError:&error] count] > 0)
+        [cache removeAllWithError:&error];
 }
 
 -(BOOL)getCacheToken : (NSString *)resourceId  completionHandler:(void (^) (NSString *))completionBlock {
-    
+    ADAuthenticationError * error;
     id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
-    NSArray *array = [cache allItemsWithError:nil];
+    NSArray *array = [cache allItemsWithError:&error];
     
     if([array count] == 0) return false;
     
@@ -121,15 +115,15 @@ NSString *token;
     
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-   
+    
     ADTokenCacheStoreKey *key = [ADTokenCacheStoreKey keyWithAuthority:authority resource:nil clientId:clientId error:&error];
-   
+    
     if (!key)
     {
         [self setStatus:error.errorDetails];
         return false;
     }
-   
+    
     id<ADTokenCacheStoring> cache = authContext.tokenCacheStore;
     ADTokenCacheStoreItem *item = [cache getItemWithKey:key userId:nil error:&error];
     
@@ -140,14 +134,16 @@ NSString *token;
     }
     
     [authContext acquireTokenByRefreshToken:item.refreshToken
-                               clientId:clientId
-                               resource:resourceId
-                        completionBlock:^(ADAuthenticationResult *result)
+                                   clientId:clientId
+                                   resource:resourceId
+                            completionBlock:^(ADAuthenticationResult *result)
      {
          completionBlock(result.tokenCacheStoreItem.accessToken);
      }];
     
     return true;
-}*/
+}
+
+
 
 @end

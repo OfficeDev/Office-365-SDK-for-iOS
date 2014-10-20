@@ -6,23 +6,22 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
 #import "BaseTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
 #import "LogInController.h"
-#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
-#import <office365_exchange_sdk/MSOBaseODataContainer.h>
+#import "BaseController.h"
 #import <office365_exchange_sdk/MSOEntityContainerClient.h>
-#import <office365_exchange_sdk/MSOFolderCollectionFetcher.h>
-#import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
-
+#import <office365_odata_base/MSODefaultDependencyResolver.h>
+#import <office365_odata_base/MSOBasicCredentials.h>
+#import <office365_odata_base/MSOCredentialsImpl.h>
 
 @interface MailTestRunner : BaseTestRunner
 
 @property TestParameters *Parameters;
 @property MSOEntityContainerClient *Client;
-
+-(id)initWithClient : (MSOEntityContainerClient*)client;
 -(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *))result;
 
 @end
