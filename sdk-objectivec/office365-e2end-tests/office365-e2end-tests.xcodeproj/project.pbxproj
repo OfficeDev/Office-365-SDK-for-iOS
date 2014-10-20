@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3CAC070619F1B785004AF241 /* liboffice365_exchange_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CAC070219F1B784004AF241 /* liboffice365_exchange_sdk.a */; };
-		3CAC071719F1DF5D004AF241 /* liboffice365_odata_impl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CAC071619F1DF5D004AF241 /* liboffice365_odata_impl.a */; };
-		3CAC071A19F1DF66004AF241 /* liboffice365_exchange_helpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CAC071819F1DF66004AF241 /* liboffice365_exchange_helpers.a */; };
-		3CAC071B19F1DF66004AF241 /* liboffice365_odata_interfaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CAC071919F1DF66004AF241 /* liboffice365_odata_interfaces.a */; };
 		3CAC071E19F1E128004AF241 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071C19F1E128004AF241 /* failed.png */; };
 		3CAC071F19F1E128004AF241 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071D19F1E128004AF241 /* passed.png */; };
 		ECBBC99119F1ACD600DE04A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99019F1ACD600DE04A4 /* main.m */; };
@@ -28,6 +24,9 @@
 		ECBBC9CD19F1AD2C00DE04A4 /* TestFilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C219F1AD2C00DE04A4 /* TestFilesTableViewController.m */; };
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
 		ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */; };
+		ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */; };
+		ECCF422D19F549B300EA6F9D /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422B19F549B300EA6F9D /* office365_exchange_sdk.framework */; };
+		ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CAC070219F1B784004AF241 /* liboffice365_exchange_sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_sdk.a; path = "../office365_exchange_sdk/build/Debug-iphoneos/liboffice365_exchange_sdk.a"; sourceTree = "<group>"; };
-		3CAC071619F1DF5D004AF241 /* liboffice365_odata_impl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_impl.a; path = "../office365_odata_impl/build/Debug-iphoneos/liboffice365_odata_impl.a"; sourceTree = "<group>"; };
-		3CAC071819F1DF66004AF241 /* liboffice365_exchange_helpers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_exchange_helpers.a; path = "../office365_exchange_helpers/build/Debug-iphoneos/liboffice365_exchange_helpers.a"; sourceTree = "<group>"; };
-		3CAC071919F1DF66004AF241 /* liboffice365_odata_interfaces.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboffice365_odata_interfaces.a; path = "../office365_odata_interfaces/build/Debug-iphoneos/liboffice365_odata_interfaces.a"; sourceTree = "<group>"; };
-		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = failed.png; path = "../../../../Documents/o365sdk-ios copy/Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/Images.xcassets/custom/failed.png"; sourceTree = "<group>"; };
-		3CAC071D19F1E128004AF241 /* passed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = passed.png; path = "../../../../Documents/o365sdk-ios copy/Sdk-ObjectiveC/office365-e2end-tests/office365-e2end-tests/Images.xcassets/custom/passed.png"; sourceTree = "<group>"; };
+		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
+		3CAC071D19F1E128004AF241 /* passed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passed.png; sourceTree = "<group>"; };
+		7E9113FD38F6785B8A3229F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECBBC98B19F1ACD600DE04A4 /* office365-e2end-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "office365-e2end-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBC98F19F1ACD600DE04A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBBC99019F1ACD600DE04A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -77,6 +74,10 @@
 		ECBBC9C519F1AD2C00DE04A4 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		ECBBC9D119F1AE2A00DE04A4 /* office365-e2end-tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "office365-e2end-tests-Prefix.pch"; path = "office365-e2end-tests/office365-e2end-tests-Prefix.pch"; sourceTree = "<group>"; };
+		ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		ECCF422B19F549B300EA6F9D /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
+		ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		F177E74E44A121F723E1C19E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +85,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CAC071A19F1DF66004AF241 /* liboffice365_exchange_helpers.a in Frameworks */,
-				3CAC071B19F1DF66004AF241 /* liboffice365_odata_interfaces.a in Frameworks */,
-				3CAC071719F1DF5D004AF241 /* liboffice365_odata_impl.a in Frameworks */,
-				3CAC070619F1B785004AF241 /* liboffice365_exchange_sdk.a in Frameworks */,
+				ECCF422D19F549B300EA6F9D /* office365_exchange_sdk.framework in Frameworks */,
+				ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */,
+				ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,17 +101,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DBD514BDDC707346FFCC0BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECCF422B19F549B300EA6F9D /* office365_exchange_sdk.framework */,
+				ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */,
+				ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */,
+				7E9113FD38F6785B8A3229F1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ECBBC98219F1ACD600DE04A4 = {
 			isa = PBXGroup;
 			children = (
-				3CAC071819F1DF66004AF241 /* liboffice365_exchange_helpers.a */,
-				3CAC071919F1DF66004AF241 /* liboffice365_odata_interfaces.a */,
-				3CAC071619F1DF5D004AF241 /* liboffice365_odata_impl.a */,
-				3CAC070219F1B784004AF241 /* liboffice365_exchange_sdk.a */,
 				ECBBC9D119F1AE2A00DE04A4 /* office365-e2end-tests-Prefix.pch */,
 				ECBBC98D19F1ACD600DE04A4 /* office365-e2end-tests */,
 				ECBBC9A719F1ACD600DE04A4 /* office365-e2end-testsTests */,
 				ECBBC98C19F1ACD600DE04A4 /* Products */,
+				EFB1057B051E158993C33915 /* Pods */,
+				7DBD514BDDC707346FFCC0BB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,6 +208,15 @@
 			name = core;
 			sourceTree = "<group>";
 		};
+		EFB1057B051E158993C33915 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F177E74E44A121F723E1C19E /* Pods.debug.xcconfig */,
+				8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -206,9 +224,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECBBC9AE19F1ACD600DE04A4 /* Build configuration list for PBXNativeTarget "office365-e2end-tests" */;
 			buildPhases = (
+				14836C9F96A4BB0498B569E1 /* Check Pods Manifest.lock */,
 				ECBBC98719F1ACD600DE04A4 /* Sources */,
 				ECBBC98819F1ACD600DE04A4 /* Frameworks */,
 				ECBBC98919F1ACD600DE04A4 /* Resources */,
+				4622D669A8DA759770AD765B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,6 +315,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14836C9F96A4BB0498B569E1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4622D669A8DA759770AD765B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECBBC98719F1ACD600DE04A4 /* Sources */ = {
@@ -437,8 +490,14 @@
 		};
 		ECBBC9AF19F1ACD600DE04A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F177E74E44A121F723E1C19E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -447,6 +506,7 @@
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -454,8 +514,14 @@
 		};
 		ECBBC9B019F1ACD600DE04A4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -464,6 +530,7 @@
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
 					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

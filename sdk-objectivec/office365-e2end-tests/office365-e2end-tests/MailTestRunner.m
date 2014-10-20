@@ -147,7 +147,7 @@
 -(MSOEntityContainerClient*)getClient{
     NSString *token = [[[LogInController alloc] init] getBasicToken];
     
-    if(self.Client != nil)
+  /*  if(self.Client != nil)
         return self.Client;
     
     MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
@@ -162,7 +162,8 @@
     self.Client = [[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver];
 
     
-    return self.Client;
+    return self.Client;*/
+    return nil;
 }
 
 -(NSMutableArray*)getTests{

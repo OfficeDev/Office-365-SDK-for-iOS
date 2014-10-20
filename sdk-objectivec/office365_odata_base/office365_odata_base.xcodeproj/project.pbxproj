@@ -378,7 +378,7 @@
 				TargetAttributes = {
 					2647EA5C19F4443800FD9527 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = CZ6326VW7H;
+						DevelopmentTeam = 9L5V82WV95;
 					};
 					2647EA6719F4443800FD9527 = {
 						CreatedOnToolsVersion = 6.1;
@@ -554,6 +554,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = office365_odata_base/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -571,6 +572,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = office365_odata_base/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <office365_odata_base/MSODependencyResolver.h>
 
 /**
 * The header for type MSOODataExecutable.

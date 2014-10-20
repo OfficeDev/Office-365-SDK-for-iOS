@@ -11,10 +11,8 @@
 #import "TestParameters.h"
 #import "Test.h"
 #import "LogInController.h"
+#import <office365_exchange_sdk/MSOBaseODataContainer.h>
 #import <office365_exchange_sdk/MSOEntityContainerClient.h>
-#import <office365_odata_impl/MSODefaultDependencyResolver.h>
-#import <office365_odata_impl/MSOBasicCredentials.h>
-#import <office365_odata_impl/MSOCredentialsImpl.h>
 #import <office365_exchange_sdk/MSOFolderCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
 

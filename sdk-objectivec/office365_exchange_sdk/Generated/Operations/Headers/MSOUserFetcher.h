@@ -8,15 +8,15 @@
 #import "MSOUserOperations.h"
 #import "MSOUser.h"
 
-@class MSOFolderCollectionFetcher;
-@class MSOMessageCollectionFetcher;
-@class MSOFolderFetcher;
-@class MSOCalendarCollectionFetcher;
-@class MSOCalendarFetcher;
-@class MSOCalendarGroupCollectionFetcher;
-@class MSOEventCollectionFetcher;
-@class MSOContactCollectionFetcher;
-@class MSOContactFolderCollectionFetcher;
+#import "MSOFolderCollectionFetcher.h"
+#import "MSOMessageCollectionFetcher.h"
+#import "MSOFolderFetcher.h"
+#import "MSOCalendarCollectionFetcher.h"
+#import "MSOCalendarFetcher.h"
+#import "MSOCalendarGroupCollectionFetcher.h"
+#import "MSOEventCollectionFetcher.h"
+#import "MSOContactCollectionFetcher.h"
+#import "MSOContactFolderCollectionFetcher.h"
 
 
 /**
