@@ -418,8 +418,8 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
+					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
+					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,8 +440,8 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
+					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
+					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
