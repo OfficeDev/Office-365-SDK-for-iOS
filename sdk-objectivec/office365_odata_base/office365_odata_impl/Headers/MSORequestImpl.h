@@ -5,12 +5,10 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_base.h>
-#import <office365_exchange_sdk/MSOEntityContainerClient.h>
+#import <office365_odata_base/office365_odata_interfaces.h>
 
+@interface MSORequestImpl : NSObject<MSORequest>
 
-@interface BaseController : NSObject
-
--(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
+-(NSMutableURLRequest*)getMutableRequest;
 
 @end

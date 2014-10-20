@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2647EA6319F4443800FD9527 /* office365_odata_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA6219F4443800FD9527 /* office365_odata_base.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA6919F4443800FD9527 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EA5D19F4443800FD9527 /* office365_odata_base.framework */; };
+		2647EA7019F4443800FD9527 /* office365_odata_baseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */; };
+		2647EA8D19F4453100FD9527 /* MSOCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8119F4453100FD9527 /* MSOCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA8E19F4453100FD9527 /* MSOCredentialsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA8F19F4453100FD9527 /* MSODependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8319F4453100FD9527 /* MSODependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9019F4453100FD9527 /* MSOHttpTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8419F4453100FD9527 /* MSOHttpTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9119F4453100FD9527 /* MSOHttpVerb.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8519F4453100FD9527 /* MSOHttpVerb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9219F4453100FD9527 /* MSOJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9319F4453100FD9527 /* MSOLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8719F4453100FD9527 /* MSOLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9419F4453100FD9527 /* MSOLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8819F4453100FD9527 /* MSOLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9519F4453100FD9527 /* MSOOdataUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8919F4453100FD9527 /* MSOOdataUrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9619F4453100FD9527 /* MSORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8A19F4453100FD9527 /* MSORequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9719F4453100FD9527 /* MSOResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8B19F4453100FD9527 /* MSOResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9819F4453100FD9527 /* office365_odata_interfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8C19F4453100FD9527 /* office365_odata_interfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABC19F4454000FD9527 /* JsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9D19F4454000FD9527 /* JsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABD19F4454000FD9527 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9E19F4454000FD9527 /* Property.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABE19F4454000FD9527 /* MSOBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABF19F4454000FD9527 /* MSOCredentialsImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC019F4454000FD9527 /* MSODefaultDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC119F4454000FD9527 /* MSOHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA219F4454000FD9527 /* MSOHttpConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC219F4454000FD9527 /* MSOJsonSerializerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC319F4454000FD9527 /* MSOLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC419F4454000FD9527 /* MSOOAuthCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC519F4454000FD9527 /* MSOODataURLImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC619F4454000FD9527 /* MSORequestImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA719F4454000FD9527 /* MSORequestImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC719F4454000FD9527 /* MSOResponseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA819F4454000FD9527 /* MSOResponseImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC819F4454000FD9527 /* NSString+NSStringExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC919F4454000FD9527 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAD19F4454000FD9527 /* JsonParser.m */; };
+		2647EACA19F4454000FD9527 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAE19F4454000FD9527 /* Property.m */; };
+		2647EACB19F4454000FD9527 /* MSOBasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */; };
+		2647EACC19F4454000FD9527 /* MSOCredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */; };
+		2647EACD19F4454000FD9527 /* MSODefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */; };
+		2647EACE19F4454000FD9527 /* MSOHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB219F4454000FD9527 /* MSOHttpConnection.m */; };
+		2647EACF19F4454000FD9527 /* MSOJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */; };
+		2647EAD019F4454000FD9527 /* MSOLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */; };
+		2647EAD119F4454000FD9527 /* MSOOAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */; };
+		2647EAD219F4454000FD9527 /* MSOODataURLImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */; };
+		2647EAD319F4454000FD9527 /* MSORequestImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB719F4454000FD9527 /* MSORequestImpl.m */; };
+		2647EAD419F4454000FD9527 /* MSOResponseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB819F4454000FD9527 /* MSOResponseImpl.m */; };
+		2647EAD519F4454000FD9527 /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */; };
+		2647EAD619F4454000FD9527 /* office365_odata_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EABA19F4454000FD9527 /* office365_odata_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2647EA6A19F4443800FD9527 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2647EA5419F4443800FD9527 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2647EA5D19F4443800FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_odata_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2647EA6119F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2647EA6219F4443800FD9527 /* office365_odata_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_base.h; sourceTree = "<group>"; };
+		2647EA6819F4443800FD9527 /* office365_odata_baseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_odata_baseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2647EA6E19F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_baseTests.m; sourceTree = "<group>"; };
+		2647EA8119F4453100FD9527 /* MSOCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentials.h; sourceTree = "<group>"; };
+		2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsFactory.h; sourceTree = "<group>"; };
+		2647EA8319F4453100FD9527 /* MSODependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODependencyResolver.h; sourceTree = "<group>"; };
+		2647EA8419F4453100FD9527 /* MSOHttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpTransport.h; sourceTree = "<group>"; };
+		2647EA8519F4453100FD9527 /* MSOHttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpVerb.h; sourceTree = "<group>"; };
+		2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializer.h; sourceTree = "<group>"; };
+		2647EA8719F4453100FD9527 /* MSOLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogger.h; sourceTree = "<group>"; };
+		2647EA8819F4453100FD9527 /* MSOLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogLevel.h; sourceTree = "<group>"; };
+		2647EA8919F4453100FD9527 /* MSOOdataUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOdataUrl.h; sourceTree = "<group>"; };
+		2647EA8A19F4453100FD9527 /* MSORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequest.h; sourceTree = "<group>"; };
+		2647EA8B19F4453100FD9527 /* MSOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponse.h; sourceTree = "<group>"; };
+		2647EA8C19F4453100FD9527 /* office365_odata_interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
+		2647EA9D19F4454000FD9527 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
+		2647EA9E19F4454000FD9527 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBasicCredentials.h; sourceTree = "<group>"; };
+		2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsImpl.h; sourceTree = "<group>"; };
+		2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODefaultDependencyResolver.h; sourceTree = "<group>"; };
+		2647EAA219F4454000FD9527 /* MSOHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpConnection.h; sourceTree = "<group>"; };
+		2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializerImpl.h; sourceTree = "<group>"; };
+		2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLoggerImpl.h; sourceTree = "<group>"; };
+		2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOAuthCredentials.h; sourceTree = "<group>"; };
+		2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataURLImpl.h; sourceTree = "<group>"; };
+		2647EAA719F4454000FD9527 /* MSORequestImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequestImpl.h; sourceTree = "<group>"; };
+		2647EAA819F4454000FD9527 /* MSOResponseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponseImpl.h; sourceTree = "<group>"; };
+		2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
+		2647EAAD19F4454000FD9527 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		2647EAAE19F4454000FD9527 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
+		2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBasicCredentials.m; sourceTree = "<group>"; };
+		2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCredentialsImpl.m; sourceTree = "<group>"; };
+		2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODefaultDependencyResolver.m; sourceTree = "<group>"; };
+		2647EAB219F4454000FD9527 /* MSOHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOHttpConnection.m; sourceTree = "<group>"; };
+		2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonSerializerImpl.m; sourceTree = "<group>"; };
+		2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOLoggerImpl.m; sourceTree = "<group>"; };
+		2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOOAuthCredentials.m; sourceTree = "<group>"; };
+		2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataURLImpl.m; sourceTree = "<group>"; };
+		2647EAB719F4454000FD9527 /* MSORequestImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSORequestImpl.m; sourceTree = "<group>"; };
+		2647EAB819F4454000FD9527 /* MSOResponseImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOResponseImpl.m; sourceTree = "<group>"; };
+		2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
+		2647EABA19F4454000FD9527 /* office365_odata_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2647EA5919F4443800FD9527 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2647EA6519F4443800FD9527 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2647EA6919F4443800FD9527 /* office365_odata_base.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2647EA5319F4443800FD9527 = {
+			isa = PBXGroup;
+			children = (
+				2647EA9919F4454000FD9527 /* office365_odata_impl */,
+				2647EA7F19F4453100FD9527 /* office365_odata_interfaces */,
+				2647EA5F19F4443800FD9527 /* office365_odata_base */,
+				2647EA6C19F4443800FD9527 /* office365_odata_baseTests */,
+				2647EA5E19F4443800FD9527 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2647EA5E19F4443800FD9527 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA5D19F4443800FD9527 /* office365_odata_base.framework */,
+				2647EA6819F4443800FD9527 /* office365_odata_baseTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2647EA5F19F4443800FD9527 /* office365_odata_base */ = {
+			isa = PBXGroup;
+			children = (
+				2647EABA19F4454000FD9527 /* office365_odata_impl.h */,
+				2647EA8C19F4453100FD9527 /* office365_odata_interfaces.h */,
+				2647EA6219F4443800FD9527 /* office365_odata_base.h */,
+				2647EA6019F4443800FD9527 /* Supporting Files */,
+			);
+			path = office365_odata_base;
+			sourceTree = "<group>";
+		};
+		2647EA6019F4443800FD9527 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA6119F4443800FD9527 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2647EA6C19F4443800FD9527 /* office365_odata_baseTests */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */,
+				2647EA6D19F4443800FD9527 /* Supporting Files */,
+			);
+			path = office365_odata_baseTests;
+			sourceTree = "<group>";
+		};
+		2647EA6D19F4443800FD9527 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA6E19F4443800FD9527 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2647EA7F19F4453100FD9527 /* office365_odata_interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA8019F4453100FD9527 /* Headers */,
+			);
+			path = office365_odata_interfaces;
+			sourceTree = "<group>";
+		};
+		2647EA8019F4453100FD9527 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA8119F4453100FD9527 /* MSOCredentials.h */,
+				2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */,
+				2647EA8319F4453100FD9527 /* MSODependencyResolver.h */,
+				2647EA8419F4453100FD9527 /* MSOHttpTransport.h */,
+				2647EA8519F4453100FD9527 /* MSOHttpVerb.h */,
+				2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */,
+				2647EA8719F4453100FD9527 /* MSOLogger.h */,
+				2647EA8819F4453100FD9527 /* MSOLogLevel.h */,
+				2647EA8919F4453100FD9527 /* MSOOdataUrl.h */,
+				2647EA8A19F4453100FD9527 /* MSORequest.h */,
+				2647EA8B19F4453100FD9527 /* MSOResponse.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2647EA9919F4454000FD9527 /* office365_odata_impl */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA9A19F4454000FD9527 /* Headers */,
+				2647EAAA19F4454000FD9527 /* Implementations */,
+			);
+			path = office365_odata_impl;
+			sourceTree = "<group>";
+		};
+		2647EA9A19F4454000FD9527 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA9B19F4454000FD9527 /* JsonParser */,
+				2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */,
+				2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */,
+				2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */,
+				2647EAA219F4454000FD9527 /* MSOHttpConnection.h */,
+				2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */,
+				2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */,
+				2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */,
+				2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */,
+				2647EAA719F4454000FD9527 /* MSORequestImpl.h */,
+				2647EAA819F4454000FD9527 /* MSOResponseImpl.h */,
+				2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2647EA9B19F4454000FD9527 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA9C19F4454000FD9527 /* Headers */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		2647EA9C19F4454000FD9527 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				2647EA9D19F4454000FD9527 /* JsonParser.h */,
+				2647EA9E19F4454000FD9527 /* Property.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		2647EAAA19F4454000FD9527 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				2647EAAB19F4454000FD9527 /* JsonParser */,
+				2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */,
+				2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */,
+				2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */,
+				2647EAB219F4454000FD9527 /* MSOHttpConnection.m */,
+				2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */,
+				2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */,
+				2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */,
+				2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */,
+				2647EAB719F4454000FD9527 /* MSORequestImpl.m */,
+				2647EAB819F4454000FD9527 /* MSOResponseImpl.m */,
+				2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		2647EAAB19F4454000FD9527 /* JsonParser */ = {
+			isa = PBXGroup;
+			children = (
+				2647EAAC19F4454000FD9527 /* Implementations */,
+			);
+			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		2647EAAC19F4454000FD9527 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				2647EAAD19F4454000FD9527 /* JsonParser.m */,
+				2647EAAE19F4454000FD9527 /* Property.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2647EA5A19F4443800FD9527 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2647EAC819F4454000FD9527 /* NSString+NSStringExtensions.h in Headers */,
+				2647EA9519F4453100FD9527 /* MSOOdataUrl.h in Headers */,
+				2647EA9319F4453100FD9527 /* MSOLogger.h in Headers */,
+				2647EAC219F4454000FD9527 /* MSOJsonSerializerImpl.h in Headers */,
+				2647EABF19F4454000FD9527 /* MSOCredentialsImpl.h in Headers */,
+				2647EA6319F4443800FD9527 /* office365_odata_base.h in Headers */,
+				2647EABC19F4454000FD9527 /* JsonParser.h in Headers */,
+				2647EA9119F4453100FD9527 /* MSOHttpVerb.h in Headers */,
+				2647EA9819F4453100FD9527 /* office365_odata_interfaces.h in Headers */,
+				2647EAC619F4454000FD9527 /* MSORequestImpl.h in Headers */,
+				2647EAC119F4454000FD9527 /* MSOHttpConnection.h in Headers */,
+				2647EA8F19F4453100FD9527 /* MSODependencyResolver.h in Headers */,
+				2647EAC319F4454000FD9527 /* MSOLoggerImpl.h in Headers */,
+				2647EAD619F4454000FD9527 /* office365_odata_impl.h in Headers */,
+				2647EAC419F4454000FD9527 /* MSOOAuthCredentials.h in Headers */,
+				2647EA9719F4453100FD9527 /* MSOResponse.h in Headers */,
+				2647EA9219F4453100FD9527 /* MSOJsonSerializer.h in Headers */,
+				2647EA9019F4453100FD9527 /* MSOHttpTransport.h in Headers */,
+				2647EAC719F4454000FD9527 /* MSOResponseImpl.h in Headers */,
+				2647EABE19F4454000FD9527 /* MSOBasicCredentials.h in Headers */,
+				2647EAC519F4454000FD9527 /* MSOODataURLImpl.h in Headers */,
+				2647EABD19F4454000FD9527 /* Property.h in Headers */,
+				2647EAC019F4454000FD9527 /* MSODefaultDependencyResolver.h in Headers */,
+				2647EA9419F4453100FD9527 /* MSOLogLevel.h in Headers */,
+				2647EA8D19F4453100FD9527 /* MSOCredentials.h in Headers */,
+				2647EA8E19F4453100FD9527 /* MSOCredentialsFactory.h in Headers */,
+				2647EA9619F4453100FD9527 /* MSORequest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2647EA5C19F4443800FD9527 /* office365_odata_base */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2647EA7319F4443800FD9527 /* Build configuration list for PBXNativeTarget "office365_odata_base" */;
+			buildPhases = (
+				2647EA5819F4443800FD9527 /* Sources */,
+				2647EA5919F4443800FD9527 /* Frameworks */,
+				2647EA5A19F4443800FD9527 /* Headers */,
+				2647EA5B19F4443800FD9527 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = office365_odata_base;
+			productName = office365_odata_base;
+			productReference = 2647EA5D19F4443800FD9527 /* office365_odata_base.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2647EA6719F4443800FD9527 /* office365_odata_baseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2647EA7619F4443800FD9527 /* Build configuration list for PBXNativeTarget "office365_odata_baseTests" */;
+			buildPhases = (
+				2647EA6419F4443800FD9527 /* Sources */,
+				2647EA6519F4443800FD9527 /* Frameworks */,
+				2647EA6619F4443800FD9527 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2647EA6B19F4443800FD9527 /* PBXTargetDependency */,
+			);
+			name = office365_odata_baseTests;
+			productName = office365_odata_baseTests;
+			productReference = 2647EA6819F4443800FD9527 /* office365_odata_baseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2647EA5419F4443800FD9527 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Microsoft Open Technologies, Inc.";
+				TargetAttributes = {
+					2647EA5C19F4443800FD9527 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = CZ6326VW7H;
+					};
+					2647EA6719F4443800FD9527 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 2647EA5719F4443800FD9527 /* Build configuration list for PBXProject "office365_odata_base" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2647EA5319F4443800FD9527;
+			productRefGroup = 2647EA5E19F4443800FD9527 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2647EA5C19F4443800FD9527 /* office365_odata_base */,
+				2647EA6719F4443800FD9527 /* office365_odata_baseTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2647EA5B19F4443800FD9527 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2647EA6619F4443800FD9527 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2647EA5819F4443800FD9527 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2647EACA19F4454000FD9527 /* Property.m in Sources */,
+				2647EACE19F4454000FD9527 /* MSOHttpConnection.m in Sources */,
+				2647EACF19F4454000FD9527 /* MSOJsonSerializerImpl.m in Sources */,
+				2647EAD119F4454000FD9527 /* MSOOAuthCredentials.m in Sources */,
+				2647EAD319F4454000FD9527 /* MSORequestImpl.m in Sources */,
+				2647EAD019F4454000FD9527 /* MSOLoggerImpl.m in Sources */,
+				2647EACB19F4454000FD9527 /* MSOBasicCredentials.m in Sources */,
+				2647EACD19F4454000FD9527 /* MSODefaultDependencyResolver.m in Sources */,
+				2647EAD419F4454000FD9527 /* MSOResponseImpl.m in Sources */,
+				2647EAD519F4454000FD9527 /* NSString+NSStringExtensions.m in Sources */,
+				2647EAD219F4454000FD9527 /* MSOODataURLImpl.m in Sources */,
+				2647EACC19F4454000FD9527 /* MSOCredentialsImpl.m in Sources */,
+				2647EAC919F4454000FD9527 /* JsonParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2647EA6419F4443800FD9527 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2647EA7019F4443800FD9527 /* office365_odata_baseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2647EA6B19F4443800FD9527 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2647EA5C19F4443800FD9527 /* office365_odata_base */;
+			targetProxy = 2647EA6A19F4443800FD9527 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2647EA7119F4443800FD9527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2647EA7219F4443800FD9527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2647EA7419F4443800FD9527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2647EA7519F4443800FD9527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2647EA7719F4443800FD9527 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = office365_odata_baseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2647EA7819F4443800FD9527 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = office365_odata_baseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2647EA5719F4443800FD9527 /* Build configuration list for PBXProject "office365_odata_base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2647EA7119F4443800FD9527 /* Debug */,
+				2647EA7219F4443800FD9527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2647EA7319F4443800FD9527 /* Build configuration list for PBXNativeTarget "office365_odata_base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2647EA7419F4443800FD9527 /* Debug */,
+				2647EA7519F4443800FD9527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2647EA7619F4443800FD9527 /* Build configuration list for PBXNativeTarget "office365_odata_baseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2647EA7719F4443800FD9527 /* Debug */,
+				2647EA7819F4443800FD9527 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2647EA5419F4443800FD9527 /* Project object */;
+}

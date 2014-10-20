@@ -5,12 +5,12 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_base.h>
-#import <office365_exchange_sdk/MSOEntityContainerClient.h>
+#import <office365_odata_base/office365_odata_interfaces.h>
 
+#import "MSOCredentials.h"
 
-@interface BaseController : NSObject
+@interface MSOBasicCredentials : NSObject<MSOCredentials>
 
--(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
+-(void)addToken : (NSString*) token;
 
 @end
