@@ -43,20 +43,6 @@
     if (filter!= nil) {
         [url addQueryStringParameter:@"$filter" : filter];
     }
-    
-   // [url prependPathComponent:urlComponent];
-}
-
-/**
- * Sets selector url.
- *
- * @param url the url
- * @param urlComponent the url component
- * @param selectedId the selected id
- */
-+(void)setSelectorUrl :(id<MSOODataURL>) url : (NSString*) urlComponent : (NSString*) selectedId{
-    NSString* selector = [[NSString alloc] initWithFormat:@"%@('%@')", urlComponent,selectedId];
-    [url prependPathComponent:selector];
 }
 
 @end

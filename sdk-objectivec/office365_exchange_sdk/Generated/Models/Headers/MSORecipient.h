@@ -14,7 +14,7 @@
 * The header for type Recipient.
 */
 
-@interface MSORecipient : NSObject
+@interface MSORecipient : NSObject<MSORecipient>
 
 @property MSOEmailAddress *EmailAddress;
 

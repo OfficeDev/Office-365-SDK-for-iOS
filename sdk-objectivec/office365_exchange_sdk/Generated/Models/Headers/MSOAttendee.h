@@ -7,7 +7,6 @@
 #import "MSOAttendeeType.h"
 @class MSOResponseStatus;
 
-#import <Foundation/Foundation.h>
 #import "MSOProtocols.h"
 #import "MSORecipient.h"
 

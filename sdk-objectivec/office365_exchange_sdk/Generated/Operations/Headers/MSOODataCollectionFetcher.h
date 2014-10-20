@@ -4,7 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
 #import "MSOODataExecutable.h"
 #import "MSOODataEntityFetcher.h"
 #import "MSOODataOperations.h"

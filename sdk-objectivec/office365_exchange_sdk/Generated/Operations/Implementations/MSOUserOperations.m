@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOUserOperations.h"
-#import "MSOBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSOUserOperations.

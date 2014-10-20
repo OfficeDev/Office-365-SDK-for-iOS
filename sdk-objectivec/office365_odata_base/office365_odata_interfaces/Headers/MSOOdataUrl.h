@@ -11,7 +11,6 @@
 @required
 -(void)setBaseUrl : (NSString*)baseUrl;
 -(void)appendPathComponent: (NSString*) pathComponent;
--(void)prependPathComponent: (NSString*) pathComponent;
 -(void)addQueryStringParameter : (NSString*) name : (NSString*) value;
 -(NSString*)toString;
                                                     

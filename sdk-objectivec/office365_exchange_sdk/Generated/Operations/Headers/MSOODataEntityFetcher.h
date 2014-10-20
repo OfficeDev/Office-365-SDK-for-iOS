@@ -4,9 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
-#import "MSOODataOperations.h"
-
 /**
 * The header for type MSOODataEntityFetcher.
 */

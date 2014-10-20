@@ -13,13 +13,4 @@
 
 +(void)setPathForCollections : (id<MSOODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter;
 
-/**
- * Sets selector url.
- *
- * @param url the url
- * @param urlComponent the url component
- * @param selectedId the selected id
- */
-+(void)setSelectorUrl :(id<MSOODataURL>) url : (NSString*) urlComponent : (NSString*) selectedId;
-
 @end

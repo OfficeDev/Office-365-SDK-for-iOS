@@ -67,7 +67,7 @@
         [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
     }
     else {
-        [MSOEntityFetcherHelper setSelectorUrl:path :self.UrlComponent :self.select];
+        [MSOEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
         [MSOBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     }
     

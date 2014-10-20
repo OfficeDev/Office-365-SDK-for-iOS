@@ -4,9 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
 #import "MSOAttachment.h"
-
 
 /**
 * The header for type MSOAttachmentOperations.

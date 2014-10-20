@@ -22,7 +22,7 @@
         if(statusCode < 200 || statusCode > 299){
             if(error == nil){
                 NSArray * msj = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
-                error = [[NSError alloc] initWithDomain:@"Error in the Request" code:statusCode userInfo:msj];
+                error = [[NSError alloc] initWithDomain:@"Error in the Request" code:statusCode userInfo:(NSDictionary*)msj];
             }
             
             callback(nil, error);

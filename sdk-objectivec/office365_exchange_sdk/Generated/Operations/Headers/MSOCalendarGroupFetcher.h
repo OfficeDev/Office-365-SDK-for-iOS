@@ -4,7 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataEntityFetcher.h"
 #import "MSOCalendarGroupOperations.h"
 #import "MSOCalendarGroup.h"
 

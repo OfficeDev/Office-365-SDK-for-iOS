@@ -6,7 +6,8 @@
 
 #import "FolderTableViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/office365_exchange_sdk.h>
+
+#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
 
 @interface FolderTableViewController()
 

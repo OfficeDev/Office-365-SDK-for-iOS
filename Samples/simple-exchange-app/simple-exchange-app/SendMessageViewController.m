@@ -8,6 +8,7 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
+#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
 #import <office365_exchange_sdk/MSOMessage.h>
 #import <office365_exchange_sdk/MSORecipient.h>
 #import <office365_exchange_sdk/MSOEmailAddress.h>
