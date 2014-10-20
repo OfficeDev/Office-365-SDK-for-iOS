@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/ADALiOS.xcodeproj">
-   </FileRef>
    <Group
       location = "container:"
       name = "Sdks">
@@ -16,5 +13,8 @@
    </Group>
    <FileRef
       location = "group:simple-exchange-app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
