@@ -24,6 +24,6 @@
 
 -(MSOMessageFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOMessageFetcher alloc] initWith:@"" : self :[MSOMessage class]];
+    return [[MSOMessageFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOMessage class]];
 }
 @end

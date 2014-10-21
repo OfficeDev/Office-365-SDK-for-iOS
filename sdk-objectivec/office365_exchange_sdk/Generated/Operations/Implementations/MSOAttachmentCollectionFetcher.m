@@ -24,6 +24,6 @@
 
 -(MSOAttachmentFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOAttachmentFetcher alloc] initWith:@"" : self :[MSOAttachment class]];
+    return [[MSOAttachmentFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOAttachment class]];
 }
 @end

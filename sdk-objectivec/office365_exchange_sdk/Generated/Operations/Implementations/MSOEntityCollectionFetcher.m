@@ -24,6 +24,6 @@
 
 -(MSOEntityFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOEntityFetcher alloc] initWith:@"" : self :[MSOEntity class]];
+    return [[MSOEntityFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOEntity class]];
 }
 @end

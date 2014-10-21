@@ -24,6 +24,6 @@
 
 -(MSOContactFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOContactFetcher alloc] initWith:@"" : self :[MSOContact class]];
+    return [[MSOContactFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOContact class]];
 }
 @end

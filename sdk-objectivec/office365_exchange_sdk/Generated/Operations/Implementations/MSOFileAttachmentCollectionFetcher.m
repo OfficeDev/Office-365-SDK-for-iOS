@@ -24,6 +24,6 @@
 
 -(MSOFileAttachmentFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOFileAttachmentFetcher alloc] initWith:@"" : self :[MSOFileAttachment class]];
+    return [[MSOFileAttachmentFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOFileAttachment class]];
 }
 @end

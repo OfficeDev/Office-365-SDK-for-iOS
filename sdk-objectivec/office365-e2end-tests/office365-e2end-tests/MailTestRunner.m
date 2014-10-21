@@ -33,7 +33,7 @@
     if([testName isEqualToString:@"TestCreateContacts"]) return [self TestCreateContacts:result];
     if([testName isEqualToString:@"TestDeleteContacts"]) return [self TestDeleteContacts:result];
     if([testName isEqualToString:@"TestUpdateContacts"]) return [self TestUpdateContacts:result];
-
+    
     
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
@@ -60,11 +60,11 @@
     if([testName isEqualToString:@"TestMoveFolder"])return [self TestMoveFolder:result];
     
     /*
-
-
-    this.addTest(canCopyFolder("Can copy folder", true));
-    this.addTest(canUpdateFolder("Can update folder", true));
-    */
+     
+     
+     this.addTest(canCopyFolder("Can copy folder", true));
+     this.addTest(canUpdateFolder("Can update folder", true));
+     */
     /*
      else{
      return [self TestDefaultWithCompletionHandler:result];
@@ -193,7 +193,7 @@
         test.ExecutionMessages = [NSMutableArray array];
         NSString* message = @"";
         
-        if(e!= nil && newFolder.DisplayName == folderName ){
+        if(e== nil && [newFolder.DisplayName isEqualToString:folderName] ){
             message = @"Ok - ";
             passed = true;
         }else
@@ -201,7 +201,7 @@
             message = @"Not - ";
         }
         
-        
+        test.Passed = passed;
         [test.ExecutionMessages addObject:message];
         
         result(test);
@@ -237,7 +237,7 @@
             
             
             [test.ExecutionMessages addObject:message];
-            
+            test.Passed = passed;
             result(test);
         }] resume];
     }];
@@ -248,7 +248,7 @@
 -(NSURLSessionDataTask*)TestMoveFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
-
+    
     MSOFolder *newFolder = [[MSOFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
@@ -269,17 +269,18 @@
                 message = [@"Not - " stringByAppendingString:[error localizedDescription]];
             }
             
-            
+            test.Passed = passed;
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getFolders]getById:folder.Id]delete:^(id entity, NSError *error) {
-                if(error!= nil)
-                    NSLog(@"Error: %@", error);
-            }] resume];
+            if(folder!= nil)
+                [[[[[self.Client getMe]getFolders]getById:folder.Id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }] resume];
             
             result(test);
-
+            
         }] resume];
         
     }];
@@ -334,11 +335,11 @@
         test.Passed = passed;
         
         [test.ExecutionMessages addObject:message];
-        
-        [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
-            if(error!= nil)
-                NSLog(@"Error: %@", error);
-        }]resume];
+        if(addedMessage!= nil)
+            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
         
         result(test);
     }];
@@ -370,11 +371,11 @@
             test.Passed = passed;
             
             [test.ExecutionMessages addObject:message];
-            
-            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
-                if(error!= nil)
-                    NSLog(@"Error: %@", error);
-            }]resume];
+            if(addedMessage!= nil)
+                [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }]resume];
             
             result(test);
         }] resume];
@@ -438,13 +439,13 @@
         
         result(test);
     }];
-
+    
     return task;
 }
 
 -(NSURLSessionDataTask*)TestGetContacts:(void (^) (Test*))result{
     MSOContact* newContact = [self getContact];
-
+    
     //Create contact
     NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *e) {
         //Get contacts
@@ -468,12 +469,14 @@
             test.Passed = passed;
             
             //Cleanup
-            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
-                NSLog(@"Error: %@", error);
-            }] resume];
+            if(addedContact!= nil)
+                [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * e) {
+                    if(e!=nil)
+                        NSLog(@"Error: %@", e);
+                }] resume];
             
             result(test);
- 
+            
         }] resume];
         
     }];
@@ -499,16 +502,18 @@
             [test.ExecutionMessages addObject: [error localizedDescription]];
         }
         
-        if(addedContact != nil && addedContact.DisplayName == newContact.DisplayName){
+        if(addedContact != nil && [addedContact.DisplayName isEqualToString: newContact.DisplayName]){
             passed = true;
         }
         
         test.Passed = passed;
         
         //Cleanup
-        [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
-            NSLog(@"Error: %@", error);
-        }] resume];
+        if(addedContact!= nil)
+            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }] resume];
         
         result(test);
         
@@ -523,25 +528,26 @@
     
     //Create contact
     NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *e) {
-        Test *test = [Test alloc];
-        test.ExecutionMessages = [NSMutableArray array];
-            //Delete
-            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
-                BOOL passed = false;
-                
-                NSString* message = (error!= nil) ? @"Not - " : @"Ok - ";
-                [test.ExecutionMessages addObject:message];
-                
-                if(error != nil){
-                    [test.ExecutionMessages addObject: [error localizedDescription]];
-                }else{
-                    passed = true;
-                }
-                
-                test.Passed = passed;
-                
-            }] resume];
-        result(test);
+        //Delete
+        [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id deleteResult, NSError * error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = (error!= nil) ? @"Not - " : @"Ok - ";
+            [test.ExecutionMessages addObject:message];
+            
+            if(error != nil){
+                [test.ExecutionMessages addObject: [error localizedDescription]];
+            }else{
+                passed = true;
+            }
+            
+            test.Passed = passed;
+            result(test);
+        }] resume];
+        
     }];
     
     return task;
@@ -554,7 +560,7 @@
     NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *error) {
         [newContact setDisplayName:@"New Contact Name"];
         
-        [[[[self.Client getMe]getContacts]getById:newContact.Id] update:newContact :^(MSOContact *updatedEntity, NSError *error) {
+        [[[[[self.Client getMe]getContacts]getById:newContact.Id] update:newContact :^(MSOContact *updatedEntity, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -574,12 +580,14 @@
             test.Passed = passed;
             
             //Cleanup
-            [[[[[self.Client getMe] getContacts] getById:updatedEntity.Id] delete:^(id result, NSError * error) {
-                NSLog(@"Error: %@", error);
-            }] resume];
+            if(updatedEntity!= nil)
+                [[[[[self.Client getMe] getContacts] getById:updatedEntity.Id] delete:^(id result, NSError * error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }] resume];
             
             result(test);
-        }];
+        }] resume];
         
     }];
     

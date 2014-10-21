@@ -24,6 +24,6 @@
 
 -(MSOFolderFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOFolderFetcher alloc] initWith:@"" : self :[MSOFolder class]];
+    return [[MSOFolderFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOFolder class]];
 }
 @end

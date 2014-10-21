@@ -24,6 +24,6 @@
 
 -(MSOUserFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOUserFetcher alloc] initWith:@"" : self :[MSOUser class]];
+    return [[MSOUserFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOUser class]];
 }
 @end
