@@ -223,12 +223,23 @@
         }
         else if([property isDate]){
             
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+            NSString* value = [data valueForKeyPath:property.Name];
+            if([value isKindOfClass:NSNull.class] || value == nil){
             
-            NSDate *date = [dateFormatter dateFromString:[data valueForKeyPath:property.Name]];
-            [returnType setValue:date forKeyPath:property.Name];
-            
+                @try {
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+                    
+                    NSDate *date = [dateFormatter dateFromString:value];
+                    [returnType setValue:date forKeyPath:property.Name];
+                }
+                @catch (NSException *exception) {
+                    
+                }
+                @finally {
+                    
+                }
+            }
         }
         else if([property isCollection]){
             [self setValueForCollection:property :data :returnType];
@@ -265,19 +276,33 @@
     
     Class type = NSClassFromString([property getCollectionEntity]);
     
-    NSArray * array = [self getPropertiesFor:type];
-    NSMutableArray* returnData = [NSMutableArray array];
-    
-    for (NSDictionary* dicc in newData) {
+    if(type == nil){
         
-        id entity = [[type alloc] init];
-        for (Property* property in array) {
+        NSMutableArray* returnData = [NSMutableArray array];
+     
+        for (NSDictionary* dicc in newData) {
+            NSString* value = [dicc valueForKey:property.Name];
             
-            [self setValueFor:property Data:dicc Return:entity];
+            if(![value isKindOfClass:NSNull.class]){
+                [returnData addObject:value];
+                [returnType setObject:returnType forKey:property.Name];
+            }
         }
+    }else{
+        NSArray * array = [self getPropertiesFor:type];
+        NSMutableArray* returnData = [NSMutableArray array];
+    
+        for (NSDictionary* dicc in newData) {
         
-        [returnData addObject:entity];
-        [returnType setValue:returnData forKeyPath:property.Name];
+            id entity = [[type alloc] init];
+            for (Property* property in array) {
+            
+                [self setValueFor:property Data:dicc Return:entity];
+            }
+        
+            [returnData addObject:entity];
+            [returnType setValue:returnData forKeyPath:property.Name];
+        }
     }
 }
 

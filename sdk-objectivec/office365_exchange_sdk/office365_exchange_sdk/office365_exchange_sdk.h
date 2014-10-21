@@ -52,7 +52,7 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOResponseStatus.h>
 #import <office365_exchange_sdk/MSOResponseType.h>
 #import <office365_exchange_sdk/MSOUser.h>
-#import <office365_exchange_sdk/MSOWeekIndex.h>
+#import <office365_exchange_sdk/MSOWeekIndex.h>*/
 
 //Operation
 #import <office365_exchange_sdk/MSOAttachmentCollectionFetcher.h>
@@ -112,4 +112,4 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOUserCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOUserCollectionOperations.h>
 #import <office365_exchange_sdk/MSOUserFetcher.h>
-#import <office365_exchange_sdk/MSOUserOperations.h>*/
+#import <office365_exchange_sdk/MSOUserOperations.h>

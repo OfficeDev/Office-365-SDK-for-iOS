@@ -48,9 +48,14 @@
 
 -(NSString*)getCollectionEntity{
     
-    NSArray *attributes = [self.SubStringType componentsSeparatedByString:@"<"];
-    NSString* att = [attributes objectAtIndex:attributes.count -1];
-    return [att substringWithRange:NSMakeRange(0, [att length] -1)];
+    if ([self.SubStringType hasSuffix:@">"]) {
+        NSArray *attributes = [self.SubStringType componentsSeparatedByString:@"<"];
+        NSString* att = [attributes objectAtIndex:attributes.count -1];
+        return [att substringWithRange:NSMakeRange(0, [att length] -1)];
+    }
+    else{
+        return nil;
+    }
 }
 
 -(bool)isComplexType{
