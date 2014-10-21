@@ -1,3 +1,5 @@
+#import "MSOODataExecutable.h"
+
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved

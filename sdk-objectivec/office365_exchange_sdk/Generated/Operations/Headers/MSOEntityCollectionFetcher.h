@@ -16,7 +16,7 @@
 @protocol MSOEntityCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOEntity> *Entity, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOEntity> *entitys, NSError *error))callback;
 
 @end
 

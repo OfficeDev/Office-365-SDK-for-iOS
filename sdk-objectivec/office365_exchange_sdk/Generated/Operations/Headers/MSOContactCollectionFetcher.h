@@ -16,7 +16,7 @@
 @protocol MSOContactCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOContact> *Contact, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOContact> *contacts, NSError *error))callback;
 
 @end
 

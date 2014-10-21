@@ -4,8 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <office365_odata_base/MSODependencyResolver.h>
-
 /**
 * The header for type MSOODataExecutable.
 */

@@ -16,7 +16,7 @@
 @protocol MSOFolderCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOFolder> *Folder, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOFolder> *folders, NSError *error))callback;
 
 @end
 

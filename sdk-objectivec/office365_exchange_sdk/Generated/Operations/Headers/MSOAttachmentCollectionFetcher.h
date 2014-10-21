@@ -16,7 +16,7 @@
 @protocol MSOAttachmentCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOAttachment> *Attachment, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOAttachment> *attachments, NSError *error))callback;
 
 @end
 

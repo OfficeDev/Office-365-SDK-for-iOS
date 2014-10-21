@@ -16,7 +16,7 @@
 @protocol MSOCalendarCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOCalendar> *Calendar, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOCalendar> *calendars, NSError *error))callback;
 
 @end
 

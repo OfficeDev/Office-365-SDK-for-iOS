@@ -16,7 +16,7 @@
 @protocol MSOEventCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOEvent> *Event, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOEvent> *events, NSError *error))callback;
 
 @end
 

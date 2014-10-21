@@ -16,7 +16,7 @@
 @protocol MSOItemCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOItem> *Item, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOItem> *items, NSError *error))callback;
 
 @end
 

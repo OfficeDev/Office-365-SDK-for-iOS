@@ -16,7 +16,7 @@
 @protocol MSOMessageCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOMessage> *Message, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOMessage> *messages, NSError *error))callback;
 
 @end
 

@@ -6,7 +6,6 @@
 
 #import "MSOODataExecutable.h"
 #import "MSOODataEntityFetcher.h"
-
 /**
 * The header for type MSOODataCollectionFetcher.
 */

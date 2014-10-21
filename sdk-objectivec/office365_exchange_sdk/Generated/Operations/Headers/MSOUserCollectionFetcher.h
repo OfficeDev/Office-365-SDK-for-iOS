@@ -16,7 +16,7 @@
 @protocol MSOUserCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOUser> *User, NSError *error))callback;
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOUser> *users, NSError *error))callback;
 
 @end
 
