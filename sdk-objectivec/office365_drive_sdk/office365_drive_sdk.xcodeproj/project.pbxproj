@@ -7,41 +7,183 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC1B703E19F1BB9400B480DD /* office365_drive_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = EC1B703D19F1BB9400B480DD /* office365_drive_sdk.h */; };
-		EC1B704019F1BB9400B480DD /* office365_drive_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1B703F19F1BB9400B480DD /* office365_drive_sdk.m */; };
+		EC417F6719F6E4B200CB78C2 /* office365_drive_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC417F7119F6E4B200CB78C2 /* office365_drive_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */; };
+		ECCAD09119F6F26900363606 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCAD09019F6F26900363606 /* office365_odata_base.framework */; };
+		ECCAD09419F6F2C600363606 /* office365_drive_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD09319F6F2C600363606 /* office365_drive_sdk-Prefix.pch */; };
+		ECCAD1B119F6F40000363606 /* MSOCurrentUserRequestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD15F19F6F40000363606 /* MSOCurrentUserRequestContext.h */; };
+		ECCAD1B219F6F40000363606 /* MSODrive.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16019F6F40000363606 /* MSODrive.h */; };
+		ECCAD1B319F6F40000363606 /* MSODriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16119F6F40000363606 /* MSODriveQuota.h */; };
+		ECCAD1B419F6F40000363606 /* MSOFile.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16219F6F40000363606 /* MSOFile.h */; };
+		ECCAD1B519F6F40000363606 /* MSOFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16319F6F40000363606 /* MSOFolder.h */; };
+		ECCAD1B619F6F40000363606 /* MSOIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16419F6F40000363606 /* MSOIdentity.h */; };
+		ECCAD1B719F6F40000363606 /* MSOIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16519F6F40000363606 /* MSOIdentitySet.h */; };
+		ECCAD1B819F6F40000363606 /* MSOItem.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16619F6F40000363606 /* MSOItem.h */; };
+		ECCAD1B919F6F40000363606 /* MSOItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16719F6F40000363606 /* MSOItemReference.h */; };
+		ECCAD1BA19F6F40000363606 /* MSOProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16819F6F40000363606 /* MSOProtocols.h */; };
+		ECCAD1BB19F6F40000363606 /* MSOCurrentUserRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16A19F6F40000363606 /* MSOCurrentUserRequestContext.m */; };
+		ECCAD1BC19F6F40000363606 /* MSODrive.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16B19F6F40000363606 /* MSODrive.m */; };
+		ECCAD1BD19F6F40000363606 /* MSODriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16C19F6F40000363606 /* MSODriveQuota.m */; };
+		ECCAD1BE19F6F40000363606 /* MSOFile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16D19F6F40000363606 /* MSOFile.m */; };
+		ECCAD1BF19F6F40000363606 /* MSOFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16E19F6F40000363606 /* MSOFolder.m */; };
+		ECCAD1C019F6F40000363606 /* MSOIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16F19F6F40000363606 /* MSOIdentity.m */; };
+		ECCAD1C119F6F40000363606 /* MSOIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17019F6F40000363606 /* MSOIdentitySet.m */; };
+		ECCAD1C219F6F40000363606 /* MSOItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17119F6F40000363606 /* MSOItem.m */; };
+		ECCAD1C319F6F40000363606 /* MSOItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17219F6F40000363606 /* MSOItemReference.m */; };
+		ECCAD1C419F6F40000363606 /* MSOBaseODataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17519F6F40000363606 /* MSOBaseODataContainer.h */; };
+		ECCAD1C519F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17619F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.h */; };
+		ECCAD1C619F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17719F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.h */; };
+		ECCAD1C719F6F40000363606 /* MSOCurrentUserRequestContextFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17819F6F40000363606 /* MSOCurrentUserRequestContextFetcher.h */; };
+		ECCAD1C819F6F40000363606 /* MSOCurrentUserRequestContextOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17919F6F40000363606 /* MSOCurrentUserRequestContextOperations.h */; };
+		ECCAD1C919F6F40000363606 /* MSODriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17A19F6F40000363606 /* MSODriveCollectionFetcher.h */; };
+		ECCAD1CA19F6F40000363606 /* MSODriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17B19F6F40000363606 /* MSODriveCollectionOperations.h */; };
+		ECCAD1CB19F6F40000363606 /* MSODriveFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17C19F6F40000363606 /* MSODriveFetcher.h */; };
+		ECCAD1CC19F6F40000363606 /* MSODriveOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17D19F6F40000363606 /* MSODriveOperations.h */; };
+		ECCAD1CD19F6F40000363606 /* MSOEntityContainerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17E19F6F40000363606 /* MSOEntityContainerClient.h */; };
+		ECCAD1CE19F6F40000363606 /* MSOFileCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD17F19F6F40000363606 /* MSOFileCollectionFetcher.h */; };
+		ECCAD1CF19F6F40000363606 /* MSOFileCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18019F6F40000363606 /* MSOFileCollectionOperations.h */; };
+		ECCAD1D019F6F40000363606 /* MSOFileFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18119F6F40000363606 /* MSOFileFetcher.h */; };
+		ECCAD1D119F6F40000363606 /* MSOFileOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18219F6F40000363606 /* MSOFileOperations.h */; };
+		ECCAD1D219F6F40000363606 /* MSOFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18319F6F40000363606 /* MSOFolderCollectionFetcher.h */; };
+		ECCAD1D319F6F40000363606 /* MSOFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18419F6F40000363606 /* MSOFolderCollectionOperations.h */; };
+		ECCAD1D419F6F40000363606 /* MSOFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18519F6F40000363606 /* MSOFolderFetcher.h */; };
+		ECCAD1D519F6F40000363606 /* MSOFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18619F6F40000363606 /* MSOFolderOperations.h */; };
+		ECCAD1D619F6F40000363606 /* MSOItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18719F6F40000363606 /* MSOItemCollectionFetcher.h */; };
+		ECCAD1D719F6F40000363606 /* MSOItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18819F6F40000363606 /* MSOItemCollectionOperations.h */; };
+		ECCAD1D819F6F40000363606 /* MSOItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18919F6F40000363606 /* MSOItemFetcher.h */; };
+		ECCAD1D919F6F40000363606 /* MSOItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18A19F6F40000363606 /* MSOItemOperations.h */; };
+		ECCAD1DA19F6F40000363606 /* MSOODataCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18B19F6F40000363606 /* MSOODataCollectionFetcher.h */; };
+		ECCAD1DB19F6F40000363606 /* MSOODataEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18C19F6F40000363606 /* MSOODataEntityFetcher.h */; };
+		ECCAD1DC19F6F40000363606 /* MSOODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18D19F6F40000363606 /* MSOODataExecutable.h */; };
+		ECCAD1DD19F6F40000363606 /* MSOODataOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD18E19F6F40000363606 /* MSOODataOperations.h */; };
+		ECCAD1DE19F6F40000363606 /* MSOBaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19019F6F40000363606 /* MSOBaseODataContainer.m */; };
+		ECCAD1DF19F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19119F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m */; };
+		ECCAD1E019F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19219F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m */; };
+		ECCAD1E119F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19319F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m */; };
+		ECCAD1E219F6F40000363606 /* MSOCurrentUserRequestContextOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19419F6F40000363606 /* MSOCurrentUserRequestContextOperations.m */; };
+		ECCAD1E319F6F40000363606 /* MSODriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19519F6F40000363606 /* MSODriveCollectionFetcher.m */; };
+		ECCAD1E419F6F40000363606 /* MSODriveCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19619F6F40000363606 /* MSODriveCollectionOperations.m */; };
+		ECCAD1E519F6F40000363606 /* MSODriveFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19719F6F40000363606 /* MSODriveFetcher.m */; };
+		ECCAD1E619F6F40000363606 /* MSODriveOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19819F6F40000363606 /* MSODriveOperations.m */; };
+		ECCAD1E719F6F40000363606 /* MSOEntityContainerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19919F6F40000363606 /* MSOEntityContainerClient.m */; };
+		ECCAD1E819F6F40000363606 /* MSOFileCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19A19F6F40000363606 /* MSOFileCollectionFetcher.m */; };
+		ECCAD1E919F6F40000363606 /* MSOFileCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19B19F6F40000363606 /* MSOFileCollectionOperations.m */; };
+		ECCAD1EA19F6F40000363606 /* MSOFileFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19C19F6F40000363606 /* MSOFileFetcher.m */; };
+		ECCAD1EB19F6F40000363606 /* MSOFileOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19D19F6F40000363606 /* MSOFileOperations.m */; };
+		ECCAD1EC19F6F40000363606 /* MSOFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19E19F6F40000363606 /* MSOFolderCollectionFetcher.m */; };
+		ECCAD1ED19F6F40000363606 /* MSOFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD19F19F6F40000363606 /* MSOFolderCollectionOperations.m */; };
+		ECCAD1EE19F6F40000363606 /* MSOFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A019F6F40000363606 /* MSOFolderFetcher.m */; };
+		ECCAD1EF19F6F40000363606 /* MSOFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A119F6F40000363606 /* MSOFolderOperations.m */; };
+		ECCAD1F019F6F40000363606 /* MSOItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A219F6F40000363606 /* MSOItemCollectionFetcher.m */; };
+		ECCAD1F119F6F40000363606 /* MSOItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A319F6F40000363606 /* MSOItemCollectionOperations.m */; };
+		ECCAD1F219F6F40000363606 /* MSOItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A419F6F40000363606 /* MSOItemFetcher.m */; };
+		ECCAD1F319F6F40000363606 /* MSOItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A519F6F40000363606 /* MSOItemOperations.m */; };
+		ECCAD1F419F6F40000363606 /* MSOODataCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A619F6F40000363606 /* MSOODataCollectionFetcher.m */; };
+		ECCAD1F519F6F40000363606 /* MSOODataEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A719F6F40000363606 /* MSOODataEntityFetcher.m */; };
+		ECCAD1F619F6F40000363606 /* MSOODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A819F6F40000363606 /* MSOODataExecutable.m */; };
+		ECCAD1F719F6F40000363606 /* MSOODataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1A919F6F40000363606 /* MSOODataOperations.m */; };
+		ECCAD1F819F6F40000363606 /* MSOBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD1AC19F6F40000363606 /* MSOBaseODataContainerHelper.h */; };
+		ECCAD1F919F6F40000363606 /* MSOEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD1AD19F6F40000363606 /* MSOEntityFetcherHelper.h */; };
+		ECCAD1FA19F6F40000363606 /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1AF19F6F40000363606 /* MSOBaseODataContainerHelper.m */; };
+		ECCAD1FB19F6F40000363606 /* MSOEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1B019F6F40000363606 /* MSOEntityFetcherHelper.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		EC1B703819F1BB9400B480DD /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				EC1B703E19F1BB9400B480DD /* office365_drive_sdk.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		EC1B703A19F1BB9400B480DD /* liboffice365_drive_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liboffice365_drive_sdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC1B703D19F1BB9400B480DD /* office365_drive_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_drive_sdk.h; sourceTree = "<group>"; };
-		EC1B703F19F1BB9400B480DD /* office365_drive_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_drive_sdk.m; sourceTree = "<group>"; };
-		EC1B704519F1BB9400B480DD /* office365_drive_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_drive_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC1B704819F1BB9400B480DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC1B705119F1BBAC00B480DD /* com */ = {isa = PBXFileReference; lastKnownFileType = folder; path = com; sourceTree = "<group>"; };
+		EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_drive_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC417F6519F6E4B200CB78C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_drive_sdk.h; sourceTree = "<group>"; };
+		EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_drive_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC417F6F19F6E4B200CB78C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_drive_sdkTests.m; sourceTree = "<group>"; };
+		ECCAD09019F6F26900363606 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/office365-sdks-diwcjfzfwkovdhezhjdofyhtxxjy/Build/Products/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		ECCAD09319F6F2C600363606 /* office365_drive_sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365_drive_sdk-Prefix.pch"; sourceTree = "<group>"; };
+		ECCAD15F19F6F40000363606 /* MSOCurrentUserRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCurrentUserRequestContext.h; sourceTree = "<group>"; };
+		ECCAD16019F6F40000363606 /* MSODrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODrive.h; sourceTree = "<group>"; };
+		ECCAD16119F6F40000363606 /* MSODriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveQuota.h; sourceTree = "<group>"; };
+		ECCAD16219F6F40000363606 /* MSOFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFile.h; sourceTree = "<group>"; };
+		ECCAD16319F6F40000363606 /* MSOFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolder.h; sourceTree = "<group>"; };
+		ECCAD16419F6F40000363606 /* MSOIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOIdentity.h; sourceTree = "<group>"; };
+		ECCAD16519F6F40000363606 /* MSOIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOIdentitySet.h; sourceTree = "<group>"; };
+		ECCAD16619F6F40000363606 /* MSOItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItem.h; sourceTree = "<group>"; };
+		ECCAD16719F6F40000363606 /* MSOItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemReference.h; sourceTree = "<group>"; };
+		ECCAD16819F6F40000363606 /* MSOProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOProtocols.h; sourceTree = "<group>"; };
+		ECCAD16A19F6F40000363606 /* MSOCurrentUserRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCurrentUserRequestContext.m; sourceTree = "<group>"; };
+		ECCAD16B19F6F40000363606 /* MSODrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODrive.m; sourceTree = "<group>"; };
+		ECCAD16C19F6F40000363606 /* MSODriveQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveQuota.m; sourceTree = "<group>"; };
+		ECCAD16D19F6F40000363606 /* MSOFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFile.m; sourceTree = "<group>"; };
+		ECCAD16E19F6F40000363606 /* MSOFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolder.m; sourceTree = "<group>"; };
+		ECCAD16F19F6F40000363606 /* MSOIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOIdentity.m; sourceTree = "<group>"; };
+		ECCAD17019F6F40000363606 /* MSOIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOIdentitySet.m; sourceTree = "<group>"; };
+		ECCAD17119F6F40000363606 /* MSOItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItem.m; sourceTree = "<group>"; };
+		ECCAD17219F6F40000363606 /* MSOItemReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemReference.m; sourceTree = "<group>"; };
+		ECCAD17519F6F40000363606 /* MSOBaseODataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainer.h; sourceTree = "<group>"; };
+		ECCAD17619F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCurrentUserRequestContextCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD17719F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCurrentUserRequestContextCollectionOperations.h; sourceTree = "<group>"; };
+		ECCAD17819F6F40000363606 /* MSOCurrentUserRequestContextFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCurrentUserRequestContextFetcher.h; sourceTree = "<group>"; };
+		ECCAD17919F6F40000363606 /* MSOCurrentUserRequestContextOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCurrentUserRequestContextOperations.h; sourceTree = "<group>"; };
+		ECCAD17A19F6F40000363606 /* MSODriveCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD17B19F6F40000363606 /* MSODriveCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveCollectionOperations.h; sourceTree = "<group>"; };
+		ECCAD17C19F6F40000363606 /* MSODriveFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveFetcher.h; sourceTree = "<group>"; };
+		ECCAD17D19F6F40000363606 /* MSODriveOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveOperations.h; sourceTree = "<group>"; };
+		ECCAD17E19F6F40000363606 /* MSOEntityContainerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityContainerClient.h; sourceTree = "<group>"; };
+		ECCAD17F19F6F40000363606 /* MSOFileCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD18019F6F40000363606 /* MSOFileCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileCollectionOperations.h; sourceTree = "<group>"; };
+		ECCAD18119F6F40000363606 /* MSOFileFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileFetcher.h; sourceTree = "<group>"; };
+		ECCAD18219F6F40000363606 /* MSOFileOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileOperations.h; sourceTree = "<group>"; };
+		ECCAD18319F6F40000363606 /* MSOFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD18419F6F40000363606 /* MSOFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionOperations.h; sourceTree = "<group>"; };
+		ECCAD18519F6F40000363606 /* MSOFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderFetcher.h; sourceTree = "<group>"; };
+		ECCAD18619F6F40000363606 /* MSOFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderOperations.h; sourceTree = "<group>"; };
+		ECCAD18719F6F40000363606 /* MSOItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD18819F6F40000363606 /* MSOItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionOperations.h; sourceTree = "<group>"; };
+		ECCAD18919F6F40000363606 /* MSOItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemFetcher.h; sourceTree = "<group>"; };
+		ECCAD18A19F6F40000363606 /* MSOItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemOperations.h; sourceTree = "<group>"; };
+		ECCAD18B19F6F40000363606 /* MSOODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataCollectionFetcher.h; sourceTree = "<group>"; };
+		ECCAD18C19F6F40000363606 /* MSOODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataEntityFetcher.h; sourceTree = "<group>"; };
+		ECCAD18D19F6F40000363606 /* MSOODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataExecutable.h; sourceTree = "<group>"; };
+		ECCAD18E19F6F40000363606 /* MSOODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataOperations.h; sourceTree = "<group>"; };
+		ECCAD19019F6F40000363606 /* MSOBaseODataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainer.m; sourceTree = "<group>"; };
+		ECCAD19119F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCurrentUserRequestContextCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD19219F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCurrentUserRequestContextCollectionOperations.m; sourceTree = "<group>"; };
+		ECCAD19319F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCurrentUserRequestContextFetcher.m; sourceTree = "<group>"; };
+		ECCAD19419F6F40000363606 /* MSOCurrentUserRequestContextOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCurrentUserRequestContextOperations.m; sourceTree = "<group>"; };
+		ECCAD19519F6F40000363606 /* MSODriveCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD19619F6F40000363606 /* MSODriveCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveCollectionOperations.m; sourceTree = "<group>"; };
+		ECCAD19719F6F40000363606 /* MSODriveFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveFetcher.m; sourceTree = "<group>"; };
+		ECCAD19819F6F40000363606 /* MSODriveOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveOperations.m; sourceTree = "<group>"; };
+		ECCAD19919F6F40000363606 /* MSOEntityContainerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityContainerClient.m; sourceTree = "<group>"; };
+		ECCAD19A19F6F40000363606 /* MSOFileCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD19B19F6F40000363606 /* MSOFileCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileCollectionOperations.m; sourceTree = "<group>"; };
+		ECCAD19C19F6F40000363606 /* MSOFileFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileFetcher.m; sourceTree = "<group>"; };
+		ECCAD19D19F6F40000363606 /* MSOFileOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileOperations.m; sourceTree = "<group>"; };
+		ECCAD19E19F6F40000363606 /* MSOFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD19F19F6F40000363606 /* MSOFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionOperations.m; sourceTree = "<group>"; };
+		ECCAD1A019F6F40000363606 /* MSOFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderFetcher.m; sourceTree = "<group>"; };
+		ECCAD1A119F6F40000363606 /* MSOFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderOperations.m; sourceTree = "<group>"; };
+		ECCAD1A219F6F40000363606 /* MSOItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD1A319F6F40000363606 /* MSOItemCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionOperations.m; sourceTree = "<group>"; };
+		ECCAD1A419F6F40000363606 /* MSOItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemFetcher.m; sourceTree = "<group>"; };
+		ECCAD1A519F6F40000363606 /* MSOItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemOperations.m; sourceTree = "<group>"; };
+		ECCAD1A619F6F40000363606 /* MSOODataCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataCollectionFetcher.m; sourceTree = "<group>"; };
+		ECCAD1A719F6F40000363606 /* MSOODataEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataEntityFetcher.m; sourceTree = "<group>"; };
+		ECCAD1A819F6F40000363606 /* MSOODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataExecutable.m; sourceTree = "<group>"; };
+		ECCAD1A919F6F40000363606 /* MSOODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataOperations.m; sourceTree = "<group>"; };
+		ECCAD1AC19F6F40000363606 /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		ECCAD1AD19F6F40000363606 /* MSOEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcherHelper.h; sourceTree = "<group>"; };
+		ECCAD1AF19F6F40000363606 /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		ECCAD1B019F6F40000363606 /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC1B703719F1BB9400B480DD /* Frameworks */ = {
+		EC417F5D19F6E4B200CB78C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCAD09119F6F26900363606 /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC1B704219F1BB9400B480DD /* Frameworks */ = {
+		EC417F6919F6E4B200CB78C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,60 +193,284 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC1B703119F1BB9400B480DD = {
+		EC417F5719F6E4B200CB78C2 = {
 			isa = PBXGroup;
 			children = (
-				EC1B703C19F1BB9400B480DD /* office365_drive_sdk */,
-				EC1B704619F1BB9400B480DD /* office365_drive_sdkTests */,
-				EC1B703B19F1BB9400B480DD /* Products */,
+				ECCAD15C19F6F40000363606 /* Generated */,
+				ECCAD1AA19F6F40000363606 /* Helpers */,
+				ECCAD09219F6F27500363606 /* Frameworks */,
+				EC417F6319F6E4B200CB78C2 /* office365_drive_sdk */,
+				EC417F6D19F6E4B200CB78C2 /* office365_drive_sdkTests */,
+				EC417F6219F6E4B200CB78C2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		EC1B703B19F1BB9400B480DD /* Products */ = {
+		EC417F6219F6E4B200CB78C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC1B703A19F1BB9400B480DD /* liboffice365_drive_sdk.a */,
-				EC1B704519F1BB9400B480DD /* office365_drive_sdkTests.xctest */,
+				EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */,
+				EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC1B703C19F1BB9400B480DD /* office365_drive_sdk */ = {
+		EC417F6319F6E4B200CB78C2 /* office365_drive_sdk */ = {
 			isa = PBXGroup;
 			children = (
-				EC1B705119F1BBAC00B480DD /* com */,
-				EC1B703D19F1BB9400B480DD /* office365_drive_sdk.h */,
-				EC1B703F19F1BB9400B480DD /* office365_drive_sdk.m */,
+				EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */,
+				ECCAD09319F6F2C600363606 /* office365_drive_sdk-Prefix.pch */,
+				EC417F6419F6E4B200CB78C2 /* Supporting Files */,
 			);
 			path = office365_drive_sdk;
 			sourceTree = "<group>";
 		};
-		EC1B704619F1BB9400B480DD /* office365_drive_sdkTests */ = {
+		EC417F6419F6E4B200CB78C2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EC1B704719F1BB9400B480DD /* Supporting Files */,
-			);
-			path = office365_drive_sdkTests;
-			sourceTree = "<group>";
-		};
-		EC1B704719F1BB9400B480DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC1B704819F1BB9400B480DD /* Info.plist */,
+				EC417F6519F6E4B200CB78C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EC417F6D19F6E4B200CB78C2 /* office365_drive_sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */,
+				EC417F6E19F6E4B200CB78C2 /* Supporting Files */,
+			);
+			path = office365_drive_sdkTests;
+			sourceTree = "<group>";
+		};
+		EC417F6E19F6E4B200CB78C2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC417F6F19F6E4B200CB78C2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECCAD09219F6F27500363606 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD09019F6F26900363606 /* office365_odata_base.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECCAD15C19F6F40000363606 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD15D19F6F40000363606 /* Models */,
+				ECCAD17319F6F40000363606 /* Operations */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		ECCAD15D19F6F40000363606 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD15E19F6F40000363606 /* Headers */,
+				ECCAD16919F6F40000363606 /* Implementations */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECCAD15E19F6F40000363606 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD15F19F6F40000363606 /* MSOCurrentUserRequestContext.h */,
+				ECCAD16019F6F40000363606 /* MSODrive.h */,
+				ECCAD16119F6F40000363606 /* MSODriveQuota.h */,
+				ECCAD16219F6F40000363606 /* MSOFile.h */,
+				ECCAD16319F6F40000363606 /* MSOFolder.h */,
+				ECCAD16419F6F40000363606 /* MSOIdentity.h */,
+				ECCAD16519F6F40000363606 /* MSOIdentitySet.h */,
+				ECCAD16619F6F40000363606 /* MSOItem.h */,
+				ECCAD16719F6F40000363606 /* MSOItemReference.h */,
+				ECCAD16819F6F40000363606 /* MSOProtocols.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ECCAD16919F6F40000363606 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD16A19F6F40000363606 /* MSOCurrentUserRequestContext.m */,
+				ECCAD16B19F6F40000363606 /* MSODrive.m */,
+				ECCAD16C19F6F40000363606 /* MSODriveQuota.m */,
+				ECCAD16D19F6F40000363606 /* MSOFile.m */,
+				ECCAD16E19F6F40000363606 /* MSOFolder.m */,
+				ECCAD16F19F6F40000363606 /* MSOIdentity.m */,
+				ECCAD17019F6F40000363606 /* MSOIdentitySet.m */,
+				ECCAD17119F6F40000363606 /* MSOItem.m */,
+				ECCAD17219F6F40000363606 /* MSOItemReference.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		ECCAD17319F6F40000363606 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD17419F6F40000363606 /* Headers */,
+				ECCAD18F19F6F40000363606 /* Implementations */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		ECCAD17419F6F40000363606 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD17519F6F40000363606 /* MSOBaseODataContainer.h */,
+				ECCAD17619F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.h */,
+				ECCAD17719F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.h */,
+				ECCAD17819F6F40000363606 /* MSOCurrentUserRequestContextFetcher.h */,
+				ECCAD17919F6F40000363606 /* MSOCurrentUserRequestContextOperations.h */,
+				ECCAD17A19F6F40000363606 /* MSODriveCollectionFetcher.h */,
+				ECCAD17B19F6F40000363606 /* MSODriveCollectionOperations.h */,
+				ECCAD17C19F6F40000363606 /* MSODriveFetcher.h */,
+				ECCAD17D19F6F40000363606 /* MSODriveOperations.h */,
+				ECCAD17E19F6F40000363606 /* MSOEntityContainerClient.h */,
+				ECCAD17F19F6F40000363606 /* MSOFileCollectionFetcher.h */,
+				ECCAD18019F6F40000363606 /* MSOFileCollectionOperations.h */,
+				ECCAD18119F6F40000363606 /* MSOFileFetcher.h */,
+				ECCAD18219F6F40000363606 /* MSOFileOperations.h */,
+				ECCAD18319F6F40000363606 /* MSOFolderCollectionFetcher.h */,
+				ECCAD18419F6F40000363606 /* MSOFolderCollectionOperations.h */,
+				ECCAD18519F6F40000363606 /* MSOFolderFetcher.h */,
+				ECCAD18619F6F40000363606 /* MSOFolderOperations.h */,
+				ECCAD18719F6F40000363606 /* MSOItemCollectionFetcher.h */,
+				ECCAD18819F6F40000363606 /* MSOItemCollectionOperations.h */,
+				ECCAD18919F6F40000363606 /* MSOItemFetcher.h */,
+				ECCAD18A19F6F40000363606 /* MSOItemOperations.h */,
+				ECCAD18B19F6F40000363606 /* MSOODataCollectionFetcher.h */,
+				ECCAD18C19F6F40000363606 /* MSOODataEntityFetcher.h */,
+				ECCAD18D19F6F40000363606 /* MSOODataExecutable.h */,
+				ECCAD18E19F6F40000363606 /* MSOODataOperations.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ECCAD18F19F6F40000363606 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD19019F6F40000363606 /* MSOBaseODataContainer.m */,
+				ECCAD19119F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m */,
+				ECCAD19219F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m */,
+				ECCAD19319F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m */,
+				ECCAD19419F6F40000363606 /* MSOCurrentUserRequestContextOperations.m */,
+				ECCAD19519F6F40000363606 /* MSODriveCollectionFetcher.m */,
+				ECCAD19619F6F40000363606 /* MSODriveCollectionOperations.m */,
+				ECCAD19719F6F40000363606 /* MSODriveFetcher.m */,
+				ECCAD19819F6F40000363606 /* MSODriveOperations.m */,
+				ECCAD19919F6F40000363606 /* MSOEntityContainerClient.m */,
+				ECCAD19A19F6F40000363606 /* MSOFileCollectionFetcher.m */,
+				ECCAD19B19F6F40000363606 /* MSOFileCollectionOperations.m */,
+				ECCAD19C19F6F40000363606 /* MSOFileFetcher.m */,
+				ECCAD19D19F6F40000363606 /* MSOFileOperations.m */,
+				ECCAD19E19F6F40000363606 /* MSOFolderCollectionFetcher.m */,
+				ECCAD19F19F6F40000363606 /* MSOFolderCollectionOperations.m */,
+				ECCAD1A019F6F40000363606 /* MSOFolderFetcher.m */,
+				ECCAD1A119F6F40000363606 /* MSOFolderOperations.m */,
+				ECCAD1A219F6F40000363606 /* MSOItemCollectionFetcher.m */,
+				ECCAD1A319F6F40000363606 /* MSOItemCollectionOperations.m */,
+				ECCAD1A419F6F40000363606 /* MSOItemFetcher.m */,
+				ECCAD1A519F6F40000363606 /* MSOItemOperations.m */,
+				ECCAD1A619F6F40000363606 /* MSOODataCollectionFetcher.m */,
+				ECCAD1A719F6F40000363606 /* MSOODataEntityFetcher.m */,
+				ECCAD1A819F6F40000363606 /* MSOODataExecutable.m */,
+				ECCAD1A919F6F40000363606 /* MSOODataOperations.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		ECCAD1AA19F6F40000363606 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD1AB19F6F40000363606 /* Headers */,
+				ECCAD1AE19F6F40000363606 /* Implementations */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ECCAD1AB19F6F40000363606 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD1AC19F6F40000363606 /* MSOBaseODataContainerHelper.h */,
+				ECCAD1AD19F6F40000363606 /* MSOEntityFetcherHelper.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		ECCAD1AE19F6F40000363606 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				ECCAD1AF19F6F40000363606 /* MSOBaseODataContainerHelper.m */,
+				ECCAD1B019F6F40000363606 /* MSOEntityFetcherHelper.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		EC417F5E19F6E4B200CB78C2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCAD1DD19F6F40000363606 /* MSOODataOperations.h in Headers */,
+				ECCAD1B119F6F40000363606 /* MSOCurrentUserRequestContext.h in Headers */,
+				ECCAD1D719F6F40000363606 /* MSOItemCollectionOperations.h in Headers */,
+				ECCAD1DC19F6F40000363606 /* MSOODataExecutable.h in Headers */,
+				ECCAD1D219F6F40000363606 /* MSOFolderCollectionFetcher.h in Headers */,
+				ECCAD1CB19F6F40000363606 /* MSODriveFetcher.h in Headers */,
+				ECCAD1F819F6F40000363606 /* MSOBaseODataContainerHelper.h in Headers */,
+				ECCAD1C419F6F40000363606 /* MSOBaseODataContainer.h in Headers */,
+				ECCAD1B519F6F40000363606 /* MSOFolder.h in Headers */,
+				ECCAD1CC19F6F40000363606 /* MSODriveOperations.h in Headers */,
+				ECCAD1DB19F6F40000363606 /* MSOODataEntityFetcher.h in Headers */,
+				ECCAD1C519F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.h in Headers */,
+				ECCAD1D119F6F40000363606 /* MSOFileOperations.h in Headers */,
+				ECCAD1B219F6F40000363606 /* MSODrive.h in Headers */,
+				ECCAD1CA19F6F40000363606 /* MSODriveCollectionOperations.h in Headers */,
+				ECCAD1D019F6F40000363606 /* MSOFileFetcher.h in Headers */,
+				ECCAD1DA19F6F40000363606 /* MSOODataCollectionFetcher.h in Headers */,
+				ECCAD09419F6F2C600363606 /* office365_drive_sdk-Prefix.pch in Headers */,
+				ECCAD1B619F6F40000363606 /* MSOIdentity.h in Headers */,
+				ECCAD1C919F6F40000363606 /* MSODriveCollectionFetcher.h in Headers */,
+				EC417F6719F6E4B200CB78C2 /* office365_drive_sdk.h in Headers */,
+				ECCAD1D819F6F40000363606 /* MSOItemFetcher.h in Headers */,
+				ECCAD1CE19F6F40000363606 /* MSOFileCollectionFetcher.h in Headers */,
+				ECCAD1B419F6F40000363606 /* MSOFile.h in Headers */,
+				ECCAD1B819F6F40000363606 /* MSOItem.h in Headers */,
+				ECCAD1CD19F6F40000363606 /* MSOEntityContainerClient.h in Headers */,
+				ECCAD1D419F6F40000363606 /* MSOFolderFetcher.h in Headers */,
+				ECCAD1F919F6F40000363606 /* MSOEntityFetcherHelper.h in Headers */,
+				ECCAD1BA19F6F40000363606 /* MSOProtocols.h in Headers */,
+				ECCAD1D319F6F40000363606 /* MSOFolderCollectionOperations.h in Headers */,
+				ECCAD1C719F6F40000363606 /* MSOCurrentUserRequestContextFetcher.h in Headers */,
+				ECCAD1D919F6F40000363606 /* MSOItemOperations.h in Headers */,
+				ECCAD1CF19F6F40000363606 /* MSOFileCollectionOperations.h in Headers */,
+				ECCAD1C819F6F40000363606 /* MSOCurrentUserRequestContextOperations.h in Headers */,
+				ECCAD1C619F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.h in Headers */,
+				ECCAD1D519F6F40000363606 /* MSOFolderOperations.h in Headers */,
+				ECCAD1D619F6F40000363606 /* MSOItemCollectionFetcher.h in Headers */,
+				ECCAD1B719F6F40000363606 /* MSOIdentitySet.h in Headers */,
+				ECCAD1B919F6F40000363606 /* MSOItemReference.h in Headers */,
+				ECCAD1B319F6F40000363606 /* MSODriveQuota.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		EC1B703919F1BB9400B480DD /* office365_drive_sdk */ = {
+		EC417F6019F6E4B200CB78C2 /* office365_drive_sdk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC1B704B19F1BB9400B480DD /* Build configuration list for PBXNativeTarget "office365_drive_sdk" */;
+			buildConfigurationList = EC417F7419F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdk" */;
 			buildPhases = (
-				EC1B703619F1BB9400B480DD /* Sources */,
-				EC1B703719F1BB9400B480DD /* Frameworks */,
-				EC1B703819F1BB9400B480DD /* CopyFiles */,
+				EC417F5C19F6E4B200CB78C2 /* Sources */,
+				EC417F5D19F6E4B200CB78C2 /* Frameworks */,
+				EC417F5E19F6E4B200CB78C2 /* Headers */,
+				EC417F5F19F6E4B200CB78C2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -112,16 +478,16 @@
 			);
 			name = office365_drive_sdk;
 			productName = office365_drive_sdk;
-			productReference = EC1B703A19F1BB9400B480DD /* liboffice365_drive_sdk.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		EC1B704419F1BB9400B480DD /* office365_drive_sdkTests */ = {
+		EC417F6B19F6E4B200CB78C2 /* office365_drive_sdkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC1B704E19F1BB9400B480DD /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */;
+			buildConfigurationList = EC417F7719F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */;
 			buildPhases = (
-				EC1B704119F1BB9400B480DD /* Sources */,
-				EC1B704219F1BB9400B480DD /* Frameworks */,
-				EC1B704319F1BB9400B480DD /* Resources */,
+				EC417F6819F6E4B200CB78C2 /* Sources */,
+				EC417F6919F6E4B200CB78C2 /* Frameworks */,
+				EC417F6A19F6E4B200CB78C2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -129,46 +495,53 @@
 			);
 			name = office365_drive_sdkTests;
 			productName = office365_drive_sdkTests;
-			productReference = EC1B704519F1BB9400B480DD /* office365_drive_sdkTests.xctest */;
+			productReference = EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EC1B703219F1BB9400B480DD /* Project object */ = {
+		EC417F5819F6E4B200CB78C2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
-					EC1B703919F1BB9400B480DD = {
+					EC417F6019F6E4B200CB78C2 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					EC1B704419F1BB9400B480DD = {
+					EC417F6B19F6E4B200CB78C2 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
 			};
-			buildConfigurationList = EC1B703519F1BB9400B480DD /* Build configuration list for PBXProject "office365_drive_sdk" */;
+			buildConfigurationList = EC417F5B19F6E4B200CB78C2 /* Build configuration list for PBXProject "office365_drive_sdk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = EC1B703119F1BB9400B480DD;
-			productRefGroup = EC1B703B19F1BB9400B480DD /* Products */;
+			mainGroup = EC417F5719F6E4B200CB78C2;
+			productRefGroup = EC417F6219F6E4B200CB78C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC1B703919F1BB9400B480DD /* office365_drive_sdk */,
-				EC1B704419F1BB9400B480DD /* office365_drive_sdkTests */,
+				EC417F6019F6E4B200CB78C2 /* office365_drive_sdk */,
+				EC417F6B19F6E4B200CB78C2 /* office365_drive_sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC1B704319F1BB9400B480DD /* Resources */ = {
+		EC417F5F19F6E4B200CB78C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC417F6A19F6E4B200CB78C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -178,25 +551,62 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EC1B703619F1BB9400B480DD /* Sources */ = {
+		EC417F5C19F6E4B200CB78C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC1B704019F1BB9400B480DD /* office365_drive_sdk.m in Sources */,
+				ECCAD1EB19F6F40000363606 /* MSOFileOperations.m in Sources */,
+				ECCAD1E919F6F40000363606 /* MSOFileCollectionOperations.m in Sources */,
+				ECCAD1F219F6F40000363606 /* MSOItemFetcher.m in Sources */,
+				ECCAD1F619F6F40000363606 /* MSOODataExecutable.m in Sources */,
+				ECCAD1E019F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m in Sources */,
+				ECCAD1ED19F6F40000363606 /* MSOFolderCollectionOperations.m in Sources */,
+				ECCAD1DE19F6F40000363606 /* MSOBaseODataContainer.m in Sources */,
+				ECCAD1E519F6F40000363606 /* MSODriveFetcher.m in Sources */,
+				ECCAD1E419F6F40000363606 /* MSODriveCollectionOperations.m in Sources */,
+				ECCAD1E219F6F40000363606 /* MSOCurrentUserRequestContextOperations.m in Sources */,
+				ECCAD1F019F6F40000363606 /* MSOItemCollectionFetcher.m in Sources */,
+				ECCAD1EF19F6F40000363606 /* MSOFolderOperations.m in Sources */,
+				ECCAD1F319F6F40000363606 /* MSOItemOperations.m in Sources */,
+				ECCAD1BC19F6F40000363606 /* MSODrive.m in Sources */,
+				ECCAD1E319F6F40000363606 /* MSODriveCollectionFetcher.m in Sources */,
+				ECCAD1F719F6F40000363606 /* MSOODataOperations.m in Sources */,
+				ECCAD1BD19F6F40000363606 /* MSODriveQuota.m in Sources */,
+				ECCAD1FB19F6F40000363606 /* MSOEntityFetcherHelper.m in Sources */,
+				ECCAD1EE19F6F40000363606 /* MSOFolderFetcher.m in Sources */,
+				ECCAD1C219F6F40000363606 /* MSOItem.m in Sources */,
+				ECCAD1E819F6F40000363606 /* MSOFileCollectionFetcher.m in Sources */,
+				ECCAD1EA19F6F40000363606 /* MSOFileFetcher.m in Sources */,
+				ECCAD1F519F6F40000363606 /* MSOODataEntityFetcher.m in Sources */,
+				ECCAD1C319F6F40000363606 /* MSOItemReference.m in Sources */,
+				ECCAD1E119F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m in Sources */,
+				ECCAD1F119F6F40000363606 /* MSOItemCollectionOperations.m in Sources */,
+				ECCAD1BF19F6F40000363606 /* MSOFolder.m in Sources */,
+				ECCAD1C019F6F40000363606 /* MSOIdentity.m in Sources */,
+				ECCAD1BB19F6F40000363606 /* MSOCurrentUserRequestContext.m in Sources */,
+				ECCAD1E619F6F40000363606 /* MSODriveOperations.m in Sources */,
+				ECCAD1DF19F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m in Sources */,
+				ECCAD1FA19F6F40000363606 /* MSOBaseODataContainerHelper.m in Sources */,
+				ECCAD1F419F6F40000363606 /* MSOODataCollectionFetcher.m in Sources */,
+				ECCAD1BE19F6F40000363606 /* MSOFile.m in Sources */,
+				ECCAD1C119F6F40000363606 /* MSOIdentitySet.m in Sources */,
+				ECCAD1E719F6F40000363606 /* MSOEntityContainerClient.m in Sources */,
+				ECCAD1EC19F6F40000363606 /* MSOFolderCollectionFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC1B704119F1BB9400B480DD /* Sources */ = {
+		EC417F6819F6E4B200CB78C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC417F7119F6E4B200CB78C2 /* office365_drive_sdkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EC1B704919F1BB9400B480DD /* Debug */ = {
+		EC417F7219F6E4B200CB78C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,7 +623,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -233,10 +645,13 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		EC1B704A19F1BB9400B480DD /* Release */ = {
+		EC417F7319F6E4B200CB78C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -253,7 +668,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -266,29 +683,58 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		EC1B704C19F1BB9400B480DD /* Debug */ = {
+		EC417F7519F6E4B200CB78C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-sdks-diwcjfzfwkovdhezhjdofyhtxxjy/Build/Products/Debug-iphoneos",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_drive_sdk/office365_drive_sdk-Prefix.pch";
+				INFOPLIST_FILE = office365_drive_sdk/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		EC1B704D19F1BB9400B480DD /* Release */ = {
+		EC417F7619F6E4B200CB78C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-sdks-diwcjfzfwkovdhezhjdofyhtxxjy/Build/Products/Debug-iphoneos",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_drive_sdk/office365_drive_sdk-Prefix.pch";
+				INFOPLIST_FILE = office365_drive_sdk/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		EC1B704F19F1BB9400B480DD /* Debug */ = {
+		EC417F7819F6E4B200CB78C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -305,7 +751,7 @@
 			};
 			name = Debug;
 		};
-		EC1B705019F1BB9400B480DD /* Release */ = {
+		EC417F7919F6E4B200CB78C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -321,32 +767,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC1B703519F1BB9400B480DD /* Build configuration list for PBXProject "office365_drive_sdk" */ = {
+		EC417F5B19F6E4B200CB78C2 /* Build configuration list for PBXProject "office365_drive_sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC1B704919F1BB9400B480DD /* Debug */,
-				EC1B704A19F1BB9400B480DD /* Release */,
+				EC417F7219F6E4B200CB78C2 /* Debug */,
+				EC417F7319F6E4B200CB78C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC1B704B19F1BB9400B480DD /* Build configuration list for PBXNativeTarget "office365_drive_sdk" */ = {
+		EC417F7419F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC1B704C19F1BB9400B480DD /* Debug */,
-				EC1B704D19F1BB9400B480DD /* Release */,
+				EC417F7519F6E4B200CB78C2 /* Debug */,
+				EC417F7619F6E4B200CB78C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		EC1B704E19F1BB9400B480DD /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */ = {
+		EC417F7719F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EC1B704F19F1BB9400B480DD /* Debug */,
-				EC1B705019F1BB9400B480DD /* Release */,
+				EC417F7819F6E4B200CB78C2 /* Debug */,
+				EC417F7919F6E4B200CB78C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EC1B703219F1BB9400B480DD /* Project object */;
+	rootObject = EC417F5819F6E4B200CB78C2 /* Project object */;
 }

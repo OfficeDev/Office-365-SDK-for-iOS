@@ -1,15 +1,16 @@
+
+
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+#import "MSOODataOperations.h"
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type MSOFileCollectionOperations.
 */
 
-@implementation MSOItemCollectionOperations
-
+@interface MSOFileCollectionOperations : MSOODataOperations
 @end

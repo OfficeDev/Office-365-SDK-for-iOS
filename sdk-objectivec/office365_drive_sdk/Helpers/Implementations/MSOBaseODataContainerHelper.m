@@ -95,14 +95,14 @@
     [result appendFormat:@"'%@'", o];
     return result;
     /*if (o instanceof String) {
-        return "'" + o + "'";
-    }
-    
-    if (o instanceof Calendar) {
-        return "'" + CalendarSerializer.serialize((Calendar)o) + "'";
-    }
-    
-    return o.toString();*/
+     return "'" + o + "'";
+     }
+     
+     if (o instanceof Calendar) {
+     return "'" + CalendarSerializer.serialize((Calendar)o) + "'";
+     }
+     
+     return o.toString();*/
     return nil;
 }
 
