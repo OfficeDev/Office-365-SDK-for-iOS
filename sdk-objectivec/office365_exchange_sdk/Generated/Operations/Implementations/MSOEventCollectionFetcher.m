@@ -24,6 +24,6 @@
 
 -(MSOEventFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOEventFetcher alloc] initWith:@"" : self :[MSOEvent class]];
+    return [[MSOEventFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOEvent class]];
 }
 @end

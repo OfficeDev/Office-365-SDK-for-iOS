@@ -21,18 +21,27 @@
 
 -(NSString*)toJsonString : (id)object{
     
-    NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
-    
-    jsonResult = [self getString :object :jsonResult];
-    
-    NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
-    NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
-    
-    if([result length] == 0){return nil;}
-    
-    [result appendString:@"}"];
-    
-    return result;
+    @try {
+        NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
+        
+        jsonResult = [self getString :object :jsonResult];
+        
+        NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
+        NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+        
+        if([result length] == 0){return nil;}
+        
+        [result appendString:@"}"];
+        
+        return result;
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
+    @finally {
+        
+    }
+   
 }
 
 /*
@@ -143,25 +152,32 @@
 
 -(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys{
     
-    id parseResult;
-    self.properties = [self getPropertiesFor:type];
-    
-    NSArray * jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
-    
-    if(keys != nil){
-        NSArray *jsonResult;
+    @try {
+        id parseResult;
+        self.properties = [self getPropertiesFor:type];
         
-        for (NSString* key in keys) {
-            jsonResult = [jsonArray valueForKey:key];
+        NSArray * jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
+        
+        if(keys != nil){
+            NSArray *jsonResult;
+            
+            for (NSString* key in keys) {
+                jsonResult = [jsonArray valueForKey:key];
+            }
+            
+            parseResult = [self parseArrayData:jsonResult Type:type];
+        }
+        else{
+            parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
         }
         
-        parseResult = [self parseArrayData:jsonResult Type:type];
+        return parseResult;
     }
-    else{
-        parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
+    @catch (NSException *exception) {
+        return nil;
     }
-    
-    return parseResult;
+    @finally {
+    }
 }
 
 -(id)parseObjectData : (NSDictionary*) data Type:(Class)type{

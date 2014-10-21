@@ -24,6 +24,7 @@
 -(id)init{
     self.QueryStringParameters = [[NSMutableDictionary alloc] init];
     self.PathComponents = [[NSMutableArray alloc] init];
+   
     return self;
 }
 
@@ -41,6 +42,7 @@
 
 -(NSString*)addTrailingSlash : (NSString*) s{
     NSMutableString* theString = [[NSMutableString alloc] initWithString:s];
+    
     if (![theString hasSuffix:@"/"]) {
         [theString appendString:@"/"];
     }
@@ -51,6 +53,9 @@
     if ([s hasSuffix:@"/"]) {
         return [s substringWithRange:NSMakeRange(0, s.length-1)];
     }
+    else if ([s hasSuffix:@"%2F"]) {
+        return [s substringWithRange:NSMakeRange(0, s.length-3)];
+    }
     return s;
 }
 
@@ -58,9 +63,14 @@
     NSMutableString* queryString = [[NSMutableString alloc] initWithFormat:@"%@/",self.BaseUrl];
     
     for (NSString* value in self.PathComponents) {
+        
+        if([value hasPrefix:@"('"] && [value hasSuffix:@"')"]){
+            queryString =[[NSMutableString alloc] initWithString : [self removeTrailingSlash: queryString]];
+        }
+        
         [queryString appendString:[[self addTrailingSlash : value] urlencode]];
     }
-    
+  
     if([self.QueryStringParameters allKeys].count > 0){
         [queryString appendString:@"?"];
     }

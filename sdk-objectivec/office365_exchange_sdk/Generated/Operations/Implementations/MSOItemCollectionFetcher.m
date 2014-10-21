@@ -24,6 +24,6 @@
 
 -(MSOItemFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOItemFetcher alloc] initWith:@"" : self :[MSOItem class]];
+    return [[MSOItemFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOItem class]];
 }
 @end

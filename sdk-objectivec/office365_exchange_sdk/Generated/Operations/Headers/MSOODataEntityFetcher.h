@@ -10,8 +10,6 @@
 * The header for type MSOODataEntityFetcher.
 */
 
-#import "MSOODataExecutable.h"
-
 @interface MSOODataEntityFetcher : MSOODataExecutable
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent : (Class) entityClass;
@@ -19,6 +17,7 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) delete : (void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) execute:(void (^)(id entity, NSError * error))callback;
+-(NSURLSessionDataTask*) oDataExecute:(id<MSOODataURL>)path :(NSData *)content :(MSOHttpVerb)verb :(void (^)(id<MSOResponse>, NSError *))callback;
 
 -(id<MSODependencyResolver>) getResolver;
 -(id) getOperations;

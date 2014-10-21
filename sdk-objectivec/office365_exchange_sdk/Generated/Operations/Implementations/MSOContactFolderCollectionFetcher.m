@@ -24,6 +24,6 @@
 
 -(MSOContactFolderFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOContactFolderFetcher alloc] initWith:@"" : self :[MSOContactFolder class]];
+    return [[MSOContactFolderFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOContactFolder class]];
 }
 @end

@@ -24,6 +24,6 @@
 
 -(MSOCalendarGroupFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSOCalendarGroupFetcher alloc] initWith:@"" : self :[MSOCalendarGroup class]];
+    return [[MSOCalendarGroupFetcher alloc] initWith:[[NSString alloc] initWithFormat:@"('%@')" ,Id] : self :[MSOCalendarGroup class]];
 }
 @end
