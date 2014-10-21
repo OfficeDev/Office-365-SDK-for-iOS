@@ -20,6 +20,10 @@
 
 -(id)initWithClient : (MSOEntityContainerClient*)client{
     self.Client = client;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.TestMail =[userDefaults objectForKey: @"TestMail"];
+    
     return self;
 }
 
@@ -58,7 +62,7 @@
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
     if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
     if([testName isEqualToString:@"TestMoveFolder"])return [self TestMoveFolder:result];
-    
+    if([testName isEqualToString:@"TestCopyFolder"])return [self TestCopyFolder:result];
     /*
      
      
@@ -89,6 +93,8 @@
     //Messages Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessages" :@"Create message in drafts" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestUpdateMessages" :@"Create update message" ]];
+    
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
@@ -252,8 +258,8 @@
     MSOFolder *newFolder = [[MSOFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] add:newFolder:^(MSOFolder *folder, NSError *e) {
-        [[[[[[self.Client getMe] getFolders]getById:newFolder.Id] getOperations] move:@"Drafts" :^(MSOFolder *folder, NSError *error) {
+    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] add:newFolder:^(MSOFolder *addedFolder, NSError *e) {
+        [[[[[[self.Client getMe] getFolders]getById:addedFolder.Id] getOperations] move:@"Drafts" :^(MSOFolder *folder, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -266,7 +272,10 @@
                 passed = true;
             }else
             {
-                message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+                message = @"Not - ";
+                if(error!= nil){
+                    message = [message stringByAppendingString:[error localizedDescription]];
+                }
             }
             
             test.Passed = passed;
@@ -278,6 +287,56 @@
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }] resume];
+            
+            result(test);
+            
+        }] resume];
+        
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCopyFolder:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
+    
+    MSOFolder *newFolder = [[MSOFolder alloc] init];
+    [newFolder setDisplayName:folderName];
+    
+    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] add:newFolder:^(MSOFolder *addedFolder, NSError *e) {
+        [[[[[[self.Client getMe] getFolders]getById:addedFolder.Id] getOperations] copy:@"Drafts" :^(MSOFolder *copiedFolder, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(error!= nil && copiedFolder!=nil ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            if(copiedFolder!= nil)
+            {
+                [[[[[self.Client getMe]getFolders]getById:copiedFolder.Id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }] resume];
+            }
+            
+            [[[[[self.Client getMe]getFolders]getById:addedFolder.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }] resume];
             
             result(test);
             
@@ -316,8 +375,7 @@
 }
 
 -(NSURLSessionDataTask*)TestCreateMessages:(void (^) (Test*))result{
-    NSString *defaultMail = @"v-anhojn@msopentech.ccsctp.net";
-    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : defaultMail : @""];
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
         BOOL passed = false;
@@ -348,8 +406,7 @@
 }
 
 -(NSURLSessionDataTask*)TestUpdateMessages:(void (^) (Test*))result{
-    NSString *defaultMail = @"v-anhojn@msopentech.ccsctp.net";
-    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : defaultMail : @""];
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     //Create message
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
         NSString *updatedSubject = @"My Updated Subject";
