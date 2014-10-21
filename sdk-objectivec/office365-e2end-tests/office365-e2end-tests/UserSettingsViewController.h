@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtRedirectUrl;
 @property (weak, nonatomic) IBOutlet UITextField *txtClientId;
 @property (weak, nonatomic) IBOutlet UILabel *txtLoggedInUser;
+@property (weak, nonatomic) IBOutlet UITextField *txtTestMail;
 
 - (IBAction)Save:(id)sender;
 - (IBAction)ClearCredentials:(id)sender;
