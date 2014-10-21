@@ -20,6 +20,8 @@
 
 @property TestParameters *Parameters;
 @property MSOEntityContainerClient *Client;
+@property NSString *TestMail;
+
 -(id)initWithClient : (MSOEntityContainerClient*)client;
 -(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *))result;
 
