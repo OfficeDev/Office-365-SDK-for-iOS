@@ -44,13 +44,13 @@
     if([testName isEqualToString:@"TestCreateMessages"])return [self TestCreateMessages:result];
     if([testName isEqualToString:@"TestUpdateMessages"])return [self TestUpdateMessages:result];
     if([testName isEqualToString:@"TestDeleteMessages"])return [self TestDeleteMessages:result];
+    if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
+    if([testName isEqualToString:@"TestCopyMessages"])return [self TestMoveMessages:result];
+    
     /*
      
      this.addTest(canCreateMessageAttachment("Can create message with attachment", false));
      this.addTest(canSendMessage("Can send message", true));
-     this.addTest(canDeleteMessage("Can delete message", true));
-     this.addTest(canMoveMessage("Can move message", true));
-     this.addTest(canCopyMessage("Can copy message", true));
      this.addTest(canCreateReplyMessage("Can create reply", true));
      this.addTest(canCreateReplyAllMessage("Can create reply all", true));
      this.addTest(canCreateForwardMessage("Can create forward", true));
@@ -65,6 +65,31 @@
     if([testName isEqualToString:@"TestCopyFolder"])return [self TestCopyFolder:result];
     if([testName isEqualToString:@"TestUpdateFolder"])return [self TestUpdateFolder:result];
 
+    // Calendar tests
+    /*
+     //Calendar groups
+     this.addTest(canCreateCalendarGroup("Can create calendar group", true));
+     this.addTest(canGetCalendarGroups("Can get calendar groups", true));
+     this.addTest(canGetCalendarGroupById("Can get calendar group by id", true));
+     this.addTest(canUpdateCalendarGroup("Can update calendar group", true));
+     this.addTest(canDeleteCalendarGroup("Can delete calendar group", true));
+     
+     // Calendars
+     this.addTest(canCreateCalendar("Can create calendar", true));
+     this.addTest(canGetCalendars("Can get calendars", true));
+     this.addTest(canGetDefaultCalendar("Can get default calendar", true));
+     this.addTest(canGetCalendarById("Can get calendar by id", true));
+     this.addTest(canUpdateCalendar("Can update calendar", true));
+     this.addTest(canDeleteCalendar("Can delete calendar", true));
+     
+     //Events
+     this.addTest(canGetEvents("Can get events", true));
+     this.addTest(canCreateEvents("Can create events", true));
+     this.addTest(canUpdateEvents("Can update events", true));
+     this.addTest(canDeleteEvents("Can delete events", true));
+     
+     */
+    
     /*
      else{
      return [self TestDefaultWithCompletionHandler:result];
@@ -94,7 +119,8 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessages" :@"Create message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateMessages" :@"Update message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteMessages" :@"Delete message" ]];
-    
+    [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCopyMessages" :@"Copy message" ]];
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
@@ -233,7 +259,7 @@
             test.ExecutionMessages = [NSMutableArray array];
             NSString* message = @"";
             
-            if(e!= nil){
+            if(e== nil){
                 message = @"Ok - ";
                 passed = true;
             }else
@@ -267,7 +293,7 @@
             test.ExecutionMessages = [NSMutableArray array];
             NSString* message = @"";
             
-            if(error!= nil && folder!=nil ){
+            if(error== nil && folder!=nil ){
                 message = @"Ok - ";
                 passed = true;
             }else
@@ -313,7 +339,7 @@
             test.ExecutionMessages = [NSMutableArray array];
             NSString* message = @"";
             
-            if(error!= nil && copiedFolder!=nil ){
+            if(error== nil && copiedFolder!=nil ){
                 message = @"Ok - ";
                 passed = true;
             }else
@@ -458,7 +484,7 @@
             
             test.ExecutionMessages = [NSMutableArray array];
             
-            NSString* message = error != nil ? @"Ok - ": @"Not - ";
+            NSString* message = error == nil ? @"Ok - ": @"Not - ";
             
             if(updatedMessage!= nil && [updatedMessage.Subject isEqualToString:newMessage.Subject]){
                 passed = true;
@@ -502,6 +528,85 @@
 
             result(test);
         }]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestMoveMessages:(void (^) (Test*))result{
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    //Create message
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
+        //Move message
+        [[[[[[self.Client getMe]getMessages]getById:addedMessage.Id]getOperations]move:@"Inbox" :^(MSOMessage *movedMessage, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = error == nil ? @"Ok - ": @"Not - ";
+            
+            if(movedMessage!= nil && [movedMessage.Subject isEqualToString:newMessage.Subject]){
+                passed = true;
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            if(movedMessage!= nil)
+                [[[[[self.Client getMe]getMessages]getById:movedMessage.Id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }]resume];
+            
+            result(test);
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCopyMessages:(void (^) (Test*))result{
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    //Create message
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
+        //Move message
+        [[[[[[self.Client getMe]getMessages]getById:addedMessage.Id]getOperations]copy:@"Inbox" :^(MSOMessage *copiedMessage, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = error == nil ? @"Ok - ": @"Not - ";
+            
+            if(copiedMessage!= nil && [copiedMessage.Subject isEqualToString:newMessage.Subject]){
+                passed = true;
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            if(copiedMessage!= nil){
+                [[[[[self.Client getMe]getMessages]getById:copiedMessage.Id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }]resume];
+            }
+            
+            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            
+            result(test);
+        }] resume];
     }];
     
     return task;
