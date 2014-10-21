@@ -12,11 +12,20 @@
 * The header for type MSOEntityCollectionFetcher.
 */
 
-@interface MSOEntityCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOEntityCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOEntity> *Entity, NSError *error))callback;
+
+@end
+
+@interface MSOEntityCollectionFetcher : MSOODataCollectionFetcher<MSOEntityCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOEntity* )entity :(void (^)(MSOEntity *entity, NSError *e))callback;
 
 -(MSOEntityFetcher*)getById:(NSString *)Id;
+
 @end

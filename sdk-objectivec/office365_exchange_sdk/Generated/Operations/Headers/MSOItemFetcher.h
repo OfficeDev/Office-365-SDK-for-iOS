@@ -15,7 +15,15 @@
 * The header for type MSOItemFetcher.
 */
 
-@interface MSOItemFetcher : MSOODataEntityFetcher
+
+@protocol MSOItemFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOItem* item, NSError *error))callback;
+
+@end
+
+@interface MSOItemFetcher : MSOODataEntityFetcher<MSOItemFetcher>
 
 -(MSOItemOperations*) getOperations;
 

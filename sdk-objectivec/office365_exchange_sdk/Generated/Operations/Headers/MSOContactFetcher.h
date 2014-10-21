@@ -15,7 +15,15 @@
 * The header for type MSOContactFetcher.
 */
 
-@interface MSOContactFetcher : MSOODataEntityFetcher
+
+@protocol MSOContactFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOContact* contact, NSError *error))callback;
+
+@end
+
+@interface MSOContactFetcher : MSOODataEntityFetcher<MSOContactFetcher>
 
 -(MSOContactOperations*) getOperations;
 

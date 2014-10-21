@@ -24,7 +24,15 @@
 * The header for type MSOUserFetcher.
 */
 
-@interface MSOUserFetcher : MSOODataEntityFetcher
+
+@protocol MSOUserFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOUser* user, NSError *error))callback;
+
+@end
+
+@interface MSOUserFetcher : MSOODataEntityFetcher<MSOUserFetcher>
 
 -(MSOUserOperations*) getOperations;
 

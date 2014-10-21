@@ -17,7 +17,15 @@
 * The header for type MSOFolderFetcher.
 */
 
-@interface MSOFolderFetcher : MSOODataEntityFetcher
+
+@protocol MSOFolderFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOFolder* folder, NSError *error))callback;
+
+@end
+
+@interface MSOFolderFetcher : MSOODataEntityFetcher<MSOFolderFetcher>
 
 -(MSOFolderOperations*) getOperations;
 

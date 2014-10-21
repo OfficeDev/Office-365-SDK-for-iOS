@@ -16,7 +16,15 @@
 * The header for type MSOItemAttachmentFetcher.
 */
 
-@interface MSOItemAttachmentFetcher : MSOODataEntityFetcher
+
+@protocol MSOItemAttachmentFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOItemAttachment* itemAttachment, NSError *error))callback;
+
+@end
+
+@interface MSOItemAttachmentFetcher : MSOODataEntityFetcher<MSOItemAttachmentFetcher>
 
 -(MSOItemAttachmentOperations*) getOperations;
 

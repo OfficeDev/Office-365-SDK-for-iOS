@@ -16,7 +16,15 @@
 * The header for type MSOMessageFetcher.
 */
 
-@interface MSOMessageFetcher : MSOODataEntityFetcher
+
+@protocol MSOMessageFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOMessage* message, NSError *error))callback;
+
+@end
+
+@interface MSOMessageFetcher : MSOODataEntityFetcher<MSOMessageFetcher>
 
 -(MSOMessageOperations*) getOperations;
 

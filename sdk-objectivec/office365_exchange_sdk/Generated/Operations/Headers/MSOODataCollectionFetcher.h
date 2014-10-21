@@ -5,9 +5,6 @@
  ******************************************************************************/
 
 #import "MSOODataExecutable.h"
-#import <office365_odata_base/MSODependencyResolver.h>
-#import <office365_odata_base/MSOResponse.h>
-#import <office365_odata_base/MSOHttpVerb.h>
 #import "MSOODataEntityFetcher.h"
 
 /**

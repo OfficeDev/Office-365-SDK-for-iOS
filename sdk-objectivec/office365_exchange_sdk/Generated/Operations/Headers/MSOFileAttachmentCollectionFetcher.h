@@ -12,11 +12,20 @@
 * The header for type MSOFileAttachmentCollectionFetcher.
 */
 
-@interface MSOFileAttachmentCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOFileAttachmentCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOFileAttachment> *FileAttachment, NSError *error))callback;
+
+@end
+
+@interface MSOFileAttachmentCollectionFetcher : MSOODataCollectionFetcher<MSOFileAttachmentCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOFileAttachment* )entity :(void (^)(MSOFileAttachment *fileAttachment, NSError *e))callback;
 
 -(MSOFileAttachmentFetcher*)getById:(NSString *)Id;
+
 @end

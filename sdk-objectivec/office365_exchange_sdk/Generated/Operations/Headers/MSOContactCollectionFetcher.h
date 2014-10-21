@@ -12,11 +12,20 @@
 * The header for type MSOContactCollectionFetcher.
 */
 
-@interface MSOContactCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOContactCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOContact> *Contact, NSError *error))callback;
+
+@end
+
+@interface MSOContactCollectionFetcher : MSOODataCollectionFetcher<MSOContactCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOContact* )entity :(void (^)(MSOContact *contact, NSError *e))callback;
 
 -(MSOContactFetcher*)getById:(NSString *)Id;
+
 @end

@@ -12,11 +12,20 @@
 * The header for type MSOItemCollectionFetcher.
 */
 
-@interface MSOItemCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOItemCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOItem> *Item, NSError *error))callback;
+
+@end
+
+@interface MSOItemCollectionFetcher : MSOODataCollectionFetcher<MSOItemCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOItem* )entity :(void (^)(MSOItem *item, NSError *e))callback;
 
 -(MSOItemFetcher*)getById:(NSString *)Id;
+
 @end

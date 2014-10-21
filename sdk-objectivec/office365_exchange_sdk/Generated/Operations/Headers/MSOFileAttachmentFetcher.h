@@ -15,7 +15,15 @@
 * The header for type MSOFileAttachmentFetcher.
 */
 
-@interface MSOFileAttachmentFetcher : MSOODataEntityFetcher
+
+@protocol MSOFileAttachmentFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOFileAttachment* fileAttachment, NSError *error))callback;
+
+@end
+
+@interface MSOFileAttachmentFetcher : MSOODataEntityFetcher<MSOFileAttachmentFetcher>
 
 -(MSOFileAttachmentOperations*) getOperations;
 

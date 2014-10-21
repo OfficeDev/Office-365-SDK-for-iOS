@@ -12,11 +12,20 @@
 * The header for type MSOCalendarCollectionFetcher.
 */
 
-@interface MSOCalendarCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOCalendarCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOCalendar> *Calendar, NSError *error))callback;
+
+@end
+
+@interface MSOCalendarCollectionFetcher : MSOODataCollectionFetcher<MSOCalendarCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOCalendar* )entity :(void (^)(MSOCalendar *calendar, NSError *e))callback;
 
 -(MSOCalendarFetcher*)getById:(NSString *)Id;
+
 @end

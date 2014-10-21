@@ -12,11 +12,20 @@
 * The header for type MSOFolderCollectionFetcher.
 */
 
-@interface MSOFolderCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOFolderCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOFolder> *Folder, NSError *error))callback;
+
+@end
+
+@interface MSOFolderCollectionFetcher : MSOODataCollectionFetcher<MSOFolderCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOFolder* )entity :(void (^)(MSOFolder *folder, NSError *e))callback;
 
 -(MSOFolderFetcher*)getById:(NSString *)Id;
+
 @end

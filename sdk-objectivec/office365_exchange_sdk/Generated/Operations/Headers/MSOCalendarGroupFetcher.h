@@ -16,7 +16,15 @@
 * The header for type MSOCalendarGroupFetcher.
 */
 
-@interface MSOCalendarGroupFetcher : MSOODataEntityFetcher
+
+@protocol MSOCalendarGroupFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOCalendarGroup* calendarGroup, NSError *error))callback;
+
+@end
+
+@interface MSOCalendarGroupFetcher : MSOODataEntityFetcher<MSOCalendarGroupFetcher>
 
 -(MSOCalendarGroupOperations*) getOperations;
 

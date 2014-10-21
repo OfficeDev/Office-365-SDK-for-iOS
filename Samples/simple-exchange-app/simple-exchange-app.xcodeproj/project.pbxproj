@@ -362,10 +362,6 @@
 					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
 					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -394,10 +390,6 @@
 					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
 					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

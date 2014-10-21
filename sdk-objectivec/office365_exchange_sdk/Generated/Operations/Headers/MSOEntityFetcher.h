@@ -15,7 +15,15 @@
 * The header for type MSOEntityFetcher.
 */
 
-@interface MSOEntityFetcher : MSOODataEntityFetcher
+
+@protocol MSOEntityFetcher
+
+@optional
+-(NSURLSessionDataTask *)execute:(void (^)(MSOEntity* entity, NSError *error))callback;
+
+@end
+
+@interface MSOEntityFetcher : MSOODataEntityFetcher<MSOEntityFetcher>
 
 -(MSOEntityOperations*) getOperations;
 

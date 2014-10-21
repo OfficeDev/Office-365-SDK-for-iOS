@@ -12,11 +12,20 @@
 * The header for type MSOMessageCollectionFetcher.
 */
 
-@interface MSOMessageCollectionFetcher : MSOODataCollectionFetcher
+
+@protocol MSOMessageCollectionFetcher
+
+@optional
+-(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSOMessage> *Message, NSError *error))callback;
+
+@end
+
+@interface MSOMessageCollectionFetcher : MSOODataCollectionFetcher<MSOMessageCollectionFetcher>
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSOMessage* )entity :(void (^)(MSOMessage *message, NSError *e))callback;
 
 -(MSOMessageFetcher*)getById:(NSString *)Id;
+
 @end

@@ -11,9 +11,6 @@
 #import <office365_exchange_sdk/MSORecipient.h>
 #import <office365_exchange_sdk/MSOEmailAddress.h>
 #import <office365_exchange_sdk/MSOMessage.h>
-#import <office365_exchange_sdk/MSOUserFetcher.h>
-#import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
-//#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface MessageTableViewController ()
 
