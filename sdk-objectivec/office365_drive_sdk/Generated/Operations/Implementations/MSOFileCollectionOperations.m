@@ -3,13 +3,12 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
-#import "MSOItemCollectionOperations.h"
+#import "MSOFileCollectionOperations.h"
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The implementation file for type MSOFileCollectionOperations.
 */
 
-@implementation MSOItemCollectionOperations
+@implementation MSOFileCollectionOperations
 
 @end

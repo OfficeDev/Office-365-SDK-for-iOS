@@ -4,12 +4,20 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+@class MSOIdentity;
+@class MSODriveQuota;
+
+#import <Foundation/Foundation.h>
+#import "MSOProtocols.h"
+
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type Drive.
 */
 
-@implementation MSOItemCollectionOperations
+@interface MSODrive : NSObject
+@property NSString *id;
+@property MSOIdentity *owner;
+@property MSODriveQuota *quota;
 
 @end

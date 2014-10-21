@@ -4,12 +4,19 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+@class MSOIdentity;
+
+#import <Foundation/Foundation.h>
+#import "MSOProtocols.h"
+
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type IdentitySet.
 */
 
-@implementation MSOItemCollectionOperations
+@interface MSOIdentitySet : NSObject
+
+@property MSOIdentity *application;
+@property MSOIdentity *user;
 
 @end

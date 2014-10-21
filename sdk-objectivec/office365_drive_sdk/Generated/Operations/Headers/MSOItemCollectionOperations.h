@@ -1,15 +1,19 @@
+#import "MSOIdentitySet.h"
+#import "MSOItemReference.h"
+
+
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+#import "MSOODataOperations.h"
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type MSOItemCollectionOperations.
 */
 
-@implementation MSOItemCollectionOperations
-
+@interface MSOItemCollectionOperations : MSOODataOperations
+-(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSOItem *item, NSError *error))callback;			
 @end

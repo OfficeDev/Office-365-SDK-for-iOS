@@ -4,12 +4,17 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+#import "MSOItemOperations.h"
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The implementation file for type MSOItemOperations.
 */
 
-@implementation MSOItemCollectionOperations
+@implementation MSOItemOperations
+
+-(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent{
+    return [super initOperationWithUrl:urlComponent Parent:parent];
+}
+
 
 @end

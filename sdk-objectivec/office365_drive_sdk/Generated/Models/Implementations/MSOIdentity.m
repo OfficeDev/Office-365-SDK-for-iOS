@@ -4,12 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+#import "MSOIdentity.h"
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The implementation file for type Identity.
 */
 
-@implementation MSOItemCollectionOperations
+@implementation MSOIdentity	
 
 @end

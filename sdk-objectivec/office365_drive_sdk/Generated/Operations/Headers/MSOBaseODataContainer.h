@@ -4,12 +4,14 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
-
+#import "MSOODataExecutable.h"
+#import <office365_odata_base/MSODependencyResolver.h>
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type MSOBaseODataContainer.
 */
 
-@implementation MSOItemCollectionOperations
+@interface MSOBaseODataContainer : MSOODataExecutable
+
+-(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSODependencyResolver>) resolver;
 
 @end

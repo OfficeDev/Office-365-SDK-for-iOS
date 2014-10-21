@@ -4,12 +4,18 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOItemCollectionOperations.h"
+#import "MSODrive.h"
+#import "MSOODataOperations.h"
+#import "MSOIdentity.h"
+#import "MSODriveQuota.h"
+
 
 /**
-* The implementation file for type MSOItemCollectionOperations.
+* The header for type MSODriveOperations.
 */
 
-@implementation MSOItemCollectionOperations
+@interface MSODriveOperations : MSOODataOperations
+
+-(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 
 @end

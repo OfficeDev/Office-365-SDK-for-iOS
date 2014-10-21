@@ -1,0 +1,42 @@
+//
+//  office365_drive_sdk-Prefix.pch
+//  office365_drive_sdk
+//
+//  Created by Gustavo on 10/21/14.
+//  Copyright (c) 2014 Microsoft. All rights reserved.
+//
+
+#ifndef office365_drive_sdk_office365_drive_sdk_Prefix_pch
+#define office365_drive_sdk_office365_drive_sdk_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Foundation/Foundation.h>
+
+// Base
+
+#import <office365_odata_base/MSOCredentials.h>
+#import <office365_odata_base/MSOCredentialsFactory.h>
+#import <office365_odata_base/MSODependencyResolver.h>
+#import <office365_odata_base/MSOHttpTransport.h>
+#import <office365_odata_base/MSOHttpVerb.h>
+#import <office365_odata_base/MSOJsonSerializer.h>
+#import <office365_odata_base/MSOLogger.h>
+#import <office365_odata_base/MSOLogLevel.h>
+#import <office365_odata_base/MSORequest.h>
+#import <office365_odata_base/MSOResponse.h>
+#import <office365_odata_base/MSOODataUrl.h>
+
+#import <office365_drive_sdk/MSOODataExecutable.h>
+#import <office365_drive_sdk/MSOBaseODataContainer.h>
+#import <office365_drive_sdk/MSOEntityContainerClient.h>
+#import <office365_drive_sdk/MSOODataEntityFetcher.h>
+#import <office365_drive_sdk/MSOODataOperations.h>
+#import <office365_drive_sdk/MSOODataCollectionFetcher.h>
+#import <office365_drive_sdk/MSOODataOperations.h>
+// Helpers
+#import <office365_drive_sdk/MSOBaseODataContainerHelper.h>
+#import <office365_drive_sdk/MSOEntityFetcherHelper.h>
+
+#endif
