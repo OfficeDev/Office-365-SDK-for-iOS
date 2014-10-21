@@ -178,4 +178,34 @@ MailTestRunner *testRunner;
         
     }
 }
+
+-(NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Run";
+}
+
+-(void)changeButtonState{
+    //self.RunAllTest.enabled = !self.RunAllTest.enabled;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self changeButtonState];
+        //[spinner startAnimating];
+        
+        NSURLSessionDataTask *task = [[self.Tests objectAtIndex:indexPath.row] Run:^(Test *result) {
+            Test *test = [self.Tests objectAtIndex:indexPath.row];
+            test.Passed = result.Passed;
+            test.ExecutionMessages = result.ExecutionMessages;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+               // [self disposeTest];
+            });
+        }];
+        
+        [task resume];
+    }
+}
 @end
