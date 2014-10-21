@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8YX-ce-x5E">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -155,7 +155,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV8-mc-cY2">
-                                <rect key="frame" x="254" y="332" width="46" height="30"/>
+                                <rect key="frame" x="254" y="363" width="46" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -163,6 +163,11 @@
                                     <action selector="Save:" destination="9jO-8A-gId" eventType="touchUpInside" id="Yjx-1A-wr2"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Test Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1I3-TX-09B">
+                                <rect key="frame" x="20" y="320" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -174,6 +179,7 @@
                         <outlet property="txtClientId" destination="TFB-pi-P0o" id="fDk-Td-Cd6"/>
                         <outlet property="txtLoggedInUser" destination="XhK-I9-1XC" id="StF-rR-7Ym"/>
                         <outlet property="txtRedirectUrl" destination="GJU-bA-6dw" id="qoH-El-C57"/>
+                        <outlet property="txtTestMail" destination="1I3-TX-09B" id="6aN-SO-Lpv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kZ-Zg-dD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
