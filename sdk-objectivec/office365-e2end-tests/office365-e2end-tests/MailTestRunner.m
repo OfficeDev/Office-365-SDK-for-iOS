@@ -41,7 +41,7 @@
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
     if([testName isEqualToString:@"TestGetFoldersById"])return [self TestGetFoldersById:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
-    if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
+    //if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
     
     /*
 
@@ -309,7 +309,7 @@
             [test.ExecutionMessages addObject: [error localizedDescription]];
         }
         
-        if(addedContact != nil && addedContact.DisplayName == newContact.DisplayName){
+        if(addedContact != nil && [addedContact.DisplayName isEqualToString: newContact.DisplayName]){
             passed = true;
         }
         
@@ -336,7 +336,7 @@
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
             //Delete
-            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
+            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id _result, NSError * error) {
                 BOOL passed = false;
                 
                 NSString* message = (error!= nil) ? @"Not - " : @"Ok - ";
@@ -350,8 +350,8 @@
                 
                 test.Passed = passed;
                 
+                 result(test);
             }] resume];
-        result(test);
     }];
     
     return task;
@@ -377,7 +377,7 @@
                 [test.ExecutionMessages addObject: [error localizedDescription]];
             }
             
-            if(updatedEntity != nil && updatedEntity.DisplayName != addedContact.DisplayName){
+            if(updatedEntity != nil && ![updatedEntity.DisplayName isEqualToString:addedContact.DisplayName]){
                 passed = true;
             }
             
