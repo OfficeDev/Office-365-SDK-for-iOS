@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOODataExecutable.h"
+#import <office365_odata_base/MSODependencyResolver.h>
+
 /**
 * The header for type MSOODataEntityFetcher.
 */

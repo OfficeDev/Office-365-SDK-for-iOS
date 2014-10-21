@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
 #import "BaseTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"

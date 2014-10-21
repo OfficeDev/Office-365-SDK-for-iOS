@@ -9,6 +9,8 @@
 #import "MailTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
+#import <office365_exchange_sdk/MSOFolderCollectionFetcher.h>
+#import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
 
 @implementation MailTestRunner
 

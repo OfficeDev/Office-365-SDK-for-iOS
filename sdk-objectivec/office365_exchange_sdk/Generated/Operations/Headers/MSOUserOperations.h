@@ -13,7 +13,7 @@
 #import "MSOEvent.h"
 #import "MSOContact.h"
 #import "MSOContactFolder.h"
-
+#import "MSOODataOperations.h"
 
 /**
 * The header for type MSOUserOperations.

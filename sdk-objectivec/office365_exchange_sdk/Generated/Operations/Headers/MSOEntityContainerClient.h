@@ -4,10 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "MSOUserFetcher.h"
-
+#import <office365_odata_base/MSODependencyResolver.h>
 #import "MSOUserCollectionFetcher.h"
-
-
 #import "MSOBaseODataContainer.h"
 
 /**
