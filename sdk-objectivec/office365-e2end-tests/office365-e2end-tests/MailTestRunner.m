@@ -29,21 +29,29 @@
     // Contacts Tests
     if([testName isEqualToString:@"TestGetContactFolder"]) return [self TestGetContactFolder:result];
     if([testName isEqualToString:@"TestGetContacts"]) return [self TestGetContacts:result];
-    /*
-     this.addTest(canGetContactsFolder("Can get contacts folder", true));
-     this.addTest(canGetContacts("Can get contacts", true));
-     this.addTest(canCreateContact("Can create contacts", true));
-     this.addTest(canDeleteContact("Can delete contacts", true));
-     this.addTest(canUpdateContact("Can update contacts", true));
-     */
+    if([testName isEqualToString:@"TestCreateContacts"]) return [self TestCreateContacts:result];
+    if([testName isEqualToString:@"TestDeleteContacts"]) return [self TestDeleteContacts:result];
+    if([testName isEqualToString:@"TestUpdateContacts"]) return [self TestUpdateContacts:result];
+
     
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
     
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
+    if([testName isEqualToString:@"TestGetFoldersById"])return [self TestGetFoldersById:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
     
+    
+    /*
+
+    this.addTest(canRetrieveFolderById("Can retrieve folder by id", true));
+
+    this.addTest(canDeleteFolder("Can delete folder", true));
+    this.addTest(canMoveFolder("Can move folder", true));
+    this.addTest(canCopyFolder("Can copy folder", true));
+    this.addTest(canUpdateFolder("Can update folder", true));
+    */
     /*
      else{
      return [self TestDefaultWithCompletionHandler:result];
@@ -58,15 +66,24 @@
     
     [array addObject:[[Test alloc] initWithData:self :@"TestGetUser" :@"Get User" ]];
     
+    //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersById" :@"Get Folders by Id" ]];
     
+        // [array addObject:[[Test alloc] initWithData:self :@"TestCreateFolder" :@"Create Folder" ]];
+    
+    //Mail Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
     
-    // [array addObject:[[Test alloc] initWithData:self :@"TestCreateFolder" :@"Create Folder" ]];
+
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContacts" :@"Get contacts" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateContacts" :@"Create contacts" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteContacts" :@"Delete contacts" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestUpdateContacts" :@"Update contacts" ]];
+    
     return array;
 }
 
@@ -113,6 +130,34 @@
         test.Passed = passed;
         
         [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetFoldersById:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[[[self.Client getMe] getFolders] getById:@"Inbox"] execute:^(MSOFolder *folder, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = (error!=nil && folder!= nil)  ? @"Ok - ": @"Not - ";
+        [test.ExecutionMessages addObject:message];
+        
+        if(error != nil){
+            [test.ExecutionMessages addObject: [error localizedDescription]];
+        }
+        
+        if(folder != nil){
+            passed = true;
+        }
+        
+        test.Passed = passed;
         
         result(test);
     }];
@@ -245,6 +290,112 @@
     
     return task;
 }
+
+
+-(NSURLSessionDataTask*)TestCreateContacts:(void (^) (Test*))result{
+    MSOContact* newContact = [self getContact];
+    
+    //Create contact
+    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = (error!= nil || addedContact == nil) ? @"Not - " : @"Ok - ";
+        [test.ExecutionMessages addObject:message];
+        
+        if(error != nil){
+            [test.ExecutionMessages addObject: [error localizedDescription]];
+        }
+        
+        if(addedContact != nil && addedContact.DisplayName == newContact.DisplayName){
+            passed = true;
+        }
+        
+        test.Passed = passed;
+        
+        //Cleanup
+        [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
+            NSLog(@"Error: %@", error);
+        }] resume];
+        
+        result(test);
+        
+    }];
+    
+    return task;
+}
+
+
+-(NSURLSessionDataTask*)TestDeleteContacts:(void (^) (Test*))result{
+    MSOContact* newContact = [self getContact];
+    
+    //Create contact
+    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *e) {
+        Test *test = [Test alloc];
+        test.ExecutionMessages = [NSMutableArray array];
+            //Delete
+            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
+                BOOL passed = false;
+                
+                NSString* message = (error!= nil) ? @"Not - " : @"Ok - ";
+                [test.ExecutionMessages addObject:message];
+                
+                if(error != nil){
+                    [test.ExecutionMessages addObject: [error localizedDescription]];
+                }else{
+                    passed = true;
+                }
+                
+                test.Passed = passed;
+                
+            }] resume];
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestUpdateContacts:(void (^) (Test*))result{
+    MSOContact* newContact = [self getContact];
+    
+    //Create contact
+    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOContact *addedContact, NSError *error) {
+        [newContact setDisplayName:@"New Contact Name"];
+        
+        [[[[self.Client getMe]getContacts]getById:newContact.Id] update:newContact :^(MSOContact *updatedEntity, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = (error!= nil || updatedEntity == nil) ? @"Not - " : @"Ok - ";
+            [test.ExecutionMessages addObject:message];
+            
+            if(error != nil){
+                [test.ExecutionMessages addObject: [error localizedDescription]];
+            }
+            
+            if(updatedEntity != nil && updatedEntity.DisplayName != addedContact.DisplayName){
+                passed = true;
+            }
+            
+            test.Passed = passed;
+            
+            //Cleanup
+            [[[[[self.Client getMe] getContacts] getById:updatedEntity.Id] delete:^(id result, NSError * error) {
+                NSLog(@"Error: %@", error);
+            }] resume];
+            
+            result(test);
+        }];
+        
+    }];
+    
+    return task;
+}
+
 
 -(MSOContact *) getContact{
     MSOContact* contact = [[MSOContact alloc]init];
