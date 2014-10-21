@@ -8,6 +8,8 @@
 * The header for type MSOODataEntityFetcher.
 */
 
+#import "MSOODataExecutable.h"
+
 @interface MSOODataEntityFetcher : MSOODataExecutable
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent : (Class) entityClass;
