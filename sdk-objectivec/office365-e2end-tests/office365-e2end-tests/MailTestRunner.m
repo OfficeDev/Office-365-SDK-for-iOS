@@ -41,11 +41,10 @@
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
     if([testName isEqualToString:@"TestGetFoldersById"])return [self TestGetFoldersById:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
-    
+    if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
     
     /*
 
-    this.addTest(canRetrieveFolderById("Can retrieve folder by id", true));
 
     this.addTest(canDeleteFolder("Can delete folder", true));
     this.addTest(canMoveFolder("Can move folder", true));
@@ -69,8 +68,9 @@
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersById" :@"Get Folders by Id" ]];
-    
         // [array addObject:[[Test alloc] initWithData:self :@"TestCreateFolder" :@"Create Folder" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFolder" :@"Delete Folders" ]];
+    
     
     //Mail Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
