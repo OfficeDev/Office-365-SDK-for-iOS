@@ -3,8 +3,8 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
 #import "MSOCalendarFetcher.h"
+#import "MSOEventCollectionFetcher.h"
 #import "MSOEventCollectionFetcher.h"
 
 
@@ -22,6 +22,10 @@
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOCalendar class]];
+}
+
+-(MSOEventCollectionFetcher*) getCalendarView{
+    return [[MSOEventCollectionFetcher alloc] initWith:@"CalendarView" :self : [MSOEvent class]];
 }
 
 -(MSOEventCollectionFetcher*) getEvents{

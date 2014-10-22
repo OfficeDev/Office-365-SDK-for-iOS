@@ -3,7 +3,6 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
 #import "MSOCalendarGroupFetcher.h"
 #import "MSOCalendarCollectionFetcher.h"
 

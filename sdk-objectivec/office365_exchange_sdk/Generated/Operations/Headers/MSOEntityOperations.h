@@ -7,10 +7,10 @@
 #import "MSOEntity.h"
 #import "MSOODataOperations.h"
 
-
 /**
 * The header for type MSOEntityOperations.
 */
+
 
 @interface MSOEntityOperations : MSOODataOperations
 

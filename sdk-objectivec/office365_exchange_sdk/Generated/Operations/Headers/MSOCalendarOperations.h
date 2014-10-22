@@ -5,17 +5,16 @@
  ******************************************************************************/
 
 #import "MSOCalendar.h"
-#import "MSOODataOperations.h"
+#import "MSOEntityOperations.h"
 #import "MSOEvent.h"
-
 
 /**
 * The header for type MSOCalendarOperations.
 */
 
-@interface MSOCalendarOperations : MSOODataOperations
+
+@interface MSOCalendarOperations : MSOEntityOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
--(NSURLSessionDataTask*)calendarView : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback;			
 
 @end

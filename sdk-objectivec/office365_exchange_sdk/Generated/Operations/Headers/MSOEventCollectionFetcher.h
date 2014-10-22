@@ -12,7 +12,6 @@
 * The header for type MSOEventCollectionFetcher.
 */
 
-
 @protocol MSOEventCollectionFetcher
 
 @optional

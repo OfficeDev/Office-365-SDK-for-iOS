@@ -12,7 +12,6 @@
 * The header for type MSOUserCollectionFetcher.
 */
 
-
 @protocol MSOUserCollectionFetcher
 
 @optional

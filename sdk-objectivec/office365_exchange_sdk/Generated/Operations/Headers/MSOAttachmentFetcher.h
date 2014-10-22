@@ -4,12 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "MSOODataEntityFetcher.h"
 #import "MSOAttachmentOperations.h"
 #import "MSOAttachment.h"
-
-
 
 /**
 * The header for type MSOAttachmentFetcher.
@@ -20,7 +17,7 @@
 
 @optional
 -(NSURLSessionDataTask *)execute:(void (^)(MSOAttachment* attachment, NSError *error))callback;
-
+-(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOAttachment*, NSError * error))callback;
 @end
 
 @interface MSOAttachmentFetcher : MSOODataEntityFetcher<MSOAttachmentFetcher>

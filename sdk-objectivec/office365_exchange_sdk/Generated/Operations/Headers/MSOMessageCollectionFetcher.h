@@ -12,7 +12,6 @@
 * The header for type MSOMessageCollectionFetcher.
 */
 
-
 @protocol MSOMessageCollectionFetcher
 
 @optional

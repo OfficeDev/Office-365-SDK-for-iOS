@@ -5,7 +5,6 @@
  ******************************************************************************/
 
 #import "MSOImportance.h"
-#import "MSOMeetingMessageType.h"
 @class MSOItemBody;
 @class MSORecipient;
 @class MSOAttachment;
@@ -39,7 +38,5 @@
 @property bool IsReadReceiptRequested;
 @property bool IsDraft;
 @property bool IsRead;
-@property NSString *EventId;
-@property MSOMeetingMessageType *MeetingMessageType;
 
 @end

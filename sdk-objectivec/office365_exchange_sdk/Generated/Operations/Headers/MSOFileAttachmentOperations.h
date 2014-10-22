@@ -5,14 +5,14 @@
  ******************************************************************************/
 
 #import "MSOFileAttachment.h"
-#import "MSOODataOperations.h"
-
+#import "MSOAttachmentOperations.h"
 
 /**
 * The header for type MSOFileAttachmentOperations.
 */
 
-@interface MSOFileAttachmentOperations : MSOODataOperations
+
+@interface MSOFileAttachmentOperations : MSOAttachmentOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 

@@ -4,14 +4,11 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "MSOODataEntityFetcher.h"
 #import "MSOContactFolderOperations.h"
 #import "MSOContactFolder.h"
-
 @class MSOContactCollectionFetcher;
 @class MSOContactFolderCollectionFetcher;
-
 
 /**
 * The header for type MSOContactFolderFetcher.
@@ -22,7 +19,7 @@
 
 @optional
 -(NSURLSessionDataTask *)execute:(void (^)(MSOContactFolder* contactFolder, NSError *error))callback;
-
+-(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOContactFolder*, NSError * error))callback;
 @end
 
 @interface MSOContactFolderFetcher : MSOODataEntityFetcher<MSOContactFolderFetcher>

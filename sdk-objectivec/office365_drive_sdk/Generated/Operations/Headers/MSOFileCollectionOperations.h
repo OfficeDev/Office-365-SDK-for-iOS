@@ -6,11 +6,11 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
+#import "MSOItemCollectionOperations.h"
 
 /**
 * The header for type MSOFileCollectionOperations.
 */
 
-@interface MSOFileCollectionOperations : MSOODataOperations
+@interface MSOFileCollectionOperations : MSOItemCollectionOperations
 @end

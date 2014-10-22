@@ -22,7 +22,8 @@
     self.Client = client;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.TestMail =[userDefaults objectForKey: @"TestMail"];
+    NSString* mail = [userDefaults objectForKey: @"TestMail"];
+    self.TestMail = mail == nil ? @"":mail ;
     
     return self;
 }
@@ -619,6 +620,7 @@
     MSOEmailAddress* email = [[MSOEmailAddress alloc]init];
     [email setAddress:to];
     [toRecipient setEmailAddress:email];
+    
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
     [message setToRecipients:toRecipients];

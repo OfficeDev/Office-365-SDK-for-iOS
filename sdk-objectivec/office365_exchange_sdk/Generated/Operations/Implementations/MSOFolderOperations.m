@@ -19,18 +19,18 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOFolder *folder, NSError *error))callback{
 
-	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+
+			NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
 
 	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-
-	id<MSOODataURL> url = [[self getResolver] createODataURL];
 	[url appendPathComponent:@"Copy"];
-
-        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
+		
+	NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOFolder class]];
             callback(result, error);
         }
         else{
@@ -43,18 +43,18 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOFolder *folder, NSError *error))callback{
 
-	NSArray* parameters = [[NSArray alloc] initWithObjects:
+	id<MSOODataURL> url = [[self getResolver] createODataURL];
+
+			NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
 
 	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-
-	id<MSOODataURL> url = [[self getResolver] createODataURL];
 	[url appendPathComponent:@"Move"];
-
-        NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
+		
+	NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOFolder class]];
             callback(result, error);
         }
         else{

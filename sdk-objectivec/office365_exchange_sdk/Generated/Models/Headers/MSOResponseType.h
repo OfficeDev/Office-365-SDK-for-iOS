@@ -7,7 +7,7 @@
 @interface NSObject ()
 
 typedef enum {
-	//None,
+	None,
 	Organizer,
 	TentativelyAccepted,
 	Accepted,

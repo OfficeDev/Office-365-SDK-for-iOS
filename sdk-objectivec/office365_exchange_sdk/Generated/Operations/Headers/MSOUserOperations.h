@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "MSOUser.h"
-#import "MSOODataOperations.h"
+#import "MSOEntityOperations.h"
 #import "MSOFolder.h"
 #import "MSOMessage.h"
 #import "MSOCalendar.h"
@@ -14,15 +14,14 @@
 #import "MSOContact.h"
 #import "MSOContactFolder.h"
 
-
 /**
 * The header for type MSOUserOperations.
 */
 
-@interface MSOUserOperations : MSOODataOperations
+
+@interface MSOUserOperations : MSOEntityOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 -(NSURLSessionDataTask*)sendMail : (MSOMessage *) message : (bool) saveToSentItems : (void (^)(int returnValue, NSError *error))callback;			
--(NSURLSessionDataTask*)calendarView : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback;			
 
 @end

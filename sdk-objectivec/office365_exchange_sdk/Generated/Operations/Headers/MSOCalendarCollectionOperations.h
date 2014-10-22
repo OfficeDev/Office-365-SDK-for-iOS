@@ -1,14 +1,17 @@
+#import "MSOEvent.h"
+
+
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOODataOperations.h"
+#import "MSOEntityCollectionOperations.h"
 
 /**
 * The header for type MSOCalendarCollectionOperations.
 */
 
-@interface MSOCalendarCollectionOperations : MSOODataOperations
+@interface MSOCalendarCollectionOperations : MSOEntityCollectionOperations
 @end

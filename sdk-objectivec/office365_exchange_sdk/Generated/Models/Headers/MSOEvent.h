@@ -14,6 +14,7 @@
 @class MSORecipient;
 @class MSOAttachment;
 @class MSOCalendar;
+@class MSOEvent;
 
 #import <Foundation/Foundation.h>
 #import "MSOProtocols.h"
