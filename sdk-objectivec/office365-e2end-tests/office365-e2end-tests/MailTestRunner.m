@@ -32,7 +32,13 @@
 
 -(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *test))result{
     
+    //General
     if([testName isEqualToString: @"TestGetUser"]) return [self TestGetUser:result];
+    //if([testName isEqualToString: @"TestTop"]) return [self TestTop:result];
+    //can top
+    //can select
+    // can expand
+    // can filter
     
     // Contacts Tests
     if([testName isEqualToString:@"TestGetContactFolder"]) return [self TestGetContactFolder:result];
@@ -49,15 +55,10 @@
     if([testName isEqualToString:@"TestDeleteMessages"])return [self TestDeleteMessages:result];
     if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestCopyMessages"])return [self TestMoveMessages:result];
-    
-    /*
-     
-     this.addTest(canCreateMessageAttachment("Can create message with attachment", false));
-     this.addTest(canSendMessage("Can send message", true));
-     this.addTest(canCreateReplyMessage("Can create reply", true));
-     this.addTest(canCreateReplyAllMessage("Can create reply all", true));
-     this.addTest(canCreateForwardMessage("Can create forward", true));
-     */
+    if([testName isEqualToString:@"TestSendMessages"])return [self TestSendMessages:result];
+    if([testName isEqualToString:@"TestReplyMessages"])return [self TestReplyMessages:result];
+    if([testName isEqualToString:@"TestReplyAllMessages"])return [self TestReplyAllMessages:result];
+    if([testName isEqualToString:@"TestForwardMessages"])return [self TestForwardMessages:result];
     
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
@@ -105,6 +106,7 @@
     NSMutableArray* array = [NSMutableArray array];
     
     [array addObject:[[Test alloc] initWithData:self :@"TestGetUser" :@"Get User" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestTop" :@"Can use top" ]];
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
@@ -123,6 +125,10 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteMessages" :@"Delete message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCopyMessages" :@"Copy message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSendMessages" :@"Send message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestReplyMessages" :@"Reply message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestReplyAllMessages" :@"ReplyAll message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestForwardMessages" :@"Forward message" ]];
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
@@ -594,44 +600,168 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCopyMessages:(void (^) (Test*))result{
+-(NSURLSessionDataTask*)TestSendMessages:(void (^) (Test*))result{
     MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
-    //Create message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
-        //Move message
-        [[[[[[self.Client getMe]getMessages]getById:addedMessage.Id]getOperations]copy:@"Inbox" :^(MSOMessage *copiedMessage, NSError *error) {
-            BOOL passed = false;
-            
+    
+    //Send Mail
+    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = @"";
+        
+        
+        if(error== nil){
+            message = @"Ok - ";
+            passed = true;
+        }else{
+            message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestReplyMessages:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+        if([messages count] == 0){
             Test *test = [Test alloc];
-            
             test.ExecutionMessages = [NSMutableArray array];
-            
-            NSString* message = error == nil ? @"Ok - ": @"Not - ";
-            
-            if(copiedMessage!= nil && [copiedMessage.Subject isEqualToString:newMessage.Subject]){
-                passed = true;
-            }
-            
-            test.Passed = passed;
-            
-            [test.ExecutionMessages addObject:message];
-            
-            //Cleanup
-            if(copiedMessage!= nil){
-                [[[[[self.Client getMe]getMessages]getById:copiedMessage.Id]delete:^(id entity, NSError *error) {
-                    if(error!= nil)
-                        NSLog(@"Error: %@", error);
-                }]resume];
-            }
-            
-            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
-                if(error!= nil)
-                    NSLog(@"Error: %@", error);
-            }]resume];
-            
-            
+            test.Passed = false;
+            [test.ExecutionMessages addObject:@"Not - No available mails to reply"];
             result(test);
-        }] resume];
+        }else{
+            MSOMessage *currentMessage = [messages objectAtIndex:0];
+            [[[[[[self.Client getMe]getMessages]getById:currentMessage.Id]getOperations]createReply:^(MSOMessage *replyMessage, NSError *error) {
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                NSString* message = @"";
+                if(error == nil && replyMessage != nil){
+                    message =@"Ok - ";
+                    passed = true;
+                }else{
+                    message = @"Not - ";
+                    if(error!=nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                //Cleanup
+                if(replyMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:replyMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+
+                
+                result(test);
+            }] resume];
+        }
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestReplyAllMessages:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+        if([messages count] == 0){
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            test.Passed = false;
+            [test.ExecutionMessages addObject:@"Not - No available mails to reply all"];
+            result(test);
+        }else{
+            MSOMessage *currentMessage = [messages objectAtIndex:0];
+            [[[[[[self.Client getMe]getMessages]getById:currentMessage.Id]getOperations]createReplyAll:^(MSOMessage *replyAllMessage, NSError *error) {
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                NSString* message = @"";
+                if(error == nil && replyAllMessage != nil){
+                    message =@"Ok - ";
+                    passed = true;
+                }else{
+                    message = @"Not - ";
+                    if(error!=nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                //Cleanup
+                if(replyAllMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:replyAllMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }] resume];
+        }
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestForwardMessages:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+        if([messages count] == 0){
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            test.Passed = false;
+            [test.ExecutionMessages addObject:@"Not - No available mails to reply all"];
+            result(test);
+        }else{
+            MSOMessage *currentMessage = [messages objectAtIndex:0];
+            [[[[[[self.Client getMe]getMessages]getById:currentMessage.Id]getOperations]createForward:^(MSOMessage *fwMessage, NSError *error) {
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                NSString* message = @"";
+                if(error == nil && fwMessage != nil){
+                    message =@"Ok - ";
+                    passed = true;
+                }else{
+                    message = @"Not - ";
+                    if(error!=nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                //Cleanup
+                if(fwMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:fwMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }] resume];
+        }
     }];
     
     return task;
@@ -1327,7 +1457,7 @@
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
-
+            
             result(test);
         }] resume];
         
@@ -1341,33 +1471,33 @@
     MSOEvent *event = [self getSampleEvent];
     //Create Event
     NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOEvent *addedEvent, NSError *e) {
-            BOOL passed = false;
-            
-            Test *test = [Test alloc];
-            
-            test.ExecutionMessages = [NSMutableArray array];
-            
-            NSString* message =  @"";
-            if(e == nil && addedEvent != nil ){
-                message =  @"Ok - ";
-                passed = true;
-            }
-            else{
-                message =@"Not - ";
-                if(e!= nil)
-                    message = [message stringByAppendingString:[e localizedDescription]];
-            }
-            
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
-            
-            //Cleanup
-            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
-                if(error!= nil)
-                    NSLog(@"Error: %@", error);
-            }]resume];
-            
-            result(test);
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message =  @"";
+        if(e == nil && addedEvent != nil ){
+            message =  @"Ok - ";
+            passed = true;
+        }
+        else{
+            message =@"Not - ";
+            if(e!= nil)
+                message = [message stringByAppendingString:[e localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        [test.ExecutionMessages addObject:message];
+        
+        //Cleanup
+        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+            if(error!= nil)
+                NSLog(@"Error: %@", error);
+        }]resume];
+        
+        result(test);
     }];
     
     return task;
