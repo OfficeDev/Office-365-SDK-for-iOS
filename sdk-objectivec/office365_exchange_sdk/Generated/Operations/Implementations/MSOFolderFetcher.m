@@ -3,7 +3,6 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
 #import "MSOFolderFetcher.h"
 #import "MSOFolderCollectionFetcher.h"
 #import "MSOMessageCollectionFetcher.h"

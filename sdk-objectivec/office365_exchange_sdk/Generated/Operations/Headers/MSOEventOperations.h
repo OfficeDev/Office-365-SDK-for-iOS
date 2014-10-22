@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "MSOEvent.h"
-#import "MSOODataOperations.h"
+#import "MSOItemOperations.h"
 #import "MSOItemBody.h"
 #import "MSOImportance.h"
 #import "MSOLocation.h"
@@ -16,18 +16,18 @@
 #import "MSORecipient.h"
 #import "MSOAttachment.h"
 #import "MSOCalendar.h"
-
+#import "MSOEvent.h"
 
 /**
 * The header for type MSOEventOperations.
 */
 
-@interface MSOEventOperations : MSOODataOperations
+
+@interface MSOEventOperations : MSOItemOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 -(NSURLSessionDataTask*)accept : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback;			
 -(NSURLSessionDataTask*)decline : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback;			
 -(NSURLSessionDataTask*)tentativelyAccept : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback;			
--(NSURLSessionDataTask*)instances : (NSDate *) startDate : (NSDate *) endDate : (void (^)(MSOEvent *event, NSError *error))callback;			
 
 @end

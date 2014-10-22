@@ -5,8 +5,8 @@
  ******************************************************************************/
 
 #import "MSORecurrencePatternType.h"
+#import "MSODayOfWeek.h"
 #import "MSOWeekIndex.h"
-@class MSODayOfWeek;
 
 #import <Foundation/Foundation.h>
 #import "MSOProtocols.h"

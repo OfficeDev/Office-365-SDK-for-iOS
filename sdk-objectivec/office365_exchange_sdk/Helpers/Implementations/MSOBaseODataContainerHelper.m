@@ -56,8 +56,8 @@
     NSString* r= [result substringWithRange:NSMakeRange(0, [result length] -1)];
     result = [[NSMutableString alloc] initWithString:r];
     [result appendFormat:@"}"];
-    
-    return result;
+    NSString* value = result;
+    return value;
 }
 
 -(id<MSODependencyResolver>)getResolver{

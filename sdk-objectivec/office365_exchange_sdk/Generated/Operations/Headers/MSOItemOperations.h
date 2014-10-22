@@ -5,14 +5,14 @@
  ******************************************************************************/
 
 #import "MSOItem.h"
-#import "MSOODataOperations.h"
-
+#import "MSOEntityOperations.h"
 
 /**
 * The header for type MSOItemOperations.
 */
 
-@interface MSOItemOperations : MSOODataOperations
+
+@interface MSOItemOperations : MSOEntityOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 

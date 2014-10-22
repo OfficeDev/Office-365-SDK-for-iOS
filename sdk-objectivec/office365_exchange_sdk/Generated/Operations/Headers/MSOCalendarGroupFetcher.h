@@ -4,13 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "MSOODataEntityFetcher.h"
 #import "MSOCalendarGroupOperations.h"
 #import "MSOCalendarGroup.h"
-
 @class MSOCalendarCollectionFetcher;
-
 
 /**
 * The header for type MSOCalendarGroupFetcher.
@@ -21,7 +18,7 @@
 
 @optional
 -(NSURLSessionDataTask *)execute:(void (^)(MSOCalendarGroup* calendarGroup, NSError *error))callback;
-
+-(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOCalendarGroup*, NSError * error))callback;
 @end
 
 @interface MSOCalendarGroupFetcher : MSOODataEntityFetcher<MSOCalendarGroupFetcher>

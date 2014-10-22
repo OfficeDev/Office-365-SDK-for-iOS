@@ -11,6 +11,7 @@
 @interface ListTestTableViewController : UITableViewController
 
 - (IBAction)RunAllTests:(id)sender;
+- (IBAction)RunSelectedTests:(id)sender;
 
 @property NSMutableArray *Tests;
 

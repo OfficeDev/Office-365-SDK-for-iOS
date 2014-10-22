@@ -12,7 +12,6 @@
 * The header for type MSOCalendarCollectionFetcher.
 */
 
-
 @protocol MSOCalendarCollectionFetcher
 
 @optional

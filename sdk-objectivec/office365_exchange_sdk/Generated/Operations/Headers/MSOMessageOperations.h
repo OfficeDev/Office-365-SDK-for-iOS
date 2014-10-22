@@ -5,19 +5,18 @@
  ******************************************************************************/
 
 #import "MSOMessage.h"
-#import "MSOODataOperations.h"
+#import "MSOItemOperations.h"
 #import "MSOItemBody.h"
 #import "MSOImportance.h"
 #import "MSORecipient.h"
-#import "MSOMeetingMessageType.h"
 #import "MSOAttachment.h"
-
 
 /**
 * The header for type MSOMessageOperations.
 */
 
-@interface MSOMessageOperations : MSOODataOperations
+
+@interface MSOMessageOperations : MSOItemOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOMessage *message, NSError *error))callback;			

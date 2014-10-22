@@ -12,7 +12,6 @@
 * The header for type MSOEntityCollectionFetcher.
 */
 
-
 @protocol MSOEntityCollectionFetcher
 
 @optional

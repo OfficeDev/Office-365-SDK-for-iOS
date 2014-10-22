@@ -5,15 +5,15 @@
  ******************************************************************************/
 
 #import "MSOCalendarGroup.h"
-#import "MSOODataOperations.h"
+#import "MSOEntityOperations.h"
 #import "MSOCalendar.h"
-
 
 /**
 * The header for type MSOCalendarGroupOperations.
 */
 
-@interface MSOCalendarGroupOperations : MSOODataOperations
+
+@interface MSOCalendarGroupOperations : MSOEntityOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 

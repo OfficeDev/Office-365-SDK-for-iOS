@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOCalendarGroupCollectionOperations.h"
 
 /**
@@ -10,5 +11,4 @@
 */
 
 @implementation MSOCalendarGroupCollectionOperations
-
 @end

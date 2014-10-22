@@ -12,7 +12,6 @@
 * The header for type MSOContactCollectionFetcher.
 */
 
-
 @protocol MSOContactCollectionFetcher
 
 @optional

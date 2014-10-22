@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECBA298719F7E04D00454689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298619F7E04D00454689 /* main.m */; };
+		ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298B19F7E04D00454689 /* simple_drive_app.xcdatamodeld */; };
+		ECBA299019F7E04D00454689 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298F19F7E04D00454689 /* ViewController.m */; };
+		ECBA299319F7E04D00454689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299119F7E04D00454689 /* Main.storyboard */; };
+		ECBA299519F7E04D00454689 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299419F7E04D00454689 /* Images.xcassets */; };
+		ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299619F7E04D00454689 /* LaunchScreen.xib */; };
+		ECBA29A419F7E04D00454689 /* simple_drive_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */; };
+		ECBA29B619F7E0E500454689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29AF19F7E0E500454689 /* AppDelegate.m */; };
+		ECBA29B719F7E0E500454689 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B119F7E0E500454689 /* BaseController.m */; };
+		ECBA29B819F7E0E500454689 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B319F7E0E500454689 /* LogInController.m */; };
+		ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */; };
+		ECBA29BD19F7E17300454689 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BA19F7E17300454689 /* libADALiOS.a */; };
+		ECBA29BE19F7E17300454689 /* office365_drive_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BB19F7E17300454689 /* office365_drive_sdk.framework */; };
+		ECBA29BF19F7E17300454689 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BC19F7E17300454689 /* office365_odata_base.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ECBA299E19F7E04D00454689 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECBA297919F7E04D00454689 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECBA298019F7E04D00454689;
+			remoteInfo = "simple-drive-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		ECBA298119F7E04D00454689 /* simple-drive-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-drive-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBA298519F7E04D00454689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBA298619F7E04D00454689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECBA298C19F7E04D00454689 /* simple_drive_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simple_drive_app.xcdatamodel; sourceTree = "<group>"; };
+		ECBA298E19F7E04D00454689 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ECBA298F19F7E04D00454689 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ECBA299219F7E04D00454689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECBA299419F7E04D00454689 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		ECBA299719F7E04D00454689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-drive-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBA29A219F7E04D00454689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_drive_appTests.m; sourceTree = "<group>"; };
+		ECBA29AE19F7E0E500454689 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ECBA29AF19F7E0E500454689 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ECBA29B019F7E0E500454689 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		ECBA29B119F7E0E500454689 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		ECBA29B219F7E0E500454689 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
+		ECBA29B319F7E0E500454689 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		ECBA29B419F7E0E500454689 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		ECBA29BA19F7E17300454689 /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
+		ECBA29BB19F7E17300454689 /* office365_drive_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_drive_sdk.framework; path = "../../sdk-objectivec/office365_drive_sdk/build/Debug-iphoneos/office365_drive_sdk.framework"; sourceTree = "<group>"; };
+		ECBA29BC19F7E17300454689 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../sdk-objectivec/office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECBA297E19F7E04D00454689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA29BD19F7E17300454689 /* libADALiOS.a in Frameworks */,
+				ECBA29BE19F7E17300454689 /* office365_drive_sdk.framework in Frameworks */,
+				ECBA29BF19F7E17300454689 /* office365_odata_base.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBA299A19F7E04D00454689 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECBA297819F7E04D00454689 = {
+			isa = PBXGroup;
+			children = (
+				ECBA29C019F7E18500454689 /* Frameworks */,
+				ECBA298319F7E04D00454689 /* simple-drive-app */,
+				ECBA29A019F7E04D00454689 /* simple-drive-appTests */,
+				ECBA298219F7E04D00454689 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECBA298219F7E04D00454689 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA298119F7E04D00454689 /* simple-drive-app.app */,
+				ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECBA298319F7E04D00454689 /* simple-drive-app */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA29AD19F7E0E500454689 /* base */,
+				ECBA298E19F7E04D00454689 /* ViewController.h */,
+				ECBA298F19F7E04D00454689 /* ViewController.m */,
+				ECBA299119F7E04D00454689 /* Main.storyboard */,
+				ECBA299419F7E04D00454689 /* Images.xcassets */,
+				ECBA299619F7E04D00454689 /* LaunchScreen.xib */,
+				ECBA298B19F7E04D00454689 /* simple_drive_app.xcdatamodeld */,
+				ECBA298419F7E04D00454689 /* Supporting Files */,
+			);
+			path = "simple-drive-app";
+			sourceTree = "<group>";
+		};
+		ECBA298419F7E04D00454689 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA298519F7E04D00454689 /* Info.plist */,
+				ECBA298619F7E04D00454689 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECBA29A019F7E04D00454689 /* simple-drive-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */,
+				ECBA29A119F7E04D00454689 /* Supporting Files */,
+			);
+			path = "simple-drive-appTests";
+			sourceTree = "<group>";
+		};
+		ECBA29A119F7E04D00454689 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA29A219F7E04D00454689 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECBA29AD19F7E0E500454689 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA29AE19F7E0E500454689 /* AppDelegate.h */,
+				ECBA29AF19F7E0E500454689 /* AppDelegate.m */,
+				ECBA29B019F7E0E500454689 /* BaseController.h */,
+				ECBA29B119F7E0E500454689 /* BaseController.m */,
+				ECBA29B219F7E0E500454689 /* LogInController.h */,
+				ECBA29B319F7E0E500454689 /* LogInController.m */,
+				ECBA29B419F7E0E500454689 /* UserSettingsViewController.h */,
+				ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		ECBA29C019F7E18500454689 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECBA29BA19F7E17300454689 /* libADALiOS.a */,
+				ECBA29BB19F7E17300454689 /* office365_drive_sdk.framework */,
+				ECBA29BC19F7E17300454689 /* office365_odata_base.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECBA298019F7E04D00454689 /* simple-drive-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBA29A719F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-app" */;
+			buildPhases = (
+				ECBA297D19F7E04D00454689 /* Sources */,
+				ECBA297E19F7E04D00454689 /* Frameworks */,
+				ECBA297F19F7E04D00454689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "simple-drive-app";
+			productName = "simple-drive-app";
+			productReference = ECBA298119F7E04D00454689 /* simple-drive-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ECBA299C19F7E04D00454689 /* simple-drive-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBA29AA19F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-appTests" */;
+			buildPhases = (
+				ECBA299919F7E04D00454689 /* Sources */,
+				ECBA299A19F7E04D00454689 /* Frameworks */,
+				ECBA299B19F7E04D00454689 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ECBA299F19F7E04D00454689 /* PBXTargetDependency */,
+			);
+			name = "simple-drive-appTests";
+			productName = "simple-drive-appTests";
+			productReference = ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECBA297919F7E04D00454689 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Microsoft;
+				TargetAttributes = {
+					ECBA298019F7E04D00454689 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					ECBA299C19F7E04D00454689 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = ECBA298019F7E04D00454689;
+					};
+				};
+			};
+			buildConfigurationList = ECBA297C19F7E04D00454689 /* Build configuration list for PBXProject "simple-drive-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECBA297819F7E04D00454689;
+			productRefGroup = ECBA298219F7E04D00454689 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECBA298019F7E04D00454689 /* simple-drive-app */,
+				ECBA299C19F7E04D00454689 /* simple-drive-appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECBA297F19F7E04D00454689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA299319F7E04D00454689 /* Main.storyboard in Resources */,
+				ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */,
+				ECBA299519F7E04D00454689 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBA299B19F7E04D00454689 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECBA297D19F7E04D00454689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA29B619F7E0E500454689 /* AppDelegate.m in Sources */,
+				ECBA29B719F7E0E500454689 /* BaseController.m in Sources */,
+				ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */,
+				ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */,
+				ECBA29B819F7E0E500454689 /* LogInController.m in Sources */,
+				ECBA299019F7E04D00454689 /* ViewController.m in Sources */,
+				ECBA298719F7E04D00454689 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECBA299919F7E04D00454689 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBA29A419F7E04D00454689 /* simple_drive_appTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECBA299F19F7E04D00454689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECBA298019F7E04D00454689 /* simple-drive-app */;
+			targetProxy = ECBA299E19F7E04D00454689 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECBA299119F7E04D00454689 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECBA299219F7E04D00454689 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECBA299619F7E04D00454689 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECBA299719F7E04D00454689 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECBA29A519F7E04D00454689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ECBA29A619F7E04D00454689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECBA29A819F7E04D00454689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "simple-drive-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		ECBA29A919F7E04D00454689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "simple-drive-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		ECBA29AB19F7E04D00454689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-drive-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-drive-app.app/simple-drive-app";
+			};
+			name = Debug;
+		};
+		ECBA29AC19F7E04D00454689 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-drive-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-drive-app.app/simple-drive-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECBA297C19F7E04D00454689 /* Build configuration list for PBXProject "simple-drive-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBA29A519F7E04D00454689 /* Debug */,
+				ECBA29A619F7E04D00454689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECBA29A719F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBA29A819F7E04D00454689 /* Debug */,
+				ECBA29A919F7E04D00454689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		ECBA29AA19F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBA29AB19F7E04D00454689 /* Debug */,
+				ECBA29AC19F7E04D00454689 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ECBA298B19F7E04D00454689 /* simple_drive_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ECBA298C19F7E04D00454689 /* simple_drive_app.xcdatamodel */,
+			);
+			currentVersion = ECBA298C19F7E04D00454689 /* simple_drive_app.xcdatamodel */;
+			path = simple_drive_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = ECBA297919F7E04D00454689 /* Project object */;
+}

@@ -5,15 +5,15 @@
  ******************************************************************************/
 
 #import "MSOItemAttachment.h"
-#import "MSOODataOperations.h"
+#import "MSOAttachmentOperations.h"
 #import "MSOItem.h"
-
 
 /**
 * The header for type MSOItemAttachmentOperations.
 */
 
-@interface MSOItemAttachmentOperations : MSOODataOperations
+
+@interface MSOItemAttachmentOperations : MSOAttachmentOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 

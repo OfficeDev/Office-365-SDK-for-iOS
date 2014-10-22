@@ -3,7 +3,6 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
 #import "MSOUserFetcher.h"
 #import "MSOFolderCollectionFetcher.h"
 #import "MSOMessageCollectionFetcher.h"
@@ -11,6 +10,7 @@
 #import "MSOCalendarCollectionFetcher.h"
 #import "MSOCalendarFetcher.h"
 #import "MSOCalendarGroupCollectionFetcher.h"
+#import "MSOEventCollectionFetcher.h"
 #import "MSOEventCollectionFetcher.h"
 #import "MSOContactCollectionFetcher.h"
 #import "MSOContactFolderCollectionFetcher.h"
@@ -58,6 +58,10 @@
 
 -(MSOEventCollectionFetcher*) getEvents{
     return [[MSOEventCollectionFetcher alloc] initWith:@"Events" :self : [MSOEvent class]];
+}
+
+-(MSOEventCollectionFetcher*) getCalendarView{
+    return [[MSOEventCollectionFetcher alloc] initWith:@"CalendarView" :self : [MSOEvent class]];
 }
 
 -(MSOContactCollectionFetcher*) getContacts{

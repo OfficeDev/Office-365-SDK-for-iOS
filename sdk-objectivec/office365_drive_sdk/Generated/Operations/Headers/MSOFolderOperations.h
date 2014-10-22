@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "MSOFolder.h"
-#import "MSOODataOperations.h"
+#import "MSOItemOperations.h"
 #import "MSOItem.h"
 
 
@@ -13,7 +13,7 @@
 * The header for type MSOFolderOperations.
 */
 
-@interface MSOFolderOperations : MSOODataOperations
+@interface MSOFolderOperations : MSOItemOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 -(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSOFolder *folder, NSError *error))callback;			

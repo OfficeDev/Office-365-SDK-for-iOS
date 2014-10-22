@@ -5,16 +5,16 @@
  ******************************************************************************/
 
 #import "MSOContact.h"
-#import "MSOODataOperations.h"
+#import "MSOItemOperations.h"
 #import "MSOEmailAddress.h"
 #import "MSOPhysicalAddress.h"
-
 
 /**
 * The header for type MSOContactOperations.
 */
 
-@interface MSOContactOperations : MSOODataOperations
+
+@interface MSOContactOperations : MSOItemOperations
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOODataExecutable>)parent;
 

@@ -12,7 +12,6 @@
 * The header for type MSOFolderCollectionFetcher.
 */
 
-
 @protocol MSOFolderCollectionFetcher
 
 @optional

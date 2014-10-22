@@ -12,7 +12,6 @@
 * The header for type MSOItemAttachmentCollectionFetcher.
 */
 
-
 @protocol MSOItemAttachmentCollectionFetcher
 
 @optional

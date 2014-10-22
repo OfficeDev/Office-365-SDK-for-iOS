@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOItemCollectionOperations.h"
 
 /**
@@ -15,13 +16,12 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-    NSArray* params = [[NSArray alloc] initWithObjects:
+			NSArray* params = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ],nil];
 
 	NSString* parameters = [MSOBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
-	
-    NSData* payload = nil;
+	NSData* payload = nil;
 		
 	NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         

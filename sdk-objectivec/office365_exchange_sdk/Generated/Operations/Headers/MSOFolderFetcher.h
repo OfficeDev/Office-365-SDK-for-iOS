@@ -4,14 +4,11 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "MSOODataEntityFetcher.h"
 #import "MSOFolderOperations.h"
 #import "MSOFolder.h"
-
 @class MSOFolderCollectionFetcher;
 @class MSOMessageCollectionFetcher;
-
 
 /**
 * The header for type MSOFolderFetcher.
@@ -22,7 +19,7 @@
 
 @optional
 -(NSURLSessionDataTask *)execute:(void (^)(MSOFolder* folder, NSError *error))callback;
-
+-(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOFolder*, NSError * error))callback;
 @end
 
 @interface MSOFolderFetcher : MSOODataEntityFetcher<MSOFolderFetcher>

@@ -6,6 +6,9 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol MSODayOfWeek
+@end
+
 @protocol MSOBodyType
 @end
 
@@ -34,9 +37,6 @@
 @end
 
 @protocol MSOWeekIndex
-@end
-
-@protocol MSODayOfWeek
 @end
 
 @protocol MSOEmailAddress
