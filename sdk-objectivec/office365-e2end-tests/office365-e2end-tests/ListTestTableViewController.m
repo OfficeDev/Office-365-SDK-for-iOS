@@ -74,7 +74,8 @@ MailTestRunner *testRunner;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListTests" forIndexPath:indexPath];
     
     Test *test = [self.Tests objectAtIndex:indexPath.row];
-    cell.textLabel.text = test.DisplayName;
+    UILabel* label = (UILabel *)[cell .contentView viewWithTag:2];
+    label.text = test.DisplayName;
     	
     if(test.ExecutionMessages != nil){
         if(test.Passed){
@@ -142,8 +143,6 @@ MailTestRunner *testRunner;
 
 - (IBAction)RunAllTests:(id)sender {
     
-    
-    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
@@ -176,6 +175,49 @@ MailTestRunner *testRunner;
         }
 
         
+    }
+}
+
+- (IBAction)RunSelectedTests:(id)sender {
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [self.view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    [spinner startAnimating];
+    
+    __block int executed = 0;
+    __block int toExecute = 0;
+    
+    for (NSUInteger i = 0; i < [self.Tests count]; i++) {
+
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        UISwitch* s = (UISwitch*)[cell viewWithTag:1];
+        
+        if(s.isOn){
+            toExecute++;
+            @try {
+                NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
+                
+                    Test *test = [self.Tests objectAtIndex:i];
+                    test.Passed = result.Passed;
+                    test.ExecutionMessages = result.ExecutionMessages;
+                    executed++;
+                
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.tableView reloadData];
+                    
+                        if(executed == toExecute) [spinner stopAnimating];
+                    });
+                }];
+            
+                [task resume];
+            }
+            @catch (NSException *e) {
+                NSLog(@"Exception: %@", e);
+            }
+        }
     }
 }
 

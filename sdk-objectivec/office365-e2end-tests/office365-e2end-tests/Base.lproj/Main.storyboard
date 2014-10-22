@@ -15,9 +15,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="ORC-kV-28Q" kind="relationship" relationship="viewControllers" id="xu0-ZY-Mdg"/>
-                        <segue destination="Srn-GL-afm" kind="relationship" relationship="viewControllers" id="EaE-V7-MGb"/>
                         <segue destination="9jO-8A-gId" kind="relationship" relationship="viewControllers" id="0wx-zt-bd4"/>
+                        <segue destination="ORC-kV-28Q" kind="relationship" relationship="viewControllers" id="xu0-ZY-Mdg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -76,7 +75,7 @@
             </objects>
             <point key="canvasLocation" x="617" y="194"/>
         </scene>
-        <!--Run Mail Tests-->
+        <!--Exchange Tests-->
         <scene sceneID="yGX-4b-6rV">
             <objects>
                 <tableViewController id="Xb0-Ag-Snv" customClass="ListTestTableViewController" sceneMemberID="viewController">
@@ -91,6 +90,18 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tof-5M-r0e" id="zxS-Dk-DEI">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JaG-TD-RBa">
+                                            <rect key="frame" x="8" y="6" width="51" height="31"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P19-uq-Zxb">
+                                            <rect key="frame" x="65" y="13" width="214" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="1"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -99,9 +110,13 @@
                             <outlet property="delegate" destination="Xb0-Ag-Snv" id="jzn-Uf-r4Z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Run Mail Tests" id="s4x-R4-ZC1">
-                        <barButtonItem key="leftBarButtonItem" title="Selected" id="XpK-cL-6D6"/>
-                        <barButtonItem key="rightBarButtonItem" title="All" id="f5x-Rf-xtu">
+                    <navigationItem key="navigationItem" title="Exchange Tests" id="s4x-R4-ZC1">
+                        <barButtonItem key="leftBarButtonItem" title="Run Sel" id="XpK-cL-6D6">
+                            <connections>
+                                <action selector="RunSelectedTests:" destination="Xb0-Ag-Snv" id="epI-1A-2fz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Run All" id="f5x-Rf-xtu">
                             <connections>
                                 <action selector="RunAllTests:" destination="Xb0-Ag-Snv" id="4WG-Wi-BbB"/>
                             </connections>
@@ -110,7 +125,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8N-kM-nj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="-515"/>
+            <point key="canvasLocation" x="1185" y="-519"/>
         </scene>
         <!--Settings-->
         <scene sceneID="fTt-5e-U2c">
@@ -186,11 +201,11 @@
             </objects>
             <point key="canvasLocation" x="617" y="907"/>
         </scene>
-        <!--List Tests-->
+        <!--Exchange Tests-->
         <scene sceneID="Qpm-IV-OoG">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ORC-kV-28Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="List Tests" id="IjA-3Y-ojr"/>
+                    <tabBarItem key="tabBarItem" title="Exchange Tests" id="IjA-3Y-ojr"/>
                     <navigationItem key="navigationItem" id="muS-7U-hlh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Vf-sK-zuy">
                         <autoresizingMask key="autoresizingMask"/>
