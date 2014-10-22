@@ -13,6 +13,9 @@
 #import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOContactFolderCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOContactCollectionFetcher.h>
+#import <office365_exchange_sdk/MSOCalendarGroupCollectionFetcher.h>
+#import <office365_exchange_sdk/MSOCalendarCollectionFetcher.h>
+#import <office365_exchange_sdk/MSOEventCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOContactFetcher.h>
 #import <office365_exchange_sdk/MSOFolderFetcher.h>
 
@@ -65,31 +68,30 @@
     if([testName isEqualToString:@"TestMoveFolder"])return [self TestMoveFolder:result];
     if([testName isEqualToString:@"TestCopyFolder"])return [self TestCopyFolder:result];
     if([testName isEqualToString:@"TestUpdateFolder"])return [self TestUpdateFolder:result];
-
-    // Calendar tests
-    /*
-     //Calendar groups
-     this.addTest(canCreateCalendarGroup("Can create calendar group", true));
-     this.addTest(canGetCalendarGroups("Can get calendar groups", true));
-     this.addTest(canGetCalendarGroupById("Can get calendar group by id", true));
-     this.addTest(canUpdateCalendarGroup("Can update calendar group", true));
-     this.addTest(canDeleteCalendarGroup("Can delete calendar group", true));
-     
-     // Calendars
-     this.addTest(canCreateCalendar("Can create calendar", true));
-     this.addTest(canGetCalendars("Can get calendars", true));
-     this.addTest(canGetDefaultCalendar("Can get default calendar", true));
-     this.addTest(canGetCalendarById("Can get calendar by id", true));
-     this.addTest(canUpdateCalendar("Can update calendar", true));
-     this.addTest(canDeleteCalendar("Can delete calendar", true));
-     
-     //Events
-     this.addTest(canGetEvents("Can get events", true));
-     this.addTest(canCreateEvents("Can create events", true));
-     this.addTest(canUpdateEvents("Can update events", true));
-     this.addTest(canDeleteEvents("Can delete events", true));
-     
-     */
+    
+    //Calendar groups Tests
+    if([testName isEqualToString:@"TestGetCalendarGroups"])return [self TestGetCalendarGroups:result];
+    if([testName isEqualToString:@"TestCreateCalendarGroups"])return [self TestCreateCalendarGroups:result];
+    if([testName isEqualToString:@"TestGetCalendarGroupById"])return [self TestGetCalendarGroupById:result];
+    if([testName isEqualToString:@"TestUpdateCalendarGroups"])return [self TestUpdateCalendarGroups:result];
+    if([testName isEqualToString:@"TestDeleteCalendarGroups"])return [self TestDeleteCalendarGroups:result];
+    
+    // Calendar Tests
+    if([testName isEqualToString:@"TestGetCalendars"])return [self TestGetCalendars:result];
+    if([testName isEqualToString:@"TestGetDefaultCalendar"])return [self TestGetDefaultCalendar:result];
+    if([testName isEqualToString:@"TestCreateCalendar"])return [self TestCreateCalendar:result];
+    if([testName isEqualToString:@"TestGetCalendarById"])return [self TestGetCalendarById:result];
+    if([testName isEqualToString:@"TestUpdateCalendar"])return [self TestUpdateCalendar:result];
+    if([testName isEqualToString:@"TestDeleteCalendar"])return [self TestDeleteCalendar:result];
+    
+    //Events Tests
+    
+    if([testName isEqualToString:@"TestGetEvents"])return [self TestGetEvents:result];
+    if([testName isEqualToString:@"TestCreateEvents"])return [self TestCreateEvents:result];
+    if([testName isEqualToString:@"TestUpdateEvents"])return [self TestUpdateEvents:result];
+    if([testName isEqualToString:@"TestDeleteEvents"])return [self TestDeleteEvents:result];
+    
+    
     
     /*
      else{
@@ -130,6 +132,27 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteContacts" :@"Delete contacts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateContacts" :@"Update contacts" ]];
     
+    // Calendar Groups Tests
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendarGroups" :@"Get calendar groups" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateCalendarGroups" :@"Create calendar groups" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendarGroupById" :@"Get calendar groups by id" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestUpdateCalendarGroups" :@"Update calendar groups" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteCalendarGroups" :@"Delete calendar groups" ]];
+    
+    // Calendar Tests
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendars" :@"Get calendars" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetDefaultCalendar" :@"Get default calendar" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateCalendar" :@"Create calendar" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendarById" :@"Get calendar by id" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestUpdateCalendar" :@"Update calendar" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteCalendar" :@"Delete calendar" ]];
+    
+    //Event Tests
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetEvents" :@"Get events" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateEvents" :@"Create event" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestUpdateEvents" :@"Update event" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteEvents" :@"Delete event" ]];
+    
     return array;
 }
 
@@ -157,6 +180,8 @@
     
     return task;
 }
+
+//******* Folder Tests **********
 
 -(NSURLSessionDataTask*)TestGetFolders:(void (^) (Test*))result{
     
@@ -526,7 +551,7 @@
             
             test.Passed = passed;
             [test.ExecutionMessages addObject:message];
-
+            
             result(test);
         }]resume];
     }];
@@ -839,9 +864,619 @@
     return contact;
 }
 
-//*************
+//******* Calendar Group Tests **********
+
+-(NSURLSessionDataTask*)TestGetCalendarGroups:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendarGroups] execute:^(NSArray<MSOCalendarGroup> *calendarGroups, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message =  @"";
+        if(error == nil && calendarGroups != nil && [calendarGroups count]>0 ){
+            message =  @"Ok - ";
+            passed = true;
+        }
+        else{
+            message =@"Not - ";
+            if(error!= nil)
+                message = [message stringByAppendingString:[error localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        result(test);
+    }];
+    
+    return task;
+}
 
 
+-(NSURLSessionDataTask*)TestCreateCalendarGroups:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
+    
+    MSOCalendarGroup *newCalendarGroup = [[MSOCalendarGroup alloc] init];
+    [newCalendarGroup setName:calendarGroupName];
+    
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] add:newCalendarGroup :^(MSOCalendarGroup *addedCalendarGroup, NSError *e) {
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        NSString* message = @"";
+        
+        if(e== nil && addedCalendarGroup != nil && [addedCalendarGroup.Name isEqualToString:calendarGroupName] ){
+            message = @"Ok - ";
+            passed = true;
+        }else
+        {
+            message = @"Not - ";
+            if(e != nil)
+                message = [message stringByAppendingString:[e localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        [test.ExecutionMessages addObject:message];
+        
+        //Cleanup
+        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+            if(error!= nil)
+                NSLog(@"Error: %@", error);
+        }]resume];
+        
+        result(test);
+    }];
+    
+    return task;
+}
 
+-(NSURLSessionDataTask*)TestGetCalendarGroupById:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
+    
+    MSOCalendarGroup *newCalendarGroup = [[MSOCalendarGroup alloc] init];
+    [newCalendarGroup setName:calendarGroupName];
+    //Create calendar group
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] add:newCalendarGroup :^(MSOCalendarGroup *addedCalendarGroup, NSError *e) {
+        //Get by id
+        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]execute:^(MSOCalendarGroup *calendarGroup, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil && calendarGroup != nil && [calendarGroup.Name isEqualToString:calendarGroupName] ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getCalendarGroups]getById:calendarGroup.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestUpdateCalendarGroups:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
+    NSString *updatedCalendarGroupName = [@"Updated" stringByAppendingString:calendarGroupName];
+    MSOCalendarGroup *newCalendarGroup = [[MSOCalendarGroup alloc] init];
+    [newCalendarGroup setName:calendarGroupName];
+    
+    // Create Calendar
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] add:newCalendarGroup :^(MSOCalendarGroup *addedCalendarGroup, NSError *e) {
+        [newCalendarGroup setName:updatedCalendarGroupName];
+        //Update Calendar Group
+        [[[[[self.Client getMe] getCalendarGroups] getById:addedCalendarGroup.Id] update:newCalendarGroup :^(MSOCalendarGroup *updatedCalendarGroup, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil && updatedCalendarGroup != nil && [updatedCalendarGroup.Name isEqualToString:updatedCalendarGroupName] ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getCalendarGroups]getById:updatedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+            
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestDeleteCalendarGroups:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
+    
+    MSOCalendarGroup *newCalendarGroup = [[MSOCalendarGroup alloc] init];
+    [newCalendarGroup setName:calendarGroupName];
+    //Create Calendar
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] add:newCalendarGroup :^(MSOCalendarGroup *addedCalendarGroup, NSError *e) {
+        //Delete Calendar
+        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+            
+        }]resume];
+    }];
+    
+    return task;
+}
+
+// ****** Calendar Tests *****
+
+-(NSURLSessionDataTask*)TestGetCalendars:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendars] execute:^(NSArray<MSOCalendar> *calendars, NSError *error) {
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message =  @"";
+        if(error == nil && calendars != nil && [calendars count]>0 ){
+            message =  @"Ok - ";
+            passed = true;
+        }
+        else{
+            message =@"Not - ";
+            if(error!= nil)
+                message = [message stringByAppendingString:[error localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetDefaultCalendar:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendar] execute:^(MSOCalendar *calendar, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message =  @"";
+        if(error == nil && calendar != nil ){
+            message =  @"Ok - ";
+            passed = true;
+        }
+        else{
+            message =@"Not - ";
+            if(error!= nil)
+                message = [message stringByAppendingString:[error localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCreateCalendar:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+    
+    MSOCalendar *newCalendar = [[MSOCalendar alloc] init];
+    [newCalendar setName:calendarName];
+    
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] add:newCalendar :^(MSOCalendar *addedCalendar, NSError *e) {
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        NSString* message = @"";
+        
+        if(e== nil && addedCalendar != nil && [addedCalendar.Name isEqualToString:calendarName] ){
+            message = @"Ok - ";
+            passed = true;
+        }else
+        {
+            message = @"Not - ";
+            if(e != nil)
+                message = [message stringByAppendingString:[e localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        [test.ExecutionMessages addObject:message];
+        
+        //Cleanup
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+            if(error!= nil)
+                NSLog(@"Error: %@", error);
+        }]resume];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetCalendarById:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+    
+    MSOCalendar *newCalendar = [[MSOCalendar alloc] init];
+    [newCalendar setName:calendarName];
+    //Create calendar
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] add:newCalendar :^(MSOCalendar *addedCalendar, NSError *e) {
+        //Get by id
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id] execute:^(MSOCalendar *calendar, NSError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil && calendar != nil && [calendar.Name isEqualToString:calendarName] ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getCalendars]getById:calendar.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestUpdateCalendar:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+    NSString *updatedCalendarName = [@"Updated" stringByAppendingString:calendarName];
+    MSOCalendar *newCalendar = [[MSOCalendar alloc] init];
+    [newCalendar setName:calendarName];
+    
+    // Create Calendar
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] add:newCalendar :^(MSOCalendar *addedCalendar, NSError *e) {
+        [newCalendar setName:updatedCalendarName];
+        //Update Calendar
+        [[[[[self.Client getMe] getCalendars] getById:addedCalendar.Id] update:newCalendar :^(MSOCalendar *updatedCalendar, NSError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil && updatedCalendar != nil && [updatedCalendar.Name isEqualToString:updatedCalendarName] ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getCalendars]getById:updatedCalendar.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+            
+        }] resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestDeleteCalendar:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+    
+    MSOCalendar *newCalendar = [[MSOCalendar alloc] init];
+    [newCalendar setName:calendarName];
+    //Create Calendar
+    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] add:newCalendar :^(MSOCalendar *addedCalendar, NSError *e) {
+        
+        //Delete Calendar
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            
+            if(e== nil ){
+                message = @"Ok - ";
+                passed = true;
+            }else
+            {
+                message = @"Not - ";
+                if(e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+            
+        }]resume];
+    }];
+    
+    return task;
+}
+
+// ****** Event Tests *****
+
+-(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
+    MSOEvent *event = [self getSampleEvent];
+    //Create Event
+    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOEvent *addedEvent, NSError *e) {
+        //Get Events
+        [[[[self.Client getMe]getEvents]execute:^(NSArray<MSOEvent> *events, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message =  @"";
+            if(error == nil && events != nil && [events count]>0 ){
+                message =  @"Ok - ";
+                passed = true;
+            }
+            else{
+                message =@"Not - ";
+                if(error!= nil)
+                    message = [message stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+
+            result(test);
+        }] resume];
+        
+        
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCreateEvents:(void (^) (Test*))result{
+    MSOEvent *event = [self getSampleEvent];
+    //Create Event
+    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOEvent *addedEvent, NSError *e) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message =  @"";
+            if(e == nil && addedEvent != nil ){
+                message =  @"Ok - ";
+                passed = true;
+            }
+            else{
+                message =@"Not - ";
+                if(e!= nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestUpdateEvents:(void (^) (Test*))result{
+    MSOEvent *event = [self getSampleEvent];
+    //Create Event
+    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOEvent *addedEvent, NSError *e) {
+        NSString *updatedSubject = [@"Updated" stringByAppendingString:event.Subject];
+        [event setSubject:updatedSubject];
+        // Update Event
+        [[[[[self.Client getMe] getEvents] getById:addedEvent.Id]update:event :^(MSOEvent *updatedEvent, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message =  @"";
+            if(error == nil && updatedEvent != nil && [updatedEvent.Subject isEqualToString:updatedSubject]){
+                message =  @"Ok - ";
+                passed = true;
+            }
+            else{
+                message =@"Not - ";
+                if(e!= nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //Cleanup
+            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+                if(error!= nil)
+                    NSLog(@"Error: %@", error);
+            }]resume];
+            
+            result(test);
+        } ]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestDeleteEvents:(void (^) (Test*))result{
+    MSOEvent *event = [self getSampleEvent];
+    //Create Event
+    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOEvent *addedEvent, NSError *e) {
+        //Delete event
+        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message =  @"";
+            if(error == nil ){
+                message =  @"Ok - ";
+                passed = true;
+            }
+            else{
+                message =@"Not - ";
+                if(e!= nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        }]resume];
+        
+    }];
+    
+    return task;
+}
+
+
+-(MSOEvent*) getSampleEvent{
+    
+    MSOEvent *event= [[MSOEvent alloc]init];
+    [event setSubject:@"Today's appointment"];
+    [event setStart:[NSDate date]];
+    MSOImportance *importance = High;
+    [event setImportance: importance];
+    
+    //Event Body
+    MSOItemBody *itemBody = [[MSOItemBody alloc] init];
+    [itemBody setContent:@"This is the appointment info"];
+    MSOBodyType *bt = Text;
+    [itemBody setContentType: bt];
+    [event setBody:itemBody];
+    
+    // Attendees
+    MSOAttendee *attendee1 = [[MSOAttendee alloc]init];
+    MSOEmailAddress *email = [[MSOEmailAddress alloc]init];
+    [email setAddress: self.TestMail];
+    [attendee1 setEmailAddress:email];
+    
+    NSMutableArray *attendees = [[NSMutableArray alloc] init];
+    [attendees addObject:attendee1];
+    [event setAttendees:attendees];
+    
+    return event;
+}
 
 @end
