@@ -4,11 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOFolderCollectionOperations.h"
+#import "MSOApplicationInfo.h"
 
 /**
-* The implementation file for type MSOFolderCollectionOperations.
+* The implementation file for type ApplicationInfo.
 */
 
-@implementation MSOFolderCollectionOperations
+@implementation MSOApplicationInfo	
+
 @end

@@ -4,7 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-@class MSOIdentity;
+@class MSOApplicationInfo;
+@class MSOUserInfo;
 
 #import <Foundation/Foundation.h>
 #import "MSOProtocols.h"
@@ -16,7 +17,7 @@
 
 @interface MSOIdentitySet : NSObject
 
-@property MSOIdentity *application;
-@property MSOIdentity *user;
+@property MSOApplicationInfo *application;
+@property MSOUserInfo *user;
 
 @end

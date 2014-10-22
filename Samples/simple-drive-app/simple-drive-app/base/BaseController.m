@@ -13,8 +13,8 @@
     
     LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
-        
+    [loginController getTokenWith : @"https://msopentech.spoppe.com/" :true completionHandler:^(NSString *token) {
+    
         MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
         MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
         [credentials addToken:token];
@@ -24,7 +24,8 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://msopentech.spoppe.com/_api/v1.0" dependencyResolver:resolver]);
     }];
 }
+
 @end

@@ -11,5 +11,4 @@
 */
 
 @implementation MSOCurrentUserRequestContextCollectionOperations
-
 @end

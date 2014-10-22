@@ -6,13 +6,16 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol MSOApplicationInfo
+@end
+
 @protocol MSODriveQuota
 @end
 
 @protocol MSOIdentitySet
 @end
 
-@protocol MSOIdentity
+@protocol MSOUserInfo
 @end
 
 @protocol MSOItemReference

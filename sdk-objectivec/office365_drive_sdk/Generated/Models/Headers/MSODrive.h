@@ -4,7 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-@class MSOIdentity;
+@class MSOUserInfo;
 @class MSODriveQuota;
 
 #import <Foundation/Foundation.h>
@@ -17,7 +17,7 @@
 
 @interface MSODrive : NSObject
 @property NSString *id;
-@property MSOIdentity *owner;
+@property MSOUserInfo *owner;
 @property MSODriveQuota *quota;
 
 @end

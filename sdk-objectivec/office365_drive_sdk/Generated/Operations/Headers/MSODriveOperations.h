@@ -6,13 +6,13 @@
 
 #import "MSODrive.h"
 #import "MSOODataOperations.h"
-#import "MSOIdentity.h"
+#import "MSOUserInfo.h"
 #import "MSODriveQuota.h"
-
 
 /**
 * The header for type MSODriveOperations.
 */
+
 
 @interface MSODriveOperations : MSOODataOperations
 

@@ -15,5 +15,6 @@
 */
 
 @interface MSOItemCollectionOperations : MSOODataOperations
+-(NSURLSessionDataTask*)add : (NSString *) name : (NSString *) nameConflict : (NSString *) type : (NSStream *) content : (void (^)(MSOItem *item, NSError *error))callback;
 -(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSOItem *item, NSError *error))callback;			
 @end

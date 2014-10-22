@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECA0AC1E19F83174008F6C66 /* FilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */; };
+		ECA0AC2619F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */; };
+		ECA0AC2719F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2119F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard */; };
+		ECA0AC2819F8366A008F6C66 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2219F8366A008F6C66 /* ADALiOSBundle-Info.plist */; };
+		ECA0AC2919F8366A008F6C66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2419F8366A008F6C66 /* InfoPlist.strings */; };
+		ECA0AC2C19F83C75008F6C66 /* NewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0AC2B19F83C75008F6C66 /* NewFileViewController.m */; };
 		ECBA298719F7E04D00454689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298619F7E04D00454689 /* main.m */; };
 		ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298B19F7E04D00454689 /* simple_drive_app.xcdatamodeld */; };
 		ECBA299019F7E04D00454689 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298F19F7E04D00454689 /* ViewController.m */; };
@@ -34,6 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ECA0AC1C19F83174008F6C66 /* FilesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTableViewController.h; sourceTree = "<group>"; };
+		ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesTableViewController.m; sourceTree = "<group>"; };
+		ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECA0AC2119F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
+		ECA0AC2219F8366A008F6C66 /* ADALiOSBundle-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ADALiOSBundle-Info.plist"; sourceTree = "<group>"; };
+		ECA0AC2319F8366A008F6C66 /* ADALiOSBundle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADALiOSBundle-Prefix.pch"; sourceTree = "<group>"; };
+		ECA0AC2519F8366A008F6C66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ECA0AC2A19F83C75008F6C66 /* NewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFileViewController.h; sourceTree = "<group>"; };
+		ECA0AC2B19F83C75008F6C66 /* NewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFileViewController.m; sourceTree = "<group>"; };
 		ECBA298119F7E04D00454689 /* simple-drive-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-drive-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBA298519F7E04D00454689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBA298619F7E04D00454689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +95,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ECA0AC1B19F83174008F6C66 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0AC1C19F83174008F6C66 /* FilesTableViewController.h */,
+				ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */,
+				ECA0AC2A19F83C75008F6C66 /* NewFileViewController.h */,
+				ECA0AC2B19F83C75008F6C66 /* NewFileViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECA0AC1F19F8366A008F6C66 /* ADALiOSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */,
+				ECA0AC2119F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard */,
+				ECA0AC2219F8366A008F6C66 /* ADALiOSBundle-Info.plist */,
+				ECA0AC2319F8366A008F6C66 /* ADALiOSBundle-Prefix.pch */,
+				ECA0AC2419F8366A008F6C66 /* InfoPlist.strings */,
+			);
+			path = ADALiOSBundle;
+			sourceTree = "<group>";
+		};
 		ECBA297819F7E04D00454689 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +140,8 @@
 		ECBA298319F7E04D00454689 /* simple-drive-app */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0AC1F19F8366A008F6C66 /* ADALiOSBundle */,
+				ECA0AC1B19F83174008F6C66 /* Controllers */,
 				ECBA29AD19F7E0E500454689 /* base */,
 				ECBA298E19F7E04D00454689 /* ViewController.h */,
 				ECBA298F19F7E04D00454689 /* ViewController.m */,
@@ -245,8 +285,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA0AC2819F8366A008F6C66 /* ADALiOSBundle-Info.plist in Resources */,
+				ECA0AC2919F8366A008F6C66 /* InfoPlist.strings in Resources */,
 				ECBA299319F7E04D00454689 /* Main.storyboard in Resources */,
+				ECA0AC2619F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */,
+				ECA0AC2719F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard in Resources */,
 				ECBA299519F7E04D00454689 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,11 +309,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA0AC2C19F83C75008F6C66 /* NewFileViewController.m in Sources */,
 				ECBA29B619F7E0E500454689 /* AppDelegate.m in Sources */,
 				ECBA29B719F7E0E500454689 /* BaseController.m in Sources */,
 				ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */,
 				ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */,
 				ECBA29B819F7E0E500454689 /* LogInController.m in Sources */,
+				ECA0AC1E19F83174008F6C66 /* FilesTableViewController.m in Sources */,
 				ECBA299019F7E04D00454689 /* ViewController.m in Sources */,
 				ECBA298719F7E04D00454689 /* main.m in Sources */,
 			);
@@ -294,6 +340,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		ECA0AC2419F8366A008F6C66 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECA0AC2519F8366A008F6C66 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		ECBA299119F7E04D00454689 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -397,6 +451,7 @@
 				INFOPLIST_FILE = "simple-drive-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -409,6 +464,7 @@
 				INFOPLIST_FILE = "simple-drive-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -466,6 +522,7 @@
 				ECBA29A919F7E04D00454689 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ECBA29AA19F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-appTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +531,7 @@
 				ECBA29AC19F7E04D00454689 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

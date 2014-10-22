@@ -9,10 +9,10 @@
 #import "MSODrive.h"
 #import "MSOItem.h"
 
-
 /**
 * The header for type MSOCurrentUserRequestContextOperations.
 */
+
 
 @interface MSOCurrentUserRequestContextOperations : MSOODataOperations
 

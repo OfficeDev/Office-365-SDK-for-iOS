@@ -1,55 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Hrj-ff-XST">
     <dependencies>
-        <deployment defaultVersion="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Files-->
-        <scene sceneID="10f-ua-R7D">
-            <objects>
-                <viewController id="Z5r-RN-Aqk" customClass="UserViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TBY-mB-5Cr"/>
-                        <viewControllerLayoutGuide type="bottom" id="3gJ-nG-pNz"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="14L-B2-RSP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DisplayName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUq-kN-gnv">
-                                <rect key="frame" x="34" y="36" width="245" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alias" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9BX-95-tkv">
-                                <rect key="frame" x="34" y="89" width="270" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MailBoxId" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2G-9m-uRE">
-                                <rect key="frame" x="34" y="136" width="252" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Files" id="5X8-6p-wUe"/>
-                    <navigationItem key="navigationItem" id="3EG-u2-BWw"/>
-                    <connections>
-                        <outlet property="lblAlias" destination="9BX-95-tkv" id="EcD-A4-zGc"/>
-                        <outlet property="lblDisplayName" destination="TUq-kN-gnv" id="2Un-j7-hhP"/>
-                        <outlet property="lblMailBoxId" destination="a2G-9m-uRE" id="z34-gm-aA1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SJS-iW-VOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4818" y="776"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="K1B-y4-bWj">
             <objects>
@@ -62,9 +16,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ym9-91-9kL" kind="relationship" relationship="viewControllers" id="BAi-Iy-cgU"/>
-                        <segue destination="Z5r-RN-Aqk" kind="relationship" relationship="viewControllers" id="eOV-BN-kyX"/>
-                        <segue destination="WIa-6H-AZJ" kind="relationship" relationship="viewControllers" id="eaL-1Z-WT9"/>
                         <segue destination="1sO-zE-I2Q" kind="relationship" relationship="viewControllers" id="Cat-Cm-XKp"/>
+                        <segue destination="WIa-6H-AZJ" kind="relationship" relationship="viewControllers" id="eaL-1Z-WT9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBK-cU-jx6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,11 +51,11 @@
             </objects>
             <point key="canvasLocation" x="4818" y="1363"/>
         </scene>
-        <!--Messages-->
+        <!--Files-->
         <scene sceneID="cx5-jQ-BJe">
             <objects>
                 <navigationController id="1sO-zE-I2Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" id="O9E-Gs-Y6g"/>
+                    <tabBarItem key="tabBarItem" title="Files" id="O9E-Gs-Y6g"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cak-dS-Gop">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,7 +101,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="ClearCredentials:" destination="Ym9-91-9kL" eventType="touchUpInside" id="fGx-sj-6nG"/>
+                                    <action selector="ClearCredentials:" destination="Ym9-91-9kL" eventType="touchUpInside" id="xWH-4g-tl4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-cx-4os">
@@ -157,7 +110,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="Save:" destination="Ym9-91-9kL" eventType="touchUpInside" id="L7p-62-lm3"/>
+                                    <action selector="Save:" destination="Ym9-91-9kL" eventType="touchUpInside" id="xlw-Zo-gY0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2q-uZ-2sK">
@@ -171,26 +124,26 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="5WF-sT-Zcg"/>
                     <connections>
-                        <outlet property="txtAuthorityUrl" destination="xkv-cs-bk8" id="ut1-OF-6m6"/>
-                        <outlet property="txtClientId" destination="Lnk-FV-Sje" id="w8y-0t-6Gq"/>
-                        <outlet property="txtLoggedInUser" destination="c2q-uZ-2sK" id="bvq-ZI-iLl"/>
-                        <outlet property="txtRedirectUrl" destination="8Z2-ve-dCO" id="dVf-4Z-Onz"/>
+                        <outlet property="txtAuthorityUrl" destination="xkv-cs-bk8" id="iVU-ql-yEE"/>
+                        <outlet property="txtClientId" destination="Lnk-FV-Sje" id="Gac-mi-mJq"/>
+                        <outlet property="txtLoggedInUser" destination="c2q-uZ-2sK" id="nm5-Kz-tVd"/>
+                        <outlet property="txtRedirectUrl" destination="8Z2-ve-dCO" id="keD-MS-MUl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufe-sr-7p9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3982" y="1862"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Files-->
         <scene sceneID="5gM-0Y-ypO">
             <objects>
-                <tableViewController id="kGP-IX-g6e" customClass="MessageTableViewController" sceneMemberID="viewController">
+                <tableViewController id="kGP-IX-g6e" customClass="FilesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2w-1d-UJq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="LML-ev-vu6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FileCell" id="LML-ev-vu6">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LML-ev-vu6" id="709-62-3I2">
@@ -204,8 +157,8 @@
                             <outlet property="delegate" destination="kGP-IX-g6e" id="TtI-Rv-mlf"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Messages" id="FLa-b6-Frd"/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ze2-pR-PEr">
+                    <tabBarItem key="tabBarItem" title="Files" id="FLa-b6-Frd"/>
+                    <navigationItem key="navigationItem" title="Files" id="Ze2-pR-PEr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="teb-cp-Qa2">
                             <connections>
                                 <segue destination="Vfu-F6-Wnk" kind="push" id="cKc-88-bRP"/>
@@ -217,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="4823" y="2017"/>
         </scene>
-        <!--New Message-->
+        <!--New File-->
         <scene sceneID="pVj-AE-7Uh">
             <objects>
-                <viewController id="Vfu-F6-Wnk" customClass="SendMessageViewController" sceneMemberID="viewController">
+                <viewController id="Vfu-F6-Wnk" customClass="NewFileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sn1-Ur-zAc"/>
                         <viewControllerLayoutGuide type="bottom" id="JN4-oy-LcC"/>
@@ -229,7 +182,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="To" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-Fc-De1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-Fc-De1">
                                 <rect key="frame" x="16" y="82" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -237,13 +190,8 @@
                                     <outlet property="delegate" destination="Vfu-F6-Wnk" id="zLl-vZ-WRV"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Myk-JC-uJr">
-                                <rect key="frame" x="16" y="139" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Body Here" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-VS-VQk">
-                                <rect key="frame" x="16" y="184" width="293" height="228"/>
+                                <rect key="frame" x="16" y="120" width="293" height="292"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -251,22 +199,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Message" id="MzE-jC-eCG">
+                    <navigationItem key="navigationItem" title="New File" id="MzE-jC-eCG">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="weL-6r-aqx">
                             <connections>
-                                <segue destination="drE-ck-vA4" kind="unwind" unwindAction="unwindExchangeViews:" id="epT-y3-WA1"/>
+                                <segue destination="drE-ck-vA4" kind="unwind" unwindAction="unwindExchangeViews:" id="Brd-7x-qrd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Send" id="s3u-da-7Ci">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="s3u-da-7Ci">
                             <connections>
-                                <action selector="SendMail:" destination="Vfu-F6-Wnk" id="Jb1-gK-yyg"/>
+                                <action selector="CreateFile:" destination="Vfu-F6-Wnk" id="iAo-A3-m5H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="txtBody" destination="AfS-VS-VQk" id="KUW-lU-3f1"/>
-                        <outlet property="txtSubject" destination="Myk-JC-uJr" id="x53-6v-FgU"/>
-                        <outlet property="txtTo" destination="ehK-Fc-De1" id="oju-n6-hmr"/>
+                        <outlet property="txtBody" destination="AfS-VS-VQk" id="rIe-OF-bXp"/>
+                        <outlet property="txtName" destination="ehK-Fc-De1" id="Usp-1h-mUF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCf-0t-ruL" userLabel="First Responder" sceneMemberID="firstResponder"/>

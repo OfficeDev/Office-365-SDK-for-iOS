@@ -28,6 +28,7 @@
 #import <office365_odata_base/MSOResponse.h>
 #import <office365_odata_base/MSOODataUrl.h>
 
+#import <office365_drive_sdk/MSOODataMediaEntityFetcher.h>
 #import <office365_drive_sdk/MSOODataExecutable.h>
 #import <office365_drive_sdk/MSOBaseODataContainer.h>
 #import <office365_drive_sdk/MSOEntityContainerClient.h>

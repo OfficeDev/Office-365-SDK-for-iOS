@@ -52,5 +52,6 @@ MSOItemReference*/
 #import "MSOODataEntityFetcher.h"
 #import "MSOODataOperations.h"
 #import "MSOODataExecutable.h"
+#import "MSOODataMediaEntityFetcher.h"
 
 

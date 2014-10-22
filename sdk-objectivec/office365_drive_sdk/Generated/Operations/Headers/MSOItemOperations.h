@@ -9,10 +9,10 @@
 #import "MSOIdentitySet.h"
 #import "MSOItemReference.h"
 
-
 /**
 * The header for type MSOItemOperations.
 */
+
 
 @interface MSOItemOperations : MSOODataOperations
 

@@ -3,7 +3,6 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-
 #import "MSOItemFetcher.h"
 
 
@@ -21,6 +20,15 @@
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOItem class]];
+}
+
+-(MSOFileFetcher *)asFile{
+    return [[MSOFileFetcher alloc] initWith:self.UrlComponent :self.Parent :nil];
+}
+
+
+-(MSOFolderFetcher *)asFolder{
+    return [[MSOFolderFetcher alloc] initWith:self.UrlComponent :self.Parent :nil];
 }
 
 @end

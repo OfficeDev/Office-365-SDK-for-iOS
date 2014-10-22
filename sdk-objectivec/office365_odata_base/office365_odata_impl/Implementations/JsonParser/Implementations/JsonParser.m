@@ -131,13 +131,17 @@
                     NSInteger value = [[object valueForKey:property.Name] integerValue];
                     
                     result = value ? @"true" : @"false";
+                    if(result != nil){
+                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                    }
                 }else {
                     result = [object valueForKey:property.Name];
+                    if(result != nil){
+                        [jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
+                    }
                 }
                 
-                if(result != nil){
-                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
-                }
+                
             }
             @catch (NSException *exception) {
             }

@@ -27,12 +27,12 @@
 	[[NSDictionary alloc] initWithObjectsAndKeys :newName,@"newName",nil ],nil];
 
 	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-	[url appendPathComponent:@"copy"];
+	[url appendPathComponent:@"Copy"];
 		
 	NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
-			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			MSOFolder * result = (MSOFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOFolder class]];
             callback(result, error);
         }
         else{

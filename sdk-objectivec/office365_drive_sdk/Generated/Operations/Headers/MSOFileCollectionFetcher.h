@@ -12,7 +12,6 @@
 * The header for type MSOFileCollectionFetcher.
 */
 
-
 @protocol MSOFileCollectionFetcher
 
 @optional

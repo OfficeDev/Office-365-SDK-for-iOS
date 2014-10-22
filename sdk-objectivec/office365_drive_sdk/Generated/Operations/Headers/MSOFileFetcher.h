@@ -4,12 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
-#import "MSOODataEntityFetcher.h"
+#import "MSOODataMediaEntityFetcher.h"
 #import "MSOFileOperations.h"
 #import "MSOFile.h"
-
-
 
 /**
 * The header for type MSOFileFetcher.
@@ -20,10 +17,10 @@
 
 @optional
 -(NSURLSessionDataTask *)execute:(void (^)(MSOFile* file, NSError *error))callback;
-
+-(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOFile*, NSError * error))callback;
 @end
 
-@interface MSOFileFetcher : MSOODataEntityFetcher<MSOFileFetcher>
+@interface MSOFileFetcher : MSOODataMediaEntityFetcher<MSOFileFetcher>
 
 -(MSOFileOperations*) getOperations;
 

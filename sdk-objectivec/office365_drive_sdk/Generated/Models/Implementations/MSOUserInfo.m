@@ -4,12 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOIdentity.h"
+#import "MSOUserInfo.h"
 
 /**
-* The implementation file for type Identity.
+* The implementation file for type UserInfo.
 */
 
-@implementation MSOIdentity	
+@implementation MSOUserInfo	
 
 @end

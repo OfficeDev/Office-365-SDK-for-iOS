@@ -12,7 +12,6 @@
 * The header for type MSODriveCollectionFetcher.
 */
 
-
 @protocol MSODriveCollectionFetcher
 
 @optional

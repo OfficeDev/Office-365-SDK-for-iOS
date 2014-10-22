@@ -4,11 +4,18 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSOFolderCollectionOperations.h"
+
+#import <Foundation/Foundation.h>
+#import "MSOProtocols.h"
+
 
 /**
-* The implementation file for type MSOFolderCollectionOperations.
+* The header for type ApplicationInfo.
 */
 
-@implementation MSOFolderCollectionOperations
+@interface MSOApplicationInfo : NSObject
+
+@property NSString *id;
+@property NSString *displayName;
+
 @end

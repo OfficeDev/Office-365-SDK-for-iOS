@@ -1,10 +1,8 @@
-//
-//  simple_drive_appTests.m
-//  simple-drive-appTests
-//
-//  Created by Gustavo on 10/22/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>

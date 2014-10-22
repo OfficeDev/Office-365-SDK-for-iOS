@@ -16,7 +16,6 @@
 		ECCAD1B319F6F40000363606 /* MSODriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16119F6F40000363606 /* MSODriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1B419F6F40000363606 /* MSOFile.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16219F6F40000363606 /* MSOFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1B519F6F40000363606 /* MSOFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16319F6F40000363606 /* MSOFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECCAD1B619F6F40000363606 /* MSOIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16419F6F40000363606 /* MSOIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1B719F6F40000363606 /* MSOIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16519F6F40000363606 /* MSOIdentitySet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1B819F6F40000363606 /* MSOItem.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16619F6F40000363606 /* MSOItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1B919F6F40000363606 /* MSOItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD16719F6F40000363606 /* MSOItemReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,7 +25,6 @@
 		ECCAD1BD19F6F40000363606 /* MSODriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16C19F6F40000363606 /* MSODriveQuota.m */; };
 		ECCAD1BE19F6F40000363606 /* MSOFile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16D19F6F40000363606 /* MSOFile.m */; };
 		ECCAD1BF19F6F40000363606 /* MSOFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16E19F6F40000363606 /* MSOFolder.m */; };
-		ECCAD1C019F6F40000363606 /* MSOIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD16F19F6F40000363606 /* MSOIdentity.m */; };
 		ECCAD1C119F6F40000363606 /* MSOIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17019F6F40000363606 /* MSOIdentitySet.m */; };
 		ECCAD1C219F6F40000363606 /* MSOItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17119F6F40000363606 /* MSOItem.m */; };
 		ECCAD1C319F6F40000363606 /* MSOItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD17219F6F40000363606 /* MSOItemReference.m */; };
@@ -86,6 +84,12 @@
 		ECCAD1F919F6F40000363606 /* MSOEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCAD1AD19F6F40000363606 /* MSOEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECCAD1FA19F6F40000363606 /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1AF19F6F40000363606 /* MSOBaseODataContainerHelper.m */; };
 		ECCAD1FB19F6F40000363606 /* MSOEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCAD1B019F6F40000363606 /* MSOEntityFetcherHelper.m */; };
+		ECEF6E0D19F825920012321F /* MSOApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEF6E0B19F825920012321F /* MSOApplicationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECEF6E0E19F825920012321F /* MSOUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEF6E0C19F825920012321F /* MSOUserInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECEF6E1119F825A10012321F /* MSOApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF6E0F19F825A00012321F /* MSOApplicationInfo.m */; };
+		ECEF6E1219F825A10012321F /* MSOUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF6E1019F825A00012321F /* MSOUserInfo.m */; };
+		ECEF6E1419F827090012321F /* MSOODataMediaEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECEF6E1319F827090012321F /* MSOODataMediaEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECEF6E1619F8294D0012321F /* MSOODataMediaEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF6E1519F8294D0012321F /* MSOODataMediaEntityFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,7 +106,6 @@
 		ECCAD16119F6F40000363606 /* MSODriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODriveQuota.h; sourceTree = "<group>"; };
 		ECCAD16219F6F40000363606 /* MSOFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFile.h; sourceTree = "<group>"; };
 		ECCAD16319F6F40000363606 /* MSOFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolder.h; sourceTree = "<group>"; };
-		ECCAD16419F6F40000363606 /* MSOIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOIdentity.h; sourceTree = "<group>"; };
 		ECCAD16519F6F40000363606 /* MSOIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOIdentitySet.h; sourceTree = "<group>"; };
 		ECCAD16619F6F40000363606 /* MSOItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItem.h; sourceTree = "<group>"; };
 		ECCAD16719F6F40000363606 /* MSOItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemReference.h; sourceTree = "<group>"; };
@@ -112,7 +115,6 @@
 		ECCAD16C19F6F40000363606 /* MSODriveQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODriveQuota.m; sourceTree = "<group>"; };
 		ECCAD16D19F6F40000363606 /* MSOFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFile.m; sourceTree = "<group>"; };
 		ECCAD16E19F6F40000363606 /* MSOFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolder.m; sourceTree = "<group>"; };
-		ECCAD16F19F6F40000363606 /* MSOIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOIdentity.m; sourceTree = "<group>"; };
 		ECCAD17019F6F40000363606 /* MSOIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOIdentitySet.m; sourceTree = "<group>"; };
 		ECCAD17119F6F40000363606 /* MSOItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItem.m; sourceTree = "<group>"; };
 		ECCAD17219F6F40000363606 /* MSOItemReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemReference.m; sourceTree = "<group>"; };
@@ -172,6 +174,12 @@
 		ECCAD1AD19F6F40000363606 /* MSOEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcherHelper.h; sourceTree = "<group>"; };
 		ECCAD1AF19F6F40000363606 /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
 		ECCAD1B019F6F40000363606 /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
+		ECEF6E0B19F825920012321F /* MSOApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOApplicationInfo.h; sourceTree = "<group>"; };
+		ECEF6E0C19F825920012321F /* MSOUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUserInfo.h; sourceTree = "<group>"; };
+		ECEF6E0F19F825A00012321F /* MSOApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOApplicationInfo.m; sourceTree = "<group>"; };
+		ECEF6E1019F825A00012321F /* MSOUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserInfo.m; sourceTree = "<group>"; };
+		ECEF6E1319F827090012321F /* MSOODataMediaEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataMediaEntityFetcher.h; sourceTree = "<group>"; };
+		ECEF6E1519F8294D0012321F /* MSOODataMediaEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataMediaEntityFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,12 +286,13 @@
 		ECCAD15E19F6F40000363606 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				ECEF6E0B19F825920012321F /* MSOApplicationInfo.h */,
+				ECEF6E0C19F825920012321F /* MSOUserInfo.h */,
 				ECCAD15F19F6F40000363606 /* MSOCurrentUserRequestContext.h */,
 				ECCAD16019F6F40000363606 /* MSODrive.h */,
 				ECCAD16119F6F40000363606 /* MSODriveQuota.h */,
 				ECCAD16219F6F40000363606 /* MSOFile.h */,
 				ECCAD16319F6F40000363606 /* MSOFolder.h */,
-				ECCAD16419F6F40000363606 /* MSOIdentity.h */,
 				ECCAD16519F6F40000363606 /* MSOIdentitySet.h */,
 				ECCAD16619F6F40000363606 /* MSOItem.h */,
 				ECCAD16719F6F40000363606 /* MSOItemReference.h */,
@@ -295,12 +304,13 @@
 		ECCAD16919F6F40000363606 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				ECEF6E0F19F825A00012321F /* MSOApplicationInfo.m */,
+				ECEF6E1019F825A00012321F /* MSOUserInfo.m */,
 				ECCAD16A19F6F40000363606 /* MSOCurrentUserRequestContext.m */,
 				ECCAD16B19F6F40000363606 /* MSODrive.m */,
 				ECCAD16C19F6F40000363606 /* MSODriveQuota.m */,
 				ECCAD16D19F6F40000363606 /* MSOFile.m */,
 				ECCAD16E19F6F40000363606 /* MSOFolder.m */,
-				ECCAD16F19F6F40000363606 /* MSOIdentity.m */,
 				ECCAD17019F6F40000363606 /* MSOIdentitySet.m */,
 				ECCAD17119F6F40000363606 /* MSOItem.m */,
 				ECCAD17219F6F40000363606 /* MSOItemReference.m */,
@@ -346,6 +356,7 @@
 				ECCAD18C19F6F40000363606 /* MSOODataEntityFetcher.h */,
 				ECCAD18D19F6F40000363606 /* MSOODataExecutable.h */,
 				ECCAD18E19F6F40000363606 /* MSOODataOperations.h */,
+				ECEF6E1319F827090012321F /* MSOODataMediaEntityFetcher.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 				ECCAD1A719F6F40000363606 /* MSOODataEntityFetcher.m */,
 				ECCAD1A819F6F40000363606 /* MSOODataExecutable.m */,
 				ECCAD1A919F6F40000363606 /* MSOODataOperations.m */,
+				ECEF6E1519F8294D0012321F /* MSOODataMediaEntityFetcher.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -435,7 +447,6 @@
 				ECCAD1D019F6F40000363606 /* MSOFileFetcher.h in Headers */,
 				ECCAD1DA19F6F40000363606 /* MSOODataCollectionFetcher.h in Headers */,
 				ECCAD09419F6F2C600363606 /* office365_drive_sdk-Prefix.pch in Headers */,
-				ECCAD1B619F6F40000363606 /* MSOIdentity.h in Headers */,
 				ECCAD1C919F6F40000363606 /* MSODriveCollectionFetcher.h in Headers */,
 				EC417F6719F6E4B200CB78C2 /* office365_drive_sdk.h in Headers */,
 				ECCAD1D819F6F40000363606 /* MSOItemFetcher.h in Headers */,
@@ -455,7 +466,10 @@
 				ECCAD1D519F6F40000363606 /* MSOFolderOperations.h in Headers */,
 				ECCAD1D619F6F40000363606 /* MSOItemCollectionFetcher.h in Headers */,
 				ECCAD1B719F6F40000363606 /* MSOIdentitySet.h in Headers */,
+				ECEF6E0D19F825920012321F /* MSOApplicationInfo.h in Headers */,
+				ECEF6E0E19F825920012321F /* MSOUserInfo.h in Headers */,
 				ECCAD1B919F6F40000363606 /* MSOItemReference.h in Headers */,
+				ECEF6E1419F827090012321F /* MSOODataMediaEntityFetcher.h in Headers */,
 				ECCAD1B319F6F40000363606 /* MSODriveQuota.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +572,7 @@
 				ECCAD1EB19F6F40000363606 /* MSOFileOperations.m in Sources */,
 				ECCAD1E919F6F40000363606 /* MSOFileCollectionOperations.m in Sources */,
 				ECCAD1F219F6F40000363606 /* MSOItemFetcher.m in Sources */,
+				ECEF6E1119F825A10012321F /* MSOApplicationInfo.m in Sources */,
 				ECCAD1F619F6F40000363606 /* MSOODataExecutable.m in Sources */,
 				ECCAD1E019F6F40000363606 /* MSOCurrentUserRequestContextCollectionOperations.m in Sources */,
 				ECCAD1ED19F6F40000363606 /* MSOFolderCollectionOperations.m in Sources */,
@@ -568,8 +583,10 @@
 				ECCAD1F019F6F40000363606 /* MSOItemCollectionFetcher.m in Sources */,
 				ECCAD1EF19F6F40000363606 /* MSOFolderOperations.m in Sources */,
 				ECCAD1F319F6F40000363606 /* MSOItemOperations.m in Sources */,
+				ECEF6E1619F8294D0012321F /* MSOODataMediaEntityFetcher.m in Sources */,
 				ECCAD1BC19F6F40000363606 /* MSODrive.m in Sources */,
 				ECCAD1E319F6F40000363606 /* MSODriveCollectionFetcher.m in Sources */,
+				ECEF6E1219F825A10012321F /* MSOUserInfo.m in Sources */,
 				ECCAD1F719F6F40000363606 /* MSOODataOperations.m in Sources */,
 				ECCAD1BD19F6F40000363606 /* MSODriveQuota.m in Sources */,
 				ECCAD1FB19F6F40000363606 /* MSOEntityFetcherHelper.m in Sources */,
@@ -582,7 +599,6 @@
 				ECCAD1E119F6F40000363606 /* MSOCurrentUserRequestContextFetcher.m in Sources */,
 				ECCAD1F119F6F40000363606 /* MSOItemCollectionOperations.m in Sources */,
 				ECCAD1BF19F6F40000363606 /* MSOFolder.m in Sources */,
-				ECCAD1C019F6F40000363606 /* MSOIdentity.m in Sources */,
 				ECCAD1BB19F6F40000363606 /* MSOCurrentUserRequestContext.m in Sources */,
 				ECCAD1E619F6F40000363606 /* MSODriveOperations.m in Sources */,
 				ECCAD1DF19F6F40000363606 /* MSOCurrentUserRequestContextCollectionFetcher.m in Sources */,

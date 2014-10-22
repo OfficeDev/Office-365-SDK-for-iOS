@@ -8,10 +8,10 @@
 #import "MSOItemOperations.h"
 #import "MSOItem.h"
 
-
 /**
 * The header for type MSOFolderOperations.
 */
+
 
 @interface MSOFolderOperations : MSOItemOperations
 

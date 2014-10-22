@@ -10,10 +10,10 @@
 
 
 /**
-* The header for type Identity.
+* The header for type UserInfo.
 */
 
-@interface MSOIdentity : NSObject
+@interface MSOUserInfo : NSObject
 
 @property NSString *id;
 @property NSString *displayName;

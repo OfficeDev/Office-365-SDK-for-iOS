@@ -30,7 +30,7 @@ NSString *token;
 
 -(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
 {
-    if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
+   if([self getCacheToken : resourceId completionHandler:completionBlock]) return;
     
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];

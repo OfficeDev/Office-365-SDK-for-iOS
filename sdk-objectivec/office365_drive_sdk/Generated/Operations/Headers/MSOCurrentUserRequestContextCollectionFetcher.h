@@ -12,7 +12,6 @@
 * The header for type MSOCurrentUserRequestContextCollectionFetcher.
 */
 
-
 @protocol MSOCurrentUserRequestContextCollectionFetcher
 
 @optional

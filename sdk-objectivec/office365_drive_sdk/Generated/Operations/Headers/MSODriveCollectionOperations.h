@@ -1,4 +1,4 @@
-#import "MSOIdentity.h"
+#import "MSOUserInfo.h"
 #import "MSODriveQuota.h"
 
 
