@@ -35,11 +35,9 @@
     
     //General
     if([testName isEqualToString: @"TestGetUser"]) return [self TestGetUser:result];
-    //if([testName isEqualToString: @"TestTop"]) return [self TestTop:result];
-    //can top
-    //can select
-    // can expand
-    // can filter
+    if([testName isEqualToString: @"TestTop"]) return [self TestTop:result];
+    if([testName isEqualToString: @"TestFilterWithTop"]) return [self TestFilterWithTop:result];
+    if([testName isEqualToString: @"TestSelect"]) return [self TestSelect:result];
     
     // Contacts Tests
     if([testName isEqualToString:@"TestGetContactFolder"]) return [self TestGetContactFolder:result];
@@ -108,6 +106,9 @@
     
     [array addObject:[[Test alloc] initWithData:self :@"TestGetUser" :@"Get User" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestTop" :@"Can use top" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestFilterWithTop" :@"Can use filter with top" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSelect" :@"Can use select with top" ]];
+    
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
@@ -162,6 +163,8 @@
     return array;
 }
 
+// ****** General Tests *******
+
 -(NSURLSessionDataTask*)TestGetUser:(void (^) (Test*))result{
     
     NSURLSessionDataTask *task = [[self.Client getMe] execute:^(MSOUser *user, NSError *error) {
@@ -186,6 +189,158 @@
     
     return task;
 }
+
+-(NSURLSessionDataTask*)TestTop:(void (^) (Test*))result{
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
+        [[[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage2, NSError *e) {
+            
+            [[[[[self.Client getMe]getMessages]top:1]execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                
+                if(error==nil && messages!= nil && [messages count] == 1){
+                    passed = true;
+                    message =@"Ok - ";
+                }
+                else{
+                    message = @"Not - ";
+                    if(error != nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                if(addedMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                if(addedMessage2!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }]resume];
+            
+        }]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestFilterWithTop:(void (^) (Test*))result{
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
+        [[[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage2, NSError *e) {
+            
+            [[[[[[self.Client getMe]getMessages]filter:@"Subject eq 'My Subject'"]top:1]execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                
+                if(error==nil && messages!= nil && [messages count] == 1){
+                    passed = true;
+                    message =@"Ok - ";
+                }
+                else{
+                    message = @"Not - ";
+                    if(error != nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                if(addedMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                if(addedMessage2!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }]resume];
+            
+        }]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestSelect:(void (^) (Test*))result{
+    MSOMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
+        [[[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage2, NSError *e) {
+            
+            [[[[[[self.Client getMe]getMessages]select:@"Subject"]top:1] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                MSOMessage *current =(messages!= nil && [messages count] == 1) ?[messages objectAtIndex:0] : nil;
+                
+                if(error==nil && messages!= nil && [messages count] == 1 && current.DateTimeReceived == nil){
+                    passed = true;
+                    message =@"Ok - ";
+                }
+                else{
+                    message = @"Not - ";
+                    if(error != nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                if(addedMessage!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                if(addedMessage2!= nil)
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }]resume];
+            
+        }]resume];
+    }];
+    
+    return task;
+}
+
 
 //******* Folder Tests **********
 
@@ -668,7 +823,7 @@
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
-
+                
                 
                 result(test);
             }] resume];
