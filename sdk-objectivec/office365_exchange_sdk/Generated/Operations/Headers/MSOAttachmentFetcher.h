@@ -8,10 +8,11 @@
 #import "MSOAttachmentOperations.h"
 #import "MSOAttachment.h"
 
+#import "MSOFileAttachmentFetcher.h"	
+#import "MSOItemAttachmentFetcher.h"	
 /**
 * The header for type MSOAttachmentFetcher.
 */
-
 
 @protocol MSOAttachmentFetcher
 
@@ -23,5 +24,9 @@
 @interface MSOAttachmentFetcher : MSOODataEntityFetcher<MSOAttachmentFetcher>
 
 -(MSOAttachmentOperations*) getOperations;
-
+		
+-(MSOFileAttachmentFetcher*) asFileAttachment;	
+		
+-(MSOItemAttachmentFetcher*) asItemAttachment;	
+	
 @end

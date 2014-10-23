@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOContactFolderFetcher.h"
 #import "MSOContactCollectionFetcher.h"
 #import "MSOContactFolderCollectionFetcher.h"
@@ -11,6 +12,7 @@
 /**
 * The implementation file for type MSOContactFolderFetcher.
 */
+
 
 @implementation MSOContactFolderFetcher
 -(MSOContactFolderOperations*) getOperations{
@@ -31,5 +33,6 @@
 -(MSOContactFolderCollectionFetcher*) getChildFolders{
     return [[MSOContactFolderCollectionFetcher alloc] initWith:@"ChildFolders" :self : [MSOContactFolder class]];
 }
+
 
 @end

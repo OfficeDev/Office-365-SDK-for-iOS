@@ -3,12 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSODriveFetcher.h"
 
 
 /**
 * The implementation file for type MSODriveFetcher.
 */
+
 
 @implementation MSODriveFetcher
 -(MSODriveOperations*) getOperations{
@@ -21,5 +23,6 @@
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSODrive class]];
 }
+
 
 @end

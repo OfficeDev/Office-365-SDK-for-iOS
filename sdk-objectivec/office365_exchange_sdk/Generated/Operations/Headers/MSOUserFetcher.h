@@ -22,7 +22,6 @@
 * The header for type MSOUserFetcher.
 */
 
-
 @protocol MSOUserFetcher
 
 @optional
@@ -33,7 +32,6 @@
 @interface MSOUserFetcher : MSOODataEntityFetcher<MSOUserFetcher>
 
 -(MSOUserOperations*) getOperations;
-
 -(MSOFolderCollectionFetcher*) getFolders;
 -(MSOMessageCollectionFetcher*) getMessages;
 -(MSOFolderFetcher*) getRootFolder;
@@ -44,4 +42,5 @@
 -(MSOEventCollectionFetcher*) getCalendarView;
 -(MSOContactCollectionFetcher*) getContacts;
 -(MSOContactFolderCollectionFetcher*) getContactFolders;
+	
 @end

@@ -12,7 +12,6 @@
 * The header for type MSOFileAttachmentFetcher.
 */
 
-
 @protocol MSOFileAttachmentFetcher
 
 @optional
@@ -23,5 +22,5 @@
 @interface MSOFileAttachmentFetcher : MSOODataEntityFetcher<MSOFileAttachmentFetcher>
 
 -(MSOFileAttachmentOperations*) getOperations;
-
+	
 @end

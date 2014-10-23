@@ -12,7 +12,6 @@
 * The header for type MSODriveFetcher.
 */
 
-
 @protocol MSODriveFetcher
 
 @optional
@@ -23,5 +22,5 @@
 @interface MSODriveFetcher : MSOODataEntityFetcher<MSODriveFetcher>
 
 -(MSODriveOperations*) getOperations;
-
+	
 @end

@@ -13,7 +13,6 @@
 * The header for type MSOItemAttachmentFetcher.
 */
 
-
 @protocol MSOItemAttachmentFetcher
 
 @optional
@@ -24,6 +23,6 @@
 @interface MSOItemAttachmentFetcher : MSOODataEntityFetcher<MSOItemAttachmentFetcher>
 
 -(MSOItemAttachmentOperations*) getOperations;
-
 -(MSOItemFetcher*) getItem;
+	
 @end

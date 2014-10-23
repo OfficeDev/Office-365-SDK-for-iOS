@@ -34,7 +34,8 @@
         
         [[[[client getme] getfiles] add:item :^(MSOItem *item, NSError *e) {
             __block NSString* _id = item.id;
-            [[[[[client getme] getfiles] getById:_id] putContent:body :^(int result, NSError *error) {
+            
+            [[[[[[client getme] getfiles] getById:_id] asFile] putContent:body :^(int result, NSError *error) {
                 
                 [[[[[[client getme] getfiles] getById:_id] asFile] getContent:^(NSData *content, NSError *error) {
                     

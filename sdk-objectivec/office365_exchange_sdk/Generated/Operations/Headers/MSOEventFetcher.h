@@ -15,7 +15,6 @@
 * The header for type MSOEventFetcher.
 */
 
-
 @protocol MSOEventFetcher
 
 @optional
@@ -26,8 +25,8 @@
 @interface MSOEventFetcher : MSOODataEntityFetcher<MSOEventFetcher>
 
 -(MSOEventOperations*) getOperations;
-
 -(MSOAttachmentCollectionFetcher*) getAttachments;
 -(MSOCalendarFetcher*) getCalendar;
 -(MSOEventCollectionFetcher*) getInstances;
+	
 @end

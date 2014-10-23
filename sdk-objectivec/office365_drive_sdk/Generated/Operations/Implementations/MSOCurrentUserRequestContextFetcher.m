@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOCurrentUserRequestContextFetcher.h"
 #import "MSODriveFetcher.h"
 #import "MSOItemCollectionFetcher.h"
@@ -11,6 +12,7 @@
 /**
 * The implementation file for type MSOCurrentUserRequestContextFetcher.
 */
+
 
 @implementation MSOCurrentUserRequestContextFetcher
 -(MSOCurrentUserRequestContextOperations*) getOperations{
@@ -31,5 +33,6 @@
 -(MSOItemCollectionFetcher*) getfiles{
     return [[MSOItemCollectionFetcher alloc] initWith:@"files" :self : [MSOItem class]];
 }
+
 
 @end

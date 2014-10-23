@@ -14,7 +14,6 @@
 * The header for type MSOCurrentUserRequestContextFetcher.
 */
 
-
 @protocol MSOCurrentUserRequestContextFetcher
 
 @optional
@@ -25,7 +24,7 @@
 @interface MSOCurrentUserRequestContextFetcher : MSOODataEntityFetcher<MSOCurrentUserRequestContextFetcher>
 
 -(MSOCurrentUserRequestContextOperations*) getOperations;
-
 -(MSODriveFetcher*) getdrive;
 -(MSOItemCollectionFetcher*) getfiles;
+	
 @end

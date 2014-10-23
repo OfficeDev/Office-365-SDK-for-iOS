@@ -13,7 +13,6 @@
 * The header for type MSOMessageFetcher.
 */
 
-
 @protocol MSOMessageFetcher
 
 @optional
@@ -24,6 +23,6 @@
 @interface MSOMessageFetcher : MSOODataEntityFetcher<MSOMessageFetcher>
 
 -(MSOMessageOperations*) getOperations;
-
 -(MSOAttachmentCollectionFetcher*) getAttachments;
+	
 @end

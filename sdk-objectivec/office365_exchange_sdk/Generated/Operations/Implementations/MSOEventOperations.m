@@ -34,7 +34,7 @@
             callback(result, error);
         }
         else{
-            callback(nil, error);
+            callback([r getStatus], error);
         }
     }];
     
@@ -58,7 +58,7 @@
             callback(result, error);
         }
         else{
-            callback(nil, error);
+            callback([r getStatus], error);
         }
     }];
     
@@ -82,7 +82,7 @@
             callback(result, error);
         }
         else{
-            callback(nil, error);
+            callback([r getStatus], error);
         }
     }];
     

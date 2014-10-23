@@ -7,13 +7,12 @@
 #import "MSOODataEntityFetcher.h"
 #import "MSOItemOperations.h"
 #import "MSOItem.h"
-#import "MSOFileFetcher.h"
-#import "MSOFolderFetcher.h"
 
+#import "MSOFileFetcher.h"	
+#import "MSOFolderFetcher.h"	
 /**
 * The header for type MSOItemFetcher.
 */
-
 
 @protocol MSOItemFetcher
 
@@ -22,11 +21,12 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOItem*, NSError * error))callback;
 @end
 
-@interface MSOItemFetcher : MSOODataMediaEntityFetcher<MSOItemFetcher>
+@interface MSOItemFetcher : MSOODataEntityFetcher<MSOItemFetcher>
 
 -(MSOItemOperations*) getOperations;
-
--(MSOFileFetcher*) asFile;
--(MSOFolderFetcher*) asFolder;
-
+		
+-(MSOFileFetcher*) asFile;	
+		
+-(MSOFolderFetcher*) asFolder;	
+	
 @end

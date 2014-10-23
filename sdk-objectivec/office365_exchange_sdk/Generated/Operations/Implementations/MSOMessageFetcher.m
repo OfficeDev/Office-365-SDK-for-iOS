@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOMessageFetcher.h"
 #import "MSOAttachmentCollectionFetcher.h"
 
@@ -10,6 +11,7 @@
 /**
 * The implementation file for type MSOMessageFetcher.
 */
+
 
 @implementation MSOMessageFetcher
 -(MSOMessageOperations*) getOperations{
@@ -26,5 +28,6 @@
 -(MSOAttachmentCollectionFetcher*) getAttachments{
     return [[MSOAttachmentCollectionFetcher alloc] initWith:@"Attachments" :self : [MSOAttachment class]];
 }
+
 
 @end

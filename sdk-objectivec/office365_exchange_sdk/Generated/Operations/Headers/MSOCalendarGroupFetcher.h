@@ -13,7 +13,6 @@
 * The header for type MSOCalendarGroupFetcher.
 */
 
-
 @protocol MSOCalendarGroupFetcher
 
 @optional
@@ -24,6 +23,6 @@
 @interface MSOCalendarGroupFetcher : MSOODataEntityFetcher<MSOCalendarGroupFetcher>
 
 -(MSOCalendarGroupOperations*) getOperations;
-
 -(MSOCalendarCollectionFetcher*) getCalendars;
+	
 @end

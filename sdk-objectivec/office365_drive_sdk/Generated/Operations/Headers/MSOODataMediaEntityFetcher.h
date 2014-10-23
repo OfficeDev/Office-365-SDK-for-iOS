@@ -1,12 +1,14 @@
-//
-//  MSOODataMediaEntityFetcher.h
-//  office365_drive_sdk
-//
-//  Created by Gustavo on 10/22/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "MSOODataEntityFetcher.h"
+
+/**
+* The header for type MSOODataMediaEntityFetcher.
+*/
 
 @interface MSOODataMediaEntityFetcher : MSOODataEntityFetcher
 

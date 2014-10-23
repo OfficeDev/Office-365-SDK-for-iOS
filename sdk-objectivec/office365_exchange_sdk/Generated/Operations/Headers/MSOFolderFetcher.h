@@ -14,7 +14,6 @@
 * The header for type MSOFolderFetcher.
 */
 
-
 @protocol MSOFolderFetcher
 
 @optional
@@ -25,7 +24,7 @@
 @interface MSOFolderFetcher : MSOODataEntityFetcher<MSOFolderFetcher>
 
 -(MSOFolderOperations*) getOperations;
-
 -(MSOFolderCollectionFetcher*) getChildFolders;
 -(MSOMessageCollectionFetcher*) getMessages;
+	
 @end

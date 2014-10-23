@@ -12,7 +12,6 @@
 * The header for type MSOContactFetcher.
 */
 
-
 @protocol MSOContactFetcher
 
 @optional
@@ -23,5 +22,5 @@
 @interface MSOContactFetcher : MSOODataEntityFetcher<MSOContactFetcher>
 
 -(MSOContactOperations*) getOperations;
-
+	
 @end

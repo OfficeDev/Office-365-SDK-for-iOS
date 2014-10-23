@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOFolderFetcher.h"
 #import "MSOItemCollectionFetcher.h"
 
@@ -10,6 +11,7 @@
 /**
 * The implementation file for type MSOFolderFetcher.
 */
+
 
 @implementation MSOFolderFetcher
 -(MSOFolderOperations*) getOperations{
@@ -26,5 +28,6 @@
 -(MSOItemCollectionFetcher*) getchildren{
     return [[MSOItemCollectionFetcher alloc] initWith:@"children" :self : [MSOItem class]];
 }
+
 
 @end

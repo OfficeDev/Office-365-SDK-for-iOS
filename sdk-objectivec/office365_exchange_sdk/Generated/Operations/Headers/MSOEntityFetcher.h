@@ -8,10 +8,16 @@
 #import "MSOEntityOperations.h"
 #import "MSOEntity.h"
 
+#import "MSOUserFetcher.h"	
+#import "MSOFolderFetcher.h"	
+#import "MSOItemFetcher.h"	
+#import "MSOAttachmentFetcher.h"	
+#import "MSOCalendarFetcher.h"	
+#import "MSOCalendarGroupFetcher.h"	
+#import "MSOContactFolderFetcher.h"	
 /**
 * The header for type MSOEntityFetcher.
 */
-
 
 @protocol MSOEntityFetcher
 
@@ -23,5 +29,19 @@
 @interface MSOEntityFetcher : MSOODataEntityFetcher<MSOEntityFetcher>
 
 -(MSOEntityOperations*) getOperations;
-
+		
+-(MSOUserFetcher*) asUser;	
+		
+-(MSOFolderFetcher*) asFolder;	
+		
+-(MSOItemFetcher*) asItem;	
+		
+-(MSOAttachmentFetcher*) asAttachment;	
+		
+-(MSOCalendarFetcher*) asCalendar;	
+		
+-(MSOCalendarGroupFetcher*) asCalendarGroup;	
+		
+-(MSOContactFolderFetcher*) asContactFolder;	
+	
 @end

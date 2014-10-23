@@ -3,12 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOItemFetcher.h"
 
 
 /**
 * The implementation file for type MSOItemFetcher.
 */
+
 
 @implementation MSOItemFetcher
 -(MSOItemOperations*) getOperations{
@@ -22,4 +24,17 @@
     return [super initWith:urlComponent :parent : [MSOItem class]];
 }
 
+	
+-(MSOMessageFetcher*) asMessage{
+	return [[MSOMessageFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+}	
+		
+-(MSOEventFetcher*) asEvent{
+	return [[MSOEventFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+}	
+		
+-(MSOContactFetcher*) asContact{
+	return [[MSOContactFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+}	
+	
 @end

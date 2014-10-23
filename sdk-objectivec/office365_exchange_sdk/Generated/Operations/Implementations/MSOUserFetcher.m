@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOUserFetcher.h"
 #import "MSOFolderCollectionFetcher.h"
 #import "MSOMessageCollectionFetcher.h"
@@ -19,6 +20,7 @@
 /**
 * The implementation file for type MSOUserFetcher.
 */
+
 
 @implementation MSOUserFetcher
 -(MSOUserOperations*) getOperations{
@@ -71,5 +73,6 @@
 -(MSOContactFolderCollectionFetcher*) getContactFolders{
     return [[MSOContactFolderCollectionFetcher alloc] initWith:@"ContactFolders" :self : [MSOContactFolder class]];
 }
+
 
 @end

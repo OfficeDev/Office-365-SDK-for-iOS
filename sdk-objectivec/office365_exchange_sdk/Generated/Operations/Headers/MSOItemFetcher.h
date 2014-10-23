@@ -8,10 +8,12 @@
 #import "MSOItemOperations.h"
 #import "MSOItem.h"
 
+#import "MSOMessageFetcher.h"	
+#import "MSOEventFetcher.h"	
+#import "MSOContactFetcher.h"	
 /**
 * The header for type MSOItemFetcher.
 */
-
 
 @protocol MSOItemFetcher
 
@@ -23,5 +25,11 @@
 @interface MSOItemFetcher : MSOODataEntityFetcher<MSOItemFetcher>
 
 -(MSOItemOperations*) getOperations;
-
+		
+-(MSOMessageFetcher*) asMessage;	
+		
+-(MSOEventFetcher*) asEvent;	
+		
+-(MSOContactFetcher*) asContact;	
+	
 @end

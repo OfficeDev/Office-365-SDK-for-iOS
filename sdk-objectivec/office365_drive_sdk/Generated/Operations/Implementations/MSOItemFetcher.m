@@ -3,12 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOItemFetcher.h"
 
 
 /**
 * The implementation file for type MSOItemFetcher.
 */
+
 
 @implementation MSOItemFetcher
 -(MSOItemOperations*) getOperations{
@@ -22,13 +24,13 @@
     return [super initWith:urlComponent :parent : [MSOItem class]];
 }
 
--(MSOFileFetcher *)asFile{
-    return [[MSOFileFetcher alloc] initWith:self.UrlComponent :self.Parent :nil];
-}
-
-
--(MSOFolderFetcher *)asFolder{
-    return [[MSOFolderFetcher alloc] initWith:self.UrlComponent :self.Parent :nil];
-}
-
+	
+-(MSOFileFetcher*) asFile{
+	return [[MSOFileFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+}	
+		
+-(MSOFolderFetcher*) asFolder{
+	return [[MSOFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+}	
+	
 @end

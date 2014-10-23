@@ -3,12 +3,13 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "MSOFileFetcher.h"
 
+#import "MSOFileFetcher.h"
 
 /**
 * The implementation file for type MSOFileFetcher.
 */
+
 
 @implementation MSOFileFetcher
 -(MSOFileOperations*) getOperations{
@@ -21,5 +22,6 @@
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOFile class]];
 }
+
 
 @end

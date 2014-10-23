@@ -14,7 +14,6 @@
 * The header for type MSOCalendarFetcher.
 */
 
-
 @protocol MSOCalendarFetcher
 
 @optional
@@ -25,7 +24,7 @@
 @interface MSOCalendarFetcher : MSOODataEntityFetcher<MSOCalendarFetcher>
 
 -(MSOCalendarOperations*) getOperations;
-
 -(MSOEventCollectionFetcher*) getCalendarView;
 -(MSOEventCollectionFetcher*) getEvents;
+	
 @end

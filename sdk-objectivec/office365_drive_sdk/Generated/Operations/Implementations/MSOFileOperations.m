@@ -21,7 +21,7 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* parameters = [[NSArray alloc] initWithObjects:
+    NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destFolderId,@"destFolderId",nil ],
 	[[NSDictionary alloc] initWithObjectsAndKeys :destFolderPath,@"destFolderPath",nil ],
 	[[NSDictionary alloc] initWithObjectsAndKeys :newName,@"newName",nil ],nil];
@@ -47,7 +47,7 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* parameters = [[NSArray alloc] initWithObjects:
+    NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :contentStream,@"contentStream",nil ],nil];
 
 	NSData* payload = [[MSOBaseODataContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
@@ -60,7 +60,7 @@
             callback(result, error);
         }
         else{
-            callback(nil, error);
+            callback([r getStatus], error);
         }
     }];
     
@@ -71,12 +71,7 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-			
-	//NSString* parameters = [MSOBaseODataContainerHelper getFuntionParameters: params];
-	//[url appendPathComponent:[NSString alloc] initWithFormat:@"Content(%@)",parameters];
-	NSData* payload = nil;
-		
-	NSURLSessionDataTask* task = [super oDataExecute:url :payload :POST :^(id<MSOResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecute:url :nil :GET :^(id<MSOResponse> r, NSError *error) {
         
        if(error == nil){
 			NSStream * result = (NSStream *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSStream class]];

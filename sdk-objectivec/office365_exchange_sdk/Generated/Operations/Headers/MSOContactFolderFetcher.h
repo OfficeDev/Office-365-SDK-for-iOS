@@ -14,7 +14,6 @@
 * The header for type MSOContactFolderFetcher.
 */
 
-
 @protocol MSOContactFolderFetcher
 
 @optional
@@ -25,7 +24,7 @@
 @interface MSOContactFolderFetcher : MSOODataEntityFetcher<MSOContactFolderFetcher>
 
 -(MSOContactFolderOperations*) getOperations;
-
 -(MSOContactCollectionFetcher*) getContacts;
 -(MSOContactFolderCollectionFetcher*) getChildFolders;
+	
 @end

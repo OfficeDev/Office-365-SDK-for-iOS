@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOFolderFetcher.h"
 #import "MSOFolderCollectionFetcher.h"
 #import "MSOMessageCollectionFetcher.h"
@@ -11,6 +12,7 @@
 /**
 * The implementation file for type MSOFolderFetcher.
 */
+
 
 @implementation MSOFolderFetcher
 -(MSOFolderOperations*) getOperations{
@@ -31,5 +33,6 @@
 -(MSOMessageCollectionFetcher*) getMessages{
     return [[MSOMessageCollectionFetcher alloc] initWith:@"Messages" :self : [MSOMessage class]];
 }
+
 
 @end

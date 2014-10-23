@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOCalendarFetcher.h"
 #import "MSOEventCollectionFetcher.h"
 #import "MSOEventCollectionFetcher.h"
@@ -11,6 +12,7 @@
 /**
 * The implementation file for type MSOCalendarFetcher.
 */
+
 
 @implementation MSOCalendarFetcher
 -(MSOCalendarOperations*) getOperations{
@@ -31,5 +33,6 @@
 -(MSOEventCollectionFetcher*) getEvents{
     return [[MSOEventCollectionFetcher alloc] initWith:@"Events" :self : [MSOEvent class]];
 }
+
 
 @end

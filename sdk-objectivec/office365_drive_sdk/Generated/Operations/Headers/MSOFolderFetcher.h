@@ -13,7 +13,6 @@
 * The header for type MSOFolderFetcher.
 */
 
-
 @protocol MSOFolderFetcher
 
 @optional
@@ -21,9 +20,9 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOFolder*, NSError * error))callback;
 @end
 
-@interface MSOFolderFetcher : MSOODataMediaEntityFetcher<MSOFolderFetcher>
+@interface MSOFolderFetcher : MSOODataEntityFetcher<MSOFolderFetcher>
 
 -(MSOFolderOperations*) getOperations;
-
 -(MSOItemCollectionFetcher*) getchildren;
+	
 @end

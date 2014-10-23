@@ -3,12 +3,14 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOFileAttachmentFetcher.h"
 
 
 /**
 * The implementation file for type MSOFileAttachmentFetcher.
 */
+
 
 @implementation MSOFileAttachmentFetcher
 -(MSOFileAttachmentOperations*) getOperations{
@@ -21,5 +23,6 @@
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : [MSOFileAttachment class]];
 }
+
 
 @end

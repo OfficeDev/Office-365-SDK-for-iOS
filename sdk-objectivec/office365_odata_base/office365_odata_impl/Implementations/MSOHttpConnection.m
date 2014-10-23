@@ -25,9 +25,9 @@
                 error = [[NSError alloc] initWithDomain:@"Error in the Request" code:statusCode userInfo:(NSDictionary*)msj];
             }
             
-            callback(nil, error);
+            callback([[MSOResponseImpl alloc] initWith:nil :statusCode], error);
         }else{
-            MSOResponseImpl* responseImpl = [[MSOResponseImpl alloc] initWith:data :0];
+            MSOResponseImpl* responseImpl = [[MSOResponseImpl alloc] initWith:data :statusCode];
             callback(responseImpl, error);
         }
     }];

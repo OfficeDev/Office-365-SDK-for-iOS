@@ -15,7 +15,7 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* parameters = [[NSArray alloc] initWithObjects:
+    NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :name,@"name",nil ],
 	[[NSDictionary alloc] initWithObjectsAndKeys :nameConflict,@"nameConflict",nil ],
 	[[NSDictionary alloc] initWithObjectsAndKeys :type,@"type",nil ],
@@ -41,8 +41,7 @@
 
 	id<MSOODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil];
 
 	NSString* parameters = [MSOBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"GetByPath(%@)",parameters]];

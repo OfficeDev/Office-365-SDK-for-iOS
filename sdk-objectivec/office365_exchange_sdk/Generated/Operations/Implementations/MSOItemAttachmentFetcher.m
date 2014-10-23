@@ -3,6 +3,7 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
 #import "MSOItemAttachmentFetcher.h"
 #import "MSOItemFetcher.h"
 
@@ -10,6 +11,7 @@
 /**
 * The implementation file for type MSOItemAttachmentFetcher.
 */
+
 
 @implementation MSOItemAttachmentFetcher
 -(MSOItemAttachmentOperations*) getOperations{
@@ -26,5 +28,6 @@
 -(MSOItemFetcher*) getItem{
 	 return [[MSOItemFetcher alloc] initWith:@"Item" :self : [MSOItem class]];
 }
+
 
 @end

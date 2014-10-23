@@ -12,7 +12,6 @@
 * The header for type MSOFileFetcher.
 */
 
-
 @protocol MSOFileFetcher
 
 @optional
@@ -23,5 +22,5 @@
 @interface MSOFileFetcher : MSOODataMediaEntityFetcher<MSOFileFetcher>
 
 -(MSOFileOperations*) getOperations;
-
+	
 @end
