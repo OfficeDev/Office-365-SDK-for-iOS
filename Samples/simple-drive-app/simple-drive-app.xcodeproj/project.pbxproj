@@ -13,6 +13,7 @@
 		ECA0AC2819F8366A008F6C66 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2219F8366A008F6C66 /* ADALiOSBundle-Info.plist */; };
 		ECA0AC2919F8366A008F6C66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2419F8366A008F6C66 /* InfoPlist.strings */; };
 		ECA0AC2C19F83C75008F6C66 /* NewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0AC2B19F83C75008F6C66 /* NewFileViewController.m */; };
+		ECA0AC3119F89F27008F6C66 /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC3019F89F27008F6C66 /* office365.png */; };
 		ECBA298719F7E04D00454689 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298619F7E04D00454689 /* main.m */; };
 		ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298B19F7E04D00454689 /* simple_drive_app.xcdatamodeld */; };
 		ECBA299019F7E04D00454689 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA298F19F7E04D00454689 /* ViewController.m */; };
@@ -49,6 +50,7 @@
 		ECA0AC2519F8366A008F6C66 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ECA0AC2A19F83C75008F6C66 /* NewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFileViewController.h; sourceTree = "<group>"; };
 		ECA0AC2B19F83C75008F6C66 /* NewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFileViewController.m; sourceTree = "<group>"; };
+		ECA0AC3019F89F27008F6C66 /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = office365.png; path = Images.xcassets/AppIcon.appiconset/office365.png; sourceTree = "<group>"; };
 		ECBA298119F7E04D00454689 /* simple-drive-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-drive-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBA298519F7E04D00454689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBA298619F7E04D00454689 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		ECBA298419F7E04D00454689 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0AC3019F89F27008F6C66 /* office365.png */,
 				ECBA298519F7E04D00454689 /* Info.plist */,
 				ECBA298619F7E04D00454689 /* main.m */,
 			);
@@ -287,6 +290,7 @@
 			files = (
 				ECA0AC2819F8366A008F6C66 /* ADALiOSBundle-Info.plist in Resources */,
 				ECA0AC2919F8366A008F6C66 /* InfoPlist.strings in Resources */,
+				ECA0AC3119F89F27008F6C66 /* office365.png in Resources */,
 				ECBA299319F7E04D00454689 /* Main.storyboard in Resources */,
 				ECA0AC2619F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard in Resources */,
 				ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */,

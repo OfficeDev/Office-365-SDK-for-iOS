@@ -4,11 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#ifndef office365_exchange_sdk_office365_exchange_sdk_Prefix_pch
-#define office365_exchange_sdk_office365_exchange_sdk_Prefix_pch
+#ifndef office365_discovery_sdk_office365_discovery_sdk_Prefix_pch
+#define office365_discovery_sdk_office365_discovery_sdk_Prefix_pch
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
 #import <Foundation/Foundation.h>
 
 // Base
@@ -25,16 +26,16 @@
 #import <office365_odata_base/MSOResponse.h>
 #import <office365_odata_base/MSOODataUrl.h>
 
-#import <office365_exchange_sdk/MSOODataExecutable.h>
-#import <office365_exchange_sdk/MSOBaseODataContainer.h>
-#import <office365_exchange_sdk/MSOEntityContainerClient.h>
-#import <office365_exchange_sdk/MSOODataEntityFetcher.h>
-#import <office365_exchange_sdk/MSOODataOperations.h>
-#import <office365_exchange_sdk/MSOODataCollectionFetcher.h>
-#import <office365_exchange_sdk/MSOODataOperations.h>
-// Helpers
-#import <office365_exchange_sdk/MSOBaseODataContainerHelper.h>
-#import <office365_exchange_sdk/MSOEntityFetcherHelper.h>
+#import <office365_discovery_sdk/MSOODataExecutable.h>
+#import <office365_discovery_sdk/MSOBaseODataContainer.h>
+#import <office365_discovery_sdk/MSOEntityContainerClient.h>
+#import <office365_discovery_sdk/MSOODataEntityFetcher.h>
+#import <office365_discovery_sdk/MSOODataOperations.h>
+#import <office365_discovery_sdk/MSOODataCollectionFetcher.h>
+#import <office365_discovery_sdk/MSOODataMediaEntityFetcher.h>
 
+// Helpers
+#import <office365_discovery_sdk/MSOBaseODataContainerHelper.h>
+#import <office365_discovery_sdk/MSOEntityFetcherHelper.h>
 
 #endif

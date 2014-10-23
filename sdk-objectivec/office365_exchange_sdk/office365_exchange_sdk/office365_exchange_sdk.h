@@ -1,10 +1,8 @@
-//
-//  office365_exchange_sdk.h
-//  office365_exchange_sdk
-//
-//  Created by Josh Gavant on 10/19/14.
-//  Copyright (c) 2014 Microsoft Open Technologies, Inc. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 
@@ -15,44 +13,6 @@ FOUNDATION_EXPORT double office365_exchange_sdkVersionNumber;
 FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_exchange_sdk/PublicHeader.h>
-
-// Models
-/*
-#import <office365_exchange_sdk/MSOAttachment.h>
-#import <office365_exchange_sdk/MSOAttendee.h>
-#import <office365_exchange_sdk/MSOAttendeeType.h>
-#import <office365_exchange_sdk/MSOBodyType.h>
-#import <office365_exchange_sdk/MSOCalendar.h>
-#import <office365_exchange_sdk/MSOCalendarGroup.h>
-#import <office365_exchange_sdk/MSOContact.h>
-#import <office365_exchange_sdk/MSOContactFolder.h>
-#import <office365_exchange_sdk/MSODayOfWeek.h>
-#import <office365_exchange_sdk/MSOEmailAddress.h>
-#import <office365_exchange_sdk/MSOEntity.h>
-#import <office365_exchange_sdk/MSOEvent.h>
-#import <office365_exchange_sdk/MSOEventType.h>
-#import <office365_exchange_sdk/MSOFileAttachment.h>
-#import <office365_exchange_sdk/MSOFolder.h>
-#import <office365_exchange_sdk/MSOFreeBusyStatus.h>
-#import <office365_exchange_sdk/MSOImportance.h>
-#import <office365_exchange_sdk/MSOItem.h>
-#import <office365_exchange_sdk/MSOItemAttachment.h>
-#import <office365_exchange_sdk/MSOItemBody.h>
-#import <office365_exchange_sdk/MSOLocation.h>
-#import <office365_exchange_sdk/MSOMeetingMessageType.h>
-#import <office365_exchange_sdk/MSOMessage.h>
-#import <office365_exchange_sdk/MSOPatternedRecurrence.h>
-#import <office365_exchange_sdk/MSOPhysicalAddress.h>
-#import <office365_exchange_sdk/MSOProtocols.h>
-#import <office365_exchange_sdk/MSORecipient.h>
-#import <office365_exchange_sdk/MSORecurrencePattern.h>
-#import <office365_exchange_sdk/MSORecurrencePatternType.h>
-#import <office365_exchange_sdk/MSORecurrenceRange.h>
-#import <office365_exchange_sdk/MSORecurrenceRangeType.h>
-#import <office365_exchange_sdk/MSOResponseStatus.h>
-#import <office365_exchange_sdk/MSOResponseType.h>
-#import <office365_exchange_sdk/MSOUser.h>
-#import <office365_exchange_sdk/MSOWeekIndex.h>*/
 
 //Operation
 #import <office365_exchange_sdk/MSOAttachmentCollectionFetcher.h>

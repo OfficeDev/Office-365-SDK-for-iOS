@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Frameworks">
+      <FileRef
+         location = "group:../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/ADALiOS.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../../sdk-objectivec/office365_odata_base/office365_odata_base.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:../../sdk-objectivec/office365_discovery_sdk/office365_discovery_sdk.xcodeproj">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:simple-discovery-app.xcodeproj">
+   </FileRef>
+</Workspace>

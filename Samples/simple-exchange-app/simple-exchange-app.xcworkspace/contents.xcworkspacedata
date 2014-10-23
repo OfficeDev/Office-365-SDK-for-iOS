@@ -8,9 +8,6 @@
       location = "container:"
       name = "Sdks">
       <FileRef
-         location = "group:../../sdk-objectivec/office365_drive_sdk/office365_drive_sdk.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:../../sdk-objectivec/office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
       </FileRef>
       <FileRef
@@ -19,8 +16,5 @@
    </Group>
    <FileRef
       location = "group:simple-exchange-app.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../simple-drive-app/simple-drive-app.xcodeproj">
    </FileRef>
 </Workspace>
