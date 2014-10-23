@@ -13,6 +13,7 @@
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
+		EC5C159F19F9A21400AAF5AC /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5C159E19F9A21400AAF5AC /* office365.png */; };
 		ECA0AC3419F89F36008F6C66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC3219F89F36008F6C66 /* LaunchScreen.xib */; };
 		ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* LogInController.m */; };
 		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
@@ -41,6 +42,7 @@
 		EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		EC2833B319E6D82800E5FEA4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		EC2833B419E6D82800E5FEA4 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
+		EC5C159E19F9A21400AAF5AC /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = office365.png; path = Images.xcassets/LaunchImage.launchimage/office365.png; sourceTree = "<group>"; };
 		ECA0AC3319F89F36008F6C66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		ECD1AE8E19EEFEDA00C4940F /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
 		ECD1AE8F19EEFEDA00C4940F /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		ECD9F40519784BB600ABB418 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EC5C159E19F9A21400AAF5AC /* office365.png */,
 				ECD9F40619784BB600ABB418 /* Info.plist */,
 				ECD9F40719784BB600ABB418 /* main.m */,
 			);
@@ -225,6 +228,7 @@
 			files = (
 				263BE94119F46DB9009CF776 /* Main.storyboard in Resources */,
 				ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */,
+				EC5C159F19F9A21400AAF5AC /* office365.png in Resources */,
 				ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */,
 				ECA0AC3419F89F36008F6C66 /* LaunchScreen.xib in Resources */,
 				ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */,

@@ -25,8 +25,8 @@
 -(void)getUserData{
 
     UIActivityIndicatorView* spinner = [BaseController getSpinner:self.view];
-    [BaseController getClient:^(MSOEntityContainerClient * client) {
-        NSURLSessionTask* task = [[client getMe] execute:^(MSOUser *user, NSError *error) {
+    [BaseController getClient:^(MSOutlookClient * client) {
+        NSURLSessionTask* task = [[client getMe] execute:^(MSUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

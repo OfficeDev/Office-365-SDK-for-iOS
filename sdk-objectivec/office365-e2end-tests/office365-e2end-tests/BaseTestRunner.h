@@ -1,10 +1,8 @@
-//
-//  BaseTestRunner.h
-//  office365-e2end-tests
-//
-//  Created by Gustavo on 7/23/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <Foundation/Foundation.h>
 
@@ -12,4 +10,5 @@
 
 -(NSMutableArray*)getTests;
 -(NSURLSessionDataTask*)Run : (NSString*)testName completionHandler:(void (^) (id test))result;
+
 @end

@@ -11,7 +11,7 @@
 
 @interface BaseController : NSObject
 
-+(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
++(void)getClient : (void (^) (MSOutlookClient* ))callback;
 +(UIActivityIndicatorView*)getSpinner : (UIView*)view;
 
 @end

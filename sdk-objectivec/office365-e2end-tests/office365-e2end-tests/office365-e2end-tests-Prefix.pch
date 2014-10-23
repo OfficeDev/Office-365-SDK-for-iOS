@@ -1,8 +1,8 @@
-//
-//  Prefix header
-//
-//  The contents of this file are implicitly included at the beginning of every source file.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #ifndef office365_exchange_sdk_office365-e2end-tests-Prefix.pch
 #define office365_exchange_sdk_office365-e2end-tests-Prefix.pch
@@ -11,8 +11,5 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-/*#import "UserFetcher.h"
- #import "EntityContainerClient.h"
- #import "BaseODataContainer.h"*/
 
 #endif

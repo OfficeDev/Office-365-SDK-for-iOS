@@ -1,33 +1,29 @@
-//
-//  BaseController.m
-//  office365-e2end-tests
-//
-//  Created by Lagash on 10/20/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "BaseController.h"
 #import "LogInController.h"
 
 @implementation BaseController
 
--(void)getMailClient : (void (^) (MSOEntityContainerClient* ))callback{
+-(void)getMailClient : (void (^) (MSOutlookClient* ))callback{
     
-    //LogInController* loginController = [[LogInController alloc] init];
+    LogInController* loginController = [[LogInController alloc] init];
     
-   // [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+        [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+        	
+        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
+        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
         
-        MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-        //MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
-        MSOBasicCredentials* credentials = [MSOBasicCredentials alloc];
-        [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
-        
-        MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
+        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
-   // }];
+        callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+    }];
 }
 @end

@@ -14,28 +14,29 @@
 
 // Base
 
-#import <office365_odata_base/MSOCredentials.h>
-#import <office365_odata_base/MSOCredentialsFactory.h>
-#import <office365_odata_base/MSODependencyResolver.h>
-#import <office365_odata_base/MSOHttpTransport.h>
-#import <office365_odata_base/MSOHttpVerb.h>
-#import <office365_odata_base/MSOJsonSerializer.h>
-#import <office365_odata_base/MSOLogger.h>
-#import <office365_odata_base/MSOLogLevel.h>
-#import <office365_odata_base/MSORequest.h>
-#import <office365_odata_base/MSOResponse.h>
-#import <office365_odata_base/MSOODataUrl.h>
+#import <office365_odata_base/MSCredentials.h>
+#import <office365_odata_base/MSCredentialsFactory.h>
+#import <office365_odata_base/MSDependencyResolver.h>
+#import <office365_odata_base/MSHttpTransport.h>
+#import <office365_odata_base/MSHttpVerb.h>
+#import <office365_odata_base/MSJsonSerializer.h>
+#import <office365_odata_base/MSLogger.h>
+#import <office365_odata_base/MSLogLevel.h>
+#import <office365_odata_base/MSRequest.h>
+#import <office365_odata_base/MSResponse.h>
+#import <office365_odata_base/MSODataUrl.h>
 
-#import <office365_discovery_sdk/MSOODataExecutable.h>
-#import <office365_discovery_sdk/MSOBaseODataContainer.h>
-#import <office365_discovery_sdk/MSOEntityContainerClient.h>
-#import <office365_discovery_sdk/MSOODataEntityFetcher.h>
-#import <office365_discovery_sdk/MSOODataOperations.h>
-#import <office365_discovery_sdk/MSOODataCollectionFetcher.h>
-#import <office365_discovery_sdk/MSOODataMediaEntityFetcher.h>
+#import <office365_discovery_sdk/MSODataExecutable.h>
+#import <office365_discovery_sdk/MSBaseODataContainer.h>
+#import <office365_discovery_sdk/MSDiscoveryClient.h>
+#import <office365_discovery_sdk/MSODataEntityFetcher.h>
+#import <office365_discovery_sdk/MSODataOperations.h>
+#import <office365_discovery_sdk/MSODataCollectionFetcher.h>
+#import <office365_discovery_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_discovery_sdk/MSODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_discovery_sdk/MSOBaseODataContainerHelper.h>
-#import <office365_discovery_sdk/MSOEntityFetcherHelper.h>
+#import <office365_discovery_sdk/MSBaseODataContainerHelper.h>
+#import <office365_discovery_sdk/MSEntityFetcherHelper.h>
 
 #endif

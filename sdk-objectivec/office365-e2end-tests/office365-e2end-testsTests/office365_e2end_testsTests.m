@@ -1,10 +1,8 @@
-//
-//  office365_e2end_testsTests.m
-//  office365-e2end-testsTests
-//
-//  Created by Gustavo on 10/17/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>

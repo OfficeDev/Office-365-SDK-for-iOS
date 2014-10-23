@@ -47,7 +47,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FolderCell" forIndexPath:indexPath];
     
-    MSOFolder *folder = (MSOFolder*)[self.Folders objectAtIndex:indexPath.row];
+    MSFolder *folder = (MSFolder*)[self.Folders objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@" ,folder.DisplayName];
     
@@ -57,8 +57,8 @@
 -(void)getFolders{
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [BaseController getClient:^(MSOEntityContainerClient *client) {
-        NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSOFolder> *folders, NSError *error) {
+    [BaseController getClient:^(MSOutlookClient *client) {
+        NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSFolder> *folders, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

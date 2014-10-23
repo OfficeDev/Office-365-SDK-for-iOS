@@ -10,43 +10,43 @@
 		2647EA6319F4443800FD9527 /* office365_odata_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA6219F4443800FD9527 /* office365_odata_base.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EA6919F4443800FD9527 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EA5D19F4443800FD9527 /* office365_odata_base.framework */; };
 		2647EA7019F4443800FD9527 /* office365_odata_baseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */; };
-		2647EA8D19F4453100FD9527 /* MSOCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8119F4453100FD9527 /* MSOCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA8E19F4453100FD9527 /* MSOCredentialsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA8F19F4453100FD9527 /* MSODependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8319F4453100FD9527 /* MSODependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9019F4453100FD9527 /* MSOHttpTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8419F4453100FD9527 /* MSOHttpTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9119F4453100FD9527 /* MSOHttpVerb.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8519F4453100FD9527 /* MSOHttpVerb.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9219F4453100FD9527 /* MSOJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9319F4453100FD9527 /* MSOLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8719F4453100FD9527 /* MSOLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9419F4453100FD9527 /* MSOLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8819F4453100FD9527 /* MSOLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9519F4453100FD9527 /* MSOOdataUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8919F4453100FD9527 /* MSOOdataUrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9619F4453100FD9527 /* MSORequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8A19F4453100FD9527 /* MSORequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EA9719F4453100FD9527 /* MSOResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8B19F4453100FD9527 /* MSOResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA8D19F4453100FD9527 /* MSCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8119F4453100FD9527 /* MSCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA8E19F4453100FD9527 /* MSCredentialsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8219F4453100FD9527 /* MSCredentialsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA8F19F4453100FD9527 /* MSDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8319F4453100FD9527 /* MSDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9019F4453100FD9527 /* MSHttpTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8419F4453100FD9527 /* MSHttpTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9119F4453100FD9527 /* MSHttpVerb.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8519F4453100FD9527 /* MSHttpVerb.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9219F4453100FD9527 /* MSJsonSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8619F4453100FD9527 /* MSJsonSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9319F4453100FD9527 /* MSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8719F4453100FD9527 /* MSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9419F4453100FD9527 /* MSLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8819F4453100FD9527 /* MSLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9519F4453100FD9527 /* MSOdataUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8919F4453100FD9527 /* MSOdataUrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9619F4453100FD9527 /* MSRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8A19F4453100FD9527 /* MSRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EA9719F4453100FD9527 /* MSResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8B19F4453100FD9527 /* MSResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EA9819F4453100FD9527 /* office365_odata_interfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA8C19F4453100FD9527 /* office365_odata_interfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EABC19F4454000FD9527 /* JsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9D19F4454000FD9527 /* JsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EABD19F4454000FD9527 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9E19F4454000FD9527 /* Property.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EABE19F4454000FD9527 /* MSOBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EABF19F4454000FD9527 /* MSOCredentialsImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC019F4454000FD9527 /* MSODefaultDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC119F4454000FD9527 /* MSOHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA219F4454000FD9527 /* MSOHttpConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC219F4454000FD9527 /* MSOJsonSerializerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC319F4454000FD9527 /* MSOLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC419F4454000FD9527 /* MSOOAuthCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC519F4454000FD9527 /* MSOODataURLImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC619F4454000FD9527 /* MSORequestImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA719F4454000FD9527 /* MSORequestImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EAC719F4454000FD9527 /* MSOResponseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA819F4454000FD9527 /* MSOResponseImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABE19F4454000FD9527 /* MSBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA9F19F4454000FD9527 /* MSBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EABF19F4454000FD9527 /* MSCredentialsImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA019F4454000FD9527 /* MSCredentialsImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC019F4454000FD9527 /* MSDefaultDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA119F4454000FD9527 /* MSDefaultDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC119F4454000FD9527 /* MSHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA219F4454000FD9527 /* MSHttpConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC219F4454000FD9527 /* MSJsonSerializerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA319F4454000FD9527 /* MSJsonSerializerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC319F4454000FD9527 /* MSLoggerImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA419F4454000FD9527 /* MSLoggerImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC419F4454000FD9527 /* MSOAuthCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA519F4454000FD9527 /* MSOAuthCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC519F4454000FD9527 /* MSODataURLImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA619F4454000FD9527 /* MSODataURLImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC619F4454000FD9527 /* MSRequestImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA719F4454000FD9527 /* MSRequestImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EAC719F4454000FD9527 /* MSResponseImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA819F4454000FD9527 /* MSResponseImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EAC819F4454000FD9527 /* NSString+NSStringExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EAC919F4454000FD9527 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAD19F4454000FD9527 /* JsonParser.m */; };
 		2647EACA19F4454000FD9527 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAE19F4454000FD9527 /* Property.m */; };
-		2647EACB19F4454000FD9527 /* MSOBasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */; };
-		2647EACC19F4454000FD9527 /* MSOCredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */; };
-		2647EACD19F4454000FD9527 /* MSODefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */; };
-		2647EACE19F4454000FD9527 /* MSOHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB219F4454000FD9527 /* MSOHttpConnection.m */; };
-		2647EACF19F4454000FD9527 /* MSOJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */; };
-		2647EAD019F4454000FD9527 /* MSOLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */; };
-		2647EAD119F4454000FD9527 /* MSOOAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */; };
-		2647EAD219F4454000FD9527 /* MSOODataURLImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */; };
-		2647EAD319F4454000FD9527 /* MSORequestImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB719F4454000FD9527 /* MSORequestImpl.m */; };
-		2647EAD419F4454000FD9527 /* MSOResponseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB819F4454000FD9527 /* MSOResponseImpl.m */; };
+		2647EACB19F4454000FD9527 /* MSBasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAAF19F4454000FD9527 /* MSBasicCredentials.m */; };
+		2647EACC19F4454000FD9527 /* MSCredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB019F4454000FD9527 /* MSCredentialsImpl.m */; };
+		2647EACD19F4454000FD9527 /* MSDefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB119F4454000FD9527 /* MSDefaultDependencyResolver.m */; };
+		2647EACE19F4454000FD9527 /* MSHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB219F4454000FD9527 /* MSHttpConnection.m */; };
+		2647EACF19F4454000FD9527 /* MSJsonSerializerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB319F4454000FD9527 /* MSJsonSerializerImpl.m */; };
+		2647EAD019F4454000FD9527 /* MSLoggerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB419F4454000FD9527 /* MSLoggerImpl.m */; };
+		2647EAD119F4454000FD9527 /* MSOAuthCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB519F4454000FD9527 /* MSOAuthCredentials.m */; };
+		2647EAD219F4454000FD9527 /* MSODataURLImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB619F4454000FD9527 /* MSODataURLImpl.m */; };
+		2647EAD319F4454000FD9527 /* MSRequestImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB719F4454000FD9527 /* MSRequestImpl.m */; };
+		2647EAD419F4454000FD9527 /* MSResponseImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB819F4454000FD9527 /* MSResponseImpl.m */; };
 		2647EAD519F4454000FD9527 /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */; };
 		2647EAD619F4454000FD9527 /* office365_odata_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EABA19F4454000FD9527 /* office365_odata_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -68,43 +68,43 @@
 		2647EA6819F4443800FD9527 /* office365_odata_baseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_odata_baseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EA6E19F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_odata_baseTests.m; sourceTree = "<group>"; };
-		2647EA8119F4453100FD9527 /* MSOCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentials.h; sourceTree = "<group>"; };
-		2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsFactory.h; sourceTree = "<group>"; };
-		2647EA8319F4453100FD9527 /* MSODependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODependencyResolver.h; sourceTree = "<group>"; };
-		2647EA8419F4453100FD9527 /* MSOHttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpTransport.h; sourceTree = "<group>"; };
-		2647EA8519F4453100FD9527 /* MSOHttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpVerb.h; sourceTree = "<group>"; };
-		2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializer.h; sourceTree = "<group>"; };
-		2647EA8719F4453100FD9527 /* MSOLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogger.h; sourceTree = "<group>"; };
-		2647EA8819F4453100FD9527 /* MSOLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLogLevel.h; sourceTree = "<group>"; };
-		2647EA8919F4453100FD9527 /* MSOOdataUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOdataUrl.h; sourceTree = "<group>"; };
-		2647EA8A19F4453100FD9527 /* MSORequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequest.h; sourceTree = "<group>"; };
-		2647EA8B19F4453100FD9527 /* MSOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponse.h; sourceTree = "<group>"; };
+		2647EA8119F4453100FD9527 /* MSCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCredentials.h; sourceTree = "<group>"; };
+		2647EA8219F4453100FD9527 /* MSCredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCredentialsFactory.h; sourceTree = "<group>"; };
+		2647EA8319F4453100FD9527 /* MSDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDependencyResolver.h; sourceTree = "<group>"; };
+		2647EA8419F4453100FD9527 /* MSHttpTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpTransport.h; sourceTree = "<group>"; };
+		2647EA8519F4453100FD9527 /* MSHttpVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpVerb.h; sourceTree = "<group>"; };
+		2647EA8619F4453100FD9527 /* MSJsonSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSJsonSerializer.h; sourceTree = "<group>"; };
+		2647EA8719F4453100FD9527 /* MSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLogger.h; sourceTree = "<group>"; };
+		2647EA8819F4453100FD9527 /* MSLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLogLevel.h; sourceTree = "<group>"; };
+		2647EA8919F4453100FD9527 /* MSOdataUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOdataUrl.h; sourceTree = "<group>"; };
+		2647EA8A19F4453100FD9527 /* MSRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRequest.h; sourceTree = "<group>"; };
+		2647EA8B19F4453100FD9527 /* MSResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResponse.h; sourceTree = "<group>"; };
 		2647EA8C19F4453100FD9527 /* office365_odata_interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
 		2647EA9D19F4454000FD9527 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
 		2647EA9E19F4454000FD9527 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
-		2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBasicCredentials.h; sourceTree = "<group>"; };
-		2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCredentialsImpl.h; sourceTree = "<group>"; };
-		2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODefaultDependencyResolver.h; sourceTree = "<group>"; };
-		2647EAA219F4454000FD9527 /* MSOHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOHttpConnection.h; sourceTree = "<group>"; };
-		2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonSerializerImpl.h; sourceTree = "<group>"; };
-		2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLoggerImpl.h; sourceTree = "<group>"; };
-		2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOOAuthCredentials.h; sourceTree = "<group>"; };
-		2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataURLImpl.h; sourceTree = "<group>"; };
-		2647EAA719F4454000FD9527 /* MSORequestImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORequestImpl.h; sourceTree = "<group>"; };
-		2647EAA819F4454000FD9527 /* MSOResponseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponseImpl.h; sourceTree = "<group>"; };
+		2647EA9F19F4454000FD9527 /* MSBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBasicCredentials.h; sourceTree = "<group>"; };
+		2647EAA019F4454000FD9527 /* MSCredentialsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCredentialsImpl.h; sourceTree = "<group>"; };
+		2647EAA119F4454000FD9527 /* MSDefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDefaultDependencyResolver.h; sourceTree = "<group>"; };
+		2647EAA219F4454000FD9527 /* MSHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSHttpConnection.h; sourceTree = "<group>"; };
+		2647EAA319F4454000FD9527 /* MSJsonSerializerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSJsonSerializerImpl.h; sourceTree = "<group>"; };
+		2647EAA419F4454000FD9527 /* MSLoggerImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLoggerImpl.h; sourceTree = "<group>"; };
+		2647EAA519F4454000FD9527 /* MSOAuthCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAuthCredentials.h; sourceTree = "<group>"; };
+		2647EAA619F4454000FD9527 /* MSODataURLImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataURLImpl.h; sourceTree = "<group>"; };
+		2647EAA719F4454000FD9527 /* MSRequestImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRequestImpl.h; sourceTree = "<group>"; };
+		2647EAA819F4454000FD9527 /* MSResponseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResponseImpl.h; sourceTree = "<group>"; };
 		2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
 		2647EAAD19F4454000FD9527 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
 		2647EAAE19F4454000FD9527 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
-		2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBasicCredentials.m; sourceTree = "<group>"; };
-		2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCredentialsImpl.m; sourceTree = "<group>"; };
-		2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODefaultDependencyResolver.m; sourceTree = "<group>"; };
-		2647EAB219F4454000FD9527 /* MSOHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOHttpConnection.m; sourceTree = "<group>"; };
-		2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonSerializerImpl.m; sourceTree = "<group>"; };
-		2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOLoggerImpl.m; sourceTree = "<group>"; };
-		2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOOAuthCredentials.m; sourceTree = "<group>"; };
-		2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataURLImpl.m; sourceTree = "<group>"; };
-		2647EAB719F4454000FD9527 /* MSORequestImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSORequestImpl.m; sourceTree = "<group>"; };
-		2647EAB819F4454000FD9527 /* MSOResponseImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOResponseImpl.m; sourceTree = "<group>"; };
+		2647EAAF19F4454000FD9527 /* MSBasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBasicCredentials.m; sourceTree = "<group>"; };
+		2647EAB019F4454000FD9527 /* MSCredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCredentialsImpl.m; sourceTree = "<group>"; };
+		2647EAB119F4454000FD9527 /* MSDefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDefaultDependencyResolver.m; sourceTree = "<group>"; };
+		2647EAB219F4454000FD9527 /* MSHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSHttpConnection.m; sourceTree = "<group>"; };
+		2647EAB319F4454000FD9527 /* MSJsonSerializerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSJsonSerializerImpl.m; sourceTree = "<group>"; };
+		2647EAB419F4454000FD9527 /* MSLoggerImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLoggerImpl.m; sourceTree = "<group>"; };
+		2647EAB519F4454000FD9527 /* MSOAuthCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAuthCredentials.m; sourceTree = "<group>"; };
+		2647EAB619F4454000FD9527 /* MSODataURLImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataURLImpl.m; sourceTree = "<group>"; };
+		2647EAB719F4454000FD9527 /* MSRequestImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRequestImpl.m; sourceTree = "<group>"; };
+		2647EAB819F4454000FD9527 /* MSResponseImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSResponseImpl.m; sourceTree = "<group>"; };
 		2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
 		2647EABA19F4454000FD9527 /* office365_odata_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,17 +195,17 @@
 		2647EA8019F4453100FD9527 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				2647EA8119F4453100FD9527 /* MSOCredentials.h */,
-				2647EA8219F4453100FD9527 /* MSOCredentialsFactory.h */,
-				2647EA8319F4453100FD9527 /* MSODependencyResolver.h */,
-				2647EA8419F4453100FD9527 /* MSOHttpTransport.h */,
-				2647EA8519F4453100FD9527 /* MSOHttpVerb.h */,
-				2647EA8619F4453100FD9527 /* MSOJsonSerializer.h */,
-				2647EA8719F4453100FD9527 /* MSOLogger.h */,
-				2647EA8819F4453100FD9527 /* MSOLogLevel.h */,
-				2647EA8919F4453100FD9527 /* MSOOdataUrl.h */,
-				2647EA8A19F4453100FD9527 /* MSORequest.h */,
-				2647EA8B19F4453100FD9527 /* MSOResponse.h */,
+				2647EA8119F4453100FD9527 /* MSCredentials.h */,
+				2647EA8219F4453100FD9527 /* MSCredentialsFactory.h */,
+				2647EA8319F4453100FD9527 /* MSDependencyResolver.h */,
+				2647EA8419F4453100FD9527 /* MSHttpTransport.h */,
+				2647EA8519F4453100FD9527 /* MSHttpVerb.h */,
+				2647EA8619F4453100FD9527 /* MSJsonSerializer.h */,
+				2647EA8719F4453100FD9527 /* MSLogger.h */,
+				2647EA8819F4453100FD9527 /* MSLogLevel.h */,
+				2647EA8919F4453100FD9527 /* MSOdataUrl.h */,
+				2647EA8A19F4453100FD9527 /* MSRequest.h */,
+				2647EA8B19F4453100FD9527 /* MSResponse.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -223,16 +223,16 @@
 			isa = PBXGroup;
 			children = (
 				2647EA9B19F4454000FD9527 /* JsonParser */,
-				2647EA9F19F4454000FD9527 /* MSOBasicCredentials.h */,
-				2647EAA019F4454000FD9527 /* MSOCredentialsImpl.h */,
-				2647EAA119F4454000FD9527 /* MSODefaultDependencyResolver.h */,
-				2647EAA219F4454000FD9527 /* MSOHttpConnection.h */,
-				2647EAA319F4454000FD9527 /* MSOJsonSerializerImpl.h */,
-				2647EAA419F4454000FD9527 /* MSOLoggerImpl.h */,
-				2647EAA519F4454000FD9527 /* MSOOAuthCredentials.h */,
-				2647EAA619F4454000FD9527 /* MSOODataURLImpl.h */,
-				2647EAA719F4454000FD9527 /* MSORequestImpl.h */,
-				2647EAA819F4454000FD9527 /* MSOResponseImpl.h */,
+				2647EA9F19F4454000FD9527 /* MSBasicCredentials.h */,
+				2647EAA019F4454000FD9527 /* MSCredentialsImpl.h */,
+				2647EAA119F4454000FD9527 /* MSDefaultDependencyResolver.h */,
+				2647EAA219F4454000FD9527 /* MSHttpConnection.h */,
+				2647EAA319F4454000FD9527 /* MSJsonSerializerImpl.h */,
+				2647EAA419F4454000FD9527 /* MSLoggerImpl.h */,
+				2647EAA519F4454000FD9527 /* MSOAuthCredentials.h */,
+				2647EAA619F4454000FD9527 /* MSODataURLImpl.h */,
+				2647EAA719F4454000FD9527 /* MSRequestImpl.h */,
+				2647EAA819F4454000FD9527 /* MSResponseImpl.h */,
 				2647EAA919F4454000FD9527 /* NSString+NSStringExtensions.h */,
 			);
 			path = Headers;
@@ -259,16 +259,16 @@
 			isa = PBXGroup;
 			children = (
 				2647EAAB19F4454000FD9527 /* JsonParser */,
-				2647EAAF19F4454000FD9527 /* MSOBasicCredentials.m */,
-				2647EAB019F4454000FD9527 /* MSOCredentialsImpl.m */,
-				2647EAB119F4454000FD9527 /* MSODefaultDependencyResolver.m */,
-				2647EAB219F4454000FD9527 /* MSOHttpConnection.m */,
-				2647EAB319F4454000FD9527 /* MSOJsonSerializerImpl.m */,
-				2647EAB419F4454000FD9527 /* MSOLoggerImpl.m */,
-				2647EAB519F4454000FD9527 /* MSOOAuthCredentials.m */,
-				2647EAB619F4454000FD9527 /* MSOODataURLImpl.m */,
-				2647EAB719F4454000FD9527 /* MSORequestImpl.m */,
-				2647EAB819F4454000FD9527 /* MSOResponseImpl.m */,
+				2647EAAF19F4454000FD9527 /* MSBasicCredentials.m */,
+				2647EAB019F4454000FD9527 /* MSCredentialsImpl.m */,
+				2647EAB119F4454000FD9527 /* MSDefaultDependencyResolver.m */,
+				2647EAB219F4454000FD9527 /* MSHttpConnection.m */,
+				2647EAB319F4454000FD9527 /* MSJsonSerializerImpl.m */,
+				2647EAB419F4454000FD9527 /* MSLoggerImpl.m */,
+				2647EAB519F4454000FD9527 /* MSOAuthCredentials.m */,
+				2647EAB619F4454000FD9527 /* MSODataURLImpl.m */,
+				2647EAB719F4454000FD9527 /* MSRequestImpl.m */,
+				2647EAB819F4454000FD9527 /* MSResponseImpl.m */,
 				2647EAB919F4454000FD9527 /* NSString+NSStringExtensions.m */,
 			);
 			path = Implementations;
@@ -299,32 +299,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				2647EAC819F4454000FD9527 /* NSString+NSStringExtensions.h in Headers */,
-				2647EA9519F4453100FD9527 /* MSOOdataUrl.h in Headers */,
-				2647EA9319F4453100FD9527 /* MSOLogger.h in Headers */,
-				2647EAC219F4454000FD9527 /* MSOJsonSerializerImpl.h in Headers */,
-				2647EABF19F4454000FD9527 /* MSOCredentialsImpl.h in Headers */,
+				2647EA9519F4453100FD9527 /* MSOdataUrl.h in Headers */,
+				2647EA9319F4453100FD9527 /* MSLogger.h in Headers */,
+				2647EAC219F4454000FD9527 /* MSJsonSerializerImpl.h in Headers */,
+				2647EABF19F4454000FD9527 /* MSCredentialsImpl.h in Headers */,
 				2647EA6319F4443800FD9527 /* office365_odata_base.h in Headers */,
 				2647EABC19F4454000FD9527 /* JsonParser.h in Headers */,
-				2647EA9119F4453100FD9527 /* MSOHttpVerb.h in Headers */,
+				2647EA9119F4453100FD9527 /* MSHttpVerb.h in Headers */,
 				2647EA9819F4453100FD9527 /* office365_odata_interfaces.h in Headers */,
-				2647EAC619F4454000FD9527 /* MSORequestImpl.h in Headers */,
-				2647EAC119F4454000FD9527 /* MSOHttpConnection.h in Headers */,
-				2647EA8F19F4453100FD9527 /* MSODependencyResolver.h in Headers */,
-				2647EAC319F4454000FD9527 /* MSOLoggerImpl.h in Headers */,
+				2647EAC619F4454000FD9527 /* MSRequestImpl.h in Headers */,
+				2647EAC119F4454000FD9527 /* MSHttpConnection.h in Headers */,
+				2647EA8F19F4453100FD9527 /* MSDependencyResolver.h in Headers */,
+				2647EAC319F4454000FD9527 /* MSLoggerImpl.h in Headers */,
 				2647EAD619F4454000FD9527 /* office365_odata_impl.h in Headers */,
-				2647EAC419F4454000FD9527 /* MSOOAuthCredentials.h in Headers */,
-				2647EA9719F4453100FD9527 /* MSOResponse.h in Headers */,
-				2647EA9219F4453100FD9527 /* MSOJsonSerializer.h in Headers */,
-				2647EA9019F4453100FD9527 /* MSOHttpTransport.h in Headers */,
-				2647EAC719F4454000FD9527 /* MSOResponseImpl.h in Headers */,
-				2647EABE19F4454000FD9527 /* MSOBasicCredentials.h in Headers */,
-				2647EAC519F4454000FD9527 /* MSOODataURLImpl.h in Headers */,
+				2647EAC419F4454000FD9527 /* MSOAuthCredentials.h in Headers */,
+				2647EA9719F4453100FD9527 /* MSResponse.h in Headers */,
+				2647EA9219F4453100FD9527 /* MSJsonSerializer.h in Headers */,
+				2647EA9019F4453100FD9527 /* MSHttpTransport.h in Headers */,
+				2647EAC719F4454000FD9527 /* MSResponseImpl.h in Headers */,
+				2647EABE19F4454000FD9527 /* MSBasicCredentials.h in Headers */,
+				2647EAC519F4454000FD9527 /* MSODataURLImpl.h in Headers */,
 				2647EABD19F4454000FD9527 /* Property.h in Headers */,
-				2647EAC019F4454000FD9527 /* MSODefaultDependencyResolver.h in Headers */,
-				2647EA9419F4453100FD9527 /* MSOLogLevel.h in Headers */,
-				2647EA8D19F4453100FD9527 /* MSOCredentials.h in Headers */,
-				2647EA8E19F4453100FD9527 /* MSOCredentialsFactory.h in Headers */,
-				2647EA9619F4453100FD9527 /* MSORequest.h in Headers */,
+				2647EAC019F4454000FD9527 /* MSDefaultDependencyResolver.h in Headers */,
+				2647EA9419F4453100FD9527 /* MSLogLevel.h in Headers */,
+				2647EA8D19F4453100FD9527 /* MSCredentials.h in Headers */,
+				2647EA8E19F4453100FD9527 /* MSCredentialsFactory.h in Headers */,
+				2647EA9619F4453100FD9527 /* MSRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,17 +426,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2647EACA19F4454000FD9527 /* Property.m in Sources */,
-				2647EACE19F4454000FD9527 /* MSOHttpConnection.m in Sources */,
-				2647EACF19F4454000FD9527 /* MSOJsonSerializerImpl.m in Sources */,
-				2647EAD119F4454000FD9527 /* MSOOAuthCredentials.m in Sources */,
-				2647EAD319F4454000FD9527 /* MSORequestImpl.m in Sources */,
-				2647EAD019F4454000FD9527 /* MSOLoggerImpl.m in Sources */,
-				2647EACB19F4454000FD9527 /* MSOBasicCredentials.m in Sources */,
-				2647EACD19F4454000FD9527 /* MSODefaultDependencyResolver.m in Sources */,
-				2647EAD419F4454000FD9527 /* MSOResponseImpl.m in Sources */,
+				2647EACE19F4454000FD9527 /* MSHttpConnection.m in Sources */,
+				2647EACF19F4454000FD9527 /* MSJsonSerializerImpl.m in Sources */,
+				2647EAD119F4454000FD9527 /* MSOAuthCredentials.m in Sources */,
+				2647EAD319F4454000FD9527 /* MSRequestImpl.m in Sources */,
+				2647EAD019F4454000FD9527 /* MSLoggerImpl.m in Sources */,
+				2647EACB19F4454000FD9527 /* MSBasicCredentials.m in Sources */,
+				2647EACD19F4454000FD9527 /* MSDefaultDependencyResolver.m in Sources */,
+				2647EAD419F4454000FD9527 /* MSResponseImpl.m in Sources */,
 				2647EAD519F4454000FD9527 /* NSString+NSStringExtensions.m in Sources */,
-				2647EAD219F4454000FD9527 /* MSOODataURLImpl.m in Sources */,
-				2647EACC19F4454000FD9527 /* MSOCredentialsImpl.m in Sources */,
+				2647EAD219F4454000FD9527 /* MSODataURLImpl.m in Sources */,
+				2647EACC19F4454000FD9527 /* MSCredentialsImpl.m in Sources */,
 				2647EAC919F4454000FD9527 /* JsonParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

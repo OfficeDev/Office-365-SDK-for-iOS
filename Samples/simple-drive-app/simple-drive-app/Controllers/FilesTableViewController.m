@@ -47,7 +47,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCell" forIndexPath:indexPath];
     
-    MSOItem *file = (MSOItem*)[self.Files objectAtIndex:indexPath.row];
+    MSItem *file = (MSItem*)[self.Files objectAtIndex:indexPath.row];
     
     cell.textLabel.text = file.name;
     
@@ -58,8 +58,8 @@
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [BaseController getClient:^(MSOEntityContainerClient * client) {
-            [[[[client getme] getfiles] execute:^(NSArray<MSOItem> *items, NSError *error) {
+    [BaseController getClient:^(MSSharePointClient * client) {
+            [[[client  getfiles] execute:^(NSArray<MSItem> *items, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
@@ -79,28 +79,32 @@
     [self getFiles];
 }
 
-/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
         
-        [BaseController getClient:^(MSOEntityContainerClient *client) {
+        [BaseController getClient:^(MSSharePointClient *client) {
             
-            MSOFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
-            [[[[[client getme] getfiles] getById:fileToDelete.id] delete:^(id entity, NSError *error) {
+            MSFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
+            [[[[client getfiles] getById:fileToDelete.id] delete:^(id entity, NSError *error) {
                 
-                [spinner stopAnimating];
-                [self getFiles];
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   
+                                   [spinner stopAnimating];
+                                   [self getFiles];
                 
-                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                   UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
                                                                 message:[@"Deleted File " stringByAppendingString:fileToDelete.name]
                                                                delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                [alert show];
+                                   [alert show];
+                               });
                 
             }] resume];
         }];
     }
-}*/
+}
 
 @end

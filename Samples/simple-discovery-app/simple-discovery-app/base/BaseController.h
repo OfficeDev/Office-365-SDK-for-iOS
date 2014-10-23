@@ -10,7 +10,7 @@
 
 @interface BaseController : NSObject
 
-+(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
++(void)getClient : (void (^) (MSDiscoveryClient* ))callback;
 +(UIActivityIndicatorView*)getSpinner : (UIView*)view;
 
 @end

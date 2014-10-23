@@ -47,9 +47,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ServiceCell" forIndexPath:indexPath];
     
-    MSOServiceInfo *service = (MSOServiceInfo*)[self.Services objectAtIndex:indexPath.row];
+    MSServiceInfo *service = (MSServiceInfo*)[self.Services objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = service.ServiceName;
+    cell.textLabel.text = service.serviceName;
     
     return cell;
 }
@@ -58,8 +58,8 @@
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [BaseController getClient:^(MSOEntityContainerClient * client) {
-            [[[client getAllServices] execute:^(NSArray<MSOServiceInfo> *serviceInfos, NSError *error) {
+    [BaseController getClient:^(MSDiscoveryClient * client) {
+            [[[client getallServices] execute:^(NSArray<MSServiceInfo> *serviceInfos, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{

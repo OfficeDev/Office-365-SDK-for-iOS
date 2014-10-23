@@ -9,22 +9,22 @@
 
 @implementation BaseController
 
-+(void)getClient : (void (^) (MSOEntityContainerClient* ))callback{
++(void)getClient : (void (^) (MSDiscoveryClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
     
     [loginController getTokenWith : @"https://osisvcpr0614.officeapps.live-int.com" :true completionHandler:^(NSString *token) {
     
-        MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-        MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
+        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
+        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
         [credentials addToken:token];
         
-        MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
+        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://osisvcpr0614.officeapps.live-int.com/discovery/v1.0" dependencyResolver:resolver]);
+        callback([[MSDiscoveryClient alloc] initWitUrl:@"https://osisvcpr0614.officeapps.live-int.com/discovery/v1.0" dependencyResolver:resolver]);
     }];
 }
 

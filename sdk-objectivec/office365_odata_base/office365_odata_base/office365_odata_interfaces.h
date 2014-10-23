@@ -4,14 +4,14 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <office365_odata_base/MSOCredentials.h>
-#import <office365_odata_base/MSOCredentialsFactory.h>
-#import <office365_odata_base/MSODependencyResolver.h>
-#import <office365_odata_base/MSOHttpTransport.h>
-#import <office365_odata_base/MSOHttpVerb.h>
-#import <office365_odata_base/MSOJsonSerializer.h>
-#import <office365_odata_base/MSOLogger.h>
-#import <office365_odata_base/MSOLogLevel.h>
-#import <office365_odata_base/MSORequest.h>
-#import <office365_odata_base/MSOResponse.h>
-#import <office365_odata_base/MSOODataUrl.h>
+#import <office365_odata_base/MSCredentials.h>
+#import <office365_odata_base/MSCredentialsFactory.h>
+#import <office365_odata_base/MSDependencyResolver.h>
+#import <office365_odata_base/MSHttpTransport.h>
+#import <office365_odata_base/MSHttpVerb.h>
+#import <office365_odata_base/MSJsonSerializer.h>
+#import <office365_odata_base/MSLogger.h>
+#import <office365_odata_base/MSLogLevel.h>
+#import <office365_odata_base/MSRequest.h>
+#import <office365_odata_base/MSResponse.h>
+#import <office365_odata_base/MSODataUrl.h>

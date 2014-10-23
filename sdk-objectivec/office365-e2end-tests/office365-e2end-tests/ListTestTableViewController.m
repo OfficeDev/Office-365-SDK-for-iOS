@@ -1,10 +1,8 @@
-//
-//  FileTestTableViewController.m
-//  office365-e2end-tests
-//
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "ListTestTableViewController.h"
 #import "LogInController.h"
@@ -35,7 +33,7 @@ MailTestRunner *testRunner;
     [super viewDidLoad];
     loginController = [[LogInController alloc] init];
     
-    [[BaseController alloc] getMailClient:^(MSOEntityContainerClient *c) {
+    [[BaseController alloc] getMailClient:^(MSOutlookClient *c) {
         testRunner = [[MailTestRunner alloc] initWithClient:c];
         testRunner.Parameters = testParameters;
         
@@ -161,11 +159,11 @@ MailTestRunner *testRunner;
                 test.ExecutionMessages = result.ExecutionMessages;
                 executed++;
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
+             //   dispatch_async(dispatch_get_main_queue(), ^{
                     [self.tableView reloadData];
                     
                     if(executed == [self.Tests count]) [spinner stopAnimating];
-                });
+               // });
             }];
             
             [task resume];

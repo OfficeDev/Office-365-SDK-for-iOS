@@ -6,14 +6,14 @@
 
 #import <office365_odata_base/office365_odata_interfaces.h>
 
-#import <office365_odata_base/MSODefaultDependencyResolver.h>
+#import <office365_odata_base/MSDefaultDependencyResolver.h>
 #import <office365_odata_base/NSString+NSStringExtensions.h>
-#import <office365_odata_base/MSOODataURLImpl.h>
-#import <office365_odata_base/MSOBasicCredentials.h>
-#import <office365_odata_base/MSOCredentialsImpl.h>
-#import <office365_odata_base/MSOHttpConnection.h>
-#import <office365_odata_base/MSOJsonSerializerImpl.h>
-#import <office365_odata_base/MSOLoggerImpl.h>
-#import <office365_odata_base/MSORequestImpl.h>
-#import <office365_odata_base/MSOResponseImpl.h>
-#import <office365_odata_base/MSOOAuthCredentials.h>
+#import <office365_odata_base/MSODataURLImpl.h>
+#import <office365_odata_base/MSBasicCredentials.h>
+#import <office365_odata_base/MSCredentialsImpl.h>
+#import <office365_odata_base/MSHttpConnection.h>
+#import <office365_odata_base/MSJsonSerializerImpl.h>
+#import <office365_odata_base/MSLoggerImpl.h>
+#import <office365_odata_base/MSRequestImpl.h>
+#import <office365_odata_base/MSResponseImpl.h>
+#import <office365_odata_base/MSOAuthCredentials.h>

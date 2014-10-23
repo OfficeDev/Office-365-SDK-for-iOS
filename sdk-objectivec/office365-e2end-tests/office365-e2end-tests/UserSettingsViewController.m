@@ -1,10 +1,8 @@
-//
-//  UserSettingsViewController.m
-//  office365-e2end-tests
-//
-//  Created by Gustavo on 7/29/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "UserSettingsViewController.h"
 #import "LogInController.h"

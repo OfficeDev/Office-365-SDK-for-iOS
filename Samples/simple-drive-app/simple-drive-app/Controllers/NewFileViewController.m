@@ -22,22 +22,22 @@
 }
 
 - (IBAction)CreateFile:(id)sender {
-    [BaseController getClient:^(MSOEntityContainerClient * client) {
+    [BaseController getClient:^(MSSharePointClient * client) {
         
         __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
         
-        MSOItem* item = [[MSOItem alloc] init];
+        MSItem* item = [[MSItem alloc] init];
         item.name = self.txtName.text;
         item.type = @"File";
        
         NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
         
-        [[[[client getme] getfiles] add:item :^(MSOItem *item, NSError *e) {
+        [[[client getfiles] add:item :^(MSItem *item, NSError *e) {
             __block NSString* _id = item.id;
             
-            [[[[[[client getme] getfiles] getById:_id] asFile] putContent:body :^(int result, NSError *error) {
+            [[[[[client getfiles] getById:_id] asFile] putContent:body :^(int result, NSError *error) {
                 
-                [[[[[[client getme] getfiles] getById:_id] asFile] getContent:^(NSData *content, NSError *error) {
+                [[[[[client getfiles] getById:_id] asFile] getContent:^(NSData *content, NSError *error) {
                     
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{

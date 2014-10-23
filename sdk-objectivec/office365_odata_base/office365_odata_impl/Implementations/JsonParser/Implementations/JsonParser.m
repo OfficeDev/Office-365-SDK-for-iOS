@@ -180,8 +180,9 @@
 
 -(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys{
     
-    id parseResult;
-
+    @try {
+        id parseResult;
+        
         
         self.properties = [self getPropertiesFor:type];
         
@@ -199,9 +200,17 @@
         else{
             parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
         }
+        
+        
+        return parseResult;
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
+    @finally {
+        
+    }
     
-
-    return parseResult;
 }
 
 -(id)parseObjectData : (NSDictionary*) data Type:(Class)type{

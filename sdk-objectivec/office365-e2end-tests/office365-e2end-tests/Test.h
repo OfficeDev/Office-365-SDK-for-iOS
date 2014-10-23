@@ -1,10 +1,8 @@
-//
-//  Test.h
-//  office365-e2end-tests
-//
-//  Created by Gustavo on 7/22/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <Foundation/Foundation.h>
 #import "BaseTestRunner.h"
@@ -16,7 +14,6 @@
 @property NSString *DisplayName;
 @property BOOL Passed;
 @property BaseTestRunner *TestRunner;
-
 
 -(id) initWithData : (BaseTestRunner*) testRunner : (NSString *)name : (NSString *)displyName;
 -(NSURLSessionDataTask*)Run :(void (^) (Test *))result;

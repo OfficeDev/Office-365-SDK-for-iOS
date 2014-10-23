@@ -11,185 +11,187 @@
 		2647EB1419F44D9D00FD9527 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */; };
 		2647EB1B19F44D9D00FD9527 /* office365_exchange_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB1A19F44D9D00FD9527 /* office365_exchange_sdkTests.m */; };
 		2647EB2519F44DBD00FD9527 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EB2419F44DBD00FD9527 /* office365_odata_base.framework */; };
-		2647EBDB19F44DDD00FD9527 /* MSOAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2919F44DDD00FD9527 /* MSOAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBDC19F44DDD00FD9527 /* MSOAttendee.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2A19F44DDD00FD9527 /* MSOAttendee.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBDD19F44DDD00FD9527 /* MSOAttendeeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2B19F44DDD00FD9527 /* MSOAttendeeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBDE19F44DDD00FD9527 /* MSOBodyType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2C19F44DDD00FD9527 /* MSOBodyType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBDF19F44DDD00FD9527 /* MSOCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2D19F44DDD00FD9527 /* MSOCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE019F44DDD00FD9527 /* MSOCalendarGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2E19F44DDD00FD9527 /* MSOCalendarGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE119F44DDD00FD9527 /* MSOContact.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB2F19F44DDD00FD9527 /* MSOContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE219F44DDD00FD9527 /* MSOContactFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3019F44DDD00FD9527 /* MSOContactFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE319F44DDD00FD9527 /* MSODayOfWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3119F44DDD00FD9527 /* MSODayOfWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE419F44DDD00FD9527 /* MSOEmailAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3219F44DDD00FD9527 /* MSOEmailAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE519F44DDD00FD9527 /* MSOEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3319F44DDD00FD9527 /* MSOEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE619F44DDD00FD9527 /* MSOEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3419F44DDD00FD9527 /* MSOEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE719F44DDD00FD9527 /* MSOEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3519F44DDD00FD9527 /* MSOEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE819F44DDD00FD9527 /* MSOFileAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3619F44DDD00FD9527 /* MSOFileAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBE919F44DDD00FD9527 /* MSOFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3719F44DDD00FD9527 /* MSOFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBEA19F44DDD00FD9527 /* MSOFreeBusyStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3819F44DDD00FD9527 /* MSOFreeBusyStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBEB19F44DDD00FD9527 /* MSOImportance.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3919F44DDD00FD9527 /* MSOImportance.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBEC19F44DDD00FD9527 /* MSOItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3A19F44DDD00FD9527 /* MSOItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBED19F44DDD00FD9527 /* MSOItemAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3B19F44DDD00FD9527 /* MSOItemAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBEE19F44DDD00FD9527 /* MSOItemBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3C19F44DDD00FD9527 /* MSOItemBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBEF19F44DDD00FD9527 /* MSOLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3D19F44DDD00FD9527 /* MSOLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF019F44DDD00FD9527 /* MSOMeetingMessageType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3E19F44DDD00FD9527 /* MSOMeetingMessageType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF119F44DDD00FD9527 /* MSOMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB3F19F44DDD00FD9527 /* MSOMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF219F44DDD00FD9527 /* MSOPatternedRecurrence.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4019F44DDD00FD9527 /* MSOPatternedRecurrence.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF319F44DDD00FD9527 /* MSOPhysicalAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4119F44DDD00FD9527 /* MSOPhysicalAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF419F44DDD00FD9527 /* MSOProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4219F44DDD00FD9527 /* MSOProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF519F44DDD00FD9527 /* MSORecipient.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4319F44DDD00FD9527 /* MSORecipient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF619F44DDD00FD9527 /* MSORecurrencePattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4419F44DDD00FD9527 /* MSORecurrencePattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF719F44DDD00FD9527 /* MSORecurrencePatternType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4519F44DDD00FD9527 /* MSORecurrencePatternType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF819F44DDD00FD9527 /* MSORecurrenceRange.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4619F44DDD00FD9527 /* MSORecurrenceRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBF919F44DDD00FD9527 /* MSORecurrenceRangeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4719F44DDD00FD9527 /* MSORecurrenceRangeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBFA19F44DDD00FD9527 /* MSOResponseStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4819F44DDD00FD9527 /* MSOResponseStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBFB19F44DDD00FD9527 /* MSOResponseType.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4919F44DDD00FD9527 /* MSOResponseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBFC19F44DDD00FD9527 /* MSOUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4A19F44DDD00FD9527 /* MSOUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBFD19F44DDD00FD9527 /* MSOWeekIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB4B19F44DDD00FD9527 /* MSOWeekIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EBFE19F44DDD00FD9527 /* MSOAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB4D19F44DDD00FD9527 /* MSOAttachment.m */; };
-		2647EBFF19F44DDD00FD9527 /* MSOAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB4E19F44DDD00FD9527 /* MSOAttendee.m */; };
-		2647EC0019F44DDD00FD9527 /* MSOCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB4F19F44DDD00FD9527 /* MSOCalendar.m */; };
-		2647EC0119F44DDD00FD9527 /* MSOCalendarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5019F44DDD00FD9527 /* MSOCalendarGroup.m */; };
-		2647EC0219F44DDD00FD9527 /* MSOContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5119F44DDD00FD9527 /* MSOContact.m */; };
-		2647EC0319F44DDD00FD9527 /* MSOContactFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5219F44DDD00FD9527 /* MSOContactFolder.m */; };
-		2647EC0419F44DDD00FD9527 /* MSOEmailAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5319F44DDD00FD9527 /* MSOEmailAddress.m */; };
-		2647EC0519F44DDD00FD9527 /* MSOEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5419F44DDD00FD9527 /* MSOEntity.m */; };
-		2647EC0619F44DDD00FD9527 /* MSOEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5519F44DDD00FD9527 /* MSOEvent.m */; };
-		2647EC0719F44DDD00FD9527 /* MSOFileAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5619F44DDD00FD9527 /* MSOFileAttachment.m */; };
-		2647EC0819F44DDD00FD9527 /* MSOFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5719F44DDD00FD9527 /* MSOFolder.m */; };
-		2647EC0919F44DDD00FD9527 /* MSOItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5819F44DDD00FD9527 /* MSOItem.m */; };
-		2647EC0A19F44DDD00FD9527 /* MSOItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5919F44DDD00FD9527 /* MSOItemAttachment.m */; };
-		2647EC0B19F44DDD00FD9527 /* MSOItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5A19F44DDD00FD9527 /* MSOItemBody.m */; };
-		2647EC0C19F44DDD00FD9527 /* MSOLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5B19F44DDD00FD9527 /* MSOLocation.m */; };
-		2647EC0D19F44DDD00FD9527 /* MSOMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5C19F44DDD00FD9527 /* MSOMessage.m */; };
-		2647EC0E19F44DDD00FD9527 /* MSOPatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5D19F44DDD00FD9527 /* MSOPatternedRecurrence.m */; };
-		2647EC0F19F44DDD00FD9527 /* MSOPhysicalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5E19F44DDD00FD9527 /* MSOPhysicalAddress.m */; };
-		2647EC1019F44DDD00FD9527 /* MSORecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB5F19F44DDD00FD9527 /* MSORecipient.m */; };
-		2647EC1119F44DDD00FD9527 /* MSORecurrencePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB6019F44DDD00FD9527 /* MSORecurrencePattern.m */; };
-		2647EC1219F44DDD00FD9527 /* MSORecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB6119F44DDD00FD9527 /* MSORecurrenceRange.m */; };
-		2647EC1319F44DDD00FD9527 /* MSOResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB6219F44DDD00FD9527 /* MSOResponseStatus.m */; };
-		2647EC1419F44DDD00FD9527 /* MSOUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB6319F44DDD00FD9527 /* MSOUser.m */; };
-		2647EC1519F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6619F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1619F44DDD00FD9527 /* MSOAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6719F44DDD00FD9527 /* MSOAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1719F44DDD00FD9527 /* MSOAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6819F44DDD00FD9527 /* MSOAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1819F44DDD00FD9527 /* MSOAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6919F44DDD00FD9527 /* MSOAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1919F44DDD00FD9527 /* MSOBaseODataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6A19F44DDD00FD9527 /* MSOBaseODataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1A19F44DDD00FD9527 /* MSOCalendarCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6B19F44DDD00FD9527 /* MSOCalendarCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1B19F44DDD00FD9527 /* MSOCalendarCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6C19F44DDD00FD9527 /* MSOCalendarCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1C19F44DDD00FD9527 /* MSOCalendarFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6D19F44DDD00FD9527 /* MSOCalendarFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1D19F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6E19F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1E19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB6F19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC1F19F44DDD00FD9527 /* MSOCalendarGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7019F44DDD00FD9527 /* MSOCalendarGroupFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2019F44DDD00FD9527 /* MSOCalendarGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7119F44DDD00FD9527 /* MSOCalendarGroupOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2119F44DDD00FD9527 /* MSOCalendarOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7219F44DDD00FD9527 /* MSOCalendarOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2219F44DDD00FD9527 /* MSOContactCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7319F44DDD00FD9527 /* MSOContactCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2319F44DDD00FD9527 /* MSOContactCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7419F44DDD00FD9527 /* MSOContactCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2419F44DDD00FD9527 /* MSOContactFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7519F44DDD00FD9527 /* MSOContactFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2519F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7619F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2619F44DDD00FD9527 /* MSOContactFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7719F44DDD00FD9527 /* MSOContactFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2719F44DDD00FD9527 /* MSOContactFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7819F44DDD00FD9527 /* MSOContactFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2819F44DDD00FD9527 /* MSOContactFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7919F44DDD00FD9527 /* MSOContactFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2919F44DDD00FD9527 /* MSOContactOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7A19F44DDD00FD9527 /* MSOContactOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2A19F44DDD00FD9527 /* MSOEntityCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7B19F44DDD00FD9527 /* MSOEntityCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2B19F44DDD00FD9527 /* MSOEntityCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7C19F44DDD00FD9527 /* MSOEntityCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2C19F44DDD00FD9527 /* MSOEntityContainerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7D19F44DDD00FD9527 /* MSOEntityContainerClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2D19F44DDD00FD9527 /* MSOEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7E19F44DDD00FD9527 /* MSOEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2E19F44DDD00FD9527 /* MSOEntityOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB7F19F44DDD00FD9527 /* MSOEntityOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC2F19F44DDD00FD9527 /* MSOEventCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8019F44DDD00FD9527 /* MSOEventCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3019F44DDD00FD9527 /* MSOEventCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8119F44DDD00FD9527 /* MSOEventCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3119F44DDD00FD9527 /* MSOEventFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8219F44DDD00FD9527 /* MSOEventFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3219F44DDD00FD9527 /* MSOEventOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8319F44DDD00FD9527 /* MSOEventOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3319F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8419F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3419F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8519F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3519F44DDD00FD9527 /* MSOFileAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8619F44DDD00FD9527 /* MSOFileAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3619F44DDD00FD9527 /* MSOFileAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8719F44DDD00FD9527 /* MSOFileAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3719F44DDD00FD9527 /* MSOFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8819F44DDD00FD9527 /* MSOFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3819F44DDD00FD9527 /* MSOFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8919F44DDD00FD9527 /* MSOFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3919F44DDD00FD9527 /* MSOFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8A19F44DDD00FD9527 /* MSOFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3A19F44DDD00FD9527 /* MSOFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8B19F44DDD00FD9527 /* MSOFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3B19F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8C19F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3C19F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8D19F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3D19F44DDD00FD9527 /* MSOItemAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8E19F44DDD00FD9527 /* MSOItemAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3E19F44DDD00FD9527 /* MSOItemAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB8F19F44DDD00FD9527 /* MSOItemAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC3F19F44DDD00FD9527 /* MSOItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9019F44DDD00FD9527 /* MSOItemCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4019F44DDD00FD9527 /* MSOItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9119F44DDD00FD9527 /* MSOItemCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4119F44DDD00FD9527 /* MSOItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9219F44DDD00FD9527 /* MSOItemFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4219F44DDD00FD9527 /* MSOItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9319F44DDD00FD9527 /* MSOItemOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4319F44DDD00FD9527 /* MSOMessageCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9419F44DDD00FD9527 /* MSOMessageCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4419F44DDD00FD9527 /* MSOMessageCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9519F44DDD00FD9527 /* MSOMessageCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4519F44DDD00FD9527 /* MSOMessageFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9619F44DDD00FD9527 /* MSOMessageFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4619F44DDD00FD9527 /* MSOMessageOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9719F44DDD00FD9527 /* MSOMessageOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4719F44DDD00FD9527 /* MSOODataCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9819F44DDD00FD9527 /* MSOODataCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4819F44DDD00FD9527 /* MSOODataEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9919F44DDD00FD9527 /* MSOODataEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4919F44DDD00FD9527 /* MSOODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9A19F44DDD00FD9527 /* MSOODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4A19F44DDD00FD9527 /* MSOODataOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9B19F44DDD00FD9527 /* MSOODataOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4B19F44DDD00FD9527 /* MSOUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9C19F44DDD00FD9527 /* MSOUserCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4C19F44DDD00FD9527 /* MSOUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9D19F44DDD00FD9527 /* MSOUserCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4D19F44DDD00FD9527 /* MSOUserFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9E19F44DDD00FD9527 /* MSOUserFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4E19F44DDD00FD9527 /* MSOUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB9F19F44DDD00FD9527 /* MSOUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EC4F19F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA119F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.m */; };
-		2647EC5019F44DDD00FD9527 /* MSOAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA219F44DDD00FD9527 /* MSOAttachmentCollectionOperations.m */; };
-		2647EC5119F44DDD00FD9527 /* MSOAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA319F44DDD00FD9527 /* MSOAttachmentFetcher.m */; };
-		2647EC5219F44DDD00FD9527 /* MSOAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA419F44DDD00FD9527 /* MSOAttachmentOperations.m */; };
-		2647EC5319F44DDD00FD9527 /* MSOBaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA519F44DDD00FD9527 /* MSOBaseODataContainer.m */; };
-		2647EC5419F44DDD00FD9527 /* MSOCalendarCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA619F44DDD00FD9527 /* MSOCalendarCollectionFetcher.m */; };
-		2647EC5519F44DDD00FD9527 /* MSOCalendarCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA719F44DDD00FD9527 /* MSOCalendarCollectionOperations.m */; };
-		2647EC5619F44DDD00FD9527 /* MSOCalendarFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA819F44DDD00FD9527 /* MSOCalendarFetcher.m */; };
-		2647EC5719F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBA919F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.m */; };
-		2647EC5819F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAA19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.m */; };
-		2647EC5919F44DDD00FD9527 /* MSOCalendarGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAB19F44DDD00FD9527 /* MSOCalendarGroupFetcher.m */; };
-		2647EC5A19F44DDD00FD9527 /* MSOCalendarGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAC19F44DDD00FD9527 /* MSOCalendarGroupOperations.m */; };
-		2647EC5B19F44DDD00FD9527 /* MSOCalendarOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAD19F44DDD00FD9527 /* MSOCalendarOperations.m */; };
-		2647EC5C19F44DDD00FD9527 /* MSOContactCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAE19F44DDD00FD9527 /* MSOContactCollectionFetcher.m */; };
-		2647EC5D19F44DDD00FD9527 /* MSOContactCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBAF19F44DDD00FD9527 /* MSOContactCollectionOperations.m */; };
-		2647EC5E19F44DDD00FD9527 /* MSOContactFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB019F44DDD00FD9527 /* MSOContactFetcher.m */; };
-		2647EC5F19F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB119F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.m */; };
-		2647EC6019F44DDD00FD9527 /* MSOContactFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB219F44DDD00FD9527 /* MSOContactFolderCollectionOperations.m */; };
-		2647EC6119F44DDD00FD9527 /* MSOContactFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB319F44DDD00FD9527 /* MSOContactFolderFetcher.m */; };
-		2647EC6219F44DDD00FD9527 /* MSOContactFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB419F44DDD00FD9527 /* MSOContactFolderOperations.m */; };
-		2647EC6319F44DDD00FD9527 /* MSOContactOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB519F44DDD00FD9527 /* MSOContactOperations.m */; };
-		2647EC6419F44DDD00FD9527 /* MSOEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB619F44DDD00FD9527 /* MSOEntityCollectionFetcher.m */; };
-		2647EC6519F44DDD00FD9527 /* MSOEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB719F44DDD00FD9527 /* MSOEntityCollectionOperations.m */; };
-		2647EC6619F44DDD00FD9527 /* MSOEntityContainerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB819F44DDD00FD9527 /* MSOEntityContainerClient.m */; };
-		2647EC6719F44DDD00FD9527 /* MSOEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBB919F44DDD00FD9527 /* MSOEntityFetcher.m */; };
-		2647EC6819F44DDD00FD9527 /* MSOEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBA19F44DDD00FD9527 /* MSOEntityOperations.m */; };
-		2647EC6919F44DDD00FD9527 /* MSOEventCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBB19F44DDD00FD9527 /* MSOEventCollectionFetcher.m */; };
-		2647EC6A19F44DDD00FD9527 /* MSOEventCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBC19F44DDD00FD9527 /* MSOEventCollectionOperations.m */; };
-		2647EC6B19F44DDD00FD9527 /* MSOEventFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBD19F44DDD00FD9527 /* MSOEventFetcher.m */; };
-		2647EC6C19F44DDD00FD9527 /* MSOEventOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBE19F44DDD00FD9527 /* MSOEventOperations.m */; };
-		2647EC6D19F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBBF19F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.m */; };
-		2647EC6E19F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC019F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.m */; };
-		2647EC6F19F44DDD00FD9527 /* MSOFileAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC119F44DDD00FD9527 /* MSOFileAttachmentFetcher.m */; };
-		2647EC7019F44DDD00FD9527 /* MSOFileAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC219F44DDD00FD9527 /* MSOFileAttachmentOperations.m */; };
-		2647EC7119F44DDD00FD9527 /* MSOFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC319F44DDD00FD9527 /* MSOFolderCollectionFetcher.m */; };
-		2647EC7219F44DDD00FD9527 /* MSOFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC419F44DDD00FD9527 /* MSOFolderCollectionOperations.m */; };
-		2647EC7319F44DDD00FD9527 /* MSOFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC519F44DDD00FD9527 /* MSOFolderFetcher.m */; };
-		2647EC7419F44DDD00FD9527 /* MSOFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC619F44DDD00FD9527 /* MSOFolderOperations.m */; };
-		2647EC7519F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC719F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.m */; };
-		2647EC7619F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC819F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.m */; };
-		2647EC7719F44DDD00FD9527 /* MSOItemAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBC919F44DDD00FD9527 /* MSOItemAttachmentFetcher.m */; };
-		2647EC7819F44DDD00FD9527 /* MSOItemAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCA19F44DDD00FD9527 /* MSOItemAttachmentOperations.m */; };
-		2647EC7919F44DDD00FD9527 /* MSOItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCB19F44DDD00FD9527 /* MSOItemCollectionFetcher.m */; };
-		2647EC7A19F44DDD00FD9527 /* MSOItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCC19F44DDD00FD9527 /* MSOItemCollectionOperations.m */; };
-		2647EC7B19F44DDD00FD9527 /* MSOItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCD19F44DDD00FD9527 /* MSOItemFetcher.m */; };
-		2647EC7C19F44DDD00FD9527 /* MSOItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCE19F44DDD00FD9527 /* MSOItemOperations.m */; };
-		2647EC7D19F44DDD00FD9527 /* MSOMessageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBCF19F44DDD00FD9527 /* MSOMessageCollectionFetcher.m */; };
-		2647EC7E19F44DDD00FD9527 /* MSOMessageCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD019F44DDD00FD9527 /* MSOMessageCollectionOperations.m */; };
-		2647EC7F19F44DDD00FD9527 /* MSOMessageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD119F44DDD00FD9527 /* MSOMessageFetcher.m */; };
-		2647EC8019F44DDD00FD9527 /* MSOMessageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD219F44DDD00FD9527 /* MSOMessageOperations.m */; };
-		2647EC8119F44DDD00FD9527 /* MSOODataCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD319F44DDD00FD9527 /* MSOODataCollectionFetcher.m */; };
-		2647EC8219F44DDD00FD9527 /* MSOODataEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD419F44DDD00FD9527 /* MSOODataEntityFetcher.m */; };
-		2647EC8319F44DDD00FD9527 /* MSOODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD519F44DDD00FD9527 /* MSOODataExecutable.m */; };
-		2647EC8419F44DDD00FD9527 /* MSOODataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD619F44DDD00FD9527 /* MSOODataOperations.m */; };
-		2647EC8519F44DDD00FD9527 /* MSOUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD719F44DDD00FD9527 /* MSOUserCollectionFetcher.m */; };
-		2647EC8619F44DDD00FD9527 /* MSOUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD819F44DDD00FD9527 /* MSOUserCollectionOperations.m */; };
-		2647EC8719F44DDD00FD9527 /* MSOUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBD919F44DDD00FD9527 /* MSOUserFetcher.m */; };
-		2647EC8819F44DDD00FD9527 /* MSOUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EBDA19F44DDD00FD9527 /* MSOUserOperations.m */; };
-		2647ECA719F44E2A00FD9527 /* MSOBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9E19F44E2A00FD9527 /* MSOBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647ECA819F44E2A00FD9527 /* MSOEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9F19F44E2A00FD9527 /* MSOEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647ECAB19F44E2A00FD9527 /* MSOBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647ECA319F44E2A00FD9527 /* MSOBaseODataContainerHelper.m */; };
-		2647ECAC19F44E2A00FD9527 /* MSOEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647ECA419F44E2A00FD9527 /* MSOEntityFetcherHelper.m */; };
+		2647ECA719F44E2A00FD9527 /* MSBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9E19F44E2A00FD9527 /* MSBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647ECA819F44E2A00FD9527 /* MSEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9F19F44E2A00FD9527 /* MSEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647ECAB19F44E2A00FD9527 /* MSBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647ECA319F44E2A00FD9527 /* MSBaseODataContainerHelper.m */; };
+		2647ECAC19F44E2A00FD9527 /* MSEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647ECA419F44E2A00FD9527 /* MSEntityFetcherHelper.m */; };
 		2647ECB219F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2647ECB119F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130719F985C900AAF5AC /* MSAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12CC19F985C900AAF5AC /* MSAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130819F985C900AAF5AC /* MSAttendee.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12CD19F985C900AAF5AC /* MSAttendee.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130919F985C900AAF5AC /* MSAttendeeType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12CE19F985C900AAF5AC /* MSAttendeeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130A19F985C900AAF5AC /* MSBodyType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12CF19F985C900AAF5AC /* MSBodyType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130B19F985C900AAF5AC /* MSCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D019F985C900AAF5AC /* MSCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130C19F985C900AAF5AC /* MSCalendarGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D119F985C900AAF5AC /* MSCalendarGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130D19F985C900AAF5AC /* MSContact.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D219F985C900AAF5AC /* MSContact.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130E19F985C900AAF5AC /* MSContactFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D319F985C900AAF5AC /* MSContactFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C130F19F985C900AAF5AC /* MSDayOfWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D419F985C900AAF5AC /* MSDayOfWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131019F985C900AAF5AC /* MSEmailAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D519F985C900AAF5AC /* MSEmailAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131119F985C900AAF5AC /* MSEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D619F985C900AAF5AC /* MSEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131219F985C900AAF5AC /* MSEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D719F985C900AAF5AC /* MSEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131319F985C900AAF5AC /* MSEventType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D819F985C900AAF5AC /* MSEventType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131419F985C900AAF5AC /* MSFileAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12D919F985C900AAF5AC /* MSFileAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131519F985C900AAF5AC /* MSFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DA19F985C900AAF5AC /* MSFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131619F985C900AAF5AC /* MSFreeBusyStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DB19F985C900AAF5AC /* MSFreeBusyStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131719F985C900AAF5AC /* MSImportance.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DC19F985C900AAF5AC /* MSImportance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131819F985C900AAF5AC /* MSItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DD19F985C900AAF5AC /* MSItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131919F985C900AAF5AC /* MSItemAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DE19F985C900AAF5AC /* MSItemAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131A19F985C900AAF5AC /* MSItemBody.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12DF19F985C900AAF5AC /* MSItemBody.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131B19F985C900AAF5AC /* MSLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E019F985C900AAF5AC /* MSLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131C19F985C900AAF5AC /* MSMeetingMessageType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E119F985C900AAF5AC /* MSMeetingMessageType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131D19F985C900AAF5AC /* MSMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E219F985C900AAF5AC /* MSMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131E19F985C900AAF5AC /* MSPatternedRecurrence.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E319F985C900AAF5AC /* MSPatternedRecurrence.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C131F19F985C900AAF5AC /* MSPhysicalAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E419F985C900AAF5AC /* MSPhysicalAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132019F985C900AAF5AC /* MSProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E519F985C900AAF5AC /* MSProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132119F985C900AAF5AC /* MSRecipient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E619F985C900AAF5AC /* MSRecipient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132219F985C900AAF5AC /* MSRecurrencePattern.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E719F985C900AAF5AC /* MSRecurrencePattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132319F985C900AAF5AC /* MSRecurrencePatternType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E819F985C900AAF5AC /* MSRecurrencePatternType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132419F985C900AAF5AC /* MSRecurrenceRange.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12E919F985C900AAF5AC /* MSRecurrenceRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132519F985C900AAF5AC /* MSRecurrenceRangeType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12EA19F985C900AAF5AC /* MSRecurrenceRangeType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132619F985C900AAF5AC /* MSResponseStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12EB19F985C900AAF5AC /* MSResponseStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132719F985C900AAF5AC /* MSResponseType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12EC19F985C900AAF5AC /* MSResponseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132819F985C900AAF5AC /* MSUser.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12ED19F985C900AAF5AC /* MSUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132919F985C900AAF5AC /* MSWeekIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C12EE19F985C900AAF5AC /* MSWeekIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C132A19F985C900AAF5AC /* MSAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F019F985C900AAF5AC /* MSAttachment.m */; };
+		EC5C132B19F985C900AAF5AC /* MSAttendee.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F119F985C900AAF5AC /* MSAttendee.m */; };
+		EC5C132C19F985C900AAF5AC /* MSCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F219F985C900AAF5AC /* MSCalendar.m */; };
+		EC5C132D19F985C900AAF5AC /* MSCalendarGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F319F985C900AAF5AC /* MSCalendarGroup.m */; };
+		EC5C132E19F985C900AAF5AC /* MSContact.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F419F985C900AAF5AC /* MSContact.m */; };
+		EC5C132F19F985C900AAF5AC /* MSContactFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F519F985C900AAF5AC /* MSContactFolder.m */; };
+		EC5C133019F985C900AAF5AC /* MSEmailAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F619F985C900AAF5AC /* MSEmailAddress.m */; };
+		EC5C133119F985C900AAF5AC /* MSEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F719F985C900AAF5AC /* MSEntity.m */; };
+		EC5C133219F985C900AAF5AC /* MSEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F819F985C900AAF5AC /* MSEvent.m */; };
+		EC5C133319F985C900AAF5AC /* MSFileAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12F919F985C900AAF5AC /* MSFileAttachment.m */; };
+		EC5C133419F985C900AAF5AC /* MSFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FA19F985C900AAF5AC /* MSFolder.m */; };
+		EC5C133519F985C900AAF5AC /* MSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FB19F985C900AAF5AC /* MSItem.m */; };
+		EC5C133619F985C900AAF5AC /* MSItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FC19F985C900AAF5AC /* MSItemAttachment.m */; };
+		EC5C133719F985C900AAF5AC /* MSItemBody.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FD19F985C900AAF5AC /* MSItemBody.m */; };
+		EC5C133819F985C900AAF5AC /* MSLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FE19F985C900AAF5AC /* MSLocation.m */; };
+		EC5C133919F985C900AAF5AC /* MSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C12FF19F985C900AAF5AC /* MSMessage.m */; };
+		EC5C133A19F985C900AAF5AC /* MSPatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130019F985C900AAF5AC /* MSPatternedRecurrence.m */; };
+		EC5C133B19F985C900AAF5AC /* MSPhysicalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130119F985C900AAF5AC /* MSPhysicalAddress.m */; };
+		EC5C133C19F985C900AAF5AC /* MSRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130219F985C900AAF5AC /* MSRecipient.m */; };
+		EC5C133D19F985C900AAF5AC /* MSRecurrencePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130319F985C900AAF5AC /* MSRecurrencePattern.m */; };
+		EC5C133E19F985C900AAF5AC /* MSRecurrenceRange.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130419F985C900AAF5AC /* MSRecurrenceRange.m */; };
+		EC5C133F19F985C900AAF5AC /* MSResponseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130519F985C900AAF5AC /* MSResponseStatus.m */; };
+		EC5C134019F985C900AAF5AC /* MSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C130619F985C900AAF5AC /* MSUser.m */; };
+		EC5C13B919F985D100AAF5AC /* MSAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134219F985D100AAF5AC /* MSAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BA19F985D100AAF5AC /* MSAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134319F985D100AAF5AC /* MSAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BB19F985D100AAF5AC /* MSAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134419F985D100AAF5AC /* MSAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BC19F985D100AAF5AC /* MSAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134519F985D100AAF5AC /* MSAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BD19F985D100AAF5AC /* MSBaseODataContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134619F985D100AAF5AC /* MSBaseODataContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BE19F985D100AAF5AC /* MSCalendarCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134719F985D100AAF5AC /* MSCalendarCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13BF19F985D100AAF5AC /* MSCalendarCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134819F985D100AAF5AC /* MSCalendarCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C019F985D100AAF5AC /* MSCalendarFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134919F985D100AAF5AC /* MSCalendarFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C119F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134A19F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C219F985D100AAF5AC /* MSCalendarGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134B19F985D100AAF5AC /* MSCalendarGroupCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C319F985D100AAF5AC /* MSCalendarGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134C19F985D100AAF5AC /* MSCalendarGroupFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C419F985D100AAF5AC /* MSCalendarGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134D19F985D100AAF5AC /* MSCalendarGroupOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C519F985D100AAF5AC /* MSCalendarOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134E19F985D100AAF5AC /* MSCalendarOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C619F985D100AAF5AC /* MSContactCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C134F19F985D100AAF5AC /* MSContactCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C719F985D100AAF5AC /* MSContactCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135019F985D100AAF5AC /* MSContactCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C819F985D100AAF5AC /* MSContactFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135119F985D100AAF5AC /* MSContactFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13C919F985D100AAF5AC /* MSContactFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135219F985D100AAF5AC /* MSContactFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CA19F985D100AAF5AC /* MSContactFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135319F985D100AAF5AC /* MSContactFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CB19F985D100AAF5AC /* MSContactFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135419F985D100AAF5AC /* MSContactFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CC19F985D100AAF5AC /* MSContactFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135519F985D100AAF5AC /* MSContactFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CD19F985D100AAF5AC /* MSContactOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135619F985D100AAF5AC /* MSContactOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CE19F985D100AAF5AC /* MSEntityCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135719F985D100AAF5AC /* MSEntityCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13CF19F985D100AAF5AC /* MSEntityCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135819F985D100AAF5AC /* MSEntityCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D019F985D100AAF5AC /* MSEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135919F985D100AAF5AC /* MSEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D119F985D100AAF5AC /* MSEntityOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135A19F985D100AAF5AC /* MSEntityOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D219F985D100AAF5AC /* MSEventCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135B19F985D100AAF5AC /* MSEventCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D319F985D100AAF5AC /* MSEventCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135C19F985D100AAF5AC /* MSEventCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D419F985D100AAF5AC /* MSEventFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135D19F985D100AAF5AC /* MSEventFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D519F985D100AAF5AC /* MSEventOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135E19F985D100AAF5AC /* MSEventOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D619F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C135F19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D719F985D100AAF5AC /* MSFileAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136019F985D100AAF5AC /* MSFileAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D819F985D100AAF5AC /* MSFileAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136119F985D100AAF5AC /* MSFileAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13D919F985D100AAF5AC /* MSFileAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136219F985D100AAF5AC /* MSFileAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DA19F985D100AAF5AC /* MSFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136319F985D100AAF5AC /* MSFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DB19F985D100AAF5AC /* MSFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136419F985D100AAF5AC /* MSFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DC19F985D100AAF5AC /* MSFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136519F985D100AAF5AC /* MSFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DD19F985D100AAF5AC /* MSFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136619F985D100AAF5AC /* MSFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DE19F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136719F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13DF19F985D100AAF5AC /* MSItemAttachmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136819F985D100AAF5AC /* MSItemAttachmentCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E019F985D100AAF5AC /* MSItemAttachmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136919F985D100AAF5AC /* MSItemAttachmentFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E119F985D100AAF5AC /* MSItemAttachmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136A19F985D100AAF5AC /* MSItemAttachmentOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E219F985D100AAF5AC /* MSItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136B19F985D100AAF5AC /* MSItemCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E319F985D100AAF5AC /* MSItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136C19F985D100AAF5AC /* MSItemCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E419F985D100AAF5AC /* MSItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136D19F985D100AAF5AC /* MSItemFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E519F985D100AAF5AC /* MSItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136E19F985D100AAF5AC /* MSItemOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E619F985D100AAF5AC /* MSMessageCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C136F19F985D100AAF5AC /* MSMessageCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E719F985D100AAF5AC /* MSMessageCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137019F985D100AAF5AC /* MSMessageCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E819F985D100AAF5AC /* MSMessageFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137119F985D100AAF5AC /* MSMessageFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13E919F985D100AAF5AC /* MSMessageOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137219F985D100AAF5AC /* MSMessageOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13EA19F985D100AAF5AC /* MSODataCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137319F985D100AAF5AC /* MSODataCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13EB19F985D100AAF5AC /* MSODataEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137419F985D100AAF5AC /* MSODataEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13EC19F985D100AAF5AC /* MSODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137519F985D100AAF5AC /* MSODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13ED19F985D100AAF5AC /* MSODataMediaEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137619F985D100AAF5AC /* MSODataMediaEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13EE19F985D100AAF5AC /* MSODataOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137719F985D100AAF5AC /* MSODataOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13EF19F985D100AAF5AC /* MSOutlookClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137819F985D100AAF5AC /* MSOutlookClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13F019F985D100AAF5AC /* MSUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137919F985D100AAF5AC /* MSUserCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13F119F985D100AAF5AC /* MSUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137A19F985D100AAF5AC /* MSUserCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13F219F985D100AAF5AC /* MSUserFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137B19F985D100AAF5AC /* MSUserFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13F319F985D100AAF5AC /* MSUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C137C19F985D100AAF5AC /* MSUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C13F419F985D100AAF5AC /* MSAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C137E19F985D100AAF5AC /* MSAttachmentCollectionFetcher.m */; };
+		EC5C13F519F985D100AAF5AC /* MSAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C137F19F985D100AAF5AC /* MSAttachmentCollectionOperations.m */; };
+		EC5C13F619F985D100AAF5AC /* MSAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138019F985D100AAF5AC /* MSAttachmentFetcher.m */; };
+		EC5C13F719F985D100AAF5AC /* MSAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138119F985D100AAF5AC /* MSAttachmentOperations.m */; };
+		EC5C13F819F985D100AAF5AC /* MSBaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138219F985D100AAF5AC /* MSBaseODataContainer.m */; };
+		EC5C13F919F985D100AAF5AC /* MSCalendarCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138319F985D100AAF5AC /* MSCalendarCollectionFetcher.m */; };
+		EC5C13FA19F985D100AAF5AC /* MSCalendarCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138419F985D100AAF5AC /* MSCalendarCollectionOperations.m */; };
+		EC5C13FB19F985D100AAF5AC /* MSCalendarFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138519F985D100AAF5AC /* MSCalendarFetcher.m */; };
+		EC5C13FC19F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138619F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.m */; };
+		EC5C13FD19F985D100AAF5AC /* MSCalendarGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138719F985D100AAF5AC /* MSCalendarGroupCollectionOperations.m */; };
+		EC5C13FE19F985D100AAF5AC /* MSCalendarGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138819F985D100AAF5AC /* MSCalendarGroupFetcher.m */; };
+		EC5C13FF19F985D100AAF5AC /* MSCalendarGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138919F985D100AAF5AC /* MSCalendarGroupOperations.m */; };
+		EC5C140019F985D100AAF5AC /* MSCalendarOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138A19F985D100AAF5AC /* MSCalendarOperations.m */; };
+		EC5C140119F985D100AAF5AC /* MSContactCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138B19F985D100AAF5AC /* MSContactCollectionFetcher.m */; };
+		EC5C140219F985D100AAF5AC /* MSContactCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138C19F985D100AAF5AC /* MSContactCollectionOperations.m */; };
+		EC5C140319F985D100AAF5AC /* MSContactFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138D19F985D100AAF5AC /* MSContactFetcher.m */; };
+		EC5C140419F985D100AAF5AC /* MSContactFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138E19F985D100AAF5AC /* MSContactFolderCollectionFetcher.m */; };
+		EC5C140519F985D100AAF5AC /* MSContactFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C138F19F985D100AAF5AC /* MSContactFolderCollectionOperations.m */; };
+		EC5C140619F985D100AAF5AC /* MSContactFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139019F985D100AAF5AC /* MSContactFolderFetcher.m */; };
+		EC5C140719F985D100AAF5AC /* MSContactFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139119F985D100AAF5AC /* MSContactFolderOperations.m */; };
+		EC5C140819F985D100AAF5AC /* MSContactOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139219F985D100AAF5AC /* MSContactOperations.m */; };
+		EC5C140919F985D100AAF5AC /* MSEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139319F985D100AAF5AC /* MSEntityCollectionFetcher.m */; };
+		EC5C140A19F985D100AAF5AC /* MSEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139419F985D100AAF5AC /* MSEntityCollectionOperations.m */; };
+		EC5C140B19F985D100AAF5AC /* MSEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139519F985D100AAF5AC /* MSEntityFetcher.m */; };
+		EC5C140C19F985D100AAF5AC /* MSEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139619F985D100AAF5AC /* MSEntityOperations.m */; };
+		EC5C140D19F985D100AAF5AC /* MSEventCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139719F985D100AAF5AC /* MSEventCollectionFetcher.m */; };
+		EC5C140E19F985D100AAF5AC /* MSEventCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139819F985D100AAF5AC /* MSEventCollectionOperations.m */; };
+		EC5C140F19F985D100AAF5AC /* MSEventFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139919F985D100AAF5AC /* MSEventFetcher.m */; };
+		EC5C141019F985D100AAF5AC /* MSEventOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139A19F985D100AAF5AC /* MSEventOperations.m */; };
+		EC5C141119F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139B19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.m */; };
+		EC5C141219F985D100AAF5AC /* MSFileAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139C19F985D100AAF5AC /* MSFileAttachmentCollectionOperations.m */; };
+		EC5C141319F985D100AAF5AC /* MSFileAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139D19F985D100AAF5AC /* MSFileAttachmentFetcher.m */; };
+		EC5C141419F985D100AAF5AC /* MSFileAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139E19F985D100AAF5AC /* MSFileAttachmentOperations.m */; };
+		EC5C141519F985D100AAF5AC /* MSFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C139F19F985D100AAF5AC /* MSFolderCollectionFetcher.m */; };
+		EC5C141619F985D100AAF5AC /* MSFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A019F985D100AAF5AC /* MSFolderCollectionOperations.m */; };
+		EC5C141719F985D100AAF5AC /* MSFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A119F985D100AAF5AC /* MSFolderFetcher.m */; };
+		EC5C141819F985D100AAF5AC /* MSFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A219F985D100AAF5AC /* MSFolderOperations.m */; };
+		EC5C141919F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A319F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.m */; };
+		EC5C141A19F985D100AAF5AC /* MSItemAttachmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A419F985D100AAF5AC /* MSItemAttachmentCollectionOperations.m */; };
+		EC5C141B19F985D100AAF5AC /* MSItemAttachmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A519F985D100AAF5AC /* MSItemAttachmentFetcher.m */; };
+		EC5C141C19F985D100AAF5AC /* MSItemAttachmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A619F985D100AAF5AC /* MSItemAttachmentOperations.m */; };
+		EC5C141D19F985D100AAF5AC /* MSItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A719F985D100AAF5AC /* MSItemCollectionFetcher.m */; };
+		EC5C141E19F985D100AAF5AC /* MSItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A819F985D100AAF5AC /* MSItemCollectionOperations.m */; };
+		EC5C141F19F985D100AAF5AC /* MSItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13A919F985D100AAF5AC /* MSItemFetcher.m */; };
+		EC5C142019F985D100AAF5AC /* MSItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AA19F985D100AAF5AC /* MSItemOperations.m */; };
+		EC5C142119F985D100AAF5AC /* MSMessageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AB19F985D100AAF5AC /* MSMessageCollectionFetcher.m */; };
+		EC5C142219F985D100AAF5AC /* MSMessageCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AC19F985D100AAF5AC /* MSMessageCollectionOperations.m */; };
+		EC5C142319F985D100AAF5AC /* MSMessageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AD19F985D100AAF5AC /* MSMessageFetcher.m */; };
+		EC5C142419F985D100AAF5AC /* MSMessageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AE19F985D100AAF5AC /* MSMessageOperations.m */; };
+		EC5C142519F985D100AAF5AC /* MSODataCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13AF19F985D100AAF5AC /* MSODataCollectionFetcher.m */; };
+		EC5C142619F985D100AAF5AC /* MSODataEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B019F985D100AAF5AC /* MSODataEntityFetcher.m */; };
+		EC5C142719F985D100AAF5AC /* MSODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B119F985D100AAF5AC /* MSODataExecutable.m */; };
+		EC5C142819F985D100AAF5AC /* MSODataMediaEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B219F985D100AAF5AC /* MSODataMediaEntityFetcher.m */; };
+		EC5C142919F985D100AAF5AC /* MSODataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B319F985D100AAF5AC /* MSODataOperations.m */; };
+		EC5C142A19F985D100AAF5AC /* MSOutlookClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B419F985D100AAF5AC /* MSOutlookClient.m */; };
+		EC5C142B19F985D100AAF5AC /* MSUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B519F985D100AAF5AC /* MSUserCollectionFetcher.m */; };
+		EC5C142C19F985D100AAF5AC /* MSUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B619F985D100AAF5AC /* MSUserCollectionOperations.m */; };
+		EC5C142D19F985D100AAF5AC /* MSUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B719F985D100AAF5AC /* MSUserFetcher.m */; };
+		EC5C142E19F985D100AAF5AC /* MSUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C13B819F985D100AAF5AC /* MSUserOperations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,185 +212,187 @@
 		2647EB1919F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EB1A19F44D9D00FD9527 /* office365_exchange_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdkTests.m; sourceTree = "<group>"; };
 		2647EB2419F44DBD00FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/Build/Products/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
-		2647EB2919F44DDD00FD9527 /* MSOAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachment.h; sourceTree = "<group>"; };
-		2647EB2A19F44DDD00FD9527 /* MSOAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttendee.h; sourceTree = "<group>"; };
-		2647EB2B19F44DDD00FD9527 /* MSOAttendeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttendeeType.h; sourceTree = "<group>"; };
-		2647EB2C19F44DDD00FD9527 /* MSOBodyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBodyType.h; sourceTree = "<group>"; };
-		2647EB2D19F44DDD00FD9527 /* MSOCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendar.h; sourceTree = "<group>"; };
-		2647EB2E19F44DDD00FD9527 /* MSOCalendarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroup.h; sourceTree = "<group>"; };
-		2647EB2F19F44DDD00FD9527 /* MSOContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContact.h; sourceTree = "<group>"; };
-		2647EB3019F44DDD00FD9527 /* MSOContactFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFolder.h; sourceTree = "<group>"; };
-		2647EB3119F44DDD00FD9527 /* MSODayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODayOfWeek.h; sourceTree = "<group>"; };
-		2647EB3219F44DDD00FD9527 /* MSOEmailAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEmailAddress.h; sourceTree = "<group>"; };
-		2647EB3319F44DDD00FD9527 /* MSOEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntity.h; sourceTree = "<group>"; };
-		2647EB3419F44DDD00FD9527 /* MSOEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEvent.h; sourceTree = "<group>"; };
-		2647EB3519F44DDD00FD9527 /* MSOEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEventType.h; sourceTree = "<group>"; };
-		2647EB3619F44DDD00FD9527 /* MSOFileAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachment.h; sourceTree = "<group>"; };
-		2647EB3719F44DDD00FD9527 /* MSOFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolder.h; sourceTree = "<group>"; };
-		2647EB3819F44DDD00FD9527 /* MSOFreeBusyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFreeBusyStatus.h; sourceTree = "<group>"; };
-		2647EB3919F44DDD00FD9527 /* MSOImportance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOImportance.h; sourceTree = "<group>"; };
-		2647EB3A19F44DDD00FD9527 /* MSOItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItem.h; sourceTree = "<group>"; };
-		2647EB3B19F44DDD00FD9527 /* MSOItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachment.h; sourceTree = "<group>"; };
-		2647EB3C19F44DDD00FD9527 /* MSOItemBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemBody.h; sourceTree = "<group>"; };
-		2647EB3D19F44DDD00FD9527 /* MSOLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOLocation.h; sourceTree = "<group>"; };
-		2647EB3E19F44DDD00FD9527 /* MSOMeetingMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMeetingMessageType.h; sourceTree = "<group>"; };
-		2647EB3F19F44DDD00FD9527 /* MSOMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMessage.h; sourceTree = "<group>"; };
-		2647EB4019F44DDD00FD9527 /* MSOPatternedRecurrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOPatternedRecurrence.h; sourceTree = "<group>"; };
-		2647EB4119F44DDD00FD9527 /* MSOPhysicalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOPhysicalAddress.h; sourceTree = "<group>"; };
-		2647EB4219F44DDD00FD9527 /* MSOProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOProtocols.h; sourceTree = "<group>"; };
-		2647EB4319F44DDD00FD9527 /* MSORecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORecipient.h; sourceTree = "<group>"; };
-		2647EB4419F44DDD00FD9527 /* MSORecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORecurrencePattern.h; sourceTree = "<group>"; };
-		2647EB4519F44DDD00FD9527 /* MSORecurrencePatternType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORecurrencePatternType.h; sourceTree = "<group>"; };
-		2647EB4619F44DDD00FD9527 /* MSORecurrenceRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORecurrenceRange.h; sourceTree = "<group>"; };
-		2647EB4719F44DDD00FD9527 /* MSORecurrenceRangeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSORecurrenceRangeType.h; sourceTree = "<group>"; };
-		2647EB4819F44DDD00FD9527 /* MSOResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponseStatus.h; sourceTree = "<group>"; };
-		2647EB4919F44DDD00FD9527 /* MSOResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOResponseType.h; sourceTree = "<group>"; };
-		2647EB4A19F44DDD00FD9527 /* MSOUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUser.h; sourceTree = "<group>"; };
-		2647EB4B19F44DDD00FD9527 /* MSOWeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOWeekIndex.h; sourceTree = "<group>"; };
-		2647EB4D19F44DDD00FD9527 /* MSOAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttachment.m; sourceTree = "<group>"; };
-		2647EB4E19F44DDD00FD9527 /* MSOAttendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttendee.m; sourceTree = "<group>"; };
-		2647EB4F19F44DDD00FD9527 /* MSOCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendar.m; sourceTree = "<group>"; };
-		2647EB5019F44DDD00FD9527 /* MSOCalendarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroup.m; sourceTree = "<group>"; };
-		2647EB5119F44DDD00FD9527 /* MSOContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContact.m; sourceTree = "<group>"; };
-		2647EB5219F44DDD00FD9527 /* MSOContactFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolder.m; sourceTree = "<group>"; };
-		2647EB5319F44DDD00FD9527 /* MSOEmailAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEmailAddress.m; sourceTree = "<group>"; };
-		2647EB5419F44DDD00FD9527 /* MSOEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntity.m; sourceTree = "<group>"; };
-		2647EB5519F44DDD00FD9527 /* MSOEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEvent.m; sourceTree = "<group>"; };
-		2647EB5619F44DDD00FD9527 /* MSOFileAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachment.m; sourceTree = "<group>"; };
-		2647EB5719F44DDD00FD9527 /* MSOFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolder.m; sourceTree = "<group>"; };
-		2647EB5819F44DDD00FD9527 /* MSOItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItem.m; sourceTree = "<group>"; };
-		2647EB5919F44DDD00FD9527 /* MSOItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachment.m; sourceTree = "<group>"; };
-		2647EB5A19F44DDD00FD9527 /* MSOItemBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemBody.m; sourceTree = "<group>"; };
-		2647EB5B19F44DDD00FD9527 /* MSOLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOLocation.m; sourceTree = "<group>"; };
-		2647EB5C19F44DDD00FD9527 /* MSOMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOMessage.m; sourceTree = "<group>"; };
-		2647EB5D19F44DDD00FD9527 /* MSOPatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOPatternedRecurrence.m; sourceTree = "<group>"; };
-		2647EB5E19F44DDD00FD9527 /* MSOPhysicalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOPhysicalAddress.m; sourceTree = "<group>"; };
-		2647EB5F19F44DDD00FD9527 /* MSORecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSORecipient.m; sourceTree = "<group>"; };
-		2647EB6019F44DDD00FD9527 /* MSORecurrencePattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSORecurrencePattern.m; sourceTree = "<group>"; };
-		2647EB6119F44DDD00FD9527 /* MSORecurrenceRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSORecurrenceRange.m; sourceTree = "<group>"; };
-		2647EB6219F44DDD00FD9527 /* MSOResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOResponseStatus.m; sourceTree = "<group>"; };
-		2647EB6319F44DDD00FD9527 /* MSOUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUser.m; sourceTree = "<group>"; };
-		2647EB6619F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB6719F44DDD00FD9527 /* MSOAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB6819F44DDD00FD9527 /* MSOAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentFetcher.h; sourceTree = "<group>"; };
-		2647EB6919F44DDD00FD9527 /* MSOAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOAttachmentOperations.h; sourceTree = "<group>"; };
-		2647EB6A19F44DDD00FD9527 /* MSOBaseODataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainer.h; sourceTree = "<group>"; };
-		2647EB6B19F44DDD00FD9527 /* MSOCalendarCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB6C19F44DDD00FD9527 /* MSOCalendarCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB6D19F44DDD00FD9527 /* MSOCalendarFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarFetcher.h; sourceTree = "<group>"; };
-		2647EB6E19F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB6F19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB7019F44DDD00FD9527 /* MSOCalendarGroupFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupFetcher.h; sourceTree = "<group>"; };
-		2647EB7119F44DDD00FD9527 /* MSOCalendarGroupOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarGroupOperations.h; sourceTree = "<group>"; };
-		2647EB7219F44DDD00FD9527 /* MSOCalendarOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarOperations.h; sourceTree = "<group>"; };
-		2647EB7319F44DDD00FD9527 /* MSOContactCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB7419F44DDD00FD9527 /* MSOContactCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB7519F44DDD00FD9527 /* MSOContactFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFetcher.h; sourceTree = "<group>"; };
-		2647EB7619F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB7719F44DDD00FD9527 /* MSOContactFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB7819F44DDD00FD9527 /* MSOContactFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderFetcher.h; sourceTree = "<group>"; };
-		2647EB7919F44DDD00FD9527 /* MSOContactFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactFolderOperations.h; sourceTree = "<group>"; };
-		2647EB7A19F44DDD00FD9527 /* MSOContactOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOContactOperations.h; sourceTree = "<group>"; };
-		2647EB7B19F44DDD00FD9527 /* MSOEntityCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB7C19F44DDD00FD9527 /* MSOEntityCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB7D19F44DDD00FD9527 /* MSOEntityContainerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityContainerClient.h; sourceTree = "<group>"; };
-		2647EB7E19F44DDD00FD9527 /* MSOEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcher.h; sourceTree = "<group>"; };
-		2647EB7F19F44DDD00FD9527 /* MSOEntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityOperations.h; sourceTree = "<group>"; };
-		2647EB8019F44DDD00FD9527 /* MSOEventCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEventCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB8119F44DDD00FD9527 /* MSOEventCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEventCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB8219F44DDD00FD9527 /* MSOEventFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEventFetcher.h; sourceTree = "<group>"; };
-		2647EB8319F44DDD00FD9527 /* MSOEventOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEventOperations.h; sourceTree = "<group>"; };
-		2647EB8419F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB8519F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB8619F44DDD00FD9527 /* MSOFileAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentFetcher.h; sourceTree = "<group>"; };
-		2647EB8719F44DDD00FD9527 /* MSOFileAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFileAttachmentOperations.h; sourceTree = "<group>"; };
-		2647EB8819F44DDD00FD9527 /* MSOFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB8919F44DDD00FD9527 /* MSOFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB8A19F44DDD00FD9527 /* MSOFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderFetcher.h; sourceTree = "<group>"; };
-		2647EB8B19F44DDD00FD9527 /* MSOFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOFolderOperations.h; sourceTree = "<group>"; };
-		2647EB8C19F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB8D19F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB8E19F44DDD00FD9527 /* MSOItemAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentFetcher.h; sourceTree = "<group>"; };
-		2647EB8F19F44DDD00FD9527 /* MSOItemAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemAttachmentOperations.h; sourceTree = "<group>"; };
-		2647EB9019F44DDD00FD9527 /* MSOItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB9119F44DDD00FD9527 /* MSOItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB9219F44DDD00FD9527 /* MSOItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemFetcher.h; sourceTree = "<group>"; };
-		2647EB9319F44DDD00FD9527 /* MSOItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOItemOperations.h; sourceTree = "<group>"; };
-		2647EB9419F44DDD00FD9527 /* MSOMessageCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMessageCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB9519F44DDD00FD9527 /* MSOMessageCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMessageCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB9619F44DDD00FD9527 /* MSOMessageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMessageFetcher.h; sourceTree = "<group>"; };
-		2647EB9719F44DDD00FD9527 /* MSOMessageOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOMessageOperations.h; sourceTree = "<group>"; };
-		2647EB9819F44DDD00FD9527 /* MSOODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB9919F44DDD00FD9527 /* MSOODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataEntityFetcher.h; sourceTree = "<group>"; };
-		2647EB9A19F44DDD00FD9527 /* MSOODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataExecutable.h; sourceTree = "<group>"; };
-		2647EB9B19F44DDD00FD9527 /* MSOODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOODataOperations.h; sourceTree = "<group>"; };
-		2647EB9C19F44DDD00FD9527 /* MSOUserCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUserCollectionFetcher.h; sourceTree = "<group>"; };
-		2647EB9D19F44DDD00FD9527 /* MSOUserCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUserCollectionOperations.h; sourceTree = "<group>"; };
-		2647EB9E19F44DDD00FD9527 /* MSOUserFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUserFetcher.h; sourceTree = "<group>"; };
-		2647EB9F19F44DDD00FD9527 /* MSOUserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOUserOperations.h; sourceTree = "<group>"; };
-		2647EBA119F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBA219F44DDD00FD9527 /* MSOAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBA319F44DDD00FD9527 /* MSOAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentFetcher.m; sourceTree = "<group>"; };
-		2647EBA419F44DDD00FD9527 /* MSOAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOAttachmentOperations.m; sourceTree = "<group>"; };
-		2647EBA519F44DDD00FD9527 /* MSOBaseODataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainer.m; sourceTree = "<group>"; };
-		2647EBA619F44DDD00FD9527 /* MSOCalendarCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBA719F44DDD00FD9527 /* MSOCalendarCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBA819F44DDD00FD9527 /* MSOCalendarFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarFetcher.m; sourceTree = "<group>"; };
-		2647EBA919F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBAA19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBAB19F44DDD00FD9527 /* MSOCalendarGroupFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupFetcher.m; sourceTree = "<group>"; };
-		2647EBAC19F44DDD00FD9527 /* MSOCalendarGroupOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarGroupOperations.m; sourceTree = "<group>"; };
-		2647EBAD19F44DDD00FD9527 /* MSOCalendarOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarOperations.m; sourceTree = "<group>"; };
-		2647EBAE19F44DDD00FD9527 /* MSOContactCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBAF19F44DDD00FD9527 /* MSOContactCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBB019F44DDD00FD9527 /* MSOContactFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFetcher.m; sourceTree = "<group>"; };
-		2647EBB119F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBB219F44DDD00FD9527 /* MSOContactFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBB319F44DDD00FD9527 /* MSOContactFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderFetcher.m; sourceTree = "<group>"; };
-		2647EBB419F44DDD00FD9527 /* MSOContactFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactFolderOperations.m; sourceTree = "<group>"; };
-		2647EBB519F44DDD00FD9527 /* MSOContactOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOContactOperations.m; sourceTree = "<group>"; };
-		2647EBB619F44DDD00FD9527 /* MSOEntityCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBB719F44DDD00FD9527 /* MSOEntityCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBB819F44DDD00FD9527 /* MSOEntityContainerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityContainerClient.m; sourceTree = "<group>"; };
-		2647EBB919F44DDD00FD9527 /* MSOEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcher.m; sourceTree = "<group>"; };
-		2647EBBA19F44DDD00FD9527 /* MSOEntityOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityOperations.m; sourceTree = "<group>"; };
-		2647EBBB19F44DDD00FD9527 /* MSOEventCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEventCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBBC19F44DDD00FD9527 /* MSOEventCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEventCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBBD19F44DDD00FD9527 /* MSOEventFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEventFetcher.m; sourceTree = "<group>"; };
-		2647EBBE19F44DDD00FD9527 /* MSOEventOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEventOperations.m; sourceTree = "<group>"; };
-		2647EBBF19F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBC019F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBC119F44DDD00FD9527 /* MSOFileAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentFetcher.m; sourceTree = "<group>"; };
-		2647EBC219F44DDD00FD9527 /* MSOFileAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFileAttachmentOperations.m; sourceTree = "<group>"; };
-		2647EBC319F44DDD00FD9527 /* MSOFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBC419F44DDD00FD9527 /* MSOFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBC519F44DDD00FD9527 /* MSOFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderFetcher.m; sourceTree = "<group>"; };
-		2647EBC619F44DDD00FD9527 /* MSOFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOFolderOperations.m; sourceTree = "<group>"; };
-		2647EBC719F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBC819F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBC919F44DDD00FD9527 /* MSOItemAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentFetcher.m; sourceTree = "<group>"; };
-		2647EBCA19F44DDD00FD9527 /* MSOItemAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemAttachmentOperations.m; sourceTree = "<group>"; };
-		2647EBCB19F44DDD00FD9527 /* MSOItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBCC19F44DDD00FD9527 /* MSOItemCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBCD19F44DDD00FD9527 /* MSOItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemFetcher.m; sourceTree = "<group>"; };
-		2647EBCE19F44DDD00FD9527 /* MSOItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOItemOperations.m; sourceTree = "<group>"; };
-		2647EBCF19F44DDD00FD9527 /* MSOMessageCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOMessageCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBD019F44DDD00FD9527 /* MSOMessageCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOMessageCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBD119F44DDD00FD9527 /* MSOMessageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOMessageFetcher.m; sourceTree = "<group>"; };
-		2647EBD219F44DDD00FD9527 /* MSOMessageOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOMessageOperations.m; sourceTree = "<group>"; };
-		2647EBD319F44DDD00FD9527 /* MSOODataCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBD419F44DDD00FD9527 /* MSOODataEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataEntityFetcher.m; sourceTree = "<group>"; };
-		2647EBD519F44DDD00FD9527 /* MSOODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataExecutable.m; sourceTree = "<group>"; };
-		2647EBD619F44DDD00FD9527 /* MSOODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOODataOperations.m; sourceTree = "<group>"; };
-		2647EBD719F44DDD00FD9527 /* MSOUserCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserCollectionFetcher.m; sourceTree = "<group>"; };
-		2647EBD819F44DDD00FD9527 /* MSOUserCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserCollectionOperations.m; sourceTree = "<group>"; };
-		2647EBD919F44DDD00FD9527 /* MSOUserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserFetcher.m; sourceTree = "<group>"; };
-		2647EBDA19F44DDD00FD9527 /* MSOUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOUserOperations.m; sourceTree = "<group>"; };
-		2647EC9E19F44E2A00FD9527 /* MSOBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOBaseODataContainerHelper.h; sourceTree = "<group>"; };
-		2647EC9F19F44E2A00FD9527 /* MSOEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOEntityFetcherHelper.h; sourceTree = "<group>"; };
-		2647ECA319F44E2A00FD9527 /* MSOBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOBaseODataContainerHelper.m; sourceTree = "<group>"; };
-		2647ECA419F44E2A00FD9527 /* MSOEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOEntityFetcherHelper.m; sourceTree = "<group>"; };
+		2647EC9E19F44E2A00FD9527 /* MSBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		2647EC9F19F44E2A00FD9527 /* MSEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcherHelper.h; sourceTree = "<group>"; };
+		2647ECA319F44E2A00FD9527 /* MSBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		2647ECA419F44E2A00FD9527 /* MSEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityFetcherHelper.m; sourceTree = "<group>"; };
 		2647ECB119F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365_exchange_sdk-Prefix.pch"; sourceTree = "<group>"; };
+		EC5C12CC19F985C900AAF5AC /* MSAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttachment.h; sourceTree = "<group>"; };
+		EC5C12CD19F985C900AAF5AC /* MSAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttendee.h; sourceTree = "<group>"; };
+		EC5C12CE19F985C900AAF5AC /* MSAttendeeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttendeeType.h; sourceTree = "<group>"; };
+		EC5C12CF19F985C900AAF5AC /* MSBodyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBodyType.h; sourceTree = "<group>"; };
+		EC5C12D019F985C900AAF5AC /* MSCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendar.h; sourceTree = "<group>"; };
+		EC5C12D119F985C900AAF5AC /* MSCalendarGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarGroup.h; sourceTree = "<group>"; };
+		EC5C12D219F985C900AAF5AC /* MSContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContact.h; sourceTree = "<group>"; };
+		EC5C12D319F985C900AAF5AC /* MSContactFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFolder.h; sourceTree = "<group>"; };
+		EC5C12D419F985C900AAF5AC /* MSDayOfWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDayOfWeek.h; sourceTree = "<group>"; };
+		EC5C12D519F985C900AAF5AC /* MSEmailAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEmailAddress.h; sourceTree = "<group>"; };
+		EC5C12D619F985C900AAF5AC /* MSEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntity.h; sourceTree = "<group>"; };
+		EC5C12D719F985C900AAF5AC /* MSEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEvent.h; sourceTree = "<group>"; };
+		EC5C12D819F985C900AAF5AC /* MSEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventType.h; sourceTree = "<group>"; };
+		EC5C12D919F985C900AAF5AC /* MSFileAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileAttachment.h; sourceTree = "<group>"; };
+		EC5C12DA19F985C900AAF5AC /* MSFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFolder.h; sourceTree = "<group>"; };
+		EC5C12DB19F985C900AAF5AC /* MSFreeBusyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFreeBusyStatus.h; sourceTree = "<group>"; };
+		EC5C12DC19F985C900AAF5AC /* MSImportance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSImportance.h; sourceTree = "<group>"; };
+		EC5C12DD19F985C900AAF5AC /* MSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItem.h; sourceTree = "<group>"; };
+		EC5C12DE19F985C900AAF5AC /* MSItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemAttachment.h; sourceTree = "<group>"; };
+		EC5C12DF19F985C900AAF5AC /* MSItemBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemBody.h; sourceTree = "<group>"; };
+		EC5C12E019F985C900AAF5AC /* MSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSLocation.h; sourceTree = "<group>"; };
+		EC5C12E119F985C900AAF5AC /* MSMeetingMessageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMeetingMessageType.h; sourceTree = "<group>"; };
+		EC5C12E219F985C900AAF5AC /* MSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessage.h; sourceTree = "<group>"; };
+		EC5C12E319F985C900AAF5AC /* MSPatternedRecurrence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPatternedRecurrence.h; sourceTree = "<group>"; };
+		EC5C12E419F985C900AAF5AC /* MSPhysicalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSPhysicalAddress.h; sourceTree = "<group>"; };
+		EC5C12E519F985C900AAF5AC /* MSProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSProtocols.h; sourceTree = "<group>"; };
+		EC5C12E619F985C900AAF5AC /* MSRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecipient.h; sourceTree = "<group>"; };
+		EC5C12E719F985C900AAF5AC /* MSRecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecurrencePattern.h; sourceTree = "<group>"; };
+		EC5C12E819F985C900AAF5AC /* MSRecurrencePatternType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecurrencePatternType.h; sourceTree = "<group>"; };
+		EC5C12E919F985C900AAF5AC /* MSRecurrenceRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecurrenceRange.h; sourceTree = "<group>"; };
+		EC5C12EA19F985C900AAF5AC /* MSRecurrenceRangeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSRecurrenceRangeType.h; sourceTree = "<group>"; };
+		EC5C12EB19F985C900AAF5AC /* MSResponseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResponseStatus.h; sourceTree = "<group>"; };
+		EC5C12EC19F985C900AAF5AC /* MSResponseType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSResponseType.h; sourceTree = "<group>"; };
+		EC5C12ED19F985C900AAF5AC /* MSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUser.h; sourceTree = "<group>"; };
+		EC5C12EE19F985C900AAF5AC /* MSWeekIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeekIndex.h; sourceTree = "<group>"; };
+		EC5C12F019F985C900AAF5AC /* MSAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttachment.m; sourceTree = "<group>"; };
+		EC5C12F119F985C900AAF5AC /* MSAttendee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttendee.m; sourceTree = "<group>"; };
+		EC5C12F219F985C900AAF5AC /* MSCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendar.m; sourceTree = "<group>"; };
+		EC5C12F319F985C900AAF5AC /* MSCalendarGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarGroup.m; sourceTree = "<group>"; };
+		EC5C12F419F985C900AAF5AC /* MSContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContact.m; sourceTree = "<group>"; };
+		EC5C12F519F985C900AAF5AC /* MSContactFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFolder.m; sourceTree = "<group>"; };
+		EC5C12F619F985C900AAF5AC /* MSEmailAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEmailAddress.m; sourceTree = "<group>"; };
+		EC5C12F719F985C900AAF5AC /* MSEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntity.m; sourceTree = "<group>"; };
+		EC5C12F819F985C900AAF5AC /* MSEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEvent.m; sourceTree = "<group>"; };
+		EC5C12F919F985C900AAF5AC /* MSFileAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileAttachment.m; sourceTree = "<group>"; };
+		EC5C12FA19F985C900AAF5AC /* MSFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFolder.m; sourceTree = "<group>"; };
+		EC5C12FB19F985C900AAF5AC /* MSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItem.m; sourceTree = "<group>"; };
+		EC5C12FC19F985C900AAF5AC /* MSItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemAttachment.m; sourceTree = "<group>"; };
+		EC5C12FD19F985C900AAF5AC /* MSItemBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemBody.m; sourceTree = "<group>"; };
+		EC5C12FE19F985C900AAF5AC /* MSLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSLocation.m; sourceTree = "<group>"; };
+		EC5C12FF19F985C900AAF5AC /* MSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessage.m; sourceTree = "<group>"; };
+		EC5C130019F985C900AAF5AC /* MSPatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPatternedRecurrence.m; sourceTree = "<group>"; };
+		EC5C130119F985C900AAF5AC /* MSPhysicalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSPhysicalAddress.m; sourceTree = "<group>"; };
+		EC5C130219F985C900AAF5AC /* MSRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecipient.m; sourceTree = "<group>"; };
+		EC5C130319F985C900AAF5AC /* MSRecurrencePattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecurrencePattern.m; sourceTree = "<group>"; };
+		EC5C130419F985C900AAF5AC /* MSRecurrenceRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSRecurrenceRange.m; sourceTree = "<group>"; };
+		EC5C130519F985C900AAF5AC /* MSResponseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSResponseStatus.m; sourceTree = "<group>"; };
+		EC5C130619F985C900AAF5AC /* MSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUser.m; sourceTree = "<group>"; };
+		EC5C134219F985D100AAF5AC /* MSAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C134319F985D100AAF5AC /* MSAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C134419F985D100AAF5AC /* MSAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttachmentFetcher.h; sourceTree = "<group>"; };
+		EC5C134519F985D100AAF5AC /* MSAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAttachmentOperations.h; sourceTree = "<group>"; };
+		EC5C134619F985D100AAF5AC /* MSBaseODataContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainer.h; sourceTree = "<group>"; };
+		EC5C134719F985D100AAF5AC /* MSCalendarCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C134819F985D100AAF5AC /* MSCalendarCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C134919F985D100AAF5AC /* MSCalendarFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarFetcher.h; sourceTree = "<group>"; };
+		EC5C134A19F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarGroupCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C134B19F985D100AAF5AC /* MSCalendarGroupCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarGroupCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C134C19F985D100AAF5AC /* MSCalendarGroupFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarGroupFetcher.h; sourceTree = "<group>"; };
+		EC5C134D19F985D100AAF5AC /* MSCalendarGroupOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarGroupOperations.h; sourceTree = "<group>"; };
+		EC5C134E19F985D100AAF5AC /* MSCalendarOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCalendarOperations.h; sourceTree = "<group>"; };
+		EC5C134F19F985D100AAF5AC /* MSContactCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C135019F985D100AAF5AC /* MSContactCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C135119F985D100AAF5AC /* MSContactFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFetcher.h; sourceTree = "<group>"; };
+		EC5C135219F985D100AAF5AC /* MSContactFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C135319F985D100AAF5AC /* MSContactFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFolderCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C135419F985D100AAF5AC /* MSContactFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFolderFetcher.h; sourceTree = "<group>"; };
+		EC5C135519F985D100AAF5AC /* MSContactFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactFolderOperations.h; sourceTree = "<group>"; };
+		EC5C135619F985D100AAF5AC /* MSContactOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSContactOperations.h; sourceTree = "<group>"; };
+		EC5C135719F985D100AAF5AC /* MSEntityCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C135819F985D100AAF5AC /* MSEntityCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C135919F985D100AAF5AC /* MSEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcher.h; sourceTree = "<group>"; };
+		EC5C135A19F985D100AAF5AC /* MSEntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityOperations.h; sourceTree = "<group>"; };
+		EC5C135B19F985D100AAF5AC /* MSEventCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C135C19F985D100AAF5AC /* MSEventCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C135D19F985D100AAF5AC /* MSEventFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventFetcher.h; sourceTree = "<group>"; };
+		EC5C135E19F985D100AAF5AC /* MSEventOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEventOperations.h; sourceTree = "<group>"; };
+		EC5C135F19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C136019F985D100AAF5AC /* MSFileAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C136119F985D100AAF5AC /* MSFileAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileAttachmentFetcher.h; sourceTree = "<group>"; };
+		EC5C136219F985D100AAF5AC /* MSFileAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFileAttachmentOperations.h; sourceTree = "<group>"; };
+		EC5C136319F985D100AAF5AC /* MSFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C136419F985D100AAF5AC /* MSFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFolderCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C136519F985D100AAF5AC /* MSFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFolderFetcher.h; sourceTree = "<group>"; };
+		EC5C136619F985D100AAF5AC /* MSFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFolderOperations.h; sourceTree = "<group>"; };
+		EC5C136719F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemAttachmentCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C136819F985D100AAF5AC /* MSItemAttachmentCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemAttachmentCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C136919F985D100AAF5AC /* MSItemAttachmentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemAttachmentFetcher.h; sourceTree = "<group>"; };
+		EC5C136A19F985D100AAF5AC /* MSItemAttachmentOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemAttachmentOperations.h; sourceTree = "<group>"; };
+		EC5C136B19F985D100AAF5AC /* MSItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C136C19F985D100AAF5AC /* MSItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C136D19F985D100AAF5AC /* MSItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemFetcher.h; sourceTree = "<group>"; };
+		EC5C136E19F985D100AAF5AC /* MSItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSItemOperations.h; sourceTree = "<group>"; };
+		EC5C136F19F985D100AAF5AC /* MSMessageCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessageCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C137019F985D100AAF5AC /* MSMessageCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessageCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C137119F985D100AAF5AC /* MSMessageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessageFetcher.h; sourceTree = "<group>"; };
+		EC5C137219F985D100AAF5AC /* MSMessageOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMessageOperations.h; sourceTree = "<group>"; };
+		EC5C137319F985D100AAF5AC /* MSODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C137419F985D100AAF5AC /* MSODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataEntityFetcher.h; sourceTree = "<group>"; };
+		EC5C137519F985D100AAF5AC /* MSODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataExecutable.h; sourceTree = "<group>"; };
+		EC5C137619F985D100AAF5AC /* MSODataMediaEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataMediaEntityFetcher.h; sourceTree = "<group>"; };
+		EC5C137719F985D100AAF5AC /* MSODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataOperations.h; sourceTree = "<group>"; };
+		EC5C137819F985D100AAF5AC /* MSOutlookClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookClient.h; sourceTree = "<group>"; };
+		EC5C137919F985D100AAF5AC /* MSUserCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUserCollectionFetcher.h; sourceTree = "<group>"; };
+		EC5C137A19F985D100AAF5AC /* MSUserCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUserCollectionOperations.h; sourceTree = "<group>"; };
+		EC5C137B19F985D100AAF5AC /* MSUserFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUserFetcher.h; sourceTree = "<group>"; };
+		EC5C137C19F985D100AAF5AC /* MSUserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSUserOperations.h; sourceTree = "<group>"; };
+		EC5C137E19F985D100AAF5AC /* MSAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C137F19F985D100AAF5AC /* MSAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C138019F985D100AAF5AC /* MSAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttachmentFetcher.m; sourceTree = "<group>"; };
+		EC5C138119F985D100AAF5AC /* MSAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAttachmentOperations.m; sourceTree = "<group>"; };
+		EC5C138219F985D100AAF5AC /* MSBaseODataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainer.m; sourceTree = "<group>"; };
+		EC5C138319F985D100AAF5AC /* MSCalendarCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C138419F985D100AAF5AC /* MSCalendarCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C138519F985D100AAF5AC /* MSCalendarFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarFetcher.m; sourceTree = "<group>"; };
+		EC5C138619F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarGroupCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C138719F985D100AAF5AC /* MSCalendarGroupCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarGroupCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C138819F985D100AAF5AC /* MSCalendarGroupFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarGroupFetcher.m; sourceTree = "<group>"; };
+		EC5C138919F985D100AAF5AC /* MSCalendarGroupOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarGroupOperations.m; sourceTree = "<group>"; };
+		EC5C138A19F985D100AAF5AC /* MSCalendarOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCalendarOperations.m; sourceTree = "<group>"; };
+		EC5C138B19F985D100AAF5AC /* MSContactCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C138C19F985D100AAF5AC /* MSContactCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C138D19F985D100AAF5AC /* MSContactFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFetcher.m; sourceTree = "<group>"; };
+		EC5C138E19F985D100AAF5AC /* MSContactFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C138F19F985D100AAF5AC /* MSContactFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFolderCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C139019F985D100AAF5AC /* MSContactFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFolderFetcher.m; sourceTree = "<group>"; };
+		EC5C139119F985D100AAF5AC /* MSContactFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactFolderOperations.m; sourceTree = "<group>"; };
+		EC5C139219F985D100AAF5AC /* MSContactOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSContactOperations.m; sourceTree = "<group>"; };
+		EC5C139319F985D100AAF5AC /* MSEntityCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C139419F985D100AAF5AC /* MSEntityCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C139519F985D100AAF5AC /* MSEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityFetcher.m; sourceTree = "<group>"; };
+		EC5C139619F985D100AAF5AC /* MSEntityOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityOperations.m; sourceTree = "<group>"; };
+		EC5C139719F985D100AAF5AC /* MSEventCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEventCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C139819F985D100AAF5AC /* MSEventCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEventCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C139919F985D100AAF5AC /* MSEventFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEventFetcher.m; sourceTree = "<group>"; };
+		EC5C139A19F985D100AAF5AC /* MSEventOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEventOperations.m; sourceTree = "<group>"; };
+		EC5C139B19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C139C19F985D100AAF5AC /* MSFileAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C139D19F985D100AAF5AC /* MSFileAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileAttachmentFetcher.m; sourceTree = "<group>"; };
+		EC5C139E19F985D100AAF5AC /* MSFileAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFileAttachmentOperations.m; sourceTree = "<group>"; };
+		EC5C139F19F985D100AAF5AC /* MSFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13A019F985D100AAF5AC /* MSFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFolderCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C13A119F985D100AAF5AC /* MSFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFolderFetcher.m; sourceTree = "<group>"; };
+		EC5C13A219F985D100AAF5AC /* MSFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSFolderOperations.m; sourceTree = "<group>"; };
+		EC5C13A319F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemAttachmentCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13A419F985D100AAF5AC /* MSItemAttachmentCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemAttachmentCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C13A519F985D100AAF5AC /* MSItemAttachmentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemAttachmentFetcher.m; sourceTree = "<group>"; };
+		EC5C13A619F985D100AAF5AC /* MSItemAttachmentOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemAttachmentOperations.m; sourceTree = "<group>"; };
+		EC5C13A719F985D100AAF5AC /* MSItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13A819F985D100AAF5AC /* MSItemCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C13A919F985D100AAF5AC /* MSItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemFetcher.m; sourceTree = "<group>"; };
+		EC5C13AA19F985D100AAF5AC /* MSItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSItemOperations.m; sourceTree = "<group>"; };
+		EC5C13AB19F985D100AAF5AC /* MSMessageCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessageCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13AC19F985D100AAF5AC /* MSMessageCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessageCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C13AD19F985D100AAF5AC /* MSMessageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessageFetcher.m; sourceTree = "<group>"; };
+		EC5C13AE19F985D100AAF5AC /* MSMessageOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMessageOperations.m; sourceTree = "<group>"; };
+		EC5C13AF19F985D100AAF5AC /* MSODataCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13B019F985D100AAF5AC /* MSODataEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataEntityFetcher.m; sourceTree = "<group>"; };
+		EC5C13B119F985D100AAF5AC /* MSODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataExecutable.m; sourceTree = "<group>"; };
+		EC5C13B219F985D100AAF5AC /* MSODataMediaEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataMediaEntityFetcher.m; sourceTree = "<group>"; };
+		EC5C13B319F985D100AAF5AC /* MSODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataOperations.m; sourceTree = "<group>"; };
+		EC5C13B419F985D100AAF5AC /* MSOutlookClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookClient.m; sourceTree = "<group>"; };
+		EC5C13B519F985D100AAF5AC /* MSUserCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserCollectionFetcher.m; sourceTree = "<group>"; };
+		EC5C13B619F985D100AAF5AC /* MSUserCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserCollectionOperations.m; sourceTree = "<group>"; };
+		EC5C13B719F985D100AAF5AC /* MSUserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserFetcher.m; sourceTree = "<group>"; };
+		EC5C13B819F985D100AAF5AC /* MSUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserOperations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,221 +483,19 @@
 		2647EB2719F44DDD00FD9527 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2647EB2819F44DDD00FD9527 /* Headers */,
-				2647EB4C19F44DDD00FD9527 /* Implementations */,
+				EC5C12CB19F985C900AAF5AC /* Headers */,
+				EC5C12EF19F985C900AAF5AC /* Implementations */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2647EB2819F44DDD00FD9527 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				2647EB2919F44DDD00FD9527 /* MSOAttachment.h */,
-				2647EB2A19F44DDD00FD9527 /* MSOAttendee.h */,
-				2647EB2B19F44DDD00FD9527 /* MSOAttendeeType.h */,
-				2647EB2C19F44DDD00FD9527 /* MSOBodyType.h */,
-				2647EB2D19F44DDD00FD9527 /* MSOCalendar.h */,
-				2647EB2E19F44DDD00FD9527 /* MSOCalendarGroup.h */,
-				2647EB2F19F44DDD00FD9527 /* MSOContact.h */,
-				2647EB3019F44DDD00FD9527 /* MSOContactFolder.h */,
-				2647EB3119F44DDD00FD9527 /* MSODayOfWeek.h */,
-				2647EB3219F44DDD00FD9527 /* MSOEmailAddress.h */,
-				2647EB3319F44DDD00FD9527 /* MSOEntity.h */,
-				2647EB3419F44DDD00FD9527 /* MSOEvent.h */,
-				2647EB3519F44DDD00FD9527 /* MSOEventType.h */,
-				2647EB3619F44DDD00FD9527 /* MSOFileAttachment.h */,
-				2647EB3719F44DDD00FD9527 /* MSOFolder.h */,
-				2647EB3819F44DDD00FD9527 /* MSOFreeBusyStatus.h */,
-				2647EB3919F44DDD00FD9527 /* MSOImportance.h */,
-				2647EB3A19F44DDD00FD9527 /* MSOItem.h */,
-				2647EB3B19F44DDD00FD9527 /* MSOItemAttachment.h */,
-				2647EB3C19F44DDD00FD9527 /* MSOItemBody.h */,
-				2647EB3D19F44DDD00FD9527 /* MSOLocation.h */,
-				2647EB3E19F44DDD00FD9527 /* MSOMeetingMessageType.h */,
-				2647EB3F19F44DDD00FD9527 /* MSOMessage.h */,
-				2647EB4019F44DDD00FD9527 /* MSOPatternedRecurrence.h */,
-				2647EB4119F44DDD00FD9527 /* MSOPhysicalAddress.h */,
-				2647EB4219F44DDD00FD9527 /* MSOProtocols.h */,
-				2647EB4319F44DDD00FD9527 /* MSORecipient.h */,
-				2647EB4419F44DDD00FD9527 /* MSORecurrencePattern.h */,
-				2647EB4519F44DDD00FD9527 /* MSORecurrencePatternType.h */,
-				2647EB4619F44DDD00FD9527 /* MSORecurrenceRange.h */,
-				2647EB4719F44DDD00FD9527 /* MSORecurrenceRangeType.h */,
-				2647EB4819F44DDD00FD9527 /* MSOResponseStatus.h */,
-				2647EB4919F44DDD00FD9527 /* MSOResponseType.h */,
-				2647EB4A19F44DDD00FD9527 /* MSOUser.h */,
-				2647EB4B19F44DDD00FD9527 /* MSOWeekIndex.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		2647EB4C19F44DDD00FD9527 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				2647EB4D19F44DDD00FD9527 /* MSOAttachment.m */,
-				2647EB4E19F44DDD00FD9527 /* MSOAttendee.m */,
-				2647EB4F19F44DDD00FD9527 /* MSOCalendar.m */,
-				2647EB5019F44DDD00FD9527 /* MSOCalendarGroup.m */,
-				2647EB5119F44DDD00FD9527 /* MSOContact.m */,
-				2647EB5219F44DDD00FD9527 /* MSOContactFolder.m */,
-				2647EB5319F44DDD00FD9527 /* MSOEmailAddress.m */,
-				2647EB5419F44DDD00FD9527 /* MSOEntity.m */,
-				2647EB5519F44DDD00FD9527 /* MSOEvent.m */,
-				2647EB5619F44DDD00FD9527 /* MSOFileAttachment.m */,
-				2647EB5719F44DDD00FD9527 /* MSOFolder.m */,
-				2647EB5819F44DDD00FD9527 /* MSOItem.m */,
-				2647EB5919F44DDD00FD9527 /* MSOItemAttachment.m */,
-				2647EB5A19F44DDD00FD9527 /* MSOItemBody.m */,
-				2647EB5B19F44DDD00FD9527 /* MSOLocation.m */,
-				2647EB5C19F44DDD00FD9527 /* MSOMessage.m */,
-				2647EB5D19F44DDD00FD9527 /* MSOPatternedRecurrence.m */,
-				2647EB5E19F44DDD00FD9527 /* MSOPhysicalAddress.m */,
-				2647EB5F19F44DDD00FD9527 /* MSORecipient.m */,
-				2647EB6019F44DDD00FD9527 /* MSORecurrencePattern.m */,
-				2647EB6119F44DDD00FD9527 /* MSORecurrenceRange.m */,
-				2647EB6219F44DDD00FD9527 /* MSOResponseStatus.m */,
-				2647EB6319F44DDD00FD9527 /* MSOUser.m */,
-			);
-			path = Implementations;
 			sourceTree = "<group>";
 		};
 		2647EB6419F44DDD00FD9527 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				2647EB6519F44DDD00FD9527 /* Headers */,
-				2647EBA019F44DDD00FD9527 /* Implementations */,
+				EC5C134119F985D100AAF5AC /* Headers */,
+				EC5C137D19F985D100AAF5AC /* Implementations */,
 			);
 			path = Operations;
-			sourceTree = "<group>";
-		};
-		2647EB6519F44DDD00FD9527 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				2647EB6619F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.h */,
-				2647EB6719F44DDD00FD9527 /* MSOAttachmentCollectionOperations.h */,
-				2647EB6819F44DDD00FD9527 /* MSOAttachmentFetcher.h */,
-				2647EB6919F44DDD00FD9527 /* MSOAttachmentOperations.h */,
-				2647EB6A19F44DDD00FD9527 /* MSOBaseODataContainer.h */,
-				2647EB6B19F44DDD00FD9527 /* MSOCalendarCollectionFetcher.h */,
-				2647EB6C19F44DDD00FD9527 /* MSOCalendarCollectionOperations.h */,
-				2647EB6D19F44DDD00FD9527 /* MSOCalendarFetcher.h */,
-				2647EB6E19F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.h */,
-				2647EB6F19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.h */,
-				2647EB7019F44DDD00FD9527 /* MSOCalendarGroupFetcher.h */,
-				2647EB7119F44DDD00FD9527 /* MSOCalendarGroupOperations.h */,
-				2647EB7219F44DDD00FD9527 /* MSOCalendarOperations.h */,
-				2647EB7319F44DDD00FD9527 /* MSOContactCollectionFetcher.h */,
-				2647EB7419F44DDD00FD9527 /* MSOContactCollectionOperations.h */,
-				2647EB7519F44DDD00FD9527 /* MSOContactFetcher.h */,
-				2647EB7619F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.h */,
-				2647EB7719F44DDD00FD9527 /* MSOContactFolderCollectionOperations.h */,
-				2647EB7819F44DDD00FD9527 /* MSOContactFolderFetcher.h */,
-				2647EB7919F44DDD00FD9527 /* MSOContactFolderOperations.h */,
-				2647EB7A19F44DDD00FD9527 /* MSOContactOperations.h */,
-				2647EB7B19F44DDD00FD9527 /* MSOEntityCollectionFetcher.h */,
-				2647EB7C19F44DDD00FD9527 /* MSOEntityCollectionOperations.h */,
-				2647EB7D19F44DDD00FD9527 /* MSOEntityContainerClient.h */,
-				2647EB7E19F44DDD00FD9527 /* MSOEntityFetcher.h */,
-				2647EB7F19F44DDD00FD9527 /* MSOEntityOperations.h */,
-				2647EB8019F44DDD00FD9527 /* MSOEventCollectionFetcher.h */,
-				2647EB8119F44DDD00FD9527 /* MSOEventCollectionOperations.h */,
-				2647EB8219F44DDD00FD9527 /* MSOEventFetcher.h */,
-				2647EB8319F44DDD00FD9527 /* MSOEventOperations.h */,
-				2647EB8419F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.h */,
-				2647EB8519F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.h */,
-				2647EB8619F44DDD00FD9527 /* MSOFileAttachmentFetcher.h */,
-				2647EB8719F44DDD00FD9527 /* MSOFileAttachmentOperations.h */,
-				2647EB8819F44DDD00FD9527 /* MSOFolderCollectionFetcher.h */,
-				2647EB8919F44DDD00FD9527 /* MSOFolderCollectionOperations.h */,
-				2647EB8A19F44DDD00FD9527 /* MSOFolderFetcher.h */,
-				2647EB8B19F44DDD00FD9527 /* MSOFolderOperations.h */,
-				2647EB8C19F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.h */,
-				2647EB8D19F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.h */,
-				2647EB8E19F44DDD00FD9527 /* MSOItemAttachmentFetcher.h */,
-				2647EB8F19F44DDD00FD9527 /* MSOItemAttachmentOperations.h */,
-				2647EB9019F44DDD00FD9527 /* MSOItemCollectionFetcher.h */,
-				2647EB9119F44DDD00FD9527 /* MSOItemCollectionOperations.h */,
-				2647EB9219F44DDD00FD9527 /* MSOItemFetcher.h */,
-				2647EB9319F44DDD00FD9527 /* MSOItemOperations.h */,
-				2647EB9419F44DDD00FD9527 /* MSOMessageCollectionFetcher.h */,
-				2647EB9519F44DDD00FD9527 /* MSOMessageCollectionOperations.h */,
-				2647EB9619F44DDD00FD9527 /* MSOMessageFetcher.h */,
-				2647EB9719F44DDD00FD9527 /* MSOMessageOperations.h */,
-				2647EB9819F44DDD00FD9527 /* MSOODataCollectionFetcher.h */,
-				2647EB9919F44DDD00FD9527 /* MSOODataEntityFetcher.h */,
-				2647EB9A19F44DDD00FD9527 /* MSOODataExecutable.h */,
-				2647EB9B19F44DDD00FD9527 /* MSOODataOperations.h */,
-				2647EB9C19F44DDD00FD9527 /* MSOUserCollectionFetcher.h */,
-				2647EB9D19F44DDD00FD9527 /* MSOUserCollectionOperations.h */,
-				2647EB9E19F44DDD00FD9527 /* MSOUserFetcher.h */,
-				2647EB9F19F44DDD00FD9527 /* MSOUserOperations.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		2647EBA019F44DDD00FD9527 /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				2647EBA119F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.m */,
-				2647EBA219F44DDD00FD9527 /* MSOAttachmentCollectionOperations.m */,
-				2647EBA319F44DDD00FD9527 /* MSOAttachmentFetcher.m */,
-				2647EBA419F44DDD00FD9527 /* MSOAttachmentOperations.m */,
-				2647EBA519F44DDD00FD9527 /* MSOBaseODataContainer.m */,
-				2647EBA619F44DDD00FD9527 /* MSOCalendarCollectionFetcher.m */,
-				2647EBA719F44DDD00FD9527 /* MSOCalendarCollectionOperations.m */,
-				2647EBA819F44DDD00FD9527 /* MSOCalendarFetcher.m */,
-				2647EBA919F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.m */,
-				2647EBAA19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.m */,
-				2647EBAB19F44DDD00FD9527 /* MSOCalendarGroupFetcher.m */,
-				2647EBAC19F44DDD00FD9527 /* MSOCalendarGroupOperations.m */,
-				2647EBAD19F44DDD00FD9527 /* MSOCalendarOperations.m */,
-				2647EBAE19F44DDD00FD9527 /* MSOContactCollectionFetcher.m */,
-				2647EBAF19F44DDD00FD9527 /* MSOContactCollectionOperations.m */,
-				2647EBB019F44DDD00FD9527 /* MSOContactFetcher.m */,
-				2647EBB119F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.m */,
-				2647EBB219F44DDD00FD9527 /* MSOContactFolderCollectionOperations.m */,
-				2647EBB319F44DDD00FD9527 /* MSOContactFolderFetcher.m */,
-				2647EBB419F44DDD00FD9527 /* MSOContactFolderOperations.m */,
-				2647EBB519F44DDD00FD9527 /* MSOContactOperations.m */,
-				2647EBB619F44DDD00FD9527 /* MSOEntityCollectionFetcher.m */,
-				2647EBB719F44DDD00FD9527 /* MSOEntityCollectionOperations.m */,
-				2647EBB819F44DDD00FD9527 /* MSOEntityContainerClient.m */,
-				2647EBB919F44DDD00FD9527 /* MSOEntityFetcher.m */,
-				2647EBBA19F44DDD00FD9527 /* MSOEntityOperations.m */,
-				2647EBBB19F44DDD00FD9527 /* MSOEventCollectionFetcher.m */,
-				2647EBBC19F44DDD00FD9527 /* MSOEventCollectionOperations.m */,
-				2647EBBD19F44DDD00FD9527 /* MSOEventFetcher.m */,
-				2647EBBE19F44DDD00FD9527 /* MSOEventOperations.m */,
-				2647EBBF19F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.m */,
-				2647EBC019F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.m */,
-				2647EBC119F44DDD00FD9527 /* MSOFileAttachmentFetcher.m */,
-				2647EBC219F44DDD00FD9527 /* MSOFileAttachmentOperations.m */,
-				2647EBC319F44DDD00FD9527 /* MSOFolderCollectionFetcher.m */,
-				2647EBC419F44DDD00FD9527 /* MSOFolderCollectionOperations.m */,
-				2647EBC519F44DDD00FD9527 /* MSOFolderFetcher.m */,
-				2647EBC619F44DDD00FD9527 /* MSOFolderOperations.m */,
-				2647EBC719F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.m */,
-				2647EBC819F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.m */,
-				2647EBC919F44DDD00FD9527 /* MSOItemAttachmentFetcher.m */,
-				2647EBCA19F44DDD00FD9527 /* MSOItemAttachmentOperations.m */,
-				2647EBCB19F44DDD00FD9527 /* MSOItemCollectionFetcher.m */,
-				2647EBCC19F44DDD00FD9527 /* MSOItemCollectionOperations.m */,
-				2647EBCD19F44DDD00FD9527 /* MSOItemFetcher.m */,
-				2647EBCE19F44DDD00FD9527 /* MSOItemOperations.m */,
-				2647EBCF19F44DDD00FD9527 /* MSOMessageCollectionFetcher.m */,
-				2647EBD019F44DDD00FD9527 /* MSOMessageCollectionOperations.m */,
-				2647EBD119F44DDD00FD9527 /* MSOMessageFetcher.m */,
-				2647EBD219F44DDD00FD9527 /* MSOMessageOperations.m */,
-				2647EBD319F44DDD00FD9527 /* MSOODataCollectionFetcher.m */,
-				2647EBD419F44DDD00FD9527 /* MSOODataEntityFetcher.m */,
-				2647EBD519F44DDD00FD9527 /* MSOODataExecutable.m */,
-				2647EBD619F44DDD00FD9527 /* MSOODataOperations.m */,
-				2647EBD719F44DDD00FD9527 /* MSOUserCollectionFetcher.m */,
-				2647EBD819F44DDD00FD9527 /* MSOUserCollectionOperations.m */,
-				2647EBD919F44DDD00FD9527 /* MSOUserFetcher.m */,
-				2647EBDA19F44DDD00FD9527 /* MSOUserOperations.m */,
-			);
-			path = Implementations;
 			sourceTree = "<group>";
 		};
 		2647EC9C19F44E2A00FD9527 /* Helpers */ = {
@@ -708,8 +510,8 @@
 		2647EC9D19F44E2A00FD9527 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				2647EC9E19F44E2A00FD9527 /* MSOBaseODataContainerHelper.h */,
-				2647EC9F19F44E2A00FD9527 /* MSOEntityFetcherHelper.h */,
+				2647EC9E19F44E2A00FD9527 /* MSBaseODataContainerHelper.h */,
+				2647EC9F19F44E2A00FD9527 /* MSEntityFetcherHelper.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -717,8 +519,8 @@
 		2647ECA219F44E2A00FD9527 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				2647ECA319F44E2A00FD9527 /* MSOBaseODataContainerHelper.m */,
-				2647ECA419F44E2A00FD9527 /* MSOEntityFetcherHelper.m */,
+				2647ECA319F44E2A00FD9527 /* MSBaseODataContainerHelper.m */,
+				2647ECA419F44E2A00FD9527 /* MSEntityFetcherHelper.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -731,6 +533,210 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC5C12CB19F985C900AAF5AC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C12CC19F985C900AAF5AC /* MSAttachment.h */,
+				EC5C12CD19F985C900AAF5AC /* MSAttendee.h */,
+				EC5C12CE19F985C900AAF5AC /* MSAttendeeType.h */,
+				EC5C12CF19F985C900AAF5AC /* MSBodyType.h */,
+				EC5C12D019F985C900AAF5AC /* MSCalendar.h */,
+				EC5C12D119F985C900AAF5AC /* MSCalendarGroup.h */,
+				EC5C12D219F985C900AAF5AC /* MSContact.h */,
+				EC5C12D319F985C900AAF5AC /* MSContactFolder.h */,
+				EC5C12D419F985C900AAF5AC /* MSDayOfWeek.h */,
+				EC5C12D519F985C900AAF5AC /* MSEmailAddress.h */,
+				EC5C12D619F985C900AAF5AC /* MSEntity.h */,
+				EC5C12D719F985C900AAF5AC /* MSEvent.h */,
+				EC5C12D819F985C900AAF5AC /* MSEventType.h */,
+				EC5C12D919F985C900AAF5AC /* MSFileAttachment.h */,
+				EC5C12DA19F985C900AAF5AC /* MSFolder.h */,
+				EC5C12DB19F985C900AAF5AC /* MSFreeBusyStatus.h */,
+				EC5C12DC19F985C900AAF5AC /* MSImportance.h */,
+				EC5C12DD19F985C900AAF5AC /* MSItem.h */,
+				EC5C12DE19F985C900AAF5AC /* MSItemAttachment.h */,
+				EC5C12DF19F985C900AAF5AC /* MSItemBody.h */,
+				EC5C12E019F985C900AAF5AC /* MSLocation.h */,
+				EC5C12E119F985C900AAF5AC /* MSMeetingMessageType.h */,
+				EC5C12E219F985C900AAF5AC /* MSMessage.h */,
+				EC5C12E319F985C900AAF5AC /* MSPatternedRecurrence.h */,
+				EC5C12E419F985C900AAF5AC /* MSPhysicalAddress.h */,
+				EC5C12E519F985C900AAF5AC /* MSProtocols.h */,
+				EC5C12E619F985C900AAF5AC /* MSRecipient.h */,
+				EC5C12E719F985C900AAF5AC /* MSRecurrencePattern.h */,
+				EC5C12E819F985C900AAF5AC /* MSRecurrencePatternType.h */,
+				EC5C12E919F985C900AAF5AC /* MSRecurrenceRange.h */,
+				EC5C12EA19F985C900AAF5AC /* MSRecurrenceRangeType.h */,
+				EC5C12EB19F985C900AAF5AC /* MSResponseStatus.h */,
+				EC5C12EC19F985C900AAF5AC /* MSResponseType.h */,
+				EC5C12ED19F985C900AAF5AC /* MSUser.h */,
+				EC5C12EE19F985C900AAF5AC /* MSWeekIndex.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC5C12EF19F985C900AAF5AC /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C12F019F985C900AAF5AC /* MSAttachment.m */,
+				EC5C12F119F985C900AAF5AC /* MSAttendee.m */,
+				EC5C12F219F985C900AAF5AC /* MSCalendar.m */,
+				EC5C12F319F985C900AAF5AC /* MSCalendarGroup.m */,
+				EC5C12F419F985C900AAF5AC /* MSContact.m */,
+				EC5C12F519F985C900AAF5AC /* MSContactFolder.m */,
+				EC5C12F619F985C900AAF5AC /* MSEmailAddress.m */,
+				EC5C12F719F985C900AAF5AC /* MSEntity.m */,
+				EC5C12F819F985C900AAF5AC /* MSEvent.m */,
+				EC5C12F919F985C900AAF5AC /* MSFileAttachment.m */,
+				EC5C12FA19F985C900AAF5AC /* MSFolder.m */,
+				EC5C12FB19F985C900AAF5AC /* MSItem.m */,
+				EC5C12FC19F985C900AAF5AC /* MSItemAttachment.m */,
+				EC5C12FD19F985C900AAF5AC /* MSItemBody.m */,
+				EC5C12FE19F985C900AAF5AC /* MSLocation.m */,
+				EC5C12FF19F985C900AAF5AC /* MSMessage.m */,
+				EC5C130019F985C900AAF5AC /* MSPatternedRecurrence.m */,
+				EC5C130119F985C900AAF5AC /* MSPhysicalAddress.m */,
+				EC5C130219F985C900AAF5AC /* MSRecipient.m */,
+				EC5C130319F985C900AAF5AC /* MSRecurrencePattern.m */,
+				EC5C130419F985C900AAF5AC /* MSRecurrenceRange.m */,
+				EC5C130519F985C900AAF5AC /* MSResponseStatus.m */,
+				EC5C130619F985C900AAF5AC /* MSUser.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		EC5C134119F985D100AAF5AC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C134219F985D100AAF5AC /* MSAttachmentCollectionFetcher.h */,
+				EC5C134319F985D100AAF5AC /* MSAttachmentCollectionOperations.h */,
+				EC5C134419F985D100AAF5AC /* MSAttachmentFetcher.h */,
+				EC5C134519F985D100AAF5AC /* MSAttachmentOperations.h */,
+				EC5C134619F985D100AAF5AC /* MSBaseODataContainer.h */,
+				EC5C134719F985D100AAF5AC /* MSCalendarCollectionFetcher.h */,
+				EC5C134819F985D100AAF5AC /* MSCalendarCollectionOperations.h */,
+				EC5C134919F985D100AAF5AC /* MSCalendarFetcher.h */,
+				EC5C134A19F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.h */,
+				EC5C134B19F985D100AAF5AC /* MSCalendarGroupCollectionOperations.h */,
+				EC5C134C19F985D100AAF5AC /* MSCalendarGroupFetcher.h */,
+				EC5C134D19F985D100AAF5AC /* MSCalendarGroupOperations.h */,
+				EC5C134E19F985D100AAF5AC /* MSCalendarOperations.h */,
+				EC5C134F19F985D100AAF5AC /* MSContactCollectionFetcher.h */,
+				EC5C135019F985D100AAF5AC /* MSContactCollectionOperations.h */,
+				EC5C135119F985D100AAF5AC /* MSContactFetcher.h */,
+				EC5C135219F985D100AAF5AC /* MSContactFolderCollectionFetcher.h */,
+				EC5C135319F985D100AAF5AC /* MSContactFolderCollectionOperations.h */,
+				EC5C135419F985D100AAF5AC /* MSContactFolderFetcher.h */,
+				EC5C135519F985D100AAF5AC /* MSContactFolderOperations.h */,
+				EC5C135619F985D100AAF5AC /* MSContactOperations.h */,
+				EC5C135719F985D100AAF5AC /* MSEntityCollectionFetcher.h */,
+				EC5C135819F985D100AAF5AC /* MSEntityCollectionOperations.h */,
+				EC5C135919F985D100AAF5AC /* MSEntityFetcher.h */,
+				EC5C135A19F985D100AAF5AC /* MSEntityOperations.h */,
+				EC5C135B19F985D100AAF5AC /* MSEventCollectionFetcher.h */,
+				EC5C135C19F985D100AAF5AC /* MSEventCollectionOperations.h */,
+				EC5C135D19F985D100AAF5AC /* MSEventFetcher.h */,
+				EC5C135E19F985D100AAF5AC /* MSEventOperations.h */,
+				EC5C135F19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.h */,
+				EC5C136019F985D100AAF5AC /* MSFileAttachmentCollectionOperations.h */,
+				EC5C136119F985D100AAF5AC /* MSFileAttachmentFetcher.h */,
+				EC5C136219F985D100AAF5AC /* MSFileAttachmentOperations.h */,
+				EC5C136319F985D100AAF5AC /* MSFolderCollectionFetcher.h */,
+				EC5C136419F985D100AAF5AC /* MSFolderCollectionOperations.h */,
+				EC5C136519F985D100AAF5AC /* MSFolderFetcher.h */,
+				EC5C136619F985D100AAF5AC /* MSFolderOperations.h */,
+				EC5C136719F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.h */,
+				EC5C136819F985D100AAF5AC /* MSItemAttachmentCollectionOperations.h */,
+				EC5C136919F985D100AAF5AC /* MSItemAttachmentFetcher.h */,
+				EC5C136A19F985D100AAF5AC /* MSItemAttachmentOperations.h */,
+				EC5C136B19F985D100AAF5AC /* MSItemCollectionFetcher.h */,
+				EC5C136C19F985D100AAF5AC /* MSItemCollectionOperations.h */,
+				EC5C136D19F985D100AAF5AC /* MSItemFetcher.h */,
+				EC5C136E19F985D100AAF5AC /* MSItemOperations.h */,
+				EC5C136F19F985D100AAF5AC /* MSMessageCollectionFetcher.h */,
+				EC5C137019F985D100AAF5AC /* MSMessageCollectionOperations.h */,
+				EC5C137119F985D100AAF5AC /* MSMessageFetcher.h */,
+				EC5C137219F985D100AAF5AC /* MSMessageOperations.h */,
+				EC5C137319F985D100AAF5AC /* MSODataCollectionFetcher.h */,
+				EC5C137419F985D100AAF5AC /* MSODataEntityFetcher.h */,
+				EC5C137519F985D100AAF5AC /* MSODataExecutable.h */,
+				EC5C137619F985D100AAF5AC /* MSODataMediaEntityFetcher.h */,
+				EC5C137719F985D100AAF5AC /* MSODataOperations.h */,
+				EC5C137819F985D100AAF5AC /* MSOutlookClient.h */,
+				EC5C137919F985D100AAF5AC /* MSUserCollectionFetcher.h */,
+				EC5C137A19F985D100AAF5AC /* MSUserCollectionOperations.h */,
+				EC5C137B19F985D100AAF5AC /* MSUserFetcher.h */,
+				EC5C137C19F985D100AAF5AC /* MSUserOperations.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC5C137D19F985D100AAF5AC /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C137E19F985D100AAF5AC /* MSAttachmentCollectionFetcher.m */,
+				EC5C137F19F985D100AAF5AC /* MSAttachmentCollectionOperations.m */,
+				EC5C138019F985D100AAF5AC /* MSAttachmentFetcher.m */,
+				EC5C138119F985D100AAF5AC /* MSAttachmentOperations.m */,
+				EC5C138219F985D100AAF5AC /* MSBaseODataContainer.m */,
+				EC5C138319F985D100AAF5AC /* MSCalendarCollectionFetcher.m */,
+				EC5C138419F985D100AAF5AC /* MSCalendarCollectionOperations.m */,
+				EC5C138519F985D100AAF5AC /* MSCalendarFetcher.m */,
+				EC5C138619F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.m */,
+				EC5C138719F985D100AAF5AC /* MSCalendarGroupCollectionOperations.m */,
+				EC5C138819F985D100AAF5AC /* MSCalendarGroupFetcher.m */,
+				EC5C138919F985D100AAF5AC /* MSCalendarGroupOperations.m */,
+				EC5C138A19F985D100AAF5AC /* MSCalendarOperations.m */,
+				EC5C138B19F985D100AAF5AC /* MSContactCollectionFetcher.m */,
+				EC5C138C19F985D100AAF5AC /* MSContactCollectionOperations.m */,
+				EC5C138D19F985D100AAF5AC /* MSContactFetcher.m */,
+				EC5C138E19F985D100AAF5AC /* MSContactFolderCollectionFetcher.m */,
+				EC5C138F19F985D100AAF5AC /* MSContactFolderCollectionOperations.m */,
+				EC5C139019F985D100AAF5AC /* MSContactFolderFetcher.m */,
+				EC5C139119F985D100AAF5AC /* MSContactFolderOperations.m */,
+				EC5C139219F985D100AAF5AC /* MSContactOperations.m */,
+				EC5C139319F985D100AAF5AC /* MSEntityCollectionFetcher.m */,
+				EC5C139419F985D100AAF5AC /* MSEntityCollectionOperations.m */,
+				EC5C139519F985D100AAF5AC /* MSEntityFetcher.m */,
+				EC5C139619F985D100AAF5AC /* MSEntityOperations.m */,
+				EC5C139719F985D100AAF5AC /* MSEventCollectionFetcher.m */,
+				EC5C139819F985D100AAF5AC /* MSEventCollectionOperations.m */,
+				EC5C139919F985D100AAF5AC /* MSEventFetcher.m */,
+				EC5C139A19F985D100AAF5AC /* MSEventOperations.m */,
+				EC5C139B19F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.m */,
+				EC5C139C19F985D100AAF5AC /* MSFileAttachmentCollectionOperations.m */,
+				EC5C139D19F985D100AAF5AC /* MSFileAttachmentFetcher.m */,
+				EC5C139E19F985D100AAF5AC /* MSFileAttachmentOperations.m */,
+				EC5C139F19F985D100AAF5AC /* MSFolderCollectionFetcher.m */,
+				EC5C13A019F985D100AAF5AC /* MSFolderCollectionOperations.m */,
+				EC5C13A119F985D100AAF5AC /* MSFolderFetcher.m */,
+				EC5C13A219F985D100AAF5AC /* MSFolderOperations.m */,
+				EC5C13A319F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.m */,
+				EC5C13A419F985D100AAF5AC /* MSItemAttachmentCollectionOperations.m */,
+				EC5C13A519F985D100AAF5AC /* MSItemAttachmentFetcher.m */,
+				EC5C13A619F985D100AAF5AC /* MSItemAttachmentOperations.m */,
+				EC5C13A719F985D100AAF5AC /* MSItemCollectionFetcher.m */,
+				EC5C13A819F985D100AAF5AC /* MSItemCollectionOperations.m */,
+				EC5C13A919F985D100AAF5AC /* MSItemFetcher.m */,
+				EC5C13AA19F985D100AAF5AC /* MSItemOperations.m */,
+				EC5C13AB19F985D100AAF5AC /* MSMessageCollectionFetcher.m */,
+				EC5C13AC19F985D100AAF5AC /* MSMessageCollectionOperations.m */,
+				EC5C13AD19F985D100AAF5AC /* MSMessageFetcher.m */,
+				EC5C13AE19F985D100AAF5AC /* MSMessageOperations.m */,
+				EC5C13AF19F985D100AAF5AC /* MSODataCollectionFetcher.m */,
+				EC5C13B019F985D100AAF5AC /* MSODataEntityFetcher.m */,
+				EC5C13B119F985D100AAF5AC /* MSODataExecutable.m */,
+				EC5C13B219F985D100AAF5AC /* MSODataMediaEntityFetcher.m */,
+				EC5C13B319F985D100AAF5AC /* MSODataOperations.m */,
+				EC5C13B419F985D100AAF5AC /* MSOutlookClient.m */,
+				EC5C13B519F985D100AAF5AC /* MSUserCollectionFetcher.m */,
+				EC5C13B619F985D100AAF5AC /* MSUserCollectionOperations.m */,
+				EC5C13B719F985D100AAF5AC /* MSUserFetcher.m */,
+				EC5C13B819F985D100AAF5AC /* MSUserOperations.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -738,101 +744,102 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2647EC4D19F44DDD00FD9527 /* MSOUserFetcher.h in Headers */,
-				2647EC4419F44DDD00FD9527 /* MSOMessageCollectionOperations.h in Headers */,
-				2647EBFA19F44DDD00FD9527 /* MSOResponseStatus.h in Headers */,
-				2647EBFD19F44DDD00FD9527 /* MSOWeekIndex.h in Headers */,
-				2647EC2719F44DDD00FD9527 /* MSOContactFolderFetcher.h in Headers */,
-				2647EC4C19F44DDD00FD9527 /* MSOUserCollectionOperations.h in Headers */,
-				2647EBDF19F44DDD00FD9527 /* MSOCalendar.h in Headers */,
-				2647EC4719F44DDD00FD9527 /* MSOODataCollectionFetcher.h in Headers */,
-				2647EC3E19F44DDD00FD9527 /* MSOItemAttachmentOperations.h in Headers */,
-				2647EC2B19F44DDD00FD9527 /* MSOEntityCollectionOperations.h in Headers */,
-				2647EBE819F44DDD00FD9527 /* MSOFileAttachment.h in Headers */,
-				2647EBE419F44DDD00FD9527 /* MSOEmailAddress.h in Headers */,
-				2647EBDE19F44DDD00FD9527 /* MSOBodyType.h in Headers */,
-				2647EC2319F44DDD00FD9527 /* MSOContactCollectionOperations.h in Headers */,
-				2647EC4E19F44DDD00FD9527 /* MSOUserOperations.h in Headers */,
-				2647EC3019F44DDD00FD9527 /* MSOEventCollectionOperations.h in Headers */,
-				2647EC1F19F44DDD00FD9527 /* MSOCalendarGroupFetcher.h in Headers */,
-				2647EBDD19F44DDD00FD9527 /* MSOAttendeeType.h in Headers */,
-				2647EC2519F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.h in Headers */,
-				2647EBEC19F44DDD00FD9527 /* MSOItem.h in Headers */,
-				2647ECA719F44E2A00FD9527 /* MSOBaseODataContainerHelper.h in Headers */,
-				2647EC4519F44DDD00FD9527 /* MSOMessageFetcher.h in Headers */,
-				2647EC2D19F44DDD00FD9527 /* MSOEntityFetcher.h in Headers */,
-				2647EC1C19F44DDD00FD9527 /* MSOCalendarFetcher.h in Headers */,
-				2647EC3F19F44DDD00FD9527 /* MSOItemCollectionFetcher.h in Headers */,
-				2647EC3C19F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.h in Headers */,
-				2647EC1519F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.h in Headers */,
-				2647EBE619F44DDD00FD9527 /* MSOEvent.h in Headers */,
-				2647EC2E19F44DDD00FD9527 /* MSOEntityOperations.h in Headers */,
-				2647EC2A19F44DDD00FD9527 /* MSOEntityCollectionFetcher.h in Headers */,
-				2647EBE119F44DDD00FD9527 /* MSOContact.h in Headers */,
-				2647EC2119F44DDD00FD9527 /* MSOCalendarOperations.h in Headers */,
-				2647EBF119F44DDD00FD9527 /* MSOMessage.h in Headers */,
-				2647EC3D19F44DDD00FD9527 /* MSOItemAttachmentFetcher.h in Headers */,
-				2647EC4119F44DDD00FD9527 /* MSOItemFetcher.h in Headers */,
-				2647EC2619F44DDD00FD9527 /* MSOContactFolderCollectionOperations.h in Headers */,
-				2647EBDC19F44DDD00FD9527 /* MSOAttendee.h in Headers */,
-				2647EBF319F44DDD00FD9527 /* MSOPhysicalAddress.h in Headers */,
-				2647EC4B19F44DDD00FD9527 /* MSOUserCollectionFetcher.h in Headers */,
-				2647EC4819F44DDD00FD9527 /* MSOODataEntityFetcher.h in Headers */,
-				2647EC2019F44DDD00FD9527 /* MSOCalendarGroupOperations.h in Headers */,
-				2647EC3519F44DDD00FD9527 /* MSOFileAttachmentFetcher.h in Headers */,
-				2647ECA819F44E2A00FD9527 /* MSOEntityFetcherHelper.h in Headers */,
-				2647EBEB19F44DDD00FD9527 /* MSOImportance.h in Headers */,
-				2647EC4019F44DDD00FD9527 /* MSOItemCollectionOperations.h in Headers */,
-				2647EC3419F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.h in Headers */,
-				2647EBF719F44DDD00FD9527 /* MSORecurrencePatternType.h in Headers */,
-				2647EC3919F44DDD00FD9527 /* MSOFolderFetcher.h in Headers */,
-				2647EBFC19F44DDD00FD9527 /* MSOUser.h in Headers */,
-				2647EC4A19F44DDD00FD9527 /* MSOODataOperations.h in Headers */,
-				2647EC3319F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.h in Headers */,
-				2647EC4319F44DDD00FD9527 /* MSOMessageCollectionFetcher.h in Headers */,
-				2647EBF219F44DDD00FD9527 /* MSOPatternedRecurrence.h in Headers */,
-				2647EC4219F44DDD00FD9527 /* MSOItemOperations.h in Headers */,
-				2647EBFB19F44DDD00FD9527 /* MSOResponseType.h in Headers */,
-				2647EC1E19F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.h in Headers */,
-				2647EC2419F44DDD00FD9527 /* MSOContactFetcher.h in Headers */,
-				2647EBE219F44DDD00FD9527 /* MSOContactFolder.h in Headers */,
-				2647EC2919F44DDD00FD9527 /* MSOContactOperations.h in Headers */,
-				2647EC4919F44DDD00FD9527 /* MSOODataExecutable.h in Headers */,
-				2647EC3219F44DDD00FD9527 /* MSOEventOperations.h in Headers */,
-				2647EC1A19F44DDD00FD9527 /* MSOCalendarCollectionFetcher.h in Headers */,
-				2647EC1D19F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.h in Headers */,
-				2647EC1919F44DDD00FD9527 /* MSOBaseODataContainer.h in Headers */,
-				2647EC2819F44DDD00FD9527 /* MSOContactFolderOperations.h in Headers */,
-				2647EC3A19F44DDD00FD9527 /* MSOFolderOperations.h in Headers */,
-				2647EC3719F44DDD00FD9527 /* MSOFolderCollectionFetcher.h in Headers */,
-				2647EBE919F44DDD00FD9527 /* MSOFolder.h in Headers */,
-				2647EC2C19F44DDD00FD9527 /* MSOEntityContainerClient.h in Headers */,
-				2647EC2F19F44DDD00FD9527 /* MSOEventCollectionFetcher.h in Headers */,
-				2647EC2219F44DDD00FD9527 /* MSOContactCollectionFetcher.h in Headers */,
-				2647EBF919F44DDD00FD9527 /* MSORecurrenceRangeType.h in Headers */,
-				2647EBED19F44DDD00FD9527 /* MSOItemAttachment.h in Headers */,
-				2647EC1819F44DDD00FD9527 /* MSOAttachmentOperations.h in Headers */,
-				2647EBE719F44DDD00FD9527 /* MSOEventType.h in Headers */,
-				2647EBE319F44DDD00FD9527 /* MSODayOfWeek.h in Headers */,
-				2647EBEE19F44DDD00FD9527 /* MSOItemBody.h in Headers */,
-				2647EBE019F44DDD00FD9527 /* MSOCalendarGroup.h in Headers */,
-				2647EC1B19F44DDD00FD9527 /* MSOCalendarCollectionOperations.h in Headers */,
-				2647EC3819F44DDD00FD9527 /* MSOFolderCollectionOperations.h in Headers */,
-				2647EBEF19F44DDD00FD9527 /* MSOLocation.h in Headers */,
-				2647EBF819F44DDD00FD9527 /* MSORecurrenceRange.h in Headers */,
-				2647EBE519F44DDD00FD9527 /* MSOEntity.h in Headers */,
-				2647EC3119F44DDD00FD9527 /* MSOEventFetcher.h in Headers */,
-				2647EC4619F44DDD00FD9527 /* MSOMessageOperations.h in Headers */,
-				2647EC3619F44DDD00FD9527 /* MSOFileAttachmentOperations.h in Headers */,
-				2647EC1719F44DDD00FD9527 /* MSOAttachmentFetcher.h in Headers */,
-				2647EBEA19F44DDD00FD9527 /* MSOFreeBusyStatus.h in Headers */,
-				2647EC1619F44DDD00FD9527 /* MSOAttachmentCollectionOperations.h in Headers */,
-				2647EBDB19F44DDD00FD9527 /* MSOAttachment.h in Headers */,
-				2647EBF419F44DDD00FD9527 /* MSOProtocols.h in Headers */,
-				2647EBF519F44DDD00FD9527 /* MSORecipient.h in Headers */,
-				2647EC3B19F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.h in Headers */,
-				2647EBF619F44DDD00FD9527 /* MSORecurrencePattern.h in Headers */,
-				2647EBF019F44DDD00FD9527 /* MSOMeetingMessageType.h in Headers */,
+				2647ECA719F44E2A00FD9527 /* MSBaseODataContainerHelper.h in Headers */,
+				EC5C132119F985C900AAF5AC /* MSRecipient.h in Headers */,
+				EC5C131219F985C900AAF5AC /* MSEvent.h in Headers */,
+				EC5C13D519F985D100AAF5AC /* MSEventOperations.h in Headers */,
+				EC5C13BB19F985D100AAF5AC /* MSAttachmentFetcher.h in Headers */,
+				EC5C13E019F985D100AAF5AC /* MSItemAttachmentFetcher.h in Headers */,
+				EC5C13E219F985D100AAF5AC /* MSItemCollectionFetcher.h in Headers */,
+				EC5C130C19F985C900AAF5AC /* MSCalendarGroup.h in Headers */,
+				EC5C130D19F985C900AAF5AC /* MSContact.h in Headers */,
+				EC5C13D219F985D100AAF5AC /* MSEventCollectionFetcher.h in Headers */,
+				EC5C13D019F985D100AAF5AC /* MSEntityFetcher.h in Headers */,
+				EC5C13BE19F985D100AAF5AC /* MSCalendarCollectionFetcher.h in Headers */,
+				EC5C130A19F985C900AAF5AC /* MSBodyType.h in Headers */,
+				EC5C13C419F985D100AAF5AC /* MSCalendarGroupOperations.h in Headers */,
+				EC5C130719F985C900AAF5AC /* MSAttachment.h in Headers */,
+				EC5C13CB19F985D100AAF5AC /* MSContactFolderFetcher.h in Headers */,
+				EC5C131819F985C900AAF5AC /* MSItem.h in Headers */,
+				EC5C13F019F985D100AAF5AC /* MSUserCollectionFetcher.h in Headers */,
+				EC5C13DF19F985D100AAF5AC /* MSItemAttachmentCollectionOperations.h in Headers */,
+				EC5C13F219F985D100AAF5AC /* MSUserFetcher.h in Headers */,
+				EC5C131519F985C900AAF5AC /* MSFolder.h in Headers */,
+				EC5C13D419F985D100AAF5AC /* MSEventFetcher.h in Headers */,
+				EC5C131D19F985C900AAF5AC /* MSMessage.h in Headers */,
+				EC5C13DE19F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.h in Headers */,
+				EC5C131E19F985C900AAF5AC /* MSPatternedRecurrence.h in Headers */,
+				EC5C13E719F985D100AAF5AC /* MSMessageCollectionOperations.h in Headers */,
+				EC5C13DB19F985D100AAF5AC /* MSFolderCollectionOperations.h in Headers */,
+				EC5C13CE19F985D100AAF5AC /* MSEntityCollectionFetcher.h in Headers */,
+				EC5C132319F985C900AAF5AC /* MSRecurrencePatternType.h in Headers */,
+				EC5C13ED19F985D100AAF5AC /* MSODataMediaEntityFetcher.h in Headers */,
+				EC5C13EA19F985D100AAF5AC /* MSODataCollectionFetcher.h in Headers */,
+				EC5C13E519F985D100AAF5AC /* MSItemOperations.h in Headers */,
+				EC5C13BC19F985D100AAF5AC /* MSAttachmentOperations.h in Headers */,
+				EC5C13C719F985D100AAF5AC /* MSContactCollectionOperations.h in Headers */,
+				EC5C131419F985C900AAF5AC /* MSFileAttachment.h in Headers */,
+				EC5C130B19F985C900AAF5AC /* MSCalendar.h in Headers */,
+				EC5C13E119F985D100AAF5AC /* MSItemAttachmentOperations.h in Headers */,
+				EC5C13DC19F985D100AAF5AC /* MSFolderFetcher.h in Headers */,
+				EC5C13EF19F985D100AAF5AC /* MSOutlookClient.h in Headers */,
+				EC5C13EB19F985D100AAF5AC /* MSODataEntityFetcher.h in Headers */,
+				EC5C13CF19F985D100AAF5AC /* MSEntityCollectionOperations.h in Headers */,
+				EC5C131C19F985C900AAF5AC /* MSMeetingMessageType.h in Headers */,
+				EC5C13BD19F985D100AAF5AC /* MSBaseODataContainer.h in Headers */,
+				EC5C13C619F985D100AAF5AC /* MSContactCollectionFetcher.h in Headers */,
+				EC5C130819F985C900AAF5AC /* MSAttendee.h in Headers */,
+				EC5C13DD19F985D100AAF5AC /* MSFolderOperations.h in Headers */,
+				EC5C132719F985C900AAF5AC /* MSResponseType.h in Headers */,
+				EC5C13BA19F985D100AAF5AC /* MSAttachmentCollectionOperations.h in Headers */,
+				EC5C13C319F985D100AAF5AC /* MSCalendarGroupFetcher.h in Headers */,
+				EC5C13B919F985D100AAF5AC /* MSAttachmentCollectionFetcher.h in Headers */,
+				EC5C132419F985C900AAF5AC /* MSRecurrenceRange.h in Headers */,
+				EC5C13E319F985D100AAF5AC /* MSItemCollectionOperations.h in Headers */,
+				EC5C13CD19F985D100AAF5AC /* MSContactOperations.h in Headers */,
+				EC5C130919F985C900AAF5AC /* MSAttendeeType.h in Headers */,
+				EC5C13C019F985D100AAF5AC /* MSCalendarFetcher.h in Headers */,
+				EC5C13EC19F985D100AAF5AC /* MSODataExecutable.h in Headers */,
+				EC5C13D619F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.h in Headers */,
+				EC5C13C519F985D100AAF5AC /* MSCalendarOperations.h in Headers */,
+				EC5C131B19F985C900AAF5AC /* MSLocation.h in Headers */,
+				EC5C131019F985C900AAF5AC /* MSEmailAddress.h in Headers */,
+				EC5C131A19F985C900AAF5AC /* MSItemBody.h in Headers */,
+				EC5C13D819F985D100AAF5AC /* MSFileAttachmentFetcher.h in Headers */,
+				EC5C13E419F985D100AAF5AC /* MSItemFetcher.h in Headers */,
+				EC5C13E819F985D100AAF5AC /* MSMessageFetcher.h in Headers */,
+				EC5C13F119F985D100AAF5AC /* MSUserCollectionOperations.h in Headers */,
+				EC5C132019F985C900AAF5AC /* MSProtocols.h in Headers */,
+				EC5C131F19F985C900AAF5AC /* MSPhysicalAddress.h in Headers */,
+				EC5C13D119F985D100AAF5AC /* MSEntityOperations.h in Headers */,
+				EC5C13CC19F985D100AAF5AC /* MSContactFolderOperations.h in Headers */,
+				EC5C132219F985C900AAF5AC /* MSRecurrencePattern.h in Headers */,
+				EC5C13EE19F985D100AAF5AC /* MSODataOperations.h in Headers */,
+				EC5C13CA19F985D100AAF5AC /* MSContactFolderCollectionOperations.h in Headers */,
+				EC5C131719F985C900AAF5AC /* MSImportance.h in Headers */,
+				EC5C132619F985C900AAF5AC /* MSResponseStatus.h in Headers */,
+				EC5C13D719F985D100AAF5AC /* MSFileAttachmentCollectionOperations.h in Headers */,
+				EC5C131319F985C900AAF5AC /* MSEventType.h in Headers */,
+				EC5C132919F985C900AAF5AC /* MSWeekIndex.h in Headers */,
+				EC5C131919F985C900AAF5AC /* MSItemAttachment.h in Headers */,
+				EC5C131119F985C900AAF5AC /* MSEntity.h in Headers */,
+				EC5C130F19F985C900AAF5AC /* MSDayOfWeek.h in Headers */,
+				EC5C13BF19F985D100AAF5AC /* MSCalendarCollectionOperations.h in Headers */,
+				EC5C131619F985C900AAF5AC /* MSFreeBusyStatus.h in Headers */,
+				EC5C132519F985C900AAF5AC /* MSRecurrenceRangeType.h in Headers */,
+				EC5C13E919F985D100AAF5AC /* MSMessageOperations.h in Headers */,
+				EC5C13DA19F985D100AAF5AC /* MSFolderCollectionFetcher.h in Headers */,
+				EC5C13C919F985D100AAF5AC /* MSContactFolderCollectionFetcher.h in Headers */,
+				EC5C13C119F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.h in Headers */,
+				EC5C13E619F985D100AAF5AC /* MSMessageCollectionFetcher.h in Headers */,
+				EC5C132819F985C900AAF5AC /* MSUser.h in Headers */,
+				EC5C13C819F985D100AAF5AC /* MSContactFetcher.h in Headers */,
+				EC5C13F319F985D100AAF5AC /* MSUserOperations.h in Headers */,
+				EC5C13C219F985D100AAF5AC /* MSCalendarGroupCollectionOperations.h in Headers */,
+				EC5C130E19F985C900AAF5AC /* MSContactFolder.h in Headers */,
+				EC5C13D319F985D100AAF5AC /* MSEventCollectionOperations.h in Headers */,
+				EC5C13D919F985D100AAF5AC /* MSFileAttachmentOperations.h in Headers */,
+				2647ECA819F44E2A00FD9527 /* MSEntityFetcherHelper.h in Headers */,
 				2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */,
 				2647ECB219F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch in Headers */,
 			);
@@ -935,89 +942,90 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2647EBFE19F44DDD00FD9527 /* MSOAttachment.m in Sources */,
-				2647EC0219F44DDD00FD9527 /* MSOContact.m in Sources */,
-				2647EC7619F44DDD00FD9527 /* MSOItemAttachmentCollectionOperations.m in Sources */,
-				2647EC0519F44DDD00FD9527 /* MSOEntity.m in Sources */,
-				2647EC5519F44DDD00FD9527 /* MSOCalendarCollectionOperations.m in Sources */,
-				2647EC6D19F44DDD00FD9527 /* MSOFileAttachmentCollectionFetcher.m in Sources */,
-				2647EC7019F44DDD00FD9527 /* MSOFileAttachmentOperations.m in Sources */,
-				2647EC8819F44DDD00FD9527 /* MSOUserOperations.m in Sources */,
-				2647EC6519F44DDD00FD9527 /* MSOEntityCollectionOperations.m in Sources */,
-				2647EC8619F44DDD00FD9527 /* MSOUserCollectionOperations.m in Sources */,
-				2647EC6F19F44DDD00FD9527 /* MSOFileAttachmentFetcher.m in Sources */,
-				2647EC8719F44DDD00FD9527 /* MSOUserFetcher.m in Sources */,
-				2647EC5019F44DDD00FD9527 /* MSOAttachmentCollectionOperations.m in Sources */,
-				2647EC0319F44DDD00FD9527 /* MSOContactFolder.m in Sources */,
-				2647EC6119F44DDD00FD9527 /* MSOContactFolderFetcher.m in Sources */,
-				2647EC7119F44DDD00FD9527 /* MSOFolderCollectionFetcher.m in Sources */,
-				2647EC5819F44DDD00FD9527 /* MSOCalendarGroupCollectionOperations.m in Sources */,
-				2647EC0719F44DDD00FD9527 /* MSOFileAttachment.m in Sources */,
-				2647EC0619F44DDD00FD9527 /* MSOEvent.m in Sources */,
-				2647EC0B19F44DDD00FD9527 /* MSOItemBody.m in Sources */,
-				2647EC6819F44DDD00FD9527 /* MSOEntityOperations.m in Sources */,
-				2647EC7519F44DDD00FD9527 /* MSOItemAttachmentCollectionFetcher.m in Sources */,
-				2647EC5719F44DDD00FD9527 /* MSOCalendarGroupCollectionFetcher.m in Sources */,
-				2647EC6319F44DDD00FD9527 /* MSOContactOperations.m in Sources */,
-				2647EC8119F44DDD00FD9527 /* MSOODataCollectionFetcher.m in Sources */,
-				2647EC6419F44DDD00FD9527 /* MSOEntityCollectionFetcher.m in Sources */,
-				2647EC7A19F44DDD00FD9527 /* MSOItemCollectionOperations.m in Sources */,
-				2647EC8519F44DDD00FD9527 /* MSOUserCollectionFetcher.m in Sources */,
-				2647ECAC19F44E2A00FD9527 /* MSOEntityFetcherHelper.m in Sources */,
-				2647EC7D19F44DDD00FD9527 /* MSOMessageCollectionFetcher.m in Sources */,
-				2647EC8319F44DDD00FD9527 /* MSOODataExecutable.m in Sources */,
-				2647EC6919F44DDD00FD9527 /* MSOEventCollectionFetcher.m in Sources */,
-				2647EC0E19F44DDD00FD9527 /* MSOPatternedRecurrence.m in Sources */,
-				2647EC5619F44DDD00FD9527 /* MSOCalendarFetcher.m in Sources */,
-				2647EC8419F44DDD00FD9527 /* MSOODataOperations.m in Sources */,
-				2647EC7B19F44DDD00FD9527 /* MSOItemFetcher.m in Sources */,
-				2647EC1119F44DDD00FD9527 /* MSORecurrencePattern.m in Sources */,
-				2647EC5C19F44DDD00FD9527 /* MSOContactCollectionFetcher.m in Sources */,
-				2647EC0419F44DDD00FD9527 /* MSOEmailAddress.m in Sources */,
-				2647EC8019F44DDD00FD9527 /* MSOMessageOperations.m in Sources */,
-				2647EC0C19F44DDD00FD9527 /* MSOLocation.m in Sources */,
-				2647EC0819F44DDD00FD9527 /* MSOFolder.m in Sources */,
-				2647EC6A19F44DDD00FD9527 /* MSOEventCollectionOperations.m in Sources */,
-				2647EC5919F44DDD00FD9527 /* MSOCalendarGroupFetcher.m in Sources */,
-				2647EC6B19F44DDD00FD9527 /* MSOEventFetcher.m in Sources */,
-				2647EC5E19F44DDD00FD9527 /* MSOContactFetcher.m in Sources */,
-				2647EC1319F44DDD00FD9527 /* MSOResponseStatus.m in Sources */,
-				2647EC8219F44DDD00FD9527 /* MSOODataEntityFetcher.m in Sources */,
-				2647EBFF19F44DDD00FD9527 /* MSOAttendee.m in Sources */,
-				2647EC6719F44DDD00FD9527 /* MSOEntityFetcher.m in Sources */,
-				2647EC0D19F44DDD00FD9527 /* MSOMessage.m in Sources */,
-				2647EC5319F44DDD00FD9527 /* MSOBaseODataContainer.m in Sources */,
-				2647EC7319F44DDD00FD9527 /* MSOFolderFetcher.m in Sources */,
-				2647EC7F19F44DDD00FD9527 /* MSOMessageFetcher.m in Sources */,
-				2647EC6C19F44DDD00FD9527 /* MSOEventOperations.m in Sources */,
-				2647EC5419F44DDD00FD9527 /* MSOCalendarCollectionFetcher.m in Sources */,
-				2647EC7819F44DDD00FD9527 /* MSOItemAttachmentOperations.m in Sources */,
-				2647EC7419F44DDD00FD9527 /* MSOFolderOperations.m in Sources */,
-				2647EC5D19F44DDD00FD9527 /* MSOContactCollectionOperations.m in Sources */,
-				2647EC5F19F44DDD00FD9527 /* MSOContactFolderCollectionFetcher.m in Sources */,
-				2647EC7E19F44DDD00FD9527 /* MSOMessageCollectionOperations.m in Sources */,
-				2647EC5B19F44DDD00FD9527 /* MSOCalendarOperations.m in Sources */,
-				2647EC1019F44DDD00FD9527 /* MSORecipient.m in Sources */,
-				2647EC6E19F44DDD00FD9527 /* MSOFileAttachmentCollectionOperations.m in Sources */,
-				2647EC6619F44DDD00FD9527 /* MSOEntityContainerClient.m in Sources */,
-				2647EC4F19F44DDD00FD9527 /* MSOAttachmentCollectionFetcher.m in Sources */,
-				2647EC0F19F44DDD00FD9527 /* MSOPhysicalAddress.m in Sources */,
-				2647EC5A19F44DDD00FD9527 /* MSOCalendarGroupOperations.m in Sources */,
-				2647EC0019F44DDD00FD9527 /* MSOCalendar.m in Sources */,
-				2647EC7919F44DDD00FD9527 /* MSOItemCollectionFetcher.m in Sources */,
-				2647EC5119F44DDD00FD9527 /* MSOAttachmentFetcher.m in Sources */,
-				2647EC6019F44DDD00FD9527 /* MSOContactFolderCollectionOperations.m in Sources */,
-				2647EC0A19F44DDD00FD9527 /* MSOItemAttachment.m in Sources */,
-				2647EC1219F44DDD00FD9527 /* MSORecurrenceRange.m in Sources */,
-				2647EC0919F44DDD00FD9527 /* MSOItem.m in Sources */,
-				2647ECAB19F44E2A00FD9527 /* MSOBaseODataContainerHelper.m in Sources */,
-				2647EC6219F44DDD00FD9527 /* MSOContactFolderOperations.m in Sources */,
-				2647EC7219F44DDD00FD9527 /* MSOFolderCollectionOperations.m in Sources */,
-				2647EC0119F44DDD00FD9527 /* MSOCalendarGroup.m in Sources */,
-				2647EC7C19F44DDD00FD9527 /* MSOItemOperations.m in Sources */,
-				2647EC7719F44DDD00FD9527 /* MSOItemAttachmentFetcher.m in Sources */,
-				2647EC5219F44DDD00FD9527 /* MSOAttachmentOperations.m in Sources */,
-				2647EC1419F44DDD00FD9527 /* MSOUser.m in Sources */,
+				EC5C141119F985D100AAF5AC /* MSFileAttachmentCollectionFetcher.m in Sources */,
+				EC5C141719F985D100AAF5AC /* MSFolderFetcher.m in Sources */,
+				EC5C132C19F985C900AAF5AC /* MSCalendar.m in Sources */,
+				EC5C133E19F985C900AAF5AC /* MSRecurrenceRange.m in Sources */,
+				EC5C140E19F985D100AAF5AC /* MSEventCollectionOperations.m in Sources */,
+				EC5C133219F985C900AAF5AC /* MSEvent.m in Sources */,
+				EC5C141319F985D100AAF5AC /* MSFileAttachmentFetcher.m in Sources */,
+				EC5C142219F985D100AAF5AC /* MSMessageCollectionOperations.m in Sources */,
+				EC5C141819F985D100AAF5AC /* MSFolderOperations.m in Sources */,
+				EC5C133319F985C900AAF5AC /* MSFileAttachment.m in Sources */,
+				EC5C140419F985D100AAF5AC /* MSContactFolderCollectionFetcher.m in Sources */,
+				EC5C142319F985D100AAF5AC /* MSMessageFetcher.m in Sources */,
+				EC5C133919F985C900AAF5AC /* MSMessage.m in Sources */,
+				EC5C133819F985C900AAF5AC /* MSLocation.m in Sources */,
+				EC5C13F819F985D100AAF5AC /* MSBaseODataContainer.m in Sources */,
+				EC5C141B19F985D100AAF5AC /* MSItemAttachmentFetcher.m in Sources */,
+				EC5C13F619F985D100AAF5AC /* MSAttachmentFetcher.m in Sources */,
+				EC5C142519F985D100AAF5AC /* MSODataCollectionFetcher.m in Sources */,
+				EC5C140519F985D100AAF5AC /* MSContactFolderCollectionOperations.m in Sources */,
+				EC5C142019F985D100AAF5AC /* MSItemOperations.m in Sources */,
+				EC5C142C19F985D100AAF5AC /* MSUserCollectionOperations.m in Sources */,
+				EC5C133419F985C900AAF5AC /* MSFolder.m in Sources */,
+				EC5C13FD19F985D100AAF5AC /* MSCalendarGroupCollectionOperations.m in Sources */,
+				EC5C141E19F985D100AAF5AC /* MSItemCollectionOperations.m in Sources */,
+				EC5C133719F985C900AAF5AC /* MSItemBody.m in Sources */,
+				EC5C142A19F985D100AAF5AC /* MSOutlookClient.m in Sources */,
+				EC5C13FA19F985D100AAF5AC /* MSCalendarCollectionOperations.m in Sources */,
+				EC5C13F719F985D100AAF5AC /* MSAttachmentOperations.m in Sources */,
+				EC5C141019F985D100AAF5AC /* MSEventOperations.m in Sources */,
+				EC5C133519F985C900AAF5AC /* MSItem.m in Sources */,
+				EC5C134019F985C900AAF5AC /* MSUser.m in Sources */,
+				EC5C142119F985D100AAF5AC /* MSMessageCollectionFetcher.m in Sources */,
+				EC5C140319F985D100AAF5AC /* MSContactFetcher.m in Sources */,
+				EC5C13FF19F985D100AAF5AC /* MSCalendarGroupOperations.m in Sources */,
+				EC5C140F19F985D100AAF5AC /* MSEventFetcher.m in Sources */,
+				EC5C13FB19F985D100AAF5AC /* MSCalendarFetcher.m in Sources */,
+				EC5C141619F985D100AAF5AC /* MSFolderCollectionOperations.m in Sources */,
+				EC5C140719F985D100AAF5AC /* MSContactFolderOperations.m in Sources */,
+				EC5C142619F985D100AAF5AC /* MSODataEntityFetcher.m in Sources */,
+				EC5C13F419F985D100AAF5AC /* MSAttachmentCollectionFetcher.m in Sources */,
+				EC5C142E19F985D100AAF5AC /* MSUserOperations.m in Sources */,
+				EC5C141C19F985D100AAF5AC /* MSItemAttachmentOperations.m in Sources */,
+				EC5C140A19F985D100AAF5AC /* MSEntityCollectionOperations.m in Sources */,
+				EC5C132D19F985C900AAF5AC /* MSCalendarGroup.m in Sources */,
+				EC5C140019F985D100AAF5AC /* MSCalendarOperations.m in Sources */,
+				EC5C142D19F985D100AAF5AC /* MSUserFetcher.m in Sources */,
+				EC5C141F19F985D100AAF5AC /* MSItemFetcher.m in Sources */,
+				EC5C140B19F985D100AAF5AC /* MSEntityFetcher.m in Sources */,
+				EC5C133B19F985C900AAF5AC /* MSPhysicalAddress.m in Sources */,
+				EC5C142819F985D100AAF5AC /* MSODataMediaEntityFetcher.m in Sources */,
+				EC5C142919F985D100AAF5AC /* MSODataOperations.m in Sources */,
+				EC5C141419F985D100AAF5AC /* MSFileAttachmentOperations.m in Sources */,
+				EC5C141519F985D100AAF5AC /* MSFolderCollectionFetcher.m in Sources */,
+				EC5C142419F985D100AAF5AC /* MSMessageOperations.m in Sources */,
+				EC5C13FE19F985D100AAF5AC /* MSCalendarGroupFetcher.m in Sources */,
+				EC5C142B19F985D100AAF5AC /* MSUserCollectionFetcher.m in Sources */,
+				EC5C132A19F985C900AAF5AC /* MSAttachment.m in Sources */,
+				EC5C132B19F985C900AAF5AC /* MSAttendee.m in Sources */,
+				EC5C133619F985C900AAF5AC /* MSItemAttachment.m in Sources */,
+				EC5C141A19F985D100AAF5AC /* MSItemAttachmentCollectionOperations.m in Sources */,
+				EC5C13F519F985D100AAF5AC /* MSAttachmentCollectionOperations.m in Sources */,
+				EC5C140C19F985D100AAF5AC /* MSEntityOperations.m in Sources */,
+				EC5C132F19F985C900AAF5AC /* MSContactFolder.m in Sources */,
+				EC5C140919F985D100AAF5AC /* MSEntityCollectionFetcher.m in Sources */,
+				EC5C140119F985D100AAF5AC /* MSContactCollectionFetcher.m in Sources */,
+				EC5C141D19F985D100AAF5AC /* MSItemCollectionFetcher.m in Sources */,
+				EC5C13FC19F985D100AAF5AC /* MSCalendarGroupCollectionFetcher.m in Sources */,
+				EC5C133019F985C900AAF5AC /* MSEmailAddress.m in Sources */,
+				EC5C141219F985D100AAF5AC /* MSFileAttachmentCollectionOperations.m in Sources */,
+				EC5C140219F985D100AAF5AC /* MSContactCollectionOperations.m in Sources */,
+				EC5C141919F985D100AAF5AC /* MSItemAttachmentCollectionFetcher.m in Sources */,
+				EC5C140D19F985D100AAF5AC /* MSEventCollectionFetcher.m in Sources */,
+				EC5C133F19F985C900AAF5AC /* MSResponseStatus.m in Sources */,
+				EC5C13F919F985D100AAF5AC /* MSCalendarCollectionFetcher.m in Sources */,
+				EC5C140619F985D100AAF5AC /* MSContactFolderFetcher.m in Sources */,
+				EC5C133119F985C900AAF5AC /* MSEntity.m in Sources */,
+				EC5C133D19F985C900AAF5AC /* MSRecurrencePattern.m in Sources */,
+				EC5C140819F985D100AAF5AC /* MSContactOperations.m in Sources */,
+				EC5C133A19F985C900AAF5AC /* MSPatternedRecurrence.m in Sources */,
+				2647ECAC19F44E2A00FD9527 /* MSEntityFetcherHelper.m in Sources */,
+				EC5C132E19F985C900AAF5AC /* MSContact.m in Sources */,
+				EC5C133C19F985C900AAF5AC /* MSRecipient.m in Sources */,
+				EC5C142719F985D100AAF5AC /* MSODataExecutable.m in Sources */,
+				2647ECAB19F44E2A00FD9527 /* MSBaseODataContainerHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

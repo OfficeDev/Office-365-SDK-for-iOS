@@ -10,7 +10,7 @@
 
 @interface BaseController : NSObject
 
-+(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
++(void)getClient : (void (^) (MSSharePointClient* ))callback;
 +(UIActivityIndicatorView*)getSpinner : (UIView*)view;
 
 @end
