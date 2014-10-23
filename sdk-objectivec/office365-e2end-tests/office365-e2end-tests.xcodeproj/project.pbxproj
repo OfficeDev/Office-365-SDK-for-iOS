@@ -12,6 +12,7 @@
 		3CBE7E8419F59A2500DCF8B8 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */; };
 		3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD5D9719F55A3400C29E3F /* BaseController.m */; };
 		8884089321A7019C55BF67AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9113FD38F6785B8A3229F1 /* libPods.a */; };
+		EC31456D19F935FA00DB1FC5 /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = EC31456C19F935FA00DB1FC5 /* office365.png */; };
 		ECBBC99119F1ACD600DE04A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99019F1ACD600DE04A4 /* main.m */; };
 		ECBBC99419F1ACD600DE04A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99319F1ACD600DE04A4 /* AppDelegate.m */; };
 		ECBBC99719F1ACD600DE04A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC99619F1ACD600DE04A4 /* ViewController.m */; };
@@ -49,6 +50,7 @@
 		3CDD5D9719F55A3400C29E3F /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		7E9113FD38F6785B8A3229F1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EC31456C19F935FA00DB1FC5 /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = office365.png; path = Images.xcassets/AppIcon.appiconset/office365.png; sourceTree = "<group>"; };
 		ECBBC98B19F1ACD600DE04A4 /* office365-e2end-tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "office365-e2end-tests.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBBC98F19F1ACD600DE04A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECBBC99019F1ACD600DE04A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,8 +153,6 @@
 				ECBBC99819F1ACD600DE04A4 /* Main.storyboard */,
 				ECBBC99D19F1ACD600DE04A4 /* LaunchScreen.xib */,
 				ECBBC99B19F1ACD600DE04A4 /* Images.xcassets */,
-				3CAC071C19F1E128004AF241 /* failed.png */,
-				3CAC071D19F1E128004AF241 /* passed.png */,
 				ECBBC98E19F1ACD600DE04A4 /* Supporting Files */,
 			);
 			path = "office365-e2end-tests";
@@ -161,6 +161,9 @@
 		ECBBC98E19F1ACD600DE04A4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CAC071C19F1E128004AF241 /* failed.png */,
+				3CAC071D19F1E128004AF241 /* passed.png */,
+				EC31456C19F935FA00DB1FC5 /* office365.png */,
 				ECBBC98F19F1ACD600DE04A4 /* Info.plist */,
 				ECBBC99019F1ACD600DE04A4 /* main.m */,
 			);
@@ -308,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC31456D19F935FA00DB1FC5 /* office365.png in Resources */,
 				3CAC071F19F1E128004AF241 /* passed.png in Resources */,
 				ECBBC99A19F1ACD600DE04A4 /* Main.storyboard in Resources */,
 				ECBBC99F19F1ACD600DE04A4 /* LaunchScreen.xib in Resources */,

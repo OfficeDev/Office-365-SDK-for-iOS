@@ -81,6 +81,7 @@
             break;
         case PATCH:
             verbToString = @"PATCH";
+            break;
         case PUT:
             verbToString = @"PUT";
             break;

@@ -13,13 +13,14 @@
 
 -(void)getMailClient : (void (^) (MSOEntityContainerClient* ))callback{
     
-    LogInController* loginController = [[LogInController alloc] init];
+    //LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+   // [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
         
         MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-        MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
-        [credentials addToken:token];
+        //MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
+        MSOBasicCredentials* credentials = [MSOBasicCredentials alloc];
+        [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
         
         MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
         
@@ -27,6 +28,6 @@
         [resolver setCredentialsFactory:credentialsImpl];
         
         callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
-    }];
+   // }];
 }
 @end

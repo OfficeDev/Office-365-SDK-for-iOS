@@ -246,7 +246,7 @@
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage, NSError *error) {
         [[[[self.Client getMe] getMessages] add:newMessage :^(MSOMessage *addedMessage2, NSError *e) {
             
-            [[[[[[self.Client getMe]getMessages]filter:@"Subject eq 'My Subject'"]top:1]execute:^(NSArray<MSOMessage> *messages, NSError *error) {
+            [[[[[[[[self.Client getMe] getFolders] getById:@"Drafts"]getMessages]filter:@"Subject eq 'My Subject'"]top:1]execute:^(NSArray<MSOMessage> *messages, NSError *error) {
                 
                 BOOL passed = false;
                 

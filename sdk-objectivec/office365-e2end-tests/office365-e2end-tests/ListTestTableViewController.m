@@ -173,8 +173,6 @@ MailTestRunner *testRunner;
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
         }
-
-        
     }
 }
 

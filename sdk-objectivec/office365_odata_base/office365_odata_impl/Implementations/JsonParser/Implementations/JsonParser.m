@@ -75,10 +75,34 @@
     
     for (Property* property in properties) {
         if([property isComplexType]){
-            if([property isString] || [property isNumber] || [property isDate]){
+            if([property isString] || [property isNumber]){
                 NSString * value = [object valueForKey:property.Name];
                 if(value != nil){
                     [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, value];
+                }
+            }
+            else if([property isDate]){
+                
+                NSDate* value = [object valueForKey:property.Name];
+                if(![value isKindOfClass:NSNull.class] && value != nil){
+                    
+                    @try {
+                        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                       // [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+                        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+                        
+                        
+                        NSString *date = [[[dateFormatter stringFromDate:value] substringToIndex:19] stringByAppendingString:@"Z"];
+                        
+                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, date];
+                        
+                    }
+                    @catch (NSException *exception) {
+                        
+                    }
+                    @finally {
+                        
+                    }
                 }
             }
             else if([property isCollection]){
@@ -156,8 +180,9 @@
 
 -(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys{
     
-    @try {
-        id parseResult;
+    id parseResult;
+
+        
         self.properties = [self getPropertiesFor:type];
         
         NSArray * jsonArray = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error:nil];
@@ -174,14 +199,9 @@
         else{
             parseResult = [self parseObjectData:(NSDictionary*)jsonArray Type:type];
         }
-        
-        return parseResult;
-    }
-    @catch (NSException *exception) {
-        return nil;
-    }
-    @finally {
-    }
+    
+
+    return parseResult;
 }
 
 -(id)parseObjectData : (NSDictionary*) data Type:(Class)type{
@@ -244,7 +264,7 @@
         else if([property isDate]){
             
             NSString* value = [data valueForKeyPath:property.Name];
-            if([value isKindOfClass:NSNull.class] || value == nil){
+            if(![value isKindOfClass:NSNull.class] && value != nil){
             
                 @try {
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -290,9 +310,11 @@
 }
 
 -(void)setValueForCollection :(Property*)property : (NSDictionary*)data :(id)returnType{
-    NSArray *newData = [data valueForKeyPath:property.Name];
+    id object = [data valueForKeyPath:property.Name];
     
-    if(newData == nil) return;
+    if([object isKindOfClass:NSNull.class] || object == nil) return;
+    
+    NSArray * newData = object;
     
     Class type = NSClassFromString([property getCollectionEntity]);
     

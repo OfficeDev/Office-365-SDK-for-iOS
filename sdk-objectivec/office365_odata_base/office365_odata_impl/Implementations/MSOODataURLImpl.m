@@ -81,6 +81,9 @@
         [queryString appendString:[[self.QueryStringParameters objectForKey:key] urlencode]];
         [queryString appendString:@"&"];
     }
+    if ([queryString hasSuffix:@"&"]){
+        queryString = (NSMutableString*)[queryString substringToIndex:[queryString length]-1];
+    }
     
     return queryString;
 }

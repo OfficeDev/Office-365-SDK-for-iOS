@@ -40,7 +40,7 @@
 }
 
 -(MSOODataCollectionFetcher*)filter : (NSString*) params{
-    self.select = params;
+    self.filter = params;
     return self;
 }
 
