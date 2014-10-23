@@ -9,7 +9,7 @@
 
 @implementation BaseController
 
--(void)getClient : (void (^) (MSOEntityContainerClient* ))callback{
++(void)getClient : (void (^) (MSOEntityContainerClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
     
@@ -26,6 +26,16 @@
         
         callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://msopentech.spoppe.com/_api/v1.0" dependencyResolver:resolver]);
     }];
+}
+
++(UIActivityIndicatorView*)getSpinner : (UIView*)view{
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [view addSubview:spinner];
+    spinner.hidesWhenStopped = YES;
+    
+    [spinner startAnimating];
+    return spinner;
 }
 
 @end

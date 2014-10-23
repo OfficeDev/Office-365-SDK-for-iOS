@@ -7,8 +7,6 @@
 #import "FilesTableViewController.h"
 #import "BaseController.h"
 
-//#import <office365_exchange_sdk/office365_exchange_sdk-Prefix.pch>
-
 @interface FilesTableViewController()
 
 @property NSArray *Files;
@@ -57,24 +55,52 @@
 }
 
 -(void)getFiles{
-    [[BaseController alloc] getClient:^(MSOEntityContainerClient * client) {
+    
+    UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
+    
+    [BaseController getClient:^(MSOEntityContainerClient * client) {
             [[[[client getme] getfiles] execute:^(NSArray<MSOItem> *items, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
-                                      self.Files = items;
-                                    [self.tableView reloadData];
+                                       self.Files = items;
+                                       [self.tableView reloadData];
+                                       [spinner stopAnimating];
                                    });
                 }
             }] resume];
     }];
 }
 
--(void)downloadFiles{
-    
-}
-
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
 }
+
+- (IBAction)Refresh:(id)sender {
+    [self getFiles];
+}
+
+/*- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
+        
+        [BaseController getClient:^(MSOEntityContainerClient *client) {
+            
+            MSOFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
+            [[[[[client getme] getfiles] getById:fileToDelete.id] delete:^(id entity, NSError *error) {
+                
+                [spinner stopAnimating];
+                [self getFiles];
+                
+                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                                message:[@"Deleted File " stringByAppendingString:fileToDelete.name]
+                                                               delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                [alert show];
+                
+            }] resume];
+        }];
+    }
+}*/
 
 @end

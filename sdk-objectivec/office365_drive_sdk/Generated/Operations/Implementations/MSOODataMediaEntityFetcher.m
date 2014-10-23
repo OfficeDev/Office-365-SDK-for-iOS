@@ -37,7 +37,7 @@
     id<MSOODataURL> url = [[self getResolver] createODataURL];
     [url appendPathComponent:@"$value"];
     
-    return [self oDataExecute:url :nil :PUT :^(id<MSOResponse> r, NSError *e) {
+    return [self oDataExecute:url :content :PUT :^(id<MSOResponse> r, NSError *e) {
         
         if(e == nil){
             callback([r getStatus],e);

@@ -8,4 +8,6 @@
 
 @interface FilesTableViewController : UITableViewController
 
+- (IBAction)Refresh:(id)sender;
+
 @end

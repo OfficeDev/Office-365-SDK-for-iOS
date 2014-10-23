@@ -5,13 +5,12 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-
-//#import <office365_drive_sdk/office365_drive_sdk-Prefix.pch>
 #import <office365_drive_sdk/office365_drive_sdk.h>
 #import <office365_odata_base/office365_odata_base.h>
 
 @interface BaseController : NSObject
 
--(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
++(void)getClient : (void (^) (MSOEntityContainerClient* ))callback;
++(UIActivityIndicatorView*)getSpinner : (UIView*)view;
 
 @end

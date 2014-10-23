@@ -359,8 +359,6 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
@@ -387,8 +385,6 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";

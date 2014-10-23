@@ -60,7 +60,6 @@ NSString *token;
 -(void) setStatus: (NSString *) status
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        // [self.resultLabel setText:status];
     });
 }
 
