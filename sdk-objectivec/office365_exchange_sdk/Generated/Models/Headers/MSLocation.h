@@ -14,7 +14,7 @@
 */
 
 @interface MSLocation : NSObject
-
+@property NSString *$$__ODataType;
 @property NSString *DisplayName;
 
 @end

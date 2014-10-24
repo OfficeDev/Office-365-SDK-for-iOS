@@ -19,5 +19,5 @@
 @property int Size;
 @property bool IsInline;
 @property NSDate *DateTimeLastModified;
-@property NSString* $$__ODataType;
+
 @end

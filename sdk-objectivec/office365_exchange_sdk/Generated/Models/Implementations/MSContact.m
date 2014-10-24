@@ -11,4 +11,12 @@
 */
 
 @implementation MSContact	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Contact";
+	return self;
+}
+
 @end

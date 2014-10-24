@@ -16,7 +16,6 @@
 */
 
 @interface MSAttendee : MSRecipient
-
 @property MSResponseStatus *Status;
 @property MSAttendeeType *Type;
 

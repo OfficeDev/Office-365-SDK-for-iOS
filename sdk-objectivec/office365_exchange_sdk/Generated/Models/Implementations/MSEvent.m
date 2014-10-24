@@ -11,4 +11,12 @@
 */
 
 @implementation MSEvent	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Event";
+	return self;
+}
+
 @end

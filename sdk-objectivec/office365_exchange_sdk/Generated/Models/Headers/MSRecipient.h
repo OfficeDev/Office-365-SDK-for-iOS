@@ -15,7 +15,7 @@
 */
 
 @interface MSRecipient : NSObject
-
+@property NSString *$$__ODataType;
 @property MSEmailAddress *EmailAddress;
 
 @end

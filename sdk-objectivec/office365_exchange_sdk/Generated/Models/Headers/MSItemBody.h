@@ -15,7 +15,7 @@
 */
 
 @interface MSItemBody : NSObject
-
+@property NSString *$$__ODataType;
 @property MSBodyType *ContentType;
 @property NSString *Content;
 

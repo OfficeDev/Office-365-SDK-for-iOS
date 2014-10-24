@@ -11,4 +11,12 @@
 */
 
 @implementation MSContactFolder	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.ContactFolder";
+	return self;
+}
+
 @end

@@ -10,6 +10,11 @@
 * The implementation file for type EmailAddress.
 */
 
-@implementation MSEmailAddress	
+@implementation MSEmailAddress		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.EmailAddress";
+	return self;
+}
 
 @end

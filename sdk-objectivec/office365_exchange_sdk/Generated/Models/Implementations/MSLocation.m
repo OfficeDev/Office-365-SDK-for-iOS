@@ -10,6 +10,11 @@
 * The implementation file for type Location.
 */
 
-@implementation MSLocation	
+@implementation MSLocation		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Location";
+	return self;
+}
 
 @end

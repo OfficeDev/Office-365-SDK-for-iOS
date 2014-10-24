@@ -10,6 +10,11 @@
 * The implementation file for type ItemBody.
 */
 
-@implementation MSItemBody	
+@implementation MSItemBody		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.ItemBody";
+	return self;
+}
 
 @end

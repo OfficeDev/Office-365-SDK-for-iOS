@@ -14,7 +14,7 @@
 */
 
 @interface MSPhysicalAddress : NSObject
-
+@property NSString *$$__ODataType;
 @property NSString *Street;
 @property NSString *City;
 @property NSString *State;

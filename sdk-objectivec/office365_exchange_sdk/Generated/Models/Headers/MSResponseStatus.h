@@ -15,7 +15,7 @@
 */
 
 @interface MSResponseStatus : NSObject
-
+@property NSString *$$__ODataType;
 @property MSResponseType *Response;
 @property NSDate *Time;
 

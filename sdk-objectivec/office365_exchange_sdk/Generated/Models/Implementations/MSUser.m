@@ -11,4 +11,12 @@
 */
 
 @implementation MSUser	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.User";
+	return self;
+}
+
 @end

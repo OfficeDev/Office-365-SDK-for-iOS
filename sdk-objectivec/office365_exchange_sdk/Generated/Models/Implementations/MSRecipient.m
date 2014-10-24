@@ -10,6 +10,11 @@
 * The implementation file for type Recipient.
 */
 
-@implementation MSRecipient	
+@implementation MSRecipient		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Recipient";
+	return self;
+}
 
 @end

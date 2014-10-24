@@ -10,6 +10,11 @@
 * The implementation file for type RecurrencePattern.
 */
 
-@implementation MSRecurrencePattern	
+@implementation MSRecurrencePattern		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.RecurrencePattern";
+	return self;
+}
 
 @end

@@ -11,4 +11,12 @@
 */
 
 @implementation MSMessage	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Message";
+	return self;
+}
+
 @end

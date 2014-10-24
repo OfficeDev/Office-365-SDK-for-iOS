@@ -26,31 +26,31 @@
 
 	
 -(MSUserFetcher*) asUser{
-	return [[MSUserFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSUserFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSUser class]];
 }	
 		
 -(MSFolderFetcher*) asFolder{
-	return [[MSFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSFolder class]];
 }	
 		
 -(MSItemFetcher*) asItem{
-	return [[MSItemFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSItemFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSItem class]];
 }	
 		
 -(MSAttachmentFetcher*) asAttachment{
-	return [[MSAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSAttachment class]];
 }	
 		
 -(MSCalendarFetcher*) asCalendar{
-	return [[MSCalendarFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSCalendarFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSCalendar class]];
 }	
 		
 -(MSCalendarGroupFetcher*) asCalendarGroup{
-	return [[MSCalendarGroupFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSCalendarGroupFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSCalendarGroup class]];
 }	
 		
 -(MSContactFolderFetcher*) asContactFolder{
-	return [[MSContactFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSContactFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSContactFolder class]];
 }	
 	
 @end

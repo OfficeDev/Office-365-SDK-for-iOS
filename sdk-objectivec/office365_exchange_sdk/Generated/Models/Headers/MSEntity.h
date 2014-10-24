@@ -14,6 +14,7 @@
 */
 
 @interface MSEntity : NSObject
+@property NSString *$$__ODataType;
 @property NSString *Id;
 
 @end

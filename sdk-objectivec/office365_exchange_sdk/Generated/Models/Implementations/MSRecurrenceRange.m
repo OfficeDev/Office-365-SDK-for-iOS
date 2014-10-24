@@ -10,6 +10,11 @@
 * The implementation file for type RecurrenceRange.
 */
 
-@implementation MSRecurrenceRange	
+@implementation MSRecurrenceRange		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.RecurrenceRange";
+	return self;
+}
 
 @end

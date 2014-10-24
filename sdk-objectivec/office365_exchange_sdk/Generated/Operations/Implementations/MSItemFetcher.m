@@ -34,7 +34,7 @@
 }	
 		
 -(MSContactFetcher*) asContact{
-	return [[MSContactFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSContactFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSContact class]];
 }	
 	
 @end

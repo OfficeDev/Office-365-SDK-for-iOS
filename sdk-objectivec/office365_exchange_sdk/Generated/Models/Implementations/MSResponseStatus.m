@@ -10,6 +10,11 @@
 * The implementation file for type ResponseStatus.
 */
 
-@implementation MSResponseStatus	
+@implementation MSResponseStatus		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.ResponseStatus";
+	return self;
+}
 
 @end

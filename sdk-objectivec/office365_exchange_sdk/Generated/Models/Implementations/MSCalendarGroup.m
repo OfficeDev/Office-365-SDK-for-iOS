@@ -11,4 +11,12 @@
 */
 
 @implementation MSCalendarGroup	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.CalendarGroup";
+	return self;
+}
+
 @end

@@ -16,7 +16,7 @@
 */
 
 @interface MSPatternedRecurrence : NSObject
-
+@property NSString *$$__ODataType;
 @property MSRecurrencePattern *Pattern;
 @property MSRecurrenceRange *Range;
 

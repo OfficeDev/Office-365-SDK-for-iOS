@@ -17,7 +17,7 @@
 */
 
 @interface MSRecurrencePattern : NSObject
-
+@property NSString *$$__ODataType;
 @property MSRecurrencePatternType *Type;
 @property int Interval;
 @property int DayOfMonth;

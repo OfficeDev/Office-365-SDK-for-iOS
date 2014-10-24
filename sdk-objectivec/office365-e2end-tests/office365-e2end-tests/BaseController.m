@@ -11,21 +11,19 @@
 
 -(void)getMailClient : (void (^) (MSOutlookClient* ))callback{
     
-    //LogInController* loginController = [[LogInController alloc] init];
+    LogInController* loginController = [[LogInController alloc] init];
     
-    // [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
     
-    MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
-    //MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
-    MSBasicCredentials* credentials = [MSBasicCredentials alloc];
-    [credentials addToken:@"di1ndWhhbnNAbXNvcGVudGVjaC5jY3NjdHAubmV0OkFEQ0dhaDE0ODc="];
+        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
+        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
     
-    MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
+        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
     
-    [credentialsImpl setCredentials:credentials];
-    [resolver setCredentialsFactory:credentialsImpl];
+        [credentialsImpl setCredentials:credentials];
+        [resolver setCredentialsFactory:credentialsImpl];
     
-    callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
-    // }];
+        callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+    }];
 }
 @end

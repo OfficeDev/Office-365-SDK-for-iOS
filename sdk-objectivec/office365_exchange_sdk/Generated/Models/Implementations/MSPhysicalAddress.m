@@ -10,6 +10,11 @@
 * The implementation file for type PhysicalAddress.
 */
 
-@implementation MSPhysicalAddress	
+@implementation MSPhysicalAddress		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.PhysicalAddress";
+	return self;
+}
 
 @end

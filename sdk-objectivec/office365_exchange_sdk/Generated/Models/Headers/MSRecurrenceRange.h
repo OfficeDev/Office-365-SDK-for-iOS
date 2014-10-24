@@ -15,7 +15,7 @@
 */
 
 @interface MSRecurrenceRange : NSObject
-
+@property NSString *$$__ODataType;
 @property MSRecurrenceRangeType *Type;
 @property NSDate *StartDate;
 @property NSDate *EndDate;

@@ -11,4 +11,12 @@
 */
 
 @implementation MSItem	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.OutlookServices.Item";
+	return self;
+}
+
 @end
