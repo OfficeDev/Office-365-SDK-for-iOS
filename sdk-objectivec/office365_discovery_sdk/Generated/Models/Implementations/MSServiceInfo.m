@@ -11,4 +11,10 @@
 */
 
 @implementation MSServiceInfo	
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.DiscoveryServices.ServiceInfo";
+	return self;
+}
+
 @end

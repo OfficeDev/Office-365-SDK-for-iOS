@@ -14,6 +14,7 @@
 */
 
 @interface MSServiceInfo : NSObject
+@property NSString *$$__ODataType;
 @property NSString *capability;
 @property NSString *entityKey;
 @property NSString *providerId;
