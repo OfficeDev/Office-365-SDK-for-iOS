@@ -11,4 +11,12 @@
 */
 
 @implementation MSFile	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.File";
+	return self;
+}
+
 @end

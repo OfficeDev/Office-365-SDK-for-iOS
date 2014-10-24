@@ -16,6 +16,7 @@
 */
 
 @interface MSItem : NSObject
+@property NSString *$$__ODataType;
 @property MSIdentitySet *createdBy;
 @property NSString *eTag;
 @property NSString *id;

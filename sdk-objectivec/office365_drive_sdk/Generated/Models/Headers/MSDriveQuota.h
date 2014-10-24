@@ -14,7 +14,7 @@
 */
 
 @interface MSDriveQuota : NSObject
-
+@property NSString *$$__ODataType;
 @property int deleted;
 @property int remaining;
 @property NSString *state;

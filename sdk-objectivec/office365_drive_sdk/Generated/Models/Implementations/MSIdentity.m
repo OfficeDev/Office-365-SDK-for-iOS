@@ -10,6 +10,11 @@
 * The implementation file for type Identity.
 */
 
-@implementation MSIdentity	
+@implementation MSIdentity		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.Identity";
+	return self;
+}
 
 @end

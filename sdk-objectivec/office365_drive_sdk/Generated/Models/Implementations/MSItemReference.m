@@ -10,6 +10,11 @@
 * The implementation file for type ItemReference.
 */
 
-@implementation MSItemReference	
+@implementation MSItemReference		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.ItemReference";
+	return self;
+}
 
 @end

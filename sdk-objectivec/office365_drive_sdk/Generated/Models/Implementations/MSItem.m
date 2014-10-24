@@ -11,4 +11,10 @@
 */
 
 @implementation MSItem	
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.Item";
+	return self;
+}
+
 @end

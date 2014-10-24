@@ -11,4 +11,10 @@
 */
 
 @implementation MSDrive	
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.Drive";
+	return self;
+}
+
 @end

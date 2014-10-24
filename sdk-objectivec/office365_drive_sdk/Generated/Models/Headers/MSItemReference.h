@@ -14,7 +14,7 @@
 */
 
 @interface MSItemReference : NSObject
-
+@property NSString *$$__ODataType;
 @property NSString *driveId;
 @property NSString *id;
 @property NSString *path;

@@ -10,6 +10,11 @@
 * The implementation file for type DriveQuota.
 */
 
-@implementation MSDriveQuota	
+@implementation MSDriveQuota		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.DriveQuota";
+	return self;
+}
 
 @end

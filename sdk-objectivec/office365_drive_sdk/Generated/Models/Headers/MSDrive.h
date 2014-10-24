@@ -16,6 +16,7 @@
 */
 
 @interface MSDrive : NSObject
+@property NSString *$$__ODataType;
 @property NSString *id;
 @property MSIdentity *owner;
 @property MSDriveQuota *quota;

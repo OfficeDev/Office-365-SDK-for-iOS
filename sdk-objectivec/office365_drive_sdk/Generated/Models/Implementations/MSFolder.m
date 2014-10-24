@@ -11,4 +11,12 @@
 */
 
 @implementation MSFolder	
+
+@synthesize $$__ODataType;
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.Folder";
+	return self;
+}
+
 @end

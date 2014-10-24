@@ -10,6 +10,11 @@
 * The implementation file for type IdentitySet.
 */
 
-@implementation MSIdentitySet	
+@implementation MSIdentitySet		
+
+-(id)init{
+	self.$$__ODataType = @"#Microsoft.FileServices.IdentitySet";
+	return self;
+}
 
 @end

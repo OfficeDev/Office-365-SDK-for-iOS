@@ -26,11 +26,11 @@
 
 	
 -(MSFileFetcher*) asFile{
-	return [[MSFileFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSFileFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSFile class]];
 }	
 		
 -(MSFolderFetcher*) asFolder{
-	return [[MSFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSFolderFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSFolder class]];
 }	
 	
 @end

@@ -15,7 +15,7 @@
 */
 
 @interface MSIdentitySet : NSObject
-
+@property NSString *$$__ODataType;
 @property MSIdentity *application;
 @property MSIdentity *user;
 

@@ -14,7 +14,7 @@
 */
 
 @interface MSIdentity : NSObject
-
+@property NSString *$$__ODataType;
 @property NSString *id;
 @property NSString *displayName;
 
