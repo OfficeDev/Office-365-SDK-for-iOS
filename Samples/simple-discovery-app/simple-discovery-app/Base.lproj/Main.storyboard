@@ -23,11 +23,11 @@
             </objects>
             <point key="canvasLocation" x="4382" y="1222"/>
         </scene>
-        <!--Files-->
+        <!--Services-->
         <scene sceneID="cx5-jQ-BJe">
             <objects>
                 <navigationController id="1sO-zE-I2Q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Files" id="O9E-Gs-Y6g"/>
+                    <tabBarItem key="tabBarItem" title="Services" id="O9E-Gs-Y6g"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cak-dS-Gop">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -109,14 +109,13 @@
         <!--Services-->
         <scene sceneID="5gM-0Y-ypO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="kGP-IX-g6e" customClass="ServicesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v2w-1d-UJq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FileCell" id="LML-ev-vu6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceCell" id="LML-ev-vu6">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LML-ev-vu6" id="709-62-3I2">
@@ -139,6 +138,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvi-R6-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4823" y="2017"/>
         </scene>

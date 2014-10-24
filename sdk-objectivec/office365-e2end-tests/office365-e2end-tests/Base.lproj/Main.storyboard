@@ -18,6 +18,7 @@
                     <connections>
                         <segue destination="9jO-8A-gId" kind="relationship" relationship="viewControllers" id="0wx-zt-bd4"/>
                         <segue destination="ORC-kV-28Q" kind="relationship" relationship="viewControllers" id="xu0-ZY-Mdg"/>
+                        <segue destination="Srn-GL-afm" kind="relationship" relationship="viewControllers" id="KsE-lW-ugv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNP-y4-bzi" sceneMemberID="firstResponder"/>
@@ -39,6 +40,18 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1w5-T0-kao" id="KTZ-AJ-Jte">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66r-eS-O5C">
+                                            <rect key="frame" x="8" y="6" width="51" height="31"/>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p8-d9-DJq">
+                                            <rect key="frame" x="71" y="12" width="234" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="2"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -48,7 +61,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="HvR-fX-cid">
-                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Run" id="GT0-Dt-SRE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Run Sel" id="GT0-Dt-SRE"/>
                         <barButtonItem key="rightBarButtonItem" title="Run All" id="cGK-Lx-KN9">
                             <connections>
                                 <action selector="RunAllTests:" destination="ZAz-fk-owd" id="tbK-Qu-qth"/>
@@ -58,7 +71,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KrG-2H-zLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="194"/>
+            <point key="canvasLocation" x="1185" y="193"/>
         </scene>
         <!--Files Tests-->
         <scene sceneID="UMm-7V-nms">
@@ -79,7 +92,7 @@
         <!--Exchange Tests-->
         <scene sceneID="yGX-4b-6rV">
             <objects>
-                <tableViewController id="Xb0-Ag-Snv" customClass="ListTestTableViewController" sceneMemberID="viewController">
+                <tableViewController id="Xb0-Ag-Snv" customClass="ExchangeTestTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Av4-3f-Zb3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

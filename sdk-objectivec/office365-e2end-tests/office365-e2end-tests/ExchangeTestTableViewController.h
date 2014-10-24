@@ -6,7 +6,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ListTestTableViewController : UITableViewController
+@interface ExchangeTestTableViewController : UITableViewController
 
 - (IBAction)RunAllTests:(id)sender;
 - (IBAction)RunSelectedTests:(id)sender;

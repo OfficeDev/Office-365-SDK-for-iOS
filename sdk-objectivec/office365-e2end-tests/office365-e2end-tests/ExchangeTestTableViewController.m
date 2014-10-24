@@ -4,16 +4,16 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "ListTestTableViewController.h"
+#import "ExchangeTestTableViewController.h"
 #import "LogInController.h"
 #import "TestParameters.h"
 #import "MailTestRunner.h"
 
-@interface ListTestTableViewController ()
+@interface ExchangeTestTableViewController ()
 
 @end
 
-@implementation ListTestTableViewController
+@implementation ExchangeTestTableViewController
 
 LogInController *loginController;
 TestParameters *testParameters;

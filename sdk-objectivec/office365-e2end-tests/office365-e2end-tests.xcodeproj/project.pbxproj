@@ -22,7 +22,7 @@
 		ECBBC9AB19F1ACD600DE04A4 /* office365_e2end_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9AA19F1ACD600DE04A4 /* office365_e2end_testsTests.m */; };
 		ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */; };
 		ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */; };
-		ECBBC9C919F1AD2C00DE04A4 /* ListTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BA19F1AD2C00DE04A4 /* ListTestTableViewController.m */; };
+		ECBBC9C919F1AD2C00DE04A4 /* ExchangeTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */; };
 		ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */; };
 		ECBBC9CC19F1AD2C00DE04A4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C019F1AD2C00DE04A4 /* Test.m */; };
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
@@ -67,8 +67,8 @@
 		ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestRunner.m; sourceTree = "<group>"; };
 		ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTestRunner.h; sourceTree = "<group>"; };
 		ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTestRunner.m; sourceTree = "<group>"; };
-		ECBBC9B919F1AD2C00DE04A4 /* ListTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTestTableViewController.h; sourceTree = "<group>"; };
-		ECBBC9BA19F1AD2C00DE04A4 /* ListTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTestTableViewController.m; sourceTree = "<group>"; };
+		ECBBC9B919F1AD2C00DE04A4 /* ExchangeTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeTestTableViewController.h; sourceTree = "<group>"; };
+		ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeTestTableViewController.m; sourceTree = "<group>"; };
 		ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
 		ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
 		ECBBC9BF19F1AD2C00DE04A4 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 				3CDD5D9719F55A3400C29E3F /* BaseController.m */,
 				ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */,
 				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
-				ECBBC9B919F1AD2C00DE04A4 /* ListTestTableViewController.h */,
-				ECBBC9BA19F1AD2C00DE04A4 /* ListTestTableViewController.m */,
+				ECBBC9B919F1AD2C00DE04A4 /* ExchangeTestTableViewController.h */,
+				ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */,
 				ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */,
 				ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */,
 				ECBBC9D019F1AD9000DE04A4 /* core */,
@@ -369,7 +369,7 @@
 				ECBBC9CC19F1AD2C00DE04A4 /* Test.m in Sources */,
 				ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */,
 				ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */,
-				ECBBC9C919F1AD2C00DE04A4 /* ListTestTableViewController.m in Sources */,
+				ECBBC9C919F1AD2C00DE04A4 /* ExchangeTestTableViewController.m in Sources */,
 				ECBBC99419F1ACD600DE04A4 /* AppDelegate.m in Sources */,
 				3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */,
 				ECBBC99119F1ACD600DE04A4 /* main.m in Sources */,
