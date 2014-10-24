@@ -36,6 +36,10 @@
     return [self.SubStringType isEqualToString:@"NSDate"];
 }
 
+-(bool)isNSData{
+    return [self.SubStringType isEqualToString:@"NSData"];
+}
+
 -(bool)isBoolean{
     return [self.Type isEqualToString:@"TB"];
 }

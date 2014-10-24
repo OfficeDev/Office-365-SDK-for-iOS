@@ -10,5 +10,11 @@
 * The implementation file for type Entity.
 */
 
-@implementation MSEntity	
+@implementation MSEntity
+
+-(id)init{
+    //self.$$__ODataType = @"#Microsoft.OutlookServices.Entity";
+    return self;
+}
+
 @end

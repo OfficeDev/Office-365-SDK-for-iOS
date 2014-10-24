@@ -1,10 +1,8 @@
-//
-//  d.m
-//  office365_exchange_helpers
-//
-//  Created by Gustavo on 10/16/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "NSString+NSStringExtensions.h"
 

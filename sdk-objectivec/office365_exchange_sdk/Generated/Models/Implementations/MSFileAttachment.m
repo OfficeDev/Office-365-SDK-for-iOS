@@ -10,5 +10,19 @@
 * The implementation file for type FileAttachment.
 */
 
-@implementation MSFileAttachment	
+@interface MSFileAttachment()
+
+
+
+@end
+
+@implementation MSFileAttachment
+
+@synthesize $$__ODataType;
+
+-(id)init{
+    self.$$__ODataType = @"#Microsoft.OutlookServices.FileAttachment";
+    return self;
+}
+
 @end

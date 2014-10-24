@@ -13,7 +13,7 @@
 
 @property NSMutableDictionary* QueryStringParameters;	
 @property NSMutableArray* PathComponents;
-@property NSString* BaseUrl;
+@property (nonatomic)  NSString* BaseUrl;
 -(NSString*)addTrailingSlash : (NSString*) s;
 -(NSString*)removeTrailingSlash : (NSString*) s;
 
@@ -26,6 +26,30 @@
     self.PathComponents = [[NSMutableArray alloc] init];
    
     return self;
+}
+
+-(void)setBaseUrl:(NSString *)baseUrl{
+    
+        NSArray* urlParts = [baseUrl componentsSeparatedByString:@"?"];
+        _BaseUrl = [self removeTrailingSlash:(NSString*)[urlParts objectAtIndex:0]];
+    
+        if ([urlParts count] > 1)
+        {
+            NSArray* parameters = [(NSString*)[urlParts objectAtIndex:1] componentsSeparatedByString:@"&"];
+        
+            for (NSString* kv in parameters)
+            {
+                NSArray* parameterParts = [kv componentsSeparatedByString:@"="];
+                NSString* key = [parameterParts objectAtIndex:0];
+                NSString* val = @"";
+            
+                if ([parameterParts count] > 1) {
+                    val = [parameterParts objectAtIndex:1];
+                }
+            
+                [self addQueryStringParameter:key :val];
+            }
+        }
 }
 
 -(void)addQueryStringParameter : (NSString*)name : (NSString*) value{
@@ -46,6 +70,7 @@
     if (![theString hasSuffix:@"/"]) {
         [theString appendString:@"/"];
     }
+    
     return theString;
 }
 

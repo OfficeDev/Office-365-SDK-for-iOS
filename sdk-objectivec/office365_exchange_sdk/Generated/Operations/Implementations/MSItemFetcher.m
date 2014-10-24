@@ -26,11 +26,11 @@
 
 	
 -(MSMessageFetcher*) asMessage{
-	return [[MSMessageFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSMessageFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSMessage class]];
 }	
 		
 -(MSEventFetcher*) asEvent{
-	return [[MSEventFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSEventFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSEvent class]];
 }	
 		
 -(MSContactFetcher*) asContact{

@@ -10,5 +10,17 @@
 * The implementation file for type ItemAttachment.
 */
 
-@implementation MSItemAttachment	
+@interface MSItemAttachment()
+
+
+@end
+
+@implementation MSItemAttachment
+
+@synthesize $$__ODataType;
+
+-(id)init{
+    self.$$__ODataType = @"#Microsoft.OutlookServices.ItemAttachment";
+    return self;
+}
 @end

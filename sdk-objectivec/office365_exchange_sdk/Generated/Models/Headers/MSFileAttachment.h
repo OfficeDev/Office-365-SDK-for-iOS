@@ -17,6 +17,6 @@
 @property NSString *ContentId;
 @property NSString *ContentLocation;
 @property bool IsContactPhoto;
-@property Byte ContentBytes;
+@property NSData* ContentBytes;
 
 @end

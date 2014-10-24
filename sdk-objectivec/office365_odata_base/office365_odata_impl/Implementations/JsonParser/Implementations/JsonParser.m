@@ -13,11 +13,17 @@
 
 @property (nonatomic, strong) NSMutableArray *arrayToReturn;
 @property (nonatomic, strong) NSArray *jsonArray;
+@property (nonatomic, strong) NSDictionary *metadataValues;
 @property (nonatomic, strong) NSMutableArray *properties;
 
 @end
 
 @implementation JsonParser
+
+-(id)initWithMetadataValues : (NSDictionary*)values{
+    self.metadataValues = values;
+    return self;
+}
 
 -(NSString*)toJsonString : (id)object{
     
@@ -55,6 +61,17 @@
     return jsonResult;
 }*/
 
+-(NSString*)getMetadataKey : (NSString*) propertyName{
+    for(NSString* key in [self.metadataValues allKeys]){
+        
+        NSString* value = [self.metadataValues objectForKey:key];
+        if([value isEqualToString:propertyName])
+            return key;
+    }
+    
+    return propertyName;
+}
+
 -(NSString*)toJsonString:(id)object Property:(NSString*)name{
     
     if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
@@ -76,9 +93,10 @@
     for (Property* property in properties) {
         if([property isComplexType]){
             if([property isString] || [property isNumber]){
+                NSString * name = [self getMetadataKey:property.Name];
                 NSString * value = [object valueForKey:property.Name];
                 if(value != nil){
-                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, value];
+                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", name, value];
                 }
             }
             else if([property isDate]){
@@ -130,6 +148,12 @@
                     jsonResult = result;
                     
                     [jsonResult appendString:@"],"];
+                }
+            }
+            else if([property isNSData]){
+                NSData* value = [object valueForKey:property.Name];
+                if(value != nil){
+                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, [value base64EncodedStringWithOptions:0]];
                 }
             }
             else{
@@ -263,8 +287,18 @@
     if ([property isComplexType]) {
         
         if([property isString]){
-            NSString* value = [data valueForKeyPath:property.Name];
-            [returnType setValue:value forKeyPath:property.Name];
+            NSString* name = [self getMetadataKey:property.Name];
+            @try {
+                NSString* value = [data valueForKey:name];
+                [returnType setValue:value forKeyPath:name];
+            }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
+            }
+            
         }
         else if([property isNumber]){
             NSString* value = [data valueForKeyPath:property.Name];
@@ -289,6 +323,12 @@
                     
                 }
             }
+        }
+        else if([property isNSData]){
+            NSString* content = [data valueForKey:property.Name];
+            NSData* value = [[NSData alloc] initWithBase64EncodedString:content options:0];
+
+            [returnType setValue:value forKeyPath:property.Name];
         }
         else if([property isCollection]){
             [self setValueForCollection:property :data :returnType];

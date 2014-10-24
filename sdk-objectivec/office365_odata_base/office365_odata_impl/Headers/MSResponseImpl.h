@@ -4,7 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import <Foundation/Foundation.h>
 #import <office365_odata_base/office365_odata_interfaces.h>
 

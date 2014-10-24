@@ -26,11 +26,11 @@
 
 	
 -(MSFileAttachmentFetcher*) asFileAttachment{
-	return [[MSFileAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSFileAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSFileAttachment class]];
 }	
 		
 -(MSItemAttachmentFetcher*) asItemAttachment{
-	return [[MSItemAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :nil];
+	return [[MSItemAttachmentFetcher alloc] initWith :self.UrlComponent :self.Parent :[MSItemAttachment class]];
 }	
 	
 @end

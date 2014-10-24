@@ -10,6 +10,7 @@
 
 @interface JsonParser : NSObject
 
+-(id)initWithMetadataValues : (NSDictionary*)values;
 -(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys;
 -(NSString*)toJsonString : (id)object;
 -(NSString*)toJsonString:(id)object Property:(NSString*)name;

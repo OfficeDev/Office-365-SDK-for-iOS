@@ -16,4 +16,6 @@
 
 @interface MSItemAttachment : MSAttachment
 
+@property NSString* $$__ODataType;
+
 @end

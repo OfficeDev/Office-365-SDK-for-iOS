@@ -10,5 +10,12 @@
 * The implementation file for type Attachment.
 */
 
-@implementation MSAttachment	
+@implementation MSAttachment
+
+
+-(id)init{
+    self.$$__ODataType = @"#Microsoft.OutlookServices.Attachment";
+    return self;
+}
+
 @end

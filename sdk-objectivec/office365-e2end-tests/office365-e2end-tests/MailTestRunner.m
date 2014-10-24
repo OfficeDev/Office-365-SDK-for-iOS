@@ -16,6 +16,8 @@
 #import <office365_exchange_sdk/MSEventCollectionFetcher.h>
 #import <office365_exchange_sdk/MSContactFetcher.h>
 #import <office365_exchange_sdk/MSFolderFetcher.h>
+#import <office365_exchange_sdk/MSFileAttachment.h>
+#import <office365_exchange_sdk/MSAttachmentCollectionFetcher.h>
 
 @implementation MailTestRunner
 
@@ -44,10 +46,11 @@
     if([testName isEqualToString:@"TestDeleteContacts"]) return [self TestDeleteContacts:result];
     if([testName isEqualToString:@"TestUpdateContacts"]) return [self TestUpdateContacts:result];
     
-    
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
     if([testName isEqualToString:@"TestCreateMessages"])return [self TestCreateMessages:result];
+    if([testName isEqualToString:@"TestCreateMessageWithAttachment"])return [self TestCreateMessageWithAttachment:result];
+    if([testName isEqualToString:@"TestGetAttachment"])return [self TestGetAttachment:result];
     if([testName isEqualToString:@"TestUpdateMessages"])return [self TestUpdateMessages:result];
     if([testName isEqualToString:@"TestDeleteMessages"])return [self TestDeleteMessages:result];
     if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
@@ -88,8 +91,6 @@
     if([testName isEqualToString:@"TestUpdateEvents"])return [self TestUpdateEvents:result];
     if([testName isEqualToString:@"TestDeleteEvents"])return [self TestDeleteEvents:result];
     
-    
-    
     /*
      else{
      return [self TestDefaultWithCompletionHandler:result];
@@ -129,6 +130,8 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyMessages" :@"Reply message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyAllMessages" :@"ReplyAll message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestForwardMessages" :@"Forward message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessageWithAttachment" :@"Create Message With Attachment" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetAttachment" :@"Get Attachment" ]];
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
@@ -1733,6 +1736,104 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestCreateMessageWithAttachment:(void (^) (Test*))result{
+    MSMessage *newMessage = [self getSampleMessage:@"Test Attachment" : self.TestMail : @""];
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSMessage *addedMessage, NSError *error) {
+        
+        if(addedMessage!= nil && [addedMessage.Subject isEqualToString:newMessage.Subject]){
+            
+            MSFileAttachment* attachment = [[MSFileAttachment alloc] init];
+            
+            attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+            attachment.Name = @"TestAttachments.txt";
+            
+            [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] add:attachment :^(MSAttachment *a, NSError *e) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message =  @"";
+                
+                if(error == nil && a != nil && [a.Name isEqualToString: attachment.Name]){
+                    message =  @"Ok - ";
+                    passed = true;
+                }
+                else{
+                    message =@"Not - ";
+                    if(e!= nil)
+                        message = [message stringByAppendingString:[e localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                result(test);
+
+                
+            }] resume];
+        }
+    }];
+    
+    return task;
+
+}
+
+-(NSURLSessionDataTask*)TestGetAttachment:(void (^) (Test*))result{
+    MSMessage *newMessage = [self getSampleMessage:@"Test Attachment" : self.TestMail : @""];
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSMessage *addedMessage, NSError *error) {
+        
+        if(addedMessage!= nil && [addedMessage.Subject isEqualToString:newMessage.Subject]){
+            
+            MSFileAttachment* attachment = [[MSFileAttachment alloc] init];
+            
+            attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+            attachment.Name = @"TestAttachments.txt";
+            
+            [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] add:attachment :^(MSAttachment *a, NSError *e) {
+                
+                [[[[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] getById:a.Id] asFileAttachment] execute:^(MSFileAttachment *fileAttachment, NSError *error) {
+                   
+                    BOOL passed = false;
+                    
+                    Test *test = [Test alloc];
+                    
+                    test.ExecutionMessages = [NSMutableArray array];
+                    
+                    NSString* message =  @"";
+                    
+                   // [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
+                    
+                    NSString* attachmentContent = [[NSString alloc] initWithData:fileAttachment.ContentBytes encoding:NSUTF8StringEncoding];
+                    
+                    if(error == nil && a != nil && [a.Name isEqualToString: attachment.Name]
+                       && [@"Test Message Attachments" isEqualToString:attachmentContent ]){
+                        message =  @"Ok - ";
+                        passed = true;
+                    }
+                    else{
+                        message =@"Not - ";
+                        if(e!= nil)
+                            message = [message stringByAppendingString:[e localizedDescription]];
+                    }
+                    
+                    test.Passed = passed;
+                    [test.ExecutionMessages addObject:message];
+                    
+                    result(test);
+                
+                }] resume];
+            }] resume];
+        }
+    }];
+    
+    return task;
+    
+}
 
 -(MSEvent*) getSampleEvent{
     

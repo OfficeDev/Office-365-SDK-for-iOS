@@ -17,6 +17,7 @@
 -(id)initWith : (objc_property_t)property;
 -(bool)isString;
 -(bool)isDate;
+-(bool)isNSData;
 -(bool)isCollection;
 -(bool)isComplexType;
 -(NSString*)getCollectionEntity;
