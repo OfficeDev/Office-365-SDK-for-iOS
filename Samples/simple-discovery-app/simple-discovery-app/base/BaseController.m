@@ -13,7 +13,7 @@
     
     LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://osisvcpr0614.officeapps.live-int.com" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : @"https://api.officeppe.com" :true completionHandler:^(NSString *token) {
     
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
@@ -24,7 +24,7 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSDiscoveryClient alloc] initWitUrl:@"https://osisvcpr0614.officeapps.live-int.com/discovery/v1.0" dependencyResolver:resolver]);
+        callback([[MSDiscoveryClient alloc] initWitUrl:@"https://api.officeppe.com/discovery/v1.0" dependencyResolver:resolver]);
     }];
 }
 

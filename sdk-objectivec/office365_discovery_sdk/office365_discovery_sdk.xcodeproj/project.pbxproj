@@ -101,14 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC2CCA2019F8A02F00D12E55 = {
+		EC0D6B7F19FACBD90092895E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC2CCA2019F8A02F00D12E55 = {
+			isa = PBXGroup;
+			children = (
 				EC2CCA4319F8A0BE00D12E55 /* Generated */,
 				EC2CCA6319F8A0BE00D12E55 /* Helpers */,
 				EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */,
 				EC2CCA3619F8A03000D12E55 /* office365_discovery_sdkTests */,
+				EC0D6B7F19FACBD90092895E /* Frameworks */,
 				EC2CCA2B19F8A02F00D12E55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */,
-				EC2CCA2D19F8A02F00D12E55 /* Supporting Files */,
 				EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */,
+				EC2CCA2D19F8A02F00D12E55 /* Supporting Files */,
 			);
 			path = office365_discovery_sdk;
 			sourceTree = "<group>";

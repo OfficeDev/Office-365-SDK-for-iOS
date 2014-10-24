@@ -1,0 +1,37 @@
+//
+//  office365_directory_sdk-Prefix.pch
+//  office365_directory_sdk
+//
+//  Created by Gustavo on 10/24/14.
+//  Copyright (c) 2014 Microsoft. All rights reserved.
+//
+
+#ifndef office365_directory_sdk_office365_directory_sdk_Prefix_pch
+#define office365_directory_sdk_office365_directory_sdk_Prefix_pch
+
+#import <office365_odata_base/MSCredentials.h>
+#import <office365_odata_base/MSCredentialsFactory.h>
+#import <office365_odata_base/MSDependencyResolver.h>
+#import <office365_odata_base/MSHttpTransport.h>
+#import <office365_odata_base/MSHttpVerb.h>
+#import <office365_odata_base/MSJsonSerializer.h>
+#import <office365_odata_base/MSLogger.h>
+#import <office365_odata_base/MSLogLevel.h>
+#import <office365_odata_base/MSRequest.h>
+#import <office365_odata_base/MSResponse.h>
+#import <office365_odata_base/MSODataUrl.h>
+
+#import <office365_directory_sdk/MSODataExecutable.h>
+#import <office365_directory_sdk/MSBaseODataContainer.h>
+#import <office365_directory_sdk/MSDirectoryDataServiceClient.h>
+#import <office365_directory_sdk/MSODataEntityFetcher.h>
+#import <office365_directory_sdk/MSODataOperations.h>
+#import <office365_directory_sdk/MSODataCollectionFetcher.h>
+#import <office365_directory_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_directory_sdk/MSODataMediaEntityFetcher.h>
+
+// Helpers
+#import <office365_directory_sdk/MSBaseODataContainerHelper.h>
+#import <office365_directory_sdk/MSEntityFetcherHelper.h>
+
+#endif
