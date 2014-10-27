@@ -8,12 +8,7 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSOMessage.h>
-#import <office365_exchange_sdk/MSORecipient.h>
-#import <office365_exchange_sdk/MSOEmailAddress.h>
-#import <office365_exchange_sdk/MSOItemBody.h>
-#import <office365_exchange_sdk/MSOMessageOperations.h>
-#import <office365_exchange_sdk/MSOMessageFetcher.h>
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface SendMessageViewController ()
 
@@ -43,12 +38,12 @@
 
 - (IBAction)SendMail:(id)sender{
 
-    [[BaseController alloc] getClient:^(MSOEntityContainerClient * client) {
-        MSOMessage *message = [MSOMessage alloc];
+    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
+        MSMessage *message = [MSMessage alloc];
         
         message.Subject = self.txtSubject.text;
         message.ToRecipients = [self getRecipients:self.txtTo.text];
-        message.Body = [[MSOItemBody alloc] init];
+        message.Body = [[MSItemBody alloc] init];
         message.Body.Content = self.txtBody.text;
         
         NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
@@ -61,16 +56,16 @@
     }];
 }
 
--(NSMutableArray<MSORecipient>*)getRecipients : (NSString*)text{
+-(NSMutableArray<MSRecipient>*)getRecipients : (NSString*)text{
     
-    NSMutableArray<MSORecipient>* result = (NSMutableArray<MSORecipient>*)[NSMutableArray array];
+    NSMutableArray<MSRecipient>* result = (NSMutableArray<MSRecipient>*)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
     for (NSString* r in recipients) {
         
-        MSORecipient* recipient = [[MSORecipient alloc] init];
-        recipient.EmailAddress = [MSOEmailAddress alloc];
+        MSRecipient* recipient = [[MSRecipient alloc] init];
+        recipient.EmailAddress = [MSEmailAddress alloc];
         recipient.EmailAddress.Address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         [result addObject: recipient];

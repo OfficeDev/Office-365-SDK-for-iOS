@@ -7,24 +7,26 @@
 #import "BaseController.h"
 #import "LogInController.h"
 
+
 @implementation BaseController
 
--(void)getClient : (void (^) (MSOEntityContainerClient* ))callback{
+-(void)getClient : (void (^) (MSOutlookClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
     
     [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
         
-        MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-        MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
+        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
+        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
         [credentials addToken:token];
         
-        MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
+        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
+        [[resolver getLogger] log:@"Going to call client API" :(MSLogLevel *)INFO];
         
-        callback([[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+        callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/api/v1.0" dependencyResolver:resolver]);
     }];
 }
 @end
