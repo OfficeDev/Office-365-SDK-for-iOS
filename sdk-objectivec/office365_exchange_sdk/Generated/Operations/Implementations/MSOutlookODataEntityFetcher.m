@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSOutlookODataEntityFetcher.h"
+#import "MSOutlookBaseODataContainerHelper.h"
+#import "MSOutlookODataOperations.h"
 
 @interface MSOutlookODataEntityFetcher()
 

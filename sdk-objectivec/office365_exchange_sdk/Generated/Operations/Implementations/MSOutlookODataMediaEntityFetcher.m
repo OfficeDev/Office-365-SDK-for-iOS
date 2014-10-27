@@ -3,6 +3,9 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
+#import "MSOutlookODataMediaEntityFetcher.h"
+
 @implementation MSOutlookODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSOutlookODataExecutable>)parent{

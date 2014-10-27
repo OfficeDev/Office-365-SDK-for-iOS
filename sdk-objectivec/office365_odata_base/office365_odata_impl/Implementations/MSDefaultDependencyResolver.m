@@ -1,12 +1,13 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "office365_odata_impl.h"
+#import <office365_odata_base/office365_odata_base.h>
 
 #include <sys/types.h>
 #include <sys/sysctl.h>

@@ -37,8 +37,9 @@
    // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
     [[BaseController alloc] getClient:^(MSOutlookClient * client) {
-        NSURLSessionTask* task = [[client getMe] execute:^(MSUser *user, NSError *error) {
+        NSURLSessionTask* task = [[client getMe] execute:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
+                NSLog(@"No problems.");
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
                                    [[[client getResolver] getLogger]log:@"Got results" :(MSLogLevel *)INFO];
@@ -47,6 +48,9 @@
                                    self.lblAlias.text = user.Alias;
                                    self.lblMailBoxId.text = user.MailboxGuid;
                                });
+            }
+            else {
+                NSLog(@"Error received: %@", [error debugDescription]);
             }
         }];
         

@@ -6,6 +6,7 @@
 @implementation MSDiscoveryODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSDiscoveryODataExecutable>)parent{
+
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWith:urlComponent :parent : nil];

@@ -1,4 +1,3 @@
-	
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -6,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOutlookODataOperations.h"
+#import "MSOutlookBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSOutlookODataOperations.

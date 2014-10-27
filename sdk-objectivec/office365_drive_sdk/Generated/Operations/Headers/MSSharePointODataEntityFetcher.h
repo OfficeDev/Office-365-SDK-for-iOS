@@ -6,6 +6,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSODataExecutable.h"
+
 /**
 * The header for type MSSharePointODataEntityFetcher.
 */
