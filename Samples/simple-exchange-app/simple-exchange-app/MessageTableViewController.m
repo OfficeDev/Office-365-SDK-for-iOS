@@ -6,10 +6,6 @@
 
 #import "MessageTableViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSOutlookAttachment.h>
-#import <office365_exchange_sdk/MSOutlookRecipient.h>
-#import <office365_exchange_sdk/MSOutlookEmailAddress.h>
-#import <office365_exchange_sdk/MSOutlookMessage.h>
 
 @interface MessageTableViewController ()
 

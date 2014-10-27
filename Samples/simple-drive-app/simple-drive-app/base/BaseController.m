@@ -12,8 +12,9 @@
 +(void)getClient : (void (^) (MSSharePointClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
+    NSString* hostName = @"https://msopentech.spoppe.com";
     
-    [loginController getTokenWith : @"https://msopentech.spoppe.com/" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : hostName :true completionHandler:^(NSString *token) {
     
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
@@ -24,7 +25,7 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSSharePointClient alloc] initWitUrl:@"https://msopentech.spoppe.com/_api/v1.0/me" dependencyResolver:resolver]);
+        callback([[MSSharePointClient alloc] initWitUrl:[hostName stringByAppendingString:@"/_api/v1.0/me" dependencyResolver:resolver]);
     }];
 }
 

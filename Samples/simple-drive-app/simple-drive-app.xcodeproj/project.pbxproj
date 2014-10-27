@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC1E8FB619FED0AA00594501 /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1E8FB419FED0AA00594501 /* libPods-ADALiOS.a */; };
+		EC1E8FB719FED0AA00594501 /* libPods-Office365.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1E8FB519FED0AA00594501 /* libPods-Office365.a */; };
 		ECA0AC1E19F83174008F6C66 /* FilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */; };
 		ECA0AC2619F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */; };
 		ECA0AC2719F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2119F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard */; };
@@ -20,27 +22,18 @@
 		ECBA299319F7E04D00454689 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299119F7E04D00454689 /* Main.storyboard */; };
 		ECBA299519F7E04D00454689 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299419F7E04D00454689 /* Images.xcassets */; };
 		ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299619F7E04D00454689 /* LaunchScreen.xib */; };
-		ECBA29A419F7E04D00454689 /* simple_drive_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */; };
 		ECBA29B619F7E0E500454689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29AF19F7E0E500454689 /* AppDelegate.m */; };
 		ECBA29B719F7E0E500454689 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B119F7E0E500454689 /* BaseController.m */; };
 		ECBA29B819F7E0E500454689 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B319F7E0E500454689 /* LogInController.m */; };
 		ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */; };
-		ECBA29BD19F7E17300454689 /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BA19F7E17300454689 /* libADALiOS.a */; };
-		ECBA29BE19F7E17300454689 /* office365_drive_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BB19F7E17300454689 /* office365_drive_sdk.framework */; };
-		ECBA29BF19F7E17300454689 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBA29BC19F7E17300454689 /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		ECBA299E19F7E04D00454689 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECBA297919F7E04D00454689 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECBA298019F7E04D00454689;
-			remoteInfo = "simple-drive-app";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		B7A827688CC96A692B7A18C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C0BB39D191B2A24935D442E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE1A17ABFF0CE78BCB9E631 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		EC1E8FB419FED0AA00594501 /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		EC1E8FB519FED0AA00594501 /* libPods-Office365.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Office365.a"; path = "Pods/build/Debug-iphoneos/libPods-Office365.a"; sourceTree = "<group>"; };
 		ECA0AC1C19F83174008F6C66 /* FilesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTableViewController.h; sourceTree = "<group>"; };
 		ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesTableViewController.m; sourceTree = "<group>"; };
 		ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
@@ -60,9 +53,6 @@
 		ECBA299219F7E04D00454689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECBA299419F7E04D00454689 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ECBA299719F7E04D00454689 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-drive-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECBA29A219F7E04D00454689 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_drive_appTests.m; sourceTree = "<group>"; };
 		ECBA29AE19F7E0E500454689 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECBA29AF19F7E0E500454689 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ECBA29B019F7E0E500454689 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
@@ -81,22 +71,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBA29BD19F7E17300454689 /* libADALiOS.a in Frameworks */,
-				ECBA29BE19F7E17300454689 /* office365_drive_sdk.framework in Frameworks */,
-				ECBA29BF19F7E17300454689 /* office365_odata_base.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECBA299A19F7E04D00454689 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				EC1E8FB619FED0AA00594501 /* libPods-ADALiOS.a in Frameworks */,
+				EC1E8FB719FED0AA00594501 /* libPods-Office365.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E0F58F07390197C7F22EEFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7A827688CC96A692B7A18C9 /* Pods.debug.xcconfig */,
+				CFE1A17ABFF0CE78BCB9E631 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ECA0AC1B19F83174008F6C66 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,8 +116,8 @@
 			children = (
 				ECBA29C019F7E18500454689 /* Frameworks */,
 				ECBA298319F7E04D00454689 /* simple-drive-app */,
-				ECBA29A019F7E04D00454689 /* simple-drive-appTests */,
 				ECBA298219F7E04D00454689 /* Products */,
+				5E0F58F07390197C7F22EEFB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,7 +125,6 @@
 			isa = PBXGroup;
 			children = (
 				ECBA298119F7E04D00454689 /* simple-drive-app.app */,
-				ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,23 +156,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ECBA29A019F7E04D00454689 /* simple-drive-appTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECBA29A319F7E04D00454689 /* simple_drive_appTests.m */,
-				ECBA29A119F7E04D00454689 /* Supporting Files */,
-			);
-			path = "simple-drive-appTests";
-			sourceTree = "<group>";
-		};
-		ECBA29A119F7E04D00454689 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ECBA29A219F7E04D00454689 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		ECBA29AD19F7E0E500454689 /* base */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,9 +174,12 @@
 		ECBA29C019F7E18500454689 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC1E8FB419FED0AA00594501 /* libPods-ADALiOS.a */,
+				EC1E8FB519FED0AA00594501 /* libPods-Office365.a */,
 				ECBA29BA19F7E17300454689 /* libADALiOS.a */,
 				ECBA29BB19F7E17300454689 /* office365_drive_sdk.framework */,
 				ECBA29BC19F7E17300454689 /* office365_odata_base.framework */,
+				C0BB39D191B2A24935D442E4 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECBA29A719F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-app" */;
 			buildPhases = (
+				207F5257786BA18EC90A5EEB /* Check Pods Manifest.lock */,
 				ECBA297D19F7E04D00454689 /* Sources */,
 				ECBA297E19F7E04D00454689 /* Frameworks */,
 				ECBA297F19F7E04D00454689 /* Resources */,
+				6E4BD07AF7CD8EE510714FFD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,24 +205,6 @@
 			productName = "simple-drive-app";
 			productReference = ECBA298119F7E04D00454689 /* simple-drive-app.app */;
 			productType = "com.apple.product-type.application";
-		};
-		ECBA299C19F7E04D00454689 /* simple-drive-appTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECBA29AA19F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-appTests" */;
-			buildPhases = (
-				ECBA299919F7E04D00454689 /* Sources */,
-				ECBA299A19F7E04D00454689 /* Frameworks */,
-				ECBA299B19F7E04D00454689 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECBA299F19F7E04D00454689 /* PBXTargetDependency */,
-			);
-			name = "simple-drive-appTests";
-			productName = "simple-drive-appTests";
-			productReference = ECBA299D19F7E04D00454689 /* simple-drive-appTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -257,10 +217,6 @@
 				TargetAttributes = {
 					ECBA298019F7E04D00454689 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					ECBA299C19F7E04D00454689 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = ECBA298019F7E04D00454689;
 					};
 				};
 			};
@@ -278,7 +234,6 @@
 			projectRoot = "";
 			targets = (
 				ECBA298019F7E04D00454689 /* simple-drive-app */,
-				ECBA299C19F7E04D00454689 /* simple-drive-appTests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,14 +254,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECBA299B19F7E04D00454689 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		207F5257786BA18EC90A5EEB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		6E4BD07AF7CD8EE510714FFD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECBA297D19F7E04D00454689 /* Sources */ = {
@@ -325,23 +306,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECBA299919F7E04D00454689 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECBA29A419F7E04D00454689 /* simple_drive_appTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ECBA299F19F7E04D00454689 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECBA298019F7E04D00454689 /* simple-drive-app */;
-			targetProxy = ECBA299E19F7E04D00454689 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ECA0AC2419F8366A008F6C66 /* InfoPlist.strings */ = {
@@ -449,12 +414,16 @@
 		};
 		ECBA29A819F7E04D00454689 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7A827688CC96A692B7A18C9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "simple-drive-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -462,48 +431,18 @@
 		};
 		ECBA29A919F7E04D00454689 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE1A17ABFF0CE78BCB9E631 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "simple-drive-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		ECBA29AB19F7E04D00454689 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-drive-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-drive-app.app/simple-drive-app";
-			};
-			name = Debug;
-		};
-		ECBA29AC19F7E04D00454689 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-drive-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-drive-app.app/simple-drive-app";
 			};
 			name = Release;
 		};
@@ -524,15 +463,6 @@
 			buildConfigurations = (
 				ECBA29A819F7E04D00454689 /* Debug */,
 				ECBA29A919F7E04D00454689 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECBA29AA19F7E04D00454689 /* Build configuration list for PBXNativeTarget "simple-drive-appTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECBA29AB19F7E04D00454689 /* Debug */,
-				ECBA29AC19F7E04D00454689 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

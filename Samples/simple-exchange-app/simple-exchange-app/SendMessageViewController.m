@@ -6,12 +6,6 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSOutlookMessage.h>
-#import <office365_exchange_sdk/MSOutlookRecipient.h>
-#import <office365_exchange_sdk/MSOutlookEmailAddress.h>
-#import <office365_exchange_sdk/MSOutlookItemBody.h>
-#import <office365_exchange_sdk/MSOutlookMessageOperations.h>
-#import <office365_exchange_sdk/MSOutlookMessageFetcher.h>
 
 @interface SendMessageViewController ()
 

@@ -12,11 +12,13 @@
 +(void)getClient : (void (^) (MSOutlookClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
+    NSString* hostName = @"https://sdfpilot.outlook.com";
     
-    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : hostName :true completionHandler:^(NSString *token) {
         
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
+        
         [credentials addToken:token];
         
         MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
@@ -24,7 +26,7 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+        callback([[MSOutlookClient alloc] initWitUrl:[hostName stringByAppendingString: @"/ews/odata"] dependencyResolver:resolver]);
     }];
 }
 

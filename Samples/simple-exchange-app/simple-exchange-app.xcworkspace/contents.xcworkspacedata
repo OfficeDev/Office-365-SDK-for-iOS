@@ -2,19 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../../../azure-activedirectory-library-for-objc/ADALiOS/ADALiOS.xcodeproj">
-   </FileRef>
-   <Group
-      location = "container:"
-      name = "Sdks">
-      <FileRef
-         location = "group:../../sdk-objectivec/office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:../../sdk-objectivec/office365_odata_base/office365_odata_base.xcodeproj">
-      </FileRef>
-   </Group>
-   <FileRef
       location = "group:simple-exchange-app.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

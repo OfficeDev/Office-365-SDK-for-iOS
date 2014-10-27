@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC417F6719F6E4B200CB78C2 /* office365_drive_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC417F7119F6E4B200CB78C2 /* office365_drive_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */; };
 		EC5C151619F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151119F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC5C151719F999EA00AAF5AC /* MSSharePointEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151219F999EA00AAF5AC /* MSSharePointEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC5C151819F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C151419F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.m */; };
@@ -95,9 +94,6 @@
 		EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_drive_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC417F6519F6E4B200CB78C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_drive_sdk.h; sourceTree = "<group>"; };
-		EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_drive_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC417F6F19F6E4B200CB78C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_drive_sdkTests.m; sourceTree = "<group>"; };
 		EC5C151119F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointBaseODataContainerHelper.h; sourceTree = "<group>"; };
 		EC5C151219F999EA00AAF5AC /* MSSharePointEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointEntityFetcherHelper.h; sourceTree = "<group>"; };
 		EC5C151419F999EA00AAF5AC /* MSSharePointBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointBaseODataContainerHelper.m; sourceTree = "<group>"; };
@@ -178,13 +174,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC417F6919F6E4B200CB78C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -204,7 +193,6 @@
 				ECCAD1AA19F6F40000363606 /* Helpers */,
 				ECCAD09219F6F27500363606 /* Frameworks */,
 				EC417F6319F6E4B200CB78C2 /* office365_drive_sdk */,
-				EC417F6D19F6E4B200CB78C2 /* office365_drive_sdkTests */,
 				EC417F6219F6E4B200CB78C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -213,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */,
-				EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,23 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				EC417F6519F6E4B200CB78C2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EC417F6D19F6E4B200CB78C2 /* office365_drive_sdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */,
-				EC417F6E19F6E4B200CB78C2 /* Supporting Files */,
-			);
-			path = office365_drive_sdkTests;
-			sourceTree = "<group>";
-		};
-		EC417F6E19F6E4B200CB78C2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC417F6F19F6E4B200CB78C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -473,23 +443,6 @@
 			productReference = EC417F6119F6E4B200CB78C2 /* office365_drive_sdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EC417F6B19F6E4B200CB78C2 /* office365_drive_sdkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC417F7719F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */;
-			buildPhases = (
-				EC417F6819F6E4B200CB78C2 /* Sources */,
-				EC417F6919F6E4B200CB78C2 /* Frameworks */,
-				EC417F6A19F6E4B200CB78C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = office365_drive_sdkTests;
-			productName = office365_drive_sdkTests;
-			productReference = EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -500,9 +453,6 @@
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					EC417F6019F6E4B200CB78C2 = {
-						CreatedOnToolsVersion = 6.0;
-					};
-					EC417F6B19F6E4B200CB78C2 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
@@ -526,7 +476,6 @@
 			projectRoot = "";
 			targets = (
 				EC417F6019F6E4B200CB78C2 /* office365_drive_sdk */,
-				EC417F6B19F6E4B200CB78C2 /* office365_drive_sdkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -543,13 +492,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		EC417F5F19F6E4B200CB78C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC417F6A19F6E4B200CB78C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -596,14 +538,6 @@
 				ECEE867619FE917000823F20 /* MSSharePointDriveCollectionOperations.m in Sources */,
 				ECEE868019FE917000823F20 /* MSSharePointFolderOperations.m in Sources */,
 				ECEE867F19FE917000823F20 /* MSSharePointFolderFetcher.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC417F6819F6E4B200CB78C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC417F7119F6E4B200CB78C2 /* office365_drive_sdkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,36 +672,6 @@
 			};
 			name = Release;
 		};
-		EC417F7819F6E4B200CB78C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_drive_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		EC417F7919F6E4B200CB78C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_drive_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -785,15 +689,6 @@
 			buildConfigurations = (
 				EC417F7519F6E4B200CB78C2 /* Debug */,
 				EC417F7619F6E4B200CB78C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC417F7719F6E4B200CB78C2 /* Build configuration list for PBXNativeTarget "office365_drive_sdkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC417F7819F6E4B200CB78C2 /* Debug */,
-				EC417F7919F6E4B200CB78C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

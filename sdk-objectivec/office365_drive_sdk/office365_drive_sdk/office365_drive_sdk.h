@@ -14,27 +14,30 @@ FOUNDATION_EXPORT const unsigned char office365_drive_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_drive_sdk/PublicHeader.h>
 
-#import "MSSharePointBaseODataContainer.h"
-#import "MSSharePointDriveCollectionFetcher.h"
-#import "MSSharePointDriveCollectionOperations.h"
-#import "MSSharePointDriveFetcher.h"
-#import "MSSharePointDriveOperations.h"
-#import "MSSharePointClient.h"
-#import "MSSharePointFileCollectionFetcher.h"
-#import "MSSharePointFileCollectionOperations.h"
-#import "MSSharePointFileFetcher.h"
-#import "MSSharePointFileOperations.h"
-#import "MSSharePointFolderCollectionFetcher.h"
-#import "MSSharePointFolderCollectionOperations.h"
-#import "MSSharePointFolderFetcher.h"
-#import "MSSharePointFolderOperations.h"
-#import "MSSharePointItemCollectionFetcher.h"
-#import "MSSharePointItemCollectionOperations.h"
-#import "MSSharePointItemFetcher.h"
-#import "MSSharePointItemOperations.h"
-#import "MSSharePointODataCollectionFetcher.h"
-#import "MSSharePointODataEntityFetcher.h"
-#import "MSSharePointODataOperations.h"
-#import "MSSharePointODataExecutable.h"
-#import "MSSharePointODataMediaEntityFetcher.h"
-#import "MSSharePointODataMediaEntityFetcher.h"
+#import <office365_drive_sdk/MSSharePointBaseODataContainer.h>
+#import <office365_drive_sdk/MSSharePointDriveCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointDriveCollectionOperations.h>
+#import <office365_drive_sdk/MSSharePointDriveFetcher.h>
+#import <office365_drive_sdk/MSSharePointDriveOperations.h>
+#import <office365_drive_sdk/MSSharePointClient.h>
+#import <office365_drive_sdk/MSSharePointFileCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointFileCollectionOperations.h>
+#import <office365_drive_sdk/MSSharePointFileFetcher.h>
+#import <office365_drive_sdk/MSSharePointFileOperations.h>
+#import <office365_drive_sdk/MSSharePointFolderCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointFolderCollectionOperations.h>
+#import <office365_drive_sdk/MSSharePointFolderFetcher.h>
+#import <office365_drive_sdk/MSSharePointFolderOperations.h>
+#import <office365_drive_sdk/MSSharePointItemCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointItemCollectionOperations.h>
+#import <office365_drive_sdk/MSSharePointItemFetcher.h>
+#import <office365_drive_sdk/MSSharePointItemOperations.h>
+#import <office365_drive_sdk/MSSharePointODataCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataEntityFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataOperations.h>
+#import <office365_drive_sdk/MSSharePointODataExecutable.h>
+#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
+
+#import <office365_drive_sdk/MSOutlookBaseODataContainerHelper.h>
+#import <office365_exchange_sdk/MSOutlookEntityFetcherHelper.h>
