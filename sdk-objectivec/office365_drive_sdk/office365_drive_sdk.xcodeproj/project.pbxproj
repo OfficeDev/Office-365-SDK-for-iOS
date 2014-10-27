@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		EC417F6719F6E4B200CB78C2 /* office365_drive_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC417F6619F6E4B200CB78C2 /* office365_drive_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC417F7119F6E4B200CB78C2 /* office365_drive_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */; };
+		EC5C151619F999EA00AAF5AC /* MSBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151119F999EA00AAF5AC /* MSBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C151719F999EA00AAF5AC /* MSEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151219F999EA00AAF5AC /* MSEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC5C151819F999EA00AAF5AC /* MSBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C151419F999EA00AAF5AC /* MSBaseODataContainerHelper.m */; };
+		EC5C151919F999EA00AAF5AC /* MSEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5C151519F999EA00AAF5AC /* MSEntityFetcherHelper.m */; };
 		EC5C155F19F999F900AAF5AC /* MSDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151C19F999F900AAF5AC /* MSDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC5C156019F999F900AAF5AC /* MSDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151D19F999F900AAF5AC /* MSDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC5C156119F999F900AAF5AC /* MSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C151E19F999F900AAF5AC /* MSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,6 +87,10 @@
 		EC417F6C19F6E4B200CB78C2 /* office365_drive_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_drive_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC417F6F19F6E4B200CB78C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC417F7019F6E4B200CB78C2 /* office365_drive_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_drive_sdkTests.m; sourceTree = "<group>"; };
+		EC5C151119F999EA00AAF5AC /* MSBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		EC5C151219F999EA00AAF5AC /* MSEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcherHelper.h; sourceTree = "<group>"; };
+		EC5C151419F999EA00AAF5AC /* MSBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		EC5C151519F999EA00AAF5AC /* MSEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityFetcherHelper.m; sourceTree = "<group>"; };
 		EC5C151C19F999F900AAF5AC /* MSDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDrive.h; sourceTree = "<group>"; };
 		EC5C151D19F999F900AAF5AC /* MSDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDriveQuota.h; sourceTree = "<group>"; };
 		EC5C151E19F999F900AAF5AC /* MSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSFile.h; sourceTree = "<group>"; };
@@ -173,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				ECCAD15C19F6F40000363606 /* Generated */,
+				ECCAD1AA19F6F40000363606 /* Helpers */,
 				ECCAD09219F6F27500363606 /* Frameworks */,
 				EC417F6319F6E4B200CB78C2 /* office365_drive_sdk */,
 				EC417F6D19F6E4B200CB78C2 /* office365_drive_sdkTests */,
@@ -222,6 +231,24 @@
 				EC417F6F19F6E4B200CB78C2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC5C151019F999EA00AAF5AC /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C151119F999EA00AAF5AC /* MSBaseODataContainerHelper.h */,
+				EC5C151219F999EA00AAF5AC /* MSEntityFetcherHelper.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC5C151319F999EA00AAF5AC /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C151419F999EA00AAF5AC /* MSBaseODataContainerHelper.m */,
+				EC5C151519F999EA00AAF5AC /* MSEntityFetcherHelper.m */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 		EC5C151A19F999F900AAF5AC /* Models */ = {
@@ -350,6 +377,15 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		ECCAD1AA19F6F40000363606 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC5C151019F999EA00AAF5AC /* Headers */,
+				EC5C151319F999EA00AAF5AC /* Implementations */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -358,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC5C157A19F999F900AAF5AC /* MSFolderCollectionOperations.h in Headers */,
+				EC5C151719F999EA00AAF5AC /* MSEntityFetcherHelper.h in Headers */,
 				EC5C157B19F999F900AAF5AC /* MSFolderFetcher.h in Headers */,
 				EC5C157119F999F900AAF5AC /* MSDriveCollectionFetcher.h in Headers */,
 				EC5C157819F999F900AAF5AC /* MSFileOperations.h in Headers */,
@@ -380,6 +417,7 @@
 				EC5C156519F999F900AAF5AC /* MSItem.h in Headers */,
 				EC5C156619F999F900AAF5AC /* MSItemReference.h in Headers */,
 				EC5C158019F999F900AAF5AC /* MSItemOperations.h in Headers */,
+				EC5C151619F999EA00AAF5AC /* MSBaseODataContainerHelper.h in Headers */,
 				EC5C157919F999F900AAF5AC /* MSFolderCollectionFetcher.h in Headers */,
 				EC5C157619F999F900AAF5AC /* MSFileCollectionOperations.h in Headers */,
 				EC5C158519F999F900AAF5AC /* MSODataOperations.h in Headers */,
@@ -497,6 +535,7 @@
 				EC5C156D19F999F900AAF5AC /* MSIdentitySet.m in Sources */,
 				EC5C156C19F999F900AAF5AC /* MSIdentity.m in Sources */,
 				EC5C156F19F999F900AAF5AC /* MSItemReference.m in Sources */,
+				EC5C151919F999EA00AAF5AC /* MSEntityFetcherHelper.m in Sources */,
 				EC5C159B19F999F900AAF5AC /* MSODataMediaEntityFetcher.m in Sources */,
 				EC5C159D19F999F900AAF5AC /* MSSharePointClient.m in Sources */,
 				EC5C159119F999F900AAF5AC /* MSFolderCollectionOperations.m in Sources */,
@@ -512,6 +551,7 @@
 				EC5C156819F999F900AAF5AC /* MSDrive.m in Sources */,
 				EC5C158D19F999F900AAF5AC /* MSFileCollectionOperations.m in Sources */,
 				EC5C158919F999F900AAF5AC /* MSDriveCollectionOperations.m in Sources */,
+				EC5C151819F999EA00AAF5AC /* MSBaseODataContainerHelper.m in Sources */,
 				EC5C159219F999F900AAF5AC /* MSFolderFetcher.m in Sources */,
 				EC5C158E19F999F900AAF5AC /* MSFileFetcher.m in Sources */,
 				EC5C159819F999F900AAF5AC /* MSODataCollectionFetcher.m in Sources */,

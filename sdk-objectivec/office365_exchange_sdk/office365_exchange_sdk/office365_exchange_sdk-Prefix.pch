@@ -35,8 +35,8 @@
 #import <office365_exchange_sdk/MSODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_odata_base/MSBaseODataContainerHelper.h>
-#import <office365_odata_base/MSEntityFetcherHelper.h>
+#import <office365_exchange_sdk/MSBaseODataContainerHelper.h>
+#import <office365_exchange_sdk/MSEntityFetcherHelper.h>
 
 
 #endif

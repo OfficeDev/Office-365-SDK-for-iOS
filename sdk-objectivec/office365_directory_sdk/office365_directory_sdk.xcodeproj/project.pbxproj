@@ -215,6 +215,10 @@
 		EC0D6B7519FACB4B0092895E /* MSUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D6AA119FACB4B0092895E /* MSUserCollectionOperations.m */; };
 		EC0D6B7619FACB4B0092895E /* MSUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D6AA219FACB4B0092895E /* MSUserFetcher.m */; };
 		EC0D6B7719FACB4B0092895E /* MSUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D6AA319FACB4B0092895E /* MSUserOperations.m */; };
+		EC0D6B7819FACB4B0092895E /* MSBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0D6AA619FACB4B0092895E /* MSBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC0D6B7919FACB4B0092895E /* MSEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0D6AA719FACB4B0092895E /* MSEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC0D6B7A19FACB4B0092895E /* MSBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D6AA919FACB4B0092895E /* MSBaseODataContainerHelper.m */; };
+		EC0D6B7B19FACB4B0092895E /* MSEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D6AAA19FACB4B0092895E /* MSEntityFetcherHelper.m */; };
 		EC0D6B7D19FACBC70092895E /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
@@ -431,6 +435,10 @@
 		EC0D6AA119FACB4B0092895E /* MSUserCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserCollectionOperations.m; sourceTree = "<group>"; };
 		EC0D6AA219FACB4B0092895E /* MSUserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserFetcher.m; sourceTree = "<group>"; };
 		EC0D6AA319FACB4B0092895E /* MSUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSUserOperations.m; sourceTree = "<group>"; };
+		EC0D6AA619FACB4B0092895E /* MSBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		EC0D6AA719FACB4B0092895E /* MSEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcherHelper.h; sourceTree = "<group>"; };
+		EC0D6AA919FACB4B0092895E /* MSBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		EC0D6AAA19FACB4B0092895E /* MSEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityFetcherHelper.m; sourceTree = "<group>"; };
 		EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -457,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				EC0D69D019FACB4A0092895E /* Generated */,
+				EC0D6AA419FACB4B0092895E /* Helpers */,
 				EC0D69B719FACA180092895E /* office365_directory_sdk */,
 				EC0D69C119FACA180092895E /* office365_directory_sdkTests */,
 				EC0D6B7E19FACBCF0092895E /* Frameworks */,
@@ -768,6 +777,33 @@
 			path = Implementations;
 			sourceTree = "<group>";
 		};
+		EC0D6AA419FACB4B0092895E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D6AA519FACB4B0092895E /* Headers */,
+				EC0D6AA819FACB4B0092895E /* Implementations */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EC0D6AA519FACB4B0092895E /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D6AA619FACB4B0092895E /* MSBaseODataContainerHelper.h */,
+				EC0D6AA719FACB4B0092895E /* MSEntityFetcherHelper.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		EC0D6AA819FACB4B0092895E /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D6AA919FACB4B0092895E /* MSBaseODataContainerHelper.m */,
+				EC0D6AAA19FACB4B0092895E /* MSEntityFetcherHelper.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 		EC0D6B7E19FACBCF0092895E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,6 +822,7 @@
 				EC0D69BB19FACA180092895E /* office365_directory_sdk.h in Headers */,
 				EC0D6B1119FACB4B0092895E /* MSExtensionPropertyCollectionOperations.h in Headers */,
 				EC0D6B1419FACB4B0092895E /* MSGroupCollectionFetcher.h in Headers */,
+				EC0D6B7819FACB4B0092895E /* MSBaseODataContainerHelper.h in Headers */,
 				EC0D6B1D19FACB4B0092895E /* MSODataEntityFetcher.h in Headers */,
 				EC0D6AEC19FACB4B0092895E /* MSApplicationFetcher.h in Headers */,
 				EC0D6B2A19FACB4B0092895E /* MSTenantDetailCollectionOperations.h in Headers */,
@@ -885,6 +922,7 @@
 				EC0D6AB019FACB4B0092895E /* MSAssignedPlan.h in Headers */,
 				EC0D6AFC19FACB4B0092895E /* MSDeviceConfigurationOperations.h in Headers */,
 				EC0D6AC119FACB4B0092895E /* MSProvisionedPlan.h in Headers */,
+				EC0D6B7919FACB4B0092895E /* MSEntityFetcherHelper.h in Headers */,
 				EC0D6ABA19FACB4B0092895E /* MSKeyCredential.h in Headers */,
 				EC0D6B1219FACB4B0092895E /* MSExtensionPropertyFetcher.h in Headers */,
 				EC0D6B2B19FACB4B0092895E /* MSTenantDetailFetcher.h in Headers */,
@@ -1010,6 +1048,7 @@
 				EC0D6B5A19FACB4B0092895E /* MSExtensionPropertyOperations.m in Sources */,
 				EC0D6ADE19FACB4B0092895E /* MSPasswordCredential.m in Sources */,
 				EC0D6B6E19FACB4B0092895E /* MSSubscribedSkuFetcher.m in Sources */,
+				EC0D6B7A19FACB4B0092895E /* MSBaseODataContainerHelper.m in Sources */,
 				EC0D6B3C19FACB4B0092895E /* MSContactFetcher.m in Sources */,
 				EC0D6ACF19FACB4B0092895E /* MSAssignedLicense.m in Sources */,
 				EC0D6B5919FACB4B0092895E /* MSExtensionPropertyFetcher.m in Sources */,
@@ -1073,6 +1112,7 @@
 				EC0D6AD419FACB4B0092895E /* MSDirectoryLinkChange.m in Sources */,
 				EC0D6B3D19FACB4B0092895E /* MSContactOperations.m in Sources */,
 				EC0D6B4A19FACB4B0092895E /* MSDirectoryLinkChangeOperations.m in Sources */,
+				EC0D6B7B19FACB4B0092895E /* MSEntityFetcherHelper.m in Sources */,
 				EC0D6B3619FACB4B0092895E /* MSAppRoleAssignmentCollectionOperations.m in Sources */,
 				EC0D6AD119FACB4B0092895E /* MSContact.m in Sources */,
 				EC0D6ACB19FACB4B0092895E /* MSAlternativeSecurityId.m in Sources */,
@@ -1277,7 +1317,6 @@
 				EC0D69CA19FACA180092895E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		EC0D69CB19FACA180092895E /* Build configuration list for PBXNativeTarget "office365_directory_sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -1286,7 +1325,6 @@
 				EC0D69CD19FACA180092895E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

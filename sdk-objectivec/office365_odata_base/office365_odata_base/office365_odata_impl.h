@@ -17,5 +17,3 @@
 #import <office365_odata_base/MSRequestImpl.h>
 #import <office365_odata_base/MSResponseImpl.h>
 #import <office365_odata_base/MSOAuthCredentials.h>
-#import <office365_odata_base/MSBaseODataContainerHelper.h>
-#import <office365_odata_base/MSEntityFetcherHelper.h>
