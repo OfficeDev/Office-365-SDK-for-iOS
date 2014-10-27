@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import <office365-base-sdk/BaseClient.h>
+#import "BaseClient.h"
 #import "ListEntity.h"
 
 @interface ListClient : BaseClient
