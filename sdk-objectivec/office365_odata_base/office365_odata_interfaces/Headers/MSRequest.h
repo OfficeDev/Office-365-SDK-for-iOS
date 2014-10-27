@@ -12,7 +12,7 @@
 @required
 -(void) setContent : (NSData*) content;
 -(NSData*) getContent;
--(NSArray*)getHeaders;
+-(NSDictionary*)getHeaders;
 -(void)setHeaders :(NSArray*) headers;
 -(void)addHeader : (NSString*) name : (NSString*) value;
 -(void)removeHeader : (NSString*) name;
