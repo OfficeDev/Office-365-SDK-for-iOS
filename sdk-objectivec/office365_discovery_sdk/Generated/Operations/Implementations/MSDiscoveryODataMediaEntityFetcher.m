@@ -3,6 +3,9 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
+#import "MSDiscoveryODataMediaEntityFetcher.h"
+
 @implementation MSDiscoveryODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSDiscoveryODataExecutable>)parent{

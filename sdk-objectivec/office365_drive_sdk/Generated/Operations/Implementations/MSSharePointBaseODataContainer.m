@@ -3,7 +3,9 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "MSBaseODataContainer.h"
+
+#import "MSSharePointBaseODataContainer.h"
+#import "MSSharePointBaseODataContainerHelper.h"
 
 @interface MSSharePointBaseODataContainer()
 

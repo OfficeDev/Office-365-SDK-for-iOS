@@ -10,16 +10,22 @@
 * The header for type MSDirectoryODataEntityFetcher.
 */
 
-@interface MSDirectoryODataEntityFetcher : MSDirectoryODataExecutable
+@protocol MSDirectoryODataEntityFetcher
+
+@optional
+-(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb :(void (^)(id<MSResponse>, NSError *))callback;
+-(id) getOperations;
+
+@required
 
 -(id)initWith:(NSString *)urlComponent :(id<MSDirectoryODataExecutable>)parent : (Class) entityClass;
-
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) delete : (void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) execute:(void (^)(id entity, NSError * error))callback;
--(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb :(void (^)(id<MSResponse>, NSError *))callback;
-
 -(id<MSDependencyResolver>) getResolver;
--(id) getOperations;
+
+@end
+
+@interface MSDirectoryODataEntityFetcher : MSDirectoryODataExecutable<MSDirectoryODataEntityFetcher>
 
 @end

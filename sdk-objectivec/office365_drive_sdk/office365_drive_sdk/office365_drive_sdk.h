@@ -1,10 +1,8 @@
-//
-//  office365_drive_sdk.h
-//  office365_drive_sdk
-//
-//  Created by Gustavo on 10/21/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 
@@ -15,16 +13,6 @@ FOUNDATION_EXPORT double office365_drive_sdkVersionNumber;
 FOUNDATION_EXPORT const unsigned char office365_drive_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_drive_sdk/PublicHeader.h>
-/*
-MSSharePointCurrentUserRequestContext
-MSSharePointDrive
-MSSharePointDriveQuota
-MSSharePointFile
-MSSharePointFolder
-MSSharePointIdentity
-MSSharePointIdentitySet
-MSSharePointItem
-MSSharePointItemReference*/
 
 #import "MSSharePointBaseODataContainer.h"
 #import "MSSharePointDriveCollectionFetcher.h"
@@ -50,5 +38,3 @@ MSSharePointItemReference*/
 #import "MSSharePointODataExecutable.h"
 #import "MSSharePointODataMediaEntityFetcher.h"
 #import "MSSharePointODataMediaEntityFetcher.h"
-
-

@@ -5,11 +5,13 @@
  ******************************************************************************/
 
 #import "MSSharePointODataEntityFetcher.h"
+#import "MSSharePointODataOperations.h"
+#import "MSSharePointBaseODataContainerHelper.h"
 
 @interface MSSharePointODataEntityFetcher()
 
 @property Class entityClass;
-@property MSSharePointODataOperations* operations;
+@property MSSharePointODataExecutable* operations;
 
 @end
 

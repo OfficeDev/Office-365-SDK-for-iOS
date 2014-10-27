@@ -4,6 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSDiscoveryODataCollectionFetcher.h"
+#import "MSDiscoveryEntityFetcherHelper.h"
+#import "MSDiscoveryBaseODataContainerHelper.h"
+
 @interface MSDiscoveryODataCollectionFetcher()
 
 @property NSString* filter;

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:office365_odata_base/office365_odata_base.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
    </FileRef>
    <FileRef

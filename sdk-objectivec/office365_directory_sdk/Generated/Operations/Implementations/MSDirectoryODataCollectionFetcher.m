@@ -4,6 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSDirectoryODataCollectionFetcher.h"
+#import "MSDirectoryEntityFetcherHelper.h"
+#import "MSDirectoryBaseODataContainerHelper.h"
+
 @interface MSDirectoryODataCollectionFetcher()
 
 @property NSString* filter;

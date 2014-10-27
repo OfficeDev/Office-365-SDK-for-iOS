@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC2CCA3019F8A03000D12E55 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC2CCA3A19F8A03000D12E55 /* office365_discovery_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CCA3919F8A03000D12E55 /* office365_discovery_sdkTests.m */; };
 		EC2CCA8919F8A22200D12E55 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */; };
 		EC2CCA8A19F8A29600D12E55 /* office365_discovery_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC5C14E619F98A4100AAF5AC /* MSDiscoveryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC5C14CC19F98A4100AAF5AC /* MSDiscoveryClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,13 +41,21 @@
 		ECEE86B919FE951700823F20 /* MSDiscoveryServiceInfoOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEE86AE19FE951700823F20 /* MSDiscoveryServiceInfoOperations.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EC1E8FA219FEBF7200594501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_discovery_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CCA2E19F8A02F00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_discovery_sdk.h; sourceTree = "<group>"; };
-		EC2CCA3519F8A03000D12E55 /* office365_discovery_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_discovery_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2CCA3819F8A03000D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC2CCA3919F8A03000D12E55 /* office365_discovery_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_discovery_sdkTests.m; sourceTree = "<group>"; };
 		EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365_discovery_sdk-Prefix.pch"; sourceTree = "<group>"; };
 		EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
 		EC5C14CC19F98A4100AAF5AC /* MSDiscoveryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryClient.h; sourceTree = "<group>"; };
@@ -91,13 +98,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC2CCA3219F8A03000D12E55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,13 +109,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EC1E8F9F19FEBF7200594501 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC1E8FA319FEBF7200594501 /* office365_odata_base.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EC2CCA2019F8A02F00D12E55 = {
 			isa = PBXGroup;
 			children = (
+				EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */,
 				EC2CCA4319F8A0BE00D12E55 /* Generated */,
 				EC2CCA6319F8A0BE00D12E55 /* Helpers */,
 				EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */,
-				EC2CCA3619F8A03000D12E55 /* office365_discovery_sdkTests */,
 				EC0D6B7F19FACBD90092895E /* Frameworks */,
 				EC2CCA2B19F8A02F00D12E55 /* Products */,
 			);
@@ -125,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */,
-				EC2CCA3519F8A03000D12E55 /* office365_discovery_sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,23 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				EC2CCA2E19F8A02F00D12E55 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EC2CCA3619F8A03000D12E55 /* office365_discovery_sdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				EC2CCA3919F8A03000D12E55 /* office365_discovery_sdkTests.m */,
-				EC2CCA3719F8A03000D12E55 /* Supporting Files */,
-			);
-			path = office365_discovery_sdkTests;
-			sourceTree = "<group>";
-		};
-		EC2CCA3719F8A03000D12E55 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC2CCA3819F8A03000D12E55 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -320,23 +310,6 @@
 			productReference = EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EC2CCA3419F8A03000D12E55 /* office365_discovery_sdkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC2CCA4019F8A03000D12E55 /* Build configuration list for PBXNativeTarget "office365_discovery_sdkTests" */;
-			buildPhases = (
-				EC2CCA3119F8A03000D12E55 /* Sources */,
-				EC2CCA3219F8A03000D12E55 /* Frameworks */,
-				EC2CCA3319F8A03000D12E55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = office365_discovery_sdkTests;
-			productName = office365_discovery_sdkTests;
-			productReference = EC2CCA3519F8A03000D12E55 /* office365_discovery_sdkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -347,9 +320,6 @@
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					EC2CCA2919F8A02F00D12E55 = {
-						CreatedOnToolsVersion = 6.0;
-					};
-					EC2CCA3419F8A03000D12E55 = {
 						CreatedOnToolsVersion = 6.0;
 					};
 				};
@@ -364,23 +334,31 @@
 			mainGroup = EC2CCA2019F8A02F00D12E55;
 			productRefGroup = EC2CCA2B19F8A02F00D12E55 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC1E8F9F19FEBF7200594501 /* Products */;
+					ProjectRef = EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EC2CCA2919F8A02F00D12E55 /* office365_discovery_sdk */,
-				EC2CCA3419F8A03000D12E55 /* office365_discovery_sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		EC1E8FA319FEBF7200594501 /* office365_odata_base.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_odata_base.framework;
+			remoteRef = EC1E8FA219FEBF7200594501 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		EC2CCA2819F8A02F00D12E55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC2CCA3319F8A03000D12E55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,14 +386,6 @@
 				ECEE86B219FE951700823F20 /* MSDiscoveryODataEntityFetcher.m in Sources */,
 				ECEE86B819FE951700823F20 /* MSDiscoveryServiceInfoFetcher.m in Sources */,
 				ECEE86B619FE951700823F20 /* MSDiscoveryServiceInfoCollectionFetcher.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC2CCA3119F8A03000D12E55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC2CCA3A19F8A03000D12E55 /* office365_discovery_sdkTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,36 +512,6 @@
 			};
 			name = Release;
 		};
-		EC2CCA4119F8A03000D12E55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_discovery_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		EC2CCA4219F8A03000D12E55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_discovery_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -589,15 +529,6 @@
 			buildConfigurations = (
 				EC2CCA3E19F8A03000D12E55 /* Debug */,
 				EC2CCA3F19F8A03000D12E55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC2CCA4019F8A03000D12E55 /* Build configuration list for PBXNativeTarget "office365_discovery_sdkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC2CCA4119F8A03000D12E55 /* Debug */,
-				EC2CCA4219F8A03000D12E55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

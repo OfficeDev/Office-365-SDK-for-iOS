@@ -1,10 +1,8 @@
-//
-//  office365_drive_sdk-Prefix.pch
-//  office365_drive_sdk
-//
-//  Created by Gustavo on 10/21/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #ifndef office365_drive_sdk_office365_drive_sdk_Prefix_pch
 #define office365_drive_sdk_office365_drive_sdk_Prefix_pch
@@ -13,33 +11,5 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import <Foundation/Foundation.h>
-
-// Base
-
-#import <office365_odata_base/MSCredentials.h>
-#import <office365_odata_base/MSCredentialsFactory.h>
-#import <office365_odata_base/MSDependencyResolver.h>
-#import <office365_odata_base/MSHttpTransport.h>
-#import <office365_odata_base/MSHttpVerb.h>
-#import <office365_odata_base/MSJsonSerializer.h>
-#import <office365_odata_base/MSLogger.h>
-#import <office365_odata_base/MSLogLevel.h>
-#import <office365_odata_base/MSRequest.h>
-#import <office365_odata_base/MSResponse.h>
-#import <office365_odata_base/MSODataUrl.h>
-
-#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
-#import <office365_drive_sdk/MSSharePointODataExecutable.h>
-#import <office365_drive_sdk/MSSharePointBaseODataContainer.h>
-#import <office365_drive_sdk/MSSharePointClient.h>
-#import <office365_drive_sdk/MSSharePointODataEntityFetcher.h>
-#import <office365_drive_sdk/MSSharePointODataOperations.h>
-#import <office365_drive_sdk/MSSharePointODataCollectionFetcher.h>
-#import <office365_drive_sdk/MSSharePointODataOperations.h>
-#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
-
-// Helpers
-#import <office365_drive_sdk/MSSharePointBaseODataContainerHelper.h>
-#import <office365_drive_sdk/MSSharePointEntityFetcherHelper.h>
 
 #endif

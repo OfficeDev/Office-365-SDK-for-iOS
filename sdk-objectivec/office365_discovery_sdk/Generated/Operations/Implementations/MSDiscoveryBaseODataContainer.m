@@ -4,6 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSDiscoveryBaseODataContainer.h"
+#import "MSDiscoveryBaseODataContainerHelper.h"
+
 @interface MSDiscoveryBaseODataContainer()
 
 @property id<MSDependencyResolver> resolver;

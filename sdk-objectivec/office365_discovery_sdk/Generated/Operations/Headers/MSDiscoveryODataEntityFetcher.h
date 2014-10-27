@@ -10,7 +10,13 @@
 * The header for type MSDiscoveryODataEntityFetcher.
 */
 
-@interface MSDiscoveryODataEntityFetcher : MSDiscoveryODataExecutable
+@protocol MSDiscoveryODataEntityFetcher
+
+@optional
+-(id<MSDependencyResolver>) getResolver;
+-(id) getOperations;
+
+@required
 
 -(id)initWith:(NSString *)urlComponent :(id<MSDiscoveryODataExecutable>)parent : (Class) entityClass;
 
@@ -19,7 +25,8 @@
 -(NSURLSessionDataTask*) execute:(void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb :(void (^)(id<MSResponse>, NSError *))callback;
 
--(id<MSDependencyResolver>) getResolver;
--(id) getOperations;
+@end
+
+@interface MSDiscoveryODataEntityFetcher : MSDiscoveryODataExecutable<MSDiscoveryODataEntityFetcher>
 
 @end

@@ -4,6 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSSharePointODataCollectionFetcher.h"
+#import "MSSharePointEntityFetcherHelper.h"
+#import "MSSharePointBaseODataContainerHelper.h"
+
 @interface MSSharePointODataCollectionFetcher()
 
 @property NSString* filter;

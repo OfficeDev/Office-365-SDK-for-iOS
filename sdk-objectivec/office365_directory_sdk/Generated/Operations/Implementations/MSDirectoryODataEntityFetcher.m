@@ -5,11 +5,13 @@
  ******************************************************************************/
 
 #import "MSDirectoryODataEntityFetcher.h"
+#import "MSDirectoryODataOperations.h"
+#import "MSDirectoryBaseODataContainerHelper.h"
 
 @interface MSDirectoryODataEntityFetcher()
 
 @property Class entityClass;
-@property MSDirectoryODataOperations* operations;
+@property MSDirectoryODataExecutable* operations;
 
 @end
 

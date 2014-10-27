@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSDirectoryApplicationOperations.h"
+#import "MSDirectoryBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSDirectoryApplicationOperations.

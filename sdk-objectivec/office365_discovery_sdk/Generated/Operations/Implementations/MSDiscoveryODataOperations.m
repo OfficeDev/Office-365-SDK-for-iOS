@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 #import "MSDiscoveryODataOperations.h"
+#import "MSDiscoveryBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSDiscoveryODataOperations.

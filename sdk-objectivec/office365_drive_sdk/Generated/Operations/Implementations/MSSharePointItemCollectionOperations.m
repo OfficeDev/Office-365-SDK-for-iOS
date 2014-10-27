@@ -5,17 +5,19 @@
  ******************************************************************************/
 
 #import "MSSharePointItemCollectionOperations.h"
+#import "MSSharePointBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSSharePointItemCollectionOperations.
 */
 
 @implementation MSSharePointItemCollectionOperations
+
 -(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, NSError *error))callback{
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
+    NSArray* params = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ],nil];
 
 	NSString* parameters = [MSSharePointBaseODataContainerHelper getFunctionParameters: params];

@@ -1,7 +1,3 @@
-#import "MSSharePointIdentitySet.h"
-#import "MSSharePointItemReference.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -9,6 +5,9 @@
  ******************************************************************************/
 
 #import "MSSharePointODataOperations.h"
+#import "MSSharePointIdentitySet.h"
+#import "MSSharePointItemReference.h"
+#import "MSSharePointItem.h"
 
 /**
 * The header for type MSSharePointItemCollectionOperations.

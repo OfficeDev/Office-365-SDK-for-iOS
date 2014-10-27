@@ -5,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSDiscoveryODataEntityFetcher.h"
+#import "MSDiscoveryODataOperations.h"
+#import "MSDiscoveryBaseODataContainerHelper.h"
 
 @interface MSDiscoveryODataEntityFetcher()
 

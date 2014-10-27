@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSSharePointODataOperations.h"
+#import "MSSharePointBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSSharePointODataOperations.

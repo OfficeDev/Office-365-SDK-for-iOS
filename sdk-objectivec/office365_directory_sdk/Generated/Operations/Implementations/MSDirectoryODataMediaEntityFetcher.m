@@ -3,6 +3,9 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
+#import "MSDirectoryODataMediaEntityFetcher.h"
+
 @implementation MSDirectoryODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSDirectoryODataExecutable>)parent{

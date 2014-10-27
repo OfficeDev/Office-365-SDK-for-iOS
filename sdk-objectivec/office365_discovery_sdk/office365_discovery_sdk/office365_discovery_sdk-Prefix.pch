@@ -12,31 +12,4 @@
 
 #import <Foundation/Foundation.h>
 
-// Base
-
-#import <office365_odata_base/MSCredentials.h>
-#import <office365_odata_base/MSCredentialsFactory.h>
-#import <office365_odata_base/MSDependencyResolver.h>
-#import <office365_odata_base/MSHttpTransport.h>
-#import <office365_odata_base/MSHttpVerb.h>
-#import <office365_odata_base/MSJsonSerializer.h>
-#import <office365_odata_base/MSLogger.h>
-#import <office365_odata_base/MSLogLevel.h>
-#import <office365_odata_base/MSRequest.h>
-#import <office365_odata_base/MSResponse.h>
-#import <office365_odata_base/MSODataUrl.h>
-
-#import <office365_discovery_sdk/MSDiscoveryODataExecutable.h>
-#import <office365_discovery_sdk/MSDiscoveryBaseODataContainer.h>
-#import <office365_discovery_sdk/MSDiscoveryClient.h>
-#import <office365_discovery_sdk/MSDiscoveryODataEntityFetcher.h>
-#import <office365_discovery_sdk/MSDiscoveryODataOperations.h>
-#import <office365_discovery_sdk/MSDiscoveryODataCollectionFetcher.h>
-#import <office365_discovery_sdk/MSDiscoveryODataMediaEntityFetcher.h>
-#import <office365_discovery_sdk/MSDiscoveryODataMediaEntityFetcher.h>
-
-// Helpers
-#import <office365_discovery_sdk/MSDiscoveryBaseODataContainerHelper.h>
-#import <office365_discovery_sdk/MSDiscoveryEntityFetcherHelper.h>
-
 #endif

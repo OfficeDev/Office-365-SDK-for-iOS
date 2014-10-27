@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSDirectoryUserOperations.h"
+#import "MSDirectoryBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSDirectoryUserOperations.

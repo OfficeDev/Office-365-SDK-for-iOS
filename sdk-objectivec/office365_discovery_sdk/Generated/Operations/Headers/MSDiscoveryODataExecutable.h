@@ -8,18 +8,18 @@
 * The header for type MSDiscoveryODataExecutable.
 */
 
-
 #import <office365_odata_base/MSDependencyResolver.h>
 
 @protocol MSDiscoveryODataExecutable
+
+@optional
+-(id<MSDependencyResolver>) getResolver;
+-(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
 
 @required
 @property NSString* UrlComponent;
 @property id<MSDiscoveryODataExecutable> Parent;
 
-
--(id<MSDependencyResolver>) getResolver;
--(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
 -(NSDictionary*)getCustomParameters;
 -(void)addCustomParameters : (NSString*)name : (NSString*)value;
 

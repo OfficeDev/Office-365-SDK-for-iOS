@@ -405,6 +405,7 @@
 					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,6 +433,7 @@
 					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

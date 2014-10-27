@@ -3,6 +3,9 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
+
+#import "MSSharePointODataMediaEntityFetcher.h"
+
 @implementation MSSharePointODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataExecutable>)parent{

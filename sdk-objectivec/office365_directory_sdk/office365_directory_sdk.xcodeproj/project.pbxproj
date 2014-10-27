@@ -222,6 +222,16 @@
 		ECEE885919FE99D900823F20 /* MSDirectoryUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEE878C19FE99D900823F20 /* MSDirectoryUserOperations.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EC1E8FA819FEBF7B00594501 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EC0D69B519FACA180092895E /* office365_directory_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_directory_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D69B919FACA180092895E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +245,7 @@
 		EC0D6AA919FACB4B0092895E /* MSDirectoryBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryBaseODataContainerHelper.m; sourceTree = "<group>"; };
 		EC0D6AAA19FACB4B0092895E /* MSDirectoryEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryEntityFetcherHelper.m; sourceTree = "<group>"; };
 		EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		ECEE86BC19FE99D900823F20 /* MSDirectoryAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryAlternativeSecurityId.h; sourceTree = "<group>"; };
 		ECEE86BD19FE99D900823F20 /* MSDirectoryApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryApplication.h; sourceTree = "<group>"; };
 		ECEE86BE19FE99D900823F20 /* MSDirectoryAppRole.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryAppRole.h; sourceTree = "<group>"; };
@@ -464,6 +475,7 @@
 		EC0D69AB19FACA180092895E = {
 			isa = PBXGroup;
 			children = (
+				EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */,
 				EC0D69D019FACB4A0092895E /* Generated */,
 				EC0D6AA419FACB4B0092895E /* Helpers */,
 				EC0D69B719FACA180092895E /* office365_directory_sdk */,
@@ -559,6 +571,14 @@
 				EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC1E8FA519FEBF7B00594501 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC1E8FA919FEBF7B00594501 /* office365_odata_base.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		ECEE86BA19FE99D900823F20 /* Models */ = {
@@ -994,6 +1014,12 @@
 			mainGroup = EC0D69AB19FACA180092895E;
 			productRefGroup = EC0D69B619FACA180092895E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC1E8FA519FEBF7B00594501 /* Products */;
+					ProjectRef = EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EC0D69B419FACA180092895E /* office365_directory_sdk */,
@@ -1001,6 +1027,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC1E8FA919FEBF7B00594501 /* office365_odata_base.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_odata_base.framework;
+			remoteRef = EC1E8FA819FEBF7B00594501 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EC0D69B319FACA180092895E /* Resources */ = {

@@ -13,13 +13,15 @@
 
 @protocol MSDirectoryODataExecutable
 
+@optional
+-(id<MSDependencyResolver>) getResolver;
+-(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
+
 @required
+
 @property NSString* UrlComponent;
 @property id<MSDirectoryODataExecutable> Parent;
 
-
--(id<MSDependencyResolver>) getResolver;
--(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
 -(NSDictionary*)getCustomParameters;
 -(void)addCustomParameters : (NSString*)name : (NSString*)value;
 
