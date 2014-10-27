@@ -10,8 +10,11 @@
 * The header for type MSOutlookODataEntityFetcher.
 */
 
-@interface MSOutlookODataEntityFetcher : MSOutlookODataExecutable
+@protocol MSOutlookODataEntityFetcher <NSObject>
 
+
+-(id<MSDependencyResolver>) getResolver;
+@required
 -(id)initWith:(NSString *)urlComponent :(id<MSOutlookODataExecutable>)parent : (Class) entityClass;
 
 -(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(id entity, NSError * error))callback;
@@ -19,7 +22,11 @@
 -(NSURLSessionDataTask*) execute:(void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb :(void (^)(id<MSResponse>, NSError *))callback;
 
--(id<MSDependencyResolver>) getResolver;
+@optional
 -(id) getOperations;
+
+@end
+
+@interface MSOutlookODataEntityFetcher : MSOutlookODataExecutable<MSOutlookODataEntityFetcher>
 
 @end

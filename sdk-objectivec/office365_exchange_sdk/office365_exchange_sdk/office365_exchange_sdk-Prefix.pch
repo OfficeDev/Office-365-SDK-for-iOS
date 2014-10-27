@@ -25,18 +25,18 @@
 #import <office365_odata_base/MSResponse.h>
 #import <office365_odata_base/MSODataUrl.h>
 
-#import <office365_exchange_sdk/MSOutlookODataExecutable.h>
-#import <office365_exchange_sdk/MSOutlookBaseODataContainer.h>
-#import <office365_exchange_sdk/MSOutlookClient.h>
-#import <office365_exchange_sdk/MSOutlookODataEntityFetcher.h>
-#import <office365_exchange_sdk/MSOutlookODataOperations.h>
-#import <office365_exchange_sdk/MSOutlookODataCollectionFetcher.h>
-#import <office365_exchange_sdk/MSOutlookODataOperations.h>
-#import <office365_exchange_sdk/MSOutlookODataMediaEntityFetcher.h>
+#import "MSOutlookODataExecutable.h"
+#import "MSOutlookBaseODataContainer.h"
+#import "MSOutlookClient.h"
+#import "MSOutlookODataEntityFetcher.h"
+#import "MSOutlookODataOperations.h"
+#import "MSOutlookODataCollectionFetcher.h"
+#import "MSOutlookODataOperations.h"
+#import "MSOutlookODataMediaEntityFetcher.h"
 
 // Helpers
-#import <office365_exchange_sdk/MSOutlookBaseODataContainerHelper.h>
-#import <office365_exchange_sdk/MSOutlookEntityFetcherHelper.h>
+#import "MSOutlookBaseODataContainerHelper.h"
+#import "MSOutlookEntityFetcherHelper.h"
 
 
 #endif

@@ -17,11 +17,12 @@
 @property NSString* UrlComponent;
 @property id<MSOutlookODataExecutable> Parent;
 
-
--(id<MSDependencyResolver>) getResolver;
--(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
 -(NSDictionary*)getCustomParameters;
 -(void)addCustomParameters : (NSString*)name : (NSString*)value;
+
+@optional
+-(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (void (^)(id<MSResponse>, NSError *))callback;
+-(id<MSDependencyResolver>) getResolver;
 
 @end
 
