@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		263BE94119F46DB9009CF776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263BE93E19F46D9C009CF776 /* Main.storyboard */; };
-		26EAD29F19FDC2CA000A1BC2 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EAD29E19FDC2CA000A1BC2 /* office365_odata_base.framework */; };
-		26EAD2A119FDC2CF000A1BC2 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EAD2A019FDC2CF000A1BC2 /* office365_exchange_sdk.framework */; };
 		26FFAEF619FDBC5700F297D9 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */; };
 		26FFAEF719FDBC5700F297D9 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */; };
 		26FFAEF819FDBC5700F297D9 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */; };
@@ -31,8 +29,6 @@
 
 /* Begin PBXFileReference section */
 		263BE93F19F46D9C009CF776 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = base; path = base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		26EAD29E19FDC2CA000A1BC2 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../sdk-objectivec/office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
-		26EAD2A019FDC2CF000A1BC2 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../../sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
 		3638A03216DCE9B2BD5D6179 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FC01EF95E39D3F513C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0A56B6EE5805BF8D61A6E84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,8 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26EAD2A119FDC2CF000A1BC2 /* office365_exchange_sdk.framework in Frameworks */,
-				26EAD29F19FDC2CA000A1BC2 /* office365_odata_base.framework in Frameworks */,
 				ECCF422819F547BC00EA6F9D /* libPods-ADALiOS.a in Frameworks */,
 				E97F7F8BA54B8584616BD92B /* libPods.a in Frameworks */,
 			);
@@ -91,8 +85,6 @@
 		DF6F33257D34664DB168A50F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26EAD2A019FDC2CF000A1BC2 /* office365_exchange_sdk.framework */,
-				26EAD29E19FDC2CA000A1BC2 /* office365_odata_base.framework */,
 				ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */,
 				3638A03216DCE9B2BD5D6179 /* libPods.a */,
 			);

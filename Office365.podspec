@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
-  s.exclude_files = ""
+  s.exclude_files = "**/Build/**/*"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -72,35 +72,42 @@ Pod::Spec.new do |s|
 
   s.subspec 'OData' do |subspec|
      subspec.source_files  = "sdk-objectivec/office365_odata_base/**/*.{h,m}"
+     subspec.exclude_files = "sdk-objectivec/office365_odata_base/Build/**/*"
      subspec.public_header_files = "sdk-objectivec/office365_odata_base/**/*.h"
+     subspec.header_dir = "office365_odata_base"
   end
 
   s.subspec 'Outlook' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_exchange_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_exchange_sdk/**/*.h"
+     subspec.header_dir = "office365_exchange_sdk"
   end
 
   s.subspec 'Files' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_drive_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_drive_sdk/**/*.h"
+     subspec.header_dir = "office365_drive_sdk"
   end
 
   s.subspec 'Directory' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_directory_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_directory_sdk/**/*.h"
+     subspec.header_dir = "office365_directory_sdk"
   end
 
   s.subspec 'Discovery' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_discovery_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_discovery_sdk/**/*.h"
+     subspec.header_dir = "office365_discovery_sdk"
   end
 
   s.subspec 'Lists' do |subspec|
      subspec.source_files = "sdk-objectivec/office365-lists-sdk/**/*.{h,m}"
      subspec.public_header_files = "sdk-objectivec/office365-lists-sdk/**/*.h"
+     subspec.header_dir = "office365-lists-sdk"
   end
 end
