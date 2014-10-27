@@ -1,120 +1,96 @@
-#Office 365 IOS SDK
-
-*Readme in progress - After samples section is not up to date*
+# Office 365 SDK for iOS
 
 **Table of Contents**
 
 - [Overview](#overview)
-- [Build instructions](#build-instructions)
-- [Starting your app from scratch](#starting-your-app-from-scratch)
-- [Office 365 Samples](#office-365-samples)
-- [Simple Office 365 Sample](#simple-office-365-sample)
-- [Tests](#tests)
+- [Develop your own apps](#develop-your-own-apps)
+- [Samples](#samples)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Overview ##
+## Overview
+With the Office 365 SDK for iOS Preview, it’s now possible to use data stored in Microsoft Office 365 from your iOS Apps. 
 
-With the Office 365 SDK for IOS Preview, it’s now possible to use data stored in Microsoft Office 365 from your IOS Apps. 
+[Microsoft Open Technologies, Inc. (MS Open Tech)](http://msopentech.com) has built the **Office 365 SDK for IOS Preview**, an open source project to help iOS developers access Office 365 data from their apps.
 
-[Microsoft Open Technologies, Inc. (MS Open Tech)](http://msopentech.com) has built the **Office 365 SDK for IOS Preview**, an open source project that strives to help IOS developers access Office 365 data from their apps.
+## Develop your own apps
+This section will guide you through the process of creating a very simple application that retrieves messages using the Office 365 SDK and and Azure Active Directory Authentication Library.
 
-##Build instructions
+1. Create a new iOS application in Xcode.
+2. Use Cocoapods to retrieve the Office 365 SDKs and the Azure Active Directory Authentication Library (ADAL).
+  > For more info on Cocoapods see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup).
+  
+  Add a Podfile similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
+  ```Ruby
+  pod 'Office365', '~>0.5'
+  pod 'ADALiOS', '~>1.0.0'
+  ```
+  From the same directory, run `pod install` to configure your dependencies and add them and the existing project to a new workspace.
+  Finally, run `open your-project-name.xcworkspace` to open your workspace in Xcode.
 
-```
-git clone https://github.com/MSOpenTech/o365sdk-ios.git
-```
+3. Add header imports in your code modules.
+  To use the SDK, you'll need to import the necessary header files. These look like this:
 
-Open the office365-sdks.xcworkspace with Xcode and build the projects. For building the Sample exchange app you have to add the Adal reference.
+  ```Objective-C
+  #import <office365_odata_base/office365_odata_base.h>
+  
+  #import <office365_exchange_sdk/office365_exchange_sdk.h>
+  #import <office365_drive_sdk/office365_drive_sdk.h>
+  #import <office365_directory_sdk/office365_directory_sdk.h>
+  ```
 
-> Note: You have to have Xcode 6.
+4. You'll also need to set up [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-objc) to handle authentication. See their repo and our samples to help you get OAuth access tokens.
 
-##Starting your app from scratch
-This section will guide you through the process of creating a very simple application that retrieves messages using the Office 365 IOS SDK and Azure Active Directory for IOS SDK.
+5. Set up the dependency resolver.
+  Once you have your token, you'll use it to configure your dependency resolver. A typical implementation follows:
 
-1. Create a new IOS application fro retireving messages using Xcode.
+  > The dependency resolver provides a dependency injection mechanism for working with various HTTP clients, JSON serializers, credential types, and loggers. You'll need to add your OAuth access token to the dependency resolver so that it's used on all API requests.
 
-> **IMPORTANT**: Currently the sdk is not available as pod dependency in CocoaPods. In order to use it, just add the sdk proyects in your sample with add files to project option.
+  ```Objective-C
+  NSString *accessToken = tokenReturnedByADAL;
+  MSDefaultDependencyResolver *resolver = [[MSDefaultDependencyResolver alloc] init];
+  MSOAuthCredentials *credentials = [[MSOAuthCredentials alloc] init];
+  [credentials addToken:accessToken];
+  
+  MSCredentialsImpl* credentialsImpl = [[MSCredentialsImpl alloc] init];
+  
+  [credentialsImpl setCredentials:credentials];
+  [resolver setCredentialsFactory:credentialsImpl];
+  
+  MSOutlookClient *client =[[MSOutlookClient alloc] initWitUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
+  ```
 
-add -> office365_odata_impl
-office365_exchange_sdk
-ADALiOS
+6. Now, use the SDK to automate API calls and get the data you need.
+  Here's how to get all the messages for the current user.
 
-2. Add the necesary code to get the authentication token using ADAL library. To do that, follow the steps described in the ADAL documentation (How to use this library section).
+  ```Objective-C
+  NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+    if(error == nil){
+      dispatch_async(dispatch_get_main_queue(),
+        ^{
+            //your logic here
+        });
+      }
+    }
+  ];
+  
+  [task resume];
+  ```
 
-```
-https://github.com/AzureAD/azure-activedirectory-library-for-objc
-```
+## Samples
+In the samples folder you'll find runnable sample code for Outlook Services (aka Exchange), Files Services (aka Drive), and the Discovery Service, with more to come soon.
 
-3. Add the imports to thre project
+The samples utilize Cocoapods to configure both the Office365 SDKs and ADAL.
 
-> **IMORTANT**: You can create a pch file to add all the imports.
+1. Open Terminal.
+2. Navigate to inside the project's folder.
+3. Run `pod install`.
+4. Run `open simple-<project-name>-app.xcworkspace` to open the workspace with project and dependencies.
 
-```
-#import <office365_exchange_sdk/MSOEntityContainerClient.h>
-#import <office365_odata_impl/MSODefaultDependencyResolver.h>
-#import <office365_odata_impl/MSOOAuthCredentials.h>
-#import <office365_odata_impl/MSOCredentialsImpl.h>
-#import <office365_exchange_sdk/MSORecipient.h>
-#import <office365_exchange_sdk/MSOEmailAddress.h>
-#import <office365_exchange_sdk/MSOMessage.h>
-#import <office365_exchange_sdk/MSOUserFetcher.h>
-#import <office365_exchange_sdk/MSOMessageCollectionFetcher.h>
-````
+> For more info on Cocoapods see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup).
 
-4. Once you get the token, you will need to create and instance of the Dependency Resolver 
-
-> **IMPORTANT**: The project office365_odata_impl contains a custom implementation for:
--OAuthCredentials
--Http
--JsonParser
-
-```
-NSString* token = yourToken;
-MSODefaultDependencyResolver* resolver = [MSODefaultDependencyResolver alloc];
-MSOOAuthCredentials* credentials = [MSOOAuthCredentials alloc];
-[credentials addToken:token];
-
-MSOCredentialsImpl* credentialsImpl = [MSOCredentialsImpl alloc];
-
-[credentialsImpl setCredentials:credentials];
-[resolver setCredentialsFactory:credentialsImpl];
-
-MSOEntityContainerClient *client =[[MSOEntityContainerClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata"       dependencyResolver:resolver];
-````
-
-4. To retrieve the messages of the root folder
-
-```
-NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOMessage> *messages, NSError *error) {
-
-if(error == nil){
-dispatch_async(dispatch_get_main_queue(),
-^{
-//Put your logic here
-});
-}
-}];
-
-[task resume];
-```
-
-##Office 365 Samples
-
-There is a simple exchange app for getting the user properties, the folders and messages added to the workspace (located in the sdk-objectivec folder).
-
-For run the example you have to install the Adal Pod.
-1- Open a terminal
-2- Position in the simple-exchange-app folder
-3- Execute Pod Install
-
-## Features ##
-
-## Tests ##
-
-##Contributing##
-
+## Contributing
 You will need to sign a [Contributor License Agreement](https://cla.msopentech.com/) before submitting your pull request. To complete the Contributor License Agreement (CLA), you will need to submit a request via the form and then electronically sign the Contributor License Agreement when you receive the email containing the link to the document. This needs to only be done once for any Microsoft Open Technologies OSS project.
 
-## License ##
+## License
 Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License");
