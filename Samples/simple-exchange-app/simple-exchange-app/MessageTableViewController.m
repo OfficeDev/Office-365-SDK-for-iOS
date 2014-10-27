@@ -4,8 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+
 #import "MessageTableViewController.h"
 #import "BaseController.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface MessageTableViewController ()
 
@@ -56,9 +58,7 @@
 
 -(void)getMessagesFromInbox{
  
-   UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
-    
-   [BaseController getClient:^(MSOutlookClient *client) {
+   [[BaseController alloc] getClient:^(MSOutlookClient *client) {
        NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
            
            if(error == nil){
@@ -66,17 +66,12 @@
                               ^{
                                   self.Messages = messages;
                                   [self.tableView reloadData];
-                                  [spinner stopAnimating];
                               });
            }
        }];
        
        [task resume];
    }];
-}
-
-- (IBAction)Refresh:(id)sender{
-    [self getMessagesFromInbox];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

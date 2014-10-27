@@ -1,11 +1,14 @@
-/*******************************************************************************
- * Copyright (c) Microsoft Open Technologies, Inc.
- * All Rights Reserved
- * See License.txt in the project root for license information.
- ******************************************************************************/
+//
+//  SendMessageViewController.m
+//  simple-exchange-app
+//
+//  Created by Gustavo on 10/9/14.
+//  Copyright (c) 2014 Lagash. All rights reserved.
+//
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface SendMessageViewController ()
 
@@ -23,10 +26,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 - (IBAction)SendMail:(id)sender{
 
-    UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
-    [BaseController getClient:^(MSOutlookClient * client) {
+    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
         MSOutlookMessage *message = [MSOutlookMessage alloc];
         
         message.Subject = self.txtSubject.text;
@@ -35,14 +47,9 @@
         message.Body.Content = self.txtBody.text;
         
         NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                                UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                                                message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
-                                [spinner stopAnimating];
-                                [alert show];
-                           });
+            [alert show];
         }];
         
         [task resume];
@@ -65,5 +72,4 @@
     }
     return result;
 }
-
 @end
