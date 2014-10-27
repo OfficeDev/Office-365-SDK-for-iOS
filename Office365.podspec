@@ -79,7 +79,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Outlook' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_exchange_sdk/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365_exchange_sdk/Build/**/*"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_exchange_sdk/**/*.h"
      subspec.header_dir = "office365_exchange_sdk"
@@ -87,7 +86,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Files' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_drive_sdk/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365_drive_sdk/Build/**/*"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_drive_sdk/**/*.h"
      subspec.header_dir = "office365_drive_sdk"
@@ -95,7 +93,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Directory' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_directory_sdk/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365_directory_sdk/Build/**/*"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_directory_sdk/**/*.h"
      subspec.header_dir = "office365_directory_sdk"
@@ -103,7 +100,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Discovery' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_discovery_sdk/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365_discovery_sdk/Build/**/*"
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_discovery_sdk/**/*.h"
      subspec.header_dir = "office365_discovery_sdk"
@@ -111,7 +107,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Lists' do |subspec|
      subspec.source_files = "sdk-objectivec/office365-lists-sdk/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365-lists-sdk/Build/**/*"
      subspec.public_header_files = "sdk-objectivec/office365-lists-sdk/**/*.h"
      subspec.header_dir = "office365-lists-sdk"
   end

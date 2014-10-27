@@ -39,11 +39,11 @@
 - (IBAction)SendMail:(id)sender{
 
     [[BaseController alloc] getClient:^(MSOutlookClient * client) {
-        MSOutlookMessage *message = [MSOutlookMessage alloc];
+        MSMessage *message = [MSMessage alloc];
         
         message.Subject = self.txtSubject.text;
         message.ToRecipients = [self getRecipients:self.txtTo.text];
-        message.Body = [[MSOutlookItemBody alloc] init];
+        message.Body = [[MSItemBody alloc] init];
         message.Body.Content = self.txtBody.text;
         
         NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
@@ -56,16 +56,16 @@
     }];
 }
 
--(NSMutableArray<MSOutlookRecipient>*)getRecipients : (NSString*)text{
+-(NSMutableArray<MSRecipient>*)getRecipients : (NSString*)text{
     
-    NSMutableArray<MSOutlookRecipient>* result = (NSMutableArray<MSOutlookRecipient>*)[NSMutableArray array];
+    NSMutableArray<MSRecipient>* result = (NSMutableArray<MSRecipient>*)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
     for (NSString* r in recipients) {
         
-        MSOutlookRecipient* recipient = [[MSOutlookRecipient alloc] init];
-        recipient.EmailAddress = [MSOutlookEmailAddress alloc];
+        MSRecipient* recipient = [[MSRecipient alloc] init];
+        recipient.EmailAddress = [MSEmailAddress alloc];
         recipient.EmailAddress.Address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         [result addObject: recipient];

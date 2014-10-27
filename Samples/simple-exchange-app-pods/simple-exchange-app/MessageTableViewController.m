@@ -49,7 +49,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
-    MSOutlookMessage *message = (MSOutlookMessage *)[self.Messages objectAtIndex:indexPath.row];
+    MSMessage *message = (MSMessage*)[self.Messages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.Sender.EmailAddress.Name, message.Subject];
     
@@ -59,7 +59,7 @@
 -(void)getMessagesFromInbox{
  
    [[BaseController alloc] getClient:^(MSOutlookClient *client) {
-       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSMessage> *messages, NSError *error) {
            
            if(error == nil){
                dispatch_async(dispatch_get_main_queue(),
