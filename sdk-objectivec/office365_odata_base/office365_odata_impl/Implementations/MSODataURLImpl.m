@@ -93,7 +93,7 @@
             queryString =[[NSMutableString alloc] initWithString : [self removeTrailingSlash: queryString]];
         }
         
-        [queryString appendString:[[self addTrailingSlash : value] urlencode]];
+        [queryString appendString:[self addTrailingSlash : value] ];
     }	
   
     if([self.QueryStringParameters allKeys].count > 0){
