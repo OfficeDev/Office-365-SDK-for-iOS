@@ -11,32 +11,4 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import <Foundation/Foundation.h>
 
-// Base
-
-#import <office365_odata_base/MSCredentials.h>
-#import <office365_odata_base/MSCredentialsFactory.h>
-#import <office365_odata_base/MSDependencyResolver.h>
-#import <office365_odata_base/MSHttpTransport.h>
-#import <office365_odata_base/MSHttpVerb.h>
-#import <office365_odata_base/MSJsonSerializer.h>
-#import <office365_odata_base/MSLogger.h>
-#import <office365_odata_base/MSLogLevel.h>
-#import <office365_odata_base/MSRequest.h>
-#import <office365_odata_base/MSResponse.h>
-#import <office365_odata_base/MSODataUrl.h>
-
-#import <office365_exchange_sdk/MSODataExecutable.h>
-#import <office365_exchange_sdk/MSBaseODataContainer.h>
-#import <office365_exchange_sdk/MSOutlookClient.h>
-#import <office365_exchange_sdk/MSODataEntityFetcher.h>
-#import <office365_exchange_sdk/MSODataOperations.h>
-#import <office365_exchange_sdk/MSODataCollectionFetcher.h>
-#import <office365_exchange_sdk/MSODataOperations.h>
-#import <office365_exchange_sdk/MSODataMediaEntityFetcher.h>
-
-// Helpers
-#import <office365_exchange_sdk/MSBaseODataContainerHelper.h>
-#import <office365_exchange_sdk/MSEntityFetcherHelper.h>
-
-
 #endif

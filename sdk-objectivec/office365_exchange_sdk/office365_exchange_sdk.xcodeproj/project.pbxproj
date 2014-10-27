@@ -7,10 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2601EB3719FE9BAB006D7CEA /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */; };
 		2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2647EB1419F44D9D00FD9527 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */; };
-		2647EB1B19F44D9D00FD9527 /* office365_exchange_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EB1A19F44D9D00FD9527 /* office365_exchange_sdkTests.m */; };
-		2647EB2519F44DBD00FD9527 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EB2419F44DBD00FD9527 /* office365_odata_base.framework */; };
 		2647ECA719F44E2A00FD9527 /* MSBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9E19F44E2A00FD9527 /* MSBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647ECA819F44E2A00FD9527 /* MSEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EC9F19F44E2A00FD9527 /* MSEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647ECAB19F44E2A00FD9527 /* MSBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647ECA319F44E2A00FD9527 /* MSBaseODataContainerHelper.m */; };
@@ -195,23 +193,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2647EB1519F44D9D00FD9527 /* PBXContainerItemProxy */ = {
+		2601EB3519FE9B95006D7CEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2647EAFF19F44D9D00FD9527 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2647EB0719F44D9D00FD9527;
-			remoteInfo = office365_exchange_sdk;
+			containerPortal = 2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_exchange_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EB0C19F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
-		2647EB1319F44D9D00FD9527 /* office365_exchange_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_exchange_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2647EB1919F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2647EB1A19F44D9D00FD9527 /* office365_exchange_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_exchange_sdkTests.m; sourceTree = "<group>"; };
-		2647EB2419F44DBD00FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/Build/Products/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
 		2647EC9E19F44E2A00FD9527 /* MSBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainerHelper.h; sourceTree = "<group>"; };
 		2647EC9F19F44E2A00FD9527 /* MSEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcherHelper.h; sourceTree = "<group>"; };
 		2647ECA319F44E2A00FD9527 /* MSBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainerHelper.m; sourceTree = "<group>"; };
@@ -400,28 +395,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2647EB2519F44DBD00FD9527 /* office365_odata_base.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2647EB1019F44D9D00FD9527 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2647EB1419F44D9D00FD9527 /* office365_exchange_sdk.framework in Frameworks */,
+				2601EB3719FE9BAB006D7CEA /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2601EB3219FE9B95006D7CEA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2647EAFE19F44D9D00FD9527 = {
 			isa = PBXGroup;
 			children = (
+				2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */,
 				2647EB2619F44DDD00FD9527 /* Generated */,
 				2647EC9C19F44E2A00FD9527 /* Helpers */,
 				2647EB0A19F44D9D00FD9527 /* office365_exchange_sdk */,
-				2647EB1719F44D9D00FD9527 /* office365_exchange_sdkTests */,
 				2647ECB319F4549B00FD9527 /* Frameworks */,
 				2647EB0919F44D9D00FD9527 /* Products */,
 			);
@@ -431,7 +426,6 @@
 			isa = PBXGroup;
 			children = (
 				2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */,
-				2647EB1319F44D9D00FD9527 /* office365_exchange_sdkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -450,23 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				2647EB0C19F44D9D00FD9527 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		2647EB1719F44D9D00FD9527 /* office365_exchange_sdkTests */ = {
-			isa = PBXGroup;
-			children = (
-				2647EB1A19F44D9D00FD9527 /* office365_exchange_sdkTests.m */,
-				2647EB1819F44D9D00FD9527 /* Supporting Files */,
-			);
-			path = office365_exchange_sdkTests;
-			sourceTree = "<group>";
-		};
-		2647EB1819F44D9D00FD9527 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				2647EB1919F44D9D00FD9527 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -528,7 +505,6 @@
 		2647ECB319F4549B00FD9527 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2647EB2419F44DBD00FD9527 /* office365_odata_base.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -866,24 +842,6 @@
 			productReference = 2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2647EB1219F44D9D00FD9527 /* office365_exchange_sdkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2647EB2119F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "office365_exchange_sdkTests" */;
-			buildPhases = (
-				2647EB0F19F44D9D00FD9527 /* Sources */,
-				2647EB1019F44D9D00FD9527 /* Frameworks */,
-				2647EB1119F44D9D00FD9527 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2647EB1619F44D9D00FD9527 /* PBXTargetDependency */,
-			);
-			name = office365_exchange_sdkTests;
-			productName = office365_exchange_sdkTests;
-			productReference = 2647EB1319F44D9D00FD9527 /* office365_exchange_sdkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -895,10 +853,7 @@
 				TargetAttributes = {
 					2647EB0719F44D9D00FD9527 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 9L5V82WV95;
-					};
-					2647EB1219F44D9D00FD9527 = {
-						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = CZ6326VW7H;
 					};
 				};
 			};
@@ -912,23 +867,31 @@
 			mainGroup = 2647EAFE19F44D9D00FD9527;
 			productRefGroup = 2647EB0919F44D9D00FD9527 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2601EB3219FE9B95006D7CEA /* Products */;
+					ProjectRef = 2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */,
-				2647EB1219F44D9D00FD9527 /* office365_exchange_sdkTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_odata_base.framework;
+			remoteRef = 2601EB3519FE9B95006D7CEA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		2647EB0619F44D9D00FD9527 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2647EB1119F44D9D00FD9527 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1029,23 +992,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2647EB0F19F44D9D00FD9527 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2647EB1B19F44D9D00FD9527 /* office365_exchange_sdkTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2647EB1619F44D9D00FD9527 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */;
-			targetProxy = 2647EB1519F44D9D00FD9527 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2647EB1C19F44D9D00FD9527 /* Debug */ = {
@@ -1180,36 +1127,6 @@
 			};
 			name = Release;
 		};
-		2647EB2219F44D9D00FD9527 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_exchange_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		2647EB2319F44D9D00FD9527 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = office365_exchange_sdkTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1227,15 +1144,6 @@
 			buildConfigurations = (
 				2647EB1F19F44D9D00FD9527 /* Debug */,
 				2647EB2019F44D9D00FD9527 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2647EB2119F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "office365_exchange_sdkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2647EB2219F44D9D00FD9527 /* Debug */,
-				2647EB2319F44D9D00FD9527 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

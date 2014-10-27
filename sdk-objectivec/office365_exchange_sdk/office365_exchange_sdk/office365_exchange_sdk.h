@@ -12,9 +12,10 @@ FOUNDATION_EXPORT double office365_exchange_sdkVersionNumber;
 //! Project version string for office365_exchange_sdk.
 FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <office365_exchange_sdk/PublicHeader.h>
+// Should we import the base dependency?
+// #import <office365_odata_base/office365_odata_base.h>
 
-//Operation
+//Operations
 #import <office365_exchange_sdk/MSAttachmentCollectionFetcher.h>
 #import <office365_exchange_sdk/MSAttachmentCollectionOperations.h>
 #import <office365_exchange_sdk/MSAttachmentFetcher.h>
@@ -74,3 +75,6 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSUserFetcher.h>
 #import <office365_exchange_sdk/MSUserOperations.h>
 #import <office365_exchange_sdk/MSODataMediaEntityFetcher.h>
+
+#import <office365_exchange_sdk/MSBaseODataContainerHelper.h>
+#import <office365_exchange_sdk/MSEntityFetcherHelper.h>
