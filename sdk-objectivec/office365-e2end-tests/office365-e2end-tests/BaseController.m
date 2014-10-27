@@ -13,7 +13,7 @@
     
     LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://sdfpilot.outlook.com" :true completionHandler:^(NSString *token) {
+    [loginController getTokenWith : @"https://outlook.office365.com/" :true completionHandler:^(NSString *token) {
     
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
@@ -23,7 +23,7 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
     
-        callback([[MSOutlookClient alloc] initWitUrl:@"https://sdfpilot.outlook.com/ews/odata" dependencyResolver:resolver]);
+        callback([[MSOutlookClient alloc] initWitUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
     }];
 }
 @end
