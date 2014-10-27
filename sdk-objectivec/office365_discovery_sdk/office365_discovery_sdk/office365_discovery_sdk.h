@@ -30,4 +30,3 @@ FOUNDATION_EXPORT const unsigned char office365_discovery_sdkVersionString[];
 // Helpers
 #import <office365_discovery_sdk/MSDiscoveryBaseODataContainerHelper.h>
 #import <office365_discovery_sdk/MSDiscoveryEntityFetcherHelper.h>
-

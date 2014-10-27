@@ -12,10 +12,6 @@
 		EC2CCAA719F8A4AC00D12E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CCAA519F8A4AC00D12E55 /* Main.storyboard */; };
 		EC2CCAA919F8A4AC00D12E55 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC2CCAA819F8A4AC00D12E55 /* Images.xcassets */; };
 		EC2CCAAC19F8A4AC00D12E55 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC2CCAAA19F8A4AC00D12E55 /* LaunchScreen.xib */; };
-		EC2CCAB819F8A4AC00D12E55 /* simple_discovery_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CCAB719F8A4AC00D12E55 /* simple_discovery_appTests.m */; };
-		EC684A9819F8A53000CE060A /* libADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC684A9519F8A53000CE060A /* libADALiOS.a */; };
-		EC684A9919F8A53000CE060A /* office365_discovery_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC684A9619F8A53000CE060A /* office365_discovery_sdk.framework */; };
-		EC684A9A19F8A53000CE060A /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC684A9719F8A53000CE060A /* office365_odata_base.framework */; };
 		EC684AB119F8A55300CE060A /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC684A9D19F8A55300CE060A /* ADAL_iPad_Storyboard.storyboard */; };
 		EC684AB219F8A55300CE060A /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC684A9E19F8A55300CE060A /* ADAL_iPhone_Storyboard.storyboard */; };
 		EC684AB319F8A55300CE060A /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC684A9F19F8A55300CE060A /* ADALiOSBundle-Info.plist */; };
@@ -26,19 +22,14 @@
 		EC684AB819F8A55300CE060A /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AAB19F8A55300CE060A /* UserSettingsViewController.m */; };
 		EC684AB919F8A55300CE060A /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AAE19F8A55300CE060A /* ServicesTableViewController.m */; };
 		EC684ABC19F8A81400CE060A /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = EC684ABB19F8A81400CE060A /* office365.png */; };
+		ECCF141419FED97B00625EEC /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF141219FED97B00625EEC /* libPods-ADALiOS.a */; };
+		ECCF141519FED97B00625EEC /* libPods-Office365.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF141319FED97B00625EEC /* libPods-Office365.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EC2CCAB219F8A4AC00D12E55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC2CCA8D19F8A4AC00D12E55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC2CCA9419F8A4AC00D12E55;
-			remoteInfo = "simple-discovery-app";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		47A040910CFDD02E0E3E874D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9200EF566C3204FEF7DCAD10 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		94DE0ED58F0E65555280183A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC2CCA9519F8A4AC00D12E55 /* simple-discovery-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-discovery-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CCA9919F8A4AC00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC2CCA9A19F8A4AC00D12E55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,9 +37,6 @@
 		EC2CCAA619F8A4AC00D12E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC2CCAA819F8A4AC00D12E55 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC2CCAAB19F8A4AC00D12E55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EC2CCAB119F8A4AC00D12E55 /* simple-discovery-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-discovery-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2CCAB619F8A4AC00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC2CCAB719F8A4AC00D12E55 /* simple_discovery_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = simple_discovery_appTests.m; sourceTree = "<group>"; };
 		EC684A9519F8A53000CE060A /* libADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libADALiOS.a; path = "../../../azure-activedirectory-library-for-objc-1.0.1/ADALiOS/build/Debug-iphoneos/libADALiOS.a"; sourceTree = "<group>"; };
 		EC684A9619F8A53000CE060A /* office365_discovery_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_discovery_sdk.framework; path = "../../sdk-objectivec/office365_discovery_sdk/build/Debug-iphoneos/office365_discovery_sdk.framework"; sourceTree = "<group>"; };
 		EC684A9719F8A53000CE060A /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../sdk-objectivec/office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
@@ -68,6 +56,8 @@
 		EC684AAD19F8A55300CE060A /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
 		EC684AAE19F8A55300CE060A /* ServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesTableViewController.m; sourceTree = "<group>"; };
 		EC684ABB19F8A81400CE060A /* office365.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = office365.png; path = Images.xcassets/AppIcon.appiconset/office365.png; sourceTree = "<group>"; };
+		ECCF141219FED97B00625EEC /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		ECCF141319FED97B00625EEC /* libPods-Office365.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Office365.a"; path = "Pods/build/Debug-iphoneos/libPods-Office365.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,29 +65,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC684A9819F8A53000CE060A /* libADALiOS.a in Frameworks */,
-				EC684A9919F8A53000CE060A /* office365_discovery_sdk.framework in Frameworks */,
-				EC684A9A19F8A53000CE060A /* office365_odata_base.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC2CCAAE19F8A4AC00D12E55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				ECCF141419FED97B00625EEC /* libPods-ADALiOS.a in Frameworks */,
+				ECCF141519FED97B00625EEC /* libPods-Office365.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46C1532CC73E9603D203BD1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9200EF566C3204FEF7DCAD10 /* Pods.debug.xcconfig */,
+				94DE0ED58F0E65555280183A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EC2CCA8C19F8A4AC00D12E55 = {
 			isa = PBXGroup;
 			children = (
 				EC684A9B19F8A53800CE060A /* Frameworks */,
 				EC2CCA9719F8A4AC00D12E55 /* simple-discovery-app */,
-				EC2CCAB419F8A4AC00D12E55 /* simple-discovery-appTests */,
 				EC2CCA9619F8A4AC00D12E55 /* Products */,
+				46C1532CC73E9603D203BD1A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				EC2CCA9519F8A4AC00D12E55 /* simple-discovery-app.app */,
-				EC2CCAB119F8A4AC00D12E55 /* simple-discovery-appTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,29 +125,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EC2CCAB419F8A4AC00D12E55 /* simple-discovery-appTests */ = {
-			isa = PBXGroup;
-			children = (
-				EC2CCAB719F8A4AC00D12E55 /* simple_discovery_appTests.m */,
-				EC2CCAB519F8A4AC00D12E55 /* Supporting Files */,
-			);
-			path = "simple-discovery-appTests";
-			sourceTree = "<group>";
-		};
-		EC2CCAB519F8A4AC00D12E55 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EC2CCAB619F8A4AC00D12E55 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		EC684A9B19F8A53800CE060A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECCF141219FED97B00625EEC /* libPods-ADALiOS.a */,
+				ECCF141319FED97B00625EEC /* libPods-Office365.a */,
 				EC684A9519F8A53000CE060A /* libADALiOS.a */,
 				EC684A9619F8A53000CE060A /* office365_discovery_sdk.framework */,
 				EC684A9719F8A53000CE060A /* office365_odata_base.framework */,
+				47A040910CFDD02E0E3E874D /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC2CCABB19F8A4AC00D12E55 /* Build configuration list for PBXNativeTarget "simple-discovery-app" */;
 			buildPhases = (
+				7C5465EF36D5B68C253A3D76 /* Check Pods Manifest.lock */,
 				EC2CCA9119F8A4AC00D12E55 /* Sources */,
 				EC2CCA9219F8A4AC00D12E55 /* Frameworks */,
 				EC2CCA9319F8A4AC00D12E55 /* Resources */,
+				F0EEA5902894AB3240192211 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,24 +195,6 @@
 			productName = "simple-discovery-app";
 			productReference = EC2CCA9519F8A4AC00D12E55 /* simple-discovery-app.app */;
 			productType = "com.apple.product-type.application";
-		};
-		EC2CCAB019F8A4AC00D12E55 /* simple-discovery-appTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC2CCABE19F8A4AC00D12E55 /* Build configuration list for PBXNativeTarget "simple-discovery-appTests" */;
-			buildPhases = (
-				EC2CCAAD19F8A4AC00D12E55 /* Sources */,
-				EC2CCAAE19F8A4AC00D12E55 /* Frameworks */,
-				EC2CCAAF19F8A4AC00D12E55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC2CCAB319F8A4AC00D12E55 /* PBXTargetDependency */,
-			);
-			name = "simple-discovery-appTests";
-			productName = "simple-discovery-appTests";
-			productReference = EC2CCAB119F8A4AC00D12E55 /* simple-discovery-appTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -247,10 +207,6 @@
 				TargetAttributes = {
 					EC2CCA9419F8A4AC00D12E55 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					EC2CCAB019F8A4AC00D12E55 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = EC2CCA9419F8A4AC00D12E55;
 					};
 				};
 			};
@@ -268,7 +224,6 @@
 			projectRoot = "";
 			targets = (
 				EC2CCA9419F8A4AC00D12E55 /* simple-discovery-app */,
-				EC2CCAB019F8A4AC00D12E55 /* simple-discovery-appTests */,
 			);
 		};
 /* End PBXProject section */
@@ -289,14 +244,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC2CCAAF19F8A4AC00D12E55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7C5465EF36D5B68C253A3D76 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		F0EEA5902894AB3240192211 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC2CCA9119F8A4AC00D12E55 /* Sources */ = {
@@ -313,23 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC2CCAAD19F8A4AC00D12E55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC2CCAB819F8A4AC00D12E55 /* simple_discovery_appTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EC2CCAB319F8A4AC00D12E55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC2CCA9419F8A4AC00D12E55 /* simple-discovery-app */;
-			targetProxy = EC2CCAB219F8A4AC00D12E55 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EC2CCAA519F8A4AC00D12E55 /* Main.storyboard */ = {
@@ -437,12 +402,16 @@
 		};
 		EC2CCABC19F8A4AC00D12E55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9200EF566C3204FEF7DCAD10 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "simple-discovery-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -450,48 +419,18 @@
 		};
 		EC2CCABD19F8A4AC00D12E55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94DE0ED58F0E65555280183A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "simple-discovery-app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		EC2CCABF19F8A4AC00D12E55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-discovery-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-discovery-app.app/simple-discovery-app";
-			};
-			name = Debug;
-		};
-		EC2CCAC019F8A4AC00D12E55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "simple-discovery-appTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-discovery-app.app/simple-discovery-app";
 			};
 			name = Release;
 		};
@@ -512,15 +451,6 @@
 			buildConfigurations = (
 				EC2CCABC19F8A4AC00D12E55 /* Debug */,
 				EC2CCABD19F8A4AC00D12E55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC2CCABE19F8A4AC00D12E55 /* Build configuration list for PBXNativeTarget "simple-discovery-appTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC2CCABF19F8A4AC00D12E55 /* Debug */,
-				EC2CCAC019F8A4AC00D12E55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

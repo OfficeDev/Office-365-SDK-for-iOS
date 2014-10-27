@@ -1,6 +1,3 @@
-#import "MSSharePointItem.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -8,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSSharePointItemCollectionOperations.h"
+#import "MSSharePointItem.h"
 
 /**
 * The header for type MSSharePointFolderCollectionOperations.

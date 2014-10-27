@@ -4,10 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 #import "MSDiscoveryServiceInfoCollectionFetcher.h"
-
 #import "MSDiscoveryServiceInfoCollectionFetcher.h"
-
-
 #import "MSDiscoveryBaseODataContainer.h"
 
 /**
