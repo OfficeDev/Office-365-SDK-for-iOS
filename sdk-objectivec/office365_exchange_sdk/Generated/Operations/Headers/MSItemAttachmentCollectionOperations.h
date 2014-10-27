@@ -1,6 +1,3 @@
-#import "MSItem.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -8,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSAttachmentCollectionOperations.h"
+#import "MSItem.h"
 
 /**
 * The header for type MSItemAttachmentCollectionOperations.

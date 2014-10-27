@@ -1,3 +1,11 @@
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
+
+#import "MSItemCollectionOperations.h"
+
 #import "MSItemBody.h"
 #import "MSImportance.h"
 #import "MSLocation.h"
@@ -9,15 +17,6 @@
 #import "MSAttachment.h"
 #import "MSCalendar.h"
 #import "MSEvent.h"
-
-
-/*******************************************************************************
- * Copyright (c) Microsoft Open Technologies, Inc.
- * All Rights Reserved
- * See License.txt in the project root for license information.
- ******************************************************************************/
-
-#import "MSItemCollectionOperations.h"
 
 /**
 * The header for type MSEventCollectionOperations.

@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSFolderOperations.h"
+#import "MSBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSFolderOperations.

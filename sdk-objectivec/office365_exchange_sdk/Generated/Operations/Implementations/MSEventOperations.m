@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSEventOperations.h"
+#import "MSBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSEventOperations.

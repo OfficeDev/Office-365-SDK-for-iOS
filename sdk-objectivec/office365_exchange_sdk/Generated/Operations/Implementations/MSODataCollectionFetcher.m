@@ -4,6 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSODataCollectionFetcher.h"
+#import "MSEntityFetcherHelper.h"
+#import "MSBaseODataContainerHelper.h"
+
 @interface MSODataCollectionFetcher()
 
 @property NSString* filter;

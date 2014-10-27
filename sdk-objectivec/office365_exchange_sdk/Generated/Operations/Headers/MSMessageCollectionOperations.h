@@ -1,9 +1,3 @@
-#import "MSItemBody.h"
-#import "MSImportance.h"
-#import "MSRecipient.h"
-#import "MSAttachment.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -11,6 +5,10 @@
  ******************************************************************************/
 
 #import "MSItemCollectionOperations.h"
+#import "MSItemBody.h"
+#import "MSImportance.h"
+#import "MSRecipient.h"
+#import "MSAttachment.h"
 
 /**
 * The header for type MSMessageCollectionOperations.

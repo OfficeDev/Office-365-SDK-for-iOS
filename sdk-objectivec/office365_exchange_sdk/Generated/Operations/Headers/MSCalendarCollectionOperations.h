@@ -1,6 +1,3 @@
-#import "MSEvent.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -8,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSEntityCollectionOperations.h"
+#import "MSEvent.h"
 
 /**
 * The header for type MSCalendarCollectionOperations.

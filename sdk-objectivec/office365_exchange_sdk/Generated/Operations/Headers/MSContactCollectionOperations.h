@@ -1,7 +1,3 @@
-#import "MSEmailAddress.h"
-#import "MSPhysicalAddress.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -9,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSItemCollectionOperations.h"
+#import "MSEmailAddress.h"
+#import "MSPhysicalAddress.h"
 
 /**
 * The header for type MSContactCollectionOperations.

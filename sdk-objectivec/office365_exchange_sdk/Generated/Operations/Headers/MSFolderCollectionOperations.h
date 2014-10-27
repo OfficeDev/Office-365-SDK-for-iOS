@@ -1,7 +1,3 @@
-#import "MSFolder.h"
-#import "MSMessage.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -9,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSEntityCollectionOperations.h"
+#import "MSFolder.h"
+#import "MSMessage.h"
 
 /**
 * The header for type MSFolderCollectionOperations.

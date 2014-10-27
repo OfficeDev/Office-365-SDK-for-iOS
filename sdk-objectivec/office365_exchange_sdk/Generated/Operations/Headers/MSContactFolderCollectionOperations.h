@@ -1,7 +1,3 @@
-#import "MSContact.h"
-#import "MSContactFolder.h"
-
-
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
@@ -9,6 +5,8 @@
  ******************************************************************************/
 
 #import "MSEntityCollectionOperations.h"
+#import "MSContact.h"
+#import "MSContactFolder.h"
 
 /**
 * The header for type MSContactFolderCollectionOperations.

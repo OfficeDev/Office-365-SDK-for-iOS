@@ -4,8 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import <office365_odata_base/office365_odata_base.h>
 #import "MSODataExecutable.h"
-#import <office365_odata_base/MSDependencyResolver.h>
+#import "MSBaseODataContainerHelper.h"
 
 /**
 * The header for type MSBaseODataContainer.

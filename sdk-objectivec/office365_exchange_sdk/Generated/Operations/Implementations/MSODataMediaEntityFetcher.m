@@ -4,6 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSODataMediaEntityFetcher.h"
+
 @implementation MSODataMediaEntityFetcher
 
 -(id)initWith:(NSString *)urlComponent :(id<MSODataExecutable>)parent{
