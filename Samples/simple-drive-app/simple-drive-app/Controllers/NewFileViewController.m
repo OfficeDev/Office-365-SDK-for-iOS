@@ -26,13 +26,13 @@
         
         __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
         
-        MSItem* item = [[MSItem alloc] init];
+        MSSharePointItem* item = [[MSSharePointItem alloc] init];
         item.name = self.txtName.text;
         item.type = @"File";
        
         NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
         
-        [[[client getfiles] add:item :^(MSItem *item, NSError *e) {
+        [[[client getfiles] add:item :^(MSSharePointItem *item, NSError *e) {
             __block NSString* _id = item.id;
             
             [[[[[client getfiles] getById:_id] asFile] putContent:body :^(int result, NSError *error) {

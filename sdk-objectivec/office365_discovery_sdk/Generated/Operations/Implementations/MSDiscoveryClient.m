@@ -15,11 +15,11 @@
 -(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
     return [super initWitUrl:url dependencyResolver:resolver];
 }
--(MSServiceInfoCollectionFetcher*) getallServices{
-	return [[MSServiceInfoCollectionFetcher alloc] initWith:@"allServices" :self];
+-(MSDiscoveryServiceInfoCollectionFetcher*) getallServices{
+	return [[MSDiscoveryServiceInfoCollectionFetcher alloc] initWith:@"allServices" :self];
 }
--(MSServiceInfoCollectionFetcher*) getservices{
-	return [[MSServiceInfoCollectionFetcher alloc] initWith:@"services" :self];
+-(MSDiscoveryServiceInfoCollectionFetcher*) getservices{
+	return [[MSDiscoveryServiceInfoCollectionFetcher alloc] initWith:@"services" :self];
 }
 
 @end

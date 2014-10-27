@@ -25,21 +25,21 @@ FOUNDATION_EXPORT const unsigned char office365_discovery_sdkVersionString[];
 #import <office365_odata_base/MSResponse.h>
 #import <office365_odata_base/MSODataUrl.h>
 
-#import <office365_discovery_sdk/MSODataExecutable.h>
-#import <office365_discovery_sdk/MSBaseODataContainer.h>
+#import <office365_discovery_sdk/MSDiscoveryODataExecutable.h>
+#import <office365_discovery_sdk/MSDiscoveryBaseODataContainer.h>
 #import <office365_discovery_sdk/MSDiscoveryClient.h>
-#import <office365_discovery_sdk/MSODataEntityFetcher.h>
-#import <office365_discovery_sdk/MSODataOperations.h>
-#import <office365_discovery_sdk/MSODataCollectionFetcher.h>
-#import <office365_discovery_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryODataEntityFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryODataOperations.h>
+#import <office365_discovery_sdk/MSDiscoveryODataCollectionFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryODataMediaEntityFetcher.h>
 
-#import <office365_discovery_sdk/MSServiceInfoCollectionFetcher.h>
-#import <office365_discovery_sdk/MSServiceInfoCollectionOperations.h>
-#import <office365_discovery_sdk/MSServiceInfoFetcher.h>
-#import <office365_discovery_sdk/MSServiceInfoOperations.h>
-#import <office365_discovery_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryServiceInfoCollectionFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryServiceInfoCollectionOperations.h>
+#import <office365_discovery_sdk/MSDiscoveryServiceInfoFetcher.h>
+#import <office365_discovery_sdk/MSDiscoveryServiceInfoOperations.h>
+#import <office365_discovery_sdk/MSDiscoveryODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_discovery_sdk/MSBaseODataContainerHelper.h>
-#import <office365_discovery_sdk/MSEntityFetcherHelper.h>
+#import <office365_discovery_sdk/MSDiscoveryBaseODataContainerHelper.h>
+#import <office365_discovery_sdk/MSDiscoveryEntityFetcherHelper.h>
 

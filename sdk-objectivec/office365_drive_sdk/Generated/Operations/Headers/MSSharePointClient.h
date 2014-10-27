@@ -3,21 +3,21 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "MSDriveFetcher.h"
+#import "MSSharePointDriveFetcher.h"
 
-#import "MSItemCollectionFetcher.h"
+#import "MSSharePointItemCollectionFetcher.h"
 
 
-#import "MSBaseODataContainer.h"
+#import "MSSharePointBaseODataContainer.h"
 
 /**
 * The header for type MSSharePointClient.
 */
 
-@interface MSSharePointClient : MSBaseODataContainer
+@interface MSSharePointClient : MSSharePointBaseODataContainer
 
 -(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
--(MSDriveFetcher*) getdrive;
--(MSItemCollectionFetcher*) getfiles;
+-(MSSharePointDriveFetcher*) getdrive;
+-(MSSharePointItemCollectionFetcher*) getfiles;
 
 @end

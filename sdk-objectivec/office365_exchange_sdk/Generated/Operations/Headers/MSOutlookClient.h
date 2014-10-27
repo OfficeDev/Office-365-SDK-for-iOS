@@ -3,21 +3,21 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "MSUserFetcher.h"
+#import "MSOutlookUserFetcher.h"
 
-#import "MSUserCollectionFetcher.h"
+#import "MSOutlookUserCollectionFetcher.h"
 
 
-#import "MSBaseODataContainer.h"
+#import "MSOutlookBaseODataContainer.h"
 
 /**
 * The header for type MSOutlookClient.
 */
 
-@interface MSOutlookClient : MSBaseODataContainer
+@interface MSOutlookClient : MSOutlookBaseODataContainer
 
 -(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
--(MSUserFetcher*) getMe;
--(MSUserCollectionFetcher*) getUsers;
+-(MSOutlookUserFetcher*) getMe;
+-(MSOutlookUserCollectionFetcher*) getUsers;
 
 @end

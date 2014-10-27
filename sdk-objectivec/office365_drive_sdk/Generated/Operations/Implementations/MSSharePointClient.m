@@ -15,11 +15,11 @@
 -(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
     return [super initWitUrl:url dependencyResolver:resolver];
 }
--(MSDriveFetcher*) getdrive{
-	return [[MSDriveFetcher alloc] initWith:@"drive" :self : [MSDrive class]];
+-(MSSharePointDriveFetcher*) getdrive{
+	return [[MSSharePointDriveFetcher alloc] initWith:@"drive" :self : [MSSharePointDrive class]];
 }
--(MSItemCollectionFetcher*) getfiles{
-	return [[MSItemCollectionFetcher alloc] initWith:@"files" :self];
+-(MSSharePointItemCollectionFetcher*) getfiles{
+	return [[MSSharePointItemCollectionFetcher alloc] initWith:@"files" :self];
 }
 
 @end

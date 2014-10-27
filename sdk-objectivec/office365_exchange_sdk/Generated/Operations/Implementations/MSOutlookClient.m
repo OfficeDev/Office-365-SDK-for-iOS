@@ -15,11 +15,11 @@
 -(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
     return [super initWitUrl:url dependencyResolver:resolver];
 }
--(MSUserFetcher*) getMe{
-	return [[MSUserFetcher alloc] initWith:@"Me" :self : [MSUser class]];
+-(MSOutlookUserFetcher*) getMe{
+	return [[MSOutlookUserFetcher alloc] initWith:@"Me" :self : [MSOutlookUser class]];
 }
--(MSUserCollectionFetcher*) getUsers{
-	return [[MSUserCollectionFetcher alloc] initWith:@"Users" :self];
+-(MSOutlookUserCollectionFetcher*) getUsers{
+	return [[MSOutlookUserCollectionFetcher alloc] initWith:@"Users" :self];
 }
 
 @end

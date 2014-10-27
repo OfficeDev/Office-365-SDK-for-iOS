@@ -28,18 +28,18 @@
 #import <office365_odata_base/MSResponse.h>
 #import <office365_odata_base/MSODataUrl.h>
 
-#import <office365_drive_sdk/MSODataMediaEntityFetcher.h>
-#import <office365_drive_sdk/MSODataExecutable.h>
-#import <office365_drive_sdk/MSBaseODataContainer.h>
+#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataExecutable.h>
+#import <office365_drive_sdk/MSSharePointBaseODataContainer.h>
 #import <office365_drive_sdk/MSSharePointClient.h>
-#import <office365_drive_sdk/MSODataEntityFetcher.h>
-#import <office365_drive_sdk/MSODataOperations.h>
-#import <office365_drive_sdk/MSODataCollectionFetcher.h>
-#import <office365_drive_sdk/MSODataOperations.h>
-#import <office365_drive_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataEntityFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataOperations.h>
+#import <office365_drive_sdk/MSSharePointODataCollectionFetcher.h>
+#import <office365_drive_sdk/MSSharePointODataOperations.h>
+#import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_drive_sdk/MSBaseODataContainerHelper.h>
-#import <office365_drive_sdk/MSEntityFetcherHelper.h>
+#import <office365_drive_sdk/MSSharePointBaseODataContainerHelper.h>
+#import <office365_drive_sdk/MSSharePointEntityFetcherHelper.h>
 
 #endif

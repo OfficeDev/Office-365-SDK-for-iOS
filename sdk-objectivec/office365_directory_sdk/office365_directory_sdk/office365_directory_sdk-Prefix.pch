@@ -21,17 +21,17 @@
 #import <office365_odata_base/MSResponse.h>
 #import <office365_odata_base/MSODataUrl.h>
 
-#import <office365_directory_sdk/MSODataExecutable.h>
-#import <office365_directory_sdk/MSBaseODataContainer.h>
-#import <office365_directory_sdk/MSDirectoryDataServiceClient.h>
-#import <office365_directory_sdk/MSODataEntityFetcher.h>
-#import <office365_directory_sdk/MSODataOperations.h>
-#import <office365_directory_sdk/MSODataCollectionFetcher.h>
-#import <office365_directory_sdk/MSODataMediaEntityFetcher.h>
-#import <office365_directory_sdk/MSODataMediaEntityFetcher.h>
+#import <office365_directory_sdk/MSDirectoryODataExecutable.h>
+#import <office365_directory_sdk/MSDirectoryBaseODataContainer.h>
+#import <office365_directory_sdk/MSDirectoryClient.h>
+#import <office365_directory_sdk/MSDirectoryODataEntityFetcher.h>
+#import <office365_directory_sdk/MSDirectoryODataOperations.h>
+#import <office365_directory_sdk/MSDirectoryODataCollectionFetcher.h>
+#import <office365_directory_sdk/MSDirectoryODataMediaEntityFetcher.h>
+#import <office365_directory_sdk/MSDirectoryODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_directory_sdk/MSBaseODataContainerHelper.h>
-#import <office365_directory_sdk/MSEntityFetcherHelper.h>
+#import <office365_directory_sdk/MSDirectoryBaseODataContainerHelper.h>
+#import <office365_directory_sdk/MSDirectoryEntityFetcherHelper.h>
 
 #endif

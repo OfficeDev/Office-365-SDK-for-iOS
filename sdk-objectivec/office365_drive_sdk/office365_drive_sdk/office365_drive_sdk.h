@@ -16,39 +16,39 @@ FOUNDATION_EXPORT const unsigned char office365_drive_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_drive_sdk/PublicHeader.h>
 /*
-MSCurrentUserRequestContext
-MSDrive
-MSDriveQuota
-MSFile
-MSFolder
-MSIdentity
-MSIdentitySet
-MSItem
-MSItemReference*/
+MSSharePointCurrentUserRequestContext
+MSSharePointDrive
+MSSharePointDriveQuota
+MSSharePointFile
+MSSharePointFolder
+MSSharePointIdentity
+MSSharePointIdentitySet
+MSSharePointItem
+MSSharePointItemReference*/
 
-#import "MSBaseODataContainer.h"
-#import "MSDriveCollectionFetcher.h"
-#import "MSDriveCollectionOperations.h"
-#import "MSDriveFetcher.h"
-#import "MSDriveOperations.h"
+#import "MSSharePointBaseODataContainer.h"
+#import "MSSharePointDriveCollectionFetcher.h"
+#import "MSSharePointDriveCollectionOperations.h"
+#import "MSSharePointDriveFetcher.h"
+#import "MSSharePointDriveOperations.h"
 #import "MSSharePointClient.h"
-#import "MSFileCollectionFetcher.h"
-#import "MSFileCollectionOperations.h"
-#import "MSFileFetcher.h"
-#import "MSFileOperations.h"
-#import "MSFolderCollectionFetcher.h"
-#import "MSFolderCollectionOperations.h"
-#import "MSFolderFetcher.h"
-#import "MSFolderOperations.h"
-#import "MSItemCollectionFetcher.h"
-#import "MSItemCollectionOperations.h"
-#import "MSItemFetcher.h"
-#import "MSItemOperations.h"
-#import "MSODataCollectionFetcher.h"
-#import "MSODataEntityFetcher.h"
-#import "MSODataOperations.h"
-#import "MSODataExecutable.h"
-#import "MSODataMediaEntityFetcher.h"
-#import "MSODataMediaEntityFetcher.h"
+#import "MSSharePointFileCollectionFetcher.h"
+#import "MSSharePointFileCollectionOperations.h"
+#import "MSSharePointFileFetcher.h"
+#import "MSSharePointFileOperations.h"
+#import "MSSharePointFolderCollectionFetcher.h"
+#import "MSSharePointFolderCollectionOperations.h"
+#import "MSSharePointFolderFetcher.h"
+#import "MSSharePointFolderOperations.h"
+#import "MSSharePointItemCollectionFetcher.h"
+#import "MSSharePointItemCollectionOperations.h"
+#import "MSSharePointItemFetcher.h"
+#import "MSSharePointItemOperations.h"
+#import "MSSharePointODataCollectionFetcher.h"
+#import "MSSharePointODataEntityFetcher.h"
+#import "MSSharePointODataOperations.h"
+#import "MSSharePointODataExecutable.h"
+#import "MSSharePointODataMediaEntityFetcher.h"
+#import "MSSharePointODataMediaEntityFetcher.h"
 
 

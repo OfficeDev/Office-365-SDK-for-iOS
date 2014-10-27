@@ -26,7 +26,7 @@
 
     UIActivityIndicatorView* spinner = [BaseController getSpinner:self.view];
     [BaseController getClient:^(MSOutlookClient * client) {
-        NSURLSessionTask* task = [[client getMe] execute:^(MSUser *user, NSError *error) {
+        NSURLSessionTask* task = [[client getMe] execute:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

@@ -47,7 +47,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ServiceCell" forIndexPath:indexPath];
     
-    MSServiceInfo *service = (MSServiceInfo*)[self.Services objectAtIndex:indexPath.row];
+    MSDiscoveryServiceInfo *service = (MSDiscoveryServiceInfo*)[self.Services objectAtIndex:indexPath.row];
     
     cell.textLabel.text = service.serviceName;
     
@@ -59,7 +59,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     [BaseController getClient:^(MSDiscoveryClient * client) {
-            [[[client getallServices] execute:^(NSArray<MSServiceInfo> *serviceInfos, NSError *error) {
+            [[[client getallServices] execute:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{

@@ -3,21 +3,21 @@
  * All Rights Reserved
  * See License.txt in the project root for license information.
  ******************************************************************************/
-#import "MSServiceInfoCollectionFetcher.h"
+#import "MSDiscoveryServiceInfoCollectionFetcher.h"
 
-#import "MSServiceInfoCollectionFetcher.h"
+#import "MSDiscoveryServiceInfoCollectionFetcher.h"
 
 
-#import "MSBaseODataContainer.h"
+#import "MSDiscoveryBaseODataContainer.h"
 
 /**
 * The header for type MSDiscoveryClient.
 */
 
-@interface MSDiscoveryClient : MSBaseODataContainer
+@interface MSDiscoveryClient : MSDiscoveryBaseODataContainer
 
 -(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
--(MSServiceInfoCollectionFetcher*) getallServices;
--(MSServiceInfoCollectionFetcher*) getservices;
+-(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
+-(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
 
 @end

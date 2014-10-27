@@ -6,10 +6,10 @@
 
 #import "MessageTableViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSAttachment.h>
-#import <office365_exchange_sdk/MSRecipient.h>
-#import <office365_exchange_sdk/MSEmailAddress.h>
-#import <office365_exchange_sdk/MSMessage.h>
+#import <office365_exchange_sdk/MSOutlookAttachment.h>
+#import <office365_exchange_sdk/MSOutlookRecipient.h>
+#import <office365_exchange_sdk/MSOutlookEmailAddress.h>
+#import <office365_exchange_sdk/MSOutlookMessage.h>
 
 @interface MessageTableViewController ()
 
@@ -51,7 +51,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
-    MSMessage *message = (MSMessage*)[self.Messages objectAtIndex:indexPath.row];
+    MSOutlookMessage *message = (MSOutlookMessage*)[self.Messages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.Sender.EmailAddress.Name, message.Subject];
     
@@ -63,7 +63,7 @@
    UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
    [BaseController getClient:^(MSOutlookClient *client) {
-       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSMessage> *messages, NSError *error) {
+       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
            
            if(error == nil){
                dispatch_async(dispatch_get_main_queue(),

@@ -47,7 +47,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCell" forIndexPath:indexPath];
     
-    MSItem *file = (MSItem*)[self.Files objectAtIndex:indexPath.row];
+    MSSharePointItem *file = (MSSharePointItem*)[self.Files objectAtIndex:indexPath.row];
     
     cell.textLabel.text = file.name;
     
@@ -59,7 +59,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     [BaseController getClient:^(MSSharePointClient * client) {
-            [[[client  getfiles] execute:^(NSArray<MSItem> *items, NSError *error) {
+            [[[client  getfiles] execute:^(NSArray<MSSharePointItem> *items, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
@@ -87,7 +87,7 @@
         
         [BaseController getClient:^(MSSharePointClient *client) {
             
-            MSFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
+            MSSharePointFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
             [[[[client getfiles] getById:fileToDelete.id] delete:^(id entity, NSError *error) {
                 
                 dispatch_async(dispatch_get_main_queue(),

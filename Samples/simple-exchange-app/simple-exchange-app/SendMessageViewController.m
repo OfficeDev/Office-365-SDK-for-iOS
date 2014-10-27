@@ -6,12 +6,12 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSMessage.h>
-#import <office365_exchange_sdk/MSRecipient.h>
-#import <office365_exchange_sdk/MSEmailAddress.h>
-#import <office365_exchange_sdk/MSItemBody.h>
-#import <office365_exchange_sdk/MSMessageOperations.h>
-#import <office365_exchange_sdk/MSMessageFetcher.h>
+#import <office365_exchange_sdk/MSOutlookMessage.h>
+#import <office365_exchange_sdk/MSOutlookRecipient.h>
+#import <office365_exchange_sdk/MSOutlookEmailAddress.h>
+#import <office365_exchange_sdk/MSOutlookItemBody.h>
+#import <office365_exchange_sdk/MSOutlookMessageOperations.h>
+#import <office365_exchange_sdk/MSOutlookMessageFetcher.h>
 
 @interface SendMessageViewController ()
 
@@ -33,11 +33,11 @@
 
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     [BaseController getClient:^(MSOutlookClient * client) {
-        MSMessage *message = [MSMessage alloc];
+        MSOutlookMessage *message = [MSOutlookMessage alloc];
         
         message.Subject = self.txtSubject.text;
         message.ToRecipients = [self getRecipients:self.txtTo.text];
-        message.Body = [[MSItemBody alloc] init];
+        message.Body = [[MSOutlookItemBody alloc] init];
         message.Body.Content = self.txtBody.text;
         
         NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
@@ -55,16 +55,16 @@
     }];
 }
 
--(NSMutableArray<MSRecipient>*)getRecipients : (NSString*)text{
+-(NSMutableArray<MSOutlookRecipient>*)getRecipients : (NSString*)text{
     
-    NSMutableArray<MSRecipient>* result = (NSMutableArray<MSRecipient>*)[NSMutableArray array];
+    NSMutableArray<MSOutlookRecipient>* result = (NSMutableArray<MSOutlookRecipient>*)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
     for (NSString* r in recipients) {
         
-        MSRecipient* recipient = [[MSRecipient alloc] init];
-        recipient.EmailAddress = [MSEmailAddress alloc];
+        MSOutlookRecipient* recipient = [[MSOutlookRecipient alloc] init];
+        recipient.EmailAddress = [MSOutlookEmailAddress alloc];
         recipient.EmailAddress.Address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         [result addObject: recipient];
