@@ -16,7 +16,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
 1. Create a new iOS application in Xcode.
 2. Use [Cocoapods](https://cocoapods.org) to retrieve the Office 365 SDKs and the Azure Active Directory Authentication Library (ADAL).
-  > > For more info on Cocoapods setup see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup) and [their site](http://cocoapods.org).
+  > For more info on Cocoapods setup see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup) and [their site](http://cocoapods.org).
 
   Add a Podfile similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
