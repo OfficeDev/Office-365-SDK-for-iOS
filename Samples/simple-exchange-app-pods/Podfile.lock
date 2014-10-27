@@ -6,11 +6,12 @@ PODS:
 
 DEPENDENCIES:
   - ADALiOS (~> 1.0.0)
-  - Office365/Outlook (from `../..`)
+  - Office365/Outlook (from `https://github.com/msopentech/office-365-sdk-for-ios`, branch `dev`)
 
 EXTERNAL SOURCES:
   Office365:
-    :path: ../..
+    :branch: dev
+    :git: https://github.com/msopentech/office-365-sdk-for-ios
 
 SPEC CHECKSUMS:
   ADALiOS: f87e574524ba92a9897d5aeb1805f55a0be2cc51
