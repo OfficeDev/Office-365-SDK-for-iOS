@@ -9,10 +9,6 @@
 #import "Test.h"
 #import "LogInController.h"
 #import "BaseController.h"
-#import <office365_exchange_sdk/MSOutlookClient.h>
-#import <office365_odata_base/MSDefaultDependencyResolver.h>
-#import <office365_odata_base/MSBasicCredentials.h>
-#import <office365_odata_base/MSCredentialsImpl.h>
 
 @interface MailTestRunner : BaseTestRunner
 

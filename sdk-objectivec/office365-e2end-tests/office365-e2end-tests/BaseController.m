@@ -17,9 +17,9 @@
     
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
-    
+        [credentials addToken:token];
         MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
-    
+        
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
     

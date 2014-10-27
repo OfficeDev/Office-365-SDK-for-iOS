@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3CAC071E19F1E128004AF241 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071C19F1E128004AF241 /* failed.png */; };
 		3CAC071F19F1E128004AF241 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071D19F1E128004AF241 /* passed.png */; };
-		3CBE7E8419F59A2500DCF8B8 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */; };
 		3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD5D9719F55A3400C29E3F /* BaseController.m */; };
 		8884089321A7019C55BF67AC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9113FD38F6785B8A3229F1 /* libPods.a */; };
 		EC31456D19F935FA00DB1FC5 /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = EC31456C19F935FA00DB1FC5 /* office365.png */; };
@@ -19,7 +18,6 @@
 		ECBBC99A19F1ACD600DE04A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECBBC99819F1ACD600DE04A4 /* Main.storyboard */; };
 		ECBBC99C19F1ACD600DE04A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBBC99B19F1ACD600DE04A4 /* Images.xcassets */; };
 		ECBBC99F19F1ACD600DE04A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBBC99D19F1ACD600DE04A4 /* LaunchScreen.xib */; };
-		ECBBC9AB19F1ACD600DE04A4 /* office365_e2end_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9AA19F1ACD600DE04A4 /* office365_e2end_testsTests.m */; };
 		ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */; };
 		ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */; };
 		ECBBC9C919F1AD2C00DE04A4 /* ExchangeTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */; };
@@ -28,18 +26,7 @@
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
 		ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */; };
 		ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422919F5499100EA6F9D /* libPods-ADALiOS.a */; };
-		ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422C19F549B300EA6F9D /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		ECBBC9A519F1ACD600DE04A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECBBC98319F1ACD600DE04A4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECBBC98A19F1ACD600DE04A4;
-			remoteInfo = "office365-e2end-tests";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
@@ -60,9 +47,6 @@
 		ECBBC99919F1ACD600DE04A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECBBC99B19F1ACD600DE04A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ECBBC99E19F1ACD600DE04A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		ECBBC9A419F1ACD600DE04A4 /* office365-e2end-testsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "office365-e2end-testsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECBBC9A919F1ACD600DE04A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECBBC9AA19F1ACD600DE04A4 /* office365_e2end_testsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = office365_e2end_testsTests.m; sourceTree = "<group>"; };
 		ECBBC9B519F1AD2C00DE04A4 /* BaseTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTestRunner.h; sourceTree = "<group>"; };
 		ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestRunner.m; sourceTree = "<group>"; };
 		ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTestRunner.h; sourceTree = "<group>"; };
@@ -89,17 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CBE7E8419F59A2500DCF8B8 /* office365_exchange_sdk.framework in Frameworks */,
-				ECCF422E19F549B300EA6F9D /* office365_odata_base.framework in Frameworks */,
 				ECCF422A19F5499100EA6F9D /* libPods-ADALiOS.a in Frameworks */,
 				8884089321A7019C55BF67AC /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECBBC9A119F1ACD600DE04A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +98,6 @@
 			children = (
 				ECBBC9D119F1AE2A00DE04A4 /* office365-e2end-tests-Prefix.pch */,
 				ECBBC98D19F1ACD600DE04A4 /* office365-e2end-tests */,
-				ECBBC9A719F1ACD600DE04A4 /* office365-e2end-testsTests */,
 				ECBBC98C19F1ACD600DE04A4 /* Products */,
 				EFB1057B051E158993C33915 /* Pods */,
 				7DBD514BDDC707346FFCC0BB /* Frameworks */,
@@ -134,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				ECBBC98B19F1ACD600DE04A4 /* office365-e2end-tests.app */,
-				ECBBC9A419F1ACD600DE04A4 /* office365-e2end-testsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,23 +136,6 @@
 				EC31456C19F935FA00DB1FC5 /* office365.png */,
 				ECBBC98F19F1ACD600DE04A4 /* Info.plist */,
 				ECBBC99019F1ACD600DE04A4 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		ECBBC9A719F1ACD600DE04A4 /* office365-e2end-testsTests */ = {
-			isa = PBXGroup;
-			children = (
-				ECBBC9AA19F1ACD600DE04A4 /* office365_e2end_testsTests.m */,
-				ECBBC9A819F1ACD600DE04A4 /* Supporting Files */,
-			);
-			path = "office365-e2end-testsTests";
-			sourceTree = "<group>";
-		};
-		ECBBC9A819F1ACD600DE04A4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ECBBC9A919F1ACD600DE04A4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,24 +202,6 @@
 			productReference = ECBBC98B19F1ACD600DE04A4 /* office365-e2end-tests.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ECBBC9A319F1ACD600DE04A4 /* office365-e2end-testsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECBBC9B119F1ACD600DE04A4 /* Build configuration list for PBXNativeTarget "office365-e2end-testsTests" */;
-			buildPhases = (
-				ECBBC9A019F1ACD600DE04A4 /* Sources */,
-				ECBBC9A119F1ACD600DE04A4 /* Frameworks */,
-				ECBBC9A219F1ACD600DE04A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECBBC9A619F1ACD600DE04A4 /* PBXTargetDependency */,
-			);
-			name = "office365-e2end-testsTests";
-			productName = "office365-e2end-testsTests";
-			productReference = ECBBC9A419F1ACD600DE04A4 /* office365-e2end-testsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,10 +213,6 @@
 				TargetAttributes = {
 					ECBBC98A19F1ACD600DE04A4 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					ECBBC9A319F1ACD600DE04A4 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = ECBBC98A19F1ACD600DE04A4;
 					};
 				};
 			};
@@ -296,7 +230,6 @@
 			projectRoot = "";
 			targets = (
 				ECBBC98A19F1ACD600DE04A4 /* office365-e2end-tests */,
-				ECBBC9A319F1ACD600DE04A4 /* office365-e2end-testsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -312,13 +245,6 @@
 				ECBBC99F19F1ACD600DE04A4 /* LaunchScreen.xib in Resources */,
 				3CAC071E19F1E128004AF241 /* failed.png in Resources */,
 				ECBBC99C19F1ACD600DE04A4 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECBBC9A219F1ACD600DE04A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,23 +302,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECBBC9A019F1ACD600DE04A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECBBC9AB19F1ACD600DE04A4 /* office365_e2end_testsTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ECBBC9A619F1ACD600DE04A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECBBC98A19F1ACD600DE04A4 /* office365-e2end-tests */;
-			targetProxy = ECBBC9A519F1ACD600DE04A4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ECBBC99819F1ACD600DE04A4 /* Main.storyboard */ = {
@@ -548,40 +458,6 @@
 			};
 			name = Release;
 		};
-		ECBBC9B219F1ACD600DE04A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "office365-e2end-testsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/office365-e2end-tests.app/office365-e2end-tests";
-			};
-			name = Debug;
-		};
-		ECBBC9B319F1ACD600DE04A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "office365-e2end-testsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/office365-e2end-tests.app/office365-e2end-tests";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,15 +475,6 @@
 			buildConfigurations = (
 				ECBBC9AF19F1ACD600DE04A4 /* Debug */,
 				ECBBC9B019F1ACD600DE04A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECBBC9B119F1ACD600DE04A4 /* Build configuration list for PBXNativeTarget "office365-e2end-testsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECBBC9B219F1ACD600DE04A4 /* Debug */,
-				ECBBC9B319F1ACD600DE04A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

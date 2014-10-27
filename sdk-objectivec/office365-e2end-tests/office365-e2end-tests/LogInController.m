@@ -8,8 +8,6 @@
 
 @implementation LogInController
 
-
-
 ADAuthenticationContext *authContext;
 NSString *redirectUriString;
 NSString *authority;
