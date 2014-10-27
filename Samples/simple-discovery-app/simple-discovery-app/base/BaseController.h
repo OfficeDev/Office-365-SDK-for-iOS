@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 #import <office365_discovery_sdk/office365_discovery_sdk.h>
-#import <office365_odata_base/office365_odata_base.h>
 
 @interface BaseController : NSObject
 

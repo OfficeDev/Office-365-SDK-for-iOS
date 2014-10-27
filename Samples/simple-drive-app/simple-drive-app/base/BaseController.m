@@ -18,14 +18,14 @@
     
         MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
         MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
-        [credentials addToken:token];
+        [credentials addToken: token];
         
         MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSSharePointClient alloc] initWitUrl:[hostName stringByAppendingString:@"/_api/v1.0/me" dependencyResolver:resolver]);
+        callback([[MSSharePointClient alloc] initWitUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:resolver]);
     }];
 }
 
