@@ -8,20 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		263BE94119F46DB9009CF776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263BE93E19F46D9C009CF776 /* Main.storyboard */; };
-		2662837D19F58C8300FB8DA0 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2662837C19F58C8300FB8DA0 /* office365_exchange_sdk.framework */; };
+		26FFAEF619FDBC5700F297D9 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */; };
+		26FFAEF719FDBC5700F297D9 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */; };
+		26FFAEF819FDBC5700F297D9 /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */; };
+		26FFAEF919FDBC5700F297D9 /* ADALiOSBundle-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9C19EF071600C4940F /* ADALiOSBundle-Prefix.pch */; };
+		26FFAEFA19FDBC5700F297D9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9D19EF071600C4940F /* InfoPlist.strings */; };
 		E97F7F8BA54B8584616BD92B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3638A03216DCE9B2BD5D6179 /* libPods.a */; };
 		EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */; };
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
-		ECCF422619F545A700EA6F9D /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422419F545A700EA6F9D /* office365_odata_base.framework */; };
 		ECCF422819F547BC00EA6F9D /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */; };
 		ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* LogInController.m */; };
 		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
-		ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */; };
-		ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9A19EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard */; };
-		ECD1AEA119EF071600C4940F /* ADALiOSBundle-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9B19EF071600C4940F /* ADALiOSBundle-Info.plist */; };
-		ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECD1AE9D19EF071600C4940F /* InfoPlist.strings */; };
 		ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */; };
 		ECD9F40819784BB600ABB418 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40719784BB600ABB418 /* main.m */; };
 		ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40A19784BB600ABB418 /* AppDelegate.m */; };
@@ -29,10 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		263BE93519F4636F009CF776 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator/office365_odata_base.framework"; sourceTree = "<group>"; };
-		263BE93719F4638E009CF776 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
 		263BE93F19F46D9C009CF776 /* base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = base; path = base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2662837C19F58C8300FB8DA0 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../../sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
 		3638A03216DCE9B2BD5D6179 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		865A0FC01EF95E39D3F513C9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0A56B6EE5805BF8D61A6E84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -44,8 +40,6 @@
 		EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		EC2833B319E6D82800E5FEA4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		EC2833B419E6D82800E5FEA4 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
-		ECCF422319F545A700EA6F9D /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
-		ECCF422419F545A700EA6F9D /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
 		ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
 		ECD1AE8E19EEFEDA00C4940F /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
 		ECD1AE8F19EEFEDA00C4940F /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
@@ -71,8 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2662837D19F58C8300FB8DA0 /* office365_exchange_sdk.framework in Frameworks */,
-				ECCF422619F545A700EA6F9D /* office365_odata_base.framework in Frameworks */,
 				ECCF422819F547BC00EA6F9D /* libPods-ADALiOS.a in Frameworks */,
 				E97F7F8BA54B8584616BD92B /* libPods.a in Frameworks */,
 			);
@@ -93,12 +85,7 @@
 		DF6F33257D34664DB168A50F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2662837C19F58C8300FB8DA0 /* office365_exchange_sdk.framework */,
 				ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */,
-				ECCF422319F545A700EA6F9D /* office365_exchange_sdk.framework */,
-				ECCF422419F545A700EA6F9D /* office365_odata_base.framework */,
-				263BE93719F4638E009CF776 /* office365_exchange_sdk.framework */,
-				263BE93519F4636F009CF776 /* office365_odata_base.framework */,
 				3638A03216DCE9B2BD5D6179 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -240,11 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26FFAEF619FDBC5700F297D9 /* ADAL_iPad_Storyboard.storyboard in Resources */,
+				26FFAEF719FDBC5700F297D9 /* ADAL_iPhone_Storyboard.storyboard in Resources */,
+				26FFAEF819FDBC5700F297D9 /* ADALiOSBundle-Info.plist in Resources */,
+				26FFAEF919FDBC5700F297D9 /* ADALiOSBundle-Prefix.pch in Resources */,
+				26FFAEFA19FDBC5700F297D9 /* InfoPlist.strings in Resources */,
 				263BE94119F46DB9009CF776 /* Main.storyboard in Resources */,
-				ECD1AEA019EF071600C4940F /* ADAL_iPhone_Storyboard.storyboard in Resources */,
-				ECD1AEA219EF071600C4940F /* InfoPlist.strings in Resources */,
-				ECD1AE9F19EF071600C4940F /* ADAL_iPad_Storyboard.storyboard in Resources */,
-				ECD1AEA119EF071600C4940F /* ADALiOSBundle-Info.plist in Resources */,
 				ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,21 +401,17 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/Library/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos",
+					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
-					"$(INHERITED)",
+					"$(inherited)",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,21 +428,17 @@
 				CURRENT_PROJECT_VERSION = 0.1.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../../sdk-objectivec/office365_odata_base/Build/Products/Debug-iphonesimulator",
-					"$(SRCROOT)/../../sdk-objectivec/office365_exchange_sdk/Build/Products/Debug-iphonesimulator",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/Library/Developer/Xcode/DerivedData/simple-exchange-app-hknbybdjtfqktgcsjlczgluwpipi/Build/Products/Debug-iphoneos",
+					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/joshgav/git/ios-o365-sdk/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = (
-					"$(INHERITED)",
+					"$(inherited)",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

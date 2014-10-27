@@ -36,11 +36,13 @@
     
    // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
-    [[BaseController alloc] getClient:^(MSOEntityContainerClient * client) {
-        NSURLSessionTask* task = [[client getMe] execute:^(MSOUser *user, NSError *error) {
+    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
+        NSURLSessionTask* task = [[client getMe] execute:^(MSUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
+                                   [[[client getResolver] getLogger]log:@"Got results" :(MSLogLevel *)INFO];
+                                   
                                    self.lblDisplayName.text = user.DisplayName;
                                    self.lblAlias.text = user.Alias;
                                    self.lblMailBoxId.text = user.MailboxGuid;

@@ -29,7 +29,9 @@
     return self.request.HTTPBody;
 }
 
--(NSArray*)getHeaders{ return nil;}
+-(NSDictionary *) getHeaders{
+    return [self.request allHTTPHeaderFields];
+}
 
 -(void)setHeaders :(NSArray*) headers{
     for (NSDictionary* dicc in headers) {

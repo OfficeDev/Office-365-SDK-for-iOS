@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Lagash. All rights reserved.
 //
 
-#import "office365-base-sdk/BaseEntity.h"
+#import "BaseEntity.h"
 
 @interface ListEntity : BaseEntity
 @property NSString *title;

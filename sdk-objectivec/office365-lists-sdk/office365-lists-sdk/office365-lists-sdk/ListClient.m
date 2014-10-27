@@ -10,9 +10,9 @@
 #import "ListEntity.h"
 #import "ListItem.h"
 #import "ListField.h"
-#import "office365-base-sdk/HttpConnection.h"
-#import "office365-base-sdk/Constants.h"
-#import "office365-base-sdk/NSString+NSStringExtensions.h"
+#import "HttpConnection.h"
+#import "Constants.h"
+#import "NSString+NSStringExtensions.h"
 
 @implementation ListClient
 
