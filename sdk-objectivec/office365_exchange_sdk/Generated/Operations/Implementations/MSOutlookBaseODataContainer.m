@@ -4,6 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSOutlookBaseODataContainer.h"
+#import "MSOutlookBaseODataContainerHelper.h"
+
 @interface MSOutlookBaseODataContainer()
 
 @property id<MSDependencyResolver> resolver;

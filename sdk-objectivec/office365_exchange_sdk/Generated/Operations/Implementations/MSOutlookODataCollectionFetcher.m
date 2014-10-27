@@ -4,6 +4,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "MSOutlookODataCollectionFetcher.h"
+#import "MSOutlookEntityFetcherHelper.h"
+#import "MSOutlookBaseODataContainerHelper.h"
+
 @interface MSOutlookODataCollectionFetcher()
 
 @property NSString* filter;

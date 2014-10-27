@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSOutlookUserOperations.h"
+#import "MSOutlookBaseODataContainerHelper.h"
 
 /**
 * The implementation file for type MSOutlookUserOperations.
