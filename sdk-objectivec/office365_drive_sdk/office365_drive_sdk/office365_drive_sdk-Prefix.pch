@@ -39,7 +39,7 @@
 #import <office365_drive_sdk/MSODataMediaEntityFetcher.h>
 
 // Helpers
-#import <office365_drive_sdk/MSBaseODataContainerHelper.h>
-#import <office365_drive_sdk/MSEntityFetcherHelper.h>
+#import <office365_odata_base/MSBaseODataContainerHelper.h>
+#import <office365_odata_base/MSEntityFetcherHelper.h>
 
 #endif

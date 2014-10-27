@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		263B9D2219FE05C800D500C3 /* MSBaseODataContainerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 263B9D2119FE05C800D500C3 /* MSBaseODataContainerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		263B9D2419FE05D000D500C3 /* MSBaseODataContainerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263B9D2319FE05D000D500C3 /* MSBaseODataContainerHelper.m */; };
+		263B9D2619FE05E400D500C3 /* MSEntityFetcherHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 263B9D2519FE05E400D500C3 /* MSEntityFetcherHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		263B9D2819FE05EE00D500C3 /* MSEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 263B9D2719FE05EE00D500C3 /* MSEntityFetcherHelper.m */; };
 		2647EA6319F4443800FD9527 /* office365_odata_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EA6219F4443800FD9527 /* office365_odata_base.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647EA6919F4443800FD9527 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2647EA5D19F4443800FD9527 /* office365_odata_base.framework */; };
 		2647EA7019F4443800FD9527 /* office365_odata_baseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2647EA6F19F4443800FD9527 /* office365_odata_baseTests.m */; };
@@ -62,6 +66,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		263B9D2119FE05C800D500C3 /* MSBaseODataContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSBaseODataContainerHelper.h; sourceTree = "<group>"; };
+		263B9D2319FE05D000D500C3 /* MSBaseODataContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSBaseODataContainerHelper.m; sourceTree = "<group>"; };
+		263B9D2519FE05E400D500C3 /* MSEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSEntityFetcherHelper.h; sourceTree = "<group>"; };
+		263B9D2719FE05EE00D500C3 /* MSEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSEntityFetcherHelper.m; sourceTree = "<group>"; };
 		2647EA5D19F4443800FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_odata_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EA6119F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EA6219F4443800FD9527 /* office365_odata_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_base.h; sourceTree = "<group>"; };
@@ -222,6 +230,8 @@
 		2647EA9A19F4454000FD9527 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				263B9D2519FE05E400D500C3 /* MSEntityFetcherHelper.h */,
+				263B9D2119FE05C800D500C3 /* MSBaseODataContainerHelper.h */,
 				2647EA9B19F4454000FD9527 /* JsonParser */,
 				2647EA9F19F4454000FD9527 /* MSBasicCredentials.h */,
 				2647EAA019F4454000FD9527 /* MSCredentialsImpl.h */,
@@ -258,6 +268,8 @@
 		2647EAAA19F4454000FD9527 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				263B9D2719FE05EE00D500C3 /* MSEntityFetcherHelper.m */,
+				263B9D2319FE05D000D500C3 /* MSBaseODataContainerHelper.m */,
 				2647EAAB19F4454000FD9527 /* JsonParser */,
 				2647EAAF19F4454000FD9527 /* MSBasicCredentials.m */,
 				2647EAB019F4454000FD9527 /* MSCredentialsImpl.m */,
@@ -321,6 +333,8 @@
 				2647EAC519F4454000FD9527 /* MSODataURLImpl.h in Headers */,
 				2647EABD19F4454000FD9527 /* Property.h in Headers */,
 				2647EAC019F4454000FD9527 /* MSDefaultDependencyResolver.h in Headers */,
+				263B9D2219FE05C800D500C3 /* MSBaseODataContainerHelper.h in Headers */,
+				263B9D2619FE05E400D500C3 /* MSEntityFetcherHelper.h in Headers */,
 				2647EA9419F4453100FD9527 /* MSLogLevel.h in Headers */,
 				2647EA8D19F4453100FD9527 /* MSCredentials.h in Headers */,
 				2647EA8E19F4453100FD9527 /* MSCredentialsFactory.h in Headers */,
@@ -425,7 +439,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				263B9D2419FE05D000D500C3 /* MSBaseODataContainerHelper.m in Sources */,
 				2647EACA19F4454000FD9527 /* Property.m in Sources */,
+				263B9D2819FE05EE00D500C3 /* MSEntityFetcherHelper.m in Sources */,
 				2647EACE19F4454000FD9527 /* MSHttpConnection.m in Sources */,
 				2647EACF19F4454000FD9527 /* MSJsonSerializerImpl.m in Sources */,
 				2647EAD119F4454000FD9527 /* MSOAuthCredentials.m in Sources */,

@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "MSApplicationOperations.h"
+#import <office365_odata_base/office365_odata_base.h>
 
 /**
 * The implementation file for type MSApplicationOperations.
