@@ -3,23 +3,21 @@
 **Table of Contents**
 
 - [Overview](#overview)
-- [Develop your own apps](#develop-your-own-apps)
+- [Develop an app](#develop-an-app)
 - [Samples](#samples)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Overview
-With the Office 365 SDK for iOS Preview, it’s now possible to use data stored in Microsoft Office 365 from your iOS Apps. 
+With [MS Open Tech](http://msopentech.com)'s open source project **Office 365 SDK for iOS** Preview, you can access all your users' info from Microsoft Office 365 in your iOS Apps. 
 
-[Microsoft Open Technologies, Inc. (MS Open Tech)](http://msopentech.com) has built the **Office 365 SDK for IOS Preview**, an open source project to help iOS developers access Office 365 data from their apps.
-
-## Develop your own apps
-This section will guide you through the process of creating a very simple application that retrieves messages using the Office 365 SDK and and Azure Active Directory Authentication Library.
+## Develop an app
+Here's a quick guide to construct a simple application that retrieves messages using the Office 365 SDK and and Azure Active Directory Authentication Library.
 
 1. Create a new iOS application in Xcode.
-2. Use Cocoapods to retrieve the Office 365 SDKs and the Azure Active Directory Authentication Library (ADAL).
-  > For more info on Cocoapods see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup).
-  
+2. Use [Cocoapods](https://cocoapods.org) to retrieve the Office 365 SDKs and the Azure Active Directory Authentication Library (ADAL).
+  > > For more info on Cocoapods setup see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup) and [their site](http://cocoapods.org).
+
   Add a Podfile similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
   pod 'Office365', '~>0.5'
@@ -42,7 +40,7 @@ This section will guide you through the process of creating a very simple applic
 4. You'll also need to set up [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-objc) to handle authentication. See their repo and our samples to help you get OAuth access tokens.
 
 5. Set up the dependency resolver.
-  Once you have your token, you'll use it to configure your dependency resolver. A typical implementation follows:
+  Once you have your token, you'll use it to configure your dependency resolver. A typical implementation follows.
 
   > The dependency resolver provides a dependency injection mechanism for working with various HTTP clients, JSON serializers, credential types, and loggers. You'll need to add your OAuth access token to the dependency resolver so that it's used on all API requests.
 
@@ -82,15 +80,17 @@ In the samples folder you'll find runnable sample code for Outlook Services (aka
 
 The samples utilize Cocoapods to configure both the Office365 SDKs and ADAL.
 
+Here's how to run these samples:
+
 1. Open Terminal.
 2. Navigate to inside the project's folder.
 3. Run `pod install`.
 4. Run `open simple-<project-name>-app.xcworkspace` to open the workspace with project and dependencies.
 
-> For more info on Cocoapods see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup).
+> For more info on Cocoapods setup see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup) and [their site](http://cocoapods.org).
 
 ## Contributing
 You will need to sign a [Contributor License Agreement](https://cla.msopentech.com/) before submitting your pull request. To complete the Contributor License Agreement (CLA), you will need to submit a request via the form and then electronically sign the Contributor License Agreement when you receive the email containing the link to the document. This needs to only be done once for any Microsoft Open Technologies OSS project.
 
 ## License
-Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. Licensed under the Apache License, Version 2.0 (the "License");
+Copyright (c) Microsoft Open Technologies, Inc. All rights reserved. Licensed under the Apache License, Version 2.0.
