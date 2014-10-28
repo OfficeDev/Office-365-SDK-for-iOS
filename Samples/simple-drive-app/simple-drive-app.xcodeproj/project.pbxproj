@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5C3430AF5B86A1662D9A031 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E2F2C000F17174AEFD3ECF3 /* libPods.a */; };
 		ECA0AC1E19F83174008F6C66 /* FilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0AC1D19F83174008F6C66 /* FilesTableViewController.m */; };
 		ECA0AC2619F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2019F8366A008F6C66 /* ADAL_iPad_Storyboard.storyboard */; };
 		ECA0AC2719F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0AC2119F8366A008F6C66 /* ADAL_iPhone_Storyboard.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E2F2C000F17174AEFD3ECF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A827688CC96A692B7A18C9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CFE1A17ABFF0CE78BCB9E631 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECA0AC1C19F83174008F6C66 /* FilesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTableViewController.h; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			files = (
 				ECCF140D19FED44100625EEC /* libPods-ADALiOS.a in Frameworks */,
 				ECCF140E19FED44100625EEC /* libPods-Office365.a in Frameworks */,
+				B5C3430AF5B86A1662D9A031 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +175,7 @@
 			children = (
 				ECCF140B19FED44100625EEC /* libPods-ADALiOS.a */,
 				ECCF140C19FED44100625EEC /* libPods-Office365.a */,
+				7E2F2C000F17174AEFD3ECF3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -416,7 +420,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -433,7 +440,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

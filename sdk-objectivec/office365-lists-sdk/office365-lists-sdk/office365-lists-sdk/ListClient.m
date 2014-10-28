@@ -124,7 +124,7 @@ const NSString *apiUrl = @"/_api/lists";
     }];
 }
 
-- (NSURLSessionDataTask *)deleteList: (ListEntity *) deleteList : (void (^)(bool success, NSError *error))callback{
+- (NSURLSessionDataTask *)deleteList: (ListEntity *) deleteList : (void (^)(BOOL success, NSError *error))callback{
     
     NSString *url = [NSString stringWithFormat:@"%@%@(guid'%@')", self.Url , apiUrl, deleteList.Id];
     

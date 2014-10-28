@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "Office365"
-  s.version      = "0.5.0"
+  s.version      = "0.5.1"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
 
   s.description  = <<-DESC
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.author             = { "joshgav" => "josh.gavant@microsoft.com" }
-  # s.social_media_url   = "http://twitter.com/joshgav"
+  s.social_media_url   = "http://twitter.com/OpenAtMicrosoft"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 

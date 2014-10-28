@@ -8,6 +8,4 @@
 
 @interface MessageTableViewController : UITableViewController
 
-- (IBAction)Refresh:(id)sender;
-
 @end

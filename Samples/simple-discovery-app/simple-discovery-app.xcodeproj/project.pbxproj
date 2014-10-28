@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6898DD9BF7C54A3E98630BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A040910CFDD02E0E3E874D /* libPods.a */; };
 		EC2CCA9B19F8A4AC00D12E55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2CCA9A19F8A4AC00D12E55 /* main.m */; };
 		EC2CCAA119F8A4AC00D12E55 /* simple_discovery_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC2CCA9F19F8A4AC00D12E55 /* simple_discovery_app.xcdatamodeld */; };
 		EC2CCAA719F8A4AC00D12E55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC2CCAA519F8A4AC00D12E55 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 			files = (
 				ECCF141419FED97B00625EEC /* libPods-ADALiOS.a in Frameworks */,
 				ECCF141519FED97B00625EEC /* libPods-Office365.a in Frameworks */,
+				6898DD9BF7C54A3E98630BB1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +414,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -429,7 +434,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

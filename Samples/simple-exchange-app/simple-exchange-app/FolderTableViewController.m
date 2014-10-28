@@ -6,6 +6,7 @@
 
 #import "FolderTableViewController.h"
 #import "BaseController.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface FolderTableViewController()
 
@@ -55,16 +56,14 @@
 }
 
 -(void)getFolders{
-    UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
-    
-    [BaseController getClient:^(MSOutlookClient *client) {
+
+    [[BaseController alloc] getClient:^(MSOutlookClient *client) {
         NSURLSessionTask* task = [[[client getMe] getFolders] execute:^(NSArray<MSOutlookFolder> *folders, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
                                    self.Folders = folders;
                                    [self.tableView reloadData];
-                                   [spinner stopAnimating];
                                });
             }
         }];

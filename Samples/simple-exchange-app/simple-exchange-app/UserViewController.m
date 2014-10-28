@@ -15,25 +15,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getUserData];
+    [self getMessagesFromInbox];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
--(void)getUserData{
+/*
+#pragma mark - Navigation
 
-    UIActivityIndicatorView* spinner = [BaseController getSpinner:self.view];
-    [BaseController getClient:^(MSOutlookClient * client) {
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+-(void)getMessagesFromInbox{
+    
+   // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
+ 
+    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
         NSURLSessionTask* task = [[client getMe] execute:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
+                                   [[[client getResolver] getLogger]log:@"Got results" :(MSLogLevel *)INFO];
+                                   
                                    self.lblDisplayName.text = user.DisplayName;
                                    self.lblAlias.text = user.Alias;
                                    self.lblMailBoxId.text = user.MailboxGuid;
-                                   [spinner stopAnimating];
                                });
             }
         }];
