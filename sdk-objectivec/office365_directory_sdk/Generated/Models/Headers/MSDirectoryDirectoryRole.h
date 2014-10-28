@@ -14,7 +14,8 @@
 */
 
 @interface MSDirectoryDirectoryRole : MSDirectoryDirectoryObject
-@property NSString *description;
+
+@property NSString *$$__description;
 @property NSString *displayName;
 @property bool isSystem;
 @property bool roleDisabled;

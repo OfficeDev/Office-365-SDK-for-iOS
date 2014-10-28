@@ -22,9 +22,8 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :addLicenses,@"addLicenses",nil ],
-	[[NSDictionary alloc] initWithObjectsAndKeys :removeLicenses,@"removeLicenses",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :addLicenses,@"addLicenses",
+                                            removeLicenses,@"removeLicenses",nil ];
 
 	NSString* parameters = [MSDirectoryBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"assignLicense(%@)",parameters]];

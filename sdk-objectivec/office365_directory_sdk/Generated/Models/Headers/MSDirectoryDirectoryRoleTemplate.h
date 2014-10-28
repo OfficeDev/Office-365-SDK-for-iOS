@@ -14,7 +14,7 @@
 */
 
 @interface MSDirectoryDirectoryRoleTemplate : MSDirectoryDirectoryObject
-@property NSString *description;
+@property NSString *$$__description;
 @property NSString *displayName;
 
 @end

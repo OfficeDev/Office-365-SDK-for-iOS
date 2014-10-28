@@ -16,7 +16,7 @@
 */
 
 @interface MSDirectoryGroup : MSDirectoryDirectoryObject
-@property NSString *description;
+@property NSString *$$__description;
 @property bool dirSyncEnabled;
 @property NSString *displayName;
 @property NSDate *lastDirSyncTime;

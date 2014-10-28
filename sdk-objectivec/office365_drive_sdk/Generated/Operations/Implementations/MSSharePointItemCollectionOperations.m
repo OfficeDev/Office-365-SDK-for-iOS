@@ -17,8 +17,7 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-    NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ];
 
 	NSString* parameters = [MSSharePointBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
