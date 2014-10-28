@@ -10,7 +10,7 @@
 
 @interface ListEntity : BaseEntity
 @property NSString *title;
-@property NSString *description;
+// @property NSString *description;
 
 -(NSString *) getTitle;
 
