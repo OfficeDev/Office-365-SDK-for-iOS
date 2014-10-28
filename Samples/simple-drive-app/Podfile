@@ -3,4 +3,4 @@ platform :ios, '8.0'
 
 xcodeproj 'simple-drive-app'
 pod 'ADALiOS', '~> 1.0.0' # 1.0.0 < ver < 1.1.0
-pod 'Office365/Files', :git => 'https://github.com/officedev/office-365-sdk-for-ios'
+pod 'Office365/Files', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS.git'
