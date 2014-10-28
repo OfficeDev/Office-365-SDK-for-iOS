@@ -1,19 +1,15 @@
 PODS:
   - ADALiOS (1.0.2)
-  - Office365/Discovery (0.5.0):
+  - Office365/Discovery (0.5.3):
     - Office365/OData
-  - Office365/OData (0.5.0)
+  - Office365/OData (0.5.3)
 
 DEPENDENCIES:
   - ADALiOS (~> 1.0.0)
-  - Office365/Discovery (from `https://github.com/officedev/office-365-sdk-for-ios`)
-
-EXTERNAL SOURCES:
-  Office365:
-    :git: https://github.com/officedev/office-365-sdk-for-ios
+  - Office365/Discovery (~> 0.5.0)
 
 SPEC CHECKSUMS:
   ADALiOS: f87e574524ba92a9897d5aeb1805f55a0be2cc51
-  Office365: 4ddbfb307f1b7ab9147e3e499ef777974678b395
+  Office365: 60d931102c494c44e40e78b5a6aa9b6ba43dd5fe
 
 COCOAPODS: 0.34.4
