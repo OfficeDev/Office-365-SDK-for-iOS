@@ -12,10 +12,10 @@
 With [MS Open Tech](http://msopentech.com)'s open source project **Office 365 SDK for iOS** Preview, you can access all your users' info from Microsoft Office 365 in your iOS Apps. 
 
 ## Develop an app
-Here's a quick guide to construct a simple application that retrieves messages using the Office 365 SDK and and Azure Active Directory Authentication Library.
+Here's a quick guide to construct a simple application that retrieves messages using the Office 365 SDK and and Azure Active Directory Authentication Library (ADAL).
 
 1. Create a new iOS application in Xcode.
-2. Using [Cocoapods](https://cocoapods.org), retrieve the Office 365 SDKs and the Azure Active Directory Authentication Library (ADAL) and add them to your project.
+2. Using [Cocoapods](https://cocoapods.org), retrieve the Office 365 SDKs and the Azure ADAL and add them to your project.
   > For more info on Cocoapods setup see our [wiki](https://github.com/OfficeDev/Office-365-SDK-for-iOS/wiki/Cocoapods-Setup) and [their site](http://cocoapods.org).
 
   To do this, add a Podfile file similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
@@ -39,7 +39,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
   #import <office365_directory_sdk/office365_directory_sdk.h>
   ```
 
-4. You'll also need to set up [ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-objc) to handle authentication. See their repo and our samples to help you get OAuth access tokens.
+4. You'll also need to set up ADAL to handle authentication. See the [ADAL repo](https://github.com/AzureAD/azure-activedirectory-library-for-objc) and our samples (below) to help you get OAuth access tokens.
 
 5. Set up the dependency resolver.
   Once you have your token, you'll use it to configure your dependency resolver. A typical implementation follows.
