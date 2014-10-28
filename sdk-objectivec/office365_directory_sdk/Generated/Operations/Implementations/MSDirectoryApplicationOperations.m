@@ -22,8 +22,7 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :identifierUris,@"identifierUris",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :identifierUris,@"identifierUris",nil ];
 
 	NSString* parameters = [MSDirectoryBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"restore(%@)",parameters]];

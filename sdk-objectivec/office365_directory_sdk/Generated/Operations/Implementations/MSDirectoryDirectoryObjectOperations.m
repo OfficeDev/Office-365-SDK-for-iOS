@@ -22,9 +22,8 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :groupIds,@"groupIds",nil ],nil];
-
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:groupIds,@"groupIds", nil];
+    
 	NSString* parameters = [MSDirectoryBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"checkMemberGroups(%@)",parameters]];
 	NSData* payload = nil;
@@ -46,8 +45,7 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :(securityEnabledOnly ? @"true" : @"false"),@"securityEnabledOnly",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:(securityEnabledOnly ? @"true" :@"false"),@"securityEnabledOnly", nil];
 
 	NSString* parameters = [MSDirectoryBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberGroups(%@)",parameters]];
@@ -70,8 +68,7 @@
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-			NSArray* params = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :(securityEnabledOnly ? @"true" : @"false"),@"securityEnabledOnly",nil ],nil];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :(securityEnabledOnly ? @"true" : @"false"),@"securityEnabledOnly",nil];
 
 	NSString* parameters = [MSDirectoryBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberObjects(%@)",parameters]];

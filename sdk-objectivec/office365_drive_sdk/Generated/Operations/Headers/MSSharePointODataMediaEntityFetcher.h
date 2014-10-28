@@ -14,6 +14,6 @@
 
 -(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataExecutable>)parent;
 -(NSURLSessionDataTask*) getContent:(void (^)(NSData* content, NSError * error))callback;
--(NSURLSessionDataTask*) putContent:(NSData*)content :(void (^)(int result, NSError * error))callback;
+-(NSURLSessionDataTask*) putContent:(NSData*)content :(void (^)(NSInteger result, NSError * error))callback;
 
 @end

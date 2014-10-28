@@ -18,8 +18,12 @@
 @implementation MSJsonSerializerImpl
 
 -(void)jsonSerializerImpl{
-    NSDictionary* metadataValues = [[NSDictionary alloc] initWithObjectsAndKeys:@"$$__ODataType", @"@odata.type", nil];
-     self.parser = [[JsonParser alloc] initWithMetadataValues:metadataValues];
+    NSDictionary* metadataValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    @"$$__ODataType", @"@odata.type",
+                                    @"$$__description", @"description",
+                                    @"$$__default",@"default", nil];
+    
+    self.parser = [[JsonParser alloc] initWithMetadataValues:metadataValues];
 }
 
 -(NSString*) serialize : (id) objectToSerialize{

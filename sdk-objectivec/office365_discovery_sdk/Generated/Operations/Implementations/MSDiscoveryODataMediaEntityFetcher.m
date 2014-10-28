@@ -31,7 +31,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)putContent:(NSData *)content :(void (^)(int, NSError *))callback{
+-(NSURLSessionDataTask *)putContent:(NSData *)content :(void (^)(NSInteger, NSError *))callback{
 
     id<MSODataURL> url = [[self getResolver] createODataURL];
     [url appendPathComponent:@"$value"];

@@ -17,7 +17,7 @@
 
 @property NSString *$$__ODataType;
 @property NSMutableArray *allowedMemberTypes;
-@property NSString *description;
+@property NSString *$$__description;
 @property NSString *displayName;
 @property NSString *id;
 @property bool isEnabled;
