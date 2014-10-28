@@ -20,10 +20,9 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
   To do this, add a Podfile file similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
-  pod 'Office365', '~>0.5', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS'
+  pod 'Office365', '~>0.5.0'
   pod 'ADALiOS', '~>1.0.0'
   ```
-  > **NOTE** The ":git => ..." parameter is needed while we wait to be accepted to the Cocoapods master spec repo. We'll remove it in a day or two.
   
   Then, from the same directory, run `pod install` to configure your dependencies and add them and the existing project to a new workspace.
   Finally, run `open your-project-name.xcworkspace` to open your workspace in Xcode.
