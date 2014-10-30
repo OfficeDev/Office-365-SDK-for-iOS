@@ -1,17 +1,22 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
-#import "MSOutlookODataExecutable.h"
+#import "MSOutlookODataReadable.h"
 
 /**
 * The header for type MSOutlookODataOperations.
 */
 
-@interface MSOutlookODataOperations : MSOutlookODataExecutable
+@interface MSOutlookODataOperations : MSOutlookODataReadable
 
--(id)initOperationWithUrl : (NSString*) urlComponent Parent: (id<MSOutlookODataExecutable>) parent;
+-(id)initOperationWithUrl : (NSString*) urlComponent Parent: (id<MSOutlookODataReadable>) parent;
 
 @end

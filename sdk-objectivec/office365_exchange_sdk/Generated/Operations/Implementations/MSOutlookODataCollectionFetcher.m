@@ -1,12 +1,17 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
 #import "MSOutlookODataCollectionFetcher.h"
-#import "MSOutlookEntityFetcherHelper.h"
 #import "MSOutlookBaseODataContainerHelper.h"
+#import "MSOutlookEntityFetcherHelper.h"
 
 @interface MSOutlookODataCollectionFetcher()
 
@@ -27,7 +32,7 @@
 
 @implementation MSOutlookODataCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(id<MSOutlookODataExecutable>)parent :(Class)entityClass{
+-(id)initWith:(NSString *)urlComponent :(id<MSOutlookODataReadable>)parent :(Class)entityClass{
 
     self.urlComponent = urlComponent;
     self.parent = parent;
@@ -87,7 +92,7 @@
     return [self.Parent getResolver];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
     
     return [self oDataExecute:[[self getResolver] createODataURL] :nil :GET :^(id<MSResponse> d, NSError *e) {
 
