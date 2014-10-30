@@ -188,7 +188,7 @@
 		EC847C8919FE833100920E41 /* MSOutlookResponseType.h in Headers */ = {isa = PBXBuildFile; fileRef = EC847C6619FE833100920E41 /* MSOutlookResponseType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC847C8A19FE833100920E41 /* MSOutlookUser.h in Headers */ = {isa = PBXBuildFile; fileRef = EC847C6719FE833100920E41 /* MSOutlookUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC847C8B19FE833100920E41 /* MSOutlookWeekIndex.h in Headers */ = {isa = PBXBuildFile; fileRef = EC847C6819FE833100920E41 /* MSOutlookWeekIndex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECF8C1F31A0281F800E53C97 /* MSOutlookODataReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF8C1F21A0281F800E53C97 /* MSOutlookODataReadable.h */; };
+		ECF8C1F31A0281F800E53C97 /* MSOutlookODataReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF8C1F21A0281F800E53C97 /* MSOutlookODataReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECF8C1F51A02820F00E53C97 /* MSOutlookODataReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF8C1F41A02820F00E53C97 /* MSOutlookODataReadable.m */; };
 /* End PBXBuildFile section */
 
@@ -762,7 +762,6 @@
 				EC847C1719FE831400920E41 /* MSOutlookODataOperations.h in Headers */,
 				EC847C7D19FE833100920E41 /* MSOutlookLocation.h in Headers */,
 				EC847C7119FE833100920E41 /* MSOutlookDayOfWeek.h in Headers */,
-				ECF8C1F31A0281F800E53C97 /* MSOutlookODataReadable.h in Headers */,
 				EC847BE819FE831400920E41 /* MSOutlookCalendarGroupOperations.h in Headers */,
 				EC847C0319FE831400920E41 /* MSOutlookItemAttachmentCollectionFetcher.h in Headers */,
 				EC847C7419FE833100920E41 /* MSOutlookEvent.h in Headers */,
@@ -817,6 +816,7 @@
 				2647ECA719F44E2A00FD9527 /* MSOutlookBaseODataContainerHelper.h in Headers */,
 				2647ECA819F44E2A00FD9527 /* MSOutlookEntityFetcherHelper.h in Headers */,
 				2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */,
+				ECF8C1F31A0281F800E53C97 /* MSOutlookODataReadable.h in Headers */,
 				2647ECB219F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

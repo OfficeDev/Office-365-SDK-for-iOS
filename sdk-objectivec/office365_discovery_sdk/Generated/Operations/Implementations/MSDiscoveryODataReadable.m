@@ -8,26 +8,21 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
-#import "MSSharePointDriveFetcher.h"
-
+#import "MSDiscoveryODataReadable.h"
 
 /**
-* The implementation file for type MSSharePointDriveFetcher.
+* The implementation file for type MSDiscoveryODataReadable.
 */
 
+@implementation MSDiscoveryODataReadable
 
-@implementation MSSharePointDriveFetcher
--(MSSharePointDriveOperations*) getOperations{
-	return [[MSSharePointDriveOperations alloc] initOperationWithUrl:self.UrlComponent Parent:self.Parent];
+-(NSDictionary *)getCustomParameters{
+    return self.CustomParameters;
 }
 
--(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataReadable>)parent{
-    
-    self.Parent = parent;
-    self.UrlComponent = urlComponent;
-    return [super initWith:urlComponent :parent : [MSSharePointDrive class]];
+-(void)addCustomParameters:(NSString *)name :(NSString *)value{
+    NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value,name, nil];
+    [self.CustomParameters addEntriesFromDictionary:dicc];
 }
-
-
 @end
+

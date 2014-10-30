@@ -1,8 +1,13 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
 #import "MSSharePointODataEntityFetcher.h"
 #import "MSSharePointODataOperations.h"
@@ -11,7 +16,7 @@
 @interface MSSharePointODataEntityFetcher()
 
 @property Class entityClass;
-@property MSSharePointODataExecutable* operations;
+@property MSSharePointODataOperations* operations;
 
 @end
 
@@ -24,7 +29,7 @@
 @synthesize Parent;
 @synthesize UrlComponent;
 
--(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataExecutable>)parent : (Class) entityClass{
+-(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataReadable>)parent : (Class) entityClass{
     self.UrlComponent = urlComponent;
     self.Parent = parent;
     self.operations = [[MSSharePointODataOperations alloc] initOperationWithUrl:@"" Parent:parent];
@@ -55,7 +60,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
     return [self oDataExecute:[[self getResolver] createODataURL]  :nil :GET :^(id<MSResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];

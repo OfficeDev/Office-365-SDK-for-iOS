@@ -1,12 +1,17 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
 #import "MSDiscoveryODataCollectionFetcher.h"
-#import "MSDiscoveryEntityFetcherHelper.h"
 #import "MSDiscoveryBaseODataContainerHelper.h"
+#import "MSDiscoveryEntityFetcherHelper.h"
 
 @interface MSDiscoveryODataCollectionFetcher()
 
@@ -27,7 +32,7 @@
 
 @implementation MSDiscoveryODataCollectionFetcher
 
--(id)initWith:(NSString *)urlComponent :(id<MSDiscoveryODataExecutable>)parent :(Class)entityClass{
+-(id)initWith:(NSString *)urlComponent :(id<MSDiscoveryODataReadable>)parent :(Class)entityClass{
 
     self.urlComponent = urlComponent;
     self.parent = parent;
@@ -87,7 +92,7 @@
     return [self.Parent getResolver];
 }
 
--(NSURLSessionDataTask *)execute:(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
     
     return [self oDataExecute:[[self getResolver] createODataURL] :nil :GET :^(id<MSResponse> d, NSError *e) {
 

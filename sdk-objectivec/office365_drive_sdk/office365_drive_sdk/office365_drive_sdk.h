@@ -35,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char office365_drive_sdkVersionString[];
 #import <office365_drive_sdk/MSSharePointODataCollectionFetcher.h>
 #import <office365_drive_sdk/MSSharePointODataEntityFetcher.h>
 #import <office365_drive_sdk/MSSharePointODataOperations.h>
-#import <office365_drive_sdk/MSSharePointODataExecutable.h>
+#import <office365_drive_sdk/MSSharePointODataReadable.h>
 #import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
 #import <office365_drive_sdk/MSSharePointODataMediaEntityFetcher.h>
 

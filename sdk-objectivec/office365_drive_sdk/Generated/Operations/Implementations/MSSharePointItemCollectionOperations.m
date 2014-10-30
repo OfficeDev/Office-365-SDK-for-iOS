@@ -1,8 +1,13 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
 #import "MSSharePointItemCollectionOperations.h"
 #import "MSSharePointBaseODataContainerHelper.h"
@@ -12,12 +17,11 @@
 */
 
 @implementation MSSharePointItemCollectionOperations
-
 -(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, NSError *error))callback{
 
 	id<MSODataURL> url = [[self getResolver] createODataURL];
 
-    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ];
+	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :path,@"path",nil ];
 
 	NSString* parameters = [MSSharePointBaseODataContainerHelper getFunctionParameters: params];
 	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];

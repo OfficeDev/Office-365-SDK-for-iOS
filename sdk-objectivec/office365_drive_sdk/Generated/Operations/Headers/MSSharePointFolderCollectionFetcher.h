@@ -1,8 +1,13 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
- ******************************************************************************/
+ *
+ * Warning: This code was generated automatically. Edits will be overwritten.
+ * To make changes to this code, please make changes to the generation framework itself:
+ * https://github.com/MSOpenTech/odata-codegen
+ *******************************************************************************/
 
 #import "MSSharePointFolder.h"
 #import "MSSharePointODataCollectionFetcher.h"
@@ -15,13 +20,13 @@
 @protocol MSSharePointFolderCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)execute:(void (^)(NSArray<MSSharePointFolder> *folders, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFolder> *folders, NSError *error))callback;
 
 @end
 
 @interface MSSharePointFolderCollectionFetcher : MSSharePointODataCollectionFetcher<MSSharePointFolderCollectionFetcher>
 
--(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataExecutable>)parent;
+-(id)initWith:(NSString *)urlComponent :(id<MSSharePointODataReadable>)parent;
 
 -(NSURLSessionDataTask*)add:(MSSharePointFolder* )entity :(void (^)(MSSharePointFolder *folder, NSError *e))callback;
 

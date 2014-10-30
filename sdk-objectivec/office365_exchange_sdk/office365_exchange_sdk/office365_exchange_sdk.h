@@ -69,7 +69,7 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOutlookMessageOperations.h>
 #import <office365_exchange_sdk/MSOutlookODataCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOutlookODataEntityFetcher.h>
-#import <office365_exchange_sdk/MSOutlookODataExecutable.h>
+#import <office365_exchange_sdk/MSOutlookODataReadable.h>
 #import <office365_exchange_sdk/MSOutlookODataOperations.h>
 #import <office365_exchange_sdk/MSOutlookUserCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOutlookUserCollectionOperations.h>

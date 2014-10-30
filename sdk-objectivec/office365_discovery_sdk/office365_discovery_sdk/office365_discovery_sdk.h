@@ -13,7 +13,7 @@ FOUNDATION_EXPORT const unsigned char office365_discovery_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import "PublicHeader.h>
 
-#import <office365_discovery_sdk/MSDiscoveryODataExecutable.h>
+#import <office365_discovery_sdk/MSDiscoveryODataReadable.h>
 #import <office365_discovery_sdk/MSDiscoveryBaseODataContainer.h>
 #import <office365_discovery_sdk/MSDiscoveryClient.h>
 #import <office365_discovery_sdk/MSDiscoveryODataEntityFetcher.h>
