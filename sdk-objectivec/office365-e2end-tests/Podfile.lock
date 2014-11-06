@@ -1,7 +1,7 @@
 PODS:
   - ADALiOS (1.0.2)
-  - Office365/OData (0.5.3)
-  - Office365/Outlook (0.5.3):
+  - Office365/OData (0.5.4)
+  - Office365/Outlook (0.5.4):
     - Office365/OData
 
 DEPENDENCIES:
@@ -15,6 +15,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   ADALiOS: f87e574524ba92a9897d5aeb1805f55a0be2cc51
-  Office365: ac001658b094374111495fbcd71b9d904fca2096
+  Office365: e9f718e294ffa7dbc5a0c6361cdb24da336ce9e1
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4
