@@ -20,7 +20,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
   To do this, add a Podfile file similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
-  pod 'Office365', '~>0.5.0'
+  pod 'Office365', '~>0.5.4'
   pod 'ADALiOS', '~>1.0.0'
   ```
   
@@ -63,7 +63,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
   Here's how to get all the messages for the current user.
 
   ```Objective-C
-  NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+  NSURLSessionTask* task = [[[client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
     if(error == nil){
       dispatch_async(dispatch_get_main_queue(),
         ^{
