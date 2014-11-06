@@ -59,7 +59,7 @@
 -(void)getMessagesFromInbox{
  
    [[BaseController alloc] getClient:^(MSOutlookClient *client) {
-       NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+       NSURLSessionTask* task = [[[client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
            
            if(error == nil){
                dispatch_async(dispatch_get_main_queue(),

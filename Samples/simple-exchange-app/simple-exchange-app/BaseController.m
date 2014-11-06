@@ -26,7 +26,7 @@
         [resolver setCredentialsFactory:credentialsImpl];
         [[resolver getLogger] log:@"Going to call client API" :(MSLogLevel *)INFO];
         
-        callback([[MSOutlookClient alloc] initWitUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
+        callback([[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
     }];
 }
 @end

@@ -12,7 +12,7 @@
 +(void)getClient : (void (^) (MSSharePointClient* ))callback{
     
     LogInController* loginController = [[LogInController alloc] init];
-    NSString* hostName = @"https://msopentech.spoppe.com";
+    NSString* hostName = @"https://teeudev1-my.sharepoint.com";
     
     [loginController getTokenWith : hostName :true completionHandler:^(NSString *token) {
     
@@ -25,7 +25,7 @@
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
         
-        callback([[MSSharePointClient alloc] initWitUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:resolver]);
+        callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:resolver]);
     }];
 }
 

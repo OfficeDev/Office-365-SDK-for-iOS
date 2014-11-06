@@ -59,7 +59,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     [BaseController getClient:^(MSSharePointClient * client) {
-            [[[client  getfiles] execute:^(NSArray<MSSharePointItem> *items, NSError *error) {
+            [[[client  getfiles] read:^(NSArray<MSSharePointItem> *items, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{

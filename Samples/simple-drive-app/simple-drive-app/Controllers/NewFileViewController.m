@@ -35,7 +35,7 @@
         [[[client getfiles] add:item :^(MSSharePointItem *item, NSError *e) {
             __block NSString* _id = item.id;
             
-            [[[[[client getfiles] getById:_id] asFile] putContent:body :^(int result, NSError *error) {
+            [[[[[client getfiles] getById:_id] asFile] putContent:body :^(NSInteger result, NSError *error) {
                 
                 [[[[[client getfiles] getById:_id] asFile] getContent:^(NSData *content, NSError *error) {
                     

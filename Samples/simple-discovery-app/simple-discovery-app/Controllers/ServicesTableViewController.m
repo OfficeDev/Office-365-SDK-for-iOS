@@ -59,7 +59,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     [BaseController getClient:^(MSDiscoveryClient * client) {
-            [[[client getallServices] execute:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+            [[[client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
                 if(error == nil){
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
