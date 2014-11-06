@@ -27,7 +27,7 @@
 @synthesize Parent;
 @synthesize UrlComponent;
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
     self.UrlComponent = url;
     self.resolver = resolver;
     return self;
@@ -37,7 +37,7 @@
     
 	[MSOutlookBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
 
-    return [[[MSOutlookBaseODataContainerHelper alloc] initWitUrl:self.UrlComponent dependencyResolver:self.resolver]
+    return [[[MSOutlookBaseODataContainerHelper alloc] initWithUrl:self.UrlComponent dependencyResolver:self.resolver]
             oDataExecute:path :content :verb : @"GetFullPrefix()-sdk/MSOutlookBaseODataContainer" : callback];
 }
 

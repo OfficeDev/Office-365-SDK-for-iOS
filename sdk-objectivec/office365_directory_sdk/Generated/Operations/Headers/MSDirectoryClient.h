@@ -36,7 +36,7 @@
 
 @interface MSDirectoryClient : MSDirectoryBaseODataContainer
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getdirectoryObjects;
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
 -(MSDirectorySubscribedSkuCollectionFetcher*) getsubscribedSkus;

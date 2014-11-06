@@ -21,7 +21,7 @@
 
 @interface MSDiscoveryClient : MSDiscoveryBaseODataContainer
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
 -(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
 -(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
 

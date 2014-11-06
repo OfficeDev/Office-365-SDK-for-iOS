@@ -323,7 +323,6 @@
 		EC5C154719F999F900AAF5AC /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
-				ECF9919E1A02C00000A01209 /* MSSharePointODataReadable.m */,
 				ECEE865C19FE917000823F20 /* MSSharePointBaseODataContainer.m */,
 				ECEE865D19FE917000823F20 /* MSSharePointClient.m */,
 				ECEE865E19FE917000823F20 /* MSSharePointDriveCollectionFetcher.m */,
@@ -346,6 +345,7 @@
 				ECEE866F19FE917000823F20 /* MSSharePointODataEntityFetcher.m */,
 				ECEE867119FE917000823F20 /* MSSharePointODataMediaEntityFetcher.m */,
 				ECEE867219FE917000823F20 /* MSSharePointODataOperations.m */,
+				ECF9919E1A02C00000A01209 /* MSSharePointODataReadable.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";

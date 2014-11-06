@@ -17,8 +17,8 @@
 
 @implementation MSDiscoveryClient
 
--(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
-    return [super initWitUrl:url dependencyResolver:resolver];
+-(id)initWithUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
+    return [super initWithUrl:url dependencyResolver:resolver];
 }
 -(MSDiscoveryServiceInfoCollectionFetcher*) getallServices{
 	return [[MSDiscoveryServiceInfoCollectionFetcher alloc] initWith:@"allServices" :self];

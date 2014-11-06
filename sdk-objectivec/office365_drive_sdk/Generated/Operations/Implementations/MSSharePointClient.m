@@ -17,8 +17,8 @@
 
 @implementation MSSharePointClient
 
--(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
-    return [super initWitUrl:url dependencyResolver:resolver];
+-(id)initWithUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
+    return [super initWithUrl:url dependencyResolver:resolver];
 }
 -(MSSharePointDriveFetcher*) getdrive{
 	return [[MSSharePointDriveFetcher alloc] initWith:@"drive" :self : [MSSharePointDrive class]];

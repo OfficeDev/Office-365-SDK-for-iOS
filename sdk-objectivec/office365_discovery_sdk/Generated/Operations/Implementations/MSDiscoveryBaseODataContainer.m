@@ -27,7 +27,7 @@
 @synthesize Parent;
 @synthesize UrlComponent;
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
     self.UrlComponent = url;
     self.resolver = resolver;
     return self;
@@ -37,7 +37,7 @@
     
 	[MSDiscoveryBaseODataContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
 
-    return [[[MSDiscoveryBaseODataContainerHelper alloc] initWitUrl:self.UrlComponent dependencyResolver:self.resolver]
+    return [[[MSDiscoveryBaseODataContainerHelper alloc] initWithUrl:self.UrlComponent dependencyResolver:self.resolver]
             oDataExecute:path :content :verb : @"GetFullPrefix()-sdk/MSDiscoveryBaseODataContainer" : callback];
 }
 

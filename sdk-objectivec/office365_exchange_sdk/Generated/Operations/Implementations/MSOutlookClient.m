@@ -17,8 +17,8 @@
 
 @implementation MSOutlookClient
 
--(id)initWitUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
-    return [super initWitUrl:url dependencyResolver:resolver];
+-(id)initWithUrl:(NSString *)url dependencyResolver:(id<MSDependencyResolver>)resolver{
+    return [super initWithUrl:url dependencyResolver:resolver];
 }
 -(MSOutlookUserFetcher*) getMe{
 	return [[MSOutlookUserFetcher alloc] initWith:@"Me" :self : [MSOutlookUser class]];

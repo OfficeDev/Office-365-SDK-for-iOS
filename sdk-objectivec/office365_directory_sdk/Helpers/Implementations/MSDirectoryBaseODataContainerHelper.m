@@ -15,7 +15,7 @@
 
 @implementation MSDirectoryBaseODataContainerHelper
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver{
     self.UrlComponent = url;
     self.resolver = resolver;
     return self;

@@ -10,7 +10,7 @@
 @interface MSDirectoryBaseODataContainerHelper : NSObject
 
 -(id<MSDependencyResolver>) getResolver;
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
 +(NSString*)generatePayload :(NSArray*) parameters : (id<MSDependencyResolver>) resolver;
 -(NSURLSessionDataTask *)oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSHttpVerb)verb : (NSString*) productName :(void (^)(id<MSResponse>, NSError *))callback;
 +(void)addCustomParametersToODataURL : (id<MSODataURL>) url : (NSDictionary*) parameters : (id<MSDependencyResolver>) resolver;

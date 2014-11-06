@@ -21,7 +21,7 @@
 
 @interface MSSharePointClient : MSSharePointBaseODataContainer
 
--(id)initWitUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
+-(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSDependencyResolver>) resolver;
 -(MSSharePointDriveFetcher*) getdrive;
 -(MSSharePointItemCollectionFetcher*) getfiles;
 
