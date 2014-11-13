@@ -1,0 +1,399 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC136E981A041F3500035664 /* MSRequestImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC136E971A041F3500035664 /* MSRequestImpl.swift */; };
+		EC136E9A1A04217A00035664 /* MSResponseImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC136E991A04217A00035664 /* MSResponseImpl.swift */; };
+		EC136E9C1A04230100035664 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC136E9B1A04230100035664 /* String.swift */; };
+		EC136E9E1A042EA400035664 /* MSJsonSerializerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC136E9D1A042EA400035664 /* MSJsonSerializerImpl.swift */; };
+		EC6285931A13CC940042D27F /* MSODataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6285921A13CC940042D27F /* MSODataTask.swift */; };
+		EC8C41EE1A03C3A5008052D0 /* office365_odata_base.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8C41ED1A03C3A5008052D0 /* office365_odata_base.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8C42081A03D1AC008052D0 /* MSCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42071A03D1AC008052D0 /* MSCredentials.swift */; };
+		EC8C420A1A03D350008052D0 /* MSRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42091A03D350008052D0 /* MSRequest.swift */; };
+		EC8C420C1A03F14D008052D0 /* MSHttpVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C420B1A03F14D008052D0 /* MSHttpVerb.swift */; };
+		EC8C420E1A03F480008052D0 /* MSCredentialsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C420D1A03F480008052D0 /* MSCredentialsFactory.swift */; };
+		EC8C42101A03F50E008052D0 /* MSDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C420F1A03F50E008052D0 /* MSDependencyResolver.swift */; };
+		EC8C42121A03F59D008052D0 /* MSHttpTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42111A03F59D008052D0 /* MSHttpTransport.swift */; };
+		EC8C42141A03F761008052D0 /* MSJsonSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42131A03F761008052D0 /* MSJsonSerializer.swift */; };
+		EC8C42161A03FAA4008052D0 /* MSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42151A03FAA4008052D0 /* MSLogger.swift */; };
+		EC8C42181A03FAE6008052D0 /* MSLogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42171A03FAE6008052D0 /* MSLogLevel.swift */; };
+		EC8C421A1A03FB1D008052D0 /* MSODataURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42191A03FB1D008052D0 /* MSODataURL.swift */; };
+		EC8C421C1A03FC07008052D0 /* MSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C421B1A03FC07008052D0 /* MSResponse.swift */; };
+		EC8C421E1A03FE6F008052D0 /* MSBasicCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C421D1A03FE6F008052D0 /* MSBasicCredentials.swift */; };
+		EC8C42201A040818008052D0 /* MSCredentialsFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C421F1A040818008052D0 /* MSCredentialsFactoryImpl.swift */; };
+		EC8C42221A040C4A008052D0 /* MSDefaultDependencyResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42211A040C4A008052D0 /* MSDefaultDependencyResolver.swift */; };
+		EC8C42241A0412B2008052D0 /* MSHttpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42231A0412B2008052D0 /* MSHttpConnection.swift */; };
+		EC8C42261A04165D008052D0 /* MSLoggerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42251A04165D008052D0 /* MSLoggerImpl.swift */; };
+		EC8C42281A0416A8008052D0 /* MSOAuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42271A0416A8008052D0 /* MSOAuthCredentials.swift */; };
+		EC8C422A1A041702008052D0 /* MSODataURLImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C42291A041702008052D0 /* MSODataURLImpl.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EC136E971A041F3500035664 /* MSRequestImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSRequestImpl.swift; sourceTree = "<group>"; };
+		EC136E991A04217A00035664 /* MSResponseImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSResponseImpl.swift; sourceTree = "<group>"; };
+		EC136E9B1A04230100035664 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		EC136E9D1A042EA400035664 /* MSJsonSerializerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSJsonSerializerImpl.swift; sourceTree = "<group>"; };
+		EC6285921A13CC940042D27F /* MSODataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSODataTask.swift; sourceTree = "<group>"; };
+		EC8C41E81A03C3A5008052D0 /* office365_odata_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_odata_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC8C41EC1A03C3A5008052D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8C41ED1A03C3A5008052D0 /* office365_odata_base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_base.h; sourceTree = "<group>"; };
+		EC8C42071A03D1AC008052D0 /* MSCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCredentials.swift; sourceTree = "<group>"; };
+		EC8C42091A03D350008052D0 /* MSRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSRequest.swift; sourceTree = "<group>"; };
+		EC8C420B1A03F14D008052D0 /* MSHttpVerb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSHttpVerb.swift; sourceTree = "<group>"; };
+		EC8C420D1A03F480008052D0 /* MSCredentialsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCredentialsFactory.swift; sourceTree = "<group>"; };
+		EC8C420F1A03F50E008052D0 /* MSDependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDependencyResolver.swift; sourceTree = "<group>"; };
+		EC8C42111A03F59D008052D0 /* MSHttpTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSHttpTransport.swift; sourceTree = "<group>"; };
+		EC8C42131A03F761008052D0 /* MSJsonSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSJsonSerializer.swift; sourceTree = "<group>"; };
+		EC8C42151A03FAA4008052D0 /* MSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLogger.swift; sourceTree = "<group>"; };
+		EC8C42171A03FAE6008052D0 /* MSLogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLogLevel.swift; sourceTree = "<group>"; };
+		EC8C42191A03FB1D008052D0 /* MSODataURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSODataURL.swift; sourceTree = "<group>"; };
+		EC8C421B1A03FC07008052D0 /* MSResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSResponse.swift; sourceTree = "<group>"; };
+		EC8C421D1A03FE6F008052D0 /* MSBasicCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSBasicCredentials.swift; sourceTree = "<group>"; };
+		EC8C421F1A040818008052D0 /* MSCredentialsFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCredentialsFactoryImpl.swift; sourceTree = "<group>"; };
+		EC8C42211A040C4A008052D0 /* MSDefaultDependencyResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSDefaultDependencyResolver.swift; sourceTree = "<group>"; };
+		EC8C42231A0412B2008052D0 /* MSHttpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSHttpConnection.swift; sourceTree = "<group>"; };
+		EC8C42251A04165D008052D0 /* MSLoggerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSLoggerImpl.swift; sourceTree = "<group>"; };
+		EC8C42271A0416A8008052D0 /* MSOAuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSOAuthCredentials.swift; sourceTree = "<group>"; };
+		EC8C42291A041702008052D0 /* MSODataURLImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSODataURLImpl.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC8C41E41A03C3A5008052D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC8C41DE1A03C3A5008052D0 = {
+			isa = PBXGroup;
+			children = (
+				EC8C42051A03C465008052D0 /* office365_odata_impl */,
+				EC8C42061A03C465008052D0 /* office365_odata_interfaces */,
+				EC8C41EA1A03C3A5008052D0 /* office365_odata_base */,
+				EC8C41E91A03C3A5008052D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC8C41E91A03C3A5008052D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C41E81A03C3A5008052D0 /* office365_odata_base.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC8C41EA1A03C3A5008052D0 /* office365_odata_base */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C41ED1A03C3A5008052D0 /* office365_odata_base.h */,
+				EC8C41EB1A03C3A5008052D0 /* Supporting Files */,
+			);
+			path = office365_odata_base;
+			sourceTree = "<group>";
+		};
+		EC8C41EB1A03C3A5008052D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C41EC1A03C3A5008052D0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC8C42051A03C465008052D0 /* office365_odata_impl */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C421D1A03FE6F008052D0 /* MSBasicCredentials.swift */,
+				EC8C421F1A040818008052D0 /* MSCredentialsFactoryImpl.swift */,
+				EC8C42211A040C4A008052D0 /* MSDefaultDependencyResolver.swift */,
+				EC8C42231A0412B2008052D0 /* MSHttpConnection.swift */,
+				EC8C42251A04165D008052D0 /* MSLoggerImpl.swift */,
+				EC8C42271A0416A8008052D0 /* MSOAuthCredentials.swift */,
+				EC8C42291A041702008052D0 /* MSODataURLImpl.swift */,
+				EC136E971A041F3500035664 /* MSRequestImpl.swift */,
+				EC136E991A04217A00035664 /* MSResponseImpl.swift */,
+				EC136E9B1A04230100035664 /* String.swift */,
+				EC136E9D1A042EA400035664 /* MSJsonSerializerImpl.swift */,
+				EC6285921A13CC940042D27F /* MSODataTask.swift */,
+			);
+			name = office365_odata_impl;
+			path = ../office365_odata_impl;
+			sourceTree = "<group>";
+		};
+		EC8C42061A03C465008052D0 /* office365_odata_interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C42071A03D1AC008052D0 /* MSCredentials.swift */,
+				EC8C420D1A03F480008052D0 /* MSCredentialsFactory.swift */,
+				EC8C420F1A03F50E008052D0 /* MSDependencyResolver.swift */,
+				EC8C42111A03F59D008052D0 /* MSHttpTransport.swift */,
+				EC8C420B1A03F14D008052D0 /* MSHttpVerb.swift */,
+				EC8C42091A03D350008052D0 /* MSRequest.swift */,
+				EC8C42131A03F761008052D0 /* MSJsonSerializer.swift */,
+				EC8C42151A03FAA4008052D0 /* MSLogger.swift */,
+				EC8C42171A03FAE6008052D0 /* MSLogLevel.swift */,
+				EC8C42191A03FB1D008052D0 /* MSODataURL.swift */,
+				EC8C421B1A03FC07008052D0 /* MSResponse.swift */,
+			);
+			name = office365_odata_interfaces;
+			path = ../office365_odata_interfaces;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EC8C41E51A03C3A5008052D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC8C41EE1A03C3A5008052D0 /* office365_odata_base.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EC8C41E71A03C3A5008052D0 /* office365_odata_base */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC8C41FB1A03C3A5008052D0 /* Build configuration list for PBXNativeTarget "office365_odata_base" */;
+			buildPhases = (
+				EC8C41E31A03C3A5008052D0 /* Sources */,
+				EC8C41E41A03C3A5008052D0 /* Frameworks */,
+				EC8C41E51A03C3A5008052D0 /* Headers */,
+				EC8C41E61A03C3A5008052D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = office365_odata_base;
+			productName = office365_odata_base;
+			productReference = EC8C41E81A03C3A5008052D0 /* office365_odata_base.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC8C41DF1A03C3A5008052D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = becoders;
+				TargetAttributes = {
+					EC8C41E71A03C3A5008052D0 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = EC8C41E21A03C3A5008052D0 /* Build configuration list for PBXProject "office365_odata_base" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC8C41DE1A03C3A5008052D0;
+			productRefGroup = EC8C41E91A03C3A5008052D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC8C41E71A03C3A5008052D0 /* office365_odata_base */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC8C41E61A03C3A5008052D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC8C41E31A03C3A5008052D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC8C42141A03F761008052D0 /* MSJsonSerializer.swift in Sources */,
+				EC136E981A041F3500035664 /* MSRequestImpl.swift in Sources */,
+				EC8C42161A03FAA4008052D0 /* MSLogger.swift in Sources */,
+				EC8C42081A03D1AC008052D0 /* MSCredentials.swift in Sources */,
+				EC8C421E1A03FE6F008052D0 /* MSBasicCredentials.swift in Sources */,
+				EC8C42181A03FAE6008052D0 /* MSLogLevel.swift in Sources */,
+				EC8C42281A0416A8008052D0 /* MSOAuthCredentials.swift in Sources */,
+				EC6285931A13CC940042D27F /* MSODataTask.swift in Sources */,
+				EC8C420A1A03D350008052D0 /* MSRequest.swift in Sources */,
+				EC8C421C1A03FC07008052D0 /* MSResponse.swift in Sources */,
+				EC8C42101A03F50E008052D0 /* MSDependencyResolver.swift in Sources */,
+				EC8C42221A040C4A008052D0 /* MSDefaultDependencyResolver.swift in Sources */,
+				EC8C42201A040818008052D0 /* MSCredentialsFactoryImpl.swift in Sources */,
+				EC136E9A1A04217A00035664 /* MSResponseImpl.swift in Sources */,
+				EC8C42241A0412B2008052D0 /* MSHttpConnection.swift in Sources */,
+				EC8C420C1A03F14D008052D0 /* MSHttpVerb.swift in Sources */,
+				EC8C420E1A03F480008052D0 /* MSCredentialsFactory.swift in Sources */,
+				EC8C42121A03F59D008052D0 /* MSHttpTransport.swift in Sources */,
+				EC136E9E1A042EA400035664 /* MSJsonSerializerImpl.swift in Sources */,
+				EC8C422A1A041702008052D0 /* MSODataURLImpl.swift in Sources */,
+				EC136E9C1A04230100035664 /* String.swift in Sources */,
+				EC8C421A1A03FB1D008052D0 /* MSODataURL.swift in Sources */,
+				EC8C42261A04165D008052D0 /* MSLoggerImpl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EC8C41F91A03C3A5008052D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EC8C41FA1A03C3A5008052D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EC8C41FC1A03C3A5008052D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC8C41FD1A03C3A5008052D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC8C41E21A03C3A5008052D0 /* Build configuration list for PBXProject "office365_odata_base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8C41F91A03C3A5008052D0 /* Debug */,
+				EC8C41FA1A03C3A5008052D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC8C41FB1A03C3A5008052D0 /* Build configuration list for PBXNativeTarget "office365_odata_base" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8C41FC1A03C3A5008052D0 /* Debug */,
+				EC8C41FD1A03C3A5008052D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC8C41DF1A03C3A5008052D0 /* Project object */;
+}
