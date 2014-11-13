@@ -5,6 +5,7 @@
  ******************************************************************************/
 
 #import "Test.h"
+#import "BaseTestRunner.h"
 
 @implementation Test
 
@@ -18,7 +19,7 @@
 
 -(NSURLSessionDataTask *)Run :(void (^) (Test*))result{
 
-    return [self.TestRunner Run:self.Name completionHandler:^(Test *test) {
+    return [self.TestRunner Run:self.Name completionHandler:^(id test) {
         result(test);
     }];
 }

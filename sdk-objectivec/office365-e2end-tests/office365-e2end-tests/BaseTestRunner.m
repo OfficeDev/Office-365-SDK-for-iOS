@@ -10,9 +10,6 @@
 
 -(NSMutableArray*)getTests{return nil;}
 
--(NSURLSessionDataTask*)Run : (NSString*)testName completionHandler:(void (^) (id test))result{
-    
-    return nil;
-}
+
 
 @end
