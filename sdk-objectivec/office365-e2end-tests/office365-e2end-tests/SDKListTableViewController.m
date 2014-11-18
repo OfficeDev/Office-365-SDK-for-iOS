@@ -1,10 +1,9 @@
-//
-//  SDKListTableViewController.m
-//  office365-e2end-tests
-//
-//  Created by Anahi Hojnadel on 11/13/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
+
 
 #import "SDKListTableViewController.h"
 
@@ -20,6 +19,7 @@
 - (void)loadInitialData {
     [self.availableSdks addObject:@"Exchange"];
     [self.availableSdks addObject:@"Files"];
+    [self.availableSdks addObject:@"Discovery"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -29,7 +29,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return [self.availableSdks count];
 }
 
@@ -57,6 +56,13 @@
     if([name isEqualToString:@"Files"]){
         [[[BaseController alloc]init]getSharePointClient:^(MSSharePointClient *c) {
             FilesTestRunner *runner = [[FilesTestRunner alloc] initWithClient:c];
+            [self performSegueWithIdentifier:@"segue" sender:runner];
+        }];
+    }
+    
+    if([name isEqualToString:@"Discovery"]){
+        [[[BaseController alloc]init]getDiscoveryClient:^(MSDiscoveryClient *c) {
+            DiscoveryTestRunner *runner = [[DiscoveryTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
     }

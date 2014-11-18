@@ -4,13 +4,14 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <UIKit/UIKit.h>
 
-@interface ExchangeTestTableViewController : UITableViewController
+#import "BaseTestRunner.h"
+#import "Test.h"
+#import "MSDiscoveryClient.h"
 
-- (IBAction)RunAllTests:(id)sender;
-- (IBAction)RunSelectedTests:(id)sender;
+@interface DiscoveryTestRunner : BaseTestRunner
 
-@property NSMutableArray *Tests;
+@property MSDiscoveryClient *Client;
 
+-(id)initWithClient : (MSDiscoveryClient*)client;
 @end

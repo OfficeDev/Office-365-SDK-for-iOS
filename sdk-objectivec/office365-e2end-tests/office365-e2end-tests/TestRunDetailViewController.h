@@ -5,11 +5,16 @@
  ******************************************************************************/
 
 
-#import "BaseTestRunner.h"
+#import "ViewController.h"
+#import "TestRunDetailViewController.h"
 #import "Test.h"
-#import "MSSharePointClient.h"
-@interface FilesTestRunner : BaseTestRunner
-@property MSSharePointClient *Client;
 
--(id)initWithClient : (MSSharePointClient*)client;
+@interface TestRunDetailViewController : ViewController
+
+@property Test *testRunned;
+
+-(void) initWithTest : (Test *)test;
+@property (weak, nonatomic) IBOutlet UILabel *testSummary;
+@property (weak, nonatomic) IBOutlet UILabel *testName;
+
 @end
