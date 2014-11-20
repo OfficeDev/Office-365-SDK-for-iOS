@@ -20,12 +20,9 @@
     if([testName isEqualToString: @"TestCreateFileWithContent"]) return [self TestCreateFileWithContent:result];
     if([testName isEqualToString: @"TestUpdateFileContent"]) return [self TestUpdateFileContent:result];
     if([testName isEqualToString: @"TestGetDrive"]) return [self TestGetDrive:result];
-
-    /*
-     //Select, top
-     this.addTest(canSelectFiles("Can use select in files", true));
-     this.addTest(canTopFiles("Can use top in files", true));
-     */
+    if([testName isEqualToString: @"TestTopFiles"]) return [self TestTopFiles:result];
+    if([testName isEqualToString: @"TestSelectFiles"]) return [self TestTopFiles:result];
+    
     return nil;
 }
 
@@ -37,6 +34,8 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateFileWithContent" :@"Create Files with content"]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateFileContent" :@"Update files content" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetDrive" :@"Get drive" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestTopFiles" :@"Top Files" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSelectFiles" :@"Select Files" ]];
     return array;
 }
 
@@ -237,6 +236,104 @@
     
     return task;
 }
+
+-(NSURLSessionDataTask*)TestTopFiles:(void (^) (Test*))result{
+    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd2 = [self GetFileItem];
+    // Add new item
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *e) {
+        //Add second item
+        [[[self.Client getfiles] add:itemToAdd2 :^(MSSharePointItem *addedItem2, NSError *e) {
+            //Get top 1 item
+            [[[[self.Client getfiles] top:1]read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                
+                if(error == nil && items.count ==1){
+                    passed = TRUE;
+                    message = @"Ok - ";
+                }
+                else{
+                    message = @"Not - ";
+                    if(error != nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                //cleanup
+                if(addedItem!= nil)
+                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                if(addedItem2!= nil)
+                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(id entity, NSError *error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }]resume];
+                
+                result(test);
+            }] resume];
+        }]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestSelectFiles:(void (^) (Test*))result{
+    MSSharePointItem *itemToAdd = [self GetFileItem];
+    // Add new item
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *e) {
+        //Get item
+        [[[[self.Client getfiles] select:@"name,dateTimeCreated"]read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            MSSharePointItem *selectedItem = nil;
+            if(items.count > 0){
+                selectedItem =(MSSharePointItem*)[items objectAtIndex:0];
+            }
+            
+            if(error == nil && selectedItem != nil && [selectedItem.name isEqualToString:addedItem.name] && selectedItem.dateTimeLastModified == nil ){
+                passed = TRUE;
+                message = @"Ok - ";
+            }
+            else{
+                message = @"Not - ";
+                if(error != nil)
+                    message = [message stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            //cleanup
+            if(addedItem!= nil)
+                [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }]resume];
+            
+            
+            result(test);
+        }]resume];
+    }];
+    
+    return task;
+}
+
 
 -(MSSharePointItem *) GetFileItem{
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
