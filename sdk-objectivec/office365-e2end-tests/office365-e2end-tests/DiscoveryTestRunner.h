@@ -4,12 +4,14 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+
 #import "BaseTestRunner.h"
+#import "Test.h"
+#import "MSDiscoveryClient.h"
 
-@implementation BaseTestRunner
+@interface DiscoveryTestRunner : BaseTestRunner
 
--(NSMutableArray*)getTests{return nil;}
+@property MSDiscoveryClient *Client;
 
-
-
+-(id)initWithClient : (MSDiscoveryClient*)client;
 @end

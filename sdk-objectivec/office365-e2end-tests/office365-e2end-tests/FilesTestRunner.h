@@ -4,13 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <UIKit/UIKit.h>
 
-@interface ExchangeTestTableViewController : UITableViewController
+#import "BaseTestRunner.h"
+#import "Test.h"
+#import "MSSharePointClient.h"
+@interface FilesTestRunner : BaseTestRunner
+@property MSSharePointClient *Client;
 
-- (IBAction)RunAllTests:(id)sender;
-- (IBAction)RunSelectedTests:(id)sender;
-
-@property NSMutableArray *Tests;
-
+-(id)initWithClient : (MSSharePointClient*)client;
 @end

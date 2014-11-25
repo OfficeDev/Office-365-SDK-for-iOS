@@ -4,12 +4,14 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "BaseTestRunner.h"
 
-@implementation BaseTestRunner
+#import <UIKit/UIKit.h>
+#import "TestRunnerTableViewController.h"
+#import "MailTestRunner.h"
+#import "FilesTestRunner.h"
+#import "DiscoveryTestRunner.h"
+@interface SDKListTableViewController : UITableViewController
 
--(NSMutableArray*)getTests{return nil;}
-
-
+@property NSMutableArray *availableSdks;
 
 @end

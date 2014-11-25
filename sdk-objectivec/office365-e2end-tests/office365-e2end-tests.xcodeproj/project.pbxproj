@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C5688681A16391B0041D43E /* TestRunDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5688671A16391B0041D43E /* TestRunDetailViewController.m */; };
+		1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */; };
+		1C9D46541A14EEDC00D5361E /* SDKListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */; };
+		1C9D46571A14FDBD00D5361E /* FilesTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */; };
+		1CFB946D1A1A7F4400F0C523 /* DiscoveryTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */; };
 		3CAC071E19F1E128004AF241 /* failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071C19F1E128004AF241 /* failed.png */; };
 		3CAC071F19F1E128004AF241 /* passed.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CAC071D19F1E128004AF241 /* passed.png */; };
 		3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD5D9719F55A3400C29E3F /* BaseController.m */; };
@@ -20,7 +25,6 @@
 		ECBBC99F19F1ACD600DE04A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBBC99D19F1ACD600DE04A4 /* LaunchScreen.xib */; };
 		ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */; };
 		ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */; };
-		ECBBC9C919F1AD2C00DE04A4 /* ExchangeTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */; };
 		ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */; };
 		ECBBC9CC19F1AD2C00DE04A4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C019F1AD2C00DE04A4 /* Test.m */; };
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
@@ -29,6 +33,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C5688661A16391B0041D43E /* TestRunDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunDetailViewController.h; sourceTree = "<group>"; };
+		1C5688671A16391B0041D43E /* TestRunDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunDetailViewController.m; sourceTree = "<group>"; };
+		1C9D464F1A14E84B00D5361E /* TestRunnerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunnerTableViewController.h; sourceTree = "<group>"; };
+		1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunnerTableViewController.m; sourceTree = "<group>"; };
+		1C9D46521A14EEDC00D5361E /* SDKListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKListTableViewController.h; sourceTree = "<group>"; };
+		1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKListTableViewController.m; sourceTree = "<group>"; };
+		1C9D46551A14FDBD00D5361E /* FilesTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesTestRunner.h; sourceTree = "<group>"; };
+		1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesTestRunner.m; sourceTree = "<group>"; };
+		1CFB946B1A1A7F4400F0C523 /* DiscoveryTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryTestRunner.h; sourceTree = "<group>"; };
+		1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryTestRunner.m; sourceTree = "<group>"; };
 		3CAC071C19F1E128004AF241 /* failed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed.png; sourceTree = "<group>"; };
 		3CAC071D19F1E128004AF241 /* passed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passed.png; sourceTree = "<group>"; };
 		3CBE7E8319F59A2500DCF8B8 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
@@ -51,8 +65,6 @@
 		ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestRunner.m; sourceTree = "<group>"; };
 		ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTestRunner.h; sourceTree = "<group>"; };
 		ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTestRunner.m; sourceTree = "<group>"; };
-		ECBBC9B919F1AD2C00DE04A4 /* ExchangeTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeTestTableViewController.h; sourceTree = "<group>"; };
-		ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeTestTableViewController.m; sourceTree = "<group>"; };
 		ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
 		ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
 		ECBBC9BF19F1AD2C00DE04A4 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
@@ -81,6 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C5688651A153A3F0041D43E /* Runners */ = {
+			isa = PBXGroup;
+			children = (
+				ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */,
+				ECBBC9B519F1AD2C00DE04A4 /* BaseTestRunner.h */,
+				1C9D46551A14FDBD00D5361E /* FilesTestRunner.h */,
+				1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */,
+				ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */,
+				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
+				1CFB946B1A1A7F4400F0C523 /* DiscoveryTestRunner.h */,
+				1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */,
+			);
+			name = Runners;
+			sourceTree = "<group>";
+		};
 		7DBD514BDDC707346FFCC0BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,11 +142,11 @@
 		ECBBC98D19F1ACD600DE04A4 /* office365-e2end-tests */ = {
 			isa = PBXGroup;
 			children = (
+				ECBBC9D019F1AD9000DE04A4 /* core */,
+				1C5688651A153A3F0041D43E /* Runners */,
 				ECBBC9B419F1AD1200DE04A4 /* controller */,
 				ECBBC99219F1ACD600DE04A4 /* AppDelegate.h */,
 				ECBBC99319F1ACD600DE04A4 /* AppDelegate.m */,
-				ECBBC99519F1ACD600DE04A4 /* ViewController.h */,
-				ECBBC99619F1ACD600DE04A4 /* ViewController.m */,
 				ECBBC99819F1ACD600DE04A4 /* Main.storyboard */,
 				ECBBC99D19F1ACD600DE04A4 /* LaunchScreen.xib */,
 				ECBBC99B19F1ACD600DE04A4 /* Images.xcassets */,
@@ -143,19 +170,20 @@
 		ECBBC9B419F1AD1200DE04A4 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				ECBBC99519F1ACD600DE04A4 /* ViewController.h */,
+				ECBBC99619F1ACD600DE04A4 /* ViewController.m */,
 				3CDD5D9619F55A3400C29E3F /* BaseController.h */,
 				3CDD5D9719F55A3400C29E3F /* BaseController.m */,
-				ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */,
-				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
-				ECBBC9B919F1AD2C00DE04A4 /* ExchangeTestTableViewController.h */,
-				ECBBC9BA19F1AD2C00DE04A4 /* ExchangeTestTableViewController.m */,
 				ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */,
 				ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */,
-				ECBBC9D019F1AD9000DE04A4 /* core */,
-				ECBBC9C319F1AD2C00DE04A4 /* TestParameters.h */,
-				ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */,
 				ECBBC9C519F1AD2C00DE04A4 /* UserSettingsViewController.h */,
 				ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */,
+				1C9D464F1A14E84B00D5361E /* TestRunnerTableViewController.h */,
+				1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */,
+				1C9D46521A14EEDC00D5361E /* SDKListTableViewController.h */,
+				1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */,
+				1C5688661A16391B0041D43E /* TestRunDetailViewController.h */,
+				1C5688671A16391B0041D43E /* TestRunDetailViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -163,8 +191,8 @@
 		ECBBC9D019F1AD9000DE04A4 /* core */ = {
 			isa = PBXGroup;
 			children = (
-				ECBBC9B519F1AD2C00DE04A4 /* BaseTestRunner.h */,
-				ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */,
+				ECBBC9C319F1AD2C00DE04A4 /* TestParameters.h */,
+				ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */,
 				ECBBC9C019F1AD2C00DE04A4 /* Test.m */,
 				ECBBC9BF19F1AD2C00DE04A4 /* Test.h */,
 			);
@@ -289,16 +317,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */,
+				1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */,
 				ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */,
 				ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */,
+				1C9D46541A14EEDC00D5361E /* SDKListTableViewController.m in Sources */,
 				ECBBC99719F1ACD600DE04A4 /* ViewController.m in Sources */,
 				ECBBC9CC19F1AD2C00DE04A4 /* Test.m in Sources */,
+				1C9D46571A14FDBD00D5361E /* FilesTestRunner.m in Sources */,
 				ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */,
 				ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */,
-				ECBBC9C919F1AD2C00DE04A4 /* ExchangeTestTableViewController.m in Sources */,
+				1CFB946D1A1A7F4400F0C523 /* DiscoveryTestRunner.m in Sources */,
 				ECBBC99419F1ACD600DE04A4 /* AppDelegate.m in Sources */,
 				3CDD5D9819F55A3400C29E3F /* BaseController.m in Sources */,
 				ECBBC99119F1ACD600DE04A4 /* main.m in Sources */,
+				1C5688681A16391B0041D43E /* TestRunDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

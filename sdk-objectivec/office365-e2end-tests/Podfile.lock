@@ -1,12 +1,26 @@
 PODS:
   - ADALiOS (1.0.2)
+  - Office365 (0.5.4):
+    - Office365/Directory
+    - Office365/Discovery
+    - Office365/Files
+    - Office365/Lists
+    - Office365/OData
+    - Office365/Outlook
+  - Office365/Directory (0.5.4):
+    - Office365/OData
+  - Office365/Discovery (0.5.4):
+    - Office365/OData
+  - Office365/Files (0.5.4):
+    - Office365/OData
+  - Office365/Lists (0.5.4)
   - Office365/OData (0.5.4)
   - Office365/Outlook (0.5.4):
     - Office365/OData
 
 DEPENDENCIES:
   - ADALiOS (~> 1.0.0)
-  - Office365/Outlook (from `https://github.com/OfficeDev/Office-365-SDK-for-iOS`, branch `dev`)
+  - Office365 (from `https://github.com/OfficeDev/Office-365-SDK-for-iOS`, branch `dev`)
 
 EXTERNAL SOURCES:
   Office365:

@@ -4,12 +4,15 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import <UIKit/UIKit.h>
 #import "BaseTestRunner.h"
+#import "Test.h"
+#import "TestRunDetailViewController.h"
 
-@implementation BaseTestRunner
+@interface TestRunnerTableViewController : UITableViewController
+@property NSMutableArray *Tests;
+@property BaseTestRunner *TestRunner;
 
--(NSMutableArray*)getTests{return nil;}
-
-
+- (IBAction)RunAllTests:(id)sender;
 
 @end
