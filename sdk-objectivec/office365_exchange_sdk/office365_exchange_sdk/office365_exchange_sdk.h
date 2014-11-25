@@ -21,7 +21,6 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOutlookAttachmentCollectionOperations.h>
 #import <office365_exchange_sdk/MSOutlookAttachmentFetcher.h>
 #import <office365_exchange_sdk/MSOutlookAttachmentOperations.h>
-#import <office365_exchange_sdk/MSOutlookBaseODataContainer.h>
 #import <office365_exchange_sdk/MSOutlookCalendarCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOutlookCalendarCollectionOperations.h>
 #import <office365_exchange_sdk/MSOutlookCalendarFetcher.h>
@@ -67,15 +66,7 @@ FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 #import <office365_exchange_sdk/MSOutlookMessageCollectionOperations.h>
 #import <office365_exchange_sdk/MSOutlookMessageFetcher.h>
 #import <office365_exchange_sdk/MSOutlookMessageOperations.h>
-#import <office365_exchange_sdk/MSOutlookODataCollectionFetcher.h>
-#import <office365_exchange_sdk/MSOutlookODataEntityFetcher.h>
-#import <office365_exchange_sdk/MSOutlookODataReadable.h>
-#import <office365_exchange_sdk/MSOutlookODataOperations.h>
 #import <office365_exchange_sdk/MSOutlookUserCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOutlookUserCollectionOperations.h>
 #import <office365_exchange_sdk/MSOutlookUserFetcher.h>
 #import <office365_exchange_sdk/MSOutlookUserOperations.h>
-#import <office365_exchange_sdk/MSOutlookODataMediaEntityFetcher.h>
-
-#import <office365_exchange_sdk/MSOutlookBaseODataContainerHelper.h>
-#import <office365_exchange_sdk/MSOutlookEntityFetcherHelper.h>
