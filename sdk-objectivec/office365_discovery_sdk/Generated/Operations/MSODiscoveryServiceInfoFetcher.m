@@ -25,7 +25,7 @@
     
     self.Parent = parent;
     self.UrlComponent = urlComponent;
-    return [super initWithUrl:urlComponent parent:parent entityClass : [MSODiscoveryServiceInfo class]];
+    return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSODiscoveryServiceInfo class]];
 }
 
 

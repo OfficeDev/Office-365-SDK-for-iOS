@@ -29,6 +29,6 @@
 
 -(MSODiscoveryServiceInfoFetcher*)getById:(NSString *)Id{
 	[super getById:Id];
-    return [[MSODiscoveryServiceInfoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,Id] parent : self entityClass :[MSODiscoveryServiceInfo class]];
+    return [[MSODiscoveryServiceInfoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,Id]  parent:self andEntityClass:[MSODiscoveryServiceInfo class]];
 }
 @end
