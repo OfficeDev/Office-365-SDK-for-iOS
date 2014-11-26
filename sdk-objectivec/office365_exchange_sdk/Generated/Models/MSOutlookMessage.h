@@ -31,7 +31,7 @@
 
 @property NSString *BodyPreview;
 
-@property MSOutlookImportance *Importance;
+@property MSOutlookImportance Importance;
 
 @property bool HasAttachments;
 

@@ -38,7 +38,7 @@
 
 @property NSString *BodyPreview;
 
-@property MSOutlookImportance *Importance;
+@property MSOutlookImportance Importance;
 
 @property bool HasAttachments;
 
@@ -48,7 +48,7 @@
 
 @property MSOutlookLocation *Location;
 
-@property MSOutlookFreeBusyStatus *ShowAs;
+@property MSOutlookFreeBusyStatus ShowAs;
 
 @property bool IsAllDay;
 
@@ -58,7 +58,7 @@
 
 @property bool ResponseRequested;
 
-@property MSOutlookEventType *Type;
+@property MSOutlookEventType Type;
 
 @property NSString *SeriesMasterId;
 

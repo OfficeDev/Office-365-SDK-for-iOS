@@ -24,7 +24,7 @@
 
 @property NSString *$$__ODataType;
 
-@property MSOutlookResponseType *Response;
+@property MSOutlookResponseType Response;
 
 @property NSDate *Time;
 

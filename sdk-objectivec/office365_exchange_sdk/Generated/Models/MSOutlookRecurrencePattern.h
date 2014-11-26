@@ -26,7 +26,7 @@
 
 @property NSString *$$__ODataType;
 
-@property MSOutlookRecurrencePatternType *Type;
+@property MSOutlookRecurrencePatternType Type;
 
 @property int Interval;
 
@@ -34,11 +34,11 @@
 
 @property int Month;
 
-@property NSMutableArray<MSOutlookDayOfWeek> *DaysOfWeek;
+@property NSMutableArray<MSOutlookDayOfWeek>* DaysOfWeek;
 
-@property MSOutlookDayOfWeek *FirstDayOfWeek;
+@property MSOutlookDayOfWeek FirstDayOfWeek;
 
-@property MSOutlookWeekIndex *Index;
+@property MSOutlookWeekIndex Index;
 
 
 @end

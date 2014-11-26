@@ -27,7 +27,7 @@
 
 @property bool IsContactPhoto;
 
-@property NSData* ContentBytes;
+@property NSData *ContentBytes;
 
 
 @end

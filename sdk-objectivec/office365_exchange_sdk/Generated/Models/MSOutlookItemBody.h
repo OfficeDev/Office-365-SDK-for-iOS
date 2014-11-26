@@ -24,7 +24,7 @@
 
 @property NSString *$$__ODataType;
 
-@property MSOutlookBodyType *ContentType;
+@property MSOutlookBodyType ContentType;
 
 @property NSString *Content;
 

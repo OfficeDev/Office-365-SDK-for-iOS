@@ -25,7 +25,7 @@
 
 @property MSOutlookResponseStatus *Status;
 
-@property MSOutlookAttendeeType *Type;
+@property MSOutlookAttendeeType Type;
 
 
 @end
