@@ -29,7 +29,7 @@
     return self;
 }
 
--(NSURLSessionDataTask*) oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSODataHttpVerb)verb :(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask*) oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
     [path appendPathComponent:self.UrlComponent];
     [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
 
@@ -41,19 +41,19 @@
 -(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    return [self oDataExecute:[[self getResolver] createODataURL] :[payload dataUsingEncoding:NSUTF8StringEncoding] : PATCH : ^(id<MSODataResponse> r, NSError *e) {
+    return [self oDataExecuteForPath:[[self getResolver] createODataURL] withContent:[payload dataUsingEncoding:NSUTF8StringEncoding] andMethod:PATCH andCallback: ^(id<MSODataResponse> r, NSError *e) {
         callback(updatedEntity, e);
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(id,NSError *))callback{
-    return [self oDataExecute:[[self getResolver] createODataURL]  :nil :DELETE :^(id<MSODataResponse> r, NSError *e) {
+    return [self oDataExecuteForPath:[[self getResolver] createODataURL]  withContent:nil andMethod:DELETE andCallback : ^(id<MSODataResponse> r, NSError *e) {
         callback(r, e);
     }];
 }
 
 -(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
-    return [self oDataExecute:[[self getResolver] createODataURL]  :nil :GET :^(id<MSODataResponse> r, NSError *e) {
+    return [self oDataExecuteForPath:[[self getResolver] createODataURL] withContent:nil andMethod:GET andCallback : ^(id<MSODataResponse> r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];
             

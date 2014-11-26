@@ -29,7 +29,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSODataHttpVerb)verb :(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask*) oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
     
 	[MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
 
