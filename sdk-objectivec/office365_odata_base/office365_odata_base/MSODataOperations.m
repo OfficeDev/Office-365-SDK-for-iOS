@@ -15,7 +15,8 @@
     return self;
 }
 
--(NSURLSessionDataTask*)oDataExecuteWithPath:(id<MSODataURL>)path andContent : (NSData *)content andVerb : (MSODataHttpVerb)verb andWithCallback :(void (^)(id<MSODataResponse> ,NSError *error))callback{
+-(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
+    
     [path appendPathComponent:self.UrlComponent];
     [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
    
