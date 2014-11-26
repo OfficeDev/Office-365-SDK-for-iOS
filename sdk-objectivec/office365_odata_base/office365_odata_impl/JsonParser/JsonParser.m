@@ -182,7 +182,14 @@
                     if(result != nil){
                         [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
                     }
-                }else {
+                }
+                else if(property.isEnum) {
+                    result = [object valueForKey:property.Name];
+                    if(result != nil){
+                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                    }
+                }
+                else {
                     result = [object valueForKey:property.Name];
                     if(result != nil){
                         [jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];

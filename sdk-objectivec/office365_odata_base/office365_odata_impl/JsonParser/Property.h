@@ -22,4 +22,5 @@
 -(NSString*)getCollectionEntity;
 -(bool)isNumber;
 -(bool)isBoolean;
+-(bool)isEnum;
 @end

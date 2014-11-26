@@ -43,6 +43,10 @@
     return [self.Type isEqualToString:@"TB"];
 }
 
+-(bool)isEnum{
+    return [self.Type isEqualToString:@"Tq"];
+}
+
 -(bool)isCollection{
     return [self.SubStringType hasPrefix:@"NSMutableArray"] ||
     [self.SubStringType hasPrefix:@"NSArray"] ||
