@@ -15,7 +15,7 @@
     
     [loginController getTokenWith : @"https://outlook.office365.com/" :true completionHandler:^(NSString *token) {
 
-        MSDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
+        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
         callback([[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
     }];
 }
@@ -25,7 +25,7 @@
     
     [loginController getTokenWith : @"https://teeudev1-my.sharepoint.com/" :true completionHandler:^(NSString *token) {
         
-        MSDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
+        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
         callback([[MSSharePointClient alloc] initWithUrl:@"https://teeudev1-my.sharepoint.com/_api/v1.0/me" dependencyResolver:resolver]);
     }];
 }
@@ -35,16 +35,16 @@
     
     [loginController getTokenWith : @"https://api.office.com/discovery/" :true completionHandler:^(NSString *token) {
         
-        MSDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
+        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
         callback([[MSDiscoveryClient alloc] initWithUrl:@"https://api.office.com/discovery/v1.0/me/" dependencyResolver:resolver]);
     }];
 }
 
--(MSDefaultDependencyResolver*) getDependencyResolver: (NSString*) token{
-    MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
-    MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
+-(MSODataDefaultDependencyResolver*) getDependencyResolver: (NSString*) token{
+    MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
+    MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
     [credentials addToken:token];
-    MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
+    MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
     
     [credentialsImpl setCredentials:credentials];
     [resolver setCredentialsFactory:credentialsImpl];

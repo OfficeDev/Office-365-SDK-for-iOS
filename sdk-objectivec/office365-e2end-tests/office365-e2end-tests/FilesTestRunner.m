@@ -118,9 +118,9 @@
     //Create file
     NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content :^(NSInteger putContentResult, NSError *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, NSError *error) {
             //Get file content
-            [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContent:^(NSData *addedContent, NSError *error) {
+            [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *addedContent, NSError *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -166,11 +166,11 @@
     //Create file
     NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content :^(NSInteger putContentResult, NSError *error) {
-            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent :^(NSInteger updatedContentResult, NSError *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, NSError *error) {
+            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, NSError *error) {
                 
                 //Get file content
-                [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContent:^(NSData *newContent, NSError *error) {
+                [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *newContent, NSError *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
