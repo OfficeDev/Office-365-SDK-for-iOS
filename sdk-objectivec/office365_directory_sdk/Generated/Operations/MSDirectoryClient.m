@@ -9,12 +9,12 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSDirectoryDirectoryClient.h"
+#import "MSDirectoryClient.h"
 /**
 * The implementation file for type MSDirectoryDirectoryClient.
 */
 
-@implementation MSDirectoryDirectoryClient
+@implementation MSDirectoryClient
 
 -(id)initWithUrl:(NSString *)url dependencyResolver:(id<MSODataDependencyResolver>)resolver{
     return [super initWithUrl:url dependencyResolver:resolver];

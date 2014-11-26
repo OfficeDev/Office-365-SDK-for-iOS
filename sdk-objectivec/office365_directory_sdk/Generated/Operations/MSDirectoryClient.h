@@ -39,7 +39,7 @@
 * The header for type MSDirectoryDirectoryClient.
 */
 
-@interface MSDirectoryDirectoryClient : MSODataBaseContainer
+@interface MSDirectoryClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
 

@@ -10,19 +10,20 @@
  *******************************************************************************/
 
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookUserFetcher.h"
-#import "MSOutlookUserCollectionFetcher.h"
+#import "MSDiscoveryServiceInfoCollectionFetcher.h"
+#import "MSDiscoveryServiceInfoCollectionFetcher.h"
+
 
 /**
-* The header for type MSOutlookOutlookClient.
+* The header for type MSDiscoveryDiscoveryClient.
 */
 
-@interface MSOutlookOutlookClient : MSODataBaseContainer
+@interface MSDiscoveryClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
 
--(MSOutlookUserFetcher*) getMe;
+-(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
 
--(MSOutlookUserCollectionFetcher*) getUsers;
+-(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
 
 @end

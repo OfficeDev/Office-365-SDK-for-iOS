@@ -164,8 +164,8 @@
 		EC78D1B31A260154004B0B5C /* MSOutlookMessageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1491A260154004B0B5C /* MSOutlookMessageFetcher.m */; };
 		EC78D1B41A260154004B0B5C /* MSOutlookMessageOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D14A1A260154004B0B5C /* MSOutlookMessageOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D1B51A260154004B0B5C /* MSOutlookMessageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14B1A260154004B0B5C /* MSOutlookMessageOperations.m */; };
-		EC78D1B61A260154004B0B5C /* MSOutlookOutlookClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D14C1A260154004B0B5C /* MSOutlookOutlookClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1B71A260154004B0B5C /* MSOutlookOutlookClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14D1A260154004B0B5C /* MSOutlookOutlookClient.m */; };
+		EC78D1B61A260154004B0B5C /* MSOutlookClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D14C1A260154004B0B5C /* MSOutlookClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC78D1B71A260154004B0B5C /* MSOutlookClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14D1A260154004B0B5C /* MSOutlookClient.m */; };
 		EC78D1B81A260154004B0B5C /* MSOutlookUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D14E1A260154004B0B5C /* MSOutlookUserCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D1B91A260154004B0B5C /* MSOutlookUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D14F1A260154004B0B5C /* MSOutlookUserCollectionFetcher.m */; };
 		EC78D1BA1A260154004B0B5C /* MSOutlookUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1501A260154004B0B5C /* MSOutlookUserCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -346,8 +346,8 @@
 		EC78D1491A260154004B0B5C /* MSOutlookMessageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookMessageFetcher.m; sourceTree = "<group>"; };
 		EC78D14A1A260154004B0B5C /* MSOutlookMessageOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookMessageOperations.h; sourceTree = "<group>"; };
 		EC78D14B1A260154004B0B5C /* MSOutlookMessageOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookMessageOperations.m; sourceTree = "<group>"; };
-		EC78D14C1A260154004B0B5C /* MSOutlookOutlookClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookOutlookClient.h; sourceTree = "<group>"; };
-		EC78D14D1A260154004B0B5C /* MSOutlookOutlookClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookOutlookClient.m; sourceTree = "<group>"; };
+		EC78D14C1A260154004B0B5C /* MSOutlookClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookClient.h; sourceTree = "<group>"; };
+		EC78D14D1A260154004B0B5C /* MSOutlookClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookClient.m; sourceTree = "<group>"; };
 		EC78D14E1A260154004B0B5C /* MSOutlookUserCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookUserCollectionFetcher.h; sourceTree = "<group>"; };
 		EC78D14F1A260154004B0B5C /* MSOutlookUserCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookUserCollectionFetcher.m; sourceTree = "<group>"; };
 		EC78D1501A260154004B0B5C /* MSOutlookUserCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookUserCollectionOperations.h; sourceTree = "<group>"; };
@@ -588,8 +588,8 @@
 				EC78D1491A260154004B0B5C /* MSOutlookMessageFetcher.m */,
 				EC78D14A1A260154004B0B5C /* MSOutlookMessageOperations.h */,
 				EC78D14B1A260154004B0B5C /* MSOutlookMessageOperations.m */,
-				EC78D14C1A260154004B0B5C /* MSOutlookOutlookClient.h */,
-				EC78D14D1A260154004B0B5C /* MSOutlookOutlookClient.m */,
+				EC78D14C1A260154004B0B5C /* MSOutlookClient.h */,
+				EC78D14D1A260154004B0B5C /* MSOutlookClient.m */,
 				EC78D14E1A260154004B0B5C /* MSOutlookUserCollectionFetcher.h */,
 				EC78D14F1A260154004B0B5C /* MSOutlookUserCollectionFetcher.m */,
 				EC78D1501A260154004B0B5C /* MSOutlookUserCollectionOperations.h */,
@@ -674,7 +674,7 @@
 				EC78D0D01A26014B004B0B5C /* MSOutlookItemAttachment.h in Headers */,
 				EC78D18E1A260154004B0B5C /* MSOutlookFileAttachmentCollectionFetcher.h in Headers */,
 				EC78D0DE1A26014B004B0B5C /* MSOutlookRecipient.h in Headers */,
-				EC78D1B61A260154004B0B5C /* MSOutlookOutlookClient.h in Headers */,
+				EC78D1B61A260154004B0B5C /* MSOutlookClient.h in Headers */,
 				EC78D15C1A260154004B0B5C /* MSOutlookAttachmentOperations.h in Headers */,
 				EC78D0BE1A26014B004B0B5C /* MSOutlookContactFolder.h in Headers */,
 				EC78D0E31A26014B004B0B5C /* MSOutlookRecurrenceRange.h in Headers */,
@@ -849,7 +849,7 @@
 				EC78D1811A260154004B0B5C /* MSOutlookEntityCollectionOperations.m in Sources */,
 				EC78D1BB1A260154004B0B5C /* MSOutlookUserCollectionOperations.m in Sources */,
 				EC78D1891A260154004B0B5C /* MSOutlookEventCollectionOperations.m in Sources */,
-				EC78D1B71A260154004B0B5C /* MSOutlookOutlookClient.m in Sources */,
+				EC78D1B71A260154004B0B5C /* MSOutlookClient.m in Sources */,
 				EC78D1971A260154004B0B5C /* MSOutlookFolderCollectionFetcher.m in Sources */,
 				EC78D15B1A260154004B0B5C /* MSOutlookAttachmentFetcher.m in Sources */,
 				EC78D1651A260154004B0B5C /* MSOutlookCalendarGroupCollectionFetcher.m in Sources */,

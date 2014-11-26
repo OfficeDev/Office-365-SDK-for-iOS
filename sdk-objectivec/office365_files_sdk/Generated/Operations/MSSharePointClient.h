@@ -10,20 +10,20 @@
  *******************************************************************************/
 
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSDiscoveryServiceInfoCollectionFetcher.h"
-#import "MSDiscoveryServiceInfoCollectionFetcher.h"
+#import "MSSharePointDriveFetcher.h"
+#import "MSSharePointItemCollectionFetcher.h"
 
 
 /**
-* The header for type MSDiscoveryDiscoveryClient.
+* The header for type MSSharePointSharePointClient.
 */
 
-@interface MSDiscoveryDiscoveryClient : MSODataBaseContainer
+@interface MSSharePointClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
 
--(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
+-(MSSharePointDriveFetcher*) getdrive;
 
--(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
+-(MSSharePointItemCollectionFetcher*) getfiles;
 
 @end

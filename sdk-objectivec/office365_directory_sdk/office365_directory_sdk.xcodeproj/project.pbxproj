@@ -113,8 +113,8 @@
 		EC78D36D1A260873004B0B5C /* MSDirectoryDeviceFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2EB1A260873004B0B5C /* MSDirectoryDeviceFetcher.m */; };
 		EC78D36E1A260873004B0B5C /* MSDirectoryDeviceOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2EC1A260873004B0B5C /* MSDirectoryDeviceOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D36F1A260873004B0B5C /* MSDirectoryDeviceOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2ED1A260873004B0B5C /* MSDirectoryDeviceOperations.m */; };
-		EC78D3701A260873004B0B5C /* MSDirectoryDirectoryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2EE1A260873004B0B5C /* MSDirectoryDirectoryClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D3711A260873004B0B5C /* MSDirectoryDirectoryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2EF1A260873004B0B5C /* MSDirectoryDirectoryClient.m */; };
+		EC78D3701A260873004B0B5C /* MSDirectoryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2EE1A260873004B0B5C /* MSDirectoryClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC78D3711A260873004B0B5C /* MSDirectoryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2EF1A260873004B0B5C /* MSDirectoryClient.m */; };
 		EC78D3721A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2F01A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D3731A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2F11A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.m */; };
 		EC78D3741A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2F21A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -325,8 +325,8 @@
 		EC78D2EB1A260873004B0B5C /* MSDirectoryDeviceFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryDeviceFetcher.m; sourceTree = "<group>"; };
 		EC78D2EC1A260873004B0B5C /* MSDirectoryDeviceOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryDeviceOperations.h; sourceTree = "<group>"; };
 		EC78D2ED1A260873004B0B5C /* MSDirectoryDeviceOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryDeviceOperations.m; sourceTree = "<group>"; };
-		EC78D2EE1A260873004B0B5C /* MSDirectoryDirectoryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryDirectoryClient.h; sourceTree = "<group>"; };
-		EC78D2EF1A260873004B0B5C /* MSDirectoryDirectoryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryDirectoryClient.m; sourceTree = "<group>"; };
+		EC78D2EE1A260873004B0B5C /* MSDirectoryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryClient.h; sourceTree = "<group>"; };
+		EC78D2EF1A260873004B0B5C /* MSDirectoryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryClient.m; sourceTree = "<group>"; };
 		EC78D2F01A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryDirectoryLinkChangeCollectionFetcher.h; sourceTree = "<group>"; };
 		EC78D2F11A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryDirectoryLinkChangeCollectionFetcher.m; sourceTree = "<group>"; };
 		EC78D2F21A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryDirectoryLinkChangeCollectionOperations.h; sourceTree = "<group>"; };
@@ -604,8 +604,8 @@
 				EC78D2EB1A260873004B0B5C /* MSDirectoryDeviceFetcher.m */,
 				EC78D2EC1A260873004B0B5C /* MSDirectoryDeviceOperations.h */,
 				EC78D2ED1A260873004B0B5C /* MSDirectoryDeviceOperations.m */,
-				EC78D2EE1A260873004B0B5C /* MSDirectoryDirectoryClient.h */,
-				EC78D2EF1A260873004B0B5C /* MSDirectoryDirectoryClient.m */,
+				EC78D2EE1A260873004B0B5C /* MSDirectoryClient.h */,
+				EC78D2EF1A260873004B0B5C /* MSDirectoryClient.m */,
 				EC78D2F01A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.h */,
 				EC78D2F11A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionFetcher.m */,
 				EC78D2F21A260873004B0B5C /* MSDirectoryDirectoryLinkChangeCollectionOperations.h */,
@@ -732,7 +732,7 @@
 				EC78D28D1A260866004B0B5C /* MSDirectoryAppRoleAssignment.h in Headers */,
 				EC78D2BC1A260867004B0B5C /* MSDirectoryServicePrincipal.h in Headers */,
 				EC78D3561A260873004B0B5C /* MSDirectoryAppRoleAssignmentOperations.h in Headers */,
-				EC78D3701A260873004B0B5C /* MSDirectoryDirectoryClient.h in Headers */,
+				EC78D3701A260873004B0B5C /* MSDirectoryClient.h in Headers */,
 				EC78D3C21A260873004B0B5C /* MSDirectoryUserCollectionFetcher.h in Headers */,
 				EC78D39A1A260873004B0B5C /* MSDirectoryGroupCollectionFetcher.h in Headers */,
 				EC78D3841A260873004B0B5C /* MSDirectoryDirectoryRoleCollectionOperations.h in Headers */,
@@ -964,7 +964,7 @@
 				EC78D3A71A260873004B0B5C /* MSDirectoryOAuth2PermissionGrantFetcher.m in Sources */,
 				EC78D2881A260866004B0B5C /* MSDirectoryAlternativeSecurityId.m in Sources */,
 				EC78D3891A260873004B0B5C /* MSDirectoryDirectoryRoleOperations.m in Sources */,
-				EC78D3711A260873004B0B5C /* MSDirectoryDirectoryClient.m in Sources */,
+				EC78D3711A260873004B0B5C /* MSDirectoryClient.m in Sources */,
 				EC78D3851A260873004B0B5C /* MSDirectoryDirectoryRoleCollectionOperations.m in Sources */,
 				EC78D37F1A260873004B0B5C /* MSDirectoryDirectoryObjectFetcher.m in Sources */,
 				EC78D2C51A260867004B0B5C /* MSDirectoryVerifiedDomain.m in Sources */,
