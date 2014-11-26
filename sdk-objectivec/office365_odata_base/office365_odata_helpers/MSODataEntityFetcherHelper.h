@@ -9,6 +9,6 @@
 
 @interface MSODataEntityFetcherHelper : NSObject
 
-+(void)setPathForCollections : (id<MSODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter;
++(void)setPathForCollections : (id<MSODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter : (NSString*) orderBy;
 
 @end

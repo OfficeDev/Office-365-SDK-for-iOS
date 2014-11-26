@@ -20,7 +20,7 @@
  * @param expand the expand
  * @param filter the filter
  */
-+(void)setPathForCollections : (id<MSODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter {
++(void)setPathForCollections : (id<MSODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter : (NSString*) orderBy{
     
     if (top > -1) {
         [url addQueryStringParameter:@"$top" :[[NSString alloc] initWithFormat:@"%d", top]];
@@ -40,6 +40,10 @@
     
     if (filter!= nil) {
         [url addQueryStringParameter:@"$filter" : filter];
+    }
+    
+    if (orderBy != nil) {
+        [url addQueryStringParameter:@"$orderBy" : select];
     }
 }
 

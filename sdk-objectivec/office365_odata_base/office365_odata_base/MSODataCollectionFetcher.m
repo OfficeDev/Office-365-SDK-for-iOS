@@ -16,6 +16,7 @@
 @property int top;
 @property int skip;
 @property NSString* expand;
+@property NSString* orderBy;
 @property NSString* selectedId;
 @property Class entityClass;
 @property id operations;
@@ -61,14 +62,24 @@
     return self;
 }
 
+-(MSODataCollectionFetcher*)skip : (int) value{
+    self.skip = value;
+    return self;
+}
+
+-(MSODataCollectionFetcher*)orderBy : (NSString*) params{
+    self.orderBy = params;
+    return self;
+}
+
 -(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
     
     [path appendPathComponent:self.UrlComponent];
     if (self.selectedId == nil) {
-        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
+        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
     }
     else {
-        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter];
+        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
         [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     }
     
