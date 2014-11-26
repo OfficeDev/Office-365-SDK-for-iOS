@@ -134,6 +134,7 @@
     self.skip = -1;
     self.selectedId = nil;
     self.select = nil;
+    self.orderBy = nil;
     self.expand = nil;
     self.filter = nil;
 }
