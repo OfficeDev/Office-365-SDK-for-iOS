@@ -5,11 +5,11 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSODataReadable.h"
+#import "MSODataExecutable.h"
 #import "MSODataBaseContainerHelper.h"
 
-@interface MSODataOperations : MSODataReadable
+@interface MSODataOperations : MSODataExecutable
 
--(id)initOperationWithUrl : (NSString*) urlComponent parent: (id<MSODataReadable>) parent;
+-(id)initOperationWithUrl : (NSString*) urlComponent parent: (id<MSODataExecutable>) parent;
 
 @end

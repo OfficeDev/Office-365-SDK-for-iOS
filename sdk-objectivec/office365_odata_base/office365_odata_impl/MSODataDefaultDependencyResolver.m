@@ -45,8 +45,8 @@
     return self.mCredentialsFactory;
 }
 
--(id<MSODataURL>)createODataURL{
-    return [[MSODataURLImpl alloc] init];
+-(id<MSODataRequest>)createODataRequest{
+    return [[MSODataRequestImpl alloc] init];
 }
 
 -(NSString*)getPlatformUserAgent : (NSString*) productName{

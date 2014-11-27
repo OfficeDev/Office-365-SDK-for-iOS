@@ -9,7 +9,7 @@
 
 @implementation MSODataMediaEntityFetcher
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     self.Parent = parent;
     self.UrlComponent = urlComponent;
     return [super initWithUrl:urlComponent parent:parent andEntityClass:nil];

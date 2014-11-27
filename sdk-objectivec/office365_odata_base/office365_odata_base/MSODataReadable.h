@@ -10,23 +10,6 @@
 @protocol MSODataReadable
 
 @optional
-
--(id<MSODataDependencyResolver>) getResolver;
--(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback;
-
-@required
-@property NSString* UrlComponent;
-@property id<MSODataReadable> Parent;
-
--(NSDictionary*)getCustomParameters;	
--(void)addCustomParameters : (NSString*)name withValue : (NSString*)value;
-
-@end
-
-@interface MSODataReadable : NSObject<MSODataReadable>
-
-@property NSString* UrlComponent;
-@property id<MSODataReadable> Parent;
-@property NSMutableDictionary* CustomParameters;
+-(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback;
 
 @end

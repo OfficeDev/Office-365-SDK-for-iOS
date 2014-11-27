@@ -21,7 +21,7 @@
 @synthesize Parent;
 @synthesize UrlComponent;
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent andEntityClass:(Class)entityClass{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass:(Class)entityClass{
     self.UrlComponent = urlComponent;
     self.Parent = parent;
     self.operations = [[MSODataOperations alloc] initOperationWithUrl:@"" parent:parent];
@@ -29,31 +29,45 @@
     return self;
 }
 
--(NSURLSessionDataTask*) oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
-    [path appendPathComponent:self.UrlComponent];
-    [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
-
-    return [self.Parent oDataExecuteForPath:path withContent:content andMethod:verb andCallback : ^(id<MSODataResponse> r, NSError *e) {
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, NSError *))callback{
+    [[request getUrl] appendPathComponent:self.UrlComponent];
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
+    
+    return [self.Parent oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
         callback(r,e);
     }];
 }
 
 -(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
+    
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    return [self oDataExecuteForPath:[[self getResolver] createODataURL] withContent:[payload dataUsingEncoding:NSUTF8StringEncoding] andMethod:PATCH andCallback: ^(id<MSODataResponse> r, NSError *e) {
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
+    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setVerb:PATCH];
+    
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
         callback(updatedEntity, e);
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(int,NSError *))callback{
-    return [self oDataExecuteForPath:[[self getResolver] createODataURL]  withContent:nil andMethod:DELETE andCallback : ^(id<MSODataResponse> r, NSError *e) {
+    
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    [request setVerb:DELETE];
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, NSError *e) {
         callback([r getStatus], e);
     }];
 }
 
 -(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
-    return [self oDataExecuteForPath:[[self getResolver] createODataURL] withContent:nil andMethod:GET andCallback : ^(id<MSODataResponse> r, NSError *e) {
+    
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    [request setVerb:GET];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, NSError *e) {
         if (e == nil) {
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];
             

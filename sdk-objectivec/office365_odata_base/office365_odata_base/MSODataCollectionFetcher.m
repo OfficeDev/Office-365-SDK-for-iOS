@@ -29,7 +29,7 @@
 
 @implementation MSODataCollectionFetcher
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent andEntityClass:(Class)clazz{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass:(Class)clazz{
 
     self.urlComponent = urlComponent;
     self.parent = parent;
@@ -73,15 +73,14 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, NSError *))callback{
+    [[request getUrl] appendPathComponent:self.UrlComponent];
     
-    [path appendPathComponent:self.UrlComponent];
+    [MSODataEntityFetcherHelper setPathForCollections:[request getUrl] :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
     
-    [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
     
-    [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
-    
-    return [self.Parent oDataExecuteForPath:path withContent:content andMethod:verb andCallback : callback];
+    return [self.Parent oDataExecuteWithRequest:request callback:callback];
 }
 
 -(NSDictionary*)getCustomParameters{
@@ -99,11 +98,12 @@
 }
 
 -(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
-    
-    return [self oDataExecuteForPath:[[self getResolver] createODataURL]  withContent:nil andMethod:GET andCallback:
-            ^(id<MSODataResponse> d, NSError *e) {
 
-        id result = [[[self getResolver]getJsonSerializer] deserializeList:[d getData] : self.entityClass];
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    [request setVerb:GET];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
+        id result = [[[self getResolver]getJsonSerializer] deserializeList:[r getData] : self.entityClass];
         callback(result, e);
     }];
 }
@@ -111,10 +111,13 @@
 -(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSError *))callback{
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
-    
-    return [self oDataExecuteForPath:[[self getResolver] createODataURL]  withContent:[payload dataUsingEncoding:NSUTF8StringEncoding] andMethod:POST andCallback:^(id<MSODataResponse> d, NSError *e) {
-        
-        id result = [[[self getResolver]getJsonSerializer] deserialize:[d getData] : self.entityClass];
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+
+    [request setVerb:POST];
+    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
+        id result = [[[self getResolver]getJsonSerializer] deserialize:[r getData] : self.entityClass];
         callback(result, e);
     }];
 }

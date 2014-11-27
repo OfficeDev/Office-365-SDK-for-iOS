@@ -5,10 +5,10 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSODataReadable.h"
+#import "MSODataExecutable.h"
 #import "MSODataDependencyResolver.h"
 
-@interface MSODataBaseContainer : MSODataReadable
+@interface MSODataBaseContainer : MSODataExecutable
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
 

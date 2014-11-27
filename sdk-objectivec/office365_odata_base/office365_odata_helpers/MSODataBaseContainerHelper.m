@@ -21,30 +21,6 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSODataHttpVerb)verb : (NSString*) productName :(void (^)(id<MSODataResponse>, NSError *))callback{
-    
-    [path setBaseUrl:self.UrlComponent];
-    id<MSODataHttpTransport> httpTransport = [self.Resolver getHttpTransport];
-    id<MSODataRequest> request = [httpTransport createRequest];
-    
-    [request setVerb:verb];
-    [request setUrl: [path toString]];
-    [request setContent:content];
-    [request addHeader:@"Content-Type" :@"application/json"];
-    [request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:productName]];
-    [request addHeader:@"X-ClientService-ClientTag" :[self.Resolver getPlatformUserAgent:productName]];
-    
-    //if(verb == PATCH || verb == DELETE){
-    //    [request addHeader:@"If-Match" :@"*"];
-    //}
-    
-    [[[self.Resolver getCredentialsFactory]getCredentials]prepareRequest:request];
-    NSLog(@"VERB: %ld, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [request getVerb], [request getUrl], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
-    return [httpTransport execute:request :^(id<MSODataResponse> r, NSError *e) {
-        callback(r,e);
-    }];
-}
-
 +(NSString*)generatePayload:(NSArray *)parameters :(id<MSODataDependencyResolver>)resolver{
     
     NSMutableString* result = [[NSMutableString alloc] initWithString:@"{"];
@@ -108,7 +84,7 @@
     }
     
     return o.toString();*/
-    return nil;
+    //return nil;
 }
 
 @end

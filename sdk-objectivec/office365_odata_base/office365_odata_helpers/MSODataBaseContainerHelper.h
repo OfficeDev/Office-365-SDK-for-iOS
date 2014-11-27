@@ -12,7 +12,6 @@
 -(id<MSODataDependencyResolver>) getResolver;
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
 +(NSString*)generatePayload :(NSArray*) parameters : (id<MSODataDependencyResolver>) resolver;
--(NSURLSessionDataTask *)oDataExecute:(id<MSODataURL>)path :(NSData *)content :(MSODataHttpVerb)verb : (NSString*) productName :(void (^)(id<MSODataResponse>, NSError *))callback;
 +(void)addCustomParametersToODataURL : (id<MSODataURL>) url : (NSDictionary*) parameters : (id<MSODataDependencyResolver>) resolver;
 +(NSString*)getFunctionParameters :(NSDictionary*)parameters;
 

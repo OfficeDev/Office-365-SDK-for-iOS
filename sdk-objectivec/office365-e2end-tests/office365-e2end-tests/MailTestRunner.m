@@ -1012,7 +1012,7 @@
     NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, NSError *error) {
         [NSThread sleepForTimeInterval:2];
         // Get sent mail from inbox
-        [[[[[self.Client getMe] getMessages]filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+        [[[[[self.Client getMe] getMessages] filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
             if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] Body] ContentType] == HTML){
                 MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
                 //Reply message

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1D35621A2799780064FCAF /* MSODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC1D35651A2799780064FCAF /* MSODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D35631A2799780064FCAF /* MSODataExecutable.m */; };
 		EC4DE7BC1A1CD729004F16C4 /* office365_odata_core.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC82DE11A1BDE87009A6142 /* office365_odata_core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8171A24C500004F16C4 /* MSODataCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE80C1A24C500004F16C4 /* MSODataCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8181A24C500004F16C4 /* MSODataCredentialsFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE80D1A24C500004F16C4 /* MSODataCredentialsFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,7 +48,7 @@
 		EC4DE8551A24C566004F16C4 /* NSString+NSStringExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE83B1A24C566004F16C4 /* NSString+NSStringExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8561A24C566004F16C4 /* NSString+NSStringExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE83C1A24C566004F16C4 /* NSString+NSStringExtensions.m */; };
 		EC4DE8631A24C655004F16C4 /* MSODataBaseContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8571A24C655004F16C4 /* MSODataBaseContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE8641A24C655004F16C4 /* MSODataBaseODataContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8581A24C655004F16C4 /* MSODataBaseODataContainer.m */; };
+		EC4DE8641A24C655004F16C4 /* MSODataBaseContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8581A24C655004F16C4 /* MSODataBaseContainer.m */; };
 		EC4DE8651A24C655004F16C4 /* MSODataCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8591A24C655004F16C4 /* MSODataCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8661A24C655004F16C4 /* MSODataCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE85A1A24C655004F16C4 /* MSODataCollectionFetcher.m */; };
 		EC4DE8671A24C655004F16C4 /* MSODataEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE85B1A24C655004F16C4 /* MSODataEntityFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,7 +58,6 @@
 		EC4DE86B1A24C655004F16C4 /* MSODataOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE85F1A24C655004F16C4 /* MSODataOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE86C1A24C655004F16C4 /* MSODataOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8601A24C655004F16C4 /* MSODataOperations.m */; };
 		EC4DE86D1A24C655004F16C4 /* MSODataReadable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8611A24C655004F16C4 /* MSODataReadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE86E1A24C655004F16C4 /* MSODataReadable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8621A24C655004F16C4 /* MSODataReadable.m */; };
 		EC4DE8721A24C675004F16C4 /* office365_odata_base.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE86F1A24C675004F16C4 /* office365_odata_base.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8731A24C675004F16C4 /* office365_odata_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8741A24C675004F16C4 /* office365_odata_interfaces.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +70,8 @@
 /* Begin PBXFileReference section */
 		2647EA5D19F4443800FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_odata_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EA6119F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC1D35621A2799780064FCAF /* MSODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataExecutable.h; sourceTree = "<group>"; };
+		EC1D35631A2799780064FCAF /* MSODataExecutable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataExecutable.m; sourceTree = "<group>"; };
 		EC4DE80C1A24C500004F16C4 /* MSODataCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataCredentials.h; sourceTree = "<group>"; };
 		EC4DE80D1A24C500004F16C4 /* MSODataCredentialsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataCredentialsFactory.h; sourceTree = "<group>"; };
 		EC4DE80E1A24C500004F16C4 /* MSODataDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataDependencyResolver.h; sourceTree = "<group>"; };
@@ -107,7 +110,7 @@
 		EC4DE83B1A24C566004F16C4 /* NSString+NSStringExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringExtensions.h"; sourceTree = "<group>"; };
 		EC4DE83C1A24C566004F16C4 /* NSString+NSStringExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringExtensions.m"; sourceTree = "<group>"; };
 		EC4DE8571A24C655004F16C4 /* MSODataBaseContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataBaseContainer.h; sourceTree = "<group>"; };
-		EC4DE8581A24C655004F16C4 /* MSODataBaseODataContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataBaseODataContainer.m; sourceTree = "<group>"; };
+		EC4DE8581A24C655004F16C4 /* MSODataBaseContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataBaseContainer.m; sourceTree = "<group>"; };
 		EC4DE8591A24C655004F16C4 /* MSODataCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataCollectionFetcher.h; sourceTree = "<group>"; };
 		EC4DE85A1A24C655004F16C4 /* MSODataCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataCollectionFetcher.m; sourceTree = "<group>"; };
 		EC4DE85B1A24C655004F16C4 /* MSODataEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataEntityFetcher.h; sourceTree = "<group>"; };
@@ -117,7 +120,6 @@
 		EC4DE85F1A24C655004F16C4 /* MSODataOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataOperations.h; sourceTree = "<group>"; };
 		EC4DE8601A24C655004F16C4 /* MSODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataOperations.m; sourceTree = "<group>"; };
 		EC4DE8611A24C655004F16C4 /* MSODataReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataReadable.h; sourceTree = "<group>"; };
-		EC4DE8621A24C655004F16C4 /* MSODataReadable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataReadable.m; sourceTree = "<group>"; };
 		EC4DE86F1A24C675004F16C4 /* office365_odata_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_base.h; sourceTree = "<group>"; };
 		EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
 		EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
@@ -167,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4DE8571A24C655004F16C4 /* MSODataBaseContainer.h */,
-				EC4DE8581A24C655004F16C4 /* MSODataBaseODataContainer.m */,
+				EC4DE8581A24C655004F16C4 /* MSODataBaseContainer.m */,
 				EC4DE8591A24C655004F16C4 /* MSODataCollectionFetcher.h */,
 				EC4DE85A1A24C655004F16C4 /* MSODataCollectionFetcher.m */,
 				EC4DE85B1A24C655004F16C4 /* MSODataEntityFetcher.h */,
@@ -177,7 +179,8 @@
 				EC4DE85F1A24C655004F16C4 /* MSODataOperations.h */,
 				EC4DE8601A24C655004F16C4 /* MSODataOperations.m */,
 				EC4DE8611A24C655004F16C4 /* MSODataReadable.h */,
-				EC4DE8621A24C655004F16C4 /* MSODataReadable.m */,
+				EC1D35621A2799780064FCAF /* MSODataExecutable.h */,
+				EC1D35631A2799780064FCAF /* MSODataExecutable.m */,
 			);
 			path = office365_odata_base;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				EC4DE8531A24C566004F16C4 /* MSODataResponseImpl.h in Headers */,
 				EC4DE8471A24C566004F16C4 /* MSODataHttpConnection.h in Headers */,
 				EC4DE81B1A24C500004F16C4 /* MSODataHttpVerb.h in Headers */,
+				EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */,
 				EC4DE8791A24C69E004F16C4 /* MSODataBaseContainerHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,9 +385,10 @@
 				EC4DE86C1A24C655004F16C4 /* MSODataOperations.m in Sources */,
 				EC4DE8501A24C566004F16C4 /* MSODataURLImpl.m in Sources */,
 				EC4DE8541A24C566004F16C4 /* MSODataResponseImpl.m in Sources */,
-				EC4DE8641A24C655004F16C4 /* MSODataBaseODataContainer.m in Sources */,
+				EC4DE8641A24C655004F16C4 /* MSODataBaseContainer.m in Sources */,
 				EC4DE8561A24C566004F16C4 /* NSString+NSStringExtensions.m in Sources */,
 				EC4DE8661A24C655004F16C4 /* MSODataCollectionFetcher.m in Sources */,
+				EC1D35651A2799780064FCAF /* MSODataExecutable.m in Sources */,
 				EC4DE86A1A24C655004F16C4 /* MSODataMediaEntityFetcher.m in Sources */,
 				EC4DE8441A24C566004F16C4 /* MSODataCredentialsImpl.m in Sources */,
 				EC4DE87C1A24C69E004F16C4 /* MSODataEntityFetcherHelper.m in Sources */,
@@ -391,7 +396,6 @@
 				EC4DE83E1A24C566004F16C4 /* JsonParser.m in Sources */,
 				EC4DE84C1A24C566004F16C4 /* MSODataLoggerImpl.m in Sources */,
 				EC4DE87A1A24C69E004F16C4 /* MSODataBaseContainerHelper.m in Sources */,
-				EC4DE86E1A24C655004F16C4 /* MSODataReadable.m in Sources */,
 				EC4DE8681A24C655004F16C4 /* MSODataEntityFetcher.m in Sources */,
 				EC4DE84E1A24C566004F16C4 /* MSODataOAuthCredentials.m in Sources */,
 				EC4DE84A1A24C566004F16C4 /* MSODataJsonSerializerImpl.m in Sources */,

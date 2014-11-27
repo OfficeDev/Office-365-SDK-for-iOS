@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MSODataHttpVerb.h"
+#import "MSODataUrl.h"
 
 @protocol MSODataRequest
 
@@ -19,7 +20,7 @@
 -(void)removeHeader : (NSString*) name;
 -(MSODataHttpVerb) getVerb;
 -(void)setVerb : (MSODataHttpVerb) httpVerb;
--(void)setUrl : (NSString*) url;
--(NSString*) getUrl;
+-(void)setUrl : (id<MSODataURL>) url;
+-(id<MSODataURL>) getUrl;
 
 @end
