@@ -1,5 +1,6 @@
 # Cocoapods
 Pods/
+*Podfile.lock
 
 # Xcode (https://raw.githubusercontent.com/github/gitignore/master/Global/Xcode.gitignore)
 build/

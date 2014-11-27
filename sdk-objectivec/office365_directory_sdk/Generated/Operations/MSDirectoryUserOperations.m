@@ -17,23 +17,24 @@
 
 @implementation MSDirectoryUserOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
 -(NSURLSessionDataTask*)assignLicense : (NSMutableArray<MSDirectoryAssignedLicense> *) addLicenses : (NSMutableArray *) removeLicenses : (void (^)(MSDirectoryUser *user, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
 	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:addLicenses,@"addLicenses",removeLicenses,@"removeLicenses",nil];
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-	[url appendPathComponent:[[NSString alloc] initWithFormat:@"assignLicense(%@)",parameters]];
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"assignLicense(%@)",parameters]];
 	NSData* payload = nil;
 		
+	[request setContent:payload];
+	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent : payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
        if(error == nil){
 			MSDirectoryUser * result = (MSDirectoryUser *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSDirectoryUser class]];
             callback(result, error);

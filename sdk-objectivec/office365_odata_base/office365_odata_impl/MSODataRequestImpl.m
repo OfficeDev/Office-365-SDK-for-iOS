@@ -6,6 +6,7 @@
  ******************************************************************************/
 
 #import "MSODataRequestImpl.h"
+#import "MSODataURLImpl.h"
 
 @interface MSODataRequestImpl()
 
@@ -18,7 +19,7 @@
 
 -(id)init;{
     self.request = [[NSMutableURLRequest alloc]init];
-    
+    self.odataUrl = [[MSODataURLImpl alloc] init];
     return self;
 }
 

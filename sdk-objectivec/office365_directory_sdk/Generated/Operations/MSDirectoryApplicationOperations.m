@@ -17,23 +17,24 @@
 
 @implementation MSDirectoryApplicationOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
 -(NSURLSessionDataTask*)restore : (NSMutableArray *) identifierUris : (void (^)(MSDirectoryApplication *application, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
 	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:identifierUris,@"identifierUris",nil];
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-	[url appendPathComponent:[[NSString alloc] initWithFormat:@"restore(%@)",parameters]];
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"restore(%@)",parameters]];
 	NSData* payload = nil;
 		
+	[request setContent:payload];
+	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent : payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
        if(error == nil){
 			MSDirectoryApplication * result = (MSDirectoryApplication *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSDirectoryApplication class]];
             callback(result, error);

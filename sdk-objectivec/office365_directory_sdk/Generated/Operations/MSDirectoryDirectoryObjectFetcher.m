@@ -31,7 +31,7 @@
 	return [[MSDirectoryDirectoryObjectOperations alloc] initOperationWithUrl:self.UrlComponent parent:self.Parent];
 }
 
--(id)initWithUrl:(NSString*)urlComponent :(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
     
     self.Parent = parent;
     self.UrlComponent = urlComponent;

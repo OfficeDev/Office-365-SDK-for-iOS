@@ -17,7 +17,7 @@
 
 @implementation MSDirectoryDirectoryRoleTemplateCollectionFetcher
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;{
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryDirectoryRoleTemplate class]];
 }
 

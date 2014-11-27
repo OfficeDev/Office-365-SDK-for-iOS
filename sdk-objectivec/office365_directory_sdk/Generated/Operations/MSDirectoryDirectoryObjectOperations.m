@@ -17,69 +17,51 @@
 
 @implementation MSDirectoryDirectoryObjectOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)checkMemberGroups : (NSMutableArray *) groupIds : (void (^)(NSArray* r, NSError *error))callback{
-    
-    id<MSODataURL> url = [[self getResolver] createODataURL];
-    
-    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:groupIds,@"groupIds", nil];
-    
-    NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-    [url appendPathComponent:[[NSString alloc] initWithFormat:@"checkMemberGroups(%@)",parameters]];
-    NSData* payload = nil;
-    
-    NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
-        if(error == nil){
-            callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
-        }
-        else{
-            callback(nil, error);
-        }
-    }];
-    
-    return task;
-}
+-(NSURLSessionDataTask*)checkMemberGroups : (NSMutableArray *) groupIds : (void (^)(NSArray*, NSError *error))callback{
 
--(NSURLSessionDataTask*)getMemberGroups : (bool) securityEnabledOnly : (void (^)(NSArray* r, NSError *error))callback{
-    
-    id<MSODataURL> url = [[self getResolver] createODataURL];
-    
-    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:(securityEnabledOnly ? @"true" :@"false"),@"securityEnabledOnly", nil];
-    
-    NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-    [url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberGroups(%@)",parameters]];
-    NSData* payload = nil;
-    
-    NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
-        if(error == nil){
-            callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
-        }
-        else{
-            callback(nil, error);
-        }
-    }];
-    
-    return task;
-}
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+		
+	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:groupIds,@"groupIds",nil];
 
--(NSURLSessionDataTask*)getMemberObjects : (bool) securityEnabledOnly : (void (^)(NSArray* r, NSError *error))callback{
+	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"checkMemberGroups(%@)",parameters]];
+	NSData* payload = nil;
+		
+	[request setContent:payload];
+	[request setVerb:POST];
+
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+       if(error == nil){
+           callback([[[self getResolver] getJsonSerializer] deserialize:[r getData] :[NSString class]], error);
+        }
+        else{
+            callback(nil, error);
+        }
+    }];
     
-    id<MSODataURL> url = [[self getResolver] createODataURL];
-    
-    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys :(securityEnabledOnly ? @"true" : @"false"),@"securityEnabledOnly",nil];
-    
-    NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-    [url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberObjects(%@)",parameters]];
-    NSData* payload = nil;
-    
-    NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
-        if(error == nil){
+    return task;
+}			
+
+
+-(NSURLSessionDataTask*)getMemberGroups : (bool) securityEnabledOnly : (void (^)(NSArray*, NSError *error))callback{
+
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+		
+	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:securityEnabledOnly ? @"true" : @"false",@"securityEnabledOnly", nil];
+
+	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberGroups(%@)",parameters]];
+	NSData* payload = nil;
+		
+	[request setContent:payload];
+	[request setVerb:POST];
+
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+       if(error == nil){
             callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
         }
         else{
@@ -88,5 +70,31 @@
     }];
     
     return task;
-}
+}			
+
+
+-(NSURLSessionDataTask*)getMemberObjects : (bool) securityEnabledOnly : (void (^)(NSArray*, NSError *error))callback{
+
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+		
+	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:securityEnabledOnly ? @"true" : @"false",@"securityEnabledOnly", nil];
+
+	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberObjects(%@)",parameters]];
+	NSData* payload = nil;
+		
+	[request setContent:payload];
+	[request setVerb:POST];
+
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+       if(error == nil){
+            callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
+        }
+        else{
+            callback(nil, error);
+        }
+    }];
+    
+    return task;
+}			
 @end
