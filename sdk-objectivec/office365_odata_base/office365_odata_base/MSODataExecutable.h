@@ -22,7 +22,6 @@
 @property id<MSODataExecutable> Parent;
 
 -(NSDictionary*)getCustomParameters;
--(void)addCustomParameters : (NSString*)name withValue : (NSString*)value;
 
 @end
 

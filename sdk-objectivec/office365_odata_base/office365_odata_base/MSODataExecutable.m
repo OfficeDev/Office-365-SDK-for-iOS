@@ -14,9 +14,4 @@
     return self.CustomParameters;
 }
 
--(void)addCustomParameters:(NSString *)name withValue:(NSString *)value{
-    NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value,name, nil];
-    [self.CustomParameters addEntriesFromDictionary:dicc];
-}
-
 @end

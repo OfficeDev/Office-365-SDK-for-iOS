@@ -44,8 +44,7 @@
     //}
     
     [[[self.resolver getCredentialsFactory]getCredentials]prepareRequest:request];
-    
-    NSLog(@"VERB: %ld, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [request getVerb], [request getUrl], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
+
     return [httpTransport execute:request :^(id<MSODataResponse> r, NSError *e) {
         callback(r,e);
     }];

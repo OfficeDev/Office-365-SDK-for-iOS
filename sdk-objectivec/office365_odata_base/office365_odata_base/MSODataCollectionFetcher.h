@@ -9,7 +9,13 @@
 #import "MSODataEntityFetcher.h"
 #import "MSODataDependencyResolver.h"
 
-@interface MSODataCollectionFetcher : MSODataExecutable
+@protocol MSODataCollectionFetcher
+
+@optional
+-(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+
+@end
+@interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>
 
 -(NSURLSessionDataTask *)read:(void (^)(id entity, NSError *error))callback;
 
@@ -23,5 +29,6 @@
 -(id<MSODataDependencyResolver>)getResolver;
 -(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, NSError* error))callback;
 -(MSODataEntityFetcher*)getById : (NSString*) Id;
+
 
 @end

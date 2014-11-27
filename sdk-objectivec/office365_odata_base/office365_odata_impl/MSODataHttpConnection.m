@@ -18,15 +18,16 @@
     
     
     [r setURL:[[NSURL alloc] initWithString:[[reqImpl getUrl] toString]]];
-    [request setVerb:[reqImpl getVerb]];
+    //[request setVerb:[reqImpl getVerb]];
     r.HTTPMethod = [reqImpl verbToString:[reqImpl getVerb]];
     r.HTTPBody = [reqImpl getContent];
     
-    [request addHeader:@"Content-Type" :@"application/json"];
+    // [request addHeader:@"Content-Type" :@"application/json"];
     
     //[request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:[self class]];
     //[request addHeader:@"X-ClientService-ClientTag" :[self.Resolver getPlatformUserAgent:productName]];
     
+    NSLog(@"VERB: %@, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [reqImpl verbToString:[reqImpl getVerb]], [request getUrl], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:r completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

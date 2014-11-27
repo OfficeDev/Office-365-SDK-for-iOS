@@ -26,6 +26,7 @@
     self.Parent = parent;
     self.operations = [[MSODataOperations alloc] initOperationWithUrl:@"" parent:parent];
     self.entityClass = entityClass;
+    self.CustomParameters = [[NSMutableDictionary alloc] init];
     return self;
 }
 
@@ -75,6 +76,12 @@
         }
         else callback(nil, e);
     }];
+}
+
+-(MSODataEntityFetcher*)addCustomParameters : (NSString*)name : (NSString*)value{
+    NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
+    [self.CustomParameters addEntriesFromDictionary:dicc];
+    return self;
 }
 
 -(id<MSODataDependencyResolver>) getResolver{
