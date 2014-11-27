@@ -17,13 +17,13 @@
 
 @implementation MSSharePointFileOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
 -(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFile *file, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destFolderId,@"destFolderId",nil ],
@@ -31,10 +31,11 @@
 	[[NSDictionary alloc] initWithObjectsAndKeys :newName,@"newName",nil ],nil];
 
 	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-	[url appendPathComponent:@"copy"];
+	[[request getUrl] appendPathComponent:@"copy"];
+	[request setContent:payload];
+	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent : payload andMethod:POST andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
        if(error == nil){
 			MSSharePointFile * result = (MSSharePointFile *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSSharePointFile class]];
             callback(result, error);

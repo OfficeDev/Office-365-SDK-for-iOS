@@ -17,7 +17,7 @@
 
 @implementation MSDiscoveryServiceInfoCollectionFetcher
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;{
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDiscoveryServiceInfo class]];
 }
 
@@ -31,5 +31,4 @@
 	[super getById:Id];
     return [[MSDiscoveryServiceInfoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,Id] parent : self andEntityClass :[MSDiscoveryServiceInfo class]];
 }
-
 @end

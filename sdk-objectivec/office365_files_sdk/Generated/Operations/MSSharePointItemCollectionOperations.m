@@ -19,18 +19,16 @@
 
 -(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 
 		
 	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:path,@"path",nil];
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
-	[url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
-	NSData* payload = nil;
-		
+	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:POST andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback: ^(id<MSODataResponse> r, NSError *error){
+
        if(error == nil){
 			MSSharePointItem * result = (MSSharePointItem *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSSharePointItem class]];
             callback(result, error);

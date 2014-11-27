@@ -17,22 +17,23 @@
 
 @implementation MSOutlookFolderOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
 
 	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-	[url appendPathComponent:@"Copy"];
+	[[request getUrl] appendPathComponent:@"Copy"];
+	[request setContent:payload];
+	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent : payload andMethod:POST andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
        if(error == nil){
 			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookFolder class]];
             callback(result, error);
@@ -48,16 +49,17 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, NSError *error))callback{
 
-	id<MSODataURL> url = [[self getResolver] createODataURL];
+	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
 	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
 
 	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-	[url appendPathComponent:@"Move"];
+	[[request getUrl] appendPathComponent:@"Move"];
+	[request setContent:payload];
+	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent : payload andMethod:POST andCallback:^(id<MSODataResponse> r, NSError *error) {
-        
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
        if(error == nil){
 			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookFolder class]];
             callback(result, error);
