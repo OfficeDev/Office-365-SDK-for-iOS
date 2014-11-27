@@ -1005,12 +1005,11 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject :self.TestMail :@"" ];
-    //[message.Body setContent:@"<h1>This is an Html body.</h1>"];
-    //[message.Body setContentType: HTML];
+    [message.Body setContent:@"<h1>This is an Html body.</h1>"];
+    [message.Body setContentType: HTML];
     
     //Send mail with HTML body
     NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, NSError *error) {
-        [NSThread sleepForTimeInterval:2];
         // Get sent mail from inbox
         [[[[[self.Client getMe] getMessages]filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
             if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] Body] ContentType] == HTML){
