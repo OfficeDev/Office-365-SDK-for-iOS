@@ -10,6 +10,7 @@
 #import <office365_odata_base/MSODataEntityFetcher.h>
 #import <office365_odata_base/MSODataMediaEntityFetcher.h>
 #import <office365_odata_base/MSODataReadable.h>
+#import <office365_odata_base/MSODataExecutable.h>
 #import <office365_odata_base/MSODataOperations.h>
 #import <office365_odata_base/MSODataBaseContainerHelper.h>
 #import <office365_odata_base/MSODataEntityFetcherHelper.h>

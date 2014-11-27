@@ -9,18 +9,17 @@
 
 @implementation MSODataOperations
 
--(id)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent{
+-(id)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     self.UrlComponent = urlComponent;
     self.Parent = parent;
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, NSError *))callback{
+    [[request getUrl] appendPathComponent:self.UrlComponent];
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
     
-    [path appendPathComponent:self.UrlComponent];
-    [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
-   
-    return [self.Parent oDataExecuteForPath:path withContent:content andMethod:verb andCallback : callback];
+    return [self.Parent oDataExecuteWithRequest:request callback:callback];
 }
 
 -(id<MSODataDependencyResolver>) getResolver{

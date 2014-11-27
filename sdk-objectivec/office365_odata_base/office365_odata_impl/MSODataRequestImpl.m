@@ -11,7 +11,7 @@
 
 @property NSMutableURLRequest* request;
 @property MSODataHttpVerb httpVerb;
-
+@property id<MSODataURL> odataUrl;
 @end
 
 @implementation MSODataRequestImpl
@@ -56,16 +56,16 @@
     self.request.HTTPMethod = [self verbToString :httpVerb];
 }
 
--(void)setUrl : (NSString*) url{
-    [self.request setURL:[[NSURL alloc] initWithString:url]];
+-(void)setUrl : (id<MSODataURL>) url{
+    self.odataUrl = url;
 }
 
 -(NSMutableURLRequest*)getMutableRequest{
     return self.request;
 }
 
--(NSString *)getUrl{
-    return self.request.URL.absoluteString;
+-(id<MSODataURL>)getUrl{
+    return self.odataUrl;
 }
 
 -(NSString*)verbToString : (MSODataHttpVerb) verb{

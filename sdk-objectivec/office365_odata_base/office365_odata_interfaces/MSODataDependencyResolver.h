@@ -19,6 +19,6 @@
 -(id<MSODataLogger>) getLogger;
 -(id<MSODataJsonSerializer>) getJsonSerializer;
 -(id<MSODataCredentialsFactory>) getCredentialsFactory;
--(id<MSODataURL>) createODataURL;
+-(id<MSODataRequest>)createODataRequest;
 -(NSString*)getPlatformUserAgent : (NSString*) productName;
 @end
