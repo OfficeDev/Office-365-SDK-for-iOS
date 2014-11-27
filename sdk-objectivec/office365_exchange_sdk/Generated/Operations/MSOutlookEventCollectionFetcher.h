@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookEvent> *events, NSError *error))callback;
--(MSOutlookEventFetcher*)select : (NSString*) params;
--(MSOutlookEventFetcher*)filter : (NSString*) params;
--(MSOutlookEventFetcher*)top : (int) value;
--(MSOutlookEventFetcher*)skip : (int) value;
--(MSOutlookEventFetcher*)expand : (NSString*) value;
--(MSOutlookEventFetcher*)orderBy : (NSString*) params;
+
+-(id<MSOutlookEventCollectionFetcher>)select : (NSString*) params;
+-(id<MSOutlookEventCollectionFetcher>)filter : (NSString*) params;
+-(id<MSOutlookEventCollectionFetcher>)top : (int) value;
+-(id<MSOutlookEventCollectionFetcher>)skip : (int) value;
+-(id<MSOutlookEventCollectionFetcher>)expand : (NSString*) value;
+-(id<MSOutlookEventCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSOutlookEventCollectionFetcher : MSODataCollectionFetcher<MSOutlookEventCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEvent:(MSOutlookEvent* )entity withCallback:(void (^)(MSOutlookEvent *event, NSError *e))callback;
-
 -(MSOutlookEventFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addEvent:(MSOutlookEvent* )entity withCallback:(void (^)(MSOutlookEvent *event, NSError *e))callback;
 
 @end

@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFolder> *folders, NSError *error))callback;
--(MSSharePointFolderFetcher*)select : (NSString*) params;
--(MSSharePointFolderFetcher*)filter : (NSString*) params;
--(MSSharePointFolderFetcher*)top : (int) value;
--(MSSharePointFolderFetcher*)skip : (int) value;
--(MSSharePointFolderFetcher*)expand : (NSString*) value;
--(MSSharePointFolderFetcher*)orderBy : (NSString*) params;
+
+-(id<MSSharePointFolderCollectionFetcher>)select : (NSString*) params;
+-(id<MSSharePointFolderCollectionFetcher>)filter : (NSString*) params;
+-(id<MSSharePointFolderCollectionFetcher>)top : (int) value;
+-(id<MSSharePointFolderCollectionFetcher>)skip : (int) value;
+-(id<MSSharePointFolderCollectionFetcher>)expand : (NSString*) value;
+-(id<MSSharePointFolderCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSSharePointFolderCollectionFetcher : MSODataCollectionFetcher<MSSharePointFolderCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addFolder:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, NSError *e))callback;
-
 -(MSSharePointFolderFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addFolder:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, NSError *e))callback;
 
 @end

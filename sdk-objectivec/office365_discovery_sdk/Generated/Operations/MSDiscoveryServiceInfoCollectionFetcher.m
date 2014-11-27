@@ -31,4 +31,5 @@
 	[super getById:Id];
     return [[MSDiscoveryServiceInfoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,Id] parent : self andEntityClass :[MSDiscoveryServiceInfo class]];
 }
+
 @end

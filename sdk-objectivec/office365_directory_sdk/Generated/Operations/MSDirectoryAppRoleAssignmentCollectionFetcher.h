@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryAppRoleAssignment> *appRoleAssignments, NSError *error))callback;
--(MSDirectoryAppRoleAssignmentFetcher*)select : (NSString*) params;
--(MSDirectoryAppRoleAssignmentFetcher*)filter : (NSString*) params;
--(MSDirectoryAppRoleAssignmentFetcher*)top : (int) value;
--(MSDirectoryAppRoleAssignmentFetcher*)skip : (int) value;
--(MSDirectoryAppRoleAssignmentFetcher*)expand : (NSString*) value;
--(MSDirectoryAppRoleAssignmentFetcher*)orderBy : (NSString*) params;
+
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSDirectoryAppRoleAssignmentCollectionFetcher : MSODataCollectionFetcher<MSDirectoryAppRoleAssignmentCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addAppRoleAssignment:(MSDirectoryAppRoleAssignment* )entity withCallback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, NSError *e))callback;
-
 -(MSDirectoryAppRoleAssignmentFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addAppRoleAssignment:(MSDirectoryAppRoleAssignment* )entity withCallback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, NSError *e))callback;
 
 @end

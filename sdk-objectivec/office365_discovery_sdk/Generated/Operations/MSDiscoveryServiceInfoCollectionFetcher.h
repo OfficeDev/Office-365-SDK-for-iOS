@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error))callback;
--(MSDiscoveryServiceInfoFetcher*)select : (NSString*) params;
--(MSDiscoveryServiceInfoFetcher*)filter : (NSString*) params;
--(MSDiscoveryServiceInfoFetcher*)top : (int) value;
--(MSDiscoveryServiceInfoFetcher*)skip : (int) value;
--(MSDiscoveryServiceInfoFetcher*)expand : (NSString*) value;
--(MSDiscoveryServiceInfoFetcher*)orderBy : (NSString*) params;
+
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)select : (NSString*) params;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)top : (int) value;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)skip : (int) value;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback;
-
 -(MSDiscoveryServiceInfoFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback;
 
 @end

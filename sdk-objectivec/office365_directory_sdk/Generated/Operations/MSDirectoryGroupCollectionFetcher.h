@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryGroup> *groups, NSError *error))callback;
--(MSDirectoryGroupFetcher*)select : (NSString*) params;
--(MSDirectoryGroupFetcher*)filter : (NSString*) params;
--(MSDirectoryGroupFetcher*)top : (int) value;
--(MSDirectoryGroupFetcher*)skip : (int) value;
--(MSDirectoryGroupFetcher*)expand : (NSString*) value;
--(MSDirectoryGroupFetcher*)orderBy : (NSString*) params;
+
+-(id<MSDirectoryGroupCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryGroupCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryGroupCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryGroupCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryGroupCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryGroupCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSDirectoryGroupCollectionFetcher : MSODataCollectionFetcher<MSDirectoryGroupCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addGroup:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, NSError *e))callback;
-
 -(MSDirectoryGroupFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addGroup:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, NSError *e))callback;
 
 @end

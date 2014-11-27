@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookFolder> *folders, NSError *error))callback;
--(MSOutlookFolderFetcher*)select : (NSString*) params;
--(MSOutlookFolderFetcher*)filter : (NSString*) params;
--(MSOutlookFolderFetcher*)top : (int) value;
--(MSOutlookFolderFetcher*)skip : (int) value;
--(MSOutlookFolderFetcher*)expand : (NSString*) value;
--(MSOutlookFolderFetcher*)orderBy : (NSString*) params;
+
+-(id<MSOutlookFolderCollectionFetcher>)select : (NSString*) params;
+-(id<MSOutlookFolderCollectionFetcher>)filter : (NSString*) params;
+-(id<MSOutlookFolderCollectionFetcher>)top : (int) value;
+-(id<MSOutlookFolderCollectionFetcher>)skip : (int) value;
+-(id<MSOutlookFolderCollectionFetcher>)expand : (NSString*) value;
+-(id<MSOutlookFolderCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSOutlookFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookFolderCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addFolder:(MSOutlookFolder* )entity withCallback:(void (^)(MSOutlookFolder *folder, NSError *e))callback;
-
 -(MSOutlookFolderFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addFolder:(MSOutlookFolder* )entity withCallback:(void (^)(MSOutlookFolder *folder, NSError *e))callback;
 
 @end

@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookEntity> *entitys, NSError *error))callback;
--(MSOutlookEntityFetcher*)select : (NSString*) params;
--(MSOutlookEntityFetcher*)filter : (NSString*) params;
--(MSOutlookEntityFetcher*)top : (int) value;
--(MSOutlookEntityFetcher*)skip : (int) value;
--(MSOutlookEntityFetcher*)expand : (NSString*) value;
--(MSOutlookEntityFetcher*)orderBy : (NSString*) params;
+
+-(id<MSOutlookEntityCollectionFetcher>)select : (NSString*) params;
+-(id<MSOutlookEntityCollectionFetcher>)filter : (NSString*) params;
+-(id<MSOutlookEntityCollectionFetcher>)top : (int) value;
+-(id<MSOutlookEntityCollectionFetcher>)skip : (int) value;
+-(id<MSOutlookEntityCollectionFetcher>)expand : (NSString*) value;
+-(id<MSOutlookEntityCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSOutlookEntityCollectionFetcher : MSODataCollectionFetcher<MSOutlookEntityCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSOutlookEntity* )entity withCallback:(void (^)(MSOutlookEntity *entity, NSError *e))callback;
-
 -(MSOutlookEntityFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addEntity:(MSOutlookEntity* )entity withCallback:(void (^)(MSOutlookEntity *entity, NSError *e))callback;
 
 @end

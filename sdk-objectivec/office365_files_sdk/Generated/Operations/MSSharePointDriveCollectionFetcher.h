@@ -21,21 +21,20 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointDrive> *drives, NSError *error))callback;
--(MSSharePointDriveFetcher*)select : (NSString*) params;
--(MSSharePointDriveFetcher*)filter : (NSString*) params;
--(MSSharePointDriveFetcher*)top : (int) value;
--(MSSharePointDriveFetcher*)skip : (int) value;
--(MSSharePointDriveFetcher*)expand : (NSString*) value;
--(MSSharePointDriveFetcher*)orderBy : (NSString*) params;
+
+-(id<MSSharePointDriveCollectionFetcher>)select : (NSString*) params;
+-(id<MSSharePointDriveCollectionFetcher>)filter : (NSString*) params;
+-(id<MSSharePointDriveCollectionFetcher>)top : (int) value;
+-(id<MSSharePointDriveCollectionFetcher>)skip : (int) value;
+-(id<MSSharePointDriveCollectionFetcher>)expand : (NSString*) value;
+-(id<MSSharePointDriveCollectionFetcher>)orderBy : (NSString*) params;
 
 @end
 
 @interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addDrive:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, NSError *e))callback;
-
 -(MSSharePointDriveFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addDrive:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, NSError *e))callback;
 
 @end
