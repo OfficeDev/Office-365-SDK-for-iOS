@@ -13,7 +13,20 @@
 
 -(NSURLSessionDataTask *)execute:(id<MSODataRequest>)request :(void (^)(id<MSODataResponse> response, NSError *error))callback{
     
-    NSMutableURLRequest* r = [(MSODataRequestImpl*)request getMutableRequest] ;
+    NSMutableURLRequest* r =  [(MSODataRequestImpl*)request getMutableRequest] ;
+    MSODataRequestImpl* reqImpl = (MSODataRequestImpl*) request;
+    
+    
+    [r setURL:[[NSURL alloc] initWithString:[[reqImpl getUrl] toString]]];
+    [request setVerb:[reqImpl getVerb]];
+    r.HTTPMethod = [reqImpl verbToString:[reqImpl getVerb]];
+    r.HTTPBody = [reqImpl getContent];
+    
+    [request addHeader:@"Content-Type" :@"application/json"];
+    
+    //[request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:[self class]];
+    //[request addHeader:@"X-ClientService-ClientTag" :[self.Resolver getPlatformUserAgent:productName]];
+    
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:r completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {

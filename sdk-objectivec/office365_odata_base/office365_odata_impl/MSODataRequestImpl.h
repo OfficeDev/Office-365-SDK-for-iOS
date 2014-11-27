@@ -11,5 +11,7 @@
 @interface MSODataRequestImpl : NSObject<MSODataRequest>
 
 -(NSMutableURLRequest*)getMutableRequest;
+-(void)setMutableRequest : (NSMutableURLRequest*)request;
+-(NSString*)verbToString : (MSODataHttpVerb) verb;
 
 @end

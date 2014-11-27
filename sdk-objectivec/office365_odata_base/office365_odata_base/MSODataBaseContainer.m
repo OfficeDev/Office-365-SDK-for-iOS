@@ -33,15 +33,11 @@
     
     [[request getUrl] setBaseUrl:self.UrlComponent];
     id<MSODataHttpTransport> httpTransport = [self.resolver getHttpTransport];
-    
-    //[request setVerb:[request getVerb]];
-    //[request setUrl: [[request getUrl]toString]];
-    //[request setContent:[request getContent]];
-    
+
     [request addHeader:@"Content-Type" :@"application/json"];
     
-    //[request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:[self class]];
-    //[request addHeader:@"X-ClientService-ClientTag" :[self.Resolver getPlatformUserAgent:productName]];
+    //[request addHeader:@"User-Agent" :[self.resolver getPlatformUserAgent:[self class]];
+    //[request addHeader:@"X-ClientService-ClientTag" :[self.resolver getPlatformUserAgent:productName]];
     
     //if(verb == PATCH || verb == DELETE){
     //    [request addHeader:@"If-Match" :@"*"];

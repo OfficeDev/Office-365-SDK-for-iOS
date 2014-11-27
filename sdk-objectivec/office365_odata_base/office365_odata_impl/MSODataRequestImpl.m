@@ -65,6 +65,10 @@
     return self.request;
 }
 
+-(void)setMutableRequest : (NSMutableURLRequest*)request{
+    self.request = request;
+}
+
 -(id<MSODataURL>)getUrl{
     return self.odataUrl;
 }
