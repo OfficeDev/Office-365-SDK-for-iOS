@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookEntity> *entitys, NSError *error))callback;
+-(MSOutlookEntityFetcher*)select : (NSString*) params;
+-(MSOutlookEntityFetcher*)filter : (NSString*) params;
+-(MSOutlookEntityFetcher*)top : (int) value;
+-(MSOutlookEntityFetcher*)skip : (int) value;
+-(MSOutlookEntityFetcher*)expand : (NSString*) value;
+-(MSOutlookEntityFetcher*)orderBy : (NSString*) params;
 
 @end
 

@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, NSError *error))callback;
+-(MSDirectoryDirectoryLinkChangeFetcher*)select : (NSString*) params;
+-(MSDirectoryDirectoryLinkChangeFetcher*)filter : (NSString*) params;
+-(MSDirectoryDirectoryLinkChangeFetcher*)top : (int) value;
+-(MSDirectoryDirectoryLinkChangeFetcher*)skip : (int) value;
+-(MSDirectoryDirectoryLinkChangeFetcher*)expand : (NSString*) value;
+-(MSDirectoryDirectoryLinkChangeFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback;
+-(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback;
 
 -(MSDirectoryDirectoryLinkChangeFetcher*)getById:(NSString *)Id;
 

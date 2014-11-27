@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSSharePointItem class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSSharePointItem*)entity withCallback:(void (^)(MSSharePointItem *item, NSError *e))callback{
+-(NSURLSessionDataTask*)addItem:(MSSharePointItem*)entity withCallback:(void (^)(MSSharePointItem *item, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];

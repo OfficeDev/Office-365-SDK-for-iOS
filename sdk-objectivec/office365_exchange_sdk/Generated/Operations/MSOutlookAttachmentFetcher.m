@@ -30,6 +30,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookAttachment class]];
 }
 
+-(NSURLSessionDataTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 
 	

@@ -22,8 +22,10 @@
 @protocol MSOutlookCalendarGroupFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSOutlookCalendarGroup* calendarGroup, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOutlookCalendarGroup*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendarGroup* calendarGroup, NSError *error))callback;
+-(NSURLSessionDataTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSOutlookCalendarGroupFetcher : MSODataEntityFetcher<MSOutlookCalendarGroupFetcher>

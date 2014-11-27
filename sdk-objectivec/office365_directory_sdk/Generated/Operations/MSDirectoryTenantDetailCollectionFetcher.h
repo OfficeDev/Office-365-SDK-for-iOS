@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryTenantDetail> *tenantDetails, NSError *error))callback;
+-(MSDirectoryTenantDetailFetcher*)select : (NSString*) params;
+-(MSDirectoryTenantDetailFetcher*)filter : (NSString*) params;
+-(MSDirectoryTenantDetailFetcher*)top : (int) value;
+-(MSDirectoryTenantDetailFetcher*)skip : (int) value;
+-(MSDirectoryTenantDetailFetcher*)expand : (NSString*) value;
+-(MSDirectoryTenantDetailFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryTenantDetail* )entity withCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, NSError *e))callback;
+-(NSURLSessionDataTask*)addTenantDetail:(MSDirectoryTenantDetail* )entity withCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, NSError *e))callback;
 
 -(MSDirectoryTenantDetailFetcher*)getById:(NSString *)Id;
 

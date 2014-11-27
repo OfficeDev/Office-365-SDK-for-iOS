@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, NSError *error))callback;
+-(MSOutlookContactFolderFetcher*)select : (NSString*) params;
+-(MSOutlookContactFolderFetcher*)filter : (NSString*) params;
+-(MSOutlookContactFolderFetcher*)top : (int) value;
+-(MSOutlookContactFolderFetcher*)skip : (int) value;
+-(MSOutlookContactFolderFetcher*)expand : (NSString*) value;
+-(MSOutlookContactFolderFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, NSError *e))callback;
+-(NSURLSessionDataTask*)addContactFolder:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, NSError *e))callback;
 
 -(MSOutlookContactFolderFetcher*)getById:(NSString *)Id;
 

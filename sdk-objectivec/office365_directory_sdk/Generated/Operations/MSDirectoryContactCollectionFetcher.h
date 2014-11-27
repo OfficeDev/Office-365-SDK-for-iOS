@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryContact> *contacts, NSError *error))callback;
+-(MSDirectoryContactFetcher*)select : (NSString*) params;
+-(MSDirectoryContactFetcher*)filter : (NSString*) params;
+-(MSDirectoryContactFetcher*)top : (int) value;
+-(MSDirectoryContactFetcher*)skip : (int) value;
+-(MSDirectoryContactFetcher*)expand : (NSString*) value;
+-(MSDirectoryContactFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryContact* )entity withCallback:(void (^)(MSDirectoryContact *contact, NSError *e))callback;
+-(NSURLSessionDataTask*)addContact:(MSDirectoryContact* )entity withCallback:(void (^)(MSDirectoryContact *contact, NSError *e))callback;
 
 -(MSDirectoryContactFetcher*)getById:(NSString *)Id;
 

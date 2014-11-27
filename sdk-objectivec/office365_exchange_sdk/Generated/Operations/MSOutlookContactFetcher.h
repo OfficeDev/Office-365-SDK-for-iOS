@@ -21,8 +21,10 @@
 @protocol MSOutlookContactFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSOutlookContact* contact, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOutlookContact*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookContact* contact, NSError *error))callback;
+-(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteContact:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSOutlookContactFetcher : MSODataEntityFetcher<MSOutlookContactFetcher>

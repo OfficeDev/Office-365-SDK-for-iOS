@@ -32,6 +32,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookCalendar class]];
 }
 
+-(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView{
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self andEntityClass:[MSOutlookEvent class]];

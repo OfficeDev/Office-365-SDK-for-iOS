@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookCalendarGroup class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookCalendarGroup*)entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, NSError *e))callback{
+-(NSURLSessionDataTask*)addCalendarGroup:(MSOutlookCalendarGroup*)entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];

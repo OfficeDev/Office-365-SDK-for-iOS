@@ -21,8 +21,10 @@
 @protocol MSDirectoryOAuth2PermissionGrantFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectoryOAuth2PermissionGrant* oAuth2PermissionGrant, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectoryOAuth2PermissionGrant*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryOAuth2PermissionGrant* oAuth2PermissionGrant, NSError *error))callback;
+-(NSURLSessionDataTask*) updateOAuth2PermissionGrant:(id)entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteOAuth2PermissionGrant:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectoryOAuth2PermissionGrantFetcher : MSODataEntityFetcher<MSDirectoryOAuth2PermissionGrantFetcher>

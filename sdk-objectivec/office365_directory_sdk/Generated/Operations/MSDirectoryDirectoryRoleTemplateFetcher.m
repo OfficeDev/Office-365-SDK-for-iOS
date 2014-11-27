@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDirectoryRoleTemplate class]];
 }
 
+-(NSURLSessionDataTask*) updateDirectoryRoleTemplate:(id)entity withCallback:(void (^)(MSDirectoryDirectoryRoleTemplate*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteDirectoryRoleTemplate:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

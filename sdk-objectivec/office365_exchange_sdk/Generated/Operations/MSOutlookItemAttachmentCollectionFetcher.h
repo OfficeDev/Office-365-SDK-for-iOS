@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookItemAttachment> *itemAttachments, NSError *error))callback;
+-(MSOutlookItemAttachmentFetcher*)select : (NSString*) params;
+-(MSOutlookItemAttachmentFetcher*)filter : (NSString*) params;
+-(MSOutlookItemAttachmentFetcher*)top : (int) value;
+-(MSOutlookItemAttachmentFetcher*)skip : (int) value;
+-(MSOutlookItemAttachmentFetcher*)expand : (NSString*) value;
+-(MSOutlookItemAttachmentFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookItemAttachment* )entity withCallback:(void (^)(MSOutlookItemAttachment *itemAttachment, NSError *e))callback;
+-(NSURLSessionDataTask*)addItemAttachment:(MSOutlookItemAttachment* )entity withCallback:(void (^)(MSOutlookItemAttachment *itemAttachment, NSError *e))callback;
 
 -(MSOutlookItemAttachmentFetcher*)getById:(NSString *)Id;
 

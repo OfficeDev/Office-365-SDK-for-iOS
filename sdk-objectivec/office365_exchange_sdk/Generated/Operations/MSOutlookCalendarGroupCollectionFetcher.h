@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookCalendarGroup> *calendarGroups, NSError *error))callback;
+-(MSOutlookCalendarGroupFetcher*)select : (NSString*) params;
+-(MSOutlookCalendarGroupFetcher*)filter : (NSString*) params;
+-(MSOutlookCalendarGroupFetcher*)top : (int) value;
+-(MSOutlookCalendarGroupFetcher*)skip : (int) value;
+-(MSOutlookCalendarGroupFetcher*)expand : (NSString*) value;
+-(MSOutlookCalendarGroupFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookCalendarGroup* )entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, NSError *e))callback;
+-(NSURLSessionDataTask*)addCalendarGroup:(MSOutlookCalendarGroup* )entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, NSError *e))callback;
 
 -(MSOutlookCalendarGroupFetcher*)getById:(NSString *)Id;
 

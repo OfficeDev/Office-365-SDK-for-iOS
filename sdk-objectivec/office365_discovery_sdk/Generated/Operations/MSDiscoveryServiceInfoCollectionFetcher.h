@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error))callback;
+-(MSDiscoveryServiceInfoFetcher*)select : (NSString*) params;
+-(MSDiscoveryServiceInfoFetcher*)filter : (NSString*) params;
+-(MSDiscoveryServiceInfoFetcher*)top : (int) value;
+-(MSDiscoveryServiceInfoFetcher*)skip : (int) value;
+-(MSDiscoveryServiceInfoFetcher*)expand : (NSString*) value;
+-(MSDiscoveryServiceInfoFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback;
+-(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback;
 
 -(MSDiscoveryServiceInfoFetcher*)getById:(NSString *)Id;
 

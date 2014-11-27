@@ -31,6 +31,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryApplication class]];
 }
 
+-(NSURLSessionDataTask*) updateApplication:(id)entity withCallback:(void (^)(MSDirectoryApplication*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSDirectoryExtensionPropertyCollectionFetcher*) getextensionProperties{
     return [[MSDirectoryExtensionPropertyCollectionFetcher alloc] initWithUrl:@"extensionProperties" parent:self andEntityClass:[MSDirectoryExtensionProperty class]];

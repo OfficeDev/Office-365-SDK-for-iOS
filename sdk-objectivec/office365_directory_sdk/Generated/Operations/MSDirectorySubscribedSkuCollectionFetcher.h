@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectorySubscribedSku> *subscribedSkus, NSError *error))callback;
+-(MSDirectorySubscribedSkuFetcher*)select : (NSString*) params;
+-(MSDirectorySubscribedSkuFetcher*)filter : (NSString*) params;
+-(MSDirectorySubscribedSkuFetcher*)top : (int) value;
+-(MSDirectorySubscribedSkuFetcher*)skip : (int) value;
+-(MSDirectorySubscribedSkuFetcher*)expand : (NSString*) value;
+-(MSDirectorySubscribedSkuFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectorySubscribedSku* )entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, NSError *e))callback;
+-(NSURLSessionDataTask*)addSubscribedSku:(MSDirectorySubscribedSku* )entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, NSError *e))callback;
 
 -(MSDirectorySubscribedSkuFetcher*)getById:(NSString *)Id;
 

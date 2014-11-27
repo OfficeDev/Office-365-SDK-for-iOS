@@ -21,8 +21,10 @@
 @protocol MSDirectoryDirectoryLinkChangeFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectoryDirectoryLinkChange* directoryLinkChange, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectoryDirectoryLinkChange*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryLinkChange* directoryLinkChange, NSError *error))callback;
+-(NSURLSessionDataTask*) updateDirectoryLinkChange:(id)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteDirectoryLinkChange:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectoryDirectoryLinkChangeFetcher : MSODataEntityFetcher<MSDirectoryDirectoryLinkChangeFetcher>

@@ -21,8 +21,10 @@
 @protocol MSSharePointFileFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSSharePointFile* file, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSSharePointFile*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSSharePointFile* file, NSError *error))callback;
+-(NSURLSessionDataTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteFile:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSSharePointFileFetcher : MSODataMediaEntityFetcher<MSSharePointFileFetcher>

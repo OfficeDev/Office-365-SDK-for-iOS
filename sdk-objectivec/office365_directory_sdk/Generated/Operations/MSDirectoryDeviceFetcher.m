@@ -32,6 +32,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDevice class]];
 }
 
+-(NSURLSessionDataTask*) updateDevice:(id)entity withCallback:(void (^)(MSDirectoryDevice*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredOwners{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredOwners" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];

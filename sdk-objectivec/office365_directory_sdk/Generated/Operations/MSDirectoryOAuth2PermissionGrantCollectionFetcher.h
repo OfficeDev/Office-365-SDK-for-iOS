@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryOAuth2PermissionGrant> *oAuth2PermissionGrants, NSError *error))callback;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)select : (NSString*) params;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)filter : (NSString*) params;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)top : (int) value;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)skip : (int) value;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)expand : (NSString*) value;
+-(MSDirectoryOAuth2PermissionGrantFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryOAuth2PermissionGrant* )entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, NSError *e))callback;
+-(NSURLSessionDataTask*)addOAuth2PermissionGrant:(MSDirectoryOAuth2PermissionGrant* )entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, NSError *e))callback;
 
 -(MSDirectoryOAuth2PermissionGrantFetcher*)getById:(NSString *)Id;
 

@@ -23,8 +23,10 @@
 @protocol MSOutlookContactFolderFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSOutlookContactFolder* contactFolder, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOutlookContactFolder*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookContactFolder* contactFolder, NSError *error))callback;
+-(NSURLSessionDataTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSOutlookContactFolderFetcher : MSODataEntityFetcher<MSOutlookContactFolderFetcher>

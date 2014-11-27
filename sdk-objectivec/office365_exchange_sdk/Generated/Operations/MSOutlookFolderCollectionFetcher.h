@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookFolder> *folders, NSError *error))callback;
+-(MSOutlookFolderFetcher*)select : (NSString*) params;
+-(MSOutlookFolderFetcher*)filter : (NSString*) params;
+-(MSOutlookFolderFetcher*)top : (int) value;
+-(MSOutlookFolderFetcher*)skip : (int) value;
+-(MSOutlookFolderFetcher*)expand : (NSString*) value;
+-(MSOutlookFolderFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookFolder* )entity withCallback:(void (^)(MSOutlookFolder *folder, NSError *e))callback;
+-(NSURLSessionDataTask*)addFolder:(MSOutlookFolder* )entity withCallback:(void (^)(MSOutlookFolder *folder, NSError *e))callback;
 
 -(MSOutlookFolderFetcher*)getById:(NSString *)Id;
 

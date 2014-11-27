@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookContact class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookContact*)entity withCallback:(void (^)(MSOutlookContact *contact, NSError *e))callback{
+-(NSURLSessionDataTask*)addContact:(MSOutlookContact*)entity withCallback:(void (^)(MSOutlookContact *contact, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];

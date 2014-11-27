@@ -14,7 +14,7 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent andEntityClass : (Class) entityClass;
 
 -(NSURLSessionDataTask*) update: (id)entity : (void (^)(id entity, NSError * error))callback;
--(NSURLSessionDataTask*) delete : (void (^)(id entity, NSError * error))callback;
+-(NSURLSessionDataTask*) delete : (void (^)(int status, NSError * error))callback;
 -(NSURLSessionDataTask*) read:(void (^)(id entity, NSError * error))callback;
 -(NSURLSessionDataTask*) oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback;
 

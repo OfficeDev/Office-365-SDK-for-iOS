@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFolder> *folders, NSError *error))callback;
+-(MSSharePointFolderFetcher*)select : (NSString*) params;
+-(MSSharePointFolderFetcher*)filter : (NSString*) params;
+-(MSSharePointFolderFetcher*)top : (int) value;
+-(MSSharePointFolderFetcher*)skip : (int) value;
+-(MSSharePointFolderFetcher*)expand : (NSString*) value;
+-(MSSharePointFolderFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, NSError *e))callback;
+-(NSURLSessionDataTask*)addFolder:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, NSError *e))callback;
 
 -(MSSharePointFolderFetcher*)getById:(NSString *)Id;
 

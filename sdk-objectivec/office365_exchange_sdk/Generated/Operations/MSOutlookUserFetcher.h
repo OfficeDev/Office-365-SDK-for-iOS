@@ -31,8 +31,10 @@
 @protocol MSOutlookUserFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSOutlookUser* user, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSOutlookUser*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookUser* user, NSError *error))callback;
+-(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSOutlookUser*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteUser:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSOutlookUserFetcher : MSODataEntityFetcher<MSOutlookUserFetcher>

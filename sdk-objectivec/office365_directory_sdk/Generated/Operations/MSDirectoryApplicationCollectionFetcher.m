@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryApplication class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryApplication*)entity withCallback:(void (^)(MSDirectoryApplication *application, NSError *e))callback{
+-(NSURLSessionDataTask*)addApplication:(MSDirectoryApplication*)entity withCallback:(void (^)(MSDirectoryApplication *application, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];

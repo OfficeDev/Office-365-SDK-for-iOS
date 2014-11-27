@@ -21,8 +21,10 @@
 @protocol MSDiscoveryServiceInfoFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDiscoveryServiceInfo* serviceInfo, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDiscoveryServiceInfo*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDiscoveryServiceInfo* serviceInfo, NSError *error))callback;
+-(NSURLSessionDataTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDiscoveryServiceInfoFetcher : MSODataEntityFetcher<MSDiscoveryServiceInfoFetcher>

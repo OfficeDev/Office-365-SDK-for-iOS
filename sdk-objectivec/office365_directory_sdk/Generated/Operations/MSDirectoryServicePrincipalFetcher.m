@@ -33,6 +33,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryServicePrincipal class]];
 }
 
+-(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignedTo{
     return [[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignedTo" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]];

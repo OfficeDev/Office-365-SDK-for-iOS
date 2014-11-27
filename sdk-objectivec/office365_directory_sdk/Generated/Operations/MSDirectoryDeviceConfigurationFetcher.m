@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDeviceConfiguration class]];
 }
 
+-(NSURLSessionDataTask*) updateDeviceConfiguration:(id)entity withCallback:(void (^)(MSDirectoryDeviceConfiguration*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteDeviceConfiguration:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

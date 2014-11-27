@@ -21,6 +21,12 @@
 
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryApplication> *applications, NSError *error))callback;
+-(MSDirectoryApplicationFetcher*)select : (NSString*) params;
+-(MSDirectoryApplicationFetcher*)filter : (NSString*) params;
+-(MSDirectoryApplicationFetcher*)top : (int) value;
+-(MSDirectoryApplicationFetcher*)skip : (int) value;
+-(MSDirectoryApplicationFetcher*)expand : (NSString*) value;
+-(MSDirectoryApplicationFetcher*)orderBy : (NSString*) params;
 
 @end
 
@@ -28,7 +34,7 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
 
--(NSURLSessionDataTask*)addEntity:(MSDirectoryApplication* )entity withCallback:(void (^)(MSDirectoryApplication *application, NSError *e))callback;
+-(NSURLSessionDataTask*)addApplication:(MSDirectoryApplication* )entity withCallback:(void (^)(MSDirectoryApplication *application, NSError *e))callback;
 
 -(MSDirectoryApplicationFetcher*)getById:(NSString *)Id;
 

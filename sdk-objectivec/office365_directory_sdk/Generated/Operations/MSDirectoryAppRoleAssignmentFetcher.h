@@ -21,8 +21,10 @@
 @protocol MSDirectoryAppRoleAssignmentFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectoryAppRoleAssignment* appRoleAssignment, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectoryAppRoleAssignment*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryAppRoleAssignment* appRoleAssignment, NSError *error))callback;
+-(NSURLSessionDataTask*) updateAppRoleAssignment:(id)entity withCallback:(void (^)(MSDirectoryAppRoleAssignment*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteAppRoleAssignment:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectoryAppRoleAssignmentFetcher : MSODataEntityFetcher<MSDirectoryAppRoleAssignmentFetcher>

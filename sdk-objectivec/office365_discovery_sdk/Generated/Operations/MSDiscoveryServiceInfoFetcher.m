@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDiscoveryServiceInfo class]];
 }
 
+-(NSURLSessionDataTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

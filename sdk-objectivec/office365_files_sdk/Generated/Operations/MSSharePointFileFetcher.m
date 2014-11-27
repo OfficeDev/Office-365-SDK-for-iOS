@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointFile class]];
 }
 
+-(NSURLSessionDataTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteFile:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

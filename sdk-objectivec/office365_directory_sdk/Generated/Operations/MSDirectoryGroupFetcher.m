@@ -31,6 +31,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryGroup class]];
 }
 
+-(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments{
     return [[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]];
