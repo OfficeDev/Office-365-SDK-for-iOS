@@ -32,6 +32,7 @@
     NSData* payload = nil;
     
     NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
+        
         if(error == nil){
             callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
         }
@@ -54,6 +55,7 @@
     NSData* payload = nil;
     
     NSURLSessionDataTask* task = [super oDataExecuteForPath:url withContent:payload andMethod:GET andCallback:^(id<MSODataResponse> r, NSError *error) {
+        
         if(error == nil){
             callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
         }

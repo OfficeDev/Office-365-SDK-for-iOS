@@ -22,8 +22,10 @@
 @protocol MSDirectoryApplicationFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectoryApplication* application, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectoryApplication*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryApplication* application, NSError *error))callback;
+-(NSURLSessionDataTask*) updateApplication:(id)entity withCallback:(void (^)(MSDirectoryApplication*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectoryApplicationFetcher : MSODataEntityFetcher<MSDirectoryApplicationFetcher>

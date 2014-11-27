@@ -49,6 +49,7 @@
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
     if([testName isEqualToString:@"TestCreateMessages"])return [self TestCreateMessages:result];
+    if([testName isEqualToString:@"TestCreateHtmlMessages"])return [self TestCreateAndSendHtmlMessages:result];
     if([testName isEqualToString:@"TestCreateMessageWithAttachment"])return [self TestCreateMessageWithAttachment:result];
     if([testName isEqualToString:@"TestGetAttachment"])return [self TestGetAttachment:result];
     if([testName isEqualToString:@"TestUpdateMessages"])return [self TestUpdateMessages:result];
@@ -124,6 +125,7 @@
     //Messages Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessages" :@"Create message in drafts" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateHtmlMessages" :@"Create and Send Html message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateMessages" :@"Update message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteMessages" :@"Delete message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
@@ -634,7 +636,8 @@
 
 -(NSURLSessionDataTask*)TestCreateMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
-    
+    newMessage.Body = [[MSOutlookItemBody alloc] init];
+    newMessage.Body.ContentType = Text;
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOutlookMessage *addedMessage, NSError *error) {
         BOOL passed = false;
         
@@ -658,6 +661,41 @@
             }]resume];
         
         result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" : self.TestMail : @""];
+    newMessage.Body.ContentType = HTML;//[MSOutlookBodyType1 alloc];//(MSOutlookBodyType).HTML;
+    newMessage.Body.Content = @"<div>Html Test</div>";
+    
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOutlookMessage *addedMessage, NSError *error) {
+        [[[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, NSError *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            
+            if(error== nil){
+                message = @"Ok - ";
+                passed = true;
+            }else{
+                message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        }] resume];
+
     }];
     
     return task;

@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryRoleTemplate> *directoryRoleTemplates, NSError *error))callback;
 
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSDirectoryDirectoryRoleTemplateCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryRoleTemplateCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSDirectoryDirectoryRoleTemplate* )entity withCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, NSError *e))callback;
-
 -(MSDirectoryDirectoryRoleTemplateFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addDirectoryRoleTemplate:(MSDirectoryDirectoryRoleTemplate* )entity withCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, NSError *e))callback;
 
 @end

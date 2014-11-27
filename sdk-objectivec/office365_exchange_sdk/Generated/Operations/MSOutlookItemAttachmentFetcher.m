@@ -31,6 +31,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookItemAttachment class]];
 }
 
+-(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSOutlookItemFetcher*) getItem{
 	 return [[MSOutlookItemFetcher alloc] initWithUrl:@"Item" parent:self andEntityClass: [MSOutlookItem class]];

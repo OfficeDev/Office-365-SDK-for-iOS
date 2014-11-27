@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryAppRoleAssignment class]];
 }
 
+-(NSURLSessionDataTask*) updateAppRoleAssignment:(id)entity withCallback:(void (^)(MSDirectoryAppRoleAssignment*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteAppRoleAssignment:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

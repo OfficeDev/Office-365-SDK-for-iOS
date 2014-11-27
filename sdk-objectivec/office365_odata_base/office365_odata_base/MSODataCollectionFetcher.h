@@ -17,7 +17,10 @@
 -(MSODataCollectionFetcher*)select : (NSString*) params;
 -(MSODataCollectionFetcher*)filter : (NSString*) params;
 -(MSODataCollectionFetcher*)top : (int) value;
+-(MSODataCollectionFetcher*)skip : (int) value;
 -(MSODataCollectionFetcher*)expand : (NSString*) value;
+-(MSODataCollectionFetcher*)orderBy : (NSString*) params;
+
 -(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback;
 -(id<MSODataDependencyResolver>)getResolver;
 -(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, NSError* error))callback;

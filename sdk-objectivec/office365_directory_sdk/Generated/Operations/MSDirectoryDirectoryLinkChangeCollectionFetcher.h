@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, NSError *error))callback;
 
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSDirectoryDirectoryLinkChangeCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryLinkChangeCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback;
-
 -(MSDirectoryDirectoryLinkChangeFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback;
 
 @end

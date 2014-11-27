@@ -46,9 +46,9 @@
     }];
 }
 
--(NSURLSessionDataTask*) delete : (void (^)(id,NSError *))callback{
+-(NSURLSessionDataTask*) delete : (void (^)(int,NSError *))callback{
     return [self oDataExecuteForPath:[[self getResolver] createODataURL]  withContent:nil andMethod:DELETE andCallback : ^(id<MSODataResponse> r, NSError *e) {
-        callback(r, e);
+        callback([r getStatus], e);
     }];
 }
 

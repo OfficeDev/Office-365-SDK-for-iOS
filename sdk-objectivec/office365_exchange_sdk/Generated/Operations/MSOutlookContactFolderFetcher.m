@@ -32,6 +32,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookContactFolder class]];
 }
 
+-(NSURLSessionDataTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSOutlookContactCollectionFetcher*) getContacts{
     return [[MSOutlookContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self andEntityClass:[MSOutlookContact class]];

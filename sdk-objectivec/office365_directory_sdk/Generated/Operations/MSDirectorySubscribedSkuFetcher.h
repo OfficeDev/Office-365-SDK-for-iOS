@@ -21,8 +21,10 @@
 @protocol MSDirectorySubscribedSkuFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectorySubscribedSku* subscribedSku, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectorySubscribedSku*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectorySubscribedSku* subscribedSku, NSError *error))callback;
+-(NSURLSessionDataTask*) updateSubscribedSku:(id)entity withCallback:(void (^)(MSDirectorySubscribedSku*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectorySubscribedSkuFetcher : MSODataEntityFetcher<MSDirectorySubscribedSkuFetcher>

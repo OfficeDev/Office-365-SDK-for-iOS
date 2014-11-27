@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointDrive> *drives, NSError *error))callback;
 
+-(id<MSSharePointDriveCollectionFetcher>)select : (NSString*) params;
+-(id<MSSharePointDriveCollectionFetcher>)filter : (NSString*) params;
+-(id<MSSharePointDriveCollectionFetcher>)top : (int) value;
+-(id<MSSharePointDriveCollectionFetcher>)skip : (int) value;
+-(id<MSSharePointDriveCollectionFetcher>)expand : (NSString*) value;
+-(id<MSSharePointDriveCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, NSError *e))callback;
-
 -(MSSharePointDriveFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addDrive:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, NSError *e))callback;
 
 @end

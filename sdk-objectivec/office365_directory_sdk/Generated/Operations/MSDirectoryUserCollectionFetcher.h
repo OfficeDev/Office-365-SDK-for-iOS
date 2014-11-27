@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryUser> *users, NSError *error))callback;
 
+-(id<MSDirectoryUserCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryUserCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryUserCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryUserCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryUserCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryUserCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSDirectoryUserCollectionFetcher : MSODataCollectionFetcher<MSDirectoryUserCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSDirectoryUser* )entity withCallback:(void (^)(MSDirectoryUser *user, NSError *e))callback;
-
 -(MSDirectoryUserFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addUser:(MSDirectoryUser* )entity withCallback:(void (^)(MSDirectoryUser *user, NSError *e))callback;
 
 @end

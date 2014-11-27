@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDiscoveryServiceInfo class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSDiscoveryServiceInfo*)entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback{
+-(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo*)entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];
@@ -31,4 +31,5 @@
 	[super getById:Id];
     return [[MSDiscoveryServiceInfoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,Id] parent : self andEntityClass :[MSDiscoveryServiceInfo class]];
 }
+
 @end

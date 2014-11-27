@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryGroup> *groups, NSError *error))callback;
 
+-(id<MSDirectoryGroupCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryGroupCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryGroupCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryGroupCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryGroupCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryGroupCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSDirectoryGroupCollectionFetcher : MSODataCollectionFetcher<MSDirectoryGroupCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, NSError *e))callback;
-
 -(MSDirectoryGroupFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addGroup:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, NSError *e))callback;
 
 @end

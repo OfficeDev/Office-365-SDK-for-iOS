@@ -35,6 +35,7 @@
     self.parent = parent;
     self.entityClass = clazz;
     [self reset];
+    self.CustomParameters = [[NSMutableDictionary alloc] init];
    // self.operations = [[operationClass alloc] initWith:@"" : self];
 
     return self;
@@ -75,13 +76,10 @@
 -(NSURLSessionDataTask *)oDataExecuteForPath:(id<MSODataURL>)path withContent:(NSData *)content andMethod:(MSODataHttpVerb)verb andCallback:(void (^)(id<MSODataResponse>, NSError *))callback{
     
     [path appendPathComponent:self.UrlComponent];
-    if (self.selectedId == nil) {
-        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
-    }
-    else {
-        [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
-        [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
-    }
+    
+    [MSODataEntityFetcherHelper setPathForCollections:path :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
+    
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:path :[self getCustomParameters]:[self getResolver]];
     
     return [self.Parent oDataExecuteForPath:path withContent:content andMethod:verb andCallback : callback];
 }
@@ -90,9 +88,10 @@
     return self.CustomParameters;
 }
 
--(void)addCustomParameters : (NSString*)name : (NSString*)value{
+-(MSODataCollectionFetcher*)addCustomParameters : (NSString*)name : (NSString*)value{
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
     [self.CustomParameters addEntriesFromDictionary:dicc];
+    return self;
 }
 
 -(id<MSODataDependencyResolver>)getResolver{

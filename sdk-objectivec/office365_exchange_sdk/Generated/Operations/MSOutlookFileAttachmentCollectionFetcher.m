@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookFileAttachment class]];
 }
 
--(NSURLSessionDataTask*)addEntity:(MSOutlookFileAttachment*)entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, NSError *e))callback{
+-(NSURLSessionDataTask*)addFileAttachment:(MSOutlookFileAttachment*)entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, NSError *e))callback{
 	return [super add:entity :^(id r, NSError *e) {
         callback(r,e);
     }];

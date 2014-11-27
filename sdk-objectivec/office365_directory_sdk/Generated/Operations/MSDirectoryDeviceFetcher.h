@@ -23,8 +23,10 @@
 @protocol MSDirectoryDeviceFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSDirectoryDevice* device, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSDirectoryDevice*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDevice* device, NSError *error))callback;
+-(NSURLSessionDataTask*) updateDevice:(id)entity withCallback:(void (^)(MSDirectoryDevice*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSDirectoryDeviceFetcher : MSODataEntityFetcher<MSDirectoryDeviceFetcher>

@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointItem> *items, NSError *error))callback;
 
+-(id<MSSharePointItemCollectionFetcher>)select : (NSString*) params;
+-(id<MSSharePointItemCollectionFetcher>)filter : (NSString*) params;
+-(id<MSSharePointItemCollectionFetcher>)top : (int) value;
+-(id<MSSharePointItemCollectionFetcher>)skip : (int) value;
+-(id<MSSharePointItemCollectionFetcher>)expand : (NSString*) value;
+-(id<MSSharePointItemCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, NSError *e))callback;
-
 -(MSSharePointItemFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addItem:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, NSError *e))callback;
 
 @end

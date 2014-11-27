@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryOAuth2PermissionGrant> *oAuth2PermissionGrants, NSError *error))callback;
 
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)select : (NSString*) params;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)filter : (NSString*) params;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)top : (int) value;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)skip : (int) value;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)expand : (NSString*) value;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSDirectoryOAuth2PermissionGrantCollectionFetcher : MSODataCollectionFetcher<MSDirectoryOAuth2PermissionGrantCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSDirectoryOAuth2PermissionGrant* )entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, NSError *e))callback;
-
 -(MSDirectoryOAuth2PermissionGrantFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addOAuth2PermissionGrant:(MSDirectoryOAuth2PermissionGrant* )entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, NSError *e))callback;
 
 @end

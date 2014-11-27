@@ -21,8 +21,10 @@
 @protocol MSSharePointDriveFetcher
 
 @optional
--(NSURLSessionDataTask *)execute:(void (^)(MSSharePointDrive* drive, NSError *error))callback;
--(NSURLSessionDataTask*) update:(id)updatedEntity :(void (^)(MSSharePointDrive*, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSSharePointDrive* drive, NSError *error))callback;
+-(NSURLSessionDataTask*) updateDrive:(id)entity withCallback:(void (^)(MSSharePointDrive*, NSError * error))callback;
+-(NSURLSessionDataTask*) deleteDrive:(void (^)(int status, NSError * error))callback;
+
 @end
 
 @interface MSSharePointDriveFetcher : MSODataEntityFetcher<MSSharePointDriveFetcher>

@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookMessage> *messages, NSError *error))callback;
 
+-(id<MSOutlookMessageCollectionFetcher>)select : (NSString*) params;
+-(id<MSOutlookMessageCollectionFetcher>)filter : (NSString*) params;
+-(id<MSOutlookMessageCollectionFetcher>)top : (int) value;
+-(id<MSOutlookMessageCollectionFetcher>)skip : (int) value;
+-(id<MSOutlookMessageCollectionFetcher>)expand : (NSString*) value;
+-(id<MSOutlookMessageCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSOutlookMessageCollectionFetcher : MSODataCollectionFetcher<MSOutlookMessageCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSOutlookMessage* )entity withCallback:(void (^)(MSOutlookMessage *message, NSError *e))callback;
-
 -(MSOutlookMessageFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addMessage:(MSOutlookMessage* )entity withCallback:(void (^)(MSOutlookMessage *message, NSError *e))callback;
 
 @end

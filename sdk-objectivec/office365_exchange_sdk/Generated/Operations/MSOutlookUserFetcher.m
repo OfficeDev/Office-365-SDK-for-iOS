@@ -40,6 +40,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookUser class]];
 }
 
+-(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSOutlookUser*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteUser:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSOutlookFolderCollectionFetcher*) getFolders{
     return [[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"Folders" parent:self andEntityClass:[MSOutlookFolder class]];

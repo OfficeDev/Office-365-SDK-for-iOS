@@ -38,6 +38,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDirectoryObject class]];
 }
 
+-(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSDirectoryDirectoryObjectFetcher*) getcreatedOnBehalfOf{
 	 return [[MSDirectoryDirectoryObjectFetcher alloc] initWithUrl:@"createdOnBehalfOf" parent:self andEntityClass: [MSDirectoryDirectoryObject class]];

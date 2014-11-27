@@ -22,14 +22,19 @@
 @optional
 -(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFile> *files, NSError *error))callback;
 
+-(id<MSSharePointFileCollectionFetcher>)select : (NSString*) params;
+-(id<MSSharePointFileCollectionFetcher>)filter : (NSString*) params;
+-(id<MSSharePointFileCollectionFetcher>)top : (int) value;
+-(id<MSSharePointFileCollectionFetcher>)skip : (int) value;
+-(id<MSSharePointFileCollectionFetcher>)expand : (NSString*) value;
+-(id<MSSharePointFileCollectionFetcher>)orderBy : (NSString*) params;
+
 @end
 
 @interface MSSharePointFileCollectionFetcher : MSODataCollectionFetcher<MSSharePointFileCollectionFetcher>
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
-
--(NSURLSessionDataTask*)addEntity:(MSSharePointFile* )entity withCallback:(void (^)(MSSharePointFile *file, NSError *e))callback;
-
 -(MSSharePointFileFetcher*)getById:(NSString *)Id;
+-(NSURLSessionDataTask*)addFile:(MSSharePointFile* )entity withCallback:(void (^)(MSSharePointFile *file, NSError *e))callback;
 
 @end

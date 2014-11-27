@@ -30,5 +30,13 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointDrive class]];
 }
 
+-(NSURLSessionDataTask*) updateDrive:(id)entity withCallback:(void (^)(MSSharePointDrive*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteDrive:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 @end

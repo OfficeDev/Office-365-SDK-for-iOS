@@ -31,6 +31,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointFolder class]];
 }
 
+-(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSSharePointFolder*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 -(MSSharePointItemCollectionFetcher*) getchildren{
     return [[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"children" parent:self andEntityClass:[MSSharePointItem class]];

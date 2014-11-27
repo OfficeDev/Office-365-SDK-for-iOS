@@ -30,6 +30,14 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookEntity class]];
 }
 
+-(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, NSError * error))callback{
+	return [super update:entity : callback];
+}
+
+-(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, NSError * error))callback{
+	return [super delete:callback];
+}
+
 
 
 	
