@@ -98,7 +98,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -143,7 +143,7 @@
                 
                 //Cleanup
                 if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -193,7 +193,7 @@
                     
                     //Cleanup
                     if(addedItem!= nil)
-                        [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                        [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
                             if(error!= nil)
                                 NSLog(@"Error: %@", error);
                         }]resume];
@@ -268,13 +268,13 @@
                 
                 //cleanup
                 if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
                 
                 if(addedItem2!= nil)
-                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(id entity, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -321,7 +321,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(id entity, NSError *error) {
+                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];

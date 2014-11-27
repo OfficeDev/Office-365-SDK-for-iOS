@@ -228,13 +228,13 @@
                 [test.ExecutionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
                 
                 if(addedMessage2!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -278,13 +278,13 @@
                 [test.ExecutionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
                 
                 if(addedMessage2!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -329,13 +329,13 @@
                 [test.ExecutionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
                 
                 if(addedMessage2!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:addedMessage2.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -446,7 +446,7 @@
     
     //Create folder
     NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] add:newFolder:^(MSOutlookFolder *folder, NSError *e) {
-        [[[[[self.Client getMe] getFolders] getById:newFolder.Id] delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe] getFolders] getById:newFolder.Id] delete:^(int status, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -504,7 +504,7 @@
             
             //Cleanup
             if(folder!= nil)
-                [[[[[self.Client getMe]getFolders]getById:folder.Id]delete:^(id entity, NSError *error) {
+                [[[[[self.Client getMe]getFolders]getById:folder.Id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }] resume];
@@ -551,13 +551,13 @@
             //Cleanup
             if(copiedFolder!= nil)
             {
-                [[[[[self.Client getMe]getFolders]getById:copiedFolder.Id]delete:^(id entity, NSError *error) {
+                [[[[[self.Client getMe]getFolders]getById:copiedFolder.Id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }] resume];
             }
             
-            [[[[[self.Client getMe]getFolders]getById:addedFolder.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getFolders]getById:addedFolder.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }] resume];
@@ -655,7 +655,7 @@
         
         [test.ExecutionMessages addObject:message];
         if(addedMessage!= nil)
-            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -725,7 +725,7 @@
             
             [test.ExecutionMessages addObject:message];
             if(updatedMessage!= nil)
-                [[[[[self.Client getMe]getMessages]getById:updatedMessage.Id]delete:^(id entity, NSError *error) {
+                [[[[[self.Client getMe]getMessages]getById:updatedMessage.Id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -741,7 +741,7 @@
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] add:newMessage :^(MSOutlookMessage *addedMessage, NSError *error) {
-        [[[[[self.Client getMe] getMessages] getById:addedMessage.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe] getMessages] getById:addedMessage.Id]delete:^(int status, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -788,7 +788,7 @@
             
             //Cleanup
             if(movedMessage!= nil)
-                [[[[[self.Client getMe]getMessages]getById:movedMessage.Id]delete:^(id entity, NSError *error) {
+                [[[[[self.Client getMe]getMessages]getById:movedMessage.Id]delete:^(int status, NSError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -897,7 +897,7 @@
                 
                 //Cleanup
                 if(replyMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:replyMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:replyMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -943,7 +943,7 @@
                 
                 //Cleanup
                 if(replyAllMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:replyAllMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:replyAllMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -988,7 +988,7 @@
                 
                 //Cleanup
                 if(fwMessage!= nil)
-                    [[[[[self.Client getMe]getMessages]getById:fwMessage.Id]delete:^(id entity, NSError *error) {
+                    [[[[[self.Client getMe]getMessages]getById:fwMessage.Id]delete:^(int status, NSError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -1144,7 +1144,7 @@
             
             //Cleanup
             if(addedContact!= nil)
-                [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * e) {
+                [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(int status, NSError * e) {
                     if(e!=nil)
                         NSLog(@"Error: %@", e);
                 }] resume];
@@ -1184,7 +1184,7 @@
         
         //Cleanup
         if(addedContact!= nil)
-            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id result, NSError * error) {
+            [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(int status, NSError * error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }] resume];
@@ -1203,7 +1203,7 @@
     //Create contact
     NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] add:newContact :^(MSOutlookContact *addedContact, NSError *e) {
         //Delete
-        [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(id deleteResult, NSError * error) {
+        [[[[[self.Client getMe] getContacts] getById:addedContact.Id] delete:^(int status, NSError * error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1255,7 +1255,7 @@
             
             //Cleanup
             if(updatedEntity!= nil)
-                [[[[[self.Client getMe] getContacts] getById:updatedEntity.Id] delete:^(id result, NSError * error) {
+                [[[[[self.Client getMe] getContacts] getById:updatedEntity.Id] delete:^(int status, NSError * error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }] resume];
@@ -1345,7 +1345,7 @@
         [test.ExecutionMessages addObject:message];
         
         //Cleanup
-        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(int status, NSError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }]resume];
@@ -1387,7 +1387,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getCalendarGroups]getById:calendarGroup.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getCalendarGroups]getById:calendarGroup.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1432,7 +1432,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getCalendarGroups]getById:updatedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getCalendarGroups]getById:updatedCalendarGroup.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1454,7 +1454,7 @@
     //Create Calendar
     NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] add:newCalendarGroup :^(MSOutlookCalendarGroup *addedCalendarGroup, NSError *e) {
         //Delete Calendar
-        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]delete:^(int status, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1574,7 +1574,7 @@
         [test.ExecutionMessages addObject:message];
         
         //Cleanup
-        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(int status, NSError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }]resume];
@@ -1617,7 +1617,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getCalendars]getById:calendar.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getCalendars]getById:calendar.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1663,7 +1663,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getCalendars]getById:updatedCalendar.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getCalendars]getById:updatedCalendar.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1686,7 +1686,7 @@
     NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] add:newCalendar :^(MSOutlookCalendar *addedCalendar, NSError *e) {
         
         //Delete Calendar
-        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(int status, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1789,7 +1789,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1828,7 +1828,7 @@
         [test.ExecutionMessages addObject:message];
         
         //Cleanup
-        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(int status, NSError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }]resume];
@@ -1868,7 +1868,7 @@
             [test.ExecutionMessages addObject:message];
             
             //Cleanup
-            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+            [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(int status, NSError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }]resume];
@@ -1885,7 +1885,7 @@
     //Create Event
     NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] add:event :^(MSOutlookEvent *addedEvent, NSError *e) {
         //Delete event
-        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(id entity, NSError *error) {
+        [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]delete:^(int status, NSError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
