@@ -56,9 +56,11 @@
     if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestCopyMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestSendMessages"])return [self TestSendMessages:result];
+    if([testName isEqualToString:@"TestSendHtmlMessages"])return [self TestSendHtmlMessages:result];
     if([testName isEqualToString:@"TestReplyMessages"])return [self TestReplyMessages:result];
     if([testName isEqualToString:@"TestReplyAllMessages"])return [self TestReplyAllMessages:result];
     if([testName isEqualToString:@"TestForwardMessages"])return [self TestForwardMessages:result];
+    if([testName isEqualToString:@"TestReplyHtmlMessages"])return [self TestReplyHtmlMessages:result];
     
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
@@ -83,7 +85,7 @@
     if([testName isEqualToString:@"TestGetCalendarById"])return [self TestGetCalendarById:result];
     if([testName isEqualToString:@"TestUpdateCalendar"])return [self TestUpdateCalendar:result];
     if([testName isEqualToString:@"TestDeleteCalendar"])return [self TestDeleteCalendar:result];
-    
+    //if([testName isEqualToString:@"TestGetCalendarView"])return [self TestGetCalendarView:result];
     //Events Tests
     
     if([testName isEqualToString:@"TestGetEvents"])return [self TestGetEvents:result];
@@ -127,11 +129,13 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCopyMessages" :@"Copy message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSendMessages" :@"Send message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSendHtmlMessages" :@"Send Html message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyMessages" :@"Reply message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyAllMessages" :@"ReplyAll message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestForwardMessages" :@"Forward message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessageWithAttachment" :@"Create Message With Attachment" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetAttachment" :@"Get Attachment" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestReplyHtmlMessages" :@"Reply Html message" ]];
     
     // Contacts Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetContactFolder" :@"Get contacts folder" ]];
@@ -154,6 +158,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendarById" :@"Get calendar by id" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateCalendar" :@"Update calendar" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteCalendar" :@"Delete calendar" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetCalendarView" :@"Get calendar view" ]];
     
     //Event Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetEvents" :@"Get events" ]];
@@ -788,6 +793,40 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestSendHtmlMessages:(void (^) (Test*))result{
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Html Subject" : self.TestMail : @""];
+    [newMessage.Body setContent:@"<h1>This is an Html body.</h1><a href='#'>With Link!</a>"];
+    [newMessage.Body setContentType: HTML];
+    
+    //Send Mail
+    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, NSError *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = @"";
+        
+        
+        if(error== nil){
+            message = @"Ok - ";
+            passed = true;
+        }else{
+            message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        
+        [test.ExecutionMessages addObject:message];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+
 -(NSURLSessionDataTask*)TestReplyMessages:(void (^) (Test*))result{
     
     NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
@@ -920,6 +959,62 @@
             }] resume];
         }
     }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestReplyHtmlMessages:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
+    MSOutlookMessage *message = [self getSampleMessage:messageSubject :self.TestMail :@"" ];
+    //[message.Body setContent:@"<h1>This is an Html body.</h1>"];
+    //[message.Body setContentType: HTML];
+    
+    //Send mail with HTML body
+    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, NSError *error) {
+        [NSThread sleepForTimeInterval:2];
+        // Get sent mail from inbox
+        [[[[[self.Client getMe] getMessages]filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+            if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] Body] ContentType] == HTML){
+                MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
+                //Reply message
+                [[[[[[self.Client getMe] getMessages] getById:currentMessage.Id] getOperations]reply:self.TestMail :^(int returnValue, NSError *error) {
+                    BOOL passed = false;
+                    
+                    Test *test = [Test alloc];
+                    
+                    test.ExecutionMessages = [NSMutableArray array];
+                    NSString* message = @"";
+                    if(error == nil){
+                        message =@"Ok - ";
+                        passed = true;
+                    }else{
+                        message = @"Not - ";
+                        if(error!=nil)
+                            message = [message stringByAppendingString:[error localizedDescription]];
+                    }
+                    
+                    test.Passed = passed;
+                    [test.ExecutionMessages addObject:message];
+                    
+                    result(test);
+                }] resume];
+            }
+            else{
+                Test *test = [Test alloc];
+                test.ExecutionMessages = [NSMutableArray array];
+                NSString* message = @"Not - Missing mail in inbox. ";
+                if(error!=nil)
+                    message = [message stringByAppendingString:[error localizedDescription]];
+                
+                test.Passed = false;
+                [test.ExecutionMessages addObject:message];
+                result(test);
+            }
+        }] resume];
+        
+    }];
+    
     
     return task;
 }
@@ -1581,7 +1676,52 @@
     
     return task;
 }
-
+/*
+ -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
+ NSString *uuid = [[NSUUID UUID] UUIDString];
+ NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+ 
+ MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
+ [newCalendar setName:calendarName];
+ NSString *dateStart;
+ NSString *dateEnd;
+ 
+ NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarView] addCustomParameters:@"key" : @"value"]
+ 
+ getCalendars] add:newCalendar :^(MSOutlookCalendar *addedCalendar, NSError *e) {
+ 
+ BOOL passed = false;
+ 
+ Test *test = [Test alloc];
+ 
+ test.ExecutionMessages = [NSMutableArray array];
+ NSString* message = @"";
+ 
+ if(e== nil && addedCalendar != nil && [addedCalendar.Name isEqualToString:calendarName] ){
+ message = @"Ok - ";
+ passed = true;
+ }else
+ {
+ message = @"Not - ";
+ if(e != nil)
+ message = [message stringByAppendingString:[e localizedDescription]];
+ }
+ 
+ test.Passed = passed;
+ [test.ExecutionMessages addObject:message];
+ 
+ //Cleanup
+ [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+ if(error!= nil)
+ NSLog(@"Error: %@", error);
+ }]resume];
+ 
+ result(test);
+ }];
+ 
+ return task;
+ }
+ */
 // ****** Event Tests *****
 
 -(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
@@ -1772,14 +1912,14 @@
                 [test.ExecutionMessages addObject:message];
                 
                 result(test);
-
+                
                 
             }] resume];
         }
     }];
     
     return task;
-
+    
 }
 
 -(NSURLSessionDataTask*)TestGetAttachment:(void (^) (Test*))result{
@@ -1797,7 +1937,7 @@
             [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] add:attachment :^(MSOutlookAttachment *a, NSError *e) {
                 
                 [[[[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] getById:a.Id] asFileAttachment] read:^(MSOutlookFileAttachment *fileAttachment, NSError *error) {
-                   
+                    
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -1806,7 +1946,7 @@
                     
                     NSString* message =  @"";
                     
-                   // [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
+                    // [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
                     
                     NSString* attachmentContent = [[NSString alloc] initWithData:fileAttachment.ContentBytes encoding:NSUTF8StringEncoding];
                     
@@ -1825,7 +1965,7 @@
                     [test.ExecutionMessages addObject:message];
                     
                     result(test);
-                
+                    
                 }] resume];
             }] resume];
         }
