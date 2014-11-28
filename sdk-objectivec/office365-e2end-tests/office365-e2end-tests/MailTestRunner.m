@@ -1841,7 +1841,7 @@
     
     return task;
 }
-/*
+
 -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSOutlookEvent *newEvent = [self getSampleEvent];
     NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
@@ -1880,7 +1880,7 @@
     
     return task;
 }
-*/
+
 // ****** Event Tests *****
 
 -(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
