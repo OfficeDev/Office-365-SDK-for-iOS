@@ -1359,7 +1359,7 @@
     NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *error) {
         [newContact setDisplayName:@"New Contact Name"];
         
-        [[[[[self.Client getMe]getContacts]getById:newContact.Id] updateContact:newContact withCallback:^(MSOutlookContact *updatedEntity, MSODataException *error) {
+        [[[[[self.Client getMe]getContacts]getById:addedContact.Id] updateContact:newContact withCallback:^(MSOutlookContact *updatedEntity, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
