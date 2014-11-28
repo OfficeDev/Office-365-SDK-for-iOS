@@ -88,7 +88,7 @@
     if([testName isEqualToString:@"TestGetCalendarById"])return [self TestGetCalendarById:result];
     if([testName isEqualToString:@"TestUpdateCalendar"])return [self TestUpdateCalendar:result];
     if([testName isEqualToString:@"TestDeleteCalendar"])return [self TestDeleteCalendar:result];
-    //if([testName isEqualToString:@"TestGetCalendarView"])return [self TestGetCalendarView:result];
+    if([testName isEqualToString:@"TestGetCalendarView"])return [self TestGetCalendarView:result];
     //Events Tests
     
     if([testName isEqualToString:@"TestGetEvents"])return [self TestGetEvents:result];
@@ -1841,12 +1841,10 @@
 }
 
 -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
-    MSOutlookEvent *newEvent;
+    MSOutlookEvent *newEvent = [self getSampleEvent];
     NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
-        NSDate *dateStart = [addedEvent.Start dateByAddingTimeInterval: -3600];
-        NSDate *dateEnd = [addedEvent.End dateByAddingTimeInterval:3600];
-        
-        [[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"startdatetime" :dateStart ] addCustomParameters:@"enddatetime" :dateEnd] read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
+
+        [[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"startdatetime" :addedEvent.Start ] addCustomParameters:@"enddatetime" :addedEvent.End ] read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -2139,13 +2137,14 @@
     MSOutlookEvent *event= [[MSOutlookEvent alloc]init];
     [event setSubject:@"Today's appointment"];
     [event setStart:[NSDate date]];
-    MSOutlookImportance *importance = High;
+    [event setEnd:[[NSDate date] dateByAddingTimeInterval: 3600]];
+    MSOutlookImportance importance = High;
     [event setImportance: importance];
     
     //Event Body
     MSOutlookItemBody *itemBody = [[MSOutlookItemBody alloc] init];
     [itemBody setContent:@"This is the appointment info"];
-    MSOutlookBodyType *bt = Text;
+    MSOutlookBodyType bt = Text;
     [itemBody setContentType: bt];
     [event setBody:itemBody];
     
@@ -2157,7 +2156,7 @@
     
     NSMutableArray *attendees = [[NSMutableArray alloc] init];
     [attendees addObject:attendee1];
-    [event setAttendees:attendees];
+    [event setAttendees:(NSMutableArray<MSOutlookAttendee>*)attendees];
     
     return event;
 }

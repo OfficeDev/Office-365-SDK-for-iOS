@@ -54,13 +54,14 @@
         if([object isKindOfClass:[NSDate class]]){
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
-            
+            NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+            [dateFormatter setTimeZone:timeZone];
             value = [[[dateFormatter stringFromDate:object] substringToIndex:19] stringByAppendingString:@"Z"];
         }else{
             value = [[NSString alloc] initWithFormat: @"\"%@\"", object];
         }
         
-        [url addQueryStringParameter:value :key];
+        [url addQueryStringParameter:key : value];
     }
 }
 
