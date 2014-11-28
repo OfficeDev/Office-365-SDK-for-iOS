@@ -43,7 +43,7 @@
     }
     
     if (orderBy != nil) {
-        [url addQueryStringParameter:@"$orderBy" : select];
+        [url addQueryStringParameter:@"$orderBy" : orderBy];
     }
 }
 
