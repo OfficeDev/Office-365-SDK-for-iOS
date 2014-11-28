@@ -22,6 +22,7 @@
     if([testName isEqualToString: @"TestGetDrive"]) return [self TestGetDrive:result];
     if([testName isEqualToString: @"TestTopFiles"]) return [self TestTopFiles:result];
     if([testName isEqualToString: @"TestSelectFiles"]) return [self TestTopFiles:result];
+    if([testName isEqualToString: @"TestDeleteFile"]) return [self TestDeleteFile:result];
     
     return nil;
 }
@@ -36,6 +37,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestGetDrive" :@"Get drive" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestTopFiles" :@"Top Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSelectFiles" :@"Select Files" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFile" :@"Delete Files" ]];
     return array;
 }
 
@@ -98,7 +100,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
+                [[[[self.Client getfiles]getById:addedItem.id] delete:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -152,7 +154,7 @@
                 
             }]resume];
         }]resume];
-        }];
+    }];
     
     return task;
 }
@@ -334,6 +336,40 @@
     return task;
 }
 
+
+-(NSURLSessionDataTask*)TestDeleteFile:(void (^) (Test*))result{
+    MSSharePointItem *itemToAdd = [self GetFileItem];
+    // Add new item
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+        //Delete item
+        [[[[self.Client getfiles] getById:addedItem.id] deleteItem:^(int status, MSODataException *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            if(error == nil){
+                passed = TRUE;
+                message = @"Ok - ";
+            }
+            else{
+                message = @"Not - ";
+                if(error != nil)
+                    message = [message stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        }]resume];
+    }];
+    
+    return task;
+}
 
 -(MSSharePointItem *) GetFileItem{
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
