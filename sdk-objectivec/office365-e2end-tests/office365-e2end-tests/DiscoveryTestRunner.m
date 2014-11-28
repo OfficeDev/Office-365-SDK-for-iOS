@@ -41,7 +41,7 @@
 
 -(NSURLSessionDataTask*)TestGetAllServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
      
         BOOL passed = false;
         
@@ -70,7 +70,7 @@
 
 -(NSURLSessionDataTask*)TestGetServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -99,9 +99,9 @@
 
 -(NSURLSessionDataTask*)TestGetServiceById:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
-        [[[[self.Client getservices] getById:oneServiceInfo.entityKey] read:^(MSDiscoveryServiceInfo *serviceInfo, NSError *error) {
+        [[[[self.Client getservices] getById:oneServiceInfo.entityKey] read:^(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -132,11 +132,11 @@
 
 -(NSURLSessionDataTask*)TestFilterServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"entityKey eq '" stringByAppendingString:oneServiceInfo.entityKey] stringByAppendingString:@"'" ];
-        [[[[self.Client getservices]filter: filter]read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, NSError *error) {
+        [[[[self.Client getservices]filter: filter]read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -166,11 +166,11 @@
 
 -(NSURLSessionDataTask*)TestSelectServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"ServiceName eq '" stringByAppendingString:oneServiceInfo.serviceName] stringByAppendingString:@"'" ];
-        [[[[[self.Client getservices]filter: filter] select:@"providerName" ] read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, NSError *error) {
+        [[[[[self.Client getservices]filter: filter] select:@"providerName" ] read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -200,7 +200,7 @@
 
 -(NSURLSessionDataTask*)TestTopServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getallServices] top:1] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    NSURLSessionDataTask *task = [[[self.Client getallServices] top:1] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         

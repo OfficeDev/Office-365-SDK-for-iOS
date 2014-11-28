@@ -42,7 +42,7 @@
 
 -(NSURLSessionDataTask*)TestGetFiles:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getfiles] read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -72,9 +72,9 @@
 -(NSURLSessionDataTask*)TestGetFileById:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *e) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[self.Client getfiles] getById:addedItem.id]read:^(MSSharePointItem *item, NSError *error) {
+        [[[[self.Client getfiles] getById:addedItem.id]read:^(MSSharePointItem *item, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -98,7 +98,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
+                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -116,11 +116,11 @@
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, NSError *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
             //Get file content
-            [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *addedContent, NSError *error) {
+            [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *addedContent, MSODataException *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -143,7 +143,7 @@
                 
                 //Cleanup
                 if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -164,13 +164,13 @@
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, NSError *error) {
-            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, NSError *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
+            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, MSODataException *error) {
                 
                 //Get file content
-                [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *newContent, NSError *error) {
+                [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *newContent, MSODataException *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -193,7 +193,7 @@
                     
                     //Cleanup
                     if(addedItem!= nil)
-                        [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
+                        [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
                             if(error!= nil)
                                 NSLog(@"Error: %@", error);
                         }]resume];
@@ -211,7 +211,7 @@
 
 -(NSURLSessionDataTask*)TestGetDrive:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getdrive] read:^(MSSharePointDrive *drive, NSError *error) {
+    NSURLSessionDataTask *task = [[self.Client getdrive] read:^(MSSharePointDrive *drive, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -241,11 +241,11 @@
     MSSharePointItem *itemToAdd = [self GetFileItem];
     MSSharePointItem *itemToAdd2 = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *e) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Add second item
-        [[[self.Client getfiles] add:itemToAdd2 :^(MSSharePointItem *addedItem2, NSError *e) {
+        [[[self.Client getfiles] add:itemToAdd2 :^(MSSharePointItem *addedItem2, MSODataException *e) {
             //Get top 1 item
-            [[[[self.Client getfiles] top:1]read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+            [[[[self.Client getfiles] top:1]read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -268,13 +268,13 @@
                 
                 //cleanup
                 if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
                 
                 if(addedItem2!= nil)
-                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(int status, NSError *error) {
+                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -290,9 +290,9 @@
 -(NSURLSessionDataTask*)TestSelectFiles:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, NSError *e) {
+    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[self.Client getfiles] select:@"name,dateTimeCreated"]read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+        [[[[self.Client getfiles] select:@"name,dateTimeCreated"]read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -321,7 +321,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, NSError *error) {
+                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
