@@ -38,6 +38,7 @@
     if([testName isEqualToString: @"TestTop"]) return [self TestTop:result];
     if([testName isEqualToString: @"TestFilterWithTop"]) return [self TestFilterWithTop:result];
     if([testName isEqualToString: @"TestSelect"]) return [self TestSelect:result];
+    if([testName isEqualToString: @"TestSkip"]) return [self TestSkip:result];
     
     // Contacts Tests
     if([testName isEqualToString:@"TestGetContactFolder"]) return [self TestGetContactFolder:result];
@@ -110,7 +111,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestTop" :@"Can use top" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestFilterWithTop" :@"Can use filter with top" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSelect" :@"Can use select with top" ]];
-    
+    [array addObject:[[Test alloc] initWithData:self :@"TestSkip" :@"Can use skip" ]];
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
@@ -349,6 +350,66 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestSkip:(void (^) (Test*))result{
+    MSOutlookContact* contact1 = [self getContact];
+    NSString *contact1Name = [@"AA" stringByAppendingString:[[NSUUID UUID] UUIDString]];
+    [contact1 setDisplayName:contact1Name];
+    
+    MSOutlookContact* contact2 = [self getContact];
+    NSString *contact2Name = [@"BB" stringByAppendingString:[[NSUUID UUID] UUIDString]];
+    [contact2 setDisplayName:contact2Name];
+    
+    //Create contact1
+    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:contact1 withCallback:^(MSOutlookContact *addedContact1, NSError *error) {
+        // Create contact2
+        [[[[self.Client getMe]getContacts]addContact:contact2 withCallback:^(MSOutlookContact *addedContact2, NSError *e) {
+            //Test order by
+            NSString *filter = [@"" stringByAppendingFormat:@"DisplayName eq '%@' or DisplayName eq '%@'", contact1Name, contact2Name ];
+
+            
+            [[[[[[[self.Client getMe] getContacts ] filter:filter] orderBy:@"DisplayName Desc"] skip:1] read:^(NSArray<MSOutlookContact> *contacts, NSError *error) {
+                
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                
+                if(error == nil && [contacts count] == 1 && [[[contacts objectAtIndex:0] DisplayName] isEqualToString:contact1Name] ){
+                    passed = true;
+                }
+                else
+                {
+                    message = @"Not - ";
+                    if(error != nil){
+                        [message stringByAppendingString: [error localizedDescription]];
+                    }
+                }
+                
+                [test.ExecutionMessages addObject:message];
+                test.Passed = passed;
+                
+                //Cleanup
+                if(addedContact1!= nil)
+                    [[[[[self.Client getMe] getContacts] getById:addedContact1.Id] deleteContact:^(int status, NSError * error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }] resume];
+                
+                if(addedContact2!= nil)
+                    [[[[[self.Client getMe] getContacts] getById:addedContact2.Id] deleteContact:^(int status, NSError * error) {
+                        if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    }] resume];
+                result(test);
+                
+            }] resume];
+        }] resume];
+    }];
+    
+    return task;
+}
 
 //******* Folder Tests **********
 
@@ -695,7 +756,7 @@
             
             result(test);
         }] resume];
-
+        
     }];
     
     return task;
@@ -1714,51 +1775,53 @@
     return task;
 }
 /*
- -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
- NSString *uuid = [[NSUUID UUID] UUIDString];
- NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
- 
- MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
- [newCalendar setName:calendarName];
- NSString *dateStart;
- NSString *dateEnd;
- 
- NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarView] addCustomParameters:@"key" : @"value"]
- 
- getCalendars] add:newCalendar :^(MSOutlookCalendar *addedCalendar, NSError *e) {
- 
- BOOL passed = false;
- 
- Test *test = [Test alloc];
- 
- test.ExecutionMessages = [NSMutableArray array];
- NSString* message = @"";
- 
- if(e== nil && addedCalendar != nil && [addedCalendar.Name isEqualToString:calendarName] ){
- message = @"Ok - ";
- passed = true;
- }else
- {
- message = @"Not - ";
- if(e != nil)
- message = [message stringByAppendingString:[e localizedDescription]];
- }
- 
- test.Passed = passed;
- [test.ExecutionMessages addObject:message];
- 
- //Cleanup
- [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
- if(error!= nil)
- NSLog(@"Error: %@", error);
- }]resume];
- 
- result(test);
- }];
- 
- return task;
- }
- */
+-(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
+    
+    MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
+    [newCalendar setName:calendarName];
+    NSString *dateStart;
+    NSString *dateEnd;
+    
+    NSString *key1;
+    NSString *value1;
+    
+    [[[[self.Client getMe] getCalendarView]
+    NSURLSessionDataTask* task =[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"" :dateStart ] addCustomParameters:@"" :dateEnd]]
+        
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        NSString* message = @"";
+        
+        if(e== nil && addedCalendar != nil && [addedCalendar.Name isEqualToString:calendarName] ){
+            message = @"Ok - ";
+            passed = true;
+        }else
+        {
+            message = @"Not - ";
+            if(e != nil)
+                message = [message stringByAppendingString:[e localizedDescription]];
+        }
+        
+        test.Passed = passed;
+        [test.ExecutionMessages addObject:message];
+        
+        //Cleanup
+        [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]delete:^(id entity, NSError *error) {
+            if(error!= nil)
+                NSLog(@"Error: %@", error);
+        }]resume];
+        
+        result(test);
+    }];
+    
+    return task;
+}
+*/
 // ****** Event Tests *****
 
 -(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
