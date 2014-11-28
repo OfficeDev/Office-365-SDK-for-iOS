@@ -1136,46 +1136,48 @@
     
     //Send mail with HTML body
     NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, MSODataException *error) {
-        // Get sent mail from inbox
-        [[[[[self.Client getMe] getMessages] filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
-            if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] Body] ContentType] == HTML){
-                MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
-                //Reply message
-                [[[[[[self.Client getMe] getMessages] getById:currentMessage.Id] getOperations]reply:self.TestMail :^(int returnValue, MSODataException *error) {
-                    BOOL passed = false;
-                    
+        // Get sent mail
+        [[[[[self.Client getMe] getFolders] filter:@"DisplayName eq 'Sent Items'"] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
+            MSOutlookFolder *sentItemsFolder = [folders objectAtIndex:0];
+            [[[[[[[self.Client getMe] getFolders] getById:sentItemsFolder.Id ] getMessages] filter: [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"]]read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+                if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] Body] ContentType] == HTML){
+                    MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
+                    //Reply message
+                    [[[[[[self.Client getMe] getMessages] getById:currentMessage.Id] getOperations]reply:self.TestMail :^(int returnValue, MSODataException *error) {
+                        BOOL passed = false;
+                        
+                        Test *test = [Test alloc];
+                        
+                        test.ExecutionMessages = [NSMutableArray array];
+                        NSString* message = @"";
+                        if(error == nil){
+                            message =@"Ok - ";
+                            passed = true;
+                        }else{
+                            message = @"Not - ";
+                            if(error!=nil)
+                                message = [message stringByAppendingString:[error localizedDescription]];
+                        }
+                        
+                        test.Passed = passed;
+                        [test.ExecutionMessages addObject:message];
+                        
+                        result(test);
+                    }] resume];
+                }
+                else{
                     Test *test = [Test alloc];
-                    
                     test.ExecutionMessages = [NSMutableArray array];
-                    NSString* message = @"";
-                    if(error == nil){
-                        message =@"Ok - ";
-                        passed = true;
-                    }else{
-                        message = @"Not - ";
-                        if(error!=nil)
-                            message = [message stringByAppendingString:[error localizedDescription]];
-                    }
+                    NSString* message = @"Not - Missing mail in inbox. ";
+                    if(error!=nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
                     
-                    test.Passed = passed;
+                    test.Passed = false;
                     [test.ExecutionMessages addObject:message];
-                    
                     result(test);
-                }] resume];
-            }
-            else{
-                Test *test = [Test alloc];
-                test.ExecutionMessages = [NSMutableArray array];
-                NSString* message = @"Not - Missing mail in inbox. ";
-                if(error!=nil)
-                    message = [message stringByAppendingString:[error localizedDescription]];
-                
-                test.Passed = false;
-                [test.ExecutionMessages addObject:message];
-                result(test);
-            }
+                }
+            }] resume];
         }] resume];
-        
     }];
     
     
@@ -1839,7 +1841,7 @@
     
     return task;
 }
-
+/*
 -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSOutlookEvent *newEvent;
     NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
@@ -1880,7 +1882,7 @@
     
     return task;
 }
-
+*/
 // ****** Event Tests *****
 
 -(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
