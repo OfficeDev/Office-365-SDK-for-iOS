@@ -16,15 +16,15 @@
     
     [loginController getTokenWith : @"https://outlook.office365.com" :true completionHandler:^(NSString *token) {
         
-        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
-        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
+        MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
+        MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
         [credentials addToken:token];
         
-        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
+        MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];
-        [[resolver getLogger] log:@"Going to call client API" :(MSLogLevel *)INFO];
+        [[resolver getLogger] log:@"Going to call client API" :(MSODataLogLevel *)INFO];
         
         callback([[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
     }];

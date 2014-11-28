@@ -88,7 +88,7 @@
         [BaseController getClient:^(MSSharePointClient *client) {
             
             MSSharePointFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
-            [[[[client getfiles] getById:fileToDelete.id] delete:^(id entity, NSError *error) {
+            [[[[client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
                 
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

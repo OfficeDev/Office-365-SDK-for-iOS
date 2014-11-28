@@ -35,9 +35,9 @@
         [[[client getfiles] add:item :^(MSSharePointItem *item, NSError *e) {
             __block NSString* _id = item.id;
             
-            [[[[[client getfiles] getById:_id] asFile] putContent:body :^(NSInteger result, NSError *error) {
+            [[[[[client getfiles] getById:_id] asFile] putContent:body withCallback:^(NSInteger result, NSError *error) {
                 
-                [[[[[client getfiles] getById:_id] asFile] getContent:^(NSData *content, NSError *error) {
+                [[[[[client getfiles] getById:_id] asFile] getContentWithCallback:^(NSData *content, NSError *error) {
                     
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
