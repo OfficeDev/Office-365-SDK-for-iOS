@@ -21,7 +21,7 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, NSError *error))callback{
+-(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -33,9 +33,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookMessage class]];
+			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookMessage class]];
             callback(result, error);
         }
         else{
@@ -47,7 +47,7 @@
 }			
 
 
--(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, NSError *error))callback{
+-(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -59,9 +59,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookMessage class]];
+			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookMessage class]];
             callback(result, error);
         }
         else{
@@ -73,7 +73,7 @@
 }			
 
 
--(NSURLSessionDataTask*)createReply : (void (^)(MSOutlookMessage *message, NSError *error))callback{
+-(NSURLSessionDataTask*)createReply : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -83,9 +83,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookMessage class]];
+			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookMessage class]];
             callback(result, error);
         }
         else{
@@ -97,7 +97,7 @@
 }			
 
 
--(NSURLSessionDataTask*)createReplyAll : (void (^)(MSOutlookMessage *message, NSError *error))callback{
+-(NSURLSessionDataTask*)createReplyAll : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -107,9 +107,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookMessage class]];
+			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookMessage class]];
             callback(result, error);
         }
         else{
@@ -121,7 +121,7 @@
 }			
 
 
--(NSURLSessionDataTask*)createForward : (void (^)(MSOutlookMessage *message, NSError *error))callback{
+-(NSURLSessionDataTask*)createForward : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -131,9 +131,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookMessage class]];
+			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookMessage class]];
             callback(result, error);
         }
         else{
@@ -145,7 +145,7 @@
 }			
 
 
--(NSURLSessionDataTask*)reply : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback{
+-(NSURLSessionDataTask*)reply : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -157,9 +157,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : nil];
             callback(result, error);
         }
         else{
@@ -171,7 +171,7 @@
 }			
 
 
--(NSURLSessionDataTask*)replyAll : (NSString *) comment : (void (^)(int returnValue, NSError *error))callback{
+-(NSURLSessionDataTask*)replyAll : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -183,9 +183,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : nil];
             callback(result, error);
         }
         else{
@@ -197,7 +197,7 @@
 }			
 
 
--(NSURLSessionDataTask*)forward : (NSString *) comment : (NSMutableArray<MSOutlookRecipient> *) toRecipients : (void (^)(int returnValue, NSError *error))callback{
+-(NSURLSessionDataTask*)forward : (NSString *) comment : (NSMutableArray<MSOutlookRecipient> *) toRecipients : (void (^)(int returnValue, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -210,9 +210,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : nil];
             callback(result, error);
         }
         else{
@@ -224,7 +224,7 @@
 }			
 
 
--(NSURLSessionDataTask*)send : (void (^)(int returnValue, NSError *error))callback{
+-(NSURLSessionDataTask*)send : (void (^)(int returnValue, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -234,9 +234,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : nil];
+			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : nil];
             callback(result, error);
         }
         else{

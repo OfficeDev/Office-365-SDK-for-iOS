@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectorySubscribedSku class]];
 }
 
--(NSURLSessionDataTask*)addSubscribedSku:(MSDirectorySubscribedSku*)entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addSubscribedSku:(MSDirectorySubscribedSku*)entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

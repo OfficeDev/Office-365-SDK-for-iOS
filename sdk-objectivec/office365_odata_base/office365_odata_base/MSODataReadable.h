@@ -10,6 +10,6 @@
 @protocol MSODataReadable
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback;
+-(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback;
 
 @end

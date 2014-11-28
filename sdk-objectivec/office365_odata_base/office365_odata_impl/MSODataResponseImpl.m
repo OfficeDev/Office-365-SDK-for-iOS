@@ -9,25 +9,29 @@
 
 @interface MSODataResponseImpl()
 
-@property NSData* data;
-@property int status;
+@property NSData* payload;
+@property NSURLResponse* response;
 
 @end
 
 @implementation MSODataResponseImpl
 
--(id)initWith : (NSData*)data : (int) status{
-    self.data = data;
-    self.status = status;
+-(id)initWithPayload : (NSData*)payload : (NSURLResponse*) response{
+    self.payload = payload;
+    self.response = response;
     return self;
 }
 
 -(int)getStatus{
-    return self.status;
+    return (int)[(NSHTTPURLResponse*)self.response statusCode];
 }
 
--(NSData *)getData{
-    return self.data;
+-(NSData *)getPayload{
+    return self.payload;
+}
+
+-(NSURLResponse *)getResponse{
+    return self.response;
 }
 
 @end

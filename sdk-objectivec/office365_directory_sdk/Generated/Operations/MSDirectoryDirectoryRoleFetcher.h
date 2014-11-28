@@ -21,9 +21,9 @@
 @protocol MSDirectoryDirectoryRoleFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryRole* directoryRole, NSError *error))callback;
--(NSURLSessionDataTask*) updateDirectoryRole:(id)entity withCallback:(void (^)(MSDirectoryDirectoryRole*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteDirectoryRole:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryRole* directoryRole, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateDirectoryRole:(id)entity withCallback:(void (^)(MSDirectoryDirectoryRole*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteDirectoryRole:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

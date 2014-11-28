@@ -20,6 +20,6 @@
 
 @interface MSOutlookAttachmentOperations : MSOutlookEntityOperations
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 @end

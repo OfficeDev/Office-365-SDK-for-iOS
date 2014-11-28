@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDirectoryLinkChange class]];
 }
 
--(NSURLSessionDataTask*) updateDirectoryLinkChange:(id)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateDirectoryLinkChange:(id)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteDirectoryLinkChange:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteDirectoryLinkChange:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

@@ -42,9 +42,9 @@
 @protocol MSDirectoryDirectoryObjectFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryObject* directoryObject, NSError *error))callback;
--(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryObject* directoryObject, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

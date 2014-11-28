@@ -21,9 +21,9 @@
 @protocol MSDirectorySubscribedSkuFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectorySubscribedSku* subscribedSku, NSError *error))callback;
--(NSURLSessionDataTask*) updateSubscribedSku:(id)entity withCallback:(void (^)(MSDirectorySubscribedSku*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectorySubscribedSku* subscribedSku, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateSubscribedSku:(id)entity withCallback:(void (^)(MSDirectorySubscribedSku*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

@@ -13,8 +13,8 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass : (Class) entityClass;
 
--(NSURLSessionDataTask*) update: (id)entity : (void (^)(id entity, NSError * error))callback;
--(NSURLSessionDataTask*) delete : (void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask*) update: (id)entity : (void (^)(id entity, MSODataException * error))callback;
+-(NSURLSessionDataTask*) delete : (void (^)(int status, MSODataException * error))callback;
 -(id<MSODataDependencyResolver>) getResolver;
 -(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @optional

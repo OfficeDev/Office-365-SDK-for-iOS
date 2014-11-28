@@ -30,16 +30,16 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     [[request getUrl] appendPathComponent:self.UrlComponent];
     [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
     
-    return [self.Parent oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
+    return [self.Parent oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
         callback(r,e);
     }];
 }
 
--(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, MSODataException *))callback{
     
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
@@ -49,28 +49,33 @@
     [request setVerb:PATCH];
     
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
-        callback(updatedEntity, e);
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        if (e == nil) {
+            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getPayload] :self.entityClass];
+            
+            callback(entity, e);
+        }
+        else callback(nil, e);
     }];
 }
 
--(NSURLSessionDataTask*) delete : (void (^)(int,NSError *))callback{
+-(NSURLSessionDataTask*) delete : (void (^)(int,MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [request setVerb:DELETE];
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, NSError *e) {
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         callback([r getStatus], e);
     }];
 }
 
--(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [request setVerb:GET];
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, NSError *e) {
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         if (e == nil) {
-            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getData] :self.entityClass];
+            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getPayload] :self.entityClass];
             
             callback(entity, e);
         }

@@ -38,11 +38,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDirectoryObject class]];
 }
 
--(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
@@ -90,53 +90,53 @@
 
 	
 -(MSDirectoryApplicationFetcher*) asApplication{
-	return [[MSDirectoryApplicationFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryApplicationFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryApplication class]];
 }
 	
 -(MSDirectoryUserFetcher*) asUser{
-	return [[MSDirectoryUserFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryUserFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryUser class]];
 }
 	
 -(MSDirectoryExtensionPropertyFetcher*) asExtensionProperty{
-	return [[MSDirectoryExtensionPropertyFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryExtensionPropertyFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryExtensionProperty class]];
 }
 	
 -(MSDirectoryContactFetcher*) asContact{
-	return [[MSDirectoryContactFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryContactFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryContact class]];
 }
 	
 -(MSDirectoryDeviceFetcher*) asDevice{
-	return [[MSDirectoryDeviceFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryDeviceFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryDevice class]];
 }
 	
 -(MSDirectoryDeviceConfigurationFetcher*) asDeviceConfiguration{
-	return [[MSDirectoryDeviceConfigurationFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryDeviceConfigurationFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryDeviceConfiguration class]];
 }
 	
 -(MSDirectoryDirectoryLinkChangeFetcher*) asDirectoryLinkChange{
-	return [[MSDirectoryDirectoryLinkChangeFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryDirectoryLinkChangeFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryDirectoryLinkChange class]];
 }
 	
 -(MSDirectoryAppRoleAssignmentFetcher*) asAppRoleAssignment{
-	return [[MSDirectoryAppRoleAssignmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryAppRoleAssignmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryAppRoleAssignment class]];
 }
 	
 -(MSDirectoryGroupFetcher*) asGroup{
-	return [[MSDirectoryGroupFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryGroupFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryGroup class]];
 }
 	
 -(MSDirectoryDirectoryRoleFetcher*) asDirectoryRole{
-	return [[MSDirectoryDirectoryRoleFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryDirectoryRoleFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryDirectoryRole class]];
 }
 	
 -(MSDirectoryDirectoryRoleTemplateFetcher*) asDirectoryRoleTemplate{
-	return [[MSDirectoryDirectoryRoleTemplateFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryDirectoryRoleTemplateFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryDirectoryRoleTemplate class]];
 }
 	
 -(MSDirectoryServicePrincipalFetcher*) asServicePrincipal{
-	return [[MSDirectoryServicePrincipalFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryServicePrincipalFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryServicePrincipal class]];
 }
 	
 -(MSDirectoryTenantDetailFetcher*) asTenantDetail{
-	return [[MSDirectoryTenantDetailFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSDirectoryTenantDetailFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSDirectoryTenantDetail class]];
 }@end

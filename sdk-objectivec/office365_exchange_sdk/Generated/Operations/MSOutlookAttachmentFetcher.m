@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookAttachment class]];
 }
 
--(NSURLSessionDataTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
@@ -42,9 +42,9 @@
 
 	
 -(MSOutlookFileAttachmentFetcher*) asFileAttachment{
-	return [[MSOutlookFileAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookFileAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookFileAttachment class]];
 }
 	
 -(MSOutlookItemAttachmentFetcher*) asItemAttachment{
-	return [[MSOutlookItemAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookItemAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookItemAttachment class]];
 }@end

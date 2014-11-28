@@ -22,9 +22,9 @@
 @protocol MSDirectoryApplicationFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryApplication* application, NSError *error))callback;
--(NSURLSessionDataTask*) updateApplication:(id)entity withCallback:(void (^)(MSDirectoryApplication*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryApplication* application, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateApplication:(id)entity withCallback:(void (^)(MSDirectoryApplication*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

@@ -20,7 +20,7 @@
 @protocol MSDirectoryGroupCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryGroup> *groups, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryGroup> *groups, MSODataException *error))callback;
 
 -(id<MSDirectoryGroupCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryGroupCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryGroupCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryGroupCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryGroupCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryGroupCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryGroupCollectionFetcher : MSODataCollectionFetcher<MSDirectoryGroupCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryGroupFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addGroup:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, NSError *e))callback;
+-(NSURLSessionDataTask*)addGroup:(MSDirectoryGroup* )entity withCallback:(void (^)(MSDirectoryGroup *group, MSODataException *e))callback;
 
 @end

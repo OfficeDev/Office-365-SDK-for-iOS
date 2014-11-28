@@ -11,7 +11,7 @@
 
 #import "MSSharePointClient.h"
 /**
-* The implementation file for type MSSharePointSharePointClient.
+* The implementation file for type MSSharePointClient.
 */
 
 @implementation MSSharePointClient

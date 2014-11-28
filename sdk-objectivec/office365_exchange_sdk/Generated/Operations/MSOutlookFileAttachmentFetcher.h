@@ -21,9 +21,9 @@
 @protocol MSOutlookFileAttachmentFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookFileAttachment* fileAttachment, NSError *error))callback;
--(NSURLSessionDataTask*) updateFileAttachment:(id)entity withCallback:(void (^)(MSOutlookFileAttachment*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteFileAttachment:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookFileAttachment* fileAttachment, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateFileAttachment:(id)entity withCallback:(void (^)(MSOutlookFileAttachment*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteFileAttachment:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

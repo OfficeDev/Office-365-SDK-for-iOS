@@ -32,11 +32,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookContactFolder class]];
 }
 
--(NSURLSessionDataTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

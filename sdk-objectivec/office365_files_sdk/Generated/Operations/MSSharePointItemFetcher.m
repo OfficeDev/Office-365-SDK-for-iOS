@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointItem class]];
 }
 
--(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSSharePointItem*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSSharePointItem*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteItem:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
@@ -42,9 +42,9 @@
 
 	
 -(MSSharePointFileFetcher*) asFile{
-	return [[MSSharePointFileFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSSharePointFileFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSSharePointFile class]];
 }
 	
 -(MSSharePointFolderFetcher*) asFolder{
-	return [[MSSharePointFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSSharePointFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSSharePointFolder class]];
 }@end

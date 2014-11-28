@@ -22,9 +22,9 @@
 @protocol MSDirectoryGroupFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryGroup* group, NSError *error))callback;
--(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryGroup* group, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

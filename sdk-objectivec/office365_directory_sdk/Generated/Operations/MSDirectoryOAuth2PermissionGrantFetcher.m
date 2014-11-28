@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryOAuth2PermissionGrant class]];
 }
 
--(NSURLSessionDataTask*) updateOAuth2PermissionGrant:(id)entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateOAuth2PermissionGrant:(id)entity withCallback:(void (^)(MSDirectoryOAuth2PermissionGrant*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteOAuth2PermissionGrant:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteOAuth2PermissionGrant:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

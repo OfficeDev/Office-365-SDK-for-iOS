@@ -20,7 +20,7 @@
 @protocol MSOutlookAttachmentCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookAttachment> *attachments, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookAttachment> *attachments, MSODataException *error))callback;
 
 -(id<MSOutlookAttachmentCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookAttachmentCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSOutlookAttachmentCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookAttachmentCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookAttachmentCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSOutlookAttachmentCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSOutlookAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookAttachmentCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookAttachmentFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addAttachment:(MSOutlookAttachment* )entity withCallback:(void (^)(MSOutlookAttachment *attachment, NSError *e))callback;
+-(NSURLSessionDataTask*)addAttachment:(MSOutlookAttachment* )entity withCallback:(void (^)(MSOutlookAttachment *attachment, MSODataException *e))callback;
 
 @end

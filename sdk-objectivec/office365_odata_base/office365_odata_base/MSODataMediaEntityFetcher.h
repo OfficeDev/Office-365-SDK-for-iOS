@@ -10,7 +10,7 @@
 @interface MSODataMediaEntityFetcher : MSODataEntityFetcher
 
 -(id)initWithUrl : (NSString *)urlComponent parent:(id<MSODataReadable>)parent;
--(NSURLSessionDataTask*) getContentWithCallback:(void (^)(NSData* content, NSError * error))callback;
--(NSURLSessionDataTask*) putContent:(NSData*)content withCallback:(void (^)(NSInteger result, NSError * error))callback;
+-(NSURLSessionDataTask*) getContentWithCallback:(void (^)(NSData* content, MSODataException * error))callback;
+-(NSURLSessionDataTask*) putContent:(NSData*)content withCallback:(void (^)(NSInteger result, MSODataException * error))callback;
 
 @end

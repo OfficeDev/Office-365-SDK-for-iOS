@@ -1,10 +1,9 @@
-//
-//  MSODataExecutable.h
-//  office365_odata_base
-//
-//  Created by Gustavo on 11/27/14.
-//  Copyright (c) 2014 Microsoft Open Technologies, Inc. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "MSODataDependencyResolver.h"
 #import "MSODataReadable.h"
@@ -14,7 +13,7 @@
 @optional
 
 -(id<MSODataDependencyResolver>) getResolver;
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, NSError *))callback;
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback;
 
 @required
 

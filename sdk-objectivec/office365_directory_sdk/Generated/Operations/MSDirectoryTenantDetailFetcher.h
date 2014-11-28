@@ -21,9 +21,9 @@
 @protocol MSDirectoryTenantDetailFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryTenantDetail* tenantDetail, NSError *error))callback;
--(NSURLSessionDataTask*) updateTenantDetail:(id)entity withCallback:(void (^)(MSDirectoryTenantDetail*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryTenantDetail* tenantDetail, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateTenantDetail:(id)entity withCallback:(void (^)(MSDirectoryTenantDetail*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

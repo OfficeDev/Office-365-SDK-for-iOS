@@ -21,9 +21,9 @@
 @protocol MSDirectoryContactFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryContact* contact, NSError *error))callback;
--(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSDirectoryContact*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteContact:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryContact* contact, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSDirectoryContact*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

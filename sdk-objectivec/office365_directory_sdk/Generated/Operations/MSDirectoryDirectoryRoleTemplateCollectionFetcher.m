@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryDirectoryRoleTemplate class]];
 }
 
--(NSURLSessionDataTask*)addDirectoryRoleTemplate:(MSDirectoryDirectoryRoleTemplate*)entity withCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addDirectoryRoleTemplate:(MSDirectoryDirectoryRoleTemplate*)entity withCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

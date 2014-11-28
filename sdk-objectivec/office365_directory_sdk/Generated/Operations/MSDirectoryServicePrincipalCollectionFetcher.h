@@ -20,7 +20,7 @@
 @protocol MSDirectoryServicePrincipalCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryServicePrincipal> *servicePrincipals, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryServicePrincipal> *servicePrincipals, MSODataException *error))callback;
 
 -(id<MSDirectoryServicePrincipalCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryServicePrincipalCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryServicePrincipalCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryServicePrincipalCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryServicePrincipalCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryServicePrincipalCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryServicePrincipalCollectionFetcher : MSODataCollectionFetcher<MSDirectoryServicePrincipalCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryServicePrincipalFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addServicePrincipal:(MSDirectoryServicePrincipal* )entity withCallback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, NSError *e))callback;
+-(NSURLSessionDataTask*)addServicePrincipal:(MSDirectoryServicePrincipal* )entity withCallback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSODataException *e))callback;
 
 @end

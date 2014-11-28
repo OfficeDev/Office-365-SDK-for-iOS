@@ -34,11 +34,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryUser class]];
 }
 
--(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSDirectoryUser*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSDirectoryUser*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteUser:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

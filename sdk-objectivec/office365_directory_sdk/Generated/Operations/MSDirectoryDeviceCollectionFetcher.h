@@ -20,7 +20,7 @@
 @protocol MSDirectoryDeviceCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDevice> *devices, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDevice> *devices, MSODataException *error))callback;
 
 -(id<MSDirectoryDeviceCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryDeviceCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryDeviceCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryDeviceCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryDeviceCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryDeviceCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryDeviceCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDeviceCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryDeviceFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addDevice:(MSDirectoryDevice* )entity withCallback:(void (^)(MSDirectoryDevice *device, NSError *e))callback;
+-(NSURLSessionDataTask*)addDevice:(MSDirectoryDevice* )entity withCallback:(void (^)(MSDirectoryDevice *device, MSODataException *e))callback;
 
 @end

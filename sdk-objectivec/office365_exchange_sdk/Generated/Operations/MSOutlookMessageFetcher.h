@@ -22,9 +22,9 @@
 @protocol MSOutlookMessageFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookMessage* message, NSError *error))callback;
--(NSURLSessionDataTask*) updateMessage:(id)entity withCallback:(void (^)(MSOutlookMessage*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteMessage:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookMessage* message, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateMessage:(id)entity withCallback:(void (^)(MSOutlookMessage*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteMessage:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

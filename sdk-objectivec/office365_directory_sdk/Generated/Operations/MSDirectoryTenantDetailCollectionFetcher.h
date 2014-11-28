@@ -20,7 +20,7 @@
 @protocol MSDirectoryTenantDetailCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryTenantDetail> *tenantDetails, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryTenantDetail> *tenantDetails, MSODataException *error))callback;
 
 -(id<MSDirectoryTenantDetailCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryTenantDetailCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryTenantDetailCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryTenantDetailCollectionFetcher : MSODataCollectionFetcher<MSDirectoryTenantDetailCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryTenantDetailFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addTenantDetail:(MSDirectoryTenantDetail* )entity withCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, NSError *e))callback;
+-(NSURLSessionDataTask*)addTenantDetail:(MSDirectoryTenantDetail* )entity withCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSODataException *e))callback;
 
 @end

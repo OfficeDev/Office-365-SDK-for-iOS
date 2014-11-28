@@ -20,7 +20,7 @@
 @protocol MSSharePointItemCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointItem> *items, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointItem> *items, MSODataException *error))callback;
 
 -(id<MSSharePointItemCollectionFetcher>)select : (NSString*) params;
 -(id<MSSharePointItemCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSSharePointItemCollectionFetcher>)skip : (int) value;
 -(id<MSSharePointItemCollectionFetcher>)expand : (NSString*) value;
 -(id<MSSharePointItemCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSSharePointItemCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSSharePointItemFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addItem:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, NSError *e))callback;
+-(NSURLSessionDataTask*)addItem:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, MSODataException *e))callback;
 
 @end

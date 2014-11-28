@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryTenantDetail class]];
 }
 
--(NSURLSessionDataTask*) updateTenantDetail:(id)entity withCallback:(void (^)(MSDirectoryTenantDetail*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateTenantDetail:(id)entity withCallback:(void (^)(MSDirectoryTenantDetail*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

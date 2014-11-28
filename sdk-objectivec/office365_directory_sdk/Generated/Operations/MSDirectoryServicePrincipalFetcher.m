@@ -33,11 +33,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryServicePrincipal class]];
 }
 
--(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

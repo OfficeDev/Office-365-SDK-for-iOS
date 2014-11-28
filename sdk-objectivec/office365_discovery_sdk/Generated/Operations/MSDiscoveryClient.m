@@ -11,7 +11,7 @@
 
 #import "MSDiscoveryClient.h"
 /**
-* The implementation file for type MSDiscoveryDiscoveryClient.
+* The implementation file for type MSDiscoveryClient.
 */
 
 @implementation MSDiscoveryClient

@@ -28,9 +28,9 @@
 @protocol MSOutlookEntityFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookEntity* entity, NSError *error))callback;
--(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookEntity* entity, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

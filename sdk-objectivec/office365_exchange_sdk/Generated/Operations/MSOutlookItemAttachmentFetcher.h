@@ -22,9 +22,9 @@
 @protocol MSOutlookItemAttachmentFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookItemAttachment* itemAttachment, NSError *error))callback;
--(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookItemAttachment* itemAttachment, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

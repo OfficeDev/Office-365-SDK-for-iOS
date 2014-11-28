@@ -20,7 +20,7 @@
 @protocol MSDirectoryDirectoryObjectCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryObject> *directoryObjects, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryObject> *directoryObjects, MSODataException *error))callback;
 
 -(id<MSDirectoryDirectoryObjectCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryDirectoryObjectCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryDirectoryObjectCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryDirectoryObjectCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryDirectoryObjectCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryDirectoryObjectCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryDirectoryObjectCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryObjectCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryDirectoryObjectFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addDirectoryObject:(MSDirectoryDirectoryObject* )entity withCallback:(void (^)(MSDirectoryDirectoryObject *directoryObject, NSError *e))callback;
+-(NSURLSessionDataTask*)addDirectoryObject:(MSDirectoryDirectoryObject* )entity withCallback:(void (^)(MSDirectoryDirectoryObject *directoryObject, MSODataException *e))callback;
 
 @end

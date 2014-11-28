@@ -11,7 +11,7 @@
 
 #import "MSOutlookClient.h"
 /**
-* The implementation file for type MSOutlookOutlookClient.
+* The implementation file for type MSOutlookClient.
 */
 
 @implementation MSOutlookClient

@@ -21,7 +21,7 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, NSError *error))callback{
+-(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -33,9 +33,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookFolder class]];
+			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookFolder class]];
             callback(result, error);
         }
         else{
@@ -47,7 +47,7 @@
 }			
 
 
--(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, NSError *error))callback{
+-(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -59,9 +59,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSOutlookFolder class]];
+			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSOutlookFolder class]];
             callback(result, error);
         }
         else{

@@ -21,7 +21,7 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)checkMemberGroups : (NSMutableArray *) groupIds : (void (^)(NSArray*, NSError *error))callback{
+-(NSURLSessionDataTask*)checkMemberGroups : (NSMutableArray *) groupIds : (void (^)(NSArray*, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -34,9 +34,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-           callback([[[self getResolver] getJsonSerializer] deserialize:[r getData] :[NSString class]], error);
+           callback([[[self getResolver] getJsonSerializer] deserialize:[r getPayload] :[NSString class]], error);
         }
         else{
             callback(nil, error);
@@ -47,7 +47,7 @@
 }			
 
 
--(NSURLSessionDataTask*)getMemberGroups : (bool) securityEnabledOnly : (void (^)(NSArray*, NSError *error))callback{
+-(NSURLSessionDataTask*)getMemberGroups : (bool) securityEnabledOnly : (void (^)(NSArray*, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -60,9 +60,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-            callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
+            callback([[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [NSString class]], error);
         }
         else{
             callback(nil, error);
@@ -73,7 +73,7 @@
 }			
 
 
--(NSURLSessionDataTask*)getMemberObjects : (bool) securityEnabledOnly : (void (^)(NSArray*, NSError *error))callback{
+-(NSURLSessionDataTask*)getMemberObjects : (bool) securityEnabledOnly : (void (^)(NSArray*, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -86,9 +86,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-            callback([[[self getResolver]getJsonSerializer] deserialize:[r getData] : [NSString class]], error);
+            callback([[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [NSString class]], error);
         }
         else{
             callback(nil, error);

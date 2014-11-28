@@ -15,7 +15,7 @@
 
 
 /**
-* The header for type MSSharePointSharePointClient.
+* The header for type MSSharePointClient.
 */
 
 @interface MSSharePointClient : MSODataBaseContainer

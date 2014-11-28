@@ -11,32 +11,21 @@
 
 #import <office365_odata_base/office365_odata_base.h>
 #import "MSDirectoryDirectoryObjectCollectionFetcher.h"
-
 #import "MSDirectoryOAuth2PermissionGrantCollectionFetcher.h"
-
 #import "MSDirectorySubscribedSkuCollectionFetcher.h"
-
 #import "MSDirectoryDirectoryObjectCollectionFetcher.h"
-
 #import "MSDirectoryUserCollectionFetcher.h"
-
 #import "MSDirectoryApplicationCollectionFetcher.h"
-
 #import "MSDirectoryContactCollectionFetcher.h"
-
 #import "MSDirectoryGroupCollectionFetcher.h"
-
 #import "MSDirectoryDirectoryRoleCollectionFetcher.h"
-
 #import "MSDirectoryServicePrincipalCollectionFetcher.h"
-
 #import "MSDirectoryTenantDetailCollectionFetcher.h"
-
 #import "MSDirectoryDeviceCollectionFetcher.h"
 
 
 /**
-* The header for type MSDirectoryDirectoryClient.
+* The header for type MSDirectoryClient.
 */
 
 @interface MSDirectoryClient : MSODataBaseContainer

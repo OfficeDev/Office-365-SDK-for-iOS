@@ -20,7 +20,7 @@
 @protocol MSDirectoryContactCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryContact> *contacts, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryContact> *contacts, MSODataException *error))callback;
 
 -(id<MSDirectoryContactCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryContactCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryContactCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryContactCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryContactCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryContactCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryContactCollectionFetcher : MSODataCollectionFetcher<MSDirectoryContactCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryContactFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addContact:(MSDirectoryContact* )entity withCallback:(void (^)(MSDirectoryContact *contact, NSError *e))callback;
+-(NSURLSessionDataTask*)addContact:(MSDirectoryContact* )entity withCallback:(void (^)(MSDirectoryContact *contact, MSODataException *e))callback;
 
 @end

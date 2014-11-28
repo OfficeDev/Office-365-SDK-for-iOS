@@ -5,12 +5,15 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "MSODataExecutable.h"
+#import <Foundation/Foundation.h>
+#import "MSODataResponse.h"
 
-@implementation MSODataExecutable
+@interface MSODataException : NSError
 
--(NSDictionary *)getCustomParameters{
-    return self.CustomParameters;
-}
+@property id<MSODataResponse> response;
+@property NSData* payload;
+
+-(id)initWithResponse :(id<MSODataResponse>) response andMessage : (NSString*) message;
+-(id)initWithResponse :(id<MSODataResponse>) response andError : (NSError*) error;
 
 @end

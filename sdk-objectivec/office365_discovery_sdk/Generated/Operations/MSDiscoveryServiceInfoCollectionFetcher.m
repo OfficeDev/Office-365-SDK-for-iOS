@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDiscoveryServiceInfo class]];
 }
 
--(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo*)entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo*)entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback{
+    
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

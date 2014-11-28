@@ -21,9 +21,9 @@
 @protocol MSDirectoryExtensionPropertyFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryExtensionProperty* extensionProperty, NSError *error))callback;
--(NSURLSessionDataTask*) updateExtensionProperty:(id)entity withCallback:(void (^)(MSDirectoryExtensionProperty*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteExtensionProperty:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryExtensionProperty* extensionProperty, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateExtensionProperty:(id)entity withCallback:(void (^)(MSDirectoryExtensionProperty*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteExtensionProperty:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

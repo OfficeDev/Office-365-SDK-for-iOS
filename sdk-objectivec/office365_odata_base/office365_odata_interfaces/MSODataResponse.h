@@ -10,9 +10,10 @@
 @protocol MSODataResponse
 
 @required
--(id)initWith : (NSData*)data : (int) status;
+-(id)initWithPayload : (NSData*)payload : (NSURLResponse*) response;
+-(NSData *)getPayload;
 -(int)getStatus;
--(NSData *)getData;
+-(NSURLResponse*)getResponse;
 
 @optional
 -(void) close;

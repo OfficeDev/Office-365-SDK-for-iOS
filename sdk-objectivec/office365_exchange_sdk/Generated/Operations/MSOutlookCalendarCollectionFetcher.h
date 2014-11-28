@@ -20,7 +20,7 @@
 @protocol MSOutlookCalendarCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookCalendar> *calendars, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookCalendar> *calendars, MSODataException *error))callback;
 
 -(id<MSOutlookCalendarCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookCalendarCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSOutlookCalendarCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookCalendarCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookCalendarCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSOutlookCalendarCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSOutlookCalendarCollectionFetcher : MSODataCollectionFetcher<MSOutlookCalendarCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookCalendarFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addCalendar:(MSOutlookCalendar* )entity withCallback:(void (^)(MSOutlookCalendar *calendar, NSError *e))callback;
+-(NSURLSessionDataTask*)addCalendar:(MSOutlookCalendar* )entity withCallback:(void (^)(MSOutlookCalendar *calendar, MSODataException *e))callback;
 
 @end

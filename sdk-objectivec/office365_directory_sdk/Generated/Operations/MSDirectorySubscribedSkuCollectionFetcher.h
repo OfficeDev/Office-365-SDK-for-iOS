@@ -20,7 +20,7 @@
 @protocol MSDirectorySubscribedSkuCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectorySubscribedSku> *subscribedSkus, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectorySubscribedSku> *subscribedSkus, MSODataException *error))callback;
 
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)skip : (int) value;
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectorySubscribedSkuCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectorySubscribedSkuCollectionFetcher : MSODataCollectionFetcher<MSDirectorySubscribedSkuCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectorySubscribedSkuFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addSubscribedSku:(MSDirectorySubscribedSku* )entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, NSError *e))callback;
+-(NSURLSessionDataTask*)addSubscribedSku:(MSDirectorySubscribedSku* )entity withCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSODataException *e))callback;
 
 @end

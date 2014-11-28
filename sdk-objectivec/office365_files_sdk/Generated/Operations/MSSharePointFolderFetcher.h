@@ -22,9 +22,9 @@
 @protocol MSSharePointFolderFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSSharePointFolder* folder, NSError *error))callback;
--(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSSharePointFolder*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSSharePointFolder* folder, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSSharePointFolder*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

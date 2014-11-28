@@ -21,7 +21,7 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFolder *folder, NSError *error))callback{
+-(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFolder *folder, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 		
@@ -35,9 +35,9 @@
 	[request setContent:payload];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *error) {
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
        if(error == nil){
-			MSSharePointFolder * result = (MSSharePointFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSSharePointFolder class]];
+			MSSharePointFolder * result = (MSSharePointFolder *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSSharePointFolder class]];
             callback(result, error);
         }
         else{

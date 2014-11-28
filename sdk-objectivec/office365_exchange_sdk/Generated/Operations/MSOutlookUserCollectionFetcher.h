@@ -20,7 +20,7 @@
 @protocol MSOutlookUserCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookUser> *users, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookUser> *users, MSODataException *error))callback;
 
 -(id<MSOutlookUserCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookUserCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSOutlookUserCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookUserCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookUserCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSOutlookUserCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSOutlookUserCollectionFetcher : MSODataCollectionFetcher<MSOutlookUserCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookUserFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addUser:(MSOutlookUser* )entity withCallback:(void (^)(MSOutlookUser *user, NSError *e))callback;
+-(NSURLSessionDataTask*)addUser:(MSOutlookUser* )entity withCallback:(void (^)(MSOutlookUser *user, MSODataException *e))callback;
 
 @end

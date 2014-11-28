@@ -17,7 +17,7 @@
 
 @implementation MSSharePointItemCollectionOperations
 
--(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, NSError *error))callback{
+-(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 
@@ -26,11 +26,11 @@
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
 	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
-
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback: ^(id<MSODataResponse> r, NSError *error){
+		
+	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback: ^(id<MSODataResponse> r, MSODataException *error){
 
        if(error == nil){
-			MSSharePointItem * result = (MSSharePointItem *)[[[self getResolver]getJsonSerializer] deserialize:[r getData] : [MSSharePointItem class]];
+			MSSharePointItem * result = (MSSharePointItem *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSSharePointItem class]];
             callback(result, error);
         }
         else{

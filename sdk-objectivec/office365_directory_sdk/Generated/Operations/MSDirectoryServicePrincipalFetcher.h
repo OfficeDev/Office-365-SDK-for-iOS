@@ -24,9 +24,9 @@
 @protocol MSDirectoryServicePrincipalFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryServicePrincipal* servicePrincipal, NSError *error))callback;
--(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryServicePrincipal* servicePrincipal, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

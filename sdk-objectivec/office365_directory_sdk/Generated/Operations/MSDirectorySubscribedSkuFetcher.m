@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectorySubscribedSku class]];
 }
 
--(NSURLSessionDataTask*) updateSubscribedSku:(id)entity withCallback:(void (^)(MSDirectorySubscribedSku*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateSubscribedSku:(id)entity withCallback:(void (^)(MSDirectorySubscribedSku*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

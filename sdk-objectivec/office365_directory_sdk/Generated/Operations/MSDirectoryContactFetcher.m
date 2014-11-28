@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryContact class]];
 }
 
--(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSDirectoryContact*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSDirectoryContact*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteContact:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

@@ -20,7 +20,7 @@
 @protocol MSSharePointFileCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFile> *files, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFile> *files, MSODataException *error))callback;
 
 -(id<MSSharePointFileCollectionFetcher>)select : (NSString*) params;
 -(id<MSSharePointFileCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSSharePointFileCollectionFetcher>)skip : (int) value;
 -(id<MSSharePointFileCollectionFetcher>)expand : (NSString*) value;
 -(id<MSSharePointFileCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSSharePointFileCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSSharePointFileCollectionFetcher : MSODataCollectionFetcher<MSSharePointFileCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSSharePointFileFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addFile:(MSSharePointFile* )entity withCallback:(void (^)(MSSharePointFile *file, NSError *e))callback;
+-(NSURLSessionDataTask*)addFile:(MSSharePointFile* )entity withCallback:(void (^)(MSSharePointFile *file, MSODataException *e))callback;
 
 @end

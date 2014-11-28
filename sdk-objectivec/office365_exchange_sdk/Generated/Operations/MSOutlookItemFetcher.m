@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookItem class]];
 }
 
--(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteItem:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
@@ -42,13 +42,13 @@
 
 	
 -(MSOutlookMessageFetcher*) asMessage{
-	return [[MSOutlookMessageFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookMessageFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookMessage class]];
 }
 	
 -(MSOutlookEventFetcher*) asEvent{
-	return [[MSOutlookEventFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookEventFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookEvent class]];
 }
 	
 -(MSOutlookContactFetcher*) asContact{
-	return [[MSOutlookContactFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookContactFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookContact class]];
 }@end

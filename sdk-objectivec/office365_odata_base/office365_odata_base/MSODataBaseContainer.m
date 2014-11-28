@@ -29,7 +29,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback{
     
     [[request getUrl] setBaseUrl:self.UrlComponent];
     id<MSODataHttpTransport> httpTransport = [self.resolver getHttpTransport];
@@ -45,7 +45,7 @@
     
     [[[self.resolver getCredentialsFactory]getCredentials]prepareRequest:request];
 
-    return [httpTransport execute:request :^(id<MSODataResponse> r, NSError *e) {
+    return [httpTransport execute:request :^(id<MSODataResponse> r, MSODataException *e) {
         callback(r,e);
     }];
 }

@@ -23,9 +23,9 @@
 @protocol MSOutlookFolderFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookFolder* folder, NSError *error))callback;
--(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookFolder* folder, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

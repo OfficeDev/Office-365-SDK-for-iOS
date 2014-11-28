@@ -31,11 +31,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryGroup class]];
 }
 
--(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

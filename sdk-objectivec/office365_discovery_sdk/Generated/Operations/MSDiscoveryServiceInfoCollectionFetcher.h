@@ -20,7 +20,7 @@
 @protocol MSDiscoveryServiceInfoCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error))callback;
 
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)select : (NSString*) params;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)skip : (int) value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDiscoveryServiceInfoFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, NSError *e))callback;
+-(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
 
 @end

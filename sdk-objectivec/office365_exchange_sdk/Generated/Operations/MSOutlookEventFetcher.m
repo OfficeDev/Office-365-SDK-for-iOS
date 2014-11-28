@@ -33,11 +33,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookEvent class]];
 }
 
--(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

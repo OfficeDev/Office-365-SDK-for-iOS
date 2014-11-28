@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryDirectoryLinkChange class]];
 }
 
--(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange*)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange*)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

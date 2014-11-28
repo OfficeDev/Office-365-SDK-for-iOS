@@ -31,11 +31,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookItemAttachment class]];
 }
 
--(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

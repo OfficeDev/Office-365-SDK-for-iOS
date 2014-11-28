@@ -15,7 +15,7 @@
 
 
 /**
-* The header for type MSDiscoveryDiscoveryClient.
+* The header for type MSDiscoveryClient.
 */
 
 @interface MSDiscoveryClient : MSODataBaseContainer

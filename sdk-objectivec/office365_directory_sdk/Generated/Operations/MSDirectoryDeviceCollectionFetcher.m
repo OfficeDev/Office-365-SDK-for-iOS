@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryDevice class]];
 }
 
--(NSURLSessionDataTask*)addDevice:(MSDirectoryDevice*)entity withCallback:(void (^)(MSDirectoryDevice *device, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addDevice:(MSDirectoryDevice*)entity withCallback:(void (^)(MSDirectoryDevice *device, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

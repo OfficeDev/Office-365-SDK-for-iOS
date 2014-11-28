@@ -25,9 +25,9 @@
 @protocol MSDirectoryUserFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDirectoryUser* user, NSError *error))callback;
--(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSDirectoryUser*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteUser:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSDirectoryUser* user, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSDirectoryUser*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

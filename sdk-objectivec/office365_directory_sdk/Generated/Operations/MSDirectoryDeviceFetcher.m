@@ -32,11 +32,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryDevice class]];
 }
 
--(NSURLSessionDataTask*) updateDevice:(id)entity withCallback:(void (^)(MSDirectoryDevice*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateDevice:(id)entity withCallback:(void (^)(MSDirectoryDevice*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

@@ -14,3 +14,4 @@
 #import <office365_odata_base/MSODataOperations.h>
 #import <office365_odata_base/MSODataBaseContainerHelper.h>
 #import <office365_odata_base/MSODataEntityFetcherHelper.h>
+#import <office365_odata_base/MSODataException.h>

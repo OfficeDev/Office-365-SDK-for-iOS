@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDirectoryExtensionProperty class]];
 }
 
--(NSURLSessionDataTask*) updateExtensionProperty:(id)entity withCallback:(void (^)(MSDirectoryExtensionProperty*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateExtensionProperty:(id)entity withCallback:(void (^)(MSDirectoryExtensionProperty*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteExtensionProperty:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteExtensionProperty:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

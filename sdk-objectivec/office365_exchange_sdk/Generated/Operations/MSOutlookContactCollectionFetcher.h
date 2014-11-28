@@ -20,7 +20,7 @@
 @protocol MSOutlookContactCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContact> *contacts, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContact> *contacts, MSODataException *error))callback;
 
 -(id<MSOutlookContactCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookContactCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSOutlookContactCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookContactCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookContactCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSOutlookContactCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSOutlookContactCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookContactFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addContact:(MSOutlookContact* )entity withCallback:(void (^)(MSOutlookContact *contact, NSError *e))callback;
+-(NSURLSessionDataTask*)addContact:(MSOutlookContact* )entity withCallback:(void (^)(MSOutlookContact *contact, MSODataException *e))callback;
 
 @end

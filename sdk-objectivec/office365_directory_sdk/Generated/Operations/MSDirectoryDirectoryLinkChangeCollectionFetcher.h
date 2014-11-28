@@ -20,7 +20,7 @@
 @protocol MSDirectoryDirectoryLinkChangeCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, MSODataException *error))callback;
 
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)select : (NSString*) params;
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSDirectoryDirectoryLinkChangeCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryLinkChangeCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDirectoryDirectoryLinkChangeFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, NSError *e))callback;
+-(NSURLSessionDataTask*)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange* )entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSODataException *e))callback;
 
 @end

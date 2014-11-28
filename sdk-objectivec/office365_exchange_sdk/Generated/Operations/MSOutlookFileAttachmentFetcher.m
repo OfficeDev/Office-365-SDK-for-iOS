@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookFileAttachment class]];
 }
 
--(NSURLSessionDataTask*) updateFileAttachment:(id)entity withCallback:(void (^)(MSOutlookFileAttachment*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateFileAttachment:(id)entity withCallback:(void (^)(MSOutlookFileAttachment*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteFileAttachment:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteFileAttachment:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

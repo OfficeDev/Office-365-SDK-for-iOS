@@ -23,9 +23,9 @@
 @protocol MSOutlookCalendarFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendar* calendar, NSError *error))callback;
--(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendar* calendar, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

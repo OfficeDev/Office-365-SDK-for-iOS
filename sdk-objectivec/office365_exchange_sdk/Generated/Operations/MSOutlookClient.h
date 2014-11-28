@@ -13,8 +13,9 @@
 #import "MSOutlookUserFetcher.h"
 #import "MSOutlookUserCollectionFetcher.h"
 
+
 /**
-* The header for type MSOutlookOutlookClient.
+* The header for type MSOutlookClient.
 */
 
 @interface MSOutlookClient : MSODataBaseContainer

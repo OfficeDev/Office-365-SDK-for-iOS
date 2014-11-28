@@ -15,15 +15,15 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:nil];
 }
 
--(NSURLSessionDataTask *)getContentWithCallback:(void (^)(NSData * content, NSError * error))callback{
+-(NSURLSessionDataTask *)getContentWithCallback:(void (^)(NSData * content, MSODataException * error))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [[request getUrl] appendPathComponent:@"$value"];
     [request setVerb:GET];
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
         if(e == nil){
-            callback([r getData],e);
+            callback([r getPayload],e);
         }
         else{
             callback(nil,e);
@@ -31,14 +31,14 @@
     }];
 }
 
--(NSURLSessionDataTask *)putContent:(NSData *)content withCallback:(void (^)(NSInteger, NSError *))callback{
+-(NSURLSessionDataTask *)putContent:(NSData *)content withCallback:(void (^)(NSInteger, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [[request getUrl] appendPathComponent:@"$value"];
     [request setVerb:PUT];
     [request setContent:content];
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, NSError *e) {
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         if(e == nil){
             callback([r getStatus],e);
         }

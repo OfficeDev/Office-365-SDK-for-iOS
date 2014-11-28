@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSSharePointDrive class]];
 }
 
--(NSURLSessionDataTask*)addDrive:(MSSharePointDrive*)entity withCallback:(void (^)(MSSharePointDrive *drive, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addDrive:(MSSharePointDrive*)entity withCallback:(void (^)(MSSharePointDrive *drive, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

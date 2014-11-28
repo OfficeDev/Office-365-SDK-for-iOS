@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookContact class]];
 }
 
--(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteContact:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

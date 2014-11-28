@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSDirectoryContact class]];
 }
 
--(NSURLSessionDataTask*)addContact:(MSDirectoryContact*)entity withCallback:(void (^)(MSDirectoryContact *contact, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addContact:(MSDirectoryContact*)entity withCallback:(void (^)(MSDirectoryContact *contact, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

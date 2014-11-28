@@ -24,9 +24,9 @@
 @protocol MSOutlookEventFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookEvent* event, NSError *error))callback;
--(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookEvent* event, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

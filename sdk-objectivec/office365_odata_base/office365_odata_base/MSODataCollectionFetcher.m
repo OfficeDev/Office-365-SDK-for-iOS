@@ -73,7 +73,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, NSError *))callback{
+-(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     [[request getUrl] appendPathComponent:self.UrlComponent];
     
     [MSODataEntityFetcherHelper setPathForCollections:[request getUrl] :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
@@ -97,18 +97,18 @@
     return [self.Parent getResolver];
 }
 
--(NSURLSessionDataTask *)read:(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
 
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [request setVerb:GET];
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
-        id result = [[[self getResolver]getJsonSerializer] deserializeList:[r getData] : self.entityClass];
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        id result = [[[self getResolver]getJsonSerializer] deserializeList:[r getPayload] : self.entityClass];
         callback(result, e);
     }];
 }
 
--(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, NSError *))callback{
+-(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, MSODataException *))callback{
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
@@ -116,8 +116,8 @@
     [request setVerb:POST];
     [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
 
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, NSError *e) {
-        id result = [[[self getResolver]getJsonSerializer] deserialize:[r getData] : self.entityClass];
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        id result = [[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : self.entityClass];
         callback(result, e);
     }];
 }

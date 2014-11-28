@@ -21,8 +21,9 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookEvent class]];
 }
 
--(NSURLSessionDataTask*)addEvent:(MSOutlookEvent*)entity withCallback:(void (^)(MSOutlookEvent *event, NSError *e))callback{
-	return [super add:entity :^(id r, NSError *e) {
+-(NSURLSessionDataTask*)addEvent:(MSOutlookEvent*)entity withCallback:(void (^)(MSOutlookEvent *event, MSODataException *e))callback{
+	
+	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);
     }];
 }

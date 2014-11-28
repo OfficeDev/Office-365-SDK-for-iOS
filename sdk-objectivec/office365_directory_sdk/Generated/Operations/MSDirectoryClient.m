@@ -11,7 +11,7 @@
 
 #import "MSDirectoryClient.h"
 /**
-* The implementation file for type MSDirectoryDirectoryClient.
+* The implementation file for type MSDirectoryClient.
 */
 
 @implementation MSDirectoryClient

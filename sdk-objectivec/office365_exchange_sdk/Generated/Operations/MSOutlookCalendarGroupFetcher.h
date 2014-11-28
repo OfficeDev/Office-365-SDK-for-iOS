@@ -22,9 +22,9 @@
 @protocol MSOutlookCalendarGroupFetcher
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendarGroup* calendarGroup, NSError *error))callback;
--(NSURLSessionDataTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, NSError * error))callback;
--(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, NSError * error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendarGroup* calendarGroup, MSODataException *error))callback;
+-(NSURLSessionDataTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, MSODataException * error))callback;
+-(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback;
 
 @end
 

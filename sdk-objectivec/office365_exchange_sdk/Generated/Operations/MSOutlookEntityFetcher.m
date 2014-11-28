@@ -30,11 +30,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookEntity class]];
 }
 
--(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
@@ -42,29 +42,29 @@
 
 	
 -(MSOutlookUserFetcher*) asUser{
-	return [[MSOutlookUserFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookUserFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookUser class]];
 }
 	
 -(MSOutlookFolderFetcher*) asFolder{
-	return [[MSOutlookFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookFolder class]];
 }
 	
 -(MSOutlookItemFetcher*) asItem{
-	return [[MSOutlookItemFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookItemFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookItem class]];
 }
 	
 -(MSOutlookAttachmentFetcher*) asAttachment{
-	return [[MSOutlookAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookAttachment class]];
 }
 	
 -(MSOutlookCalendarFetcher*) asCalendar{
-	return [[MSOutlookCalendarFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookCalendarFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookCalendar class]];
 }
 	
 -(MSOutlookCalendarGroupFetcher*) asCalendarGroup{
-	return [[MSOutlookCalendarGroupFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookCalendarGroupFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookCalendarGroup class]];
 }
 	
 -(MSOutlookContactFolderFetcher*) asContactFolder{
-	return [[MSOutlookContactFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:nil];
+	return [[MSOutlookContactFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookContactFolder class]];
 }@end

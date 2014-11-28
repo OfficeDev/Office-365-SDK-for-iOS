@@ -32,11 +32,11 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookCalendar class]];
 }
 
--(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, NSError * error))callback{
+-(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, NSError * error))callback{
+-(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

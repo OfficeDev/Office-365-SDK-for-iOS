@@ -17,7 +17,7 @@
 @end
 @interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>
 
--(NSURLSessionDataTask *)read:(void (^)(id entity, NSError *error))callback;
+-(NSURLSessionDataTask *)read:(void (^)(id entity, MSODataException *error))callback;
 
 -(id)initWithUrl:(NSString *)urlComponent parent :(id<MSODataReadable>)parent andEntityClass: (Class)clazz;
 -(MSODataCollectionFetcher*)select : (NSString*) params;
@@ -27,7 +27,7 @@
 -(MSODataCollectionFetcher*)expand : (NSString*) value;
 -(MSODataCollectionFetcher*)orderBy : (NSString*) params;
 -(id<MSODataDependencyResolver>)getResolver;
--(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, NSError* error))callback;
+-(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, MSODataException* error))callback;
 -(MSODataEntityFetcher*)getById : (NSString*) Id;
 
 

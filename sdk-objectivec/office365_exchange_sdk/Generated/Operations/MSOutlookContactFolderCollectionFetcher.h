@@ -20,7 +20,7 @@
 @protocol MSOutlookContactFolderCollectionFetcher
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, NSError *error))callback;
+-(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, MSODataException *error))callback;
 
 -(id<MSOutlookContactFolderCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookContactFolderCollectionFetcher>)filter : (NSString*) params;
@@ -28,13 +28,13 @@
 -(id<MSOutlookContactFolderCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookContactFolderCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookContactFolderCollectionFetcher>)orderBy : (NSString*) params;
-
+-(id<MSOutlookContactFolderCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
 @end
 
 @interface MSOutlookContactFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactFolderCollectionFetcher>
 
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataReadable>)parent;
+-(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookContactFolderFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addContactFolder:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, NSError *e))callback;
+-(NSURLSessionDataTask*)addContactFolder:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *e))callback;
 
 @end
