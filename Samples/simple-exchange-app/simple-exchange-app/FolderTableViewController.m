@@ -58,7 +58,7 @@
 -(void)getFolders{
 
     [[BaseController alloc] getClient:^(MSOutlookClient *client) {
-        NSURLSessionTask* task = [[[client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, NSError *error) {
+        NSURLSessionTask* task = [[[client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

@@ -87,7 +87,7 @@
     return self.CustomParameters;
 }
 
--(MSODataCollectionFetcher*)addCustomParameters : (NSString*)name : (NSString*)value{
+-(MSODataCollectionFetcher*)addCustomParameters : (NSString*)name : (id)value{
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
     [self.CustomParameters addEntriesFromDictionary:dicc];
     return self;

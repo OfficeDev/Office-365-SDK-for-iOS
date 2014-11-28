@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDiscoveryServiceInfo* serviceInfo, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDiscoveryServiceInfoFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

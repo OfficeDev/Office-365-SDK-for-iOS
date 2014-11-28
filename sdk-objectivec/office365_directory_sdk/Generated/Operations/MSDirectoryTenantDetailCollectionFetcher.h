@@ -28,7 +28,8 @@
 -(id<MSDirectoryTenantDetailCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryTenantDetailCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryTenantDetailCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryTenantDetailCollectionFetcher : MSODataCollectionFetcher<MSDirectoryTenantDetailCollectionFetcher>

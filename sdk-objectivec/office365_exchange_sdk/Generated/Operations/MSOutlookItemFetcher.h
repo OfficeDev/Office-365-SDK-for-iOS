@@ -27,6 +27,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSOutlookItem* item, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback;
+-(id<MSOutlookItemFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

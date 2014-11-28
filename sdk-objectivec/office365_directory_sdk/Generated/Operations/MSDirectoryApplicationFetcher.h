@@ -25,6 +25,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryApplication* application, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateApplication:(id)entity withCallback:(void (^)(MSDirectoryApplication*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryApplicationFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

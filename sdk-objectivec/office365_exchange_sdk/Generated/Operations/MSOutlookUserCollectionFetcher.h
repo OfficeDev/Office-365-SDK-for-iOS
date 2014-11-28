@@ -28,7 +28,8 @@
 -(id<MSOutlookUserCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookUserCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookUserCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSOutlookUserCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSOutlookUserCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSOutlookUserCollectionFetcher : MSODataCollectionFetcher<MSOutlookUserCollectionFetcher>

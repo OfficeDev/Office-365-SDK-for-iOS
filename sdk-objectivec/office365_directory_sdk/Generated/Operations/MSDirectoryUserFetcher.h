@@ -28,6 +28,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryUser* user, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSDirectoryUser*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

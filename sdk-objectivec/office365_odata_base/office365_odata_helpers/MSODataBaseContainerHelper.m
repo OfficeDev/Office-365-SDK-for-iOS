@@ -48,7 +48,18 @@
 +(void)addCustomParametersToODataURL : (id<MSODataURL>) url : (NSDictionary*) parameters : (id<MSODataDependencyResolver>) resolver{
     
     for (NSString* key in [parameters allKeys]) {
-        NSString* value = [parameters objectForKey:key];
+        id object = [parameters objectForKey:key];
+        NSString* value = @"";
+        
+        if([object isKindOfClass:[NSDate class]]){
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
+            
+            value = [[[dateFormatter stringFromDate:object] substringToIndex:19] stringByAppendingString:@"Z"];
+        }else{
+            value = [[NSString alloc] initWithFormat: @"\"%@\"", object];
+        }
+        
         [url addQueryStringParameter:value :key];
     }
 }

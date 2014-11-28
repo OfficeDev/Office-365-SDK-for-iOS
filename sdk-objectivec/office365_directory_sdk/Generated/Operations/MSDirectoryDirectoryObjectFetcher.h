@@ -45,6 +45,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryObject* directoryObject, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateDirectoryObject:(id)entity withCallback:(void (^)(MSDirectoryDirectoryObject*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryDirectoryObjectFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

@@ -28,7 +28,8 @@
 -(id<MSDirectoryExtensionPropertyCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryExtensionPropertyCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryExtensionPropertyCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryExtensionPropertyCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryExtensionPropertyCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryExtensionPropertyCollectionFetcher : MSODataCollectionFetcher<MSDirectoryExtensionPropertyCollectionFetcher>

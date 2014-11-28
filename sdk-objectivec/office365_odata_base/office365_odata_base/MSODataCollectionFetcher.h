@@ -12,7 +12,7 @@
 @protocol MSODataCollectionFetcher
 
 @optional
--(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 @interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>

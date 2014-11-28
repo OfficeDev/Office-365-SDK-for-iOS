@@ -28,7 +28,8 @@
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryDirectoryLinkChangeCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryLinkChangeCollectionFetcher>

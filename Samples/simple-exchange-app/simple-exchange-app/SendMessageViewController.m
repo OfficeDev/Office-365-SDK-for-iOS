@@ -46,7 +46,7 @@
         message.Body = [[MSOutlookItemBody alloc] init];
         message.Body.Content = self.txtBody.text;
         
-        NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, NSError *error) {
+        NSURLSessionDataTask* task = [[[client getMe] getOperations]sendMail:message :true :^(int returnValue, MSODataException *error) {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
             [alert show];
