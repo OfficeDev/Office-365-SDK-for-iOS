@@ -28,7 +28,8 @@
 -(id<MSOutlookContactFolderCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookContactFolderCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookContactFolderCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSOutlookContactFolderCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSOutlookContactFolderCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSOutlookContactFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactFolderCollectionFetcher>

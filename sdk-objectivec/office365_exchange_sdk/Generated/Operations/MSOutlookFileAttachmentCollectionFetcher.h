@@ -28,7 +28,8 @@
 -(id<MSOutlookFileAttachmentCollectionFetcher>)skip : (int) value;
 -(id<MSOutlookFileAttachmentCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookFileAttachmentCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSOutlookFileAttachmentCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSOutlookFileAttachmentCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSOutlookFileAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookFileAttachmentCollectionFetcher>

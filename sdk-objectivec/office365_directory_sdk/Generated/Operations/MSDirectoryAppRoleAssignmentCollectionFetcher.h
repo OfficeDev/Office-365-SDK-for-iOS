@@ -28,7 +28,8 @@
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryAppRoleAssignmentCollectionFetcher : MSODataCollectionFetcher<MSDirectoryAppRoleAssignmentCollectionFetcher>

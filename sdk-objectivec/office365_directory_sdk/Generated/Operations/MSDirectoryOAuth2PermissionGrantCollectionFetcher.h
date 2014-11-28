@@ -28,7 +28,8 @@
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryOAuth2PermissionGrantCollectionFetcher : MSODataCollectionFetcher<MSDirectoryOAuth2PermissionGrantCollectionFetcher>

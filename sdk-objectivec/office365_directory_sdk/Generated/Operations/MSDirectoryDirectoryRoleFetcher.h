@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryRole* directoryRole, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateDirectoryRole:(id)entity withCallback:(void (^)(MSDirectoryDirectoryRole*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteDirectoryRole:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryDirectoryRoleFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSOutlookFileAttachment* fileAttachment, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateFileAttachment:(id)entity withCallback:(void (^)(MSOutlookFileAttachment*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteFileAttachment:(void (^)(int status, MSODataException * error))callback;
+-(id<MSOutlookFileAttachmentFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

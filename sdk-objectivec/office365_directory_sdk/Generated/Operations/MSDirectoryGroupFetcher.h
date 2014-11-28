@@ -25,6 +25,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryGroup* group, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateGroup:(id)entity withCallback:(void (^)(MSDirectoryGroup*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryGroupFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

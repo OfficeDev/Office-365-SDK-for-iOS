@@ -31,6 +31,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSOutlookEntity* entity, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback;
+-(id<MSOutlookEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

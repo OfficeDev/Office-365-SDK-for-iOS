@@ -28,7 +28,8 @@
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)skip : (int) value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>

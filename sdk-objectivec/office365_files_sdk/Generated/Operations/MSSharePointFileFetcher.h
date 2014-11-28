@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSSharePointFile* file, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteFile:(void (^)(int status, MSODataException * error))callback;
+-(id<MSSharePointFileFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

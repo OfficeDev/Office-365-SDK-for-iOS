@@ -16,9 +16,10 @@
 -(NSURLSessionDataTask*) update: (id)entity : (void (^)(id entity, MSODataException * error))callback;
 -(NSURLSessionDataTask*) delete : (void (^)(int status, MSODataException * error))callback;
 -(id<MSODataDependencyResolver>) getResolver;
--(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+
 @optional
 -(id) getOperations;
+-(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

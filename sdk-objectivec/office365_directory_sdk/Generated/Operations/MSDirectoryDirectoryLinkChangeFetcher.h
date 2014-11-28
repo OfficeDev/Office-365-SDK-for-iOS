@@ -24,6 +24,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSDirectoryDirectoryLinkChange* directoryLinkChange, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateDirectoryLinkChange:(id)entity withCallback:(void (^)(MSDirectoryDirectoryLinkChange*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteDirectoryLinkChange:(void (^)(int status, MSODataException * error))callback;
+-(id<MSDirectoryDirectoryLinkChangeFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 

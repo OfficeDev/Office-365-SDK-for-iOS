@@ -28,7 +28,8 @@
 -(id<MSDirectoryUserCollectionFetcher>)skip : (int) value;
 -(id<MSDirectoryUserCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryUserCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSDirectoryUserCollectionFetcher>)addCustomParameters : (NSString*)name : (NSString*)value;
+-(id<MSDirectoryUserCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
+
 @end
 
 @interface MSDirectoryUserCollectionFetcher : MSODataCollectionFetcher<MSDirectoryUserCollectionFetcher>

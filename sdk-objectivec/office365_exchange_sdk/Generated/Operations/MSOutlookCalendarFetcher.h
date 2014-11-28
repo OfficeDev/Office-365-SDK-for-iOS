@@ -26,6 +26,7 @@
 -(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendar* calendar, MSODataException *error))callback;
 -(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback;
+-(id<MSOutlookCalendarFetcher>)addCustomParameters : (NSString*)name : (id)value;
 
 @end
 
