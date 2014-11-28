@@ -34,7 +34,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
   #import <office365_odata_base/office365_odata_base.h>
   
   #import <office365_exchange_sdk/office365_exchange_sdk.h>
-  #import <office365_drive_sdk/office365_drive_sdk.h>
+  #import <office365_files_sdk/office365_files_sdk.h>
   #import <office365_directory_sdk/office365_directory_sdk.h>
   ```
 
@@ -47,23 +47,23 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
   ```Objective-C
   NSString *accessToken = tokenReturnedByADAL;
-  MSDefaultDependencyResolver *resolver = [[MSDefaultDependencyResolver alloc] init];
-  MSOAuthCredentials *credentials = [[MSOAuthCredentials alloc] init];
+  MSODataDefaultDependencyResolver *resolver = [[MSODataDefaultDependencyResolver alloc] init];
+  MSODataOAuthCredentials *credentials = [[MSODataOAuthCredentials alloc] init];
   [credentials addToken:accessToken];
   
-  MSCredentialsImpl* credentialsImpl = [[MSCredentialsImpl alloc] init];
+  MSODataCredentialsImpl* credentialsImpl = [[MSODataCredentialsImpl alloc] init];
   
   [credentialsImpl setCredentials:credentials];
   [resolver setCredentialsFactory:credentialsImpl];
   
-  MSOutlookClient *client =[[MSOutlookClient alloc] initWitUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
+  MSODataOutlookClient *client =[[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
   ```
 
 6. Now, use the SDK to automate API calls and get the data you need.
   Here's how to get all the messages for the current user.
 
   ```Objective-C
-  NSURLSessionTask* task = [[[client getMe] getMessages] execute:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
+  NSURLSessionTask* task = [[[client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
     if(error == nil){
       dispatch_async(dispatch_get_main_queue(),
         ^{
