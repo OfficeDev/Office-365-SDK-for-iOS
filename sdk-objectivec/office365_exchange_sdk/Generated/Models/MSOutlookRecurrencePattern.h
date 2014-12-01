@@ -35,7 +35,6 @@
 @property int Month;
 
 @property NSMutableArray<MSOutlookDayOfWeek> DaysOfWeek;
--(void)setDaysOfWeekString:(NSString*)value;
 @property MSOutlookDayOfWeek FirstDayOfWeek;
 -(void)setFirstDayOfWeekString:(NSString*)value;
 @property MSOutlookWeekIndex Index;

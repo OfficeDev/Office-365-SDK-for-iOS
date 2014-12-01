@@ -43,29 +43,7 @@
         self.Type = RelativeYearly;
     }
 }
--(void)setDaysOfWeekString:(NSString*)value{
-	if([value isEqualToString:@"Sunday"]){
-        self.DaysOfWeek = Sunday;
-    }
-	if([value isEqualToString:@"Monday"]){
-        self.DaysOfWeek = Monday;
-    }
-	if([value isEqualToString:@"Tuesday"]){
-        self.DaysOfWeek = Tuesday;
-    }
-	if([value isEqualToString:@"Wednesday"]){
-        self.DaysOfWeek = Wednesday;
-    }
-	if([value isEqualToString:@"Thursday"]){
-        self.DaysOfWeek = Thursday;
-    }
-	if([value isEqualToString:@"Friday"]){
-        self.DaysOfWeek = Friday;
-    }
-	if([value isEqualToString:@"Saturday"]){
-        self.DaysOfWeek = Saturday;
-    }
-}
+
 -(void)setFirstDayOfWeekString:(NSString*)value{
 	if([value isEqualToString:@"Sunday"]){
         self.FirstDayOfWeek = Sunday;
@@ -89,6 +67,7 @@
         self.FirstDayOfWeek = Saturday;
     }
 }
+
 -(void)setIndexString:(NSString*)value{
 	if([value isEqualToString:@"First"]){
         self.Index = First;
