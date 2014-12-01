@@ -763,7 +763,7 @@
 -(NSURLSessionDataTask*)TestCreateMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     newMessage.Body = [[MSOutlookItemBody alloc] init];
-    newMessage.Body.ContentType = Text;
+  //  newMessage.Body.ContentType = Text;
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         BOOL passed = false;
         
@@ -794,7 +794,7 @@
 
 -(NSURLSessionDataTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" : self.TestMail : @""];
-    newMessage.Body.ContentType = HTML;//[MSOutlookBodyType1 alloc];//(MSOutlookBodyType).HTML;
+    //newMessage.Body.ContentType = HTML;//[MSOutlookBodyType1 alloc];//(MSOutlookBodyType).HTML;
     newMessage.Body.Content = @"<div>Html Test</div>";
     
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
@@ -960,7 +960,7 @@
 -(NSURLSessionDataTask*)TestSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Html Subject" : self.TestMail : @""];
     [newMessage.Body setContent:@"<h1>This is an Html body.</h1><a href='#'>With Link!</a>"];
-    [newMessage.Body setContentType: HTML];
+    //[newMessage.Body setContentType: HTML];
     
     //Send Mail
     NSURLSessionDataTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
@@ -1132,7 +1132,8 @@
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject :self.TestMail :@"" ];
     [message.Body setContent:@"<h1>This is an Html body.</h1>"];
-    [message.Body setContentType: HTML];
+    //[message.Body setContentType: HTML];
+    message.Body.ContentType = HTML;
     
     //Send mail with HTML body
     NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, MSODataException *error) {
@@ -2146,8 +2147,8 @@
     //Event Body
     MSOutlookItemBody *itemBody = [[MSOutlookItemBody alloc] init];
     [itemBody setContent:@"This is the appointment info"];
-    MSOutlookBodyType bt = Text;
-    [itemBody setContentType: bt];
+   // MSOutlookBodyType bt = Text;
+    //[itemBody setContentType: bt];
     [event setBody:itemBody];
     
     // Attendees

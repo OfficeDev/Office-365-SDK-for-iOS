@@ -14,6 +14,7 @@
 
 -(id<MSODataDependencyResolver>) getResolver;
 -(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback;
+-(id<MSODataExecutable>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @required
 
@@ -21,6 +22,7 @@
 @property id<MSODataExecutable> Parent;
 
 -(NSDictionary*)getCustomParameters;
+-(NSDictionary*)getCustomHeaders;
 
 @end
 
@@ -29,5 +31,6 @@
 @property NSString* UrlComponent;
 @property id<MSODataExecutable> Parent;
 @property NSMutableDictionary* CustomParameters;
+@property NSMutableDictionary* CustomHeaders;
 
 @end

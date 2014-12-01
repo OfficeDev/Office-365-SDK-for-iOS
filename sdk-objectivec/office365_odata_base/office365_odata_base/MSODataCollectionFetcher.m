@@ -36,6 +36,7 @@
     self.entityClass = clazz;
     [self reset];
     self.CustomParameters = [[NSMutableDictionary alloc] init];
+    self.CustomHeaders = [[NSMutableDictionary alloc] init];
    // self.operations = [[operationClass alloc] initWith:@"" : self];
 
     return self;
@@ -78,7 +79,7 @@
     
     [MSODataEntityFetcherHelper setPathForCollections:[request getUrl] :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
     
-    [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:request:[self getCustomParameters] : [self getCustomHeaders]:[self getResolver]];
     
     return [self.Parent oDataExecuteWithRequest:request callback:callback];
 }

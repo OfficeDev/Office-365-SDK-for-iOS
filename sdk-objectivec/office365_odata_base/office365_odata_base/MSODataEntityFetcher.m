@@ -27,12 +27,13 @@
     self.operations = [[MSODataOperations alloc] initOperationWithUrl:@"" parent:parent];
     self.entityClass = entityClass;
     self.CustomParameters = [[NSMutableDictionary alloc] init];
+    self.CustomHeaders = [[NSMutableDictionary alloc] init];
     return self;
 }
 
 -(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     [[request getUrl] appendPathComponent:self.UrlComponent];
-    [MSODataBaseContainerHelper addCustomParametersToODataURL:[request getUrl] :[self getCustomParameters]:[self getResolver]];
+    [MSODataBaseContainerHelper addCustomParametersToODataURL:request :[self getCustomParameters] : [self getCustomHeaders] :[self getResolver]];
     
     return [self.Parent oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
         callback(r,e);

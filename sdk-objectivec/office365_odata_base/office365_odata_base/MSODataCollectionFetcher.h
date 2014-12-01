@@ -13,7 +13,7 @@
 
 @optional
 -(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSODataCollectionFetcher>)addCustomHeaderWithName:(NSString *)name :(id)andValue :(NSString *)value;
 @end
 @interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>
 

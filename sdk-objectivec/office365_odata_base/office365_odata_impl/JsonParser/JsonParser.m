@@ -357,7 +357,19 @@
     
     @try {
         
-        [returnType setValue:value forKeyPath:property.Name];
+        if([property isEnum]) {
+            
+            NSString* method = [[NSString alloc] initWithFormat:@"set%@String:", property.Name];
+            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [returnType performSelector: NSSelectorFromString (method) withObject:value];
+#pragma clang diagnostic pop
+        }
+        else{
+            [returnType setValue:value forKeyPath:property.Name];
+        }
+
     }
     @catch (NSException *exception) {
     }

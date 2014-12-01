@@ -45,7 +45,7 @@
     return self.Resolver;
 }
 
-+(void)addCustomParametersToODataURL : (id<MSODataURL>) url : (NSDictionary*) parameters : (id<MSODataDependencyResolver>) resolver{
++(void)addCustomParametersToODataURL : (id<MSODataRequest>) request : (NSDictionary*) parameters : (NSDictionary*) headers : (id<MSODataDependencyResolver>) resolver{
     
     for (NSString* key in [parameters allKeys]) {
         id object = [parameters objectForKey:key];
@@ -61,7 +61,11 @@
             value = [[NSString alloc] initWithFormat: @"\"%@\"", object];
         }
         
-        [url addQueryStringParameter:key : value];
+        [[request getUrl] addQueryStringParameter:key : value];
+    }
+    
+    for (NSString* header in [headers allKeys]) {
+        [request addHeader:header : [headers objectForKey:header]];
     }
 }
 

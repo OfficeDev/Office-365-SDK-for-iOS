@@ -20,6 +20,7 @@
 @optional
 -(id) getOperations;
 -(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSODataEntityFetcher>)addCustomHeaderWithName:(NSString *)name :(id)andValue :(NSString *)value;
 
 @end
 
