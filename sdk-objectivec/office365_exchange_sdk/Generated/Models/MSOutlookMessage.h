@@ -33,6 +33,7 @@
 
 @property MSOutlookImportance Importance;
 
+-(void)setImportanceString:(NSString*)value;
 @property bool HasAttachments;
 
 @property NSString *ParentFolderId;

@@ -22,4 +22,50 @@
 	return self;
 }
 
+
+-(void)setImportanceString:(NSString*)value{
+	if([value isEqualToString:@"Low"]){
+        self.Importance = Low;
+    }
+	if([value isEqualToString:@"Normal"]){
+        self.Importance = Normal;
+    }
+	if([value isEqualToString:@"High"]){
+        self.Importance = High;
+    }
+}
+-(void)setShowAsString:(NSString*)value{
+	if([value isEqualToString:@"Free"]){
+        self.ShowAs = Free;
+    }
+	if([value isEqualToString:@"Tentative"]){
+        self.ShowAs = Tentative;
+    }
+	if([value isEqualToString:@"Busy"]){
+        self.ShowAs = Busy;
+    }
+	if([value isEqualToString:@"Oof"]){
+        self.ShowAs = Oof;
+    }
+	if([value isEqualToString:@"WorkingElsewhere"]){
+        self.ShowAs = WorkingElsewhere;
+    }
+	if([value isEqualToString:@"Unknown"]){
+        self.ShowAs = Unknown;
+    }
+}
+-(void)setTypeString:(NSString*)value{
+	if([value isEqualToString:@"SingleInstance"]){
+        self.Type = SingleInstance;
+    }
+	if([value isEqualToString:@"Occurrence"]){
+        self.Type = Occurrence;
+    }
+	if([value isEqualToString:@"Exception"]){
+        self.Type = Exception;
+    }
+	if([value isEqualToString:@"SeriesMaster"]){
+        self.Type = SeriesMaster;
+    }
+}
 @end

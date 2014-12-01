@@ -22,4 +22,16 @@
 	return self;
 }
 
+
+-(void)setTypeString:(NSString*)value{
+	if([value isEqualToString:@"Required"]){
+        self.Type = Required;
+    }
+	if([value isEqualToString:@"Optional"]){
+        self.Type = Optional;
+    }
+	if([value isEqualToString:@"Resource"]){
+        self.Type = Resource;
+    }
+}
 @end

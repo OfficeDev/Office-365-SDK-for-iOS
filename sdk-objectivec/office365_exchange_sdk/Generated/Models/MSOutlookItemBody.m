@@ -22,4 +22,13 @@
 	return self;
 }
 
+
+-(void)setContentTypeString:(NSString*)value{
+	if([value isEqualToString:@"Text"]){
+        self.ContentType = Text;
+    }
+	if([value isEqualToString:@"HTML"]){
+        self.ContentType = HTML;
+    }
+}
 @end

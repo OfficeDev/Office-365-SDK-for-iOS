@@ -25,7 +25,7 @@
 @property NSString *$$__ODataType;
 
 @property MSOutlookRecurrenceRangeType Type;
-
+-(void)setTypeString:(NSString*)value;
 @property NSDate *StartDate;
 
 @property NSDate *EndDate;

@@ -40,6 +40,7 @@
 
 @property MSOutlookImportance Importance;
 
+-(void)setImportanceString:(NSString*)value;
 @property bool HasAttachments;
 
 @property NSDate *Start;
@@ -50,6 +51,7 @@
 
 @property MSOutlookFreeBusyStatus ShowAs;
 
+-(void)setShowAsString:(NSString*)value;
 @property bool IsAllDay;
 
 @property bool IsCancelled;
@@ -60,6 +62,7 @@
 
 @property MSOutlookEventType Type;
 
+-(void)setTypeString:(NSString*)value;
 @property NSString *SeriesMasterId;
 
 @property NSMutableArray<MSOutlookAttendee> *Attendees;

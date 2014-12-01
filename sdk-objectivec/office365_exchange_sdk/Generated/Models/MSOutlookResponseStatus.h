@@ -25,7 +25,7 @@
 @property NSString *$$__ODataType;
 
 @property MSOutlookResponseType Response;
-
+-(void)setResponseString:(NSString*)value;
 @property NSDate *Time;
 
 

@@ -22,4 +22,16 @@
 	return self;
 }
 
+
+-(void)setTypeString:(NSString*)value{
+	if([value isEqualToString:@"EndDate"]){
+        self.Type = EndDate;
+    }
+	if([value isEqualToString:@"NoEnd"]){
+        self.Type = NoEnd;
+    }
+	if([value isEqualToString:@"Numbered"]){
+        self.Type = Numbered;
+    }
+}
 @end

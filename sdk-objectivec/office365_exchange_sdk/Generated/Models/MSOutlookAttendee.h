@@ -26,6 +26,6 @@
 @property MSOutlookResponseStatus *Status;
 
 @property MSOutlookAttendeeType Type;
-
+-(void)setTypeString:(NSString*)value;
 
 @end

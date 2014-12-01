@@ -22,4 +22,25 @@
 	return self;
 }
 
+
+-(void)setResponseString:(NSString*)value{
+	if([value isEqualToString:@"None"]){
+        self.Response = None;
+    }
+	if([value isEqualToString:@"Organizer"]){
+        self.Response = Organizer;
+    }
+	if([value isEqualToString:@"TentativelyAccepted"]){
+        self.Response = TentativelyAccepted;
+    }
+	if([value isEqualToString:@"Accepted"]){
+        self.Response = Accepted;
+    }
+	if([value isEqualToString:@"Declined"]){
+        self.Response = Declined;
+    }
+	if([value isEqualToString:@"NotResponded"]){
+        self.Response = NotResponded;
+    }
+}
 @end
