@@ -12,7 +12,6 @@
 #import "MSOutlookRecurrencePatternType.h"
 #import "MSOutlookDayOfWeek.h"
 #import "MSOutlookWeekIndex.h"
-
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
 
@@ -34,7 +33,7 @@
 
 @property int Month;
 
-@property NSMutableArray<MSOutlookDayOfWeek> DaysOfWeek;
+@property NSMutableArray<MSOutlookDayOfWeek>* DaysOfWeek;
 @property MSOutlookDayOfWeek FirstDayOfWeek;
 -(void)setFirstDayOfWeekString:(NSString*)value;
 @property MSOutlookWeekIndex Index;

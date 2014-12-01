@@ -29,7 +29,7 @@
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryAppRoleAssignmentCollectionFetcher : MSODataCollectionFetcher<MSDirectoryAppRoleAssignmentCollectionFetcher>

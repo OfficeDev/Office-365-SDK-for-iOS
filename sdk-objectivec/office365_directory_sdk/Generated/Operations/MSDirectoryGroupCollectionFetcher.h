@@ -29,7 +29,7 @@
 -(id<MSDirectoryGroupCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryGroupCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryGroupCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryGroupCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryGroupCollectionFetcher : MSODataCollectionFetcher<MSDirectoryGroupCollectionFetcher>

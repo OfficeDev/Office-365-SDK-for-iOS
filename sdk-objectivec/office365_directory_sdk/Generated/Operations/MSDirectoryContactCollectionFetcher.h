@@ -29,7 +29,7 @@
 -(id<MSDirectoryContactCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryContactCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryContactCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryContactCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryContactCollectionFetcher : MSODataCollectionFetcher<MSDirectoryContactCollectionFetcher>

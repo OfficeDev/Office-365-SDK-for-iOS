@@ -25,6 +25,7 @@
 -(NSURLSessionDataTask*) updateTenantDetail:(id)entity withCallback:(void (^)(MSDirectoryTenantDetail*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryTenantDetailFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSDirectoryTenantDetailFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @end
 

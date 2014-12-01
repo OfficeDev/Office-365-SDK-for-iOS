@@ -25,6 +25,7 @@
 -(NSURLSessionDataTask*) updateDrive:(id)entity withCallback:(void (^)(MSSharePointDrive*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteDrive:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointDriveFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSSharePointDriveFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @end
 

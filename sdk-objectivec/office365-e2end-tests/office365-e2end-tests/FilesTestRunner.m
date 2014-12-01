@@ -342,7 +342,7 @@
     // Add new item
     NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Delete item
-        [[[[self.Client getfiles] getById:addedItem.id] deleteItem:^(int status, MSODataException *error) {
+        [[[[[self.Client getfiles] getById:addedItem.id]deleteItem:^(int status, MSODataException *error) {
             
             BOOL passed = false;
             

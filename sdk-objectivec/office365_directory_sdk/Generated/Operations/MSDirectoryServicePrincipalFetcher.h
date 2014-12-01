@@ -28,6 +28,7 @@
 -(NSURLSessionDataTask*) updateServicePrincipal:(id)entity withCallback:(void (^)(MSDirectoryServicePrincipal*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryServicePrincipalFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSDirectoryServicePrincipalFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @end
 

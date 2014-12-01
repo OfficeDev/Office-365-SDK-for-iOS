@@ -29,7 +29,7 @@
 -(id<MSDirectoryTenantDetailCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryTenantDetailCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryTenantDetailCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryTenantDetailCollectionFetcher : MSODataCollectionFetcher<MSDirectoryTenantDetailCollectionFetcher>

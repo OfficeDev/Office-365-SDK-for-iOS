@@ -29,7 +29,7 @@
 -(id<MSSharePointDriveCollectionFetcher>)expand : (NSString*) value;
 -(id<MSSharePointDriveCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSSharePointDriveCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSSharePointDriveCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>

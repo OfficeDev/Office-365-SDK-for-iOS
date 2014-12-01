@@ -29,7 +29,7 @@
 -(id<MSOutlookItemAttachmentCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookItemAttachmentCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookItemAttachmentCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSOutlookItemAttachmentCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSOutlookItemAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookItemAttachmentCollectionFetcher>

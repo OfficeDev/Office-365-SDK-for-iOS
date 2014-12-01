@@ -25,6 +25,7 @@
 -(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookContactFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSOutlookContactFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @end
 

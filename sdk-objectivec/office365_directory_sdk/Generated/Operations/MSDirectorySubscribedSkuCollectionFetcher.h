@@ -29,7 +29,7 @@
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectorySubscribedSkuCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectorySubscribedSkuCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectorySubscribedSkuCollectionFetcher : MSODataCollectionFetcher<MSDirectorySubscribedSkuCollectionFetcher>

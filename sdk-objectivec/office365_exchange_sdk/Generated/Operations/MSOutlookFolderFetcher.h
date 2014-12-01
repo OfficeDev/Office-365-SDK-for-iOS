@@ -27,6 +27,7 @@
 -(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
+-(id<MSOutlookFolderFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 
 @end
 

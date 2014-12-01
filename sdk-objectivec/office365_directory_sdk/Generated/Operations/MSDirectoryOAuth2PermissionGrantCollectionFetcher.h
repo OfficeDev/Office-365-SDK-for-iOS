@@ -29,7 +29,7 @@
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryOAuth2PermissionGrantCollectionFetcher : MSODataCollectionFetcher<MSDirectoryOAuth2PermissionGrantCollectionFetcher>

@@ -29,7 +29,7 @@
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>

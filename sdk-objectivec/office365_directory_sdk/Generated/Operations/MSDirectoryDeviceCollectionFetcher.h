@@ -29,7 +29,7 @@
 -(id<MSDirectoryDeviceCollectionFetcher>)expand : (NSString*) value;
 -(id<MSDirectoryDeviceCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDirectoryDeviceCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
-
+-(id<MSDirectoryDeviceCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
 @end
 
 @interface MSDirectoryDeviceCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDeviceCollectionFetcher>
