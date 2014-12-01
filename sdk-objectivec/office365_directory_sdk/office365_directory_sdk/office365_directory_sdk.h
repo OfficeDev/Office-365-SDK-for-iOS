@@ -24,7 +24,6 @@ FOUNDATION_EXPORT const unsigned char office365_directory_sdkVersionString[];
 #import <office365_directory_sdk/MSDirectoryAppRoleAssignmentCollectionOperations.h>
 #import <office365_directory_sdk/MSDirectoryAppRoleAssignmentFetcher.h>
 #import <office365_directory_sdk/MSDirectoryAppRoleAssignmentOperations.h>
-#import <office365_directory_sdk/MSDirectoryBaseODataContainer.h>
 #import <office365_directory_sdk/MSDirectoryClient.h>
 #import <office365_directory_sdk/MSDirectoryContactCollectionFetcher.h>
 #import <office365_directory_sdk/MSDirectoryContactCollectionOperations.h>
@@ -66,11 +65,6 @@ FOUNDATION_EXPORT const unsigned char office365_directory_sdkVersionString[];
 #import <office365_directory_sdk/MSDirectoryOAuth2PermissionGrantCollectionOperations.h>
 #import <office365_directory_sdk/MSDirectoryOAuth2PermissionGrantFetcher.h>
 #import <office365_directory_sdk/MSDirectoryOAuth2PermissionGrantOperations.h>
-#import <office365_directory_sdk/MSDirectoryODataCollectionFetcher.h>
-#import <office365_directory_sdk/MSDirectoryODataEntityFetcher.h>
-#import <office365_directory_sdk/MSDirectoryODataExecutable.h>
-#import <office365_directory_sdk/MSDirectoryODataMediaEntityFetcher.h>
-#import <office365_directory_sdk/MSDirectoryODataOperations.h>
 #import <office365_directory_sdk/MSDirectoryServicePrincipalCollectionFetcher.h>
 #import <office365_directory_sdk/MSDirectoryServicePrincipalCollectionOperations.h>
 #import <office365_directory_sdk/MSDirectoryServicePrincipalFetcher.h>
@@ -87,6 +81,3 @@ FOUNDATION_EXPORT const unsigned char office365_directory_sdkVersionString[];
 #import <office365_directory_sdk/MSDirectoryUserCollectionOperations.h>
 #import <office365_directory_sdk/MSDirectoryUserFetcher.h>
 #import <office365_directory_sdk/MSDirectoryUserOperations.h>
-
-#import <office365_directory_sdk/MSDirectoryBaseODataContainerHelper.h>
-#import <office365_directory_sdk/MSDirectoryEntityFetcherHelper.h>

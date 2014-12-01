@@ -41,7 +41,7 @@
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                                   [[[client getResolver] getLogger]log:@"Got results" :(MSLogLevel *)INFO];
+                                   [[[client getResolver] getLogger]log:@"Got results" :(MSODataLogLevel *)INFO];
                                    
                                    self.lblDisplayName.text = user.DisplayName;
                                    self.lblAlias.text = user.Alias;

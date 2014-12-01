@@ -16,11 +16,11 @@
     
     [loginController getTokenWith : hostName :true completionHandler:^(NSString *token) {
     
-        MSDefaultDependencyResolver* resolver = [MSDefaultDependencyResolver alloc];
-        MSOAuthCredentials* credentials = [MSOAuthCredentials alloc];
+        MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
+        MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
         [credentials addToken: token];
         
-        MSCredentialsImpl* credentialsImpl = [MSCredentialsImpl alloc];
+        MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
         
         [credentialsImpl setCredentials:credentials];
         [resolver setCredentialsFactory:credentialsImpl];

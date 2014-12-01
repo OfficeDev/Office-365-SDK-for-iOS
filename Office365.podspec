@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "Office365"
-  s.version      = "0.5.5"
+  s.version      = "0.6.0"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
 
   s.description  = <<-DESC
@@ -85,10 +85,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Files' do |subspec|
-     subspec.source_files = "sdk-objectivec/office365_drive_sdk/**/*.{h,m}"
+     subspec.source_files = "sdk-objectivec/office365_files_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
-     subspec.public_header_files = "sdk-objectivec/office365_drive_sdk/**/*.h"
-     subspec.header_dir = "office365_drive_sdk"
+     subspec.public_header_files = "sdk-objectivec/office365_files_sdk/**/*.h"
+     subspec.header_dir = "office365_files_sdk"
   end
 
   s.subspec 'Directory' do |subspec|

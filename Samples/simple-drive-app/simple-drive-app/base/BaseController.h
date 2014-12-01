@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_drive_sdk/office365_drive_sdk.h>
+#import <office365_files_sdk/office365_files_sdk.h>
 
 @interface BaseController : NSObject
 
