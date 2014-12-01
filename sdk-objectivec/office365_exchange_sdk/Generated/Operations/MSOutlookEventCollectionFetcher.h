@@ -29,7 +29,7 @@
 -(id<MSOutlookEventCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookEventCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookEventCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookEventCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookEventCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 @end
 
 @interface MSOutlookEventCollectionFetcher : MSODataCollectionFetcher<MSOutlookEventCollectionFetcher>

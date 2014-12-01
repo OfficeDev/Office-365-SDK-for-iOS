@@ -28,7 +28,7 @@
 -(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookEventFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookEventFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookEventFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 
 @end
 

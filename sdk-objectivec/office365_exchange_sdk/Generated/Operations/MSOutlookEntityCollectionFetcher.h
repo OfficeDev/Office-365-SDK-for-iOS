@@ -29,7 +29,7 @@
 -(id<MSOutlookEntityCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookEntityCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookEntityCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookEntityCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookEntityCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 @end
 
 @interface MSOutlookEntityCollectionFetcher : MSODataCollectionFetcher<MSOutlookEntityCollectionFetcher>

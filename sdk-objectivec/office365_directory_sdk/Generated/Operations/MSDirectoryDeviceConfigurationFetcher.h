@@ -25,7 +25,7 @@
 -(NSURLSessionDataTask*) updateDeviceConfiguration:(id)entity withCallback:(void (^)(MSDirectoryDeviceConfiguration*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteDeviceConfiguration:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDeviceConfigurationFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSDirectoryDeviceConfigurationFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSDirectoryDeviceConfigurationFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 
 @end
 

@@ -29,7 +29,7 @@
 -(id<MSSharePointItemCollectionFetcher>)expand : (NSString*) value;
 -(id<MSSharePointItemCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSSharePointItemCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSSharePointItemCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSSharePointItemCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 @end
 
 @interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>

@@ -27,7 +27,7 @@
 -(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSSharePointItem*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointItemFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSSharePointItemFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSSharePointItemFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 
 @end
 

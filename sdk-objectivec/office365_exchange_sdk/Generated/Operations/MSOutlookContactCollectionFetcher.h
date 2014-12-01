@@ -29,7 +29,7 @@
 -(id<MSOutlookContactCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookContactCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookContactCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookContactCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookContactCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 @end
 
 @interface MSOutlookContactCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactCollectionFetcher>

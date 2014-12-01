@@ -29,7 +29,7 @@
 -(id<MSOutlookCalendarGroupCollectionFetcher>)expand : (NSString*) value;
 -(id<MSOutlookCalendarGroupCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookCalendarGroupCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookCalendarGroupCollectionFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookCalendarGroupCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 @end
 
 @interface MSOutlookCalendarGroupCollectionFetcher : MSODataCollectionFetcher<MSOutlookCalendarGroupCollectionFetcher>

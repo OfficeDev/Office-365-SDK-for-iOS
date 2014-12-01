@@ -35,7 +35,7 @@
 -(NSURLSessionDataTask*) updateUser:(id)entity withCallback:(void (^)(MSOutlookUser*, MSODataException * error))callback;
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSOutlookUserFetcher>)addCustomHeaderWithName : (NSString*)name : andValue : (NSString*) value;
+-(id<MSOutlookUserFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 
 @end
 
