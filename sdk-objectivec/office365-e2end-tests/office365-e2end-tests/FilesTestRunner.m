@@ -100,7 +100,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id] delete:^(int status, MSODataException *error) {
+                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"] deleteItem:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -145,7 +145,7 @@
                 
                 //Cleanup
                 if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
+                    [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -195,7 +195,7 @@
                     
                     //Cleanup
                     if(addedItem!= nil)
-                        [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
+                        [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
                             if(error!= nil)
                                 NSLog(@"Error: %@", error);
                         }]resume];
@@ -269,14 +269,15 @@
                 [test.ExecutionMessages addObject:message];
                 
                 //cleanup
-                if(addedItem!= nil)
-                    [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
+                if(addedItem!= nil){
+                    [[[[[self.Client getfiles]getById:addedItem.id]addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
-                    }]resume];
-                
+                    }] resume];
+                }
+            
                 if(addedItem2!= nil)
-                    [[[[self.Client getfiles]getById:addedItem2.id]delete:^(int status, MSODataException *error) {
+                    [[[[[self.Client getfiles]getById:addedItem2.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }]resume];
@@ -323,7 +324,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[self.Client getfiles]getById:addedItem.id]delete:^(int status, MSODataException *error) {
+                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -342,8 +343,8 @@
     // Add new item
     NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Delete item
-        [[[[[self.Client getfiles] getById:addedItem.id]deleteItem:^(int status, MSODataException *error) {
-            
+        
+        [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"] deleteItem:^(int status, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -365,7 +366,8 @@
             [test.ExecutionMessages addObject:message];
             
             result(test);
-        }]resume];
+
+        }] resume];
     }];
     
     return task;

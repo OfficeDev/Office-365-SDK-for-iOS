@@ -15,7 +15,7 @@
 
 -(id<MSODataExecutable>)addCustomHeaderWithName:(NSString *)name andValue :(NSString *)value{
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
-    [self.CustomParameters addEntriesFromDictionary:dicc];
+    [self.CustomHeaders addEntriesFromDictionary:dicc];
     return self;
 }
 
