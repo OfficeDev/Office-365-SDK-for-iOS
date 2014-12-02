@@ -44,15 +44,9 @@
     
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
-    id<MSODataRequest> request = [[self getResolver] createODataRequest];
-    
-    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setVerb:PATCH];
-    
-    
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+    return [self updateRaw:payload :^(NSString *r, MSODataException *e) {
         if (e == nil) {
-            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getPayload] :self.entityClass];
+            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :self.entityClass];
             
             callback(entity, e);
         }
@@ -98,13 +92,9 @@
 
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
     
-    id<MSODataRequest> request = [[self getResolver] createODataRequest];
-    [request setVerb:GET];
-    
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
+    return [self readRaw:^(NSString *r, MSODataException *e) {
         if (e == nil) {
-            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r getPayload] :self.entityClass];
-            
+            id entity = [[[self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :self.entityClass];
             callback(entity, e);
         }
         else callback(nil, e);

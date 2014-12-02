@@ -108,12 +108,11 @@
 }
 
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
-
-    id<MSODataRequest> request = [[self getResolver] createODataRequest];
-    [request setVerb:GET];
     
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
-        id result = [[[self getResolver]getJsonSerializer] deserializeList:[r getPayload] : self.entityClass];
+    __weak MSODataCollectionFetcher* _self = self;
+    
+    return [self readRaw:^(NSString *r, MSODataException *e) {
+        id result = [[[_self getResolver] getJsonSerializer] deserializeList:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
         callback(result, e);
     }];
 }
@@ -133,13 +132,11 @@
 -(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, MSODataException *))callback{
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
-    id<MSODataRequest> request = [[self getResolver] createODataRequest];
-
-    [request setVerb:POST];
-    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
-
-    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
-        id result = [[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : self.entityClass];
+    
+    __weak MSODataCollectionFetcher* _self = self;
+    
+    return [self addRaw:payload :^(NSString * r, MSODataException *e) {
+        id result = [[[_self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
         callback(result, e);
     }];
 }
