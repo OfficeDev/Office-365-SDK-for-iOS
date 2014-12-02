@@ -24,21 +24,21 @@
 @end
 
 /**
-* The implementation file for type MSOutlookODataCollectionFetcher.
-*/
+ * The implementation file for type MSOutlookODataCollectionFetcher.
+ */
 
 @implementation MSODataCollectionFetcher
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass:(Class)clazz{
-
+    
     self.urlComponent = urlComponent;
     self.parent = parent;
     self.entityClass = clazz;
     [self reset];
     self.CustomParameters = [[NSMutableDictionary alloc] init];
     self.CustomHeaders = [[NSMutableDictionary alloc] init];
-   // self.operations = [[operationClass alloc] initWith:@"" : self];
-
+    // self.operations = [[operationClass alloc] initWith:@"" : self];
+    
     return self;
 }
 
@@ -109,10 +109,8 @@
 
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
     
-    __weak MSODataCollectionFetcher* _self = self;
-    
     return [self readRaw:^(NSString *r, MSODataException *e) {
-        id result = [[[_self getResolver] getJsonSerializer] deserializeList:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
+        id result = [[[self getResolver] getJsonSerializer] deserializeList:[r dataUsingEncoding:NSUTF8StringEncoding] :self.entityClass];
         callback(result, e);
     }];
 }
@@ -133,11 +131,12 @@
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     
-    __weak MSODataCollectionFetcher* _self = self;
+    __block MSODataCollectionFetcher* _self = self;
     
     return [self addRaw:payload :^(NSString * r, MSODataException *e) {
         id result = [[[_self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
         callback(result, e);
+        
     }];
 }
 
