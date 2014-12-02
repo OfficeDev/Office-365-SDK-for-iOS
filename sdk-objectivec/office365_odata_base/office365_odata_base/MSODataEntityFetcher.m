@@ -60,12 +60,39 @@
     }];
 }
 
+-(NSURLSessionDataTask*) updateRaw:(NSString*)payload : (void (^)(NSString*, MSODataException *))callback{
+    
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
+    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setVerb:PATCH];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        if (e == nil) {
+            callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
+        }
+        else callback(nil, e);
+    }];
+}
+
 -(NSURLSessionDataTask*) delete : (void (^)(int,MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [request setVerb:DELETE];
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         callback([r getStatus], e);
+    }];
+}
+
+-(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    [request setVerb:GET];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
+        if (e == nil) {
+            callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
+        }
+        else callback(nil, e);
     }];
 }
 

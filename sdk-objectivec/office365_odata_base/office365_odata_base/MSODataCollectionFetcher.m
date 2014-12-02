@@ -98,6 +98,15 @@
     return [self.Parent getResolver];
 }
 
+-(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    [request setVerb:GET];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
+    }];
+}
+
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
 
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
@@ -106,6 +115,18 @@
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
         id result = [[[self getResolver]getJsonSerializer] deserializeList:[r getPayload] : self.entityClass];
         callback(result, e);
+    }];
+}
+
+-(NSURLSessionDataTask *)addRaw : (NSString*) payload :(void (^)(NSString*, MSODataException *))callback{
+    
+    id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
+    [request setVerb:POST];
+    [request setContent:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
+        callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
     }];
 }
 

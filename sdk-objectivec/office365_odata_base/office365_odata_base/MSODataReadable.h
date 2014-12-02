@@ -11,5 +11,5 @@
 
 @optional
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback;
-
+-(NSURLSessionDataTask *)readRaw:(void (^)(NSString* response, MSODataException *))callback;
 @end
