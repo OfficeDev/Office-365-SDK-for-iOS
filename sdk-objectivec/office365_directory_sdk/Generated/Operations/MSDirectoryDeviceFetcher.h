@@ -38,7 +38,11 @@
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredOwners;
 
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredOwnersById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredUsers;
+
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredUsersById : (NSString*)_id;
 
 	
 @end

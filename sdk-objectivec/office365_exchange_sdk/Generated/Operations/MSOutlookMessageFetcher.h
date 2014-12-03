@@ -37,5 +37,7 @@
 
 -(MSOutlookAttachmentCollectionFetcher*) getAttachments;
 
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
+
 	
 @end

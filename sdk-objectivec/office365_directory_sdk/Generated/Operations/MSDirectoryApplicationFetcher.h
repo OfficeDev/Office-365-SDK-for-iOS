@@ -37,5 +37,7 @@
 
 -(MSDirectoryExtensionPropertyCollectionFetcher*) getextensionProperties;
 
+-(MSDirectoryExtensionPropertyFetcher*) getextensionPropertiesById : (NSString*)_id;
+
 	
 @end

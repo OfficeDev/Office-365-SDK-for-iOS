@@ -37,5 +37,7 @@
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
+
 	
 @end

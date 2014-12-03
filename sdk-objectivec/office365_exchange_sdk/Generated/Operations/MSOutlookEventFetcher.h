@@ -39,9 +39,13 @@
 
 -(MSOutlookAttachmentCollectionFetcher*) getAttachments;
 
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
+
 -(MSOutlookCalendarFetcher*) getCalendar;
 
 -(MSOutlookEventCollectionFetcher*) getInstances;
+
+-(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id;
 
 	
 @end

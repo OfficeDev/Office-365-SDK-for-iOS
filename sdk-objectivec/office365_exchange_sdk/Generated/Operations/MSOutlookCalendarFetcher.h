@@ -38,7 +38,11 @@
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView;
 
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
+
 -(MSOutlookEventCollectionFetcher*) getEvents;
+
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
 
 	
 @end

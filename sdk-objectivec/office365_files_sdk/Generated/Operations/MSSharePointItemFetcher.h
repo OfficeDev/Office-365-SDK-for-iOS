@@ -36,11 +36,7 @@
 
 -(MSSharePointItemOperations*) getOperations;
 
-	
-	
--(MSSharePointFileFetcher*) asFile;	
-	
-	
+-(MSSharePointFileFetcher*) asFile;
 -(MSSharePointFolderFetcher*) asFolder;	
 	
 @end

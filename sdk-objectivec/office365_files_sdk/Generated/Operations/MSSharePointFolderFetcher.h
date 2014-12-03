@@ -13,7 +13,7 @@
 #import "MSSharePointFolderOperations.h"
 #import "MSSharePointFolder.h"
 @class MSSharePointItemCollectionFetcher;
-
+@class MSSharePointItemFetcher;
 
 /**
 * The header for type MSSharePointFolderFetcher.
@@ -36,6 +36,8 @@
 -(MSSharePointFolderOperations*) getOperations;
 
 -(MSSharePointItemCollectionFetcher*) getchildren;
+
+-(MSSharePointItemFetcher*) getchildrenById : (NSString*)_id;
 
 	
 @end

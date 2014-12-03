@@ -37,5 +37,7 @@
 
 -(MSOutlookCalendarCollectionFetcher*) getCalendars;
 
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
+
 	
 @end

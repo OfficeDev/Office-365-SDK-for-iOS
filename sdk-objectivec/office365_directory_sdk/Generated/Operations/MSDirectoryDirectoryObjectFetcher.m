@@ -56,6 +56,9 @@
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"createdObjects" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getcreatedObjectsById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"createdObjects" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectFetcher*) getmanager{
 	 return [[MSDirectoryDirectoryObjectFetcher alloc] initWithUrl:@"manager" parent:self andEntityClass: [MSDirectoryDirectoryObject class]];
@@ -66,26 +69,41 @@
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"directReports" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getdirectReportsById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"directReports" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmembers{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"members" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getmembersById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"members" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmemberOf{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getmemberOfById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getowners{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"owners" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getownersById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"owners" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedObjects{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedObjects" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getownedObjectsById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedObjects" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 
 	

@@ -44,5 +44,8 @@
     return [[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"children" parent:self andEntityClass:[MSSharePointItem class]];
 }
 
+-(MSSharePointItemFetcher*) getchildrenById : (NSString*)_id{
+    return [[[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"children" parent:self andEntityClass:[MSSharePointItem class]] getById:_id];
+}
 
 @end

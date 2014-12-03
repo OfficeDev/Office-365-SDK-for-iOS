@@ -46,6 +46,9 @@
     return [[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]];
 }
 
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id{
+    return [[[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]] getById:_id];
+}
 
 -(MSOutlookCalendarFetcher*) getCalendar{
 	 return [[MSOutlookCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self andEntityClass: [MSOutlookCalendar class]];
@@ -56,5 +59,8 @@
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
+-(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id{
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
+}
 
 @end

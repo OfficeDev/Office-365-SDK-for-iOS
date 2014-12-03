@@ -39,9 +39,15 @@
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignedTo;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignedToById : (NSString*)_id;
+
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
+
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
+
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id;
 
 	
 @end

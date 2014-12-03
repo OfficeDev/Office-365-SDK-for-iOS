@@ -38,7 +38,11 @@
 
 -(MSOutlookFolderCollectionFetcher*) getChildFolders;
 
+-(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id;
+
 -(MSOutlookMessageCollectionFetcher*) getMessages;
+
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
 
 	
 @end

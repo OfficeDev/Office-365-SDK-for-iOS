@@ -46,23 +46,39 @@
 
 -(MSOutlookFolderCollectionFetcher*) getFolders;
 
+-(MSOutlookFolderFetcher*) getFoldersById : (NSString*)_id;
+
 -(MSOutlookMessageCollectionFetcher*) getMessages;
+
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
 
 -(MSOutlookFolderFetcher*) getRootFolder;
 
 -(MSOutlookCalendarCollectionFetcher*) getCalendars;
 
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
+
 -(MSOutlookCalendarFetcher*) getCalendar;
 
 -(MSOutlookCalendarGroupCollectionFetcher*) getCalendarGroups;
 
+-(MSOutlookCalendarGroupFetcher*) getCalendarGroupsById : (NSString*)_id;
+
 -(MSOutlookEventCollectionFetcher*) getEvents;
+
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView;
 
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
+
 -(MSOutlookContactCollectionFetcher*) getContacts;
 
+-(MSOutlookContactFetcher*) getContactsById : (NSString*)_id;
+
 -(MSOutlookContactFolderCollectionFetcher*) getContactFolders;
+
+-(MSOutlookContactFolderFetcher*) getContactFoldersById : (NSString*)_id;
 
 	
 @end

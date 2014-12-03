@@ -40,11 +40,19 @@
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
+
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
+
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedDevices;
 
+-(MSDirectoryDirectoryObjectFetcher*) getownedDevicesById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredDevices;
+
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredDevicesById : (NSString*)_id;
 
 	
 @end

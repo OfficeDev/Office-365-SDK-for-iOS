@@ -59,17 +59,29 @@
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getcreatedObjects;
 
+-(MSDirectoryDirectoryObjectFetcher*) getcreatedObjectsById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectFetcher*) getmanager;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getdirectReports;
 
+-(MSDirectoryDirectoryObjectFetcher*) getdirectReportsById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmembers;
+
+-(MSDirectoryDirectoryObjectFetcher*) getmembersById : (NSString*)_id;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmemberOf;
 
+-(MSDirectoryDirectoryObjectFetcher*) getmemberOfById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getowners;
 
+-(MSDirectoryDirectoryObjectFetcher*) getownersById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedObjects;
+
+-(MSDirectoryDirectoryObjectFetcher*) getownedObjectsById : (NSString*)_id;
 
 	
 	

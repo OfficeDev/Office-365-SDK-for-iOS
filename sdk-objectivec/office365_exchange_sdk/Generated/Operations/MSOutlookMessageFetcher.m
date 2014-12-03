@@ -44,5 +44,8 @@
     return [[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]];
 }
 
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id{
+    return [[[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]] getById:_id];
+}
 
 @end

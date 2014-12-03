@@ -38,7 +38,11 @@
 
 -(MSOutlookContactCollectionFetcher*) getContacts;
 
+-(MSOutlookContactFetcher*) getContactsById : (NSString*)_id;
+
 -(MSOutlookContactFolderCollectionFetcher*) getChildFolders;
+
+-(MSOutlookContactFolderFetcher*) getChildFoldersById : (NSString*)_id;
 
 	
 @end
