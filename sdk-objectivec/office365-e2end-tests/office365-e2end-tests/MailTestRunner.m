@@ -41,7 +41,7 @@
     if([testName isEqualToString: @"TestSkip"]) return [self TestSkip:result];
     if([testName isEqualToString: @"TestOrderBy"]) return [self TestOrderBy:result];
     if([testName isEqualToString: @"TestExpandLists"]) return [self TestExpandLists:result];
-    //if([testName isEqualToString: @"TestExpand"]) return [self TestExpand:result];
+    if([testName isEqualToString: @"TestExpand"]) return [self TestExpand:result];
     
     
     // Contacts Tests
@@ -119,7 +119,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestSkip" :@"Can use skip" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestOrderBy" :@"Can use order by" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestExpandLists" :@"Can use expand in lists" ]];
-    //[array addObject:[[Test alloc] initWithData:self :@"TestExpand" :@"Can use expand" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestExpand" :@"Can use expand" ]];
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
@@ -500,7 +500,7 @@
             NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
             [[[[[[[[self.Client getMe] getFolders] getById: @"Drafts" ] getMessages] filter:filter] expand:@"Attachments"] read:^(NSArray<MSOutlookMessage> *expandedMessages, MSODataException *error) {
                 //Get message without expand
-                [[[[[[[[self.Client getMe]  getFolders] getById: @"Drafts" ] getMessages] filter:filter] expand:@"Attachments"] read:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSODataException *error) {
+                [[[[[[[self.Client getMe]  getFolders] getById: @"Drafts" ] getMessages] filter:filter] read:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSODataException *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -508,8 +508,8 @@
                     
                     NSString* message =  @"";
                     
-                    if(error == nil && a != nil && [expandedMessages count] == 1 && [[[expandedMessages objectAtIndex:0] attachments] count] ==1
-                       && [notExpandedMessages count] == 1 && [[[notExpandedMessages objectAtIndex:0] attachments] count] ==0  ){
+                    if(error == nil && a != nil && [expandedMessages count] == 1 && [[[expandedMessages objectAtIndex:0] Attachments] count] ==1
+                       && [notExpandedMessages count] == 1 && [[[notExpandedMessages objectAtIndex:0] Attachments] count] ==0  ){
                         message =  @"Ok - ";
                         passed = true;
                     }
@@ -532,55 +532,55 @@
     return task;
 }
 
-/*
- -(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
- NSString *uuid = [[NSUUID UUID] UUIDString];
- NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
- MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
- //Add message
- NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
- 
- MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
- 
- attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
- attachment.Name = @"TestAttachments.txt";
- //Add Attachment
- [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
- //Get Message using expand
- NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
- [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
- //Get message without expand
- [[[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] expand:@"Attachments"] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
- BOOL passed = false;
- 
- Test *test = [Test alloc];
- test.ExecutionMessages = [NSMutableArray array];
- 
- NSString* message =  @"";
- 
- if(error == nil && a != nil && [expandedMessage.Attachments count] ==1 && [notExpandedMessage.Attachment count] == 0){
- message =  @"Ok - ";
- passed = true;
- }
- else{
- message =@"Not - ";
- if(e!= nil)
- message = [message stringByAppendingString:[e localizedDescription]];
- }
- 
- test.Passed = passed;
- [test.ExecutionMessages addObject:message];
- 
- result(test);
- 
- }] resume];
- }] resume];
- }] resume];
- }];
- 
- return task;
- }
- */
+
+-(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
+    MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
+    //Add message
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+        
+        MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
+        
+        attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+        attachment.Name = @"TestAttachments.txt";
+        //Add Attachment
+        [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
+            //Get Message using expand
+            NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
+            [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
+                //Get message without expand
+                [[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
+                    BOOL passed = false;
+                    
+                    Test *test = [Test alloc];
+                    test.ExecutionMessages = [NSMutableArray array];
+                    
+                    NSString* message =  @"";
+                    
+                    if(error == nil && a != nil && [expandedMessage.Attachments count] ==1 && [notExpandedMessage.Attachments count] == 0){
+                        message =  @"Ok - ";
+                        passed = true;
+                    }
+                    else{
+                        message =@"Not - ";
+                        if(e!= nil)
+                            message = [message stringByAppendingString:[e localizedDescription]];
+                    }
+                    
+                    test.Passed = passed;
+                    [test.ExecutionMessages addObject:message];
+                    
+                    result(test);
+                    
+                }] resume];
+            }] resume];
+        }] resume];
+    }];
+    
+    return task;
+}
+
 
 //******* Folder Tests **********
 
@@ -1335,7 +1335,7 @@
     
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
-    [message setToRecipients:toRecipients];
+    [message setToRecipients:(NSMutableArray<MSOutlookRecipient>*)toRecipients];
     
     //Cc recipient
     if(![cc isEqualToString:@""]){
