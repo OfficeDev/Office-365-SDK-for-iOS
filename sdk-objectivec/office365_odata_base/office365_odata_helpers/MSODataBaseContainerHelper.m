@@ -28,9 +28,9 @@
         
         for (NSString* key in [item allKeys]) {
         
-            id object = [item objectForKey:key] ;
-            NSString* parsed = [[resolver getJsonSerializer]serialize:object :key];
-            [result appendFormat:@"\"%@\":%@,",key,parsed];
+            NSString* value = [item objectForKey:key] ;
+            //NSString* parsed = [[resolver getJsonSerializer]serialize:object :key];
+            [result appendFormat:@"\"%@\":%@,",key,value];
         }
     }
     

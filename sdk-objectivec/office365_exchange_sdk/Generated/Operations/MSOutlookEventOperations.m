@@ -23,7 +23,7 @@
 
 -(NSURLSessionDataTask*)accept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
 	NSURLSessionDataTask* task = [self acceptRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -65,7 +65,7 @@
 
 -(NSURLSessionDataTask*)decline : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
 	NSURLSessionDataTask* task = [self declineRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -107,7 +107,7 @@
 
 -(NSURLSessionDataTask*)tentativelyAccept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
 	NSURLSessionDataTask* task = [self tentativelyAcceptRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){

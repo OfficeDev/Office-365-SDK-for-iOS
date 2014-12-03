@@ -23,7 +23,7 @@
 
 -(NSURLSessionDataTask*)sendMail : (MSOutlookMessage *) message : (bool) saveToSentItems : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * messageString = [[[self getResolver] getJsonSerializer] serialize:message];
+	NSString * messageString = [[[self getResolver] getJsonSerializer] serialize:message : @"Message"];
 	NSString * saveToSentItemsString = [[[self getResolver] getJsonSerializer] serialize:(saveToSentItems ? @"true" : @"false") : @"SaveToSentItems"];
 
 	NSURLSessionDataTask* task = [self sendMailRaw 	: messageString: saveToSentItemsString :^(NSString *returnValue, MSODataException *error){

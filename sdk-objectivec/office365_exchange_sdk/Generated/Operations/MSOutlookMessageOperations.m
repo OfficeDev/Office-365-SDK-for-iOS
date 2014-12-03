@@ -23,7 +23,7 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 	
-	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId];
+	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
 	NSURLSessionDataTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -65,7 +65,7 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
 	
-	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId];
+	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
 	NSURLSessionDataTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -215,7 +215,7 @@
 
 -(NSURLSessionDataTask*)reply : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
 	NSURLSessionDataTask* task = [self replyRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -257,7 +257,7 @@
 
 -(NSURLSessionDataTask*)replyAll : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
 	NSURLSessionDataTask* task = [self replyAllRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -299,8 +299,8 @@
 
 -(NSURLSessionDataTask*)forward : (NSString *) comment : (NSMutableArray<MSOutlookRecipient> *) toRecipients : (void (^)(int returnValue, MSODataException *error))callback{
 	
-	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment];
-	NSString * toRecipientsString = [[[self getResolver] getJsonSerializer] serialize:toRecipients];
+	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
+	NSString * toRecipientsString = [[[self getResolver] getJsonSerializer] serialize:toRecipients : @"ToRecipients"];
 
 	NSURLSessionDataTask* task = [self forwardRaw 	: commentString: toRecipientsString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){

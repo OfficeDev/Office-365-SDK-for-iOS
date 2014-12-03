@@ -23,7 +23,7 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
 	
-	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId];
+	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
 	NSURLSessionDataTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
@@ -65,7 +65,7 @@
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
 	
-	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId];
+	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
 	NSURLSessionDataTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){

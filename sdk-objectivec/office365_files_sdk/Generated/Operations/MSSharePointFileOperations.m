@@ -23,9 +23,9 @@
 
 -(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFile *file, MSODataException *error))callback{
 	
-	NSString * destFolderIdString = [[[self getResolver] getJsonSerializer] serialize:destFolderId];
-	NSString * destFolderPathString = [[[self getResolver] getJsonSerializer] serialize:destFolderPath];
-	NSString * newNameString = [[[self getResolver] getJsonSerializer] serialize:newName];
+	NSString * destFolderIdString = [[[self getResolver] getJsonSerializer] serialize:destFolderId : @"destFolderId"];
+	NSString * destFolderPathString = [[[self getResolver] getJsonSerializer] serialize:destFolderPath : @"destFolderPath"];
+	NSString * newNameString = [[[self getResolver] getJsonSerializer] serialize:newName : @"newName"];
 
 	NSURLSessionDataTask* task = [self copyRaw 	: destFolderIdString: destFolderPathString: newNameString :^(NSString *returnValue, MSODataException *error){
        if(error == nil){
