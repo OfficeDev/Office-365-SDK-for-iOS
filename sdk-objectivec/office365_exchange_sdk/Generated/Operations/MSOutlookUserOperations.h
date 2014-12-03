@@ -30,5 +30,6 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)sendMail : (MSOutlookMessage *) message : (bool) saveToSentItems : (void (^)(int returnValue, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)sendMailRaw : (NSString*) message : (NSString*) saveToSentItems : (void (^)(NSString*returnValue, MSODataException *error))callback;			
 
 @end

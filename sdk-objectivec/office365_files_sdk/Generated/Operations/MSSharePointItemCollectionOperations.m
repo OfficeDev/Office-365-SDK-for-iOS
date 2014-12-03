@@ -20,8 +20,6 @@
 -(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
-
-		
 	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:path,@"path",nil];
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];

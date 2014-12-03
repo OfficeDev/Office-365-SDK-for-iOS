@@ -24,5 +24,6 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFolder *folder, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*folder, MSODataException *error))callback;			
 
 @end

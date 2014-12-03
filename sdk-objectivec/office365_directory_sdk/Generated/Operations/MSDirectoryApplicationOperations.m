@@ -24,14 +24,11 @@
 -(NSURLSessionDataTask*)restore : (NSMutableArray *) identifierUris : (void (^)(MSDirectoryApplication *application, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
-		
 	NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:identifierUris,@"identifierUris",nil];
 
+	
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
 	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"restore(%@)",parameters]];
-	NSData* payload = nil;
-		
-	[request setContent:payload];
 	[request setVerb:POST];
 
 	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
@@ -45,5 +42,5 @@
     }];
     
     return task;
-}			
+}
 @end

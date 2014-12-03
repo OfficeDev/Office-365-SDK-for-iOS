@@ -34,9 +34,12 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)accept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)acceptRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
 
 -(NSURLSessionDataTask*)decline : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)declineRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
 
 -(NSURLSessionDataTask*)tentativelyAccept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)tentativelyAcceptRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
 
 @end
