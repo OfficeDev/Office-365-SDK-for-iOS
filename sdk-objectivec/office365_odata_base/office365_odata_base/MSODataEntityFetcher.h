@@ -25,6 +25,8 @@
 -(id) getOperations;
 -(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSODataEntityFetcher>)addCustomHeaderWithName:(NSString *)name andValue :(NSString *)value;
+-(id<MSODataEntityFetcher>)select : (NSString*) params;
+-(id<MSODataEntityFetcher>)expand : (NSString*) value;
 
 @end
 

@@ -21,9 +21,9 @@
 @interface MSDirectoryDeviceConfiguration : MSDirectoryDirectoryObject
 
 
-@property NSMutableArray<NSData> *publicIssuerCertificates;
+@property NSMutableArray *publicIssuerCertificates;
 
-@property NSMutableArray<NSData> *cloudPublicIssuerCertificates;
+@property NSMutableArray *cloudPublicIssuerCertificates;
 
 @property int registrationQuota;
 
