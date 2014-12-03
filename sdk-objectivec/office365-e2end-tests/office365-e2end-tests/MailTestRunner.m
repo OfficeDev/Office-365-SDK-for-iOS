@@ -547,7 +547,6 @@
         //Add Attachment
         [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
             //Get Message using expand
-            NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
             [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
                 //Get message without expand
                 [[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
@@ -1343,7 +1342,7 @@
         MSOutlookEmailAddress* emailCc = [[MSOutlookEmailAddress alloc]init];
         [emailCc setAddress:cc];
         [ccRecipient setEmailAddress:emailCc];
-        NSMutableArray *ccRecipients = [[NSMutableArray alloc]init];
+        NSMutableArray<MSOutlookRecipient> *ccRecipients = (NSMutableArray<MSOutlookRecipient>*)[[NSMutableArray alloc]init];
         [toRecipients addObject:ccRecipient];
         [message setToRecipients:ccRecipients];
     }
@@ -1544,7 +1543,7 @@
     
     MSOutlookEmailAddress* email = [[MSOutlookEmailAddress alloc]init];
     [email setAddress:@"test@test.com"];
-    NSMutableArray *list = [[NSMutableArray alloc] init];
+    NSMutableArray<MSOutlookEmailAddress> *list = (NSMutableArray<MSOutlookEmailAddress>*)[[NSMutableArray alloc] init];
     [list addObject:email];
     
     [contact setEmailAddresses:list];
