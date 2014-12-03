@@ -53,6 +53,7 @@
     
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
+    //if([testName isEqualToString:@"TestGetMessagesOverload"])return [self TestGetMessageOverload:result];
     if([testName isEqualToString:@"TestCreateMessages"])return [self TestCreateMessages:result];
     if([testName isEqualToString:@"TestCreateHtmlMessages"])return [self TestCreateAndSendHtmlMessages:result];
     if([testName isEqualToString:@"TestCreateMessageWithAttachment"])return [self TestCreateMessageWithAttachment:result];
@@ -72,6 +73,7 @@
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
     if([testName isEqualToString:@"TestGetFoldersById"])return [self TestGetFoldersById:result];
+    //if([testName isEqualToString:@"TestGetFoldersByIdOverload"])return [self TestGetFoldersByIdOverload:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
     if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
     if([testName isEqualToString:@"TestMoveFolder"])return [self TestMoveFolder:result];
@@ -124,6 +126,7 @@
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersById" :@"Get Folders by Id" ]];
+    //[array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersByIdOverload" :@"Get Folders by Id (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateFolder" :@"Create Folder" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFolder" :@"Delete Folders" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveFolder" :@"Move Folders" ]];
@@ -133,6 +136,7 @@
     
     //Messages Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
+    //[array addObject:[[Test alloc] initWithData:self :@"TestGetMessagesOverload" :@"Get Message (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessages" :@"Create message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateHtmlMessages" :@"Create and Send Html message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateMessages" :@"Update message" ]];
@@ -636,6 +640,37 @@
     return task;
 }
 
+/*
+ -(NSURLSessionDataTask*)TestGetFoldersByIdOverload:(void (^) (Test*))result{
+ 
+ NSURLSessionDataTask *task = [[[self.Client getMe] getFolders:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
+ BOOL passed = false;
+ 
+ Test *test = [Test alloc];
+ 
+ test.ExecutionMessages = [NSMutableArray array];
+ 
+ NSString* message = (error!=nil && folder!= nil)  ? @"Ok - ": @"Not - ";
+ [test.ExecutionMessages addObject:message];
+ 
+ if(error != nil){
+ [test.ExecutionMessages addObject: [error localizedDescription]];
+ }
+ 
+ if(folder != nil){
+ passed = true;
+ }
+ 
+ test.Passed = passed;
+ 
+ result(test);
+ }];
+ 
+ return task;
+ }
+ 
+ */
+
 -(NSURLSessionDataTask*)TestCreateFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
@@ -896,7 +931,42 @@
     
     return task;
 }
-
+/*
+ -(NSURLSessionDataTask*)TestGetMessageOverload:(void (^) (Test*))result{
+ MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+ newMessage.Body = [[MSOutlookItemBody alloc] init];
+ newMessage.Body.ContentType = Text;
+ NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+ [[[[self.Client getMe] getMessage:@""] read:^(MSOutlookMessage *searchedMessage, MSODataException *error) {
+ BOOL passed = false;
+ 
+ Test *test = [Test alloc];
+ 
+ test.ExecutionMessages = [NSMutableArray array];
+ 
+ NSString* message = error == nil && addedMessage!= nil  ? @"Ok - ": @"Not - ";
+ 
+ if(searchedMessage!= nil && [searchedMessage.Id isEqualToString:addedMessage.Id]){
+ passed = true;
+ }
+ 
+ test.Passed = passed;
+ 
+ [test.ExecutionMessages addObject:message];
+ if(addedMessage!= nil)
+ [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]deleteMessage:^(int status, MSODataException *error) {
+ if(error!= nil)
+ NSLog(@"Error: %@", error);
+ }]resume];
+ 
+ result(test);
+ 
+ }] resume];
+ }];
+ 
+ return task;
+ }
+ */
 -(NSURLSessionDataTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" : self.TestMail : @""];
     newMessage.Body.ContentType = HTML;
