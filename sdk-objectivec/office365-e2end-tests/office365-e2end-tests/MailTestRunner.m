@@ -62,6 +62,7 @@
     if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestCopyMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestSendMessages"])return [self TestSendMessages:result];
+    if([testName isEqualToString:@"TestSendWithMessageOperations"])return [self TestSendWithMessageOperations:result];
     if([testName isEqualToString:@"TestSendHtmlMessages"])return [self TestSendHtmlMessages:result];
     if([testName isEqualToString:@"TestReplyMessages"])return [self TestReplyMessages:result];
     if([testName isEqualToString:@"TestReplyAllMessages"])return [self TestReplyAllMessages:result];
@@ -139,6 +140,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCopyMessages" :@"Copy message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSendMessages" :@"Send message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSendWithMessageOperations" :@"Send with message operations" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSendHtmlMessages" :@"Send Html message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyMessages" :@"Reply message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyAllMessages" :@"ReplyAll message" ]];
@@ -531,54 +533,54 @@
 }
 
 /*
--(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
-    NSString *uuid = [[NSUUID UUID] UUIDString];
-    NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
-    MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
-    //Add message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
-        
-        MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
-        
-        attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
-        attachment.Name = @"TestAttachments.txt";
-        //Add Attachment
-        [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
-            //Get Message using expand
-            NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
-            [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
-                //Get message without expand
-                [[[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] expand:@"Attachments"] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
-                    BOOL passed = false;
-                    
-                    Test *test = [Test alloc];
-                    test.ExecutionMessages = [NSMutableArray array];
-                    
-                    NSString* message =  @"";
-                    
-                    if(error == nil && a != nil && [expandedMessage.Attachments count] ==1 && [notExpandedMessage.Attachment count] == 0){
-                        message =  @"Ok - ";
-                        passed = true;
-                    }
-                    else{
-                        message =@"Not - ";
-                        if(e!= nil)
-                            message = [message stringByAppendingString:[e localizedDescription]];
-                    }
-                    
-                    test.Passed = passed;
-                    [test.ExecutionMessages addObject:message];
-                    
-                    result(test);
-                    
-                }] resume];
-            }] resume];
-        }] resume];
-    }];
-    
-    return task;
-}
-*/
+ -(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
+ NSString *uuid = [[NSUUID UUID] UUIDString];
+ NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
+ MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
+ //Add message
+ NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+ 
+ MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
+ 
+ attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+ attachment.Name = @"TestAttachments.txt";
+ //Add Attachment
+ [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
+ //Get Message using expand
+ NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
+ [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
+ //Get message without expand
+ [[[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] expand:@"Attachments"] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
+ BOOL passed = false;
+ 
+ Test *test = [Test alloc];
+ test.ExecutionMessages = [NSMutableArray array];
+ 
+ NSString* message =  @"";
+ 
+ if(error == nil && a != nil && [expandedMessage.Attachments count] ==1 && [notExpandedMessage.Attachment count] == 0){
+ message =  @"Ok - ";
+ passed = true;
+ }
+ else{
+ message =@"Not - ";
+ if(e!= nil)
+ message = [message stringByAppendingString:[e localizedDescription]];
+ }
+ 
+ test.Passed = passed;
+ [test.ExecutionMessages addObject:message];
+ 
+ result(test);
+ 
+ }] resume];
+ }] resume];
+ }] resume];
+ }];
+ 
+ return task;
+ }
+ */
 
 //******* Folder Tests **********
 
@@ -1056,6 +1058,40 @@
         [test.ExecutionMessages addObject:message];
         
         result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestSendWithMessageOperations:(void (^) (Test*))result{
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    //Send Mail
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *message, MSODataException *e) {
+        
+        [[[[[[self.Client getMe] getMessages] getById:message.Id] getOperations] send:^(int returnValue, MSODataException *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            
+            if(error== nil){
+                message = @"Ok - ";
+                passed = true;
+            }else{
+                message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        }] resume];
     }];
     
     return task;
