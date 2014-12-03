@@ -23,7 +23,7 @@
 @interface MSDirectoryGroup : MSDirectoryDirectoryObject
 
 
-@property NSString *$$__description;
+@property NSString *description;
 
 @property bool dirSyncEnabled;
 
@@ -45,5 +45,7 @@
 
 @property bool securityEnabled;
 
+@property NSMutableArray<MSDirectoryAppRoleAssignment> *appRoleAssignments;		
+		
 
 @end

@@ -30,5 +30,21 @@
 
 @property NSDate *deletionTimestamp;
 
+@property MSDirectoryDirectoryObject *createdOnBehalfOf;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *createdObjects;		
+		
+@property MSDirectoryDirectoryObject *manager;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *directReports;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *members;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *memberOf;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *owners;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *ownedObjects;		
+		
 
 @end

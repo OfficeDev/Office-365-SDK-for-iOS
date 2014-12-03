@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookCalendarGroupFetcher>)select : (NSString*) params;
+-(id<MSOutlookCalendarGroupFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookCalendarGroupFetcher : MSODataEntityFetcher<MSOutlookCalendarGroupFetcher>

@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDeviceFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryDeviceFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryDeviceFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDeviceFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryDeviceFetcher : MSODataEntityFetcher<MSDirectoryDeviceFetcher>

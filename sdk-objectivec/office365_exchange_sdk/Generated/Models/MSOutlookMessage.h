@@ -66,5 +66,7 @@
 
 @property bool IsRead;
 
+@property NSMutableArray<MSOutlookAttachment> *Attachments;		
+		
 
 @end

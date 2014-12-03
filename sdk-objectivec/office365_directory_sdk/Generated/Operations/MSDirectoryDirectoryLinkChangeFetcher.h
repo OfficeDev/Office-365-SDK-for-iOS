@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteDirectoryLinkChange:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDirectoryLinkChangeFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryDirectoryLinkChangeFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryDirectoryLinkChangeFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDirectoryLinkChangeFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryDirectoryLinkChangeFetcher : MSODataEntityFetcher<MSDirectoryDirectoryLinkChangeFetcher>

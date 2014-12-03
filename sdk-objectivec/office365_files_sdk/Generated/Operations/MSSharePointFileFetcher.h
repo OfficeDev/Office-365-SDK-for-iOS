@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteFile:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointFileFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointFileFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSSharePointFileFetcher>)select : (NSString*) params;
+-(id<MSSharePointFileFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSSharePointFileFetcher : MSODataMediaEntityFetcher<MSSharePointFileFetcher>

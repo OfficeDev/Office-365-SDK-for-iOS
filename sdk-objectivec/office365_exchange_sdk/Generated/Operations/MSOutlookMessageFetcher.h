@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteMessage:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookMessageFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookMessageFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookMessageFetcher>)select : (NSString*) params;
+-(id<MSOutlookMessageFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookMessageFetcher : MSODataEntityFetcher<MSOutlookMessageFetcher>

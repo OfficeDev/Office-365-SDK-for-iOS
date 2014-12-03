@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookContactFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookContactFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookContactFolderFetcher>)select : (NSString*) params;
+-(id<MSOutlookContactFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookContactFolderFetcher : MSODataEntityFetcher<MSOutlookContactFolderFetcher>

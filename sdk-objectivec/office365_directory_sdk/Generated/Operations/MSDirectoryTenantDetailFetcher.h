@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteTenantDetail:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryTenantDetailFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryTenantDetailFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryTenantDetailFetcher>)select : (NSString*) params;
+-(id<MSDirectoryTenantDetailFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryTenantDetailFetcher : MSODataEntityFetcher<MSDirectoryTenantDetailFetcher>

@@ -24,5 +24,7 @@
 
 @property int childCount;
 
+@property NSMutableArray<MSSharePointItem> *children;		
+		
 
 @end

@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteSubscribedSku:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectorySubscribedSkuFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectorySubscribedSkuFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectorySubscribedSkuFetcher>)select : (NSString*) params;
+-(id<MSDirectorySubscribedSkuFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectorySubscribedSkuFetcher : MSODataEntityFetcher<MSDirectorySubscribedSkuFetcher>

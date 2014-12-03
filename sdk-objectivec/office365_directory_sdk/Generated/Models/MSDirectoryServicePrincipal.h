@@ -65,5 +65,11 @@
 
 @property NSMutableArray *tags;
 
+@property NSMutableArray<MSDirectoryAppRoleAssignment> *appRoleAssignedTo;		
+		
+@property NSMutableArray<MSDirectoryAppRoleAssignment> *appRoleAssignments;		
+		
+@property NSMutableArray<MSDirectoryOAuth2PermissionGrant> *oauth2PermissionGrants;		
+		
 
 @end

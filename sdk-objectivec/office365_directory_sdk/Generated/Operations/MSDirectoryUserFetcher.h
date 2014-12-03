@@ -30,7 +30,8 @@
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryUserFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryUserFetcher>)select : (NSString*) params;
+-(id<MSDirectoryUserFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryUserFetcher : MSODataEntityFetcher<MSDirectoryUserFetcher>

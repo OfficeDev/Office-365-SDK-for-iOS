@@ -28,5 +28,7 @@
 
 @property NSString *ClassId;
 
+@property NSMutableArray<MSOutlookCalendar> *Calendars;		
+		
 
 @end

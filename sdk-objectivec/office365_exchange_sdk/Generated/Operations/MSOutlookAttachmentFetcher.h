@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookAttachmentFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookAttachmentFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookAttachmentFetcher>)select : (NSString*) params;
+-(id<MSOutlookAttachmentFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookAttachmentFetcher : MSODataEntityFetcher<MSOutlookAttachmentFetcher>

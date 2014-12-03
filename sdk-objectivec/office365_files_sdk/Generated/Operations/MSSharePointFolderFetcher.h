@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSSharePointFolderFetcher>)select : (NSString*) params;
+-(id<MSSharePointFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSSharePointFolderFetcher : MSODataEntityFetcher<MSSharePointFolderFetcher>

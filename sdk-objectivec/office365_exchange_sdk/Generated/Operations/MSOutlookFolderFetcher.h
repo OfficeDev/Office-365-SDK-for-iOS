@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookFolderFetcher>)select : (NSString*) params;
+-(id<MSOutlookFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookFolderFetcher : MSODataEntityFetcher<MSOutlookFolderFetcher>

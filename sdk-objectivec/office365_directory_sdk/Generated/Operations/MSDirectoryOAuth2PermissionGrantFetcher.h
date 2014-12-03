@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteOAuth2PermissionGrant:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryOAuth2PermissionGrantFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryOAuth2PermissionGrantFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryOAuth2PermissionGrantFetcher>)select : (NSString*) params;
+-(id<MSDirectoryOAuth2PermissionGrantFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryOAuth2PermissionGrantFetcher : MSODataEntityFetcher<MSDirectoryOAuth2PermissionGrantFetcher>

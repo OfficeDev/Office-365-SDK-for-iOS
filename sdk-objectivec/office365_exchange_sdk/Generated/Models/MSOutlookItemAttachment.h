@@ -22,5 +22,7 @@
 @interface MSOutlookItemAttachment : MSOutlookAttachment
 
 
+@property MSOutlookItem *Item;		
+		
 
 @end

@@ -69,5 +69,7 @@
 
 @property NSString *samlMetadataUrl;
 
+@property NSMutableArray<MSDirectoryExtensionProperty> *extensionProperties;		
+		
 
 @end

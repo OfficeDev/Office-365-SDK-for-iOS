@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDiscoveryServiceInfoFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDiscoveryServiceInfoFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDiscoveryServiceInfoFetcher>)select : (NSString*) params;
+-(id<MSDiscoveryServiceInfoFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDiscoveryServiceInfoFetcher : MSODataEntityFetcher<MSDiscoveryServiceInfoFetcher>

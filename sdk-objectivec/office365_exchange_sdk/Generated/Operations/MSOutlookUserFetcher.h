@@ -36,7 +36,8 @@
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookUserFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookUserFetcher>)select : (NSString*) params;
+-(id<MSOutlookUserFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookUserFetcher : MSODataEntityFetcher<MSOutlookUserFetcher>

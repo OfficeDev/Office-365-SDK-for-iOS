@@ -21,7 +21,7 @@
 @interface MSDirectoryDirectoryRole : MSDirectoryDirectoryObject
 
 
-@property NSString *$$__description;
+@property NSString *description;
 
 @property NSString *displayName;
 

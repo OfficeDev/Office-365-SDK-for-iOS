@@ -27,5 +27,9 @@
 
 @property NSString *DisplayName;
 
+@property NSMutableArray<MSOutlookContact> *Contacts;		
+		
+@property NSMutableArray<MSOutlookContactFolder> *ChildFolders;		
+		
 
 @end
