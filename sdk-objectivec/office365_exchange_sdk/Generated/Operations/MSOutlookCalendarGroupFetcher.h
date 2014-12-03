@@ -13,7 +13,7 @@
 #import "MSOutlookCalendarGroupOperations.h"
 #import "MSOutlookCalendarGroup.h"
 @class MSOutlookCalendarCollectionFetcher;
-
+@class MSOutlookCalendarFetcher;
 
 /**
 * The header for type MSOutlookCalendarGroupFetcher.

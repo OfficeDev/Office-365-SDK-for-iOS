@@ -13,7 +13,7 @@
 #import "MSOutlookMessageOperations.h"
 #import "MSOutlookMessage.h"
 @class MSOutlookAttachmentCollectionFetcher;
-
+@class MSOutlookAttachmentFetcher;
 
 /**
 * The header for type MSOutlookMessageFetcher.

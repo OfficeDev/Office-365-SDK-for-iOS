@@ -14,7 +14,7 @@
 #import "MSOutlookFolder.h"
 @class MSOutlookFolderCollectionFetcher;
 @class MSOutlookMessageCollectionFetcher;
-
+@class MSOutlookMessageFetcher;
 
 /**
 * The header for type MSOutlookFolderFetcher.

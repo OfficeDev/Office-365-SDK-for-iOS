@@ -22,8 +22,11 @@
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
-
-
+@class MSOutlookMessageFetcher;
+@class MSOutlookCalendarGroupFetcher;
+@class MSOutlookEventFetcher;
+@class MSOutlookContactFetcher;
+@class MSOutlookContactFolderFetcher;
 /**
 * The header for type MSOutlookUserFetcher.
 */

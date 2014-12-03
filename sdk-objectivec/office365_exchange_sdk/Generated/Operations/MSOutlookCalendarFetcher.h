@@ -14,7 +14,7 @@
 #import "MSOutlookCalendar.h"
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
-
+@class MSOutlookEventFetcher;
 
 /**
 * The header for type MSOutlookCalendarFetcher.

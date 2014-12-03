@@ -15,7 +15,7 @@
 @class MSOutlookAttachmentCollectionFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookEventCollectionFetcher;
-
+@class MSOutlookAttachmentFetcher;
 
 /**
 * The header for type MSOutlookEventFetcher.
