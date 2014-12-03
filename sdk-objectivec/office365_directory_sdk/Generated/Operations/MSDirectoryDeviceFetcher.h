@@ -14,8 +14,8 @@
 #import "MSDirectoryDevice.h"
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
-
+@class MSDirectoryDirectoryObjectFetcher;
+@class MSDirectoryDirectoryObjectFetcher;
 /**
 * The header for type MSDirectoryDeviceFetcher.
 */

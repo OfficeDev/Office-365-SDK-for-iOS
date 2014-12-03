@@ -15,7 +15,9 @@
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
-
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryOAuth2PermissionGrantFetcher;
 
 /**
 * The header for type MSDirectoryServicePrincipalFetcher.

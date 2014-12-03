@@ -13,7 +13,7 @@
 #import "MSDirectoryApplicationOperations.h"
 #import "MSDirectoryApplication.h"
 @class MSDirectoryExtensionPropertyCollectionFetcher;
-
+@class MSDirectoryExtensionPropertyFetcher;
 
 /**
 * The header for type MSDirectoryApplicationFetcher.

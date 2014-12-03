@@ -20,7 +20,7 @@
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
+@class MSDirectoryUserFetcher;
 
 #import "MSDirectoryApplicationFetcher.h"
 #import "MSDirectoryUserFetcher.h"

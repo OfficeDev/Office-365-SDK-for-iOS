@@ -13,7 +13,7 @@
 #import "MSDirectoryGroupOperations.h"
 #import "MSDirectoryGroup.h"
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
-
+@class MSDirectoryAppRoleAssignmentFetcher;
 
 /**
 * The header for type MSDirectoryGroupFetcher.

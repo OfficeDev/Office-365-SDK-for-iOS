@@ -11,13 +11,17 @@
 
 #import <office365_odata_base/office365_odata_base.h>
 #import "MSDirectoryUserOperations.h"
+#import "MSDirectoryDirectoryObjectFetcher.h"
+#import "MSDirectoryDirectoryObjectFetcher.h"
 #import "MSDirectoryUser.h"
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
-
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryOAuth2PermissionGrantFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
 /**
 * The header for type MSDirectoryUserFetcher.
 */
