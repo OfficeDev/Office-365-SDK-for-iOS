@@ -1,5 +1,6 @@
 # Office 365 SDK for iOS
 
+[![Build Status](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS.svg)](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS) 
 **Table of Contents**
 
 - [Overview](#overview)
