@@ -1,0 +1,14 @@
+language: objective-c
+
+before_install:
+  - brew update
+  - if brew outdated | grep -qx xctool; then brew upgrade xctool; fi
+  - Frameworks/gethamcrest
+  - sudo easy_install cpp-coveralls
+
+script:
+  - xctool workspace -project sdk-objectivec/office365-services.xcodeproj -scheme office365_odata_base -sdk macosx10.9
+  - xctool workspace -project sdk-objectivec/office365-services.xcodeproj -scheme office365_exchange_sdk -sdk macosx10.9
+  - xctool workspace -project sdk-objectivec/office365-services.xcodeproj -scheme office365_files_sdk -sdk macosx10.9
+  - xctool workspace -project sdk-objectivec/office365-services.xcodeproj -scheme office365_discovery_base -sdk macosx10.9
+  - xctool workspace -project sdk-objectivec/office365-services.xcodeproj -scheme office365_directory_base -sdk macosx10.9
