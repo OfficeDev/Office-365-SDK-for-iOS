@@ -1,6 +1,8 @@
 # Office 365 SDK for iOS
 
-[![Build Status](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS.svg)](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS) 
+[![Build Status](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS.svg)](https://travis-ci.org/greathansen/Office-365-SDK-for-iOS)
+[![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/Office365/badge.png)](http://cocoapods.org/?q=Office365)
+
 **Table of Contents**
 
 - [Overview](#overview)
