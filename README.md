@@ -1,5 +1,8 @@
 # Office 365 SDK for iOS
 
+[![Build Status](https://travis-ci.org/OfficeDev/Office-365-SDK-for-iOS.svg?branch=master)](https://travis-ci.org/OfficeDev/Office-365-SDK-for-iOS)
+[![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/Office365/badge.png)](http://cocoapods.org/?q=Office365)
+
 **Table of Contents**
 
 - [Overview](#overview)
@@ -20,7 +23,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
   To do this, add a Podfile file similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
-  pod 'Office365', '~>0.5.0'
+  pod 'Office365', '~>0.6.0'
   pod 'ADALiOS', '~>1.0.0'
   ```
   
