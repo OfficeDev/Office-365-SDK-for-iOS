@@ -8,13 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EC919B0B1A3732C0009A1BBC /* office365_unit_tests.h in Headers */ = {isa = PBXBuildFile; fileRef = EC919B0A1A3732C0009A1BBC /* office365_unit_tests.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC919B111A3732C1009A1BBC /* office365_unit_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B051A3732C0009A1BBC /* office365_unit_tests.framework */; };
 		EC919B181A3732C1009A1BBC /* office365_unit_testsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC919B171A3732C1009A1BBC /* office365_unit_testsTests.m */; };
-		EC919B261A3734A4009A1BBC /* office365_directory_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B211A3734A4009A1BBC /* office365_directory_sdk.framework */; };
-		EC919B271A3734A4009A1BBC /* office365_discovery_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B221A3734A4009A1BBC /* office365_discovery_sdk.framework */; };
-		EC919B281A3734A4009A1BBC /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B231A3734A4009A1BBC /* office365_exchange_sdk.framework */; };
-		EC919B291A3734A4009A1BBC /* office365_files_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B241A3734A4009A1BBC /* office365_files_sdk.framework */; };
-		EC919B2A1A3734A4009A1BBC /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B251A3734A4009A1BBC /* office365_odata_base.framework */; };
+		EC919B541A375BC2009A1BBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC919B531A375BC2009A1BBC /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +34,7 @@
 		EC919B231A3734A4009A1BBC /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_exchange_sdk.framework; path = "../office365_exchange_sdk/build/Debug-iphoneos/office365_exchange_sdk.framework"; sourceTree = "<group>"; };
 		EC919B241A3734A4009A1BBC /* office365_files_sdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_files_sdk.framework; path = "../office365_files_sdk/build/Debug-iphoneos/office365_files_sdk.framework"; sourceTree = "<group>"; };
 		EC919B251A3734A4009A1BBC /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		EC919B531A375BC2009A1BBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,11 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC919B261A3734A4009A1BBC /* office365_directory_sdk.framework in Frameworks */,
-				EC919B271A3734A4009A1BBC /* office365_discovery_sdk.framework in Frameworks */,
-				EC919B281A3734A4009A1BBC /* office365_exchange_sdk.framework in Frameworks */,
-				EC919B291A3734A4009A1BBC /* office365_files_sdk.framework in Frameworks */,
-				EC919B2A1A3734A4009A1BBC /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC919B111A3732C1009A1BBC /* office365_unit_tests.framework in Frameworks */,
+				EC919B541A375BC2009A1BBC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +112,7 @@
 		EC919B2B1A3734AD009A1BBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC919B531A375BC2009A1BBC /* Foundation.framework */,
 				EC919B211A3734A4009A1BBC /* office365_directory_sdk.framework */,
 				EC919B221A3734A4009A1BBC /* office365_discovery_sdk.framework */,
 				EC919B231A3734A4009A1BBC /* office365_exchange_sdk.framework */,
@@ -438,6 +430,7 @@
 				EC919B1D1A3732C1009A1BBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EC919B1E1A3732C1009A1BBC /* Build configuration list for PBXNativeTarget "office365_unit_testsTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +439,7 @@
 				EC919B201A3732C1009A1BBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
