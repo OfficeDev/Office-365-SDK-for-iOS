@@ -5,5 +5,4 @@ script:
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_files_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_discovery_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_directory_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-
-  xcodebuild test -workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_unit_tests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_unit_testsTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
