@@ -1,0 +1,500 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC572D491A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */; };
+		EC572D4A1A38D37F006A8DE8 /* MSSampleContainerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */; };
+		EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */; };
+		EC572D4C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D2D1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m */; };
+		EC572D4D1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D301A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m */; };
+		EC572D4E1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D321A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m */; };
+		EC572D4F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D341A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.m */; };
+		EC572D501A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D361A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m */; };
+		EC572D511A38D37F006A8DE8 /* MSSampleContainerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D381A38D37F006A8DE8 /* MSSampleContainerClient.m */; };
+		EC572D521A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D3A1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.m */; };
+		EC572D531A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D3C1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.m */; };
+		EC572D541A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D3E1A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.m */; };
+		EC572D551A38D37F006A8DE8 /* MSSampleContainerEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D401A38D37F006A8DE8 /* MSSampleContainerEntityOperations.m */; };
+		EC572D561A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D421A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.m */; };
+		EC572D571A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D441A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m */; };
+		EC572D581A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D461A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m */; };
+		EC572D591A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D481A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m */; };
+		EC572D5A1A38D3D7006A8DE8 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC572D211A38D2F9006A8DE8 /* office365_odata_base.framework */; };
+		EC8514291A38C9F400385C38 /* SampleServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8514281A38C9F400385C38 /* SampleServiceTests.m */; };
+		EC8514331A38CC8900385C38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8514321A38CC8900385C38 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC572D201A38D2F9006A8DE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
+		EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntity.h; sourceTree = "<group>"; };
+		EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntity.m; sourceTree = "<group>"; };
+		EC572D271A38D37F006A8DE8 /* MSSampleContainerEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntity.h; sourceTree = "<group>"; };
+		EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntity.m; sourceTree = "<group>"; };
+		EC572D291A38D37F006A8DE8 /* MSSampleContainerProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerProtocols.h; sourceTree = "<group>"; };
+		EC572D2A1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleComplexType.h; sourceTree = "<group>"; };
+		EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleComplexType.m; sourceTree = "<group>"; };
+		EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntity.h; sourceTree = "<group>"; };
+		EC572D2D1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleEntity.m; sourceTree = "<group>"; };
+		EC572D2F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		EC572D301A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		EC572D311A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityCollectionOperations.h; sourceTree = "<group>"; };
+		EC572D321A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntityCollectionOperations.m; sourceTree = "<group>"; };
+		EC572D331A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityFetcher.h; sourceTree = "<group>"; };
+		EC572D341A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntityFetcher.m; sourceTree = "<group>"; };
+		EC572D351A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityOperations.h; sourceTree = "<group>"; };
+		EC572D361A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntityOperations.m; sourceTree = "<group>"; };
+		EC572D371A38D37F006A8DE8 /* MSSampleContainerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerClient.h; sourceTree = "<group>"; };
+		EC572D381A38D37F006A8DE8 /* MSSampleContainerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerClient.m; sourceTree = "<group>"; };
+		EC572D391A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		EC572D3A1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		EC572D3B1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityCollectionOperations.h; sourceTree = "<group>"; };
+		EC572D3C1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntityCollectionOperations.m; sourceTree = "<group>"; };
+		EC572D3D1A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityFetcher.h; sourceTree = "<group>"; };
+		EC572D3E1A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntityFetcher.m; sourceTree = "<group>"; };
+		EC572D3F1A38D37F006A8DE8 /* MSSampleContainerEntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityOperations.h; sourceTree = "<group>"; };
+		EC572D401A38D37F006A8DE8 /* MSSampleContainerEntityOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerEntityOperations.m; sourceTree = "<group>"; };
+		EC572D411A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		EC572D421A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		EC572D431A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityCollectionOperations.h; sourceTree = "<group>"; };
+		EC572D441A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleEntityCollectionOperations.m; sourceTree = "<group>"; };
+		EC572D451A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityFetcher.h; sourceTree = "<group>"; };
+		EC572D461A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleEntityFetcher.m; sourceTree = "<group>"; };
+		EC572D471A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityOperations.h; sourceTree = "<group>"; };
+		EC572D481A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerSampleEntityOperations.m; sourceTree = "<group>"; };
+		EC8514081A38C97700385C38 /* office365_UnitTestsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = office365_UnitTestsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC85140E1A38C97700385C38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC85141C1A38C9B300385C38 /* getNavigationsGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationsGET.json; sourceTree = "<group>"; };
+		EC85141D1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionComplexTypePOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twoParamsActionsFirstIsCollectionComplexTypePOST.json; sourceTree = "<group>"; };
+		EC85141E1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionEntityTypePOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twoParamsActionsFirstIsCollectionEntityTypePOST.json; sourceTree = "<group>"; };
+		EC85141F1A38C9B300385C38 /* twoParamsActionsFirstIsComplexTypePOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twoParamsActionsFirstIsComplexTypePOST.json; sourceTree = "<group>"; };
+		EC8514201A38C9B300385C38 /* twoParamsActionsFirstIsEntityTypePOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = twoParamsActionsFirstIsEntityTypePOST.json; sourceTree = "<group>"; };
+		EC8514211A38C9B300385C38 /* wiremock-1.52-standalone.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = "wiremock-1.52-standalone.jar"; sourceTree = "<group>"; };
+		EC8514281A38C9F400385C38 /* SampleServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleServiceTests.m; sourceTree = "<group>"; };
+		EC8514321A38CC8900385C38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC8514051A38C97700385C38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC572D5A1A38D3D7006A8DE8 /* office365_odata_base.framework in Frameworks */,
+				EC8514331A38CC8900385C38 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC572D1D1A38D2F9006A8DE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D211A38D2F9006A8DE8 /* office365_odata_base.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC572D221A38D37F006A8DE8 /* SampleService */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D231A38D37F006A8DE8 /* Generated */,
+			);
+			path = SampleService;
+			sourceTree = "<group>";
+		};
+		EC572D231A38D37F006A8DE8 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D241A38D37F006A8DE8 /* Models */,
+				EC572D2E1A38D37F006A8DE8 /* Operations */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		EC572D241A38D37F006A8DE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */,
+				EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */,
+				EC572D271A38D37F006A8DE8 /* MSSampleContainerEntity.h */,
+				EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */,
+				EC572D291A38D37F006A8DE8 /* MSSampleContainerProtocols.h */,
+				EC572D2A1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.h */,
+				EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */,
+				EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */,
+				EC572D2D1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC572D2E1A38D37F006A8DE8 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D2F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.h */,
+				EC572D301A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m */,
+				EC572D311A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.h */,
+				EC572D321A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m */,
+				EC572D331A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.h */,
+				EC572D341A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.m */,
+				EC572D351A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.h */,
+				EC572D361A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m */,
+				EC572D371A38D37F006A8DE8 /* MSSampleContainerClient.h */,
+				EC572D381A38D37F006A8DE8 /* MSSampleContainerClient.m */,
+				EC572D391A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.h */,
+				EC572D3A1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.m */,
+				EC572D3B1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.h */,
+				EC572D3C1A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.m */,
+				EC572D3D1A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.h */,
+				EC572D3E1A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.m */,
+				EC572D3F1A38D37F006A8DE8 /* MSSampleContainerEntityOperations.h */,
+				EC572D401A38D37F006A8DE8 /* MSSampleContainerEntityOperations.m */,
+				EC572D411A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.h */,
+				EC572D421A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.m */,
+				EC572D431A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.h */,
+				EC572D441A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m */,
+				EC572D451A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.h */,
+				EC572D461A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m */,
+				EC572D471A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.h */,
+				EC572D481A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		EC8513F31A38C97700385C38 = {
+			isa = PBXGroup;
+			children = (
+				EC572D221A38D37F006A8DE8 /* SampleService */,
+				EC8514341A38CC9400385C38 /* Frameworks */,
+				EC8514191A38C9B300385C38 /* WireMock */,
+				EC85140C1A38C97700385C38 /* office365_UnitTestsTests */,
+				EC8513FE1A38C97700385C38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC8513FE1A38C97700385C38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC8514081A38C97700385C38 /* office365_UnitTestsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC85140C1A38C97700385C38 /* office365_UnitTestsTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC8514281A38C9F400385C38 /* SampleServiceTests.m */,
+				EC85140D1A38C97700385C38 /* Supporting Files */,
+			);
+			path = office365_UnitTestsTests;
+			sourceTree = "<group>";
+		};
+		EC85140D1A38C97700385C38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC85140E1A38C97700385C38 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC8514191A38C9B300385C38 /* WireMock */ = {
+			isa = PBXGroup;
+			children = (
+				EC85141A1A38C9B300385C38 /* __files */,
+				EC85141B1A38C9B300385C38 /* mappings */,
+				EC8514211A38C9B300385C38 /* wiremock-1.52-standalone.jar */,
+			);
+			path = WireMock;
+			sourceTree = "<group>";
+		};
+		EC85141A1A38C9B300385C38 /* __files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = __files;
+			sourceTree = "<group>";
+		};
+		EC85141B1A38C9B300385C38 /* mappings */ = {
+			isa = PBXGroup;
+			children = (
+				EC85141C1A38C9B300385C38 /* getNavigationsGET.json */,
+				EC85141D1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionComplexTypePOST.json */,
+				EC85141E1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionEntityTypePOST.json */,
+				EC85141F1A38C9B300385C38 /* twoParamsActionsFirstIsComplexTypePOST.json */,
+				EC8514201A38C9B300385C38 /* twoParamsActionsFirstIsEntityTypePOST.json */,
+			);
+			path = mappings;
+			sourceTree = "<group>";
+		};
+		EC8514341A38CC9400385C38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */,
+				EC8514321A38CC8900385C38 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC8514071A38C97700385C38 /* office365_UnitTestsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC8514161A38C97700385C38 /* Build configuration list for PBXNativeTarget "office365_UnitTestsTests" */;
+			buildPhases = (
+				EC8514041A38C97700385C38 /* Sources */,
+				EC8514051A38C97700385C38 /* Frameworks */,
+				EC8514061A38C97700385C38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = office365_UnitTestsTests;
+			productName = office365_UnitTestsTests;
+			productReference = EC8514081A38C97700385C38 /* office365_UnitTestsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC8513F41A38C97700385C38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = MSOpentech;
+				TargetAttributes = {
+					EC8514071A38C97700385C38 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = EC8513F71A38C97700385C38 /* Build configuration list for PBXProject "office365_UnitTests" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC8513F31A38C97700385C38;
+			productRefGroup = EC8513FE1A38C97700385C38 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC572D1D1A38D2F9006A8DE8 /* Products */;
+					ProjectRef = EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EC8514071A38C97700385C38 /* office365_UnitTestsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC572D211A38D2F9006A8DE8 /* office365_odata_base.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_odata_base.framework;
+			remoteRef = EC572D201A38D2F9006A8DE8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC8514061A38C97700385C38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC8514041A38C97700385C38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC572D591A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m in Sources */,
+				EC572D4D1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m in Sources */,
+				EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */,
+				EC572D581A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m in Sources */,
+				EC572D571A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m in Sources */,
+				EC572D501A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m in Sources */,
+				EC572D4C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m in Sources */,
+				EC572D4E1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m in Sources */,
+				EC572D4A1A38D37F006A8DE8 /* MSSampleContainerEntity.m in Sources */,
+				EC572D561A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionFetcher.m in Sources */,
+				EC572D551A38D37F006A8DE8 /* MSSampleContainerEntityOperations.m in Sources */,
+				EC572D511A38D37F006A8DE8 /* MSSampleContainerClient.m in Sources */,
+				EC572D491A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m in Sources */,
+				EC572D4F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityFetcher.m in Sources */,
+				EC572D541A38D37F006A8DE8 /* MSSampleContainerEntityFetcher.m in Sources */,
+				EC572D521A38D37F006A8DE8 /* MSSampleContainerEntityCollectionFetcher.m in Sources */,
+				EC572D531A38D37F006A8DE8 /* MSSampleContainerEntityCollectionOperations.m in Sources */,
+				EC8514291A38C9F400385C38 /* SampleServiceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EC8514111A38C97700385C38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EC8514121A38C97700385C38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EC8514171A38C97700385C38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_unit_tests/SampleService/build/Debug-iphoneos",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = office365_UnitTestsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC8514181A38C97700385C38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_unit_tests/SampleService/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = office365_UnitTestsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC8513F71A38C97700385C38 /* Build configuration list for PBXProject "office365_UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8514111A38C97700385C38 /* Debug */,
+				EC8514121A38C97700385C38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC8514161A38C97700385C38 /* Build configuration list for PBXNativeTarget "office365_UnitTestsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC8514171A38C97700385C38 /* Debug */,
+				EC8514181A38C97700385C38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC8513F41A38C97700385C38 /* Project object */;
+}
