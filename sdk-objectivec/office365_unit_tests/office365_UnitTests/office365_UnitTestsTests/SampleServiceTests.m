@@ -162,8 +162,7 @@
 
 //TODO: testGetNavigationListRawWithSelectAndTop
 
-//TODO: review it's failing
-/*
+
 -(void) testGetCollectionWithFilterAndExpand{
     //getCollectionsWithExpandAndFilter.json
     self.running = true;
@@ -181,7 +180,7 @@
     
     XCTAssertEqual([entities count], 1);
 }
-*/
+
 -(void) testGetCollectionWithHeaders{
     //getCollectionsWithHeaders.json
     self.running = true;
