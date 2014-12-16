@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4508B31A3B2D59008C9668 /* getNavigationItemGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */; };
+		1C4508B41A3B2D59008C9668 /* getNavigationItemWithSelectGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */; };
+		1C4508B51A3B2D59008C9668 /* getNavigationsWithParameters.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */; };
+		1C4508B61A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AC1A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json */; };
+		1C4508B71A3B2D59008C9668 /* testDefaultHeaders.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AD1A3B2D59008C9668 /* testDefaultHeaders.json */; };
+		1C4508B81A3B2D59008C9668 /* updateNavigationItemPOST.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AE1A3B2D59008C9668 /* updateNavigationItemPOST.json */; };
+		1C4508B91A3B2D59008C9668 /* addNavigationItemPOST.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508AF1A3B2D59008C9668 /* addNavigationItemPOST.json */; };
+		1C4508BA1A3B2D59008C9668 /* deleteNavigationItemDELETE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */; };
+		1C4508BB1A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */; };
+		1C4508BC1A3B2D59008C9668 /* getCollectionsWithHeaders.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */; };
 		EC572D491A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */; };
 		EC572D4A1A38D37F006A8DE8 /* MSSampleContainerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */; };
 		EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */; };
@@ -40,6 +50,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationItemGET.json; sourceTree = "<group>"; };
+		1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationItemWithSelectGET.json; sourceTree = "<group>"; };
+		1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationsWithParameters.json; sourceTree = "<group>"; };
+		1C4508AC1A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getNavigationsWithSelectAndTopGET.json; sourceTree = "<group>"; };
+		1C4508AD1A3B2D59008C9668 /* testDefaultHeaders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testDefaultHeaders.json; sourceTree = "<group>"; };
+		1C4508AE1A3B2D59008C9668 /* updateNavigationItemPOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = updateNavigationItemPOST.json; sourceTree = "<group>"; };
+		1C4508AF1A3B2D59008C9668 /* addNavigationItemPOST.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = addNavigationItemPOST.json; sourceTree = "<group>"; };
+		1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = deleteNavigationItemDELETE.json; sourceTree = "<group>"; };
+		1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithExpandAndFilter.json; sourceTree = "<group>"; };
+		1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithHeaders.json; sourceTree = "<group>"; };
 		EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntity.h; sourceTree = "<group>"; };
 		EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntity.m; sourceTree = "<group>"; };
@@ -231,6 +251,16 @@
 		EC85141B1A38C9B300385C38 /* mappings */ = {
 			isa = PBXGroup;
 			children = (
+				1C4508A91A3B2D59008C9668 /* getNavigationItemGET.json */,
+				1C4508AA1A3B2D59008C9668 /* getNavigationItemWithSelectGET.json */,
+				1C4508AB1A3B2D59008C9668 /* getNavigationsWithParameters.json */,
+				1C4508AC1A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json */,
+				1C4508AD1A3B2D59008C9668 /* testDefaultHeaders.json */,
+				1C4508AE1A3B2D59008C9668 /* updateNavigationItemPOST.json */,
+				1C4508AF1A3B2D59008C9668 /* addNavigationItemPOST.json */,
+				1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */,
+				1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */,
+				1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */,
 				EC85141C1A38C9B300385C38 /* getNavigationsGET.json */,
 				EC85141D1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionComplexTypePOST.json */,
 				EC85141E1A38C9B300385C38 /* twoParamsActionsFirstIsCollectionEntityTypePOST.json */,
@@ -321,6 +351,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C4508B91A3B2D59008C9668 /* addNavigationItemPOST.json in Resources */,
+				1C4508B41A3B2D59008C9668 /* getNavigationItemWithSelectGET.json in Resources */,
+				1C4508B51A3B2D59008C9668 /* getNavigationsWithParameters.json in Resources */,
+				1C4508B71A3B2D59008C9668 /* testDefaultHeaders.json in Resources */,
+				1C4508BA1A3B2D59008C9668 /* deleteNavigationItemDELETE.json in Resources */,
+				1C4508B81A3B2D59008C9668 /* updateNavigationItemPOST.json in Resources */,
+				1C4508B31A3B2D59008C9668 /* getNavigationItemGET.json in Resources */,
+				1C4508BC1A3B2D59008C9668 /* getCollectionsWithHeaders.json in Resources */,
+				1C4508B61A3B2D59008C9668 /* getNavigationsWithSelectAndTopGET.json in Resources */,
+				1C4508BB1A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +494,12 @@
 				);
 				INFOPLIST_FILE = office365_UnitTestsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -469,6 +515,12 @@
 				);
 				INFOPLIST_FILE = office365_UnitTestsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
