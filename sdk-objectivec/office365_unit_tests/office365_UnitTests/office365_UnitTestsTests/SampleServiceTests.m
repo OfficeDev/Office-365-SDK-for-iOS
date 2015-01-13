@@ -44,7 +44,7 @@
 }
 
 //TODO: Enable when serialization issue with ints is ready
-
+/*
 -(void) testTwoParamsActionsFirstIsEntityTypeUri{
     //twoParamsActionsFirstIsEntityTypePOST.json
     self.running = true;
@@ -61,7 +61,7 @@
     [self blockUntilFinish:task];
     
     XCTAssertEqual(result, 1);
-}
+}*/
 
 - (void)testGetNavigationList {
     //getNavigationsGET.json
@@ -120,17 +120,13 @@
 }
 
 //TODO: Enable when Raw is available after select
-/*
+
 -(void) testGetNavigationItemRawWithSelect{
     //getNavigationItemWithSelectGET.json
     self.running = true;
     __block NSString *jsonResult = nil;
     
-    NSURLSessionDataTask* task =
-    
-    [[[[[self.client getMe] getNavigations] getById:@"SomeId"] select:@"SomeProp, AnotherProp"]];
-    
-    [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRaw:^(NSString *result, MSODataException *error) {
+    NSURLSessionDataTask* task = [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRaw:^(NSString *result, MSODataException *error) {
         
         jsonResult =result;
         self.running = false;
@@ -144,7 +140,7 @@
     XCTAssertNotNil(jsonResult);
     XCTAssertTrue([jsonResult isEqualToString:expectedResponseString]);
 }
-*/
+
 -(void) testGetNavigationListWithSelectAndTop{
     //getNavigationsWithSelectAndTopGET.json
     self.running = true;
