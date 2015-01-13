@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E0E8BB264F564B4D1FABF85 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C95350EF8127F99D9343C30A /* libPods.a */; };
+		EC455D9F1A43661E00A3E8E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455D9E1A43661E00A3E8E8 /* AppDelegate.swift */; };
+		EC455DA21A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC455DA01A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld */; };
+		EC455DA41A43661E00A3E8E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455DA31A43661E00A3E8E8 /* ViewController.swift */; };
+		EC455DA71A43661E00A3E8E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC455DA51A43661E00A3E8E8 /* Main.storyboard */; };
+		EC455DA91A43661E00A3E8E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC455DA81A43661E00A3E8E8 /* Images.xcassets */; };
+		EC455DAC1A43661E00A3E8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC455DAA1A43661E00A3E8E8 /* LaunchScreen.xib */; };
+		EC455DB81A43661E00A3E8E8 /* simple_exchange_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455DB71A43661E00A3E8E8 /* simple_exchange_appTests.swift */; };
+		EC455DC31A4367AC00A3E8E8 /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC455DC11A4367AC00A3E8E8 /* libPods-ADALiOS.a */; };
+		EC455DC81A444E4D00A3E8E8 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC455DC71A444E4D00A3E8E8 /* LogInController.m */; };
+		EC455DCA1A444EC000A3E8E8 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455DC91A444EC000A3E8E8 /* EventsTableViewController.swift */; };
+		ECEDA7271A4A072200D32FAD /* Office365Sdks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECEDA7261A4A072200D32FAD /* Office365Sdks.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC455DB21A43661E00A3E8E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC455D911A43661E00A3E8E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC455D981A43661E00A3E8E8;
+			remoteInfo = "simple-exchange-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		097020F383B9256FF03004C1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A05DB9001AD26FD06FFF8D0F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C95350EF8127F99D9343C30A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC455D991A43661E00A3E8E8 /* simple-exchange-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-exchange-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC455D9D1A43661E00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC455D9E1A43661E00A3E8E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC455DA11A43661E00A3E8E8 /* simple_exchange_app.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simple_exchange_app.xcdatamodel; sourceTree = "<group>"; };
+		EC455DA31A43661E00A3E8E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC455DA61A43661E00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC455DA81A43661E00A3E8E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EC455DAB1A43661E00A3E8E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EC455DB11A43661E00A3E8E8 /* simple-exchange-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "simple-exchange-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC455DB61A43661E00A3E8E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC455DB71A43661E00A3E8E8 /* simple_exchange_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_exchange_appTests.swift; sourceTree = "<group>"; };
+		EC455DC11A4367AC00A3E8E8 /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
+		EC455DC51A43773900A3E8E8 /* outlook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "outlook-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC455DC61A444E4D00A3E8E8 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
+		EC455DC71A444E4D00A3E8E8 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		EC455DC91A444EC000A3E8E8 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		ECEDA7261A4A072200D32FAD /* Office365Sdks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Office365Sdks.framework; path = ../../../../../../../../Library/Frameworks/Office365Sdks.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC455D961A43661E00A3E8E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECEDA7271A4A072200D32FAD /* Office365Sdks.framework in Frameworks */,
+				EC455DC31A4367AC00A3E8E8 /* libPods-ADALiOS.a in Frameworks */,
+				3E0E8BB264F564B4D1FABF85 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC455DAE1A43661E00A3E8E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8C4E72651A5710D76C8966D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A05DB9001AD26FD06FFF8D0F /* Pods.debug.xcconfig */,
+				097020F383B9256FF03004C1 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D44DE1736868B9F6AE28947D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECEDA7261A4A072200D32FAD /* Office365Sdks.framework */,
+				EC455DC11A4367AC00A3E8E8 /* libPods-ADALiOS.a */,
+				C95350EF8127F99D9343C30A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC455D901A43661E00A3E8E8 = {
+			isa = PBXGroup;
+			children = (
+				EC455D9B1A43661E00A3E8E8 /* simple-exchange-app */,
+				EC455DB41A43661E00A3E8E8 /* simple-exchange-appTests */,
+				EC455D9A1A43661E00A3E8E8 /* Products */,
+				8C4E72651A5710D76C8966D1 /* Pods */,
+				D44DE1736868B9F6AE28947D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EC455D9A1A43661E00A3E8E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC455D991A43661E00A3E8E8 /* simple-exchange-app.app */,
+				EC455DB11A43661E00A3E8E8 /* simple-exchange-appTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC455D9B1A43661E00A3E8E8 /* simple-exchange-app */ = {
+			isa = PBXGroup;
+			children = (
+				EC455D9E1A43661E00A3E8E8 /* AppDelegate.swift */,
+				EC455DA31A43661E00A3E8E8 /* ViewController.swift */,
+				EC455DA51A43661E00A3E8E8 /* Main.storyboard */,
+				EC455DA81A43661E00A3E8E8 /* Images.xcassets */,
+				EC455DAA1A43661E00A3E8E8 /* LaunchScreen.xib */,
+				EC455DA01A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld */,
+				EC455D9C1A43661E00A3E8E8 /* Supporting Files */,
+				EC455DC91A444EC000A3E8E8 /* EventsTableViewController.swift */,
+			);
+			path = "simple-exchange-app";
+			sourceTree = "<group>";
+		};
+		EC455D9C1A43661E00A3E8E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC455DC61A444E4D00A3E8E8 /* LogInController.h */,
+				EC455DC71A444E4D00A3E8E8 /* LogInController.m */,
+				EC455D9D1A43661E00A3E8E8 /* Info.plist */,
+				EC455DC51A43773900A3E8E8 /* outlook-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC455DB41A43661E00A3E8E8 /* simple-exchange-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC455DB71A43661E00A3E8E8 /* simple_exchange_appTests.swift */,
+				EC455DB51A43661E00A3E8E8 /* Supporting Files */,
+			);
+			path = "simple-exchange-appTests";
+			sourceTree = "<group>";
+		};
+		EC455DB51A43661E00A3E8E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC455DB61A43661E00A3E8E8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC455D981A43661E00A3E8E8 /* simple-exchange-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC455DBB1A43661E00A3E8E8 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */;
+			buildPhases = (
+				645EF6B3899686689355865C /* Check Pods Manifest.lock */,
+				EC455D951A43661E00A3E8E8 /* Sources */,
+				EC455D961A43661E00A3E8E8 /* Frameworks */,
+				EC455D971A43661E00A3E8E8 /* Resources */,
+				7AAD4B33334205E2E42EE0EB /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "simple-exchange-app";
+			productName = "simple-exchange-app";
+			productReference = EC455D991A43661E00A3E8E8 /* simple-exchange-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC455DB01A43661E00A3E8E8 /* simple-exchange-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC455DBE1A43661E00A3E8E8 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */;
+			buildPhases = (
+				EC455DAD1A43661E00A3E8E8 /* Sources */,
+				EC455DAE1A43661E00A3E8E8 /* Frameworks */,
+				EC455DAF1A43661E00A3E8E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC455DB31A43661E00A3E8E8 /* PBXTargetDependency */,
+			);
+			name = "simple-exchange-appTests";
+			productName = "simple-exchange-appTests";
+			productReference = EC455DB11A43661E00A3E8E8 /* simple-exchange-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC455D911A43661E00A3E8E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = MSOpentech;
+				TargetAttributes = {
+					EC455D981A43661E00A3E8E8 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					EC455DB01A43661E00A3E8E8 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = EC455D981A43661E00A3E8E8;
+					};
+				};
+			};
+			buildConfigurationList = EC455D941A43661E00A3E8E8 /* Build configuration list for PBXProject "simple-exchange-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC455D901A43661E00A3E8E8;
+			productRefGroup = EC455D9A1A43661E00A3E8E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC455D981A43661E00A3E8E8 /* simple-exchange-app */,
+				EC455DB01A43661E00A3E8E8 /* simple-exchange-appTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC455D971A43661E00A3E8E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC455DA71A43661E00A3E8E8 /* Main.storyboard in Resources */,
+				EC455DAC1A43661E00A3E8E8 /* LaunchScreen.xib in Resources */,
+				EC455DA91A43661E00A3E8E8 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC455DAF1A43661E00A3E8E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		645EF6B3899686689355865C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7AAD4B33334205E2E42EE0EB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC455D951A43661E00A3E8E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC455DA41A43661E00A3E8E8 /* ViewController.swift in Sources */,
+				EC455DC81A444E4D00A3E8E8 /* LogInController.m in Sources */,
+				EC455DA21A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld in Sources */,
+				EC455DCA1A444EC000A3E8E8 /* EventsTableViewController.swift in Sources */,
+				EC455D9F1A43661E00A3E8E8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC455DAD1A43661E00A3E8E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC455DB81A43661E00A3E8E8 /* simple_exchange_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC455DB31A43661E00A3E8E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC455D981A43661E00A3E8E8 /* simple-exchange-app */;
+			targetProxy = EC455DB21A43661E00A3E8E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC455DA51A43661E00A3E8E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC455DA61A43661E00A3E8E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC455DAA1A43661E00A3E8E8 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC455DAB1A43661E00A3E8E8 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC455DB91A43661E00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC455DBA1A43661E00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC455DBC1A43661E00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A05DB9001AD26FD06FFF8D0F /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/simple-exchange-app/outlook-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		EC455DBD1A43661E00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 097020F383B9256FF03004C1 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "simple-exchange-app/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/simple-exchange-app/outlook-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		EC455DBF1A43661E00A3E8E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
+			};
+			name = Debug;
+		};
+		EC455DC01A43661E00A3E8E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "simple-exchange-appTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/simple-exchange-app.app/simple-exchange-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC455D941A43661E00A3E8E8 /* Build configuration list for PBXProject "simple-exchange-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC455DB91A43661E00A3E8E8 /* Debug */,
+				EC455DBA1A43661E00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC455DBB1A43661E00A3E8E8 /* Build configuration list for PBXNativeTarget "simple-exchange-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC455DBC1A43661E00A3E8E8 /* Debug */,
+				EC455DBD1A43661E00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC455DBE1A43661E00A3E8E8 /* Build configuration list for PBXNativeTarget "simple-exchange-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC455DBF1A43661E00A3E8E8 /* Debug */,
+				EC455DC01A43661E00A3E8E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EC455DA01A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EC455DA11A43661E00A3E8E8 /* simple_exchange_app.xcdatamodel */,
+			);
+			currentVersion = EC455DA11A43661E00A3E8E8 /* simple_exchange_app.xcdatamodel */;
+			path = simple_exchange_app.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EC455D911A43661E00A3E8E8 /* Project object */;
+}
