@@ -11,31 +11,13 @@
 
 #import <office365_odata_base/office365_odata_base.h>
 #import "MSSampleContainerSampleEntity.h"
-#import "MSSampleContainerSampleEntityFetcher.h"
+#import "MSSampleContainerSampleEntityCollectionFetcherProtocol.h"
 
 /**
 * The header for type MSSampleContainerSampleEntityCollectionFetcher.
 */
 
-@protocol MSSampleContainerSampleEntityCollectionFetcher
-
-@optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error))callback;
-
--(id<MSSampleContainerSampleEntityCollectionFetcher>)select : (NSString*) params;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)filter : (NSString*) params;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)top : (int) value;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)skip : (int) value;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)expand : (NSString*) value;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)orderBy : (NSString*) params;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSSampleContainerSampleEntityCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
 @interface MSSampleContainerSampleEntityCollectionFetcher : MSODataCollectionFetcher<MSSampleContainerSampleEntityCollectionFetcher>
-
--(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
--(MSSampleContainerSampleEntityFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addSampleEntity:(MSSampleContainerSampleEntity* )entity withCallback:(void (^)(MSSampleContainerSampleEntity *sampleEntity, MSODataException *e))callback;
 
 @end

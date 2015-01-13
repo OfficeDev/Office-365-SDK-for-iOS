@@ -12,6 +12,9 @@
 #import <office365_odata_base/office365_odata_base.h>
 #import "MSSampleContainerEntity.h"
 
+
+
+
 /**
 * The header for type MSSampleContainerEntityOperations.
 */

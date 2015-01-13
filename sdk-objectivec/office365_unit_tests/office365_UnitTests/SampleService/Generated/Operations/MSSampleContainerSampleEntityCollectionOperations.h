@@ -8,6 +8,8 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
+
+#import "MSSampleContainerAnotherEntity.h"
 #import "MSSampleContainerAnotherEntity.h"
 #import "MSSampleContainerSampleComplexType.h"
 #import "MSSampleContainerEntityCollectionOperations.h"

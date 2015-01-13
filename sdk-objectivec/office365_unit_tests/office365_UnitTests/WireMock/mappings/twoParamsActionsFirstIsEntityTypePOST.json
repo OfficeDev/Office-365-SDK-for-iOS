@@ -1,7 +1,9 @@
 {
     "request": {
         "method": "POST",
-        "url": "/Me/TwoParamsActionsFirstIsEntityType/"
+        "url": "/Me/TwoParamsActionsFirstIsEntityType/",
+        "bodyPatterns" : [{"equalTo" : "{\"BooleanParams\":\"false\",\"AnEntity\":{\"DisplayName\" : \"Some Display Name\",\"entityKey\" : \"Some Entity Key\",\"@odata.type\" : \"#Microsoft.SampleService.SampleEntity\",\"Id\" : \"5C338D75-CB90-4785-8667-CED25B3695BF\"}}"}]
+      
     },
     "response": {
         "status": 200,

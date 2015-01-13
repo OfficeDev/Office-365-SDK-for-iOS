@@ -9,38 +9,12 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSSampleContainerEntityOperations.h"
-#import "MSSampleContainerEntity.h"
-
-
-#import "MSSampleContainerAnotherEntityFetcher.h"
-#import "MSSampleContainerSampleEntityFetcher.h"
+#import "MSSampleContainerEntityFetcherProtocol.h"
 /**
 * The header for type MSSampleContainerEntityFetcher.
 */
 
-@protocol MSSampleContainerEntityFetcher
-
-@optional
--(NSURLSessionDataTask *)read:(void (^)(MSSampleContainerEntity* entity, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSSampleContainerEntity*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback;
--(id<MSSampleContainerEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
--(id<MSSampleContainerEntityFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
--(id<MSSampleContainerEntityFetcher>)select : (NSString*) params;
--(id<MSSampleContainerEntityFetcher>)expand : (NSString*) value;
-@end
 
 @interface MSSampleContainerEntityFetcher : MSODataEntityFetcher<MSSampleContainerEntityFetcher>
 
--(MSSampleContainerEntityOperations*) getOperations;
-
-	
-	
--(MSSampleContainerAnotherEntityFetcher*) asAnotherEntity;	
-	
-	
--(MSSampleContainerSampleEntityFetcher*) asSampleEntity;	
-	
 @end

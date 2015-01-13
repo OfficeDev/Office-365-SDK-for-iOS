@@ -7,7 +7,7 @@
 
 #import "MSODataExecutable.h"
 
-@protocol MSODataEntityFetcher
+@protocol MSODataEntityFetcher<MSODataExecutable>
 
 @required
 

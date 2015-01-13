@@ -39,7 +39,8 @@
      
     NSString* productName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
     [request addHeader:@"X-ClientService-ClientTag" :[self.resolver getPlatformUserAgent:productName]];
-    
+    [request addHeader:@"OData-Version" :@"4.0"];
+    [request addHeader:@"OData-MaxVersion" :@"4.0"];
     [[[self.resolver getCredentialsFactory]getCredentials]prepareRequest:request];
 
     return [httpTransport execute:request :^(id<MSODataResponse> r, MSODataException *e) {

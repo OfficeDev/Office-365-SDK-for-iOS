@@ -9,7 +9,7 @@
 #import "MSODataEntityFetcher.h"
 #import "MSODataDependencyResolver.h"
 
-@protocol MSODataCollectionFetcher
+@protocol MSODataCollectionFetcher<MSODataExecutable>
 
 @optional
 -(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;

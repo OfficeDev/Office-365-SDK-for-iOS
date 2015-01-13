@@ -44,7 +44,7 @@
 }
 
 //TODO: Enable when serialization issue with ints is ready
-/*
+
 -(void) testTwoParamsActionsFirstIsEntityTypeUri{
     //twoParamsActionsFirstIsEntityTypePOST.json
     self.running = true;
@@ -62,7 +62,7 @@
     
     XCTAssertEqual(result, 1);
 }
-*/
+
 - (void)testGetNavigationList {
     //getNavigationsGET.json
     self.running = true;
@@ -126,7 +126,11 @@
     self.running = true;
     __block NSString *jsonResult = nil;
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRaw:^(NSString *result, MSODataException *error) {
+    NSURLSessionDataTask* task =
+    
+    [[[[[self.client getMe] getNavigations] getById:@"SomeId"] select:@"SomeProp, AnotherProp"]];
+    
+    [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRaw:^(NSString *result, MSODataException *error) {
         
         jsonResult =result;
         self.running = false;
@@ -141,7 +145,6 @@
     XCTAssertTrue([jsonResult isEqualToString:expectedResponseString]);
 }
 */
-
 -(void) testGetNavigationListWithSelectAndTop{
     //getNavigationsWithSelectAndTopGET.json
     self.running = true;
@@ -200,7 +203,7 @@
 }
 
 //TODO: Enable when missing X-ClientService-ClientTag header is available
-/*
+
 -(void) testDefaultHeaders{
     self.running = true;
     __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
@@ -217,7 +220,7 @@
     
     XCTAssertEqual([entities count], 1);
 }
-*/
+
 -(void) testDeleteNavigationItem{
     //deleteNavigationItemDELETE.json
     self.running = true;

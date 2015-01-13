@@ -60,6 +60,12 @@
 		1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = deleteNavigationItemDELETE.json; sourceTree = "<group>"; };
 		1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithExpandAndFilter.json; sourceTree = "<group>"; };
 		1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithHeaders.json; sourceTree = "<group>"; };
+		EC454C5B1A6564F300E08BA3 /* MSSampleContainerAnotherEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
+		EC454C5C1A6564F300E08BA3 /* MSSampleContainerAnotherEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityFetcherProtocol.h; sourceTree = "<group>"; };
+		EC454C5D1A6564F300E08BA3 /* MSSampleContainerEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
+		EC454C5E1A6564F300E08BA3 /* MSSampleContainerEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityFetcherProtocol.h; sourceTree = "<group>"; };
+		EC454C5F1A6564F300E08BA3 /* MSSampleContainerSampleEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
+		EC454C601A6564F300E08BA3 /* MSSampleContainerSampleEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityFetcherProtocol.h; sourceTree = "<group>"; };
 		EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntity.h; sourceTree = "<group>"; };
 		EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntity.m; sourceTree = "<group>"; };
@@ -165,6 +171,12 @@
 		EC572D2E1A38D37F006A8DE8 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				EC454C5B1A6564F300E08BA3 /* MSSampleContainerAnotherEntityCollectionFetcherProtocol.h */,
+				EC454C5C1A6564F300E08BA3 /* MSSampleContainerAnotherEntityFetcherProtocol.h */,
+				EC454C5D1A6564F300E08BA3 /* MSSampleContainerEntityCollectionFetcherProtocol.h */,
+				EC454C5E1A6564F300E08BA3 /* MSSampleContainerEntityFetcherProtocol.h */,
+				EC454C5F1A6564F300E08BA3 /* MSSampleContainerSampleEntityCollectionFetcherProtocol.h */,
+				EC454C601A6564F300E08BA3 /* MSSampleContainerSampleEntityFetcherProtocol.h */,
 				EC572D2F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.h */,
 				EC572D301A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m */,
 				EC572D311A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.h */,
@@ -485,8 +497,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_unit_tests/SampleService/build/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -510,8 +520,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_unit_tests/SampleService/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = office365_UnitTestsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

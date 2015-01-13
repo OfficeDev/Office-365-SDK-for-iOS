@@ -10,12 +10,14 @@
  *******************************************************************************/
 
 #import "MSSampleContainerEntityFetcher.h"
-
-
 /**
 * The implementation file for type MSSampleContainerEntityFetcher.
 */
 
+
+
+#import "MSSampleContainerAnotherEntityFetcher.h"
+#import "MSSampleContainerSampleEntityFetcher.h"
 
 @implementation MSSampleContainerEntityFetcher
 
@@ -39,12 +41,10 @@
 }
 
 
-
-	
 -(MSSampleContainerAnotherEntityFetcher*) asAnotherEntity{
 	return [[MSSampleContainerAnotherEntityFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSSampleContainerAnotherEntity class]];
 }
-	
 -(MSSampleContainerSampleEntityFetcher*) asSampleEntity{
 	return [[MSSampleContainerSampleEntityFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSSampleContainerSampleEntity class]];
-}@end
+}
+@end
