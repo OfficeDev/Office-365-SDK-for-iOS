@@ -21,7 +21,7 @@
     if([testName isEqualToString: @"TestUpdateFileContent"]) return [self TestUpdateFileContent:result];
     if([testName isEqualToString: @"TestGetDrive"]) return [self TestGetDrive:result];
     if([testName isEqualToString: @"TestTopFiles"]) return [self TestTopFiles:result];
-    if([testName isEqualToString: @"TestSelectFiles"]) return [self TestTopFiles:result];
+    if([testName isEqualToString: @"TestSelectFiles"]) return [self TestSelectFiles:result];
     if([testName isEqualToString: @"TestDeleteFile"]) return [self TestDeleteFile:result];
     
     return nil;
@@ -295,7 +295,7 @@
     // Add new item
     NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[self.Client getfiles] select:@"name,dateTimeCreated"]read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
+        [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -309,7 +309,7 @@
                 selectedItem =(MSSharePointItem*)[items objectAtIndex:0];
             }
             
-            if(error == nil && selectedItem != nil && [selectedItem.name isEqualToString:addedItem.name] && selectedItem.dateTimeLastModified == nil ){
+            if(error == nil && selectedItem != nil && ![selectedItem.name isEqualToString:@""] && selectedItem.dateTimeLastModified == nil ){
                 passed = TRUE;
                 message = @"Ok - ";
             }

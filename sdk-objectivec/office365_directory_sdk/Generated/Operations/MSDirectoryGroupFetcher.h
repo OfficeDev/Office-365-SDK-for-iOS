@@ -13,7 +13,7 @@
 #import "MSDirectoryGroupOperations.h"
 #import "MSDirectoryGroup.h"
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
-
+@class MSDirectoryAppRoleAssignmentFetcher;
 
 /**
 * The header for type MSDirectoryGroupFetcher.
@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteGroup:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryGroupFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryGroupFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryGroupFetcher>)select : (NSString*) params;
+-(id<MSDirectoryGroupFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryGroupFetcher : MSODataEntityFetcher<MSDirectoryGroupFetcher>
@@ -35,6 +36,8 @@
 -(MSDirectoryGroupOperations*) getOperations;
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
+
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
 
 	
 @end

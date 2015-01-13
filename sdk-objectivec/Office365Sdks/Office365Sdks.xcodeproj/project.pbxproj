@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC3386281A4A0DA900759E5C /* office365_directory_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3386081A4A0D5400759E5C /* office365_directory_sdk.framework */; };
+		EC3386291A4A0DA900759E5C /* office365_discovery_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC33860E1A4A0D5B00759E5C /* office365_discovery_sdk.framework */; };
+		EC33862A1A4A0DA900759E5C /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3386141A4A0D6200759E5C /* office365_exchange_sdk.framework */; };
+		EC33862B1A4A0DA900759E5C /* office365_files_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC33861A1A4A0D6A00759E5C /* office365_files_sdk.framework */; };
+		EC7896821A49F2D600DD9D1D /* Office365Sdks.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7896811A49F2D600DD9D1D /* Office365Sdks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC3386071A4A0D5400759E5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3386031A4A0D5400759E5C /* office365_directory_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC0D69B519FACA180092895E;
+			remoteInfo = office365_directory_sdk;
+		};
+		EC33860D1A4A0D5B00759E5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC2CCA2A19F8A02F00D12E55;
+			remoteInfo = office365_discovery_sdk;
+		};
+		EC3386131A4A0D6200759E5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EB0819F44D9D00FD9527;
+			remoteInfo = office365_exchange_sdk;
+		};
+		EC3386191A4A0D6A00759E5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECDEC0C41A2514BB00F84EAF;
+			remoteInfo = office365_files_sdk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC3386031A4A0D5400759E5C /* office365_directory_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_directory_sdk.xcodeproj; path = ../office365_directory_sdk/office365_directory_sdk.xcodeproj; sourceTree = "<group>"; };
+		EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_discovery_sdk.xcodeproj; path = ../office365_discovery_sdk/office365_discovery_sdk.xcodeproj; sourceTree = "<group>"; };
+		EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_exchange_sdk.xcodeproj; path = ../office365_exchange_sdk/office365_exchange_sdk.xcodeproj; sourceTree = "<group>"; };
+		EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_files_sdk.xcodeproj; path = ../office365_files_sdk/office365_files_sdk.xcodeproj; sourceTree = "<group>"; };
+		EC78967C1A49F2D600DD9D1D /* Office365Sdks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Office365Sdks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC7896801A49F2D600DD9D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC7896811A49F2D600DD9D1D /* Office365Sdks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Office365Sdks.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC7896781A49F2D600DD9D1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC3386281A4A0DA900759E5C /* office365_directory_sdk.framework in Frameworks */,
+				EC3386291A4A0DA900759E5C /* office365_discovery_sdk.framework in Frameworks */,
+				EC33862A1A4A0DA900759E5C /* office365_exchange_sdk.framework in Frameworks */,
+				EC33862B1A4A0DA900759E5C /* office365_files_sdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC3386041A4A0D5400759E5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC3386081A4A0D5400759E5C /* office365_directory_sdk.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC33860A1A4A0D5B00759E5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC33860E1A4A0D5B00759E5C /* office365_discovery_sdk.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC3386101A4A0D6200759E5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC3386141A4A0D6200759E5C /* office365_exchange_sdk.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC3386161A4A0D6A00759E5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC33861A1A4A0D6A00759E5C /* office365_files_sdk.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC33861B1A4A0D6F00759E5C /* Sdks */ = {
+			isa = PBXGroup;
+			children = (
+				EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */,
+				EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */,
+				EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */,
+				EC3386031A4A0D5400759E5C /* office365_directory_sdk.xcodeproj */,
+			);
+			name = Sdks;
+			sourceTree = "<group>";
+		};
+		EC7896721A49F2D600DD9D1D = {
+			isa = PBXGroup;
+			children = (
+				EC33861B1A4A0D6F00759E5C /* Sdks */,
+				EC78967E1A49F2D600DD9D1D /* Office365Sdks */,
+				EC78967D1A49F2D600DD9D1D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC78967D1A49F2D600DD9D1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC78967C1A49F2D600DD9D1D /* Office365Sdks.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC78967E1A49F2D600DD9D1D /* Office365Sdks */ = {
+			isa = PBXGroup;
+			children = (
+				EC7896811A49F2D600DD9D1D /* Office365Sdks.h */,
+				EC78967F1A49F2D600DD9D1D /* Supporting Files */,
+			);
+			path = Office365Sdks;
+			sourceTree = "<group>";
+		};
+		EC78967F1A49F2D600DD9D1D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC7896801A49F2D600DD9D1D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EC7896791A49F2D600DD9D1D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC7896821A49F2D600DD9D1D /* Office365Sdks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EC78967B1A49F2D600DD9D1D /* Office365Sdks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC7896921A49F2D600DD9D1D /* Build configuration list for PBXNativeTarget "Office365Sdks" */;
+			buildPhases = (
+				EC7896771A49F2D600DD9D1D /* Sources */,
+				EC7896781A49F2D600DD9D1D /* Frameworks */,
+				EC7896791A49F2D600DD9D1D /* Headers */,
+				EC78967A1A49F2D600DD9D1D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Office365Sdks;
+			productName = Office365Sdks;
+			productReference = EC78967C1A49F2D600DD9D1D /* Office365Sdks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC7896731A49F2D600DD9D1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = MSOpentech;
+				TargetAttributes = {
+					EC78967B1A49F2D600DD9D1D = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 9L5V82WV95;
+					};
+				};
+			};
+			buildConfigurationList = EC7896761A49F2D600DD9D1D /* Build configuration list for PBXProject "Office365Sdks" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EC7896721A49F2D600DD9D1D;
+			productRefGroup = EC78967D1A49F2D600DD9D1D /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EC3386041A4A0D5400759E5C /* Products */;
+					ProjectRef = EC3386031A4A0D5400759E5C /* office365_directory_sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = EC33860A1A4A0D5B00759E5C /* Products */;
+					ProjectRef = EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = EC3386101A4A0D6200759E5C /* Products */;
+					ProjectRef = EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */;
+				},
+				{
+					ProductGroup = EC3386161A4A0D6A00759E5C /* Products */;
+					ProjectRef = EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				EC78967B1A49F2D600DD9D1D /* Office365Sdks */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EC3386081A4A0D5400759E5C /* office365_directory_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_directory_sdk.framework;
+			remoteRef = EC3386071A4A0D5400759E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC33860E1A4A0D5B00759E5C /* office365_discovery_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_discovery_sdk.framework;
+			remoteRef = EC33860D1A4A0D5B00759E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC3386141A4A0D6200759E5C /* office365_exchange_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_exchange_sdk.framework;
+			remoteRef = EC3386131A4A0D6200759E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC33861A1A4A0D6A00759E5C /* office365_files_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_files_sdk.framework;
+			remoteRef = EC3386191A4A0D6A00759E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC78967A1A49F2D600DD9D1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC7896771A49F2D600DD9D1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EC7896901A49F2D600DD9D1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EC7896911A49F2D600DD9D1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EC7896931A49F2D600DD9D1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-services-emisvruepuxrqtbranqjcadytxyj/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-services-emisvruepuxrqtbranqjcadytxyj/Build/Products/Release-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_directory_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_discovery_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_files_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = Office365Sdks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		EC7896941A49F2D600DD9D1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-services-emisvruepuxrqtbranqjcadytxyj/Build/Products/Debug-iphoneos",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/office365-services-emisvruepuxrqtbranqjcadytxyj/Build/Products/Release-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_directory_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_discovery_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_files_sdk/build/Debug-iphoneos",
+					"/Users/gustavo/Documents/MSOpenTech/Office-365-SDK-for-iOS/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = Office365Sdks/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC7896761A49F2D600DD9D1D /* Build configuration list for PBXProject "Office365Sdks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7896901A49F2D600DD9D1D /* Debug */,
+				EC7896911A49F2D600DD9D1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC7896921A49F2D600DD9D1D /* Build configuration list for PBXNativeTarget "Office365Sdks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC7896931A49F2D600DD9D1D /* Debug */,
+				EC7896941A49F2D600DD9D1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC7896731A49F2D600DD9D1D /* Project object */;
+}

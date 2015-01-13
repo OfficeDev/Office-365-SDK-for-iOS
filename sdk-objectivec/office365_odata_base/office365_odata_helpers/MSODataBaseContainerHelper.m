@@ -24,13 +24,15 @@
 +(NSString*)generatePayload:(NSArray *)parameters :(id<MSODataDependencyResolver>)resolver{
     
     NSMutableString* result = [[NSMutableString alloc] initWithString:@"{"];
-    for (NSDictionary* item in parameters) {
+    
+    NSArray* reversedParameters = [[parameters reverseObjectEnumerator] allObjects];
+    for (NSDictionary* item in reversedParameters) {
         
         for (NSString* key in [item allKeys]) {
         
-            id object = [item objectForKey:key] ;
-            NSString* parsed = [[resolver getJsonSerializer]serialize:object :key];
-            [result appendFormat:@"\"%@\":%@,",key,parsed];
+            NSString* value = [item objectForKey:key] ;
+            //NSString* parsed = [[resolver getJsonSerializer]serialize:object :key];
+            [result appendFormat:@"\"%@\":%@,",key,value];
         }
     }
     

@@ -45,10 +45,16 @@
     return [[MSOutlookContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self andEntityClass:[MSOutlookContact class]];
 }
 
+-(MSOutlookContactFetcher*) getContactsById : (NSString*)_id{
+    return [[[MSOutlookContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self andEntityClass:[MSOutlookContact class]] getById:_id];
+}
 
 -(MSOutlookContactFolderCollectionFetcher*) getChildFolders{
     return [[MSOutlookContactFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookContactFolder class]];
 }
 
+-(MSOutlookContactFolderFetcher*) getChildFoldersById : (NSString*)_id{
+    return [[[MSOutlookContactFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookContactFolder class]] getById:_id];
+}
 
 @end

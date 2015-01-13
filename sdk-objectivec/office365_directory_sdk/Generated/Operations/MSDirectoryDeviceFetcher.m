@@ -45,10 +45,16 @@
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredOwners" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredOwnersById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredOwners" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredUsers{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredUsers" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredUsersById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredUsers" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 @end

@@ -14,7 +14,7 @@
 #import "MSOutlookFolder.h"
 @class MSOutlookFolderCollectionFetcher;
 @class MSOutlookMessageCollectionFetcher;
-
+@class MSOutlookMessageFetcher;
 
 /**
 * The header for type MSOutlookFolderFetcher.
@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookFolderFetcher>)select : (NSString*) params;
+-(id<MSOutlookFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookFolderFetcher : MSODataEntityFetcher<MSOutlookFolderFetcher>
@@ -37,7 +38,11 @@
 
 -(MSOutlookFolderCollectionFetcher*) getChildFolders;
 
+-(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id;
+
 -(MSOutlookMessageCollectionFetcher*) getMessages;
+
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
 
 	
 @end

@@ -44,5 +44,8 @@
     return [[MSDirectoryExtensionPropertyCollectionFetcher alloc] initWithUrl:@"extensionProperties" parent:self andEntityClass:[MSDirectoryExtensionProperty class]];
 }
 
+-(MSDirectoryExtensionPropertyFetcher*) getextensionPropertiesById : (NSString*)_id{
+    return [[[MSDirectoryExtensionPropertyCollectionFetcher alloc] initWithUrl:@"extensionProperties" parent:self andEntityClass:[MSDirectoryExtensionProperty class]] getById:_id];
+}
 
 @end

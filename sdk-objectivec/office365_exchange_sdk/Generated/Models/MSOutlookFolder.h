@@ -29,5 +29,9 @@
 
 @property int ChildFolderCount;
 
+@property NSMutableArray<MSOutlookFolder> *ChildFolders;		
+		
+@property NSMutableArray<MSOutlookMessage> *Messages;		
+		
 
 @end

@@ -28,18 +28,15 @@
 -(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointItemFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointItemFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSSharePointItemFetcher>)select : (NSString*) params;
+-(id<MSSharePointItemFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSSharePointItemFetcher : MSODataEntityFetcher<MSSharePointItemFetcher>
 
 -(MSSharePointItemOperations*) getOperations;
 
-	
-	
--(MSSharePointFileFetcher*) asFile;	
-	
-	
+-(MSSharePointFileFetcher*) asFile;
 -(MSSharePointFolderFetcher*) asFolder;	
 	
 @end

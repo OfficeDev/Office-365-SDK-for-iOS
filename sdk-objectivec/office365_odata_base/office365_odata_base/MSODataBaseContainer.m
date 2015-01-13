@@ -35,13 +35,10 @@
     id<MSODataHttpTransport> httpTransport = [self.resolver getHttpTransport];
 
     [request addHeader:@"Content-Type" :@"application/json"];
-    
-    //[request addHeader:@"User-Agent" :[self.resolver getPlatformUserAgent:[self class]];
-    //[request addHeader:@"X-ClientService-ClientTag" :[self.resolver getPlatformUserAgent:productName]];
-    
-    //if(verb == PATCH || verb == DELETE){
-    //    [request addHeader:@"If-Match" :@"*"];
-    //}
+    [request addHeader:@"User-Agent" :[self.resolver getPlatformUserAgent:NSStringFromClass([self class])]];
+     
+    NSString* productName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
+    [request addHeader:@"X-ClientService-ClientTag" :[self.resolver getPlatformUserAgent:productName]];
     
     [[[self.resolver getCredentialsFactory]getCredentials]prepareRequest:request];
 

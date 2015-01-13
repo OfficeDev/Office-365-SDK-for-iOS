@@ -11,13 +11,17 @@
 
 #import <office365_odata_base/office365_odata_base.h>
 #import "MSDirectoryUserOperations.h"
+#import "MSDirectoryDirectoryObjectFetcher.h"
+#import "MSDirectoryDirectoryObjectFetcher.h"
 #import "MSDirectoryUser.h"
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
-
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryOAuth2PermissionGrantFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
 /**
 * The header for type MSDirectoryUserFetcher.
 */
@@ -30,7 +34,8 @@
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryUserFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryUserFetcher>)select : (NSString*) params;
+-(id<MSDirectoryUserFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryUserFetcher : MSODataEntityFetcher<MSDirectoryUserFetcher>
@@ -39,11 +44,19 @@
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
+
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
+
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedDevices;
 
+-(MSDirectoryDirectoryObjectFetcher*) getownedDevicesById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredDevices;
+
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredDevicesById : (NSString*)_id;
 
 	
 @end

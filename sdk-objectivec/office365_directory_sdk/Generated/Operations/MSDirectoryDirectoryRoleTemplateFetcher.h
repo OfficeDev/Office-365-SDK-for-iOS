@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteDirectoryRoleTemplate:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDirectoryRoleTemplateFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryDirectoryRoleTemplateFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryDirectoryRoleTemplateFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDirectoryRoleTemplateFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryDirectoryRoleTemplateFetcher : MSODataEntityFetcher<MSDirectoryDirectoryRoleTemplateFetcher>

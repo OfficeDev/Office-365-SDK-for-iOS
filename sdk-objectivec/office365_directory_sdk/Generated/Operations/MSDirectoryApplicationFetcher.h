@@ -13,7 +13,7 @@
 #import "MSDirectoryApplicationOperations.h"
 #import "MSDirectoryApplication.h"
 @class MSDirectoryExtensionPropertyCollectionFetcher;
-
+@class MSDirectoryExtensionPropertyFetcher;
 
 /**
 * The header for type MSDirectoryApplicationFetcher.
@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteApplication:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryApplicationFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryApplicationFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryApplicationFetcher>)select : (NSString*) params;
+-(id<MSDirectoryApplicationFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryApplicationFetcher : MSODataEntityFetcher<MSDirectoryApplicationFetcher>
@@ -35,6 +36,8 @@
 -(MSDirectoryApplicationOperations*) getOperations;
 
 -(MSDirectoryExtensionPropertyCollectionFetcher*) getextensionProperties;
+
+-(MSDirectoryExtensionPropertyFetcher*) getextensionPropertiesById : (NSString*)_id;
 
 	
 @end

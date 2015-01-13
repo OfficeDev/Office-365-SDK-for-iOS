@@ -46,15 +46,24 @@
     return [[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignedTo" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]];
 }
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignedToById : (NSString*)_id{
+    return [[[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignedTo" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]] getById:_id];
+}
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments{
     return [[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]];
 }
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id{
+    return [[[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]] getById:_id];
+}
 
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants{
     return [[MSDirectoryOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self andEntityClass:[MSDirectoryOAuth2PermissionGrant class]];
 }
 
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id{
+    return [[[MSDirectoryOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self andEntityClass:[MSDirectoryOAuth2PermissionGrant class]] getById:_id];
+}
 
 @end

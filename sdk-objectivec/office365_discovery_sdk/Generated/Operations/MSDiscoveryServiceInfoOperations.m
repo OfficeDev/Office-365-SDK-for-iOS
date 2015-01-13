@@ -19,4 +19,5 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
-}@end
+}
+@end

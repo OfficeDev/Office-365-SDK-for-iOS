@@ -14,7 +14,7 @@
 #import "MSOutlookContactFolder.h"
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
-
+@class MSOutlookContactFetcher;
 
 /**
 * The header for type MSOutlookContactFolderFetcher.
@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookContactFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookContactFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookContactFolderFetcher>)select : (NSString*) params;
+-(id<MSOutlookContactFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookContactFolderFetcher : MSODataEntityFetcher<MSOutlookContactFolderFetcher>
@@ -37,7 +38,11 @@
 
 -(MSOutlookContactCollectionFetcher*) getContacts;
 
+-(MSOutlookContactFetcher*) getContactsById : (NSString*)_id;
+
 -(MSOutlookContactFolderCollectionFetcher*) getChildFolders;
+
+-(MSOutlookContactFolderFetcher*) getChildFoldersById : (NSString*)_id;
 
 	
 @end

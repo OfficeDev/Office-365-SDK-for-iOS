@@ -22,8 +22,11 @@
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
-
-
+@class MSOutlookMessageFetcher;
+@class MSOutlookCalendarGroupFetcher;
+@class MSOutlookEventFetcher;
+@class MSOutlookContactFetcher;
+@class MSOutlookContactFolderFetcher;
 /**
 * The header for type MSOutlookUserFetcher.
 */
@@ -36,7 +39,8 @@
 -(NSURLSessionDataTask*) deleteUser:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookUserFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookUserFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookUserFetcher>)select : (NSString*) params;
+-(id<MSOutlookUserFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookUserFetcher : MSODataEntityFetcher<MSOutlookUserFetcher>
@@ -45,23 +49,39 @@
 
 -(MSOutlookFolderCollectionFetcher*) getFolders;
 
+-(MSOutlookFolderFetcher*) getFoldersById : (NSString*)_id;
+
 -(MSOutlookMessageCollectionFetcher*) getMessages;
+
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
 
 -(MSOutlookFolderFetcher*) getRootFolder;
 
 -(MSOutlookCalendarCollectionFetcher*) getCalendars;
 
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
+
 -(MSOutlookCalendarFetcher*) getCalendar;
 
 -(MSOutlookCalendarGroupCollectionFetcher*) getCalendarGroups;
 
+-(MSOutlookCalendarGroupFetcher*) getCalendarGroupsById : (NSString*)_id;
+
 -(MSOutlookEventCollectionFetcher*) getEvents;
+
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView;
 
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
+
 -(MSOutlookContactCollectionFetcher*) getContacts;
 
+-(MSOutlookContactFetcher*) getContactsById : (NSString*)_id;
+
 -(MSOutlookContactFolderCollectionFetcher*) getContactFolders;
+
+-(MSOutlookContactFolderFetcher*) getContactFoldersById : (NSString*)_id;
 
 	
 @end

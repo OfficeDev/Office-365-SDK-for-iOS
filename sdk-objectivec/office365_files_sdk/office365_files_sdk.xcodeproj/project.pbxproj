@@ -332,6 +332,7 @@
 				TargetAttributes = {
 					ECDEC0C31A2514BB00F84EAF = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 9L5V82WV95;
 					};
 				};
 			};
@@ -501,6 +502,7 @@
 		ECDEC0DB1A2514BC00F84EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -510,6 +512,7 @@
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -518,6 +521,7 @@
 		ECDEC0DC1A2514BC00F84EAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -527,6 +531,7 @@
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

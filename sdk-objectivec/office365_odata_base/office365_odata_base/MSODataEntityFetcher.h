@@ -17,10 +17,16 @@
 -(NSURLSessionDataTask*) delete : (void (^)(int status, MSODataException * error))callback;
 -(id<MSODataDependencyResolver>) getResolver;
 
+//Raw
+
+-(NSURLSessionDataTask*) updateRaw:(NSString*)payload : (void (^)(NSString*, MSODataException *))callback;
+    
 @optional
 -(id) getOperations;
 -(id<MSODataEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSODataEntityFetcher>)addCustomHeaderWithName:(NSString *)name andValue :(NSString *)value;
+-(id<MSODataEntityFetcher>)select : (NSString*) params;
+-(id<MSODataEntityFetcher>)expand : (NSString*) value;
 
 @end
 

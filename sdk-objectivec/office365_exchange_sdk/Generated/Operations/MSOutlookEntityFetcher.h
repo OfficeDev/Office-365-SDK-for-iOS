@@ -33,7 +33,8 @@
 -(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookEntityFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookEntityFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookEntityFetcher>)select : (NSString*) params;
+-(id<MSOutlookEntityFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookEntityFetcher : MSODataEntityFetcher<MSOutlookEntityFetcher>

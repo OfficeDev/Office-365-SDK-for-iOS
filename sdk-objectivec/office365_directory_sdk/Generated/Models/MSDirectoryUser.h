@@ -99,5 +99,13 @@
 
 @property NSString *userType;
 
+@property NSMutableArray<MSDirectoryAppRoleAssignment> *appRoleAssignments;		
+		
+@property NSMutableArray<MSDirectoryOAuth2PermissionGrant> *oauth2PermissionGrants;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *ownedDevices;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *registeredDevices;		
+		
 
 @end

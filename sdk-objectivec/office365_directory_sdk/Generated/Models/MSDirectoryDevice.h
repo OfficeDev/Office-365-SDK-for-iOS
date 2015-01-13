@@ -49,5 +49,9 @@
 
 @property NSDate *lastDirSyncTime;
 
+@property NSMutableArray<MSDirectoryDirectoryObject> *registeredOwners;		
+		
+@property NSMutableArray<MSDirectoryDirectoryObject> *registeredUsers;		
+		
 
 @end

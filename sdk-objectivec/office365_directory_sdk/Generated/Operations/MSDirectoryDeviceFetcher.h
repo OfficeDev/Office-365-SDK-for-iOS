@@ -14,8 +14,8 @@
 #import "MSDirectoryDevice.h"
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
-
+@class MSDirectoryDirectoryObjectFetcher;
+@class MSDirectoryDirectoryObjectFetcher;
 /**
 * The header for type MSDirectoryDeviceFetcher.
 */
@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteDevice:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDeviceFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryDeviceFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryDeviceFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDeviceFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryDeviceFetcher : MSODataEntityFetcher<MSDirectoryDeviceFetcher>
@@ -37,7 +38,11 @@
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredOwners;
 
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredOwnersById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredUsers;
+
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredUsersById : (NSString*)_id;
 
 	
 @end

@@ -71,5 +71,11 @@
 
 @property MSOutlookRecipient *Organizer;
 
+@property NSMutableArray<MSOutlookAttachment> *Attachments;		
+		
+@property MSOutlookCalendar *Calendar;		
+		
+@property NSMutableArray<MSOutlookEvent> *Instances;		
+		
 
 @end

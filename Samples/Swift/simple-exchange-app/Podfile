@@ -1,0 +1,6 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.0'
+
+xcodeproj 'simple-exchange-app'
+
+pod 'ADALiOS', '~> 1.0.0'   # 1.0.0 < ver < 1.1.0

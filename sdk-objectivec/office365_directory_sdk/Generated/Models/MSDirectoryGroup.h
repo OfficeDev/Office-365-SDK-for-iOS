@@ -45,5 +45,7 @@
 
 @property bool securityEnabled;
 
+@property NSMutableArray<MSDirectoryAppRoleAssignment> *appRoleAssignments;		
+		
 
 @end

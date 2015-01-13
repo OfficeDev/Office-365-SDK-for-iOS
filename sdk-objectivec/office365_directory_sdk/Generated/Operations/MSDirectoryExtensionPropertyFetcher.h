@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteExtensionProperty:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryExtensionPropertyFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryExtensionPropertyFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryExtensionPropertyFetcher>)select : (NSString*) params;
+-(id<MSDirectoryExtensionPropertyFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryExtensionPropertyFetcher : MSODataEntityFetcher<MSDirectoryExtensionPropertyFetcher>

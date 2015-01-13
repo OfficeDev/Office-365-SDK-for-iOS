@@ -45,10 +45,16 @@
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id{
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
+}
 
 -(MSOutlookEventCollectionFetcher*) getEvents{
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id{
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
+}
 
 @end

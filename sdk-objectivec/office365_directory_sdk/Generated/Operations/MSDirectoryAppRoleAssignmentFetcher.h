@@ -26,7 +26,8 @@
 -(NSURLSessionDataTask*) deleteAppRoleAssignment:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryAppRoleAssignmentFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryAppRoleAssignmentFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryAppRoleAssignmentFetcher>)select : (NSString*) params;
+-(id<MSDirectoryAppRoleAssignmentFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryAppRoleAssignmentFetcher : MSODataEntityFetcher<MSDirectoryAppRoleAssignmentFetcher>

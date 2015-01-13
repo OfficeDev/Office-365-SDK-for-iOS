@@ -34,5 +34,25 @@
 
 @property NSString *MailboxGuid;
 
+@property NSMutableArray<MSOutlookFolder> *Folders;		
+		
+@property NSMutableArray<MSOutlookMessage> *Messages;		
+		
+@property MSOutlookFolder *RootFolder;		
+		
+@property NSMutableArray<MSOutlookCalendar> *Calendars;		
+		
+@property MSOutlookCalendar *Calendar;		
+		
+@property NSMutableArray<MSOutlookCalendarGroup> *CalendarGroups;		
+		
+@property NSMutableArray<MSOutlookEvent> *Events;		
+		
+@property NSMutableArray<MSOutlookEvent> *CalendarView;		
+		
+@property NSMutableArray<MSOutlookContact> *Contacts;		
+		
+@property NSMutableArray<MSOutlookContactFolder> *ContactFolders;		
+		
 
 @end

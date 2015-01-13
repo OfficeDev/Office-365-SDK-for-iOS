@@ -40,6 +40,9 @@
     if([testName isEqualToString: @"TestSelect"]) return [self TestSelect:result];
     if([testName isEqualToString: @"TestSkip"]) return [self TestSkip:result];
     if([testName isEqualToString: @"TestOrderBy"]) return [self TestOrderBy:result];
+    if([testName isEqualToString: @"TestExpandLists"]) return [self TestExpandLists:result];
+    if([testName isEqualToString: @"TestExpand"]) return [self TestExpand:result];
+    
     
     // Contacts Tests
     if([testName isEqualToString:@"TestGetContactFolder"]) return [self TestGetContactFolder:result];
@@ -50,6 +53,7 @@
     
     //Mail Tests
     if([testName isEqualToString:@"TestGetMessages"]) return [self TestGetMessages:result];
+    if([testName isEqualToString:@"TestGetMessagesOverload"])return [self TestGetMessageOverload:result];
     if([testName isEqualToString:@"TestCreateMessages"])return [self TestCreateMessages:result];
     if([testName isEqualToString:@"TestCreateHtmlMessages"])return [self TestCreateAndSendHtmlMessages:result];
     if([testName isEqualToString:@"TestCreateMessageWithAttachment"])return [self TestCreateMessageWithAttachment:result];
@@ -59,6 +63,7 @@
     if([testName isEqualToString:@"TestMoveMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestCopyMessages"])return [self TestMoveMessages:result];
     if([testName isEqualToString:@"TestSendMessages"])return [self TestSendMessages:result];
+    if([testName isEqualToString:@"TestSendWithMessageOperations"])return [self TestSendWithMessageOperations:result];
     if([testName isEqualToString:@"TestSendHtmlMessages"])return [self TestSendHtmlMessages:result];
     if([testName isEqualToString:@"TestReplyMessages"])return [self TestReplyMessages:result];
     if([testName isEqualToString:@"TestReplyAllMessages"])return [self TestReplyAllMessages:result];
@@ -68,6 +73,7 @@
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self TestGetFolders:result];
     if([testName isEqualToString:@"TestGetFoldersById"])return [self TestGetFoldersById:result];
+    if([testName isEqualToString:@"TestGetFoldersByIdOverload"])return [self TestGetFoldersByIdOverload:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self TestCreateFolder:result];
     if([testName isEqualToString:@"TestDeleteFolder"])return [self TestDeleteFolder:result];
     if([testName isEqualToString:@"TestMoveFolder"])return [self TestMoveFolder:result];
@@ -114,10 +120,13 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestSelect" :@"Can use select with top" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSkip" :@"Can use skip" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestOrderBy" :@"Can use order by" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestExpandLists" :@"Can use expand in lists" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestExpand" :@"Can use expand" ]];
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFolders" :@"Get Folders" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersById" :@"Get Folders by Id" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetFoldersByIdOverload" :@"Get Folders by Id (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateFolder" :@"Create Folder" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFolder" :@"Delete Folders" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveFolder" :@"Move Folders" ]];
@@ -127,6 +136,7 @@
     
     //Messages Tests
     [array addObject:[[Test alloc] initWithData:self :@"TestGetMessages" :@"Get Messages" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestGetMessagesOverload" :@"Get Message (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateMessages" :@"Create message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateHtmlMessages" :@"Create and Send Html message in drafts" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateMessages" :@"Update message" ]];
@@ -134,6 +144,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestMoveMessages" :@"Move message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCopyMessages" :@"Copy message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSendMessages" :@"Send message" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSendWithMessageOperations" :@"Send with message operations" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSendHtmlMessages" :@"Send Html message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyMessages" :@"Reply message" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestReplyAllMessages" :@"ReplyAll message" ]];
@@ -476,6 +487,104 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestExpandLists:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
+    MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
+    //Add message
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+        
+        MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
+        
+        attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+        attachment.Name = @"TestAttachments.txt";
+        //Add Attachment
+        [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
+            //Get Message using expand
+            NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.Subject ];
+            [[[[[[[[self.Client getMe] getFolders] getById: @"Drafts" ] getMessages] filter:filter] expand:@"Attachments"] read:^(NSArray<MSOutlookMessage> *expandedMessages, MSODataException *error) {
+                //Get message without expand
+                [[[[[[[self.Client getMe]  getFolders] getById: @"Drafts" ] getMessages] filter:filter] read:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSODataException *error) {
+                    BOOL passed = false;
+                    
+                    Test *test = [Test alloc];
+                    test.ExecutionMessages = [NSMutableArray array];
+                    
+                    NSString* message =  @"";
+                    
+                    if(error == nil && a != nil && [expandedMessages count] == 1 && [[[expandedMessages objectAtIndex:0] Attachments] count] ==1
+                       && [notExpandedMessages count] == 1 && [[[notExpandedMessages objectAtIndex:0] Attachments] count] ==0  ){
+                        message =  @"Ok - ";
+                        passed = true;
+                    }
+                    else{
+                        message =@"Not - ";
+                        if(e!= nil)
+                            message = [message stringByAppendingString:[e localizedDescription]];
+                    }
+                    
+                    test.Passed = passed;
+                    [test.ExecutionMessages addObject:message];
+                    
+                    result(test);
+                    
+                }] resume];
+            }] resume];
+        }] resume];
+    }];
+    
+    return task;
+}
+
+
+-(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
+    NSString *uuid = [[NSUUID UUID] UUIDString];
+    NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
+    MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
+    //Add message
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+        
+        MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
+        
+        attachment.ContentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
+        attachment.Name = @"TestAttachments.txt";
+        //Add Attachment
+        [[[[[[self.Client getMe] getMessages] getById:addedMessage.Id] getAttachments] addAttachment:attachment withCallback:^(MSOutlookAttachment *a, MSODataException *e) {
+            //Get Message using expand
+            [[[[[[self.Client getMe] getMessages] getById: addedMessage.Id] expand:@"Attachments"] read:^(MSOutlookMessage *expandedMessage, MSODataException *error) {
+                //Get message without expand
+                [[[[[self.Client getMe]  getMessages] getById: addedMessage.Id ] read:^(MSOutlookMessage *notExpandedMessage, MSODataException *error) {
+                    BOOL passed = false;
+                    
+                    Test *test = [Test alloc];
+                    test.ExecutionMessages = [NSMutableArray array];
+                    
+                    NSString* message =  @"";
+                    
+                    if(error == nil && a != nil && [expandedMessage.Attachments count] ==1 && [notExpandedMessage.Attachments count] == 0){
+                        message =  @"Ok - ";
+                        passed = true;
+                    }
+                    else{
+                        message =@"Not - ";
+                        if(e!= nil)
+                            message = [message stringByAppendingString:[e localizedDescription]];
+                    }
+                    
+                    test.Passed = passed;
+                    [test.ExecutionMessages addObject:message];
+                    
+                    result(test);
+                    
+                }] resume];
+            }] resume];
+        }] resume];
+    }];
+    
+    return task;
+}
+
+
 //******* Folder Tests **********
 
 -(NSURLSessionDataTask*)TestGetFolders:(void (^) (Test*))result{
@@ -506,6 +615,34 @@
 -(NSURLSessionDataTask*)TestGetFoldersById:(void (^) (Test*))result{
     
     NSURLSessionDataTask *task = [[[[self.Client getMe] getFolders] getById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
+        BOOL passed = false;
+        
+        Test *test = [Test alloc];
+        
+        test.ExecutionMessages = [NSMutableArray array];
+        
+        NSString* message = (error!=nil && folder!= nil)  ? @"Ok - ": @"Not - ";
+        [test.ExecutionMessages addObject:message];
+        
+        if(error != nil){
+            [test.ExecutionMessages addObject: [error localizedDescription]];
+        }
+        
+        if(folder != nil){
+            passed = true;
+        }
+        
+        test.Passed = passed;
+        
+        result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestGetFoldersByIdOverload:(void (^) (Test*))result{
+    
+    NSURLSessionDataTask *task = [[[self.Client getMe] getFoldersById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -792,6 +929,41 @@
     return task;
 }
 
+-(NSURLSessionDataTask*)TestGetMessageOverload:(void (^) (Test*))result{
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    newMessage.Body = [[MSOutlookItemBody alloc] init];
+    newMessage.Body.ContentType = Text;
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+        [[[[self.Client getMe] getMessagesById:addedMessage.Id] read:^(MSOutlookMessage *searchedMessage, MSODataException *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = error == nil && addedMessage!= nil  ? @"Ok - ": @"Not - ";
+            
+            if(searchedMessage!= nil && [searchedMessage.Id isEqualToString:addedMessage.Id]){
+                passed = true;
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            if(addedMessage!= nil)
+                [[[[[self.Client getMe]getMessages]getById:addedMessage.Id]deleteMessage:^(int status, MSODataException *error) {
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }]resume];
+            
+            result(test);
+            
+        }] resume];
+    }];
+    
+    return task;
+}
+
 -(NSURLSessionDataTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" : self.TestMail : @""];
     newMessage.Body.ContentType = HTML;
@@ -952,6 +1124,40 @@
         [test.ExecutionMessages addObject:message];
         
         result(test);
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionDataTask*)TestSendWithMessageOperations:(void (^) (Test*))result{
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    //Send Mail
+    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *message, MSODataException *e) {
+        
+        [[[[[[self.Client getMe] getMessages] getById:message.Id] getOperations] send:^(int returnValue, MSODataException *error) {
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            
+            if(error== nil){
+                message = @"Ok - ";
+                passed = true;
+            }else{
+                message = [@"Not - " stringByAppendingString:[error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        }] resume];
     }];
     
     return task;
@@ -1195,7 +1401,7 @@
     
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
-    [message setToRecipients:toRecipients];
+    [message setToRecipients:(NSMutableArray<MSOutlookRecipient>*)toRecipients];
     
     //Cc recipient
     if(![cc isEqualToString:@""]){
@@ -1203,7 +1409,7 @@
         MSOutlookEmailAddress* emailCc = [[MSOutlookEmailAddress alloc]init];
         [emailCc setAddress:cc];
         [ccRecipient setEmailAddress:emailCc];
-        NSMutableArray *ccRecipients = [[NSMutableArray alloc]init];
+        NSMutableArray<MSOutlookRecipient> *ccRecipients = (NSMutableArray<MSOutlookRecipient>*)[[NSMutableArray alloc]init];
         [toRecipients addObject:ccRecipient];
         [message setToRecipients:ccRecipients];
     }
@@ -1404,7 +1610,7 @@
     
     MSOutlookEmailAddress* email = [[MSOutlookEmailAddress alloc]init];
     [email setAddress:@"test@test.com"];
-    NSMutableArray *list = [[NSMutableArray alloc] init];
+    NSMutableArray<MSOutlookEmailAddress> *list = (NSMutableArray<MSOutlookEmailAddress>*)[[NSMutableArray alloc] init];
     [list addObject:email];
     
     [contact setEmailAddresses:list];
@@ -1846,7 +2052,7 @@
 -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSOutlookEvent *newEvent = [self getSampleEvent];
     NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
-
+        
         [[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"startdatetime" :addedEvent.Start ] addCustomParameters:@"enddatetime" :addedEvent.End ] read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
             
             BOOL passed = false;

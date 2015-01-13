@@ -45,10 +45,16 @@
     return [[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookFolder class]];
 }
 
+-(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id{
+    return [[[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookFolder class]] getById:_id];
+}
 
 -(MSOutlookMessageCollectionFetcher*) getMessages{
     return [[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self andEntityClass:[MSOutlookMessage class]];
 }
 
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id{
+    return [[[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self andEntityClass:[MSOutlookMessage class]] getById:_id];
+}
 
 @end

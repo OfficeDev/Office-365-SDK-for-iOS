@@ -15,7 +15,7 @@
 @class MSOutlookAttachmentCollectionFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookEventCollectionFetcher;
-
+@class MSOutlookAttachmentFetcher;
 
 /**
 * The header for type MSOutlookEventFetcher.
@@ -29,7 +29,8 @@
 -(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookEventFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookEventFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookEventFetcher>)select : (NSString*) params;
+-(id<MSOutlookEventFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookEventFetcher : MSODataEntityFetcher<MSOutlookEventFetcher>
@@ -38,9 +39,13 @@
 
 -(MSOutlookAttachmentCollectionFetcher*) getAttachments;
 
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
+
 -(MSOutlookCalendarFetcher*) getCalendar;
 
 -(MSOutlookEventCollectionFetcher*) getInstances;
+
+-(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id;
 
 	
 @end

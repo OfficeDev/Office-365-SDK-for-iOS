@@ -13,7 +13,7 @@
 #import "MSOutlookCalendarGroupOperations.h"
 #import "MSOutlookCalendarGroup.h"
 @class MSOutlookCalendarCollectionFetcher;
-
+@class MSOutlookCalendarFetcher;
 
 /**
 * The header for type MSOutlookCalendarGroupFetcher.
@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookCalendarGroupFetcher>)select : (NSString*) params;
+-(id<MSOutlookCalendarGroupFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookCalendarGroupFetcher : MSODataEntityFetcher<MSOutlookCalendarGroupFetcher>
@@ -35,6 +36,8 @@
 -(MSOutlookCalendarGroupOperations*) getOperations;
 
 -(MSOutlookCalendarCollectionFetcher*) getCalendars;
+
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
 
 	
 @end

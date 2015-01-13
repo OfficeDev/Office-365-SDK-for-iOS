@@ -26,5 +26,9 @@
 
 @property NSString *ChangeKey;
 
+@property NSMutableArray<MSOutlookEvent> *CalendarView;		
+		
+@property NSMutableArray<MSOutlookEvent> *Events;		
+		
 
 @end

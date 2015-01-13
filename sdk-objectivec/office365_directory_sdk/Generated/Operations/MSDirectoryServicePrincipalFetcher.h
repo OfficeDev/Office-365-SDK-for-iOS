@@ -15,7 +15,9 @@
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
-
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryOAuth2PermissionGrantFetcher;
 
 /**
 * The header for type MSDirectoryServicePrincipalFetcher.
@@ -29,7 +31,8 @@
 -(NSURLSessionDataTask*) deleteServicePrincipal:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryServicePrincipalFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryServicePrincipalFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryServicePrincipalFetcher>)select : (NSString*) params;
+-(id<MSDirectoryServicePrincipalFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryServicePrincipalFetcher : MSODataEntityFetcher<MSDirectoryServicePrincipalFetcher>
@@ -38,9 +41,15 @@
 
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignedTo;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignedToById : (NSString*)_id;
+
 -(MSDirectoryAppRoleAssignmentCollectionFetcher*) getappRoleAssignments;
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id;
+
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
+
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id;
 
 	
 @end

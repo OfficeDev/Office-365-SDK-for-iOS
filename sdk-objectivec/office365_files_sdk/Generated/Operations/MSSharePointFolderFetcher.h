@@ -13,7 +13,7 @@
 #import "MSSharePointFolderOperations.h"
 #import "MSSharePointFolder.h"
 @class MSSharePointItemCollectionFetcher;
-
+@class MSSharePointItemFetcher;
 
 /**
 * The header for type MSSharePointFolderFetcher.
@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSSharePointFolderFetcher>)select : (NSString*) params;
+-(id<MSSharePointFolderFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSSharePointFolderFetcher : MSODataEntityFetcher<MSSharePointFolderFetcher>
@@ -35,6 +36,8 @@
 -(MSSharePointFolderOperations*) getOperations;
 
 -(MSSharePointItemCollectionFetcher*) getchildren;
+
+-(MSSharePointItemFetcher*) getchildrenById : (NSString*)_id;
 
 	
 @end

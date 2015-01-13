@@ -25,7 +25,9 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
 -(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)copyRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback;			
 
 -(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)moveRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback;			
 
 @end

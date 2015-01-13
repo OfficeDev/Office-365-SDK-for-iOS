@@ -44,5 +44,8 @@
     return [[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self andEntityClass:[MSOutlookCalendar class]];
 }
 
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id{
+    return [[[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self andEntityClass:[MSOutlookCalendar class]] getById:_id];
+}
 
 @end

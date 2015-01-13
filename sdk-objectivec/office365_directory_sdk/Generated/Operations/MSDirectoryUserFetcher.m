@@ -47,20 +47,32 @@
     return [[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]];
 }
 
+-(MSDirectoryAppRoleAssignmentFetcher*) getappRoleAssignmentsById : (NSString*)_id{
+    return [[[MSDirectoryAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self andEntityClass:[MSDirectoryAppRoleAssignment class]] getById:_id];
+}
 
 -(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants{
     return [[MSDirectoryOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self andEntityClass:[MSDirectoryOAuth2PermissionGrant class]];
 }
 
+-(MSDirectoryOAuth2PermissionGrantFetcher*) getoauth2PermissionGrantsById : (NSString*)_id{
+    return [[[MSDirectoryOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self andEntityClass:[MSDirectoryOAuth2PermissionGrant class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedDevices{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedDevices" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getownedDevicesById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedDevices" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getregisteredDevices{
     return [[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredDevices" parent:self andEntityClass:[MSDirectoryDirectoryObject class]];
 }
 
+-(MSDirectoryDirectoryObjectFetcher*) getregisteredDevicesById : (NSString*)_id{
+    return [[[MSDirectoryDirectoryObjectCollectionFetcher alloc] initWithUrl:@"registeredDevices" parent:self andEntityClass:[MSDirectoryDirectoryObject class]] getById:_id];
+}
 
 @end

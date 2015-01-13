@@ -19,6 +19,6 @@
 
 @interface MSSharePointItemCollectionOperations : MSODataOperations
 
--(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback;			
+-(NSURLSessionDataTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback;	
 
 @end

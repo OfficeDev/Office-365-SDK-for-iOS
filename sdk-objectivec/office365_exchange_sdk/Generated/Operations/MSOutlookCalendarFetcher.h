@@ -14,7 +14,7 @@
 #import "MSOutlookCalendar.h"
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
-
+@class MSOutlookEventFetcher;
 
 /**
 * The header for type MSOutlookCalendarFetcher.
@@ -28,7 +28,8 @@
 -(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookCalendarFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookCalendarFetcher>)select : (NSString*) params;
+-(id<MSOutlookCalendarFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookCalendarFetcher : MSODataEntityFetcher<MSOutlookCalendarFetcher>
@@ -37,7 +38,11 @@
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView;
 
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
+
 -(MSOutlookEventCollectionFetcher*) getEvents;
+
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
 
 	
 @end

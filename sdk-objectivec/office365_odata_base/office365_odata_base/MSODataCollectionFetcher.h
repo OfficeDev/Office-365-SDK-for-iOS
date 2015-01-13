@@ -15,6 +15,7 @@
 -(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSODataCollectionFetcher>)addCustomHeaderWithName:(NSString *)name andValue :(NSString *)value;
 @end
+
 @interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>
 
 -(NSURLSessionDataTask *)read:(void (^)(id entity, MSODataException *error))callback;
@@ -30,5 +31,9 @@
 -(NSURLSessionDataTask*)add : (id) entity :(void (^)(id result, MSODataException* error))callback;
 -(MSODataEntityFetcher*)getById : (NSString*) Id;
 
+//Raw
 
+-(NSURLSessionDataTask *)addRaw : (NSString*) payload :(void (^)(NSString*, MSODataException *))callback;
+-(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback;
+    
 @end

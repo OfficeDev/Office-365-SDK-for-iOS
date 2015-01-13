@@ -20,7 +20,7 @@
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
-
+@class MSDirectoryUserFetcher;
 
 #import "MSDirectoryApplicationFetcher.h"
 #import "MSDirectoryUserFetcher.h"
@@ -47,7 +47,8 @@
 -(NSURLSessionDataTask*) deleteDirectoryObject:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDirectoryDirectoryObjectFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDirectoryDirectoryObjectFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSDirectoryDirectoryObjectFetcher>)select : (NSString*) params;
+-(id<MSDirectoryDirectoryObjectFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSDirectoryDirectoryObjectFetcher : MSODataEntityFetcher<MSDirectoryDirectoryObjectFetcher>
@@ -58,17 +59,29 @@
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getcreatedObjects;
 
+-(MSDirectoryDirectoryObjectFetcher*) getcreatedObjectsById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectFetcher*) getmanager;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getdirectReports;
 
+-(MSDirectoryDirectoryObjectFetcher*) getdirectReportsById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmembers;
+
+-(MSDirectoryDirectoryObjectFetcher*) getmembersById : (NSString*)_id;
 
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getmemberOf;
 
+-(MSDirectoryDirectoryObjectFetcher*) getmemberOfById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getowners;
 
+-(MSDirectoryDirectoryObjectFetcher*) getownersById : (NSString*)_id;
+
 -(MSDirectoryDirectoryObjectCollectionFetcher*) getownedObjects;
+
+-(MSDirectoryDirectoryObjectFetcher*) getownedObjectsById : (NSString*)_id;
 
 	
 	

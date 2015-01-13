@@ -13,7 +13,7 @@
 #import "MSOutlookMessageOperations.h"
 #import "MSOutlookMessage.h"
 @class MSOutlookAttachmentCollectionFetcher;
-
+@class MSOutlookAttachmentFetcher;
 
 /**
 * The header for type MSOutlookMessageFetcher.
@@ -27,7 +27,8 @@
 -(NSURLSessionDataTask*) deleteMessage:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookMessageFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookMessageFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-
+-(id<MSOutlookMessageFetcher>)select : (NSString*) params;
+-(id<MSOutlookMessageFetcher>)expand : (NSString*) value;
 @end
 
 @interface MSOutlookMessageFetcher : MSODataEntityFetcher<MSOutlookMessageFetcher>
@@ -35,6 +36,8 @@
 -(MSOutlookMessageOperations*) getOperations;
 
 -(MSOutlookAttachmentCollectionFetcher*) getAttachments;
+
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
 
 	
 @end
