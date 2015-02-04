@@ -10,9 +10,11 @@
 #import <XCTest/XCTest.h>
 
 #import <office365_odata_base/office365_odata_base.h>
-//#import <SampleService/SampleService.h>
 #import "MSSampleContainerClient.h"
+#import "MSSampleContaunerEntityWithEnum.h"
 #import <office365_odata_base/NSString+NSStringExtensions.h>
+
+#import "MSSampleContaunerEntityWithEnum.h"
 
 @interface SampleServiceTests : XCTestCase
 
@@ -298,6 +300,18 @@
 
 }
 
+-(void) testEnumParser{
+    
+    self.running = true;
+    
+    NSString* json = @"{\"Name\": \"Test\", \"enums\":[\"First\",\"Second\"]}";
+    MSSampleContaunerEntityWithEnum* t = [MSSampleContaunerEntityWithEnum alloc];
+    NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding] ;
+    
+    id entity = [[[self.client getResolver] getJsonSerializer] deserialize:data :[t class]];
+    
+    XCTAssertNotNil(entity);
+}
 
 //TODO: Reactor this: add semaphore or get method to terminator methods
 -(void)blockUntilFinish : (NSURLSessionDataTask*)task{

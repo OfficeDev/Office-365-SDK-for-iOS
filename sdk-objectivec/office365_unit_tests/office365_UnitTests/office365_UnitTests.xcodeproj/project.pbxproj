@@ -37,6 +37,7 @@
 		EC572D5A1A38D3D7006A8DE8 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC572D211A38D2F9006A8DE8 /* office365_odata_base.framework */; };
 		EC8514291A38C9F400385C38 /* SampleServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8514281A38C9F400385C38 /* SampleServiceTests.m */; };
 		EC8514331A38CC8900385C38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8514321A38CC8900385C38 /* Foundation.framework */; };
+		ECBE9FC81A828C2500DAA746 /* MSSampleContaunerEntityWithEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,9 @@
 		EC8514211A38C9B300385C38 /* wiremock-1.52-standalone.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = "wiremock-1.52-standalone.jar"; sourceTree = "<group>"; };
 		EC8514281A38C9F400385C38 /* SampleServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleServiceTests.m; sourceTree = "<group>"; };
 		EC8514321A38CC8900385C38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ECBE9FC21A815C5A00DAA746 /* MSSampleContainerEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEnum.h; sourceTree = "<group>"; };
+		ECBE9FC61A82586200DAA746 /* MSSampleContaunerEntityWithEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSampleContaunerEntityWithEnum.h; sourceTree = "<group>"; };
+		ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSampleContaunerEntityWithEnum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,9 @@
 				EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */,
 				EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */,
 				EC572D2D1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m */,
+				ECBE9FC21A815C5A00DAA746 /* MSSampleContainerEnum.h */,
+				ECBE9FC61A82586200DAA746 /* MSSampleContaunerEntityWithEnum.h */,
+				ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBE9FC81A828C2500DAA746 /* MSSampleContaunerEntityWithEnum.m in Sources */,
 				EC572D591A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m in Sources */,
 				EC572D4D1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m in Sources */,
 				EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */,

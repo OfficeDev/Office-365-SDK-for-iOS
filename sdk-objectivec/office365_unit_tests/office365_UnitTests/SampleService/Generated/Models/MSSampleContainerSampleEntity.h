@@ -26,6 +26,7 @@
 
 @property NSString *entityKey;
 
+@property MSSampleContainerAnotherEntity* test;
 @property NSMutableArray<MSSampleContainerAnotherEntity> *Navigations;		
 		
 

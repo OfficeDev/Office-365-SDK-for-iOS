@@ -47,19 +47,19 @@
     @finally {
         
     }
-   
+    
 }
 
 /*
--(NSString*)toJsonString:(id)object Property:(NSString*)name{
-    
-    NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
-    
-    [jsonResult appendFormat:@"\"%@\" : \"%@\"", name, object];
-    [jsonResult appendString:@"}"];
-    
-    return jsonResult;
-}*/
+ -(NSString*)toJsonString:(id)object Property:(NSString*)name{
+ 
+ NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
+ 
+ [jsonResult appendFormat:@"\"%@\" : \"%@\"", name, object];
+ [jsonResult appendString:@"}"];
+ 
+ return jsonResult;
+ }*/
 
 -(NSString*)getMetadataKey : (NSString*) propertyName{
     for(NSString* key in [self.metadataValues allKeys]){
@@ -77,12 +77,12 @@
     if([object isKindOfClass:[NSNumber class]] || [object isKindOfClass:[NSString class]])
     {
         NSMutableString *jsonResult = [[NSMutableString alloc] init];
-
+        
         [jsonResult appendFormat:@"\"%@\"",object];
-    
+        
         return jsonResult;
     }
-
+    
     return [self toJsonString:object];
 }
 
@@ -106,7 +106,7 @@
                     
                     @try {
                         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                       // [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+                        // [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
                         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
                         
                         
@@ -315,7 +315,7 @@
             
             NSString* value = [data valueForKeyPath:property.Name];
             if(![value isKindOfClass:NSNull.class] && value != nil){
-            
+                
                 @try {
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
@@ -334,7 +334,7 @@
         else if([property isNSData]){
             NSString* content = [data valueForKey:property.Name];
             NSData* value = [[NSData alloc] initWithBase64EncodedString:content options:0];
-
+            
             [returnType setValue:value forKeyPath:property.Name];
         }
         else if([property isCollection]){
@@ -369,7 +369,7 @@
         else{
             [returnType setValue:value forKeyPath:property.Name];
         }
-
+        
     }
     @catch (NSException *exception) {
     }
@@ -389,27 +389,45 @@
     if(type == nil){
         
         NSMutableArray* returnData = [NSMutableArray array];
-     
-        for (NSDictionary* dicc in newData) {
-            NSString* value = [dicc valueForKey:property.Name];
+        NSString* value;
+        
+        if([[newData objectAtIndex:0] isKindOfClass:NSDictionary.class]){
+            for (NSDictionary* dicc in newData) {
+                value= [dicc valueForKey:property.Name];
+                
+                if(![value isKindOfClass:NSNull.class]){
+                    [returnData addObject:value];
+                }
+            }
             
-            if(![value isKindOfClass:NSNull.class]){
-                [returnData addObject:value];
-                [returnType setObject:returnType forKey:property.Name];
+        }
+        else{
+            for (NSString* v in newData) {
+                value= v;
+                
+                if(![value isKindOfClass:NSNull.class]){
+                    [returnData addObject:value];
+                }
             }
         }
-    }else{
+        
+        if([returnData count] >0)
+            [returnType setValue:returnData forKeyPath:property.Name];
+        
+        
+    }
+    else{
         NSArray * array = [self getPropertiesFor:type];
         NSMutableArray* returnData = [NSMutableArray array];
-    
-        for (NSDictionary* dicc in newData) {
         
+        for (NSDictionary* dicc in newData) {
+            
             id entity = [[type alloc] init];
             for (Property* property in array) {
-            
+                
                 [self setValueFor:property Data:dicc Return:entity];
             }
-        
+            
             [returnData addObject:entity];
             [returnType setValue:returnData forKeyPath:property.Name];
         }
