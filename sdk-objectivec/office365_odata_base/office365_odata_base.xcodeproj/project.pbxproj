@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0877291A852C4C0077696D /* ADALDependencyResolver.h */; };
+		EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0877291A852C4C0077696D /* ADALDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC08772C1A852C4C0077696D /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08772A1A852C4C0077696D /* ADALDependencyResolver.m */; };
 		EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1D35621A2799780064FCAF /* MSODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC1D35651A2799780064FCAF /* MSODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D35631A2799780064FCAF /* MSODataExecutable.m */; };
@@ -311,7 +311,6 @@
 				EC4DE84F1A24C566004F16C4 /* MSODataURLImpl.h in Headers */,
 				EC4DE8491A24C566004F16C4 /* MSODataJsonSerializerImpl.h in Headers */,
 				EC4DE83D1A24C566004F16C4 /* JsonParser.h in Headers */,
-				EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */,
 				EC4DE86D1A24C655004F16C4 /* MSODataReadable.h in Headers */,
 				EC4DE86B1A24C655004F16C4 /* MSODataOperations.h in Headers */,
 				EC4DE81C1A24C500004F16C4 /* MSODataJsonSerializer.h in Headers */,
@@ -321,6 +320,7 @@
 				EC4DE81B1A24C500004F16C4 /* MSODataHttpVerb.h in Headers */,
 				EC8EABF31A28B5E50027F3BE /* MSODataException.h in Headers */,
 				EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */,
+				EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */,
 				EC4DE8791A24C69E004F16C4 /* MSODataBaseContainerHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
