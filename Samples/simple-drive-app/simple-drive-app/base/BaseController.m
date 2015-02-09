@@ -5,27 +5,23 @@
  ******************************************************************************/
 
 #import "BaseController.h"
-#import "LogInController.h"
+#import "AuthenticationController.h"
 
 @implementation BaseController
 
 +(void)getClient : (void (^) (MSSharePointClient* ))callback{
     
-    LogInController* loginController = [[LogInController alloc] init];
+    AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://teeudev1-my.sharepoint.com";
     
-    [loginController getTokenWith : hostName :true completionHandler:^(NSString *token) {
-    
-        MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
-        MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
-        [credentials addToken: token];
+    [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
-        MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
-        
-        [credentialsImpl setCredentials:credentials];
-        [resolver setCredentialsFactory:credentialsImpl];
-        
-        callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:resolver]);
+        if(authenticated){
+            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        }
+        else{
+            NSLog(@"Error in the authentication");
+        }
     }];
 }
 

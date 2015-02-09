@@ -10,12 +10,14 @@
  *******************************************************************************/
 
 #import "MSSampleContainerSampleEntityFetcher.h"
-#import "MSSampleContainerAnotherEntityCollectionFetcher.h"
-
-
 /**
 * The implementation file for type MSSampleContainerSampleEntityFetcher.
 */
+
+
+#import "MSSampleContainerAnotherEntityCollectionFetcher.h"
+#import "MSSampleContainerAnotherEntityFetcher.h"
+
 
 
 @implementation MSSampleContainerSampleEntityFetcher
@@ -44,7 +46,7 @@
     return [[MSSampleContainerAnotherEntityCollectionFetcher alloc] initWithUrl:@"Navigations" parent:self andEntityClass:[MSSampleContainerAnotherEntity class]];
 }
 
--(MSSampleContainerAnotherEntityFetcher*) getNavigationsById : (NSString*)_id{
+-(id<MSSampleContainerAnotherEntityFetcher>) getNavigationsById : (NSString*)_id{
     return [[[MSSampleContainerAnotherEntityCollectionFetcher alloc] initWithUrl:@"Navigations" parent:self andEntityClass:[MSSampleContainerAnotherEntity class]] getById:_id];
 }
 

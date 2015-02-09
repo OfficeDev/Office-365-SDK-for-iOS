@@ -18,3 +18,4 @@
 #import <office365_odata_base/MSODataRequestImpl.h>
 #import <office365_odata_base/MSODataResponseImpl.h>
 #import <office365_odata_base/MSODataOAuthCredentials.h>
+#import <office365_odata_base/ADALDependencyResolver.h>

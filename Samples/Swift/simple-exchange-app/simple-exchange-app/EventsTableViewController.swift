@@ -51,12 +51,12 @@ class EventsTableViewController: UITableViewController {
 
     func getEvents(){
         
-        var logInController = LogInController();
-        logInController.getTokenWith("https://outlook.office365.com/", false) { (token) -> Void in
-          
+        var authenticationController = AuthenticationController.getInstance();
+        authenticationController.initialize("https://outlook.office365.com/", false) { (Boolean) -> Void in
+            
             self.spinner.startAnimating();
-            var resolver = self.getDependencyResolver(token);
-            var client = MSOutlookClient(url: "https://outlook.office365.com/api/v1.0", dependencyResolver: resolver);
+            
+            var client = MSOutlookClient(url: "https://outlook.office365.com/api/v1.0", dependencyResolver: authenticationController.getDependencyResolver());
             
             var event = self.getSampleEvent();
             

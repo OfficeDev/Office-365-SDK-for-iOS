@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import "UserSettingsViewController.h"
-#import "LogInController.h"
+#import "AuthenticationController.h"
 
 @interface UserSettingsViewController ()
 
@@ -49,9 +49,8 @@
 }
 
 - (IBAction)ClearCredentials:(id)sender {
-    LogInController* logInController = [[LogInController alloc] init];
     
-    [logInController clearCredentials];
+    [[AuthenticationController getInstance] clearCredentials];
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"LogInUser"];

@@ -10,7 +10,7 @@
  *******************************************************************************/
 
 #import "MSSampleContainerEntity.h"
-
+#import "MSSampleContainerSampleEntity.h"
 /**
 * The implementation file for type Entity.
 */
@@ -19,6 +19,7 @@
 
 -(id)init{
 	self.$$__ODataType = @"#Microsoft.SampleService.Entity";
+    
 	return self;
 }
 

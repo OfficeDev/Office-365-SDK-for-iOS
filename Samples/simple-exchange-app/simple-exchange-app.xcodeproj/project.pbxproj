@@ -19,7 +19,7 @@
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
 		ECCF422819F547BC00EA6F9D /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */; };
-		ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* LogInController.m */; };
+		ECD1AE9019EEFEDA00C4940F /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* AuthenticationController.m */; };
 		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
 		ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */; };
 		ECD9F40819784BB600ABB418 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40719784BB600ABB418 /* main.m */; };
@@ -41,8 +41,8 @@
 		EC2833B319E6D82800E5FEA4 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		EC2833B419E6D82800E5FEA4 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		ECCF422719F547BC00EA6F9D /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
-		ECD1AE8E19EEFEDA00C4940F /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		ECD1AE8F19EEFEDA00C4940F /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		ECD1AE8E19EEFEDA00C4940F /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
+		ECD1AE8F19EEFEDA00C4940F /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
 		ECD1AE9519EF00DB00C4940F /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		ECD1AE9919EF071600C4940F /* ADAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ADAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 			children = (
 				ECD1AE9519EF00DB00C4940F /* UserSettingsViewController.h */,
 				ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */,
-				ECD1AE8E19EEFEDA00C4940F /* LogInController.h */,
-				ECD1AE8F19EEFEDA00C4940F /* LogInController.m */,
+				ECD1AE8E19EEFEDA00C4940F /* AuthenticationController.h */,
+				ECD1AE8F19EEFEDA00C4940F /* AuthenticationController.m */,
 				ECD2485219A65D2A00464FA0 /* MessageTableViewController.h */,
 				ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */,
 				EC2833AD19E6D5BA00E5FEA4 /* FolderTableViewController.h */,
@@ -278,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC1DCEAC19E7192800EF2176 /* SendMessageViewController.m in Sources */,
-				ECD1AE9019EEFEDA00C4940F /* LogInController.m in Sources */,
+				ECD1AE9019EEFEDA00C4940F /* AuthenticationController.m in Sources */,
 				ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */,
 				EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */,
 				EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */,

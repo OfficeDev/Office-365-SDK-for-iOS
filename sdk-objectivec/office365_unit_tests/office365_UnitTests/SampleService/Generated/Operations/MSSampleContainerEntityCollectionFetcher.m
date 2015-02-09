@@ -10,6 +10,7 @@
  *******************************************************************************/
 
 #import "MSSampleContainerEntityCollectionFetcher.h"
+#import "MSSampleContainerEntityFetcher.h"
 
 /**
 * The implementation file for type MSSampleContainerEntityCollectionFetcher.

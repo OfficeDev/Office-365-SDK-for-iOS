@@ -16,7 +16,7 @@
 		EC455DAC1A43661E00A3E8E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC455DAA1A43661E00A3E8E8 /* LaunchScreen.xib */; };
 		EC455DB81A43661E00A3E8E8 /* simple_exchange_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455DB71A43661E00A3E8E8 /* simple_exchange_appTests.swift */; };
 		EC455DC31A4367AC00A3E8E8 /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC455DC11A4367AC00A3E8E8 /* libPods-ADALiOS.a */; };
-		EC455DC81A444E4D00A3E8E8 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC455DC71A444E4D00A3E8E8 /* LogInController.m */; };
+		EC455DC81A444E4D00A3E8E8 /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC455DC71A444E4D00A3E8E8 /* AuthenticationController.m */; };
 		EC455DCA1A444EC000A3E8E8 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC455DC91A444EC000A3E8E8 /* EventsTableViewController.swift */; };
 		ECEDA7271A4A072200D32FAD /* Office365Sdks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECEDA7261A4A072200D32FAD /* Office365Sdks.framework */; };
 /* End PBXBuildFile section */
@@ -48,8 +48,8 @@
 		EC455DB71A43661E00A3E8E8 /* simple_exchange_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simple_exchange_appTests.swift; sourceTree = "<group>"; };
 		EC455DC11A4367AC00A3E8E8 /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
 		EC455DC51A43773900A3E8E8 /* outlook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "outlook-Bridging-Header.h"; sourceTree = "<group>"; };
-		EC455DC61A444E4D00A3E8E8 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		EC455DC71A444E4D00A3E8E8 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		EC455DC61A444E4D00A3E8E8 /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
+		EC455DC71A444E4D00A3E8E8 /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
 		EC455DC91A444EC000A3E8E8 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		ECEDA7261A4A072200D32FAD /* Office365Sdks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Office365Sdks.framework; path = ../../../../../../../../Library/Frameworks/Office365Sdks.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,8 +132,8 @@
 		EC455D9C1A43661E00A3E8E8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EC455DC61A444E4D00A3E8E8 /* LogInController.h */,
-				EC455DC71A444E4D00A3E8E8 /* LogInController.m */,
+				EC455DC61A444E4D00A3E8E8 /* AuthenticationController.h */,
+				EC455DC71A444E4D00A3E8E8 /* AuthenticationController.m */,
 				EC455D9D1A43661E00A3E8E8 /* Info.plist */,
 				EC455DC51A43773900A3E8E8 /* outlook-Bridging-Header.h */,
 			);
@@ -293,7 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC455DA41A43661E00A3E8E8 /* ViewController.swift in Sources */,
-				EC455DC81A444E4D00A3E8E8 /* LogInController.m in Sources */,
+				EC455DC81A444E4D00A3E8E8 /* AuthenticationController.m in Sources */,
 				EC455DA21A43661E00A3E8E8 /* simple_exchange_app.xcdatamodeld in Sources */,
 				EC455DCA1A444EC000A3E8E8 /* EventsTableViewController.swift in Sources */,
 				EC455D9F1A43661E00A3E8E8 /* AppDelegate.swift in Sources */,

@@ -17,7 +17,6 @@
 
 @implementation MSSampleContainerSampleEntityCollectionOperations
 
-
 -(NSURLSessionDataTask*)someFunction : (NSString *) path : (void (^)(MSSampleContainerSampleComplexType *samplecomplextype, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
@@ -30,7 +29,6 @@
 
        if(error == nil){
 			MSSampleContainerSampleComplexType * result = (MSSampleContainerSampleComplexType *)[[[self getResolver]getJsonSerializer] deserialize:[r getPayload] : [MSSampleContainerSampleComplexType class]];
-           
             callback(result, error);
         }
         else{

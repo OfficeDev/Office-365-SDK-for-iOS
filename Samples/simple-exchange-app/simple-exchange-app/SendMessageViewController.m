@@ -38,7 +38,7 @@
 
 - (IBAction)SendMail:(id)sender{
 
-    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
+    [BaseController getClient:^(MSOutlookClient * client) {
         MSOutlookMessage *message = [MSOutlookMessage alloc];
         
         message.Subject = self.txtSubject.text;

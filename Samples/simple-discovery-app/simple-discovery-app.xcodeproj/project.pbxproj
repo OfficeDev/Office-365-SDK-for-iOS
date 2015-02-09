@@ -19,7 +19,7 @@
 		EC684AB419F8A55300CE060A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC684AA119F8A55300CE060A /* InfoPlist.strings */; };
 		EC684AB519F8A55300CE060A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AA519F8A55300CE060A /* AppDelegate.m */; };
 		EC684AB619F8A55300CE060A /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AA719F8A55300CE060A /* BaseController.m */; };
-		EC684AB719F8A55300CE060A /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AA919F8A55300CE060A /* LogInController.m */; };
+		EC684AB719F8A55300CE060A /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AA919F8A55300CE060A /* AuthenticationController.m */; };
 		EC684AB819F8A55300CE060A /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AAB19F8A55300CE060A /* UserSettingsViewController.m */; };
 		EC684AB919F8A55300CE060A /* ServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC684AAE19F8A55300CE060A /* ServicesTableViewController.m */; };
 		EC684ABC19F8A81400CE060A /* office365.png in Resources */ = {isa = PBXBuildFile; fileRef = EC684ABB19F8A81400CE060A /* office365.png */; };
@@ -50,8 +50,8 @@
 		EC684AA519F8A55300CE060A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EC684AA619F8A55300CE060A /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		EC684AA719F8A55300CE060A /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
-		EC684AA819F8A55300CE060A /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		EC684AA919F8A55300CE060A /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		EC684AA819F8A55300CE060A /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
+		EC684AA919F8A55300CE060A /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
 		EC684AAA19F8A55300CE060A /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		EC684AAB19F8A55300CE060A /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		EC684AAD19F8A55300CE060A /* ServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesTableViewController.h; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 				EC684AA519F8A55300CE060A /* AppDelegate.m */,
 				EC684AA619F8A55300CE060A /* BaseController.h */,
 				EC684AA719F8A55300CE060A /* BaseController.m */,
-				EC684AA819F8A55300CE060A /* LogInController.h */,
-				EC684AA919F8A55300CE060A /* LogInController.m */,
+				EC684AA819F8A55300CE060A /* AuthenticationController.h */,
+				EC684AA919F8A55300CE060A /* AuthenticationController.m */,
 				EC684AAA19F8A55300CE060A /* UserSettingsViewController.h */,
 				EC684AAB19F8A55300CE060A /* UserSettingsViewController.m */,
 			);
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC684AB719F8A55300CE060A /* LogInController.m in Sources */,
+				EC684AB719F8A55300CE060A /* AuthenticationController.m in Sources */,
 				EC2CCAA119F8A4AC00D12E55 /* simple_discovery_app.xcdatamodeld in Sources */,
 				EC2CCA9B19F8A4AC00D12E55 /* main.m in Sources */,
 				EC684AB919F8A55300CE060A /* ServicesTableViewController.m in Sources */,

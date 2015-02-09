@@ -10,9 +10,11 @@
 #import <XCTest/XCTest.h>
 
 #import <office365_odata_base/office365_odata_base.h>
-//#import <SampleService/SampleService.h>
 #import "MSSampleContainerClient.h"
+#import "MSSampleContaunerEntityWithEnum.h"
 #import <office365_odata_base/NSString+NSStringExtensions.h>
+
+#import "MSSampleContaunerEntityWithEnum.h"
 
 @interface SampleServiceTests : XCTestCase
 
@@ -61,8 +63,8 @@
     [self blockUntilFinish:task];
     
     XCTAssertEqual(result, 1);
-}
-*/
+}*/
+
 - (void)testGetNavigationList {
     //getNavigationsGET.json
     self.running = true;
@@ -120,7 +122,7 @@
 }
 
 //TODO: Enable when Raw is available after select
-/*
+
 -(void) testGetNavigationItemRawWithSelect{
     //getNavigationItemWithSelectGET.json
     self.running = true;
@@ -140,7 +142,6 @@
     XCTAssertNotNil(jsonResult);
     XCTAssertTrue([jsonResult isEqualToString:expectedResponseString]);
 }
-*/
 
 -(void) testGetNavigationListWithSelectAndTop{
     //getNavigationsWithSelectAndTopGET.json
@@ -200,7 +201,7 @@
 }
 
 //TODO: Enable when missing X-ClientService-ClientTag header is available
-/*
+
 -(void) testDefaultHeaders{
     self.running = true;
     __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
@@ -217,7 +218,7 @@
     
     XCTAssertEqual([entities count], 1);
 }
-*/
+
 -(void) testDeleteNavigationItem{
     //deleteNavigationItemDELETE.json
     self.running = true;
@@ -299,6 +300,18 @@
 
 }
 
+-(void) testEnumParser{
+    
+    self.running = true;
+    
+    NSString* json = @"{\"Name\": \"Test\", \"enums\":[\"First\",\"Second\"]}";
+    MSSampleContaunerEntityWithEnum* t = [MSSampleContaunerEntityWithEnum alloc];
+    NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding] ;
+    
+    id entity = [[[self.client getResolver] getJsonSerializer] deserialize:data :[t class]];
+    
+    XCTAssertNotNil(entity);
+}
 
 //TODO: Reactor this: add semaphore or get method to terminator methods
 -(void)blockUntilFinish : (NSURLSessionDataTask*)task{

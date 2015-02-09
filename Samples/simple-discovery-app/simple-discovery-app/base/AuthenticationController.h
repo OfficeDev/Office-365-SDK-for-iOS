@@ -10,10 +10,14 @@
 #import <ADALiOS/ADAuthenticationSettings.h>
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
+#import <office365_odata_base/office365_odata_base.h>
 
-@interface LogInController : NSObject
+@interface AuthenticationController : NSObject
+
 -(id)init;
 -(void)clearCredentials;
--(void) getTokenWith :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (NSString *))completionBlock;
++(id) getInstance;
+-(void) initialize :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (bool authenticated))completionBlock;
+-(ADALDependencyResolver*) getDependencyResolver;
 
 @end

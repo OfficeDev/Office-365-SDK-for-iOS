@@ -5,38 +5,55 @@
  ******************************************************************************/
 
 #import "BaseController.h"
-#import "LogInController.h"
+#import "AuthenticationController.h"
 
 @implementation BaseController
 
 -(void)getMailClient : (void (^) (MSOutlookClient* ))callback{
     
-    LogInController* loginController = [[LogInController alloc] init];
+    AuthenticationController* authenticationController = [AuthenticationController getInstance];
+    NSString* hostName = @"https://outlook.office365.com";
     
-    [loginController getTokenWith : @"https://outlook.office365.com/" :true completionHandler:^(NSString *token) {
-
-        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
-        callback([[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
+    [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
+        
+        if(authenticated){
+            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        }
+        else{
+            NSLog(@"Error in the authentication");
+        }
     }];
 }
 
 -(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
-    LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://teeudev1-my.sharepoint.com/" :true completionHandler:^(NSString *token) {
+    AuthenticationController* authenticationController = [AuthenticationController getInstance];
+    NSString* hostName = @"https://teeudev1-my.sharepoint.com";
+    
+    [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
-        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
-        callback([[MSSharePointClient alloc] initWithUrl:@"https://teeudev1-my.sharepoint.com/_api/v1.0/me" dependencyResolver:resolver]);
+        if(authenticated){
+            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        }
+        else{
+            NSLog(@"Error in the authentication");
+        }
     }];
 }
 
 -(void) getDiscoveryClient:(void (^)(MSDiscoveryClient *))callback{
-    LogInController* loginController = [[LogInController alloc] init];
     
-    [loginController getTokenWith : @"https://api.office.com/discovery/" :true completionHandler:^(NSString *token) {
+    AuthenticationController* authenticationController = [AuthenticationController getInstance];
+    NSString* hostName = @"https://api.office.com/discovery";
+    
+    [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
-        MSODataDefaultDependencyResolver *resolver = [self getDependencyResolver:token];
-        callback([[MSDiscoveryClient alloc] initWithUrl:@"https://api.office.com/discovery/v1.0/me/" dependencyResolver:resolver]);
+        if(authenticated){
+            callback([[MSDiscoveryClient alloc] initWithUrl:[hostName stringByAppendingString:@"/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        }
+        else{
+            NSLog(@"Error in the authentication");
+        }
     }];
 }
 

@@ -7,7 +7,6 @@
 #import "BaseTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
-#import "LogInController.h"
 #import "BaseController.h"
 
 @interface MailTestRunner : BaseTestRunner
