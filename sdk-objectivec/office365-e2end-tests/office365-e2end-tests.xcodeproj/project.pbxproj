@@ -25,7 +25,7 @@
 		ECBBC99F19F1ACD600DE04A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBBC99D19F1ACD600DE04A4 /* LaunchScreen.xib */; };
 		ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */; };
 		ECBBC9C819F1AD2C00DE04A4 /* MailTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */; };
-		ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */; };
+		ECBBC9CA19F1AD2C00DE04A4 /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9BC19F1AD2C00DE04A4 /* AuthenticationController.m */; };
 		ECBBC9CC19F1AD2C00DE04A4 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C019F1AD2C00DE04A4 /* Test.m */; };
 		ECBBC9CE19F1AD2C00DE04A4 /* TestParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C419F1AD2C00DE04A4 /* TestParameters.m */; };
 		ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */; };
@@ -65,8 +65,8 @@
 		ECBBC9B619F1AD2C00DE04A4 /* BaseTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTestRunner.m; sourceTree = "<group>"; };
 		ECBBC9B719F1AD2C00DE04A4 /* MailTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailTestRunner.h; sourceTree = "<group>"; };
 		ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailTestRunner.m; sourceTree = "<group>"; };
-		ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		ECBBC9BB19F1AD2C00DE04A4 /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
+		ECBBC9BC19F1AD2C00DE04A4 /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
 		ECBBC9BF19F1AD2C00DE04A4 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		ECBBC9C019F1AD2C00DE04A4 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		ECBBC9C319F1AD2C00DE04A4 /* TestParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestParameters.h; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 				ECBBC99619F1ACD600DE04A4 /* ViewController.m */,
 				3CDD5D9619F55A3400C29E3F /* BaseController.h */,
 				3CDD5D9719F55A3400C29E3F /* BaseController.m */,
-				ECBBC9BB19F1AD2C00DE04A4 /* LogInController.h */,
-				ECBBC9BC19F1AD2C00DE04A4 /* LogInController.m */,
+				ECBBC9BB19F1AD2C00DE04A4 /* AuthenticationController.h */,
+				ECBBC9BC19F1AD2C00DE04A4 /* AuthenticationController.m */,
 				ECBBC9C519F1AD2C00DE04A4 /* UserSettingsViewController.h */,
 				ECBBC9C619F1AD2C00DE04A4 /* UserSettingsViewController.m */,
 				1C9D464F1A14E84B00D5361E /* TestRunnerTableViewController.h */,
@@ -316,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBBC9CA19F1AD2C00DE04A4 /* LogInController.m in Sources */,
+				ECBBC9CA19F1AD2C00DE04A4 /* AuthenticationController.m in Sources */,
 				1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */,
 				ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */,
 				ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */,

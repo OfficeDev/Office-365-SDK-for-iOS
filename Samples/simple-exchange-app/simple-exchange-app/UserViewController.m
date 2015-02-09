@@ -36,7 +36,7 @@
     
    // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
-    [[BaseController alloc] getClient:^(MSOutlookClient * client) {
+    [BaseController getClient:^(MSOutlookClient * client) {
         NSURLSessionTask* task = [[client getMe] read:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),

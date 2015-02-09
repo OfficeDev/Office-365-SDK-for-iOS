@@ -23,7 +23,7 @@
 		ECBA299819F7E04D00454689 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECBA299619F7E04D00454689 /* LaunchScreen.xib */; };
 		ECBA29B619F7E0E500454689 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29AF19F7E0E500454689 /* AppDelegate.m */; };
 		ECBA29B719F7E0E500454689 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B119F7E0E500454689 /* BaseController.m */; };
-		ECBA29B819F7E0E500454689 /* LogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B319F7E0E500454689 /* LogInController.m */; };
+		ECBA29B819F7E0E500454689 /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B319F7E0E500454689 /* AuthenticationController.m */; };
 		ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */; };
 		ECCF140D19FED44100625EEC /* libPods-ADALiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF140B19FED44100625EEC /* libPods-ADALiOS.a */; };
 		ECCF140E19FED44100625EEC /* libPods-Office365.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECCF140C19FED44100625EEC /* libPods-Office365.a */; };
@@ -56,8 +56,8 @@
 		ECBA29AF19F7E0E500454689 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ECBA29B019F7E0E500454689 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
 		ECBA29B119F7E0E500454689 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
-		ECBA29B219F7E0E500454689 /* LogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInController.h; sourceTree = "<group>"; };
-		ECBA29B319F7E0E500454689 /* LogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInController.m; sourceTree = "<group>"; };
+		ECBA29B219F7E0E500454689 /* AuthenticationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationController.h; sourceTree = "<group>"; };
+		ECBA29B319F7E0E500454689 /* AuthenticationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationController.m; sourceTree = "<group>"; };
 		ECBA29B419F7E0E500454689 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		ECCF140B19FED44100625EEC /* libPods-ADALiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ADALiOS.a"; path = "Pods/build/Debug-iphoneos/libPods-ADALiOS.a"; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 				ECBA29AF19F7E0E500454689 /* AppDelegate.m */,
 				ECBA29B019F7E0E500454689 /* BaseController.h */,
 				ECBA29B119F7E0E500454689 /* BaseController.m */,
-				ECBA29B219F7E0E500454689 /* LogInController.h */,
-				ECBA29B319F7E0E500454689 /* LogInController.m */,
+				ECBA29B219F7E0E500454689 /* AuthenticationController.h */,
+				ECBA29B319F7E0E500454689 /* AuthenticationController.m */,
 				ECBA29B419F7E0E500454689 /* UserSettingsViewController.h */,
 				ECBA29B519F7E0E500454689 /* UserSettingsViewController.m */,
 			);
@@ -295,7 +295,7 @@
 				ECBA29B719F7E0E500454689 /* BaseController.m in Sources */,
 				ECBA298D19F7E04D00454689 /* simple_drive_app.xcdatamodeld in Sources */,
 				ECBA29B919F7E0E500454689 /* UserSettingsViewController.m in Sources */,
-				ECBA29B819F7E0E500454689 /* LogInController.m in Sources */,
+				ECBA29B819F7E0E500454689 /* AuthenticationController.m in Sources */,
 				ECA0AC1E19F83174008F6C66 /* FilesTableViewController.m in Sources */,
 				ECBA299019F7E04D00454689 /* ViewController.m in Sources */,
 				ECBA298719F7E04D00454689 /* main.m in Sources */,

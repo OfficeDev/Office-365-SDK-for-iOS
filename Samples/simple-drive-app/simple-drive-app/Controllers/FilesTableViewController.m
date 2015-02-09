@@ -68,6 +68,15 @@
                                        [spinner stopAnimating];
                                    });
                 }
+                else{
+                    dispatch_async(dispatch_get_main_queue(),
+                                   ^{
+                                       [spinner stopAnimating];
+                                       
+                                       UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[[error userInfo] objectForKey:0] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                                       [alert show];
+                                   });
+                }
             }] resume];
     }];
 }

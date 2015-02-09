@@ -11,6 +11,6 @@
 @protocol MSODataLogger
 
 @required
--(void) log : (NSString*) content : (MSODataLogLevel*) logLevel;
+-(void) log : (NSString*) content : (MSODataLogLevel) logLevel;
 
 @end

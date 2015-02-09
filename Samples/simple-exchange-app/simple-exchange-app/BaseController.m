@@ -5,28 +5,23 @@
  ******************************************************************************/
 
 #import "BaseController.h"
-#import "LogInController.h"
-
+#import "AuthenticationController.h"
 
 @implementation BaseController
 
--(void)getClient : (void (^) (MSOutlookClient* ))callback{
++(void)getClient : (void (^) (MSOutlookClient* ))callback{
     
-    LogInController* loginController = [[LogInController alloc] init];
+    AuthenticationController* authenticationController = [AuthenticationController getInstance];
+    NSString* hostName = @"https://outlook.office365.com";
     
-    [loginController getTokenWith : @"https://outlook.office365.com" :true completionHandler:^(NSString *token) {
+    [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
-        MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
-        MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
-        [credentials addToken:token];
-        
-        MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
-        
-        [credentialsImpl setCredentials:credentials];
-        [resolver setCredentialsFactory:credentialsImpl];
-        [[resolver getLogger] log:@"Going to call client API" :(MSODataLogLevel *)INFO];
-        
-        callback([[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0" dependencyResolver:resolver]);
+        if(authenticated){
+            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        }
+        else{
+            NSLog(@"Error in the authentication");
+        }
     }];
 }
 @end

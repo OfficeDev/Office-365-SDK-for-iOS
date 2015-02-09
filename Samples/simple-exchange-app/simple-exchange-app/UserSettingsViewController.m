@@ -1,13 +1,11 @@
-//
-//  UserSettingsViewController.m
-//  office365-e2end-tests
-//
-//  Created by Gustavo on 7/29/14.
-//  Copyright (c) 2014 Lagash. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import "UserSettingsViewController.h"
-#import "LogInController.h"
+#import "AuthenticationController.h"
 
 @interface UserSettingsViewController ()
 
@@ -18,9 +16,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    
     return self;
 }
 
@@ -41,19 +37,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)Save:(id)sender {
     
@@ -65,9 +49,8 @@
 }
 
 - (IBAction)ClearCredentials:(id)sender {
-    LogInController* logInController = [[LogInController alloc] init];
     
-    [logInController clearCredentials];
+    [[AuthenticationController getInstance] clearCredentials];
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"LogInUser"];
