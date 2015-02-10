@@ -5,7 +5,6 @@
 ******************************************************************************/
 
 import UIKit
-import AuthenticationController
 
 class EventsTableViewController: UITableViewController {
     
@@ -23,7 +22,8 @@ class EventsTableViewController: UITableViewController {
         self.view.addSubview(spinner);
         spinner.hidesWhenStopped = true;
         
-        authenticationController.initialize("https://outlook.office365.com/", false) { (Boolean) -> Void in
+        var controller = AuthenticationController();
+        controller.initialize("https://outlook.office365.com/", false) { (authenticated) -> Void in
             self.getEvents();
         };
     }
