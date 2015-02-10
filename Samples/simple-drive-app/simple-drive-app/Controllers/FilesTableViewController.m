@@ -10,6 +10,7 @@
 @interface FilesTableViewController()
 
 @property NSArray *Files;
+@property MSSharePointClient* client;
 
 @end
 
@@ -28,7 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getFiles];
+    
+    [BaseController getClient:^(MSSharePointClient * client) {
+        self.client = client;
+        [self getFiles];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,27 +63,26 @@
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [BaseController getClient:^(MSSharePointClient * client) {
-            [[[client  getfiles] read:^(NSArray<MSSharePointItem> *items, NSError *error) {
-                if(error == nil){
-                    dispatch_async(dispatch_get_main_queue(),
-                                   ^{
-                                       self.Files = items;
-                                       [self.tableView reloadData];
-                                       [spinner stopAnimating];
-                                   });
-                }
-                else{
-                    dispatch_async(dispatch_get_main_queue(),
-                                   ^{
-                                       [spinner stopAnimating];
-                                       
-                                       UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[[error userInfo] objectForKey:0] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                                       [alert show];
-                                   });
-                }
-            }] resume];
-    }];
+    
+    [[[self.client  getfiles] read:^(NSArray<MSSharePointItem> *items, NSError *error) {
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.Files = items;
+                               [self.tableView reloadData];
+                               [spinner stopAnimating];
+                           });
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               [spinner stopAnimating];
+                               
+                               UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error!" message:[[error userInfo] objectForKey:0] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                               [alert show];
+                           });
+        }
+    }] resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
@@ -94,25 +98,23 @@
         
         __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
         
-        [BaseController getClient:^(MSSharePointClient *client) {
+        MSSharePointFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
+        [[[[self.client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
             
-            MSSharePointFile* fileToDelete = [self.Files objectAtIndex:indexPath.row];
-            [[[[client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
-                
-                dispatch_async(dispatch_get_main_queue(),
-                               ^{
-                                   
-                                   [spinner stopAnimating];
-                                   [self getFiles];
-                
-                                   UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
-                                                                message:[@"Deleted File " stringByAppendingString:fileToDelete.name]
-                                                               delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                                   [alert show];
-                               });
-                
-            }] resume];
-        }];
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               
+                               [spinner stopAnimating];
+                               [self getFiles];
+                               
+                               UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success"
+                                                                               message:[@"Deleted File " stringByAppendingString:fileToDelete.name]
+                                                                              delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                               [alert show];
+                           });
+            
+        }] resume];
+        
     }
 }
 

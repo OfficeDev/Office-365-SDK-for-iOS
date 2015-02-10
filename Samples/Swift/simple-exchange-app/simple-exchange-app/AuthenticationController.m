@@ -43,17 +43,9 @@ static AuthenticationController* INSTANCE;
 
 -(void) initialize :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (bool authenticated))completionBlock{
     
-    
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    
-    
-    if(DependencyResolver != nil){
-        return [DependencyResolver getCredentials:^(id<MSODataCredentials> credentials) {
-            completionBlock(credentials);
-        }];
-    }
     
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
@@ -76,7 +68,6 @@ static AuthenticationController* INSTANCE;
                                   completionBlock(true);
                               }
                           }];
-    
 }
 
 -(ADALDependencyResolver*) getDependencyResolver{

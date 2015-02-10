@@ -11,6 +11,7 @@
 @interface FolderTableViewController()
 
 @property NSArray *Folders;
+@property MSOutlookClient* client;
 
 @end
 
@@ -29,7 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getFolders];
+    
+    [BaseController getClient:^(MSOutlookClient *client) {
+        self.client = client;
+        [self getFolders];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,21 +61,20 @@
 }
 
 -(void)getFolders{
-
-    [[BaseController alloc] getClient:^(MSOutlookClient *client) {
-        NSURLSessionTask* task = [[[client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
-            if(error == nil){
-                dispatch_async(dispatch_get_main_queue(),
-                               ^{
-                                   self.Folders = folders;
-                                   [self.tableView reloadData];
-                               });
-            }
-        }];
-        
-        [task resume];
+    
+    NSURLSessionTask* task = [[[self.client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.Folders = folders;
+                               [self.tableView reloadData];
+                           });
+        }
     }];
+    
+    [task resume];
 }
+
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
     
 }

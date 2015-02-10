@@ -49,11 +49,11 @@ static AuthenticationController* INSTANCE;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
     
     
-    if(DependencyResolver != nil){
+    /*if(DependencyResolver != nil){
         return [DependencyResolver getCredentials:^(id<MSODataCredentials> credentials) {
             completionBlock(credentials);
         }];
-    }
+    }*/
     
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId

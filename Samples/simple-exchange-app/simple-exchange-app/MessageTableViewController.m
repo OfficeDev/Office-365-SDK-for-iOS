@@ -12,6 +12,7 @@
 @interface MessageTableViewController ()
 
 @property NSArray *Messages;
+@property MSOutlookClient* client;
 
 @end
 
@@ -21,7 +22,7 @@
 {
     self = [super initWithStyle:style];
     
-        if (self) {
+    if (self) {
         // Custom initialization
     }
     return self;
@@ -30,7 +31,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getMessagesFromInbox];
+    
+    [BaseController getClient:^(MSOutlookClient *client) {
+        self.client = client;
+        [self getMessagesFromInbox];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,21 +62,19 @@
 }
 
 -(void)getMessagesFromInbox{
- 
-   [[BaseController alloc] getClient:^(MSOutlookClient *client) {
-       NSURLSessionTask* task = [[[client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
-           
-           if(error == nil){
-               dispatch_async(dispatch_get_main_queue(),
-                              ^{
-                                  self.Messages = messages;
-                                  [self.tableView reloadData];
-                              });
-           }
-       }];
-       
-       [task resume];
-   }];
+    
+    NSURLSessionTask* task = [[[self.client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+        
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.Messages = messages;
+                               [self.tableView reloadData];
+                           });
+        }
+    }];
+    
+    [task resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

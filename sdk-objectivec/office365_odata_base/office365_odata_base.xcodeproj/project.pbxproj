@@ -28,8 +28,6 @@
 		EC4DE8401A24C566004F16C4 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8261A24C566004F16C4 /* Property.m */; };
 		EC4DE8411A24C566004F16C4 /* MSODataBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8421A24C566004F16C4 /* MSODataBasicCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8281A24C566004F16C4 /* MSODataBasicCredentials.m */; };
-		EC4DE8431A24C566004F16C4 /* MSODataCredentialsImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8291A24C566004F16C4 /* MSODataCredentialsImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE8441A24C566004F16C4 /* MSODataCredentialsImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE82A1A24C566004F16C4 /* MSODataCredentialsImpl.m */; };
 		EC4DE8451A24C566004F16C4 /* MSODataDefaultDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE82B1A24C566004F16C4 /* MSODataDefaultDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8461A24C566004F16C4 /* MSODataDefaultDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE82C1A24C566004F16C4 /* MSODataDefaultDependencyResolver.m */; };
 		EC4DE8471A24C566004F16C4 /* MSODataHttpConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE82D1A24C566004F16C4 /* MSODataHttpConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,8 +91,6 @@
 		EC4DE8261A24C566004F16C4 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataBasicCredentials.h; sourceTree = "<group>"; };
 		EC4DE8281A24C566004F16C4 /* MSODataBasicCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataBasicCredentials.m; sourceTree = "<group>"; };
-		EC4DE8291A24C566004F16C4 /* MSODataCredentialsImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataCredentialsImpl.h; sourceTree = "<group>"; };
-		EC4DE82A1A24C566004F16C4 /* MSODataCredentialsImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataCredentialsImpl.m; sourceTree = "<group>"; };
 		EC4DE82B1A24C566004F16C4 /* MSODataDefaultDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataDefaultDependencyResolver.h; sourceTree = "<group>"; };
 		EC4DE82C1A24C566004F16C4 /* MSODataDefaultDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataDefaultDependencyResolver.m; sourceTree = "<group>"; };
 		EC4DE82D1A24C566004F16C4 /* MSODataHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataHttpConnection.h; sourceTree = "<group>"; };
@@ -225,8 +221,6 @@
 				EC4DE8221A24C566004F16C4 /* JsonParser */,
 				EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */,
 				EC4DE8281A24C566004F16C4 /* MSODataBasicCredentials.m */,
-				EC4DE8291A24C566004F16C4 /* MSODataCredentialsImpl.h */,
-				EC4DE82A1A24C566004F16C4 /* MSODataCredentialsImpl.m */,
 				EC4DE82B1A24C566004F16C4 /* MSODataDefaultDependencyResolver.h */,
 				EC4DE82C1A24C566004F16C4 /* MSODataDefaultDependencyResolver.m */,
 				EC4DE82D1A24C566004F16C4 /* MSODataHttpConnection.h */,
@@ -280,7 +274,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC4DE8431A24C566004F16C4 /* MSODataCredentialsImpl.h in Headers */,
 				EC4DE83F1A24C566004F16C4 /* Property.h in Headers */,
 				EC4DE84B1A24C566004F16C4 /* MSODataLoggerImpl.h in Headers */,
 				EC4DE8651A24C655004F16C4 /* MSODataCollectionFetcher.h in Headers */,
@@ -401,7 +394,6 @@
 				EC1D35651A2799780064FCAF /* MSODataExecutable.m in Sources */,
 				EC4DE86A1A24C655004F16C4 /* MSODataMediaEntityFetcher.m in Sources */,
 				EC8EABF41A28B5E50027F3BE /* MSODataException.m in Sources */,
-				EC4DE8441A24C566004F16C4 /* MSODataCredentialsImpl.m in Sources */,
 				EC4DE87C1A24C69E004F16C4 /* MSODataEntityFetcherHelper.m in Sources */,
 				EC4DE8461A24C566004F16C4 /* MSODataDefaultDependencyResolver.m in Sources */,
 				EC4DE83E1A24C566004F16C4 /* JsonParser.m in Sources */,

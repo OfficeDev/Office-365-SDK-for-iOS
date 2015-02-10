@@ -10,6 +10,7 @@
 @interface ServicesTableViewController()
 
 @property NSArray *Services;
+@property MSDiscoveryClient* client;
 
 @end
 
@@ -28,7 +29,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getFiles];
+    
+    [BaseController getClient:^(MSDiscoveryClient * client) {
+        self.client = client;
+        [self getFiles];
+    }];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,19 +65,17 @@
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [BaseController getClient:^(MSDiscoveryClient * client) {
-            [[[client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
-                if(error == nil){
-                    dispatch_async(dispatch_get_main_queue(),
-                                   ^{
-                                       self.Services = serviceInfos;
-                                       [self.tableView reloadData];
-                                       [spinner stopAnimating];
-                                   });
-                }
-
-            }] resume];
-    }];
+    [[[self.client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+        if(error == nil){
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               self.Services = serviceInfos;
+                               [self.tableView reloadData];
+                               [spinner stopAnimating];
+                           });
+        }
+        
+    }] resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
