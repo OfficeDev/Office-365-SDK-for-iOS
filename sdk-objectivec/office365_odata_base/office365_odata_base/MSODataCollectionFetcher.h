@@ -14,6 +14,7 @@
 @optional
 -(id<MSODataCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSODataCollectionFetcher>)addCustomHeaderWithName:(NSString *)name andValue :(NSString *)value;
+
 @end
 
 @interface MSODataCollectionFetcher : MSODataExecutable<MSODataCollectionFetcher>

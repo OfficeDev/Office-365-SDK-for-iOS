@@ -6,7 +6,6 @@
  ******************************************************************************/
 
 #import <office365_odata_base/MSODataCredentials.h>
-#import <office365_odata_base/MSODataCredentialsFactory.h>
 #import <office365_odata_base/MSODataDependencyResolver.h>
 #import <office365_odata_base/MSODataHttpTransport.h>
 #import <office365_odata_base/MSODataHttpVerb.h>

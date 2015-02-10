@@ -10,6 +10,4 @@
 
 @interface MSODataDefaultDependencyResolver : NSObject<MSODataDependencyResolver>
 
--(void) setCredentialsFactory : (id<MSODataCredentialsFactory>) credentialsFactory;
-
 @end

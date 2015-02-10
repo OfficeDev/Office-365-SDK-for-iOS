@@ -24,8 +24,10 @@
 @synthesize UrlComponent;
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver{
+    
     self.UrlComponent = url;
     self.resolver = resolver;
+    
     return self;
 }
 
@@ -41,8 +43,9 @@
     [request addHeader:@"X-ClientService-ClientTag" :[self.resolver getPlatformUserAgent:productName]];
     [request addHeader:@"OData-Version" :@"4.0"];
     [request addHeader:@"OData-MaxVersion" :@"4.0"];
-    [[[self.resolver getCredentialsFactory]getCredentials]prepareRequest:request];
-
+    
+    [[self.resolver getCredentials] prepareRequest:request];
+    
     return [httpTransport execute:request :^(id<MSODataResponse> r, MSODataException *e) {
         callback(r,e);
     }];

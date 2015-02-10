@@ -9,7 +9,7 @@
 #import "MSODataHttpTransport.h"
 #import "MSODataLogger.h"
 #import "MSODataJsonSerializer.h"
-#import "MSODataCredentialsFactory.h"
+#import "MSODataCredentials.h"
 #import "MSODataURL.h"
 
 @protocol MSODataDependencyResolver
@@ -18,7 +18,8 @@
 -(id<MSODataHttpTransport>)getHttpTransport;
 -(id<MSODataLogger>) getLogger;
 -(id<MSODataJsonSerializer>) getJsonSerializer;
--(id<MSODataCredentialsFactory>) getCredentialsFactory;
+-(id<MSODataCredentials>)getCredentials;
 -(id<MSODataRequest>)createODataRequest;
 -(NSString*)getPlatformUserAgent : (NSString*) productName;
+
 @end

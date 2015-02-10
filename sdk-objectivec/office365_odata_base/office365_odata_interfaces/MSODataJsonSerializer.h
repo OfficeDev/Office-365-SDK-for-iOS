@@ -14,4 +14,5 @@
 -(id) deserialize : (NSData*) serializedObject : (Class) clazz;
 -(id) deserializeList : (NSData*) serializedList : (Class) clazz;
 -(NSString*) serialize : (id) objectToSerialize : (NSString*) name;
+
 @end

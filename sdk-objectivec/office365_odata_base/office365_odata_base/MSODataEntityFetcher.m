@@ -117,8 +117,10 @@
 }
 
 -(MSODataEntityFetcher*)addCustomParameters : (NSString*)name : (id)value{
+    
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
     [self.CustomParameters addEntriesFromDictionary:dicc];
+    
     return self;
 }
 

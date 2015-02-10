@@ -65,11 +65,13 @@
 }
 
 -(MSODataCollectionFetcher*)skip : (int) value{
+    
     self.skip = value;
     return self;
 }
 
 -(MSODataCollectionFetcher*)orderBy : (NSString*) params{
+    
     self.orderBy = params;
     return self;
 }
@@ -89,8 +91,10 @@
 }
 
 -(MSODataCollectionFetcher*)addCustomParameters : (NSString*)name : (id)value{
+    
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
     [self.CustomParameters addEntriesFromDictionary:dicc];
+    
     return self;
 }
 
@@ -99,6 +103,7 @@
 }
 
 -(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+    
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     [request setVerb:GET];
     
