@@ -30,16 +30,24 @@
     return self;
 }
 
--(void)getCredentials : (void (^) (id<MSODataCredentials> credentials))callback{
-
+-(id<MSODataCredentials>)getCredentials{
+    
+    __block MSODataOAuthCredentials* credentials;
+    
+    dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+    
     [self.Context acquireTokenSilentWithResource:self.ResourceId clientId:self.ClientId redirectUri:self.RedirectUri completionBlock:
      ^(id<ADAuthenticationResult>result) {
          
-         MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
+         credentials = [MSODataOAuthCredentials alloc];
          [credentials addToken:result.accessToken];
-
-         callback(credentials);
+         
+         dispatch_semaphore_signal(sem);
      }];
+    
+    dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+    
+    return credentials;
 }
 
 -(NSString*)getResourceId{

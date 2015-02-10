@@ -13,6 +13,7 @@
 @property NSMutableURLRequest* request;
 @property MSODataHttpVerb httpVerb;
 @property id<MSODataURL> odataUrl;
+
 @end
 
 @implementation MSODataRequestImpl

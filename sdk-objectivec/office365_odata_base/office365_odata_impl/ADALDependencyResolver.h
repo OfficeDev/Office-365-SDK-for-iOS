@@ -26,7 +26,6 @@
 @interface ADALDependencyResolver : MSODataDefaultDependencyResolver
 
 -(id)initWithContext : (id<ADAuthenticationContext>) context andResourceId : (NSString*)resourceId andClientId : (NSString*) clientId andRedirectUri : (NSURL*) redirectUri;
--(void)getCredentials : (void (^) (id<MSODataCredentials> credentials))callback;
 -(NSString*)getResourceId;
 
 @end

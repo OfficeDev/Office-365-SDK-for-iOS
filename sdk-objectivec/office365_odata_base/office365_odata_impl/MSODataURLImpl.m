@@ -13,6 +13,7 @@
 @property NSMutableDictionary* QueryStringParameters;	
 @property NSMutableArray* PathComponents;
 @property (nonatomic)  NSString* BaseUrl;
+
 -(NSString*)addTrailingSlash : (NSString*) s;
 -(NSString*)removeTrailingSlash : (NSString*) s;
 

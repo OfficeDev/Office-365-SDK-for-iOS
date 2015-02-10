@@ -11,7 +11,6 @@
 #import <office365_odata_base/NSString+NSStringExtensions.h>
 #import <office365_odata_base/MSODataURLImpl.h>
 #import <office365_odata_base/MSODataBasicCredentials.h>
-#import <office365_odata_base/MSODataCredentialsImpl.h>
 #import <office365_odata_base/MSODataHttpConnection.h>
 #import <office365_odata_base/MSODataJsonSerializerImpl.h>
 #import <office365_odata_base/MSODataLoggerImpl.h>

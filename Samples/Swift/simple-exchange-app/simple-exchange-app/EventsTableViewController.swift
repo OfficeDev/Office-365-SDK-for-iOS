@@ -1,15 +1,13 @@
-//
-//  EventsTableViewController.swift
-//  simple-exchange-app
-//
-//  Created by Gustavo on 12/19/14.
-//  Copyright (c) 2014 MSOpentech. All rights reserved.
-//
+/*******************************************************************************
+* Copyright (c) Microsoft Open Technologies, Inc.
+* All Rights Reserved
+* See License.txt in the project root for license information.
+******************************************************************************/
 
 import UIKit
 
 class EventsTableViewController: UITableViewController {
-
+    
     var Events = NSArray();
     var spinner = UIActivityIndicatorView(frame: CGRectMake(135,140,50,50));
     
@@ -24,13 +22,16 @@ class EventsTableViewController: UITableViewController {
         self.view.addSubview(spinner);
         spinner.hidesWhenStopped = true;
         
-        self.getEvents();
+        var controller = AuthenticationController();
+        controller.initialize("https://outlook.office365.com/", false) { (authenticated) -> Void in
+            self.getEvents();
+        };
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return self.Events.count;
     }
@@ -43,54 +44,40 @@ class EventsTableViewController: UITableViewController {
         
         var formatter = NSDateFormatter();
         formatter.dateFromString("MM/dd/yy");
-    
+        
         cell.textLabel?.text = event.Subject + " " + formatter.stringFromDate(event.Start);
         
         return cell
     }
-
+    
     func getEvents(){
         
         var authenticationController = AuthenticationController.getInstance();
-        authenticationController.initialize("https://outlook.office365.com/", false) { (Boolean) -> Void in
+        
+        self.spinner.startAnimating();
+        
+        var client = MSOutlookClient(url: "https://outlook.office365.com/api/v1.0", dependencyResolver: authenticationController.getDependencyResolver());
+        
+        var event = self.getSampleEvent();
+        
+        
+        var task = client.getMe().getEvents().addEvent(event, withCallback: { (addedEvent, error) -> Void in
             
-            self.spinner.startAnimating();
-            
-            var client = MSOutlookClient(url: "https://outlook.office365.com/api/v1.0", dependencyResolver: authenticationController.getDependencyResolver());
-            
-            var event = self.getSampleEvent();
-            
-            
-            var task = client.getMe().getEvents().addEvent(event, withCallback: { (addedEvent, error) -> Void in
+            client.getMe().getEvents().top(200).filter!("Start ge 2014-12-19").read!({ (events, e) -> Void in
                 
-                client.getMe().getEvents().top(200).filter!("Start ge 2014-12-19").read!({ (events, e) -> Void in
-                    
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        self.Events = events;
-                        self.tableView.reloadData();
-                        self.spinner.stopAnimating();
-                    });
-                }).resume();
-            });
-            
-            task.resume();
-        };
-    }
-    
-    func getDependencyResolver(token : NSString) -> MSODataDefaultDependencyResolver{
-        var resolver = MSODataDefaultDependencyResolver();
-        var credentials = MSODataOAuthCredentials();
-        var credentialsImpl = MSODataCredentialsImpl();
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.Events = events;
+                    self.tableView.reloadData();
+                    self.spinner.stopAnimating();
+                });
+            }).resume();
+        });
         
-        credentials.addToken(token);
-        credentialsImpl.setCredentials(credentials);
-        resolver.setCredentialsFactory(credentialsImpl);
-        
-        return resolver;
+        task.resume();
     }
     
     func getSampleEvent() -> MSOutlookEvent{
-    
+        
         var event = MSOutlookEvent();
         
         event.Subject = "Today's appointment";
@@ -106,7 +93,7 @@ class EventsTableViewController: UITableViewController {
         
         var attendee = MSOutlookAttendee();
         var email = MSOutlookEmailAddress();
-    
+        
         email.Address = "gustavoh@lagash.com";
         attendee.EmailAddress = email;
         

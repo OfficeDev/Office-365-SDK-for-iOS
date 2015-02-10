@@ -17,16 +17,11 @@
     NSMutableURLRequest* r =  [(MSODataRequestImpl*)request getMutableRequest] ;
     MSODataRequestImpl* reqImpl = (MSODataRequestImpl*) request;
     
-    
     [r setURL:[[NSURL alloc] initWithString:[[reqImpl getUrl] toString]]];
-    //[request setVerb:[reqImpl getVerb]];
+    
     r.HTTPMethod = [reqImpl verbToString:[reqImpl getVerb]];
     r.HTTPBody = [reqImpl getContent];
-    
-    //[request addHeader:@"Content-Type" :@"application/json"];
-    //[request addHeader:@"User-Agent" :[self.Resolver getPlatformUserAgent:[self class]];
-    //[request addHeader:@"X-ClientService-ClientTag" :[self.Resolver getPlatformUserAgent:productName]];
-    
+
     NSLog(@"VERB: %@, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [reqImpl verbToString:[reqImpl getVerb]], [[request getUrl] toString], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
     
     NSURLSession *session = [NSURLSession sharedSession];

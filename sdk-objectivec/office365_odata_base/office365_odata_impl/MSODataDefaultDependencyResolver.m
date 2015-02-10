@@ -8,22 +8,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <office365_odata_base/office365_odata_base.h>
-
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <mach/machine.h>
 
-
 @interface MSODataDefaultDependencyResolver()
 
-@property (nonatomic)  id<MSODataCredentialsFactory> mCredentialsFactory;
+@property (nonatomic)  id<MSODataCredentials> mCredentials;
 
 @end
 
 @implementation MSODataDefaultDependencyResolver
 
--(void) setCredentialsFactory : (id<MSODataCredentialsFactory>) credentialsFactory{
-    self.mCredentialsFactory = credentialsFactory;
+-(void) setCredentials : (id<MSODataCredentials>) credentials{
+    self.mCredentials = credentials;
 }
 
 -(id<MSODataHttpTransport>)getHttpTransport{
@@ -41,8 +39,8 @@
     return parser;
 }
 
--(id<MSODataCredentialsFactory>) getCredentialsFactory{
-    return self.mCredentialsFactory;
+-(id<MSODataCredentials>)getCredentials{
+    return self.mCredentials;
 }
 
 -(id<MSODataRequest>)createODataRequest{

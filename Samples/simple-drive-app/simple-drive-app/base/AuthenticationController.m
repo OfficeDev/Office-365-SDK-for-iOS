@@ -47,14 +47,7 @@ static AuthenticationController* INSTANCE;
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    
-    
-    if(DependencyResolver != nil){
-        return [DependencyResolver getCredentials:^(id<MSODataCredentials> credentials) {
-            completionBlock(credentials);
-        }];
-    }
-    
+        
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
                               redirectUri:redirectUri

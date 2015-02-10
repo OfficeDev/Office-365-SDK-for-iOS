@@ -56,15 +56,4 @@
         }
     }];
 }
-
--(MSODataDefaultDependencyResolver*) getDependencyResolver: (NSString*) token{
-    MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
-    MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
-    [credentials addToken:token];
-    MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
-    
-    [credentialsImpl setCredentials:credentials];
-    [resolver setCredentialsFactory:credentialsImpl];
-    return resolver;
-}
 @end
