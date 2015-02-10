@@ -33,11 +33,6 @@
     MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
     [credentials addToken:@"fakeToken"];
     
-    MSODataCredentialsImpl* credentialsImpl = [MSODataCredentialsImpl alloc];
-    
-    [credentialsImpl setCredentials:credentials];
-    [resolver setCredentialsFactory:credentialsImpl];
-    
     self.client = [[MSSampleContainerClient alloc] initWithUrl:@"http://localhost:8080/" dependencyResolver:resolver];
 }
 
