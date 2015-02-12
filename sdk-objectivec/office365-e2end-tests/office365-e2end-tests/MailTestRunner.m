@@ -216,9 +216,10 @@
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback :^(MSOutlookMessage *addedMessage, MSODataException *error) {
+        
         [[[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage2, MSODataException *e) {
             
-            [[[[[self.Client getMe]getMessages]top:1]read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+            [[[[[[self.Client getMe]getFoldersById:@"Inbox"] getMessages]top:1]read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
                 
                 BOOL passed = false;
                 
@@ -2052,7 +2053,7 @@
 -(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSOutlookEvent *newEvent = [self getSampleEvent];
     NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
-        
+
         [[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"startdatetime" :addedEvent.Start ] addCustomParameters:@"enddatetime" :addedEvent.End ] read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
             
             BOOL passed = false;

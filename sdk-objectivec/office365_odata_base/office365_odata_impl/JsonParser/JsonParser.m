@@ -15,7 +15,7 @@
 @property (nonatomic, strong) NSArray *jsonArray;
 @property (nonatomic, strong) NSDictionary *metadataValues;
 @property (nonatomic, strong) NSMutableArray *properties;
-
+@property (nonatomic, strong) NSMutableString *jsonResult;
 @end
 
 @implementation JsonParser
@@ -28,11 +28,11 @@
 -(NSString*)toJsonString : (id)object{
     
     @try {
-        NSMutableString *jsonResult = [[NSMutableString alloc] initWithString:@"{"];
+        self.jsonResult = [[NSMutableString alloc] initWithString:@"{"];
         
-        jsonResult = [self getString :object :jsonResult];
+        self.jsonResult = [self getString :object];
         
-        NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
+        NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
         NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
         
         if([result length] == 0){return nil;}
@@ -86,7 +86,7 @@
     return [self toJsonString:object];
 }
 
--(NSMutableString *)getString : (id)object : (NSMutableString *)jsonResult{
+-(NSMutableString *)getString : (id)object{
     
     NSArray*properties = [self getPropertiesFor:[object class]];
     
@@ -95,8 +95,11 @@
             if([property isString] || [property isNumber]){
                 NSString * name = [self getMetadataKey:property.Name];
                 NSString * value = [object valueForKey:property.Name];
-                if(value != nil){
-                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", name, value];
+                
+                BOOL isNil= [value isKindOfClass:NSNull.class];
+                
+                if(!isNil && value != nil){
+                    [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", name, value];
                 }
             }
             else if([property isDate]){
@@ -112,7 +115,7 @@
                         
                         NSString *date = [[[dateFormatter stringFromDate:value] substringToIndex:19] stringByAppendingString:@"Z"];
                         
-                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, date];
+                        [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, date];
                         
                     }
                     @catch (NSException *exception) {
@@ -129,45 +132,46 @@
                 
                 if([array count]>0){
                     
-                    [jsonResult appendFormat:@"\"%@\" : [", property.Name];
+                    [self.jsonResult appendFormat:@"\"%@\" : [", property.Name];
                     
                     for (NSDictionary* dicc in array) {
-                        [jsonResult appendString:@"{"];
-                        jsonResult = [self getString:dicc :jsonResult];
+                        [self.jsonResult appendString:@"{"];
+                        self.jsonResult = [self getString:dicc];
                         
-                        NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
-                        NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+                        NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+                        __strong NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
                         
-                        jsonResult = result;
+                        self.jsonResult = result;
                         
-                        [jsonResult appendString:@"},"];
+                        [self.jsonResult appendString:@"},"];
                     }
                     
-                    NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
+                    NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
                     NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
-                    jsonResult = result;
+                    self.jsonResult = result;
                     
-                    [jsonResult appendString:@"],"];
+                    [self.jsonResult appendString:@"],"];
                 }
             }
             else if([property isNSData]){
                 NSData* value = [object valueForKey:property.Name];
                 if(value != nil){
-                    [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, [value base64EncodedStringWithOptions:0]];
+                    [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, [value base64EncodedStringWithOptions:0]];
                 }
             }
             else{
                 id complexType = [object valueForKey:property.Name];
                 if(complexType != nil){
-                    [jsonResult appendFormat:@"\"%@\" : {", property.Name];
-                    [self getString:complexType :jsonResult];
                     
-                    NSString *subString = [jsonResult substringWithRange:NSMakeRange(0, [jsonResult length] -1)];
-                    NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
-                    jsonResult = result;
+                    [self.jsonResult appendFormat:@"\"%@\" : {", property.Name];
+                    [self getString:complexType];
+                    
+                    NSString *subString = [self.jsonResult substringWithRange:NSMakeRange(0, [self.jsonResult length] -1)];
+                    __strong NSMutableString * result =  [[NSMutableString alloc] initWithString:subString];
+                    self.jsonResult = result;
                     
                     [result appendString:@"},"];
-                    jsonResult = result;
+                    self.jsonResult = result;
                 }
             }
             
@@ -180,19 +184,19 @@
                     
                     result = value ? @"true" : @"false";
                     if(result != nil){
-                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                        [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
                     }
                 }
                 else if(property.isEnum) {
                     result = [object valueForKey:property.Name];
                     if(result != nil){
-                        [jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
+                        [self.jsonResult appendFormat:@"\"%@\" : \"%@\",", property.Name, result];
                     }
                 }
                 else {
                     result = [object valueForKey:property.Name];
                     if(result != nil){
-                        [jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
+                        [self.jsonResult appendFormat:@"\"%@\" : %@,", property.Name, result];
                     }
                 }
                 
@@ -206,7 +210,7 @@
             
         }
     }
-    return jsonResult;
+    return self.jsonResult;
 }
 
 -(id)parseWithData : (NSData*)data forType : (Class) type selector:(NSArray* )keys{
@@ -297,7 +301,9 @@
             NSString* name = [self getMetadataKey:property.Name];
             @try {
                 NSString* value = [data valueForKey:name];
-                [returnType setValue:value forKeyPath:name];
+                
+                if(![value isKindOfClass:NSNull.class] || value != nil)
+                    [returnType setValue:value forKeyPath:name];
             }
             @catch (NSException *exception) {
                 
@@ -391,7 +397,7 @@
         NSMutableArray* returnData = [NSMutableArray array];
         NSString* value;
         
-        if([[newData objectAtIndex:0] isKindOfClass:NSDictionary.class]){
+        if([newData count] != 0 && [[newData objectAtIndex:0] isKindOfClass:NSDictionary.class]){
             for (NSDictionary* dicc in newData) {
                 value= [dicc valueForKey:property.Name];
                 
