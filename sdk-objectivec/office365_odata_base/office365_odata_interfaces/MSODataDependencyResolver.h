@@ -15,6 +15,7 @@
 @protocol MSODataDependencyResolver
 
 @required
+-(void) setCredentials : (id<MSODataCredentials>) credentials;
 -(id<MSODataHttpTransport>)getHttpTransport;
 -(id<MSODataLogger>) getLogger;
 -(id<MSODataJsonSerializer>) getJsonSerializer;
