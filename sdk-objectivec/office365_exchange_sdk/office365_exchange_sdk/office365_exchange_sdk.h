@@ -12,11 +12,6 @@ FOUNDATION_EXPORT double office365_exchange_sdkVersionNumber;
 //! Project version string for office365_exchange_sdk.
 FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 
-// Should we import the base dependency?
-// #import <office365_odata_base/office365_odata_base.h>
-
-//Operation
-
 #import <office365_exchange_sdk/MSOutlookAttachmentCollectionFetcher.h>
 #import <office365_exchange_sdk/MSOutlookAttachmentCollectionOperations.h>
 #import <office365_exchange_sdk/MSOutlookAttachmentFetcher.h>

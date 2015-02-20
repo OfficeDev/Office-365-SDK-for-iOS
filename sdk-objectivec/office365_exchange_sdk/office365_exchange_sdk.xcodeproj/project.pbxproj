@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2601EB3719FE9BAB006D7CEA /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */; };
 		2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2647ECB219F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 2647ECB119F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D0B21A26014B004B0B5C /* MSOutlookAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D0781A26014B004B0B5C /* MSOutlookAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -176,18 +175,7 @@
 		EC78D1BF1A260154004B0B5C /* MSOutlookUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1551A260154004B0B5C /* MSOutlookUserOperations.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2601EB3519FE9B95006D7CEA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_exchange_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EB0C19F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
@@ -363,25 +351,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2601EB3719FE9BAB006D7CEA /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2601EB3219FE9B95006D7CEA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2647EAFE19F44D9D00FD9527 = {
 			isa = PBXGroup;
 			children = (
-				2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */,
 				2647EB2619F44DDD00FD9527 /* Generated */,
 				2647EB0A19F44D9D00FD9527 /* office365_exchange_sdk */,
 				2647ECB319F4549B00FD9527 /* Frameworks */,
@@ -741,7 +719,7 @@
 				TargetAttributes = {
 					2647EB0719F44D9D00FD9527 = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 9L5V82WV95;
+						DevelopmentTeam = CZ6326VW7H;
 					};
 				};
 			};
@@ -755,28 +733,12 @@
 			mainGroup = 2647EAFE19F44D9D00FD9527;
 			productRefGroup = 2647EB0919F44D9D00FD9527 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2601EB3219FE9B95006D7CEA /* Products */;
-					ProjectRef = 2601EB3119FE9B95006D7CEA /* office365_odata_base.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2601EB3619FE9B95006D7CEA /* office365_odata_base.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = office365_odata_base.framework;
-			remoteRef = 2601EB3519FE9B95006D7CEA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2647EB0619F44D9D00FD9527 /* Resources */ = {
@@ -910,7 +872,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -949,7 +911,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -967,15 +929,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_exchange_sdk/office365_exchange_sdk-Prefix.pch";
 				INFOPLIST_FILE = office365_exchange_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
@@ -992,15 +951,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/joshgav/git/o365sdk-ios/sdk-objectivec/office365_odata_base/Build/Products/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_exchange_sdk/office365_exchange_sdk-Prefix.pch";
 				INFOPLIST_FILE = office365_exchange_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
