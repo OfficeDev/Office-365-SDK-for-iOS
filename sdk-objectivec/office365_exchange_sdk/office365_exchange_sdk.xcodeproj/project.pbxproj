@@ -175,11 +175,29 @@
 		EC78D1BF1A260154004B0B5C /* MSOutlookUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1551A260154004B0B5C /* MSOutlookUserOperations.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		266AEA7C1A9800E800943FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266AEA781A9800E800943FE7 /* office365_odata_base.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+		266AEA7E1A98013200943FE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266AEA781A9800E800943FE7 /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_exchange_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EB0C19F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
 		2647ECB119F44F3000FD9527 /* office365_exchange_sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365_exchange_sdk-Prefix.pch"; sourceTree = "<group>"; };
+		266AEA781A9800E800943FE7 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC78D0781A26014B004B0B5C /* MSOutlookAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookAttachment.h; sourceTree = "<group>"; };
 		EC78D0791A26014B004B0B5C /* MSOutlookAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookAttachment.m; sourceTree = "<group>"; };
 		EC78D07A1A26014B004B0B5C /* MSOutlookAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookAttendee.h; sourceTree = "<group>"; };
@@ -360,6 +378,7 @@
 		2647EAFE19F44D9D00FD9527 = {
 			isa = PBXGroup;
 			children = (
+				266AEA781A9800E800943FE7 /* office365_odata_base.xcodeproj */,
 				2647EB2619F44DDD00FD9527 /* Generated */,
 				2647EB0A19F44D9D00FD9527 /* office365_exchange_sdk */,
 				2647ECB319F4549B00FD9527 /* Frameworks */,
@@ -587,6 +606,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		266AEA791A9800E800943FE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				266AEA7D1A9800E800943FE7 /* office365_odata_base.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -702,6 +729,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				266AEA7F1A98013200943FE7 /* PBXTargetDependency */,
 			);
 			name = office365_exchange_sdk;
 			productName = office365_exchange_sdk;
@@ -733,12 +761,28 @@
 			mainGroup = 2647EAFE19F44D9D00FD9527;
 			productRefGroup = 2647EB0919F44D9D00FD9527 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 266AEA791A9800E800943FE7 /* Products */;
+					ProjectRef = 266AEA781A9800E800943FE7 /* office365_odata_base.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		266AEA7D1A9800E800943FE7 /* office365_odata_base.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_odata_base.framework;
+			remoteRef = 266AEA7C1A9800E800943FE7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2647EB0619F44D9D00FD9527 /* Resources */ = {
@@ -835,6 +879,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		266AEA7F1A98013200943FE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = 266AEA7E1A98013200943FE7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2647EB1C19F44D9D00FD9527 /* Debug */ = {
