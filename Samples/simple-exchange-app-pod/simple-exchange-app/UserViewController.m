@@ -33,20 +33,20 @@
 */
 
 -(void)getMessagesFromInbox{
-    
-   // MSOEntityContainerClient* client = [[BaseController alloc] getClient];
  
     [BaseController getClient:^(MSOutlookClient * client) {
         NSURLSessionTask* task = [[client getMe] read:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                                   [[[client getResolver] getLogger]log:@"Got results" :(MSODataLogLevel *)INFO];
+                                   [[[client getResolver] getLogger] logMessage:@"Got results" withLevel:INFO];
                                    
                                    self.lblDisplayName.text = user.DisplayName;
-                                   self.lblAlias.text = user.Alias;
-                                   self.lblMailBoxId.text = user.MailboxGuid;
+                                   self.lblAlias.text =       user.Alias;
+                                   self.lblMailBoxId.text =   user.MailboxGuid;
                                });
+            } else {
+                [[[client getResolver] getLogger] logMessage:error.description withLevel:ERROR];
             }
         }];
         

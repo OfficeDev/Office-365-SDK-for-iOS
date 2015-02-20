@@ -8,27 +8,14 @@
 
 @implementation AuthenticationController
 
-ADAuthenticationContext *authContext;
-ADALDependencyResolver* DependencyResolver;
+ADAuthenticationContext* authContext;
+ADALDependencyResolver* adalDependencyResolver;
 
 NSString *redirectUriString;
 NSString *authority;
 NSString *clientId;
-NSString *token;
 
 static AuthenticationController* INSTANCE;
-
--(id)init{
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    
-    redirectUriString = [userDefaults objectForKey: @"RedirectUrl"];
-    authority = [userDefaults objectForKey: @"AuthorityUrl"];
-    clientId =[userDefaults objectForKey: @"CliendId"];
-    token = [NSString alloc];
-    
-    return self;
-}
 
 +(id) getInstance{
     
@@ -41,7 +28,13 @@ static AuthenticationController* INSTANCE;
     return INSTANCE;
 }
 
--(void) initialize :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (bool authenticated))completionBlock{
+-(void) initializeWithResourceId:(NSString *)resourceId completionHandler:(void (^) (bool authenticated))completionBlock {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    redirectUriString = [userDefaults stringForKey: @"RedirectUrl"];
+    authority =         [userDefaults stringForKey: @"AuthorityUrl"];
+    clientId =          [userDefaults stringForKey: @"ClientId"];
     
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     ADAuthenticationError *error;
@@ -53,26 +46,26 @@ static AuthenticationController* INSTANCE;
                           completionBlock:^(ADAuthenticationResult  *result) {
                               
                               if (AD_SUCCEEDED != result.status){
-                                  [[[self getDependencyResolver] getLogger] log:result.error.errorDetails :ERROR];
+                                  [[[self getDependencyResolver] getLogger] logMessage:result.error.errorDetails withLevel:ERROR];
                                   completionBlock(false);
-                              }
-                              else{
-                                  
+                              } else {
                                   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-                                  [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LogInUser"];
+                                  [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LoggedInUser"];
                                   [userDefaults synchronize];
                                   
-                                  DependencyResolver = [[ADALDependencyResolver alloc]
-                                                        initWithContext:authContext andResourceId:resourceId
-                                                        andClientId:clientId andRedirectUri:redirectUri];
+                                  adalDependencyResolver = [[ADALDependencyResolver alloc]
+                                                            initWithContext:authContext
+                                                              andResourceId:resourceId
+                                                                andClientId:clientId
+                                                             andRedirectUri:redirectUri];
                                   completionBlock(true);
                               }
                           }];
     
 }
 
--(ADALDependencyResolver*) getDependencyResolver{
-    return DependencyResolver;
+-(ADALDependencyResolver *) getDependencyResolver{
+    return adalDependencyResolver;
 }
 
 -(void)clearCredentials{

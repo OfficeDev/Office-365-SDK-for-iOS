@@ -9,6 +9,7 @@
 
 @interface UserSettingsViewController ()
 
+
 @end
 
 @implementation UserSettingsViewController
@@ -28,10 +29,13 @@
     [super viewDidAppear:animated];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.txtAuthorityUrl.text = [userDefaults objectForKey: @"AuthorityUrl"];
-    self.txtRedirectUrl.text = [userDefaults objectForKey: @"RedirectUrl"];
-    self.txtClientId.text =[userDefaults objectForKey: @"CliendId"];
-    self.txtLoggedInUser.text = [userDefaults objectForKey:@"LogInUser"];
+    if ([userDefaults stringForKey:@"AuthorityUrl"] == nil) {
+        [userDefaults setObject:@"https://login.windows.net/common" forKey:@"AuthorityUrl"];
+    }
+    self.txtAuthorityUrl.text = [userDefaults stringForKey: @"AuthorityUrl"];
+    self.txtRedirectUrl.text = [userDefaults stringForKey: @"RedirectUrl"];
+    self.txtClientId.text =[userDefaults stringForKey: @"ClientId"];
+    self.txtLoggedInUser.text = [userDefaults stringForKey:@"LoggedInUser"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,24 +43,29 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)Save:(id)sender {
+- (IBAction) Save:(id)sender {
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:self.txtAuthorityUrl.text forKey:@"AuthorityUrl"];
     [userDefaults setObject:self.txtRedirectUrl.text forKey:@"RedirectUrl"];
-    [userDefaults setObject:self.txtClientId.text forKey:@"CliendId"];
+    [userDefaults setObject:self.txtClientId.text forKey:@"ClientId"];
     [userDefaults synchronize];
 }
 
 - (IBAction)ClearCredentials:(id)sender {
     
     [[AuthenticationController getInstance] clearCredentials];
-    
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults removeObjectForKey:@"LogInUser"];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"AuthorityUrl"];
+    [userDefaults removeObjectForKey:@"RedirectUrl"];
+    [userDefaults removeObjectForKey:@"ClientId"];
+    [userDefaults removeObjectForKey:@"LoggedInUser"];
     [userDefaults synchronize];
     
-    self.txtLoggedInUser.text = [userDefaults objectForKey:@"LogInUser"];
+    self.txtLoggedInUser.text = @"";
+    self.txtAuthorityUrl.text = @"";
+    self.txtRedirectUrl.text = @"";
+    self.txtClientId.text = @"";
 }
 
 @end

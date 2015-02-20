@@ -14,10 +14,9 @@
 
 @interface AuthenticationController : NSObject
 
--(id)init;
--(void)clearCredentials;
-+(id) getInstance;
--(void) initialize :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (bool authenticated))completionBlock;
+-(void) clearCredentials;
++(id)   getInstance;
+-(void) initializeWithResourceId:(NSString *)resourceId completionHandler:(void (^) (bool authenticated))completionBlock;
 -(ADALDependencyResolver*) getDependencyResolver;
 
 @end
