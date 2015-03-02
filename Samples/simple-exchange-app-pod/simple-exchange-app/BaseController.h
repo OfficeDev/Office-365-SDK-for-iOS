@@ -1,18 +1,16 @@
 /*******************************************************************************
  * Copyright (c) Microsoft Open Technologies, Inc.
  * All Rights Reserved
- * Licensed under the Apache License, Version 2.0.
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSODataLogLevel.h"
+#import <office365_odata_base/office365_odata_base.h>
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
-@protocol MSODataLogger
 
-@required
--(void) log:(NSString*)content : (MSODataLogLevel) logLevel __deprecated_msg("use logMessage:withLevel: instead");
+@interface BaseController : NSObject
 
--(void) logMessage:(NSString *)message withLevel:(MSODataLogLevel) logLevel;
++(void)getClient : (void (^) (MSOutlookClient* ))callback;
 
 @end

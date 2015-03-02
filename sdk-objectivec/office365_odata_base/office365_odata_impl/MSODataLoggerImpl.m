@@ -9,7 +9,7 @@
 
 @implementation MSODataLoggerImpl
 
--(void)log:(NSString *)content :(MSODataLogLevel)logLevel{
+-(void) logMessage:(NSString *)message withLevel:(MSODataLogLevel)logLevel {
     
     NSString* levelString = [NSString alloc];
     
@@ -19,15 +19,23 @@
             break;
         case INFO:
             levelString = @"INFO";
+            break;
         case VERBOSE:
             levelString = @"VERBOSE";
+            break;
         case WARNING:
             levelString = @"WARNING";
+            break;
         default:
             levelString = @"LOG";
     }
     
-    NSLog(@"%@ : %@",levelString, content);
+    NSLog(@"%@ : %@",levelString, message);
+}
+
+
+-(void)log:(NSString *)content :(MSODataLogLevel)logLevel{
+    [self logMessage:content withLevel:logLevel];
 }
 
 @end
