@@ -161,7 +161,7 @@
             }
             else{
                 id complexType = [object valueForKey:property.Name];
-                if(complexType != nil){
+                if(complexType != nil && [self propertiesAreNotNull:complexType]){
                     
                     [self.jsonResult appendFormat:@"\"%@\" : {", property.Name];
                     [self getString:complexType];
@@ -302,7 +302,7 @@
             @try {
                 NSString* value = [data valueForKey:name];
                 
-                if(![value isKindOfClass:NSNull.class] || value != nil)
+                if(![value isKindOfClass:NSNull.class] && value != nil)
                     [returnType setValue:value forKeyPath:name];
             }
             @catch (NSException *exception) {
@@ -401,7 +401,7 @@
             for (NSDictionary* dicc in newData) {
                 value= [dicc valueForKey:property.Name];
                 
-                if(![value isKindOfClass:NSNull.class]){
+                if(![value isKindOfClass:NSNull.class] && value != nil){
                     [returnData addObject:value];
                 }
             }
@@ -411,7 +411,7 @@
             for (NSString* v in newData) {
                 value= v;
                 
-                if(![value isKindOfClass:NSNull.class]){
+                if(![value isKindOfClass:NSNull.class] && value != nil){
                     [returnData addObject:value];
                 }
             }
@@ -434,10 +434,33 @@
                 [self setValueFor:property Data:dicc Return:entity];
             }
             
-            [returnData addObject:entity];
-            [returnType setValue:returnData forKeyPath:property.Name];
+            if([self propertiesAreNotNull:entity]){
+                
+                [returnData addObject:entity];
+                [returnType setValue:returnData forKeyPath:property.Name];
+            }
         }
     }
+}
+
+-(BOOL)propertiesAreNotNull : (id)complexType{
+    
+    BOOL result = false;
+    NSArray*properties = [self getPropertiesFor:[complexType class]];
+    
+    for (Property* property in properties) {
+        
+        NSString * name = [self getMetadataKey:property.Name];
+        NSString * value = [complexType valueForKey:property.Name];
+        
+        BOOL isNil= [value isKindOfClass:NSNull.class];
+        
+        if(!isNil && value != nil && ![name containsString:@"@odata"]){
+            return true;
+        }
+    }
+    
+    return result;
 }
 
 -(void)setValueForComplexType :(Property*)property : (NSDictionary*)data :(id)returnType{
