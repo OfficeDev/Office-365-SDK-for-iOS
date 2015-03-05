@@ -9,6 +9,7 @@
 #import "MSODataRequestImpl.h"
 #import "MSODataResponseImpl.h"
 #import "MSODataException.h"
+#import "MSODataStreamDelegate.h"
 
 @implementation MSODataHttpConnection
 
@@ -26,8 +27,11 @@
     
     if(stream == nil)
         r.HTTPBody = [reqImpl getContent];
-    else
+    else{
         r.HTTPBodyStream = stream;
+        id<NSStreamDelegate> delegate = [[MSODataStreamDelegate alloc] initWithStream:r.HTTPBodyStream];
+        [r.HTTPBodyStream setDelegate:delegate];
+    }
 
     NSLog(@"VERB: %@, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [reqImpl verbToString:[reqImpl getVerb]], [[request getUrl] toString], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
     

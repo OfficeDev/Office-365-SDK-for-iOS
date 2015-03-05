@@ -14,7 +14,7 @@
 @property MSODataHttpVerb httpVerb;
 @property id<MSODataURL> odataUrl;
 @property NSInputStream* stream;
-@property int size;
+@property NSInteger size;
 
 @end
 
@@ -123,7 +123,7 @@
     return verbToString;
 }
 
--(void)setStreamedContent:(NSInputStream *)stream :(int)size{
+-(void)setStreamedContent:(NSInputStream *)stream :(NSInteger)size{
     
     self.stream = stream;
     self.size = size;

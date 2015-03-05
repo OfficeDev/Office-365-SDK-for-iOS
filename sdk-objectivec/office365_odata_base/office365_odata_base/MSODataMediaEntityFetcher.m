@@ -73,7 +73,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)putContent:(NSInputStream *)content withSize: (int) size withCallback:(void (^)(NSInteger, MSODataException *))callback{
+-(NSURLSessionDataTask *)putContent:(NSInputStream *)content withSize: (NSInteger) size withCallback:(void (^)(NSInteger, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     

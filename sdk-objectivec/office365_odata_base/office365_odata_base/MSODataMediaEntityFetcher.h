@@ -13,6 +13,6 @@
 -(NSURLSessionDataTask*) getContentWithCallback:(void (^)(NSData* content, MSODataException * error))callback;
 -(NSURLSessionDataTask *)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSODataException * error))callback;
 -(NSURLSessionDataTask*) putContent:(NSData*)content withCallback:(void (^)(NSInteger result, MSODataException * error))callback;
--(NSURLSessionDataTask *)putContent:(NSInputStream *)content withSize: (int) size withCallback:(void (^)(NSInteger, MSODataException *))callback;
+-(NSURLSessionDataTask *)putContent:(NSInputStream *)content withSize: (NSInteger) size withCallback:(void (^)(NSInteger, MSODataException *))callback;
 
 @end
