@@ -28,12 +28,12 @@
 -(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
-    NSString* hostName = @"https://teeudev1-my.sharepoint.com";
+    NSString* hostName = @"https://msopentechtest01-my.sharepoint.com";
     
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");

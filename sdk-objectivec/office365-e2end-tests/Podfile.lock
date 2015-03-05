@@ -1,25 +1,25 @@
 PODS:
   - ADALiOS (1.0.2)
-  - Office365 (0.6.0):
-    - Office365/Directory
-    - Office365/Discovery
-    - Office365/Files
-    - Office365/Lists
+  - Office365 (0.8.2):
+    - Office365/Directory (= 0.8.2)
+    - Office365/Discovery (= 0.8.2)
+    - Office365/Files (= 0.8.2)
+    - Office365/Lists (= 0.8.2)
+    - Office365/OData (= 0.8.2)
+    - Office365/Outlook (= 0.8.2)
+  - Office365/Directory (0.8.2):
     - Office365/OData
-    - Office365/Outlook
-  - Office365/Directory (0.6.0):
+  - Office365/Discovery (0.8.2):
     - Office365/OData
-  - Office365/Discovery (0.6.0):
+  - Office365/Files (0.8.2):
     - Office365/OData
-  - Office365/Files (0.6.0):
-    - Office365/OData
-  - Office365/Lists (0.6.0)
-  - Office365/OData (0.6.0)
-  - Office365/Outlook (0.6.0):
+  - Office365/Lists (0.8.2)
+  - Office365/OData (0.8.2)
+  - Office365/Outlook (0.8.2):
     - Office365/OData
 
 DEPENDENCIES:
-  - ADALiOS (~> 1.0.0)
+  - ADALIOS (~> 1.0.0)
   - Office365 (from `https://github.com/OfficeDev/Office-365-SDK-for-iOS`, branch `dev`)
 
 EXTERNAL SOURCES:
@@ -27,8 +27,13 @@ EXTERNAL SOURCES:
     :branch: dev
     :git: https://github.com/OfficeDev/Office-365-SDK-for-iOS
 
+CHECKOUT OPTIONS:
+  Office365:
+    :commit: 70d4fcfdcc8b8d2d19d8c606a27da89c0b4ab734
+    :git: https://github.com/OfficeDev/Office-365-SDK-for-iOS
+
 SPEC CHECKSUMS:
   ADALiOS: f87e574524ba92a9897d5aeb1805f55a0be2cc51
-  Office365: a34d9e49b76eb72997abbbdd7bd52fd98874e27f
+  Office365: 2bd5777be2188e885f5eaa052705e2a261f66d0d
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0
