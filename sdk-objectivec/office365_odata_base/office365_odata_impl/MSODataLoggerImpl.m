@@ -11,7 +11,7 @@
 
 -(void) logMessage:(NSString *)message withLevel:(MSODataLogLevel)logLevel {
     
-    NSString* levelString = [NSString alloc];
+    NSString* levelString;
     
     switch (logLevel) {
         case ERROR:

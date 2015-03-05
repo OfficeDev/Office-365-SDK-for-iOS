@@ -31,30 +31,37 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass:(Class)clazz{
     
+    self = [super init];
     self.urlComponent = urlComponent;
     self.parent = parent;
     self.entityClass = clazz;
+    
     [self reset];
+    
     self.CustomParameters = [[NSMutableDictionary alloc] init];
     self.CustomHeaders = [[NSMutableDictionary alloc] init];
-    // self.operations = [[operationClass alloc] initWith:@"" : self];
-    
+
     return self;
 }
 
 -(MSODataCollectionFetcher*)select : (NSString*) params{
+    
     self.select = params;
+    
     return self;
 }
 
 -(MSODataCollectionFetcher*)filter : (NSString*) params{
+    
     self.filter = params;
+    
     return self;
 }
 
 -(MSODataCollectionFetcher*)top : (int) value{
     
     self.top = value;
+    
     return self;
 }
 
@@ -67,16 +74,19 @@
 -(MSODataCollectionFetcher*)skip : (int) value{
     
     self.skip = value;
+    
     return self;
 }
 
 -(MSODataCollectionFetcher*)orderBy : (NSString*) params{
     
     self.orderBy = params;
+    
     return self;
 }
 
 -(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
+    
     [[request getUrl] appendPathComponent:self.UrlComponent];
     
     [MSODataEntityFetcherHelper setPathForCollections:[request getUrl] :self.UrlComponent :self.top :self.skip :self.select :self.expand :self.filter : self.orderBy];
@@ -87,12 +97,14 @@
 }
 
 -(NSDictionary*)getCustomParameters{
+    
     return self.CustomParameters;
 }
 
 -(MSODataCollectionFetcher*)addCustomParameters : (NSString*)name : (id)value{
     
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
+    
     [self.CustomParameters addEntriesFromDictionary:dicc];
     
     return self;
@@ -105,6 +117,7 @@
 -(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
     [request setVerb:GET];
     
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
@@ -115,7 +128,9 @@
 -(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
     
     return [self readRaw:^(NSString *r, MSODataException *e) {
+        
         id result = [[[self getResolver] getJsonSerializer] deserializeList:[r dataUsingEncoding:NSUTF8StringEncoding] :self.entityClass];
+        
         callback(result, e);
     }];
 }
@@ -139,9 +154,10 @@
     __block MSODataCollectionFetcher* _self = self;
     
     return [self addRaw:payload :^(NSString * r, MSODataException *e) {
-        id result = [[[_self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
-        callback(result, e);
         
+        id result = [[[_self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :_self.entityClass];
+        
+        callback(result, e);
     }];
 }
 
@@ -155,6 +171,7 @@
 }
 
 -(void)reset{
+    
     self.top = -1;
     self.skip = -1;
     self.selectedId = nil;

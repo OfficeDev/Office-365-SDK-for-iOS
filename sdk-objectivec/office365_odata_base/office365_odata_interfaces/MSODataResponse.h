@@ -14,6 +14,7 @@
 -(NSData *)getPayload;
 -(int)getStatus;
 -(NSURLResponse*)getResponse;
+-(NSInputStream *)getStream;
 
 @optional
 -(void) close;

@@ -22,6 +22,7 @@
 @implementation MSODataURLImpl
 
 -(id)init{
+    self = [super init];
     self.QueryStringParameters = [[NSMutableDictionary alloc] init];
     self.PathComponents = [[NSMutableArray alloc] init];
    

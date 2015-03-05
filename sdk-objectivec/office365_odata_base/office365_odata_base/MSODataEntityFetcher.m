@@ -24,6 +24,8 @@
 @synthesize UrlComponent;
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent andEntityClass:(Class)entityClass{
+    
+    self = [super init];
     self.UrlComponent = urlComponent;
     self.Parent = parent;
     self.operations = [[MSODataOperations alloc] initOperationWithUrl:@"" parent:parent];
@@ -32,10 +34,12 @@
     self.CustomHeaders = [[NSMutableDictionary alloc] init];
     self.expand = nil;
     self.select = nil;
+    
     return self;
 }
 
 -(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
+    
     id<MSODataURL> url = [request getUrl];
 
     [url appendPathComponent:self.UrlComponent];
@@ -65,7 +69,9 @@
             
             callback(entity, e);
         }
-        else callback(nil, e);
+        else {
+            callback(nil, e);
+        }
     }];
 }
 
@@ -80,28 +86,36 @@
         if (e == nil) {
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
         }
-        else callback(nil, e);
+        else {
+            callback(nil, e);
+        }
     }];
 }
 
 -(NSURLSessionDataTask*) delete : (void (^)(int,MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
     [request setVerb:DELETE];
+    
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         callback([r getStatus], e);
     }];
 }
 
 -(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+    
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
+    
     [request setVerb:GET];
     
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         if (e == nil) {
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], e);
         }
-        else callback(nil, e);
+        else {
+            callback(nil, e);
+        }
     }];
 }
 
@@ -112,30 +126,37 @@
             id entity = [[[self getResolver] getJsonSerializer] deserialize:[r dataUsingEncoding:NSUTF8StringEncoding] :self.entityClass];
             callback(entity, e);
         }
-        else callback(nil, e);
+        else {
+            callback(nil, e);
+        }
     }];
 }
 
 -(MSODataEntityFetcher*)addCustomParameters : (NSString*)name : (id)value{
     
     NSDictionary* dicc = [[NSDictionary alloc] initWithObjectsAndKeys:value, name, nil];
+    
     [self.CustomParameters addEntriesFromDictionary:dicc];
     
     return self;
 }
 
 -(MSODataEntityFetcher*)select : (NSString*) params{
+    
     self.select = params;
+    
     return self;
 }
 
 -(MSODataEntityFetcher*)expand : (NSString*) value{
     
     self.expand = value;
+    
     return self;
 }
 
 -(id<MSODataDependencyResolver>) getResolver{
+    
     return [self.Parent getResolver];
 }
 

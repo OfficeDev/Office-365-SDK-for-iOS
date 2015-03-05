@@ -11,6 +11,7 @@
 
 @property NSData* payload;
 @property NSURLResponse* response;
+@property NSInputStream* stream;
 
 @end
 
@@ -32,6 +33,10 @@
 
 -(NSURLResponse *)getResponse{
     return self.response;
+}
+
+-(NSInputStream *)getStream{
+    return self.stream;
 }
 
 @end

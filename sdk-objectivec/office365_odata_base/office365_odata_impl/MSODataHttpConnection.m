@@ -17,10 +17,17 @@
     NSMutableURLRequest* r =  [(MSODataRequestImpl*)request getMutableRequest] ;
     MSODataRequestImpl* reqImpl = (MSODataRequestImpl*) request;
     
+    
     [r setURL:[[NSURL alloc] initWithString:[[reqImpl getUrl] toString]]];
     
     r.HTTPMethod = [reqImpl verbToString:[reqImpl getVerb]];
-    r.HTTPBody = [reqImpl getContent];
+    
+    NSInputStream *stream = [request getStreamedContent];
+    
+    if(stream == nil)
+        r.HTTPBody = [reqImpl getContent];
+    else
+        r.HTTPBodyStream = stream;
 
     NSLog(@"VERB: %@, URL: %@, HEADERS/Keys: %@, HEADERS/Values: %@", [reqImpl verbToString:[reqImpl getVerb]], [[request getUrl] toString], [[request getHeaders] allKeys], [[request getHeaders] allValues]);
     

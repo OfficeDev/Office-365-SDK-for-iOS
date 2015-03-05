@@ -22,5 +22,7 @@
 -(void)setVerb : (MSODataHttpVerb) httpVerb;
 -(void)setUrl : (id<MSODataURL>) url;
 -(id<MSODataURL>) getUrl;
+-(void)setStreamedContent : (NSInputStream*) stream : (int) size;
+-(NSInputStream*)getStreamedContent;
 
 @end

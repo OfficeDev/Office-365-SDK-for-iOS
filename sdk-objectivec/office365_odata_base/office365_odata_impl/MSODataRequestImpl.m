@@ -13,36 +13,46 @@
 @property NSMutableURLRequest* request;
 @property MSODataHttpVerb httpVerb;
 @property id<MSODataURL> odataUrl;
+@property NSInputStream* stream;
+@property int size;
 
 @end
 
 @implementation MSODataRequestImpl
 
 -(id)init;{
+    
+    self = [super init];
     self.request = [[NSMutableURLRequest alloc]init];
     self.odataUrl = [[MSODataURLImpl alloc] init];
+    
     return self;
 }
 
 -(void) setContent : (NSData*) content{
+    
     self.request.HTTPBody = content;
 }
 
 -(NSData*) getContent{
+    
     return self.request.HTTPBody;
 }
 
 -(NSDictionary *) getHeaders{
+    
     return [self.request allHTTPHeaderFields];
 }
 
 -(void)setHeaders :(NSArray*) headers{
+    
     for (NSDictionary* dicc in headers) {
         [self.request addValue:[[dicc allKeys] objectAtIndex:0] forHTTPHeaderField:[[dicc allValues] objectAtIndex:0]];
     }
 }
 
 -(void)addHeader : (NSString*) name : (NSString*) value{
+    
     [self.request addValue:value forHTTPHeaderField: name];
 }
 
@@ -50,27 +60,33 @@
 }
 
 -(MSODataHttpVerb) getVerb{
+    
     return self.httpVerb;
 }
 
 -(void)setVerb : (MSODataHttpVerb) httpVerb{
+    
     self.httpVerb = httpVerb;
     self.request.HTTPMethod = [self verbToString :httpVerb];
 }
 
 -(void)setUrl : (id<MSODataURL>) url{
+    
     self.odataUrl = url;
 }
 
 -(NSMutableURLRequest*)getMutableRequest{
+    
     return self.request;
 }
 
 -(void)setMutableRequest : (NSMutableURLRequest*)request{
+    
     self.request = request;
 }
 
 -(id<MSODataURL>)getUrl{
+    
     return self.odataUrl;
 }
 
@@ -105,6 +121,16 @@
     }
     
     return verbToString;
+}
+
+-(void)setStreamedContent:(NSInputStream *)stream :(int)size{
+    
+    self.stream = stream;
+    self.size = size;
+}
+
+-(NSInputStream *)getStreamedContent{
+    return self.stream;
 }
 
 @end

@@ -17,8 +17,6 @@
 -(NSURLSessionDataTask*) delete : (void (^)(int status, MSODataException * error))callback;
 -(id<MSODataDependencyResolver>) getResolver;
 
-//Raw
-
 -(NSURLSessionDataTask*) updateRaw:(NSString*)payload : (void (^)(NSString*, MSODataException *))callback;
     
 @optional
