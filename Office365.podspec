@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "Office365"
-  s.version      = "0.8.2"
+  s.version      = "0.8.3"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
 
   s.description  = <<-DESC
