@@ -9,30 +9,31 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSDiscoveryServiceInfoOperations.h"
-#import "MSDiscoveryServiceInfo.h"
+@class MSDiscoveryServiceInfoOperations;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryServiceInfoFetcher.
 */
 
-@protocol MSDiscoveryServiceInfoFetcher
+
+@protocol MSDiscoveryServiceInfoFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSDiscoveryServiceInfo* serviceInfo, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSDiscoveryServiceInfo* serviceInfo, MSODataException *error))callback;
+-(NSURLSessionTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback;
 -(id<MSDiscoveryServiceInfoFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDiscoveryServiceInfoFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSDiscoveryServiceInfoFetcher>)select : (NSString*) params;
 -(id<MSDiscoveryServiceInfoFetcher>)expand : (NSString*) value;
+
+@required
+-(MSDiscoveryServiceInfoOperations*) getOperations;
 @end
 
 @interface MSDiscoveryServiceInfoFetcher : MSODataEntityFetcher<MSDiscoveryServiceInfoFetcher>
 
--(MSDiscoveryServiceInfoOperations*) getOperations;
-
-	
 @end

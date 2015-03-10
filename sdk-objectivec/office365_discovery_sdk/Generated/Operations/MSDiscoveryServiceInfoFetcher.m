@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSDiscoveryServiceInfoFetcher.h"
-
-
-/**
-* The implementation file for type MSDiscoveryServiceInfoFetcher.
-*/
-
+#import "MSDiscoveryODataEntities.h"
 
 @implementation MSDiscoveryServiceInfoFetcher
 
@@ -24,17 +18,17 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSDiscoveryServiceInfo class]];
 }
 
--(NSURLSessionDataTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateServiceInfo:(id)entity withCallback:(void (^)(MSDiscoveryServiceInfo*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteServiceInfo:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSDiscoveryServiceInfoOperations.h"
+#import "MSDiscoveryODataEntities.h"
 
 /**
 * The implementation file for type MSDiscoveryServiceInfoOperations.
@@ -20,4 +20,5 @@
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
+
 @end

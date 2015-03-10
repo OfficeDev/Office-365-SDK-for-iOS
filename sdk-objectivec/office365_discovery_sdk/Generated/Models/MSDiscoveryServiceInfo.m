@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSDiscoveryServiceInfo.h"
+#import "MSDiscoveryModels.h"
 
 /**
 * The implementation file for type ServiceInfo.

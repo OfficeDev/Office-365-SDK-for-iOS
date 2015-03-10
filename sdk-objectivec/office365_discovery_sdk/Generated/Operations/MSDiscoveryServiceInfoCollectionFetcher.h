@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSDiscoveryServiceInfoFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSDiscoveryServiceInfo.h"
-#import "MSDiscoveryServiceInfoFetcher.h"
+#import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryServiceInfoCollectionFetcher.
 */
 
-@protocol MSDiscoveryServiceInfoCollectionFetcher
+@protocol MSDiscoveryServiceInfoCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error))callback;
 
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)select : (NSString*) params;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSDiscoveryServiceInfoFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
+-(NSURLSessionTask*)addServiceInfo:(MSDiscoveryServiceInfo* )entity withCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
+
+@end
+
+@interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>
 
 @end

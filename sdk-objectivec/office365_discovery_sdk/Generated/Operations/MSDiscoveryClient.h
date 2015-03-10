@@ -9,10 +9,10 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSDiscoveryServiceInfoCollectionFetcher.h"
-#import "MSDiscoveryServiceInfoCollectionFetcher.h"
+@class MSDiscoveryServiceInfoCollectionFetcher;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryClient.
@@ -21,9 +21,7 @@
 @interface MSDiscoveryClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
-
 -(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
-
 -(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
 
 @end

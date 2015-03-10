@@ -9,28 +9,9 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+#import "MSDiscoveryServiceInfoCollectionFetcher.h"
+#import "MSDiscoveryServiceInfoCollectionOperations.h"
+#import "MSDiscoveryServiceInfoFetcher.h"
+#import "MSDiscoveryServiceInfoOperations.h"
 
-#import "MSDiscoveryProtocols.h"
-
-#import <Foundation/Foundation.h>
-
-
-/**
-* The header for type ServiceInfo.
-*/
-
-@interface MSDiscoveryServiceInfo : NSObject
-
-@property NSString *$$__ODataType;
-@property NSString *capability;
-@property NSString *entityKey;
-@property NSString *providerId;
-@property NSString *providerName;
-@property int serviceAccountType;
-@property NSString *serviceApiVersion;
-@property NSString *serviceEndpointUri;
-@property NSString *serviceId;
-@property NSString *serviceName;
-@property NSString *serviceResourceId;
-
-@end
+#import "MSDiscoveryClient.h" 

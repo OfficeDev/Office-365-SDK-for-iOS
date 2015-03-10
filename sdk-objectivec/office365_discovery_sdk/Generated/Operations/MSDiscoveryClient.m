@@ -9,7 +9,8 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSDiscoveryClient.h"
+#import "MSDiscoveryODataEntities.h"
+
 /**
 * The implementation file for type MSDiscoveryClient.
 */
@@ -23,9 +24,7 @@
 -(MSDiscoveryServiceInfoCollectionFetcher*) getallServices{
 	return [[MSDiscoveryServiceInfoCollectionFetcher alloc] initWithUrl:@"allServices" parent:self];
 }
-
 -(MSDiscoveryServiceInfoCollectionFetcher*) getservices{
 	return [[MSDiscoveryServiceInfoCollectionFetcher alloc] initWithUrl:@"services" parent:self];
 }
-
 @end

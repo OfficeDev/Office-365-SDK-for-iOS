@@ -8,11 +8,9 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSDiscoveryServiceInfo.h"
-
-
+#import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryServiceInfoOperations.

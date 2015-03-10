@@ -11,6 +11,5 @@
 
 #import <Foundation/Foundation.h>
 
-
 @protocol MSDiscoveryServiceInfo
 @end

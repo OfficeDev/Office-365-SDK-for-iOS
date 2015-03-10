@@ -8,29 +8,4 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
-
-#import "MSDiscoveryProtocols.h"
-
-#import <Foundation/Foundation.h>
-
-
-/**
-* The header for type ServiceInfo.
-*/
-
-@interface MSDiscoveryServiceInfo : NSObject
-
-@property NSString *$$__ODataType;
-@property NSString *capability;
-@property NSString *entityKey;
-@property NSString *providerId;
-@property NSString *providerName;
-@property int serviceAccountType;
-@property NSString *serviceApiVersion;
-@property NSString *serviceEndpointUri;
-@property NSString *serviceId;
-@property NSString *serviceName;
-@property NSString *serviceResourceId;
-
-@end
+#import "MSDiscoveryServiceInfo.h"

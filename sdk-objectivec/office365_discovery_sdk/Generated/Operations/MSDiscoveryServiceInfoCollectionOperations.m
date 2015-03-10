@@ -10,11 +10,11 @@
  *******************************************************************************/
 
 #import "MSDiscoveryServiceInfoCollectionOperations.h"
+#import "MSDiscoveryODataEntities.h"
 
 /**
 * The implementation file for type MSDiscoveryServiceInfoCollectionOperations.
 */
 
 @implementation MSDiscoveryServiceInfoCollectionOperations
-
 @end
