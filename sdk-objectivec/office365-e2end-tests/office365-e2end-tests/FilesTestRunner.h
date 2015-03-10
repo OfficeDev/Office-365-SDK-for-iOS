@@ -7,8 +7,9 @@
 
 #import "BaseTestRunner.h"
 #import "Test.h"
-#import "MSSharePointClient.h"
+
 @interface FilesTestRunner : BaseTestRunner
+
 @property MSSharePointClient *Client;
 
 -(id)initWithClient : (MSSharePointClient*)client;

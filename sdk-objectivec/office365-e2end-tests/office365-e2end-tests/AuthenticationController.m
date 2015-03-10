@@ -54,7 +54,8 @@ static AuthenticationController* INSTANCE;
                           completionBlock:^(ADAuthenticationResult  *result) {
                               
                               if (AD_SUCCEEDED != result.status){
-                                  [[[self getDependencyResolver] getLogger] log:result.error.errorDetails :ERROR];
+                                  [[[self getDependencyResolver] getLogger] logMessage:result.error.errorDetails withLevel:ERROR];
+                                  
                                   completionBlock(false);
                               }
                               else{

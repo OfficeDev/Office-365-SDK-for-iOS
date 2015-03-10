@@ -31,7 +31,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *test))result{
+-(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *test))result{
     
     //General
     if([testName isEqualToString: @"TestGetUser"]) return [self TestGetUser:result];
@@ -187,9 +187,9 @@
 
 // ****** General Tests *******
 
--(NSURLSessionDataTask*)TestGetUser:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetUser:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getMe] read:^(MSOutlookUser *user, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getMe] read:^(MSOutlookUser *user, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -212,10 +212,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestTop:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestTop:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback :^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback :^(MSOutlookMessage *addedMessage, MSODataException *error) {
         
         [[[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage2, MSODataException *e) {
             
@@ -263,10 +263,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestFilterWithTop:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestFilterWithTop:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         [[[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage2, MSODataException *e) {
             
             [[[[[[[[self.Client getMe] getFolders] getById:@"Drafts"]getMessages]filter:@"Subject eq 'My Subject'"]top:1]read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
@@ -313,10 +313,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSelect:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSelect:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         [[[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage2, MSODataException *e) {
             
             [[[[[[self.Client getMe]getMessages]select:@"Subject"]top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
@@ -364,7 +364,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSkip:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSkip:(void (^) (Test*))result{
     MSOutlookContact* contact1 = [self getContact];
     NSString *contact1Name = [@"AA" stringByAppendingString:[[NSUUID UUID] UUIDString]];
     [contact1 setDisplayName:contact1Name];
@@ -374,7 +374,7 @@
     [contact2 setDisplayName:contact2Name];
     
     //Create contact1
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:contact1 withCallback:^(MSOutlookContact *addedContact1, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:contact1 withCallback:^(MSOutlookContact *addedContact1, MSODataException *error) {
         // Create contact2
         [[[[self.Client getMe]getContacts]addContact:contact2 withCallback:^(MSOutlookContact *addedContact2, MSODataException *e) {
             //Test order by
@@ -425,7 +425,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestOrderBy:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestOrderBy:(void (^) (Test*))result{
     MSOutlookContact* contact1 = [self getContact];
     NSString *contact1Name = [@"AA" stringByAppendingString:[[NSUUID UUID] UUIDString]];
     [contact1 setDisplayName:contact1Name];
@@ -435,7 +435,7 @@
     [contact2 setDisplayName:contact2Name];
     
     //Create contact1
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:contact1 withCallback:^(MSOutlookContact *addedContact1, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:contact1 withCallback:^(MSOutlookContact *addedContact1, MSODataException *error) {
         // Create contact2
         [[[[self.Client getMe]getContacts]addContact:contact2 withCallback:^(MSOutlookContact *addedContact2, MSODataException *e) {
             //Test order by
@@ -488,12 +488,12 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestExpandLists:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestExpandLists:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
     MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
     //Add message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         
         MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
         
@@ -538,12 +538,12 @@
 }
 
 
--(NSURLSessionDataTask*)TestExpand:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestExpand:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject = [@"Test Attachment" stringByAppendingString:uuid];
     MSOutlookMessage *newMessage = [self getSampleMessage:messageSubject : self.TestMail : @""];
     //Add message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         
         MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
         
@@ -588,9 +588,9 @@
 
 //******* Folder Tests **********
 
--(NSURLSessionDataTask*)TestGetFolders:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFolders:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getFolders] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -613,9 +613,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetFoldersById:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFoldersById:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[[self.Client getMe] getFolders] getById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
+    NSURLSessionTask *task = [[[[self.Client getMe] getFolders] getById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -641,9 +641,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetFoldersByIdOverload:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFoldersByIdOverload:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getMe] getFoldersById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getFoldersById:@"Inbox"] read:^(MSOutlookFolder *folder, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -669,14 +669,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
     MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *folder, MSODataException *e) {
+    NSURLSessionTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *folder, MSODataException *e) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -701,7 +701,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestDeleteFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
@@ -709,7 +709,7 @@
     [newFolder setDisplayName:folderName];
     
     //Create folder
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *folder, MSODataException *e) {
+    NSURLSessionTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *folder, MSODataException *e) {
         [[[[[self.Client getMe] getFolders] getById:newFolder.Id] deleteFolder:^(int status, MSODataException *error) {
             BOOL passed = false;
             
@@ -736,14 +736,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestMoveFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestMoveFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
     MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
+    NSURLSessionTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
         [[[[[[self.Client getMe] getFolders]getById:addedFolder.Id] getOperations] move:@"Drafts" :^(MSOutlookFolder *folder, MSODataException *error) {
             BOOL passed = false;
             
@@ -782,14 +782,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCopyFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCopyFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
     MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
+    NSURLSessionTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
         [[[[[[self.Client getMe] getFolders]getById:addedFolder.Id] getOperations] copy:@"Drafts" :^(MSOutlookFolder *copiedFolder, MSODataException *error) {
             BOOL passed = false;
             
@@ -835,14 +835,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateFolder:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
     MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
     [newFolder setDisplayName:folderName];
     
-    NSURLSessionDataTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
+    NSURLSessionTask* task =[[[[[self.Client getMe] getFolders] getById:@"Inbox"] getChildFolders] addFolder:newFolder withCallback:^(MSOutlookFolder *addedFolder, MSODataException *e) {
         NSString *updatedFolderName = [@"Updated" stringByAppendingString:folderName];
         [newFolder setDisplayName:updatedFolderName];
         [[[[[self.Client getMe]getFolders]getById:addedFolder.Id]updateFolder:newFolder withCallback:^(MSOutlookFolder *updatedFolder, MSODataException *error) {
@@ -873,9 +873,9 @@
 
 //******* Message Tests **********
 
--(NSURLSessionDataTask*)TestGetMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetMessages:(void (^) (Test*))result{
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -898,11 +898,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     newMessage.Body = [[MSOutlookItemBody alloc] init];
     newMessage.Body.ContentType = Text;
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -930,11 +930,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetMessageOverload:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetMessageOverload:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     newMessage.Body = [[MSOutlookItemBody alloc] init];
     newMessage.Body.ContentType = Text;
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         [[[[self.Client getMe] getMessagesById:addedMessage.Id] read:^(MSOutlookMessage *searchedMessage, MSODataException *error) {
             BOOL passed = false;
             
@@ -965,12 +965,12 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateAndSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" : self.TestMail : @""];
     newMessage.Body.ContentType = HTML;
     newMessage.Body.Content = @"<div>Html Test</div>";
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         [[[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
             BOOL passed = false;
             
@@ -1000,10 +1000,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     //Create message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         NSString *updatedSubject = @"My Updated Subject";
         [newMessage setSubject:updatedSubject];
         //Update message
@@ -1036,10 +1036,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestDeleteMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         [[[[[self.Client getMe] getMessages] getById:addedMessage.Id]deleteMessage:^(int status, MSODataException *error) {
             BOOL passed = false;
             
@@ -1063,10 +1063,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestMoveMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestMoveMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     //Create message
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         //Move message
         [[[[[[self.Client getMe]getMessages]getById:addedMessage.Id]getOperations]move:@"Inbox" :^(MSOutlookMessage *movedMessage, MSODataException *error) {
             BOOL passed = false;
@@ -1099,11 +1099,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSendMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSendMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     //Send Mail
-    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1130,11 +1130,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSendWithMessageOperations:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSendWithMessageOperations:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     //Send Mail
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *message, MSODataException *e) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *message, MSODataException *e) {
         
         [[[[[[self.Client getMe] getMessages] getById:message.Id] getOperations] send:^(int returnValue, MSODataException *error) {
             BOOL passed = false;
@@ -1164,13 +1164,13 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSendHtmlMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSendHtmlMessages:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Html Subject" : self.TestMail : @""];
     [newMessage.Body setContent:@"<h1>This is an Html body.</h1><a href='#'>With Link!</a>"];
     [newMessage.Body setContentType: HTML];
     
     //Send Mail
-    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getOperations] sendMail:newMessage :true :^(int returnValue, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1198,9 +1198,9 @@
 }
 
 
--(NSURLSessionDataTask*)TestReplyMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestReplyMessages:(void (^) (Test*))result{
     
-    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
         if([messages count] == 0){
             Test *test = [Test alloc];
             test.ExecutionMessages = [NSMutableArray array];
@@ -1244,9 +1244,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestReplyAllMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestReplyAllMessages:(void (^) (Test*))result{
     
-    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
         if([messages count] == 0){
             Test *test = [Test alloc];
             test.ExecutionMessages = [NSMutableArray array];
@@ -1289,9 +1289,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestForwardMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestForwardMessages:(void (^) (Test*))result{
     
-    NSURLSessionDataTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.Client getMe] getMessages] top:1] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
         if([messages count] == 0){
             Test *test = [Test alloc];
             test.ExecutionMessages = [NSMutableArray array];
@@ -1334,7 +1334,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestReplyHtmlMessages:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestReplyHtmlMessages:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject :self.TestMail :@"" ];
@@ -1343,7 +1343,7 @@
     message.Body.ContentType = HTML;
     
     //Send mail with HTML body
-    NSURLSessionDataTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getOperations]sendMail:message :true                                                                          :^(int returnValue, MSODataException *error) {
         // Get sent mail
         [[[[[self.Client getMe] getFolders] filter:@"DisplayName eq 'Sent Items'"] read:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
             MSOutlookFolder *sentItemsFolder = [folders objectAtIndex:0];
@@ -1426,9 +1426,9 @@
 
 // ******* Contact Tests **********
 
--(NSURLSessionDataTask*)TestGetContactFolder:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetContactFolder:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[[[self.Client getMe] getContactFolders] getById: @"Contacts"] getContacts] read:^(NSArray<MSOutlookContact>*contacts, MSODataException *error) {
+    NSURLSessionTask *task = [[[[[self.Client getMe] getContactFolders] getById: @"Contacts"] getContacts] read:^(NSArray<MSOutlookContact>*contacts, MSODataException *error) {
         BOOL passed = false;
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
@@ -1452,11 +1452,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetContacts:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetContacts:(void (^) (Test*))result{
     MSOutlookContact* newContact = [self getContact];
     
     //Create contact
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *e) {
         //Get contacts
         [[[[self.Client getMe] getContacts] read:^(NSArray<MSOutlookContact>* contacts, MSODataException *error) {
             BOOL passed = false;
@@ -1494,11 +1494,11 @@
 }
 
 
--(NSURLSessionDataTask*)TestCreateContacts:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateContacts:(void (^) (Test*))result{
     MSOutlookContact* newContact = [self getContact];
     
     //Create contact
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1532,11 +1532,11 @@
 }
 
 
--(NSURLSessionDataTask*)TestDeleteContacts:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteContacts:(void (^) (Test*))result{
     MSOutlookContact* newContact = [self getContact];
     
     //Create contact
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *e) {
         //Delete
         [[[[[self.Client getMe] getContacts] getById:addedContact.Id] deleteContact:^(int status, MSODataException * error) {
             BOOL passed = false;
@@ -1562,11 +1562,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateContacts:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateContacts:(void (^) (Test*))result{
     MSOutlookContact* newContact = [self getContact];
     
     //Create contact
-    NSURLSessionDataTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getContacts] addContact:newContact withCallback:^(MSOutlookContact *addedContact, MSODataException *error) {
         [newContact setDisplayName:@"New Contact Name"];
         
         [[[[[self.Client getMe]getContacts]getById:addedContact.Id] updateContact:newContact withCallback:^(MSOutlookContact *updatedEntity, MSODataException *error) {
@@ -1620,9 +1620,9 @@
 
 //******* Calendar Group Tests **********
 
--(NSURLSessionDataTask*)TestGetCalendarGroups:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetCalendarGroups:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendarGroups] read:^(NSArray<MSOutlookCalendarGroup> *calendarGroups, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getCalendarGroups] read:^(NSArray<MSOutlookCalendarGroup> *calendarGroups, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1650,14 +1650,14 @@
 }
 
 
--(NSURLSessionDataTask*)TestCreateCalendarGroups:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateCalendarGroups:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
     
     MSOutlookCalendarGroup *newCalendarGroup = [[MSOutlookCalendarGroup alloc] init];
     [newCalendarGroup setName:calendarGroupName];
     
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
         
         BOOL passed = false;
         
@@ -1691,14 +1691,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetCalendarGroupById:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetCalendarGroupById:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
     
     MSOutlookCalendarGroup *newCalendarGroup = [[MSOutlookCalendarGroup alloc] init];
     [newCalendarGroup setName:calendarGroupName];
     //Create calendar group
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup :newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup :newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
         //Get by id
         [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]read:^(MSOutlookCalendarGroup *calendarGroup, MSODataException *error) {
             BOOL passed = false;
@@ -1734,7 +1734,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateCalendarGroups:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateCalendarGroups:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
     NSString *updatedCalendarGroupName = [@"Updated" stringByAppendingString:calendarGroupName];
@@ -1742,7 +1742,7 @@
     [newCalendarGroup setName:calendarGroupName];
     
     // Create Calendar
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
         [newCalendarGroup setName:updatedCalendarGroupName];
         //Update Calendar Group
         [[[[[self.Client getMe] getCalendarGroups] getById:addedCalendarGroup.Id] updateCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *updatedCalendarGroup, MSODataException *error) {
@@ -1780,14 +1780,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestDeleteCalendarGroups:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteCalendarGroups:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarGroupName = [@"NewCalendarGroup" stringByAppendingString:uuid];
     
     MSOutlookCalendarGroup *newCalendarGroup = [[MSOutlookCalendarGroup alloc] init];
     [newCalendarGroup setName:calendarGroupName];
     //Create Calendar
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendarGroups] addCalendarGroup:newCalendarGroup withCallback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSODataException *e) {
         //Delete Calendar
         [[[[[self.Client getMe]getCalendarGroups]getById:addedCalendarGroup.Id]deleteCalendarGroup:^(int status, MSODataException *error) {
             BOOL passed = false;
@@ -1820,9 +1820,9 @@
 
 // ****** Calendar Tests *****
 
--(NSURLSessionDataTask*)TestGetCalendars:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetCalendars:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendars] read:^(NSArray<MSOutlookCalendar> *calendars, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getCalendars] read:^(NSArray<MSOutlookCalendar> *calendars, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -1850,9 +1850,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetDefaultCalendar:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetDefaultCalendar:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getMe] getCalendar] read:^(MSOutlookCalendar *calendar, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getMe] getCalendar] read:^(MSOutlookCalendar *calendar, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1879,14 +1879,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateCalendar:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateCalendar:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
     
     MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
     [newCalendar setName:calendarName];
     
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] addCalendar :newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendars] addCalendar :newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
         
         BOOL passed = false;
         
@@ -1920,14 +1920,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetCalendarById:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetCalendarById:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
     
     MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
     [newCalendar setName:calendarName];
     //Create calendar
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
         //Get by id
         [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id] read:^(MSOutlookCalendar *calendar, MSODataException *error) {
             
@@ -1964,7 +1964,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateCalendar:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateCalendar:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
     NSString *updatedCalendarName = [@"Updated" stringByAppendingString:calendarName];
@@ -1972,7 +1972,7 @@
     [newCalendar setName:calendarName];
     
     // Create Calendar
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
         [newCalendar setName:updatedCalendarName];
         //Update Calendar
         [[[[[self.Client getMe] getCalendars] getById:addedCalendar.Id] updateCalendar:newCalendar withCallback:^(MSOutlookCalendar *updatedCalendar, MSODataException *error) {
@@ -2011,14 +2011,14 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestDeleteCalendar:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteCalendar:(void (^) (Test*))result{
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *calendarName = [@"NewCalendar" stringByAppendingString:uuid];
     
     MSOutlookCalendar *newCalendar = [[MSOutlookCalendar alloc] init];
     [newCalendar setName:calendarName];
     //Create Calendar
-    NSURLSessionDataTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
+    NSURLSessionTask* task =[[[self.Client getMe] getCalendars] addCalendar:newCalendar withCallback:^(MSOutlookCalendar *addedCalendar, MSODataException *e) {
         
         //Delete Calendar
         [[[[[self.Client getMe]getCalendars]getById:addedCalendar.Id]deleteCalendar:^(int status, MSODataException *error) {
@@ -2050,9 +2050,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetCalendarView:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetCalendarView:(void (^) (Test*))result{
     MSOutlookEvent *newEvent = [self getSampleEvent];
-    NSURLSessionDataTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask* task = [[[self.Client getMe] getEvents] addEvent:newEvent withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
 
         [[[[[[self.Client getMe] getCalendarView] addCustomParameters:@"startdatetime" :addedEvent.Start ] addCustomParameters:@"enddatetime" :addedEvent.End ] read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
             
@@ -2091,10 +2091,10 @@
 
 // ****** Event Tests *****
 
--(NSURLSessionDataTask*)TestGetEvents:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetEvents:(void (^) (Test*))result{
     MSOutlookEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
         //Get Events
         [[[[self.Client getMe]getEvents]read:^(NSArray<MSOutlookEvent> *events, MSODataException *error) {
             BOOL passed = false;
@@ -2132,10 +2132,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateEvents:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateEvents:(void (^) (Test*))result{
     MSOutlookEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -2168,10 +2168,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestUpdateEvents:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateEvents:(void (^) (Test*))result{
     MSOutlookEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
         NSString *updatedSubject = [@"Updated" stringByAppendingString:event.Subject];
         [event setSubject:updatedSubject];
         // Update Event
@@ -2209,10 +2209,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestDeleteEvents:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteEvents:(void (^) (Test*))result{
     MSOutlookEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionDataTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[self.Client getMe] getEvents] addEvent:event withCallback:^(MSOutlookEvent *addedEvent, MSODataException *e) {
         //Delete event
         [[[[[self.Client getMe]getEvents]getById:addedEvent.Id]deleteEvent:^(int status, MSODataException *error) {
             BOOL passed = false;
@@ -2243,10 +2243,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateMessageWithAttachment:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateMessageWithAttachment:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"Test Attachment" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         
         if(addedMessage!= nil && [addedMessage.Subject isEqualToString:newMessage.Subject]){
             
@@ -2289,10 +2289,10 @@
     
 }
 
--(NSURLSessionDataTask*)TestGetAttachment:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetAttachment:(void (^) (Test*))result{
     MSOutlookMessage *newMessage = [self getSampleMessage:@"Test Attachment" : self.TestMail : @""];
     
-    NSURLSessionDataTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.Client getMe] getMessages] addMessage:newMessage withCallback:^(MSOutlookMessage *addedMessage, MSODataException *error) {
         
         if(addedMessage!= nil && [addedMessage.Subject isEqualToString:newMessage.Subject]){
             

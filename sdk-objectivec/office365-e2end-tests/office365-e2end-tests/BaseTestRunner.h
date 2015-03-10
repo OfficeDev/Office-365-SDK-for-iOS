@@ -6,9 +6,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseTestRunner : NSObject
+#import <office365_files_sdk/office365_files_sdk.h>
+#import <office365_odata_base/office365_odata_base.h>
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
+#import <office365_discovery_sdk/office365_discovery_sdk.h>
+#import <office365_directory_sdk/office365_directory_sdk.h>
+
+@protocol Runner
+
+@optional
+-(NSURLSessionDataTask*)Run : (NSString*)testName completionHandler:(void (^) (id test))result;
+
+@end
+@interface BaseTestRunner : NSObject<Runner>
 
 -(NSMutableArray*)getTests;
--(NSURLSessionDataTask*)Run : (NSString*)testName completionHandler:(void (^) (id test))result;
 
 @end

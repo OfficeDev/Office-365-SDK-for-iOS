@@ -443,21 +443,12 @@
 			baseConfigurationReference = F177E74E44A121F723E1C19E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,21 +460,12 @@
 			baseConfigurationReference = 8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

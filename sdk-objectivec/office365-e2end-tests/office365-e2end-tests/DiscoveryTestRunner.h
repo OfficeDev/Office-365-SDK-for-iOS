@@ -4,10 +4,8 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "BaseTestRunner.h"
 #import "Test.h"
-#import "MSDiscoveryClient.h"
 
 @interface DiscoveryTestRunner : BaseTestRunner
 

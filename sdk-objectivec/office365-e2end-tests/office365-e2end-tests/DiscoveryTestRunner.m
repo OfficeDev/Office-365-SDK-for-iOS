@@ -4,7 +4,6 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-
 #import "DiscoveryTestRunner.h"
 
 @implementation DiscoveryTestRunner
@@ -13,7 +12,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
+-(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
     
     if([testName isEqualToString: @"TestGetAllServices"]) return [self TestGetAllServices:result];
     if([testName isEqualToString: @"TestGetServices"]) return [self TestGetServices:result];
@@ -39,9 +38,9 @@
     return array;
 }
 
--(NSURLSessionDataTask*)TestGetAllServices:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetAllServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
      
         BOOL passed = false;
         
@@ -68,9 +67,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetServices:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -97,9 +96,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetServiceById:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetServiceById:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         [[[[self.Client getservices] getById:oneServiceInfo.entityKey] read:^(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error) {
             BOOL passed = false;
@@ -130,9 +129,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestFilterServices:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestFilterServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"entityKey eq '" stringByAppendingString:oneServiceInfo.entityKey] stringByAppendingString:@"'" ];
@@ -164,9 +163,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSelectServices:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSelectServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionDataTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"ServiceName eq '" stringByAppendingString:oneServiceInfo.serviceName] stringByAppendingString:@"'" ];
@@ -198,9 +197,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestTopServices:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestTopServices:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[[self.Client getallServices] top:1] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getallServices] top:1] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         

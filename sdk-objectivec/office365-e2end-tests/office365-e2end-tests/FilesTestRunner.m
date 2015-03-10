@@ -13,7 +13,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
+-(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
     
     if([testName isEqualToString: @"TestGetFiles"]) return [self TestGetFiles:result];
     if([testName isEqualToString: @"TestGetFileById"]) return [self TestGetFileById:result];
@@ -23,7 +23,6 @@
     if([testName isEqualToString: @"TestTopFiles"]) return [self TestTopFiles:result];
     if([testName isEqualToString: @"TestSelectFiles"]) return [self TestSelectFiles:result];
     if([testName isEqualToString: @"TestDeleteFile"]) return [self TestDeleteFile:result];
-    if([testName isEqualToString:@"TestCreateFileFromStream"]) return [self TestCreateFileFromStream : result];
     
     return nil;
 }
@@ -39,15 +38,14 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestTopFiles" :@"Top Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSelectFiles" :@"Select Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFile" :@"Delete Files" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreateFileFromStream" :@"Create File Stream" ]];
     
     return array;
 }
 
 
--(NSURLSessionDataTask*)TestGetFiles:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFiles:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getfiles] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -74,10 +72,10 @@
 }
 
 
--(NSURLSessionDataTask*)TestGetFileById:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFileById:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
         [[[[self.Client getfiles] getById:addedItem.id]read:^(MSSharePointItem *item, MSODataException *error) {
             
@@ -116,12 +114,12 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateFileWithContent:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestCreateFileWithContent:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
             //Get file content
@@ -163,13 +161,13 @@
 }
 
 
--(NSURLSessionDataTask*)TestUpdateFileContent:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestUpdateFileContent:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
             [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, MSODataException *error) {
@@ -214,9 +212,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetDrive:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetDrive:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getdrive] read:^(MSSharePointDrive *drive, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getdrive] read:^(MSSharePointDrive *drive, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -242,11 +240,11 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestTopFiles:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestTopFiles:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     MSSharePointItem *itemToAdd2 = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Add second item
         [[[self.Client getfiles] add:itemToAdd2 :^(MSSharePointItem *addedItem2, MSODataException *e) {
             //Get top 1 item
@@ -293,10 +291,10 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSelectFiles:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestSelectFiles:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
         [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
             
@@ -341,10 +339,10 @@
 }
 
 
--(NSURLSessionDataTask*)TestDeleteFile:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestDeleteFile:(void (^) (Test*))result{
     MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
         //Delete item
         
         [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"] deleteItem:^(int status, MSODataException *error) {
@@ -375,99 +373,6 @@
     
     return task;
 }
-
-
-
--(NSURLSessionDataTask*)TestCreateFileFromStream:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd =  [[MSSharePointItem alloc] init];
-    //[self GetFileItem];
-    itemToAdd.type = @"File";
-    itemToAdd.name = [[NSUUID UUID] UUIDString];
-    NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
-    NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
-    
-    
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"office365"
-                                                     ofType:@"png"];
-    
-    NSFileManager * fileManager = [NSFileManager defaultManager];
-    NSInputStream *stream;
-    if([fileManager fileExistsAtPath:path])
-        stream = [[NSInputStream alloc] initWithFileAtPath:path];
-    
-  
-    //[fileManager createFileAtPath:@"/test.txt" contents:updatedContent attributes:nil];
-    
-    
-   // = [[NSInputStream alloc] initWithFileAtPath:@"/test.txt"];//[[NSInputStream alloc] initWithData:updatedContent];
-    //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
-        
-        
-        //[self.Client addCustomHeaderWithName:@"If-Match" andValue:@"*"];
-        [[[[[self.Client getfiles] getById:addedItem.id] asFile] putContent:stream withSize:[content length] withCallback:^(NSInteger statusCode, MSODataException *exception) {
-            
-        }] resume];
-        
-        
-    }];
-    
-    
-    
-    [[[[[self.Client getfiles]getById:@"01HRN2FFWIGHCLBHKCONHYUBJM45YXQO3Q"] asFile ] getContentWithCallback:^(NSData *addedContent, MSODataException *error) {
-        
-       NSInteger i= [addedContent length];
-        
-        NSFileManager * fileManager = [NSFileManager defaultManager];
-        [fileManager createFileAtPath:@"test" contents:addedContent attributes:nil];
-        
-    }]resume];
-
-    /*
-     //Put content to file
-     [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
-     [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, MSODataException *error) {
-     
-     //Get file content
-     [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *newContent, MSODataException *error) {
-     BOOL passed = false;
-     
-     Test *test = [Test alloc];
-     test.ExecutionMessages = [NSMutableArray array];
-     
-     NSString* message = @"";
-     
-     if(error == nil && addedItem != nil && [updatedContent isEqualToData:newContent]){
-     passed = TRUE;
-     message = @"Ok - ";
-     }
-     else{
-     message = @"Not - ";
-     if(error != nil)
-     message = [message stringByAppendingString:[error localizedDescription]];
-     }
-     
-     test.Passed = passed;
-     [test.ExecutionMessages addObject:message];
-     
-     //Cleanup
-     if(addedItem!= nil)
-     [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
-     if(error!= nil)
-     NSLog(@"Error: %@", error);
-     }]resume];
-     
-     result(test);
-     
-     }]resume];
-     
-     }]resume];
-     }]resume];
-     }];*/
-    
-    return task;
-}
-
 
 -(MSSharePointItem *) GetFileItem{
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
