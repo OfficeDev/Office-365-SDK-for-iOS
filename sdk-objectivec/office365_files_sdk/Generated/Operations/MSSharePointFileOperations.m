@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointFileOperations.h"
+#import "MSSharePointODataEntities.h"
 
 /**
 * The implementation file for type MSSharePointFileOperations.
@@ -21,14 +21,16 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFile *file, MSODataException *error))callback{
+
+-(NSURLSessionTask*) copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName :  (void (^)(MSSharePointFile *file, MSODataException *error)) callback;{
 	
 	NSString * destFolderIdString = [[[self getResolver] getJsonSerializer] serialize:destFolderId : @"destFolderId"];
 	NSString * destFolderPathString = [[[self getResolver] getJsonSerializer] serialize:destFolderPath : @"destFolderPath"];
 	NSString * newNameString = [[[self getResolver] getJsonSerializer] serialize:newName : @"newName"];
 
-	NSURLSessionDataTask* task = [self copyRaw 	: destFolderIdString: destFolderPathString: newNameString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self copyRaw 	: destFolderIdString: destFolderPathString: newNameString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSSharePointFile * result = (MSSharePointFile *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSSharePointFile class]];
             callback(result, error);
         }
@@ -40,22 +42,27 @@
     return task;
 }
 
--(NSURLSessionTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*file, MSODataException *error))callback{
+-(NSURLSessionTask*) copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :destFolderId,@"destFolderId",nil ],
-	[[NSDictionary alloc] initWithObjectsAndKeys :destFolderPath,@"destFolderPath",nil ],
-	[[NSDictionary alloc] initWithObjectsAndKeys :newName,@"newName",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destFolderId,@"destFolderId", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destFolderPath,@"destFolderPath", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys :newName,@"newName", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"copy"];
 	[request setVerb:POST];
 
 	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -64,5 +71,6 @@
     }];
     
     return task;
-}				
+}
+    				
 @end

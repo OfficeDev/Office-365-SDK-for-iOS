@@ -10,9 +10,10 @@
  *******************************************************************************/
 
 
-#import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
 #import "MSSharePointItem.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type File.
@@ -20,8 +21,6 @@
 
 @interface MSSharePointFile : MSSharePointItem
 
-
 @property NSString *contentUrl;
-
 
 @end

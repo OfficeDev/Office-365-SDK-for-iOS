@@ -8,15 +8,13 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-#import "MSSharePointIdentity.h"
-#import "MSSharePointDriveQuota.h"
 
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointDriveCollectionOperations.
 */
 
 @interface MSSharePointDriveCollectionOperations : MSODataOperations
-
 @end

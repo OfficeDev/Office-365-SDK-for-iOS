@@ -9,13 +9,13 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointItemCollectionOperations.h"
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
+#import "MSSharePointItemCollectionOperations.h"
 
 /**
 * The header for type MSSharePointFileCollectionOperations.
 */
 
 @interface MSSharePointFileCollectionOperations : MSSharePointItemCollectionOperations
-
 @end

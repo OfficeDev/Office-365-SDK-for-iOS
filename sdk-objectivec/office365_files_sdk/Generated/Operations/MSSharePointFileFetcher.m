@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointFileFetcher.h"
-
-
-/**
-* The implementation file for type MSSharePointFileFetcher.
-*/
-
+#import "MSSharePointODataEntities.h"
 
 @implementation MSSharePointFileFetcher
 
@@ -24,17 +18,17 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointFile class]];
 }
 
--(NSURLSessionDataTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteFile:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteFile:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

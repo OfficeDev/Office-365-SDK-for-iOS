@@ -9,30 +9,31 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointFileOperations.h"
-#import "MSSharePointFile.h"
+@class MSSharePointFileOperations;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointFileFetcher.
 */
 
-@protocol MSSharePointFileFetcher
+
+@protocol MSSharePointFileFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSSharePointFile* file, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteFile:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSSharePointFile* file, MSODataException *error))callback;
+-(NSURLSessionTask*) updateFile:(id)entity withCallback:(void (^)(MSSharePointFile*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteFile:(void (^)(int status, MSODataException * error))callback;
 -(id<MSSharePointFileFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointFileFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSSharePointFileFetcher>)select : (NSString*) params;
 -(id<MSSharePointFileFetcher>)expand : (NSString*) value;
+
+@required
+-(MSSharePointFileOperations*) getOperations;
 @end
 
 @interface MSSharePointFileFetcher : MSODataMediaEntityFetcher<MSSharePointFileFetcher>
 
--(MSSharePointFileOperations*) getOperations;
-
-	
 @end

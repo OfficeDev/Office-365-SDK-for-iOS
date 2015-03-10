@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointDriveFetcher.h"
-
-
-/**
-* The implementation file for type MSSharePointDriveFetcher.
-*/
-
+#import "MSSharePointODataEntities.h"
 
 @implementation MSSharePointDriveFetcher
 
@@ -24,17 +18,17 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointDrive class]];
 }
 
--(NSURLSessionDataTask*) updateDrive:(id)entity withCallback:(void (^)(MSSharePointDrive*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateDrive:(id)entity withCallback:(void (^)(MSSharePointDrive*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteDrive:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteDrive:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

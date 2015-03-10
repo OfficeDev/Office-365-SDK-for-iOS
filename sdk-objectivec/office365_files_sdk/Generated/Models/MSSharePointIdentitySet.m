@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointIdentitySet.h"
+#import "MSSharePointModels.h"
 
 /**
 * The implementation file for type IdentitySet.
@@ -21,5 +21,6 @@
 	self.$$__ODataType = @"#Microsoft.FileServices.IdentitySet";
 	return self;
 }
+
 
 @end

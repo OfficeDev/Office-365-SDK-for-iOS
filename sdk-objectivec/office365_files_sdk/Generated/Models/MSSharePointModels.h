@@ -8,22 +8,11 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
-
-#import "MSSharePointProtocols.h"
-
-#import <Foundation/Foundation.h>
-
-
-/**
-* The header for type ItemReference.
-*/
-
-@interface MSSharePointItemReference : NSObject
-
-@property NSString *$$__ODataType;
-@property NSString *driveId;
-@property NSString *id;
-@property NSString *path;
-
-@end
+#import "MSSharePointDriveQuota.h"
+#import "MSSharePointIdentitySet.h"
+#import "MSSharePointIdentity.h"
+#import "MSSharePointItemReference.h"
+#import "MSSharePointDrive.h"
+#import "MSSharePointItem.h"
+#import "MSSharePointFile.h"
+#import "MSSharePointFolder.h"

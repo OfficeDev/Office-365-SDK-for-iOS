@@ -10,8 +10,9 @@
  *******************************************************************************/
 
 
-#import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -20,16 +21,10 @@
 
 @interface MSSharePointDriveQuota : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property int deleted;
-
 @property int remaining;
-
 @property NSString *state;
-
 @property int total;
-
 
 @end

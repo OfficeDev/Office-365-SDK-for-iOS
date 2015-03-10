@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSSharePointItemFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointItem.h"
-#import "MSSharePointItemFetcher.h"
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointItemCollectionFetcher.
 */
 
-@protocol MSSharePointItemCollectionFetcher
+@protocol MSSharePointItemCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointItem> *items, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSSharePointItem> *items, MSODataException *error))callback;
 
 -(id<MSSharePointItemCollectionFetcher>)select : (NSString*) params;
 -(id<MSSharePointItemCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSSharePointItemCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSSharePointItemCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointItemCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSSharePointItemFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addItem:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, MSODataException *e))callback;
+-(NSURLSessionTask*)addItem:(MSSharePointItem* )entity withCallback:(void (^)(MSSharePointItem *item, MSODataException *e))callback;
+
+@end
+
+@interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>
 
 @end

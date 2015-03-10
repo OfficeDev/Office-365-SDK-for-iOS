@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSSharePointFolderFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointFolder.h"
-#import "MSSharePointFolderFetcher.h"
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointFolderCollectionFetcher.
 */
 
-@protocol MSSharePointFolderCollectionFetcher
+@protocol MSSharePointFolderCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointFolder> *folders, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSSharePointFolder> *folders, MSODataException *error))callback;
 
 -(id<MSSharePointFolderCollectionFetcher>)select : (NSString*) params;
 -(id<MSSharePointFolderCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSSharePointFolderCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSSharePointFolderCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointFolderCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSSharePointFolderCollectionFetcher : MSODataCollectionFetcher<MSSharePointFolderCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSSharePointFolderFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addFolder:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, MSODataException *e))callback;
+-(NSURLSessionTask*)addFolder:(MSSharePointFolder* )entity withCallback:(void (^)(MSSharePointFolder *folder, MSODataException *e))callback;
+
+@end
+
+@interface MSSharePointFolderCollectionFetcher : MSODataCollectionFetcher<MSSharePointFolderCollectionFetcher>
 
 @end

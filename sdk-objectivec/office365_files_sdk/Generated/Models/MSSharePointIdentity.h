@@ -10,8 +10,9 @@
  *******************************************************************************/
 
 
-#import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -20,12 +21,8 @@
 
 @interface MSSharePointIdentity : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property NSString *id;
-
 @property NSString *displayName;
-
 
 @end

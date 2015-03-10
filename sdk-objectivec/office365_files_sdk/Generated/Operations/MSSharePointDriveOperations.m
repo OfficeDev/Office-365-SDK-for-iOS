@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointDriveOperations.h"
+#import "MSSharePointODataEntities.h"
 
 /**
 * The implementation file for type MSSharePointDriveOperations.
@@ -19,4 +19,6 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
-}@end
+}
+
+@end

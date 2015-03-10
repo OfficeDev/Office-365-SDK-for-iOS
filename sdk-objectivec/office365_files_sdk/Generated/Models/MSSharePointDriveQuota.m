@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointDriveQuota.h"
+#import "MSSharePointModels.h"
 
 /**
 * The implementation file for type DriveQuota.
@@ -21,5 +21,6 @@
 	self.$$__ODataType = @"#Microsoft.FileServices.DriveQuota";
 	return self;
 }
+
 
 @end

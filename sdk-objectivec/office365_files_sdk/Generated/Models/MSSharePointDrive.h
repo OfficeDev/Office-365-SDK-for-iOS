@@ -12,8 +12,10 @@
 @class MSSharePointIdentity;
 @class MSSharePointDriveQuota;
 
-#import <Foundation/Foundation.h>
+
 #import "MSSharePointProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -22,14 +24,9 @@
 
 @interface MSSharePointDrive : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property NSString *id;
-
 @property MSSharePointIdentity *owner;
-
 @property MSSharePointDriveQuota *quota;
-
 
 @end

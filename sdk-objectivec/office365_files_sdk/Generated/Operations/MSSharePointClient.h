@@ -9,10 +9,11 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointDriveFetcher.h"
-#import "MSSharePointItemCollectionFetcher.h"
+@class MSSharePointItemCollectionFetcher;
+@class MSSharePointDriveFetcher;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointClient.
@@ -21,9 +22,7 @@
 @interface MSSharePointClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
-
--(MSSharePointDriveFetcher*) getdrive;
-
 -(MSSharePointItemCollectionFetcher*) getfiles;
+-(MSSharePointDriveFetcher*) getdrive;
 
 @end

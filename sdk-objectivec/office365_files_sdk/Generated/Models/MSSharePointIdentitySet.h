@@ -10,9 +10,12 @@
  *******************************************************************************/
 
 @class MSSharePointIdentity;
+@class MSSharePointIdentity;
+
+
+#import "MSSharePointProtocols.h"
 
 #import <Foundation/Foundation.h>
-#import "MSSharePointProtocols.h"
 
 
 /**
@@ -21,12 +24,8 @@
 
 @interface MSSharePointIdentitySet : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSSharePointIdentity *application;
-
 @property MSSharePointIdentity *user;
-
 
 @end

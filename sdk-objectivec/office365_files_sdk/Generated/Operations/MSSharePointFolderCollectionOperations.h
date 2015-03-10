@@ -8,15 +8,14 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-#import "MSSharePointItem.h"
 
-#import "MSSharePointItemCollectionOperations.h"
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
+#import "MSSharePointItemCollectionOperations.h"
 
 /**
 * The header for type MSSharePointFolderCollectionOperations.
 */
 
 @interface MSSharePointFolderCollectionOperations : MSSharePointItemCollectionOperations
-
 @end

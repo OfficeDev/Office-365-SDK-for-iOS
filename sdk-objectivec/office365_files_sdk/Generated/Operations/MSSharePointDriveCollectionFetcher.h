@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSSharePointDriveFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointDrive.h"
-#import "MSSharePointDriveFetcher.h"
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointDriveCollectionFetcher.
 */
 
-@protocol MSSharePointDriveCollectionFetcher
+@protocol MSSharePointDriveCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSSharePointDrive> *drives, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSSharePointDrive> *drives, MSODataException *error))callback;
 
 -(id<MSSharePointDriveCollectionFetcher>)select : (NSString*) params;
 -(id<MSSharePointDriveCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSSharePointDriveCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSSharePointDriveCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSSharePointDriveCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSSharePointDriveFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addDrive:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, MSODataException *e))callback;
+-(NSURLSessionTask*)addDrive:(MSSharePointDrive* )entity withCallback:(void (^)(MSSharePointDrive *drive, MSODataException *e))callback;
+
+@end
+
+@interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>
 
 @end

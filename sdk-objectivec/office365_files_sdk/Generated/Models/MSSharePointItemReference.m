@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointItemReference.h"
+#import "MSSharePointModels.h"
 
 /**
 * The implementation file for type ItemReference.
@@ -21,5 +21,6 @@
 	self.$$__ODataType = @"#Microsoft.FileServices.ItemReference";
 	return self;
 }
+
 
 @end

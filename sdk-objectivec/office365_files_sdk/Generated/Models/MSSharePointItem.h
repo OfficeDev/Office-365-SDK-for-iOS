@@ -10,10 +10,13 @@
  *******************************************************************************/
 
 @class MSSharePointIdentitySet;
+@class MSSharePointIdentitySet;
 @class MSSharePointItemReference;
 
-#import <Foundation/Foundation.h>
+
 #import "MSSharePointProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -22,30 +25,17 @@
 
 @interface MSSharePointItem : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSSharePointIdentitySet *createdBy;
-
 @property NSString *eTag;
-
 @property NSString *id;
-
 @property MSSharePointIdentitySet *lastModifiedBy;
-
 @property NSString *name;
-
 @property MSSharePointItemReference *parentReference;
-
 @property int size;
-
 @property NSDate *dateTimeCreated;
-
 @property NSDate *dateTimeLastModified;
-
 @property NSString *type;
-
 @property NSString *webUrl;
-
 
 @end

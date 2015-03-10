@@ -9,7 +9,8 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointClient.h"
+#import "MSSharePointODataEntities.h"
+
 /**
 * The implementation file for type MSSharePointClient.
 */
@@ -20,12 +21,11 @@
     return [super initWithUrl:url dependencyResolver:resolver];
 }
 
--(MSSharePointDriveFetcher*) getdrive{
-	return [[MSSharePointDriveFetcher alloc] initWithUrl:@"drive" parent:self andEntityClass: [MSSharePointDrive class]];
-}
-
 -(MSSharePointItemCollectionFetcher*) getfiles{
 	return [[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"files" parent:self];
+}
+-(MSSharePointDriveFetcher*) getdrive{
+	return [[MSSharePointDriveFetcher alloc] initWithUrl:@"drive" parent:self andEntityClass: [MSSharePointDrive class]];
 }
 
 @end

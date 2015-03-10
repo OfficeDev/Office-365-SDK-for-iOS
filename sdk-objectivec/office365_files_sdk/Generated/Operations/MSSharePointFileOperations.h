@@ -8,11 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSSharePointFile.h"
+#import "MSSharePointModels.h"
 #import "MSSharePointItemOperations.h"
-
 
 /**
 * The header for type MSSharePointFileOperations.
@@ -22,7 +21,6 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
--(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFile *file, MSODataException *error))callback;			
--(NSURLSessionDataTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*file, MSODataException *error))callback;			
-
+-(NSURLSessionTask*) copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName :  (void (^)(MSSharePointFile *file, MSODataException *error)) callback;
+-(NSURLSessionTask*) copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
 @end

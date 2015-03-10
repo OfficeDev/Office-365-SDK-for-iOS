@@ -11,9 +11,11 @@
 
 @class MSSharePointItem;
 
-#import <Foundation/Foundation.h>
+
 #import "MSSharePointProtocols.h"
 #import "MSSharePointItem.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type Folder.
@@ -21,10 +23,7 @@
 
 @interface MSSharePointFolder : MSSharePointItem
 
-
 @property int childCount;
-
-@property NSMutableArray<MSSharePointItem> *children;		
-		
+@property NSMutableArray<MSSharePointItem> *children;
 
 @end

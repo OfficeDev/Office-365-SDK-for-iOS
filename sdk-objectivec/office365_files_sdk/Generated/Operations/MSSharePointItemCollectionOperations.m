@@ -10,6 +10,7 @@
  *******************************************************************************/
 
 #import "MSSharePointItemCollectionOperations.h"
+#import "MSSharePointODataEntities.h"
 
 /**
 * The implementation file for type MSSharePointItemCollectionOperations.
@@ -24,7 +25,7 @@
 
 	NSString* parameters = [MSODataBaseContainerHelper getFunctionParameters: params];
 	[[request getUrl] appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
-		
+
 	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback: ^(id<MSODataResponse> r, MSODataException *error){
 
        if(error == nil){
@@ -38,5 +39,4 @@
     
     return task;
 }		
-
 @end

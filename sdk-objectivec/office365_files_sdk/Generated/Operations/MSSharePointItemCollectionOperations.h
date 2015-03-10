@@ -8,17 +8,14 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-#import "MSSharePointIdentitySet.h"
-#import "MSSharePointItemReference.h"
-#import "MSSharePointItem.h"
+
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointItemCollectionOperations.
 */
 
 @interface MSSharePointItemCollectionOperations : MSODataOperations
-
--(NSURLSessionTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback;	
-
+-(NSURLSessionTask*)getByPath : (NSString *) path : (void (^)(MSSharePointItem *item, MSODataException *error))callback;			
 @end

@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointFolderCollectionFetcher.h"
+#import "MSSharePointODataEntities.h"
 
 /**
 * The implementation file for type MSSharePointFolderCollectionFetcher.
@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSSharePointFolder class]];
 }
 
--(NSURLSessionDataTask*)addFolder:(MSSharePointFolder*)entity withCallback:(void (^)(MSSharePointFolder *folder, MSODataException *e))callback{
+-(NSURLSessionTask*)addFolder:(MSSharePointFolder*)entity withCallback:(void (^)(MSSharePointFolder *folder, MSODataException *e))callback{
 	
 	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);

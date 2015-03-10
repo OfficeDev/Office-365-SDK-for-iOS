@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointFolder.h"
+#import "MSSharePointModels.h"
 
 /**
 * The implementation file for type Folder.

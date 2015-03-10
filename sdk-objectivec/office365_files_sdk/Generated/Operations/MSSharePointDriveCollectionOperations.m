@@ -10,11 +10,11 @@
  *******************************************************************************/
 
 #import "MSSharePointDriveCollectionOperations.h"
+#import "MSSharePointODataEntities.h"
 
 /**
 * The implementation file for type MSSharePointDriveCollectionOperations.
 */
 
 @implementation MSSharePointDriveCollectionOperations
-
 @end

@@ -9,14 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSSharePointFolderFetcher.h"
-#import "MSSharePointItemCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSSharePointFolderFetcher.
-*/
-
+#import "MSSharePointODataEntities.h"
 
 @implementation MSSharePointFolderFetcher
 
@@ -25,26 +18,25 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSSharePointFolder class]];
 }
 
--(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSSharePointFolder*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateFolder:(id)entity withCallback:(void (^)(MSSharePointFolder*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSSharePointItemCollectionFetcher*) getchildren{
     return [[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"children" parent:self andEntityClass:[MSSharePointItem class]];
 }
 
--(MSSharePointItemFetcher*) getchildrenById : (NSString*)_id{
+-(id<MSSharePointItemFetcher>) getchildrenById : (NSString*)_id{
     return [[[MSSharePointItemCollectionFetcher alloc] initWithUrl:@"children" parent:self andEntityClass:[MSSharePointItem class]] getById:_id];
 }
 
