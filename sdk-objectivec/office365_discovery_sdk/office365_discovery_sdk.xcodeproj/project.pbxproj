@@ -10,8 +10,8 @@
 		EC2CCA3019F8A03000D12E55 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2CCA8919F8A22200D12E55 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */; };
 		EC2CCA8A19F8A29600D12E55 /* office365_discovery_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; };
-		EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */; };
+		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D2301A2606AD004B0B5C /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */; };
@@ -172,14 +172,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC2CCA3019F8A03000D12E55 /* office365_discovery_sdk.h in Headers */,
-				EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */,
 				EC78D2431A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h in Headers */,
 				EC2CCA8A19F8A29600D12E55 /* office365_discovery_sdk-Prefix.pch in Headers */,
-				EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */,
 				EC78D23F1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */,
 				EC78D2411A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.h in Headers */,
 				EC78D23B1A2606B6004B0B5C /* MSDiscoveryClient.h in Headers */,
 				EC78D23D1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
+				EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */,
+				EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */,
 				EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */,
 				EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */,
 			);
