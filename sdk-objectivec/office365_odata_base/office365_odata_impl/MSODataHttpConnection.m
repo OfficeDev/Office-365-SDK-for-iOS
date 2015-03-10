@@ -22,7 +22,7 @@
 
 -(NSURLSessionTask *)execute:(id<MSODataRequest>)request :(void (^)(id<MSODataResponse> response, MSODataException *error))callback{
     
-    if([[request getOptions] count]>0){
+    if([[request getOptions] count] == 0){
         return [self executeWithRequest:request :callback];
     }
     
@@ -39,9 +39,7 @@
     
     [self prepareRequest:request];
     
-    NSURLSessionConfiguration *conf = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration: conf delegate:self
-                                                     delegateQueue:  [NSOperationQueue currentQueue]];
+    NSURLSession *session = [NSURLSession sharedSession];
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:_request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self handleResponse:data :response :error :callback];
@@ -113,7 +111,7 @@
     if([reqImpl getStreamedContent] != nil){
         _request.HTTPBodyStream = [reqImpl getStreamedContent];
     }
-    else if ([reqImpl getContent] != nil){
+    else {
         _request.HTTPBody = [reqImpl getContent];
     }
     
