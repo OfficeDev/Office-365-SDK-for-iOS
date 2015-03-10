@@ -13,7 +13,7 @@
 @optional
 
 -(id<MSODataDependencyResolver>) getResolver;
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback;
+-(NSURLSessionTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback;
 -(id<MSODataExecutable>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 
 @required

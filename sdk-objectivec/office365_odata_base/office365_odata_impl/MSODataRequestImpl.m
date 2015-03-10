@@ -15,6 +15,7 @@
 @property id<MSODataURL> odataUrl;
 @property NSInputStream* stream;
 @property NSInteger size;
+@property NSMutableArray* options;
 
 @end
 
@@ -25,6 +26,7 @@
     self = [super init];
     self.request = [[NSMutableURLRequest alloc]init];
     self.odataUrl = [[MSODataURLImpl alloc] init];
+    self.options = [NSMutableArray array];
     
     return self;
 }
@@ -131,6 +133,15 @@
 
 -(NSInputStream *)getStreamedContent{
     return self.stream;
+}
+
+-(void)addOption:(NSString *)name :(NSString *)value{
+    NSDictionary* dicc = [[NSMutableDictionary alloc] initWithObjectsAndKeys: value,name,nil];
+    [self.options addObject:dicc];
+}
+
+-(NSMutableArray*)getOptions{
+    return self.options;
 }
 
 @end

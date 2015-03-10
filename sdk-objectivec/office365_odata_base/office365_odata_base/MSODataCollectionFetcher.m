@@ -85,7 +85,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
+-(NSURLSessionTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     
     [[request getUrl] appendPathComponent:self.UrlComponent];
     
@@ -114,7 +114,7 @@
     return [self.Parent getResolver];
 }
 
--(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+-(NSURLSessionTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -135,7 +135,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)addRaw : (NSString*) payload :(void (^)(NSString*, MSODataException *))callback{
+-(NSURLSessionTask *)addRaw : (NSString*) payload :(void (^)(NSString*, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -147,7 +147,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)add : (id) entity :(void (^)(id, MSODataException *))callback{
+-(NSURLSessionTask *)add : (id) entity :(void (^)(id, MSODataException *))callback{
     
     NSString* payload = [[[self getResolver] getJsonSerializer] serialize:entity];
     

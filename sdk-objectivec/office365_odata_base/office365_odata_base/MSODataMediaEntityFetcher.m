@@ -17,7 +17,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:nil];
 }
 
--(NSURLSessionDataTask *)getContentWithCallback:(void (^)(NSData * content, MSODataException * error))callback{
+-(NSURLSessionTask *)getContentWithCallback:(void (^)(NSData * content, MSODataException * error))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -35,12 +35,13 @@
     }];
 }
 
--(NSURLSessionDataTask *)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSODataException * error))callback{
+-(NSURLSessionTask *)getStreamedContentWithCallback:(void (^)(NSInputStream *content, MSODataException * error))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
     [[request getUrl] appendPathComponent:@"$value"];
-    //request.addOption(Request.MUST_STREAM_RESPONSE_CONTENT, "true");
+    
+    [request addOption:@"MUST_STREAM_DOWNLOAD_CONTENT" :@"true"];
     [request setVerb:GET];
     
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *e) {
@@ -54,7 +55,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)putContent:(NSData *)content withCallback:(void (^)(NSInteger, MSODataException *))callback{
+-(NSURLSessionTask *)putContent:(NSData *)content withCallback:(void (^)(NSInteger, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -73,14 +74,14 @@
     }];
 }
 
--(NSURLSessionDataTask *)putContent:(NSInputStream *)content withSize: (NSInteger) size withCallback:(void (^)(NSInteger, MSODataException *))callback{
+-(NSURLSessionTask *)putContent:(NSInputStream *)content withSize: (NSInteger) size withCallback:(void (^)(NSInteger, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
     [[request getUrl] appendPathComponent:@"$value"];
     [request setVerb:PUT];
     [request setStreamedContent:content :size];
-    
+    [request addOption:@"MUST_STREAM_RESPONSE_CONTENT" :@"true"];
     return [self oDataExecuteWithRequest:request callback:^(id<MSODataResponse>r, MSODataException *e) {
         
         if(e == nil){

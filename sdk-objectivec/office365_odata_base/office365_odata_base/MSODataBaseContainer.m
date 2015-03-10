@@ -31,7 +31,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback{
+-(NSURLSessionTask *)oDataExecuteWithRequest:(id<MSODataRequest>) request callback:  (void (^)(id<MSODataResponse>, MSODataException *))callback{
     
     [[request getUrl] setBaseUrl:self.UrlComponent];
     id<MSODataHttpTransport> httpTransport = [self.resolver getHttpTransport];

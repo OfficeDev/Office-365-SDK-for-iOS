@@ -12,7 +12,7 @@
 +(void)getClient : (void (^) (MSSharePointClient* ))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
-    NSString* hostName = @"https://teeudev1-my.sharepoint.com";
+    NSString* hostName = @"https://msopentechtest01-my.sharepoint.com";
     
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         

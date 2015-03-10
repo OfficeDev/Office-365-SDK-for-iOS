@@ -13,6 +13,6 @@
 @protocol MSODataHttpTransport
 
 -(id<MSODataRequest>) createRequest;
--(NSURLSessionDataTask *)execute:(id<MSODataRequest>)request : (void (^)(id<MSODataResponse> response, MSODataException *error))callback;
+-(NSURLSessionTask *)execute:(id<MSODataRequest>)request : (void (^)(id<MSODataResponse> response, MSODataException *error))callback;
 
 @end

@@ -16,7 +16,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
+-(NSURLSessionTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     [[request getUrl] appendPathComponent:self.UrlComponent];
     [MSODataBaseContainerHelper addCustomParametersToODataURL:request :[self getCustomParameters] : [self getCustomHeaders]:[self getResolver]];
     

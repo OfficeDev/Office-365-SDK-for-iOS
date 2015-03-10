@@ -24,5 +24,7 @@
 -(id<MSODataURL>) getUrl;
 -(void)setStreamedContent : (NSInputStream*) stream : (NSInteger) size;
 -(NSInputStream*)getStreamedContent;
+-(void)addOption: (NSString*) name : (NSString*) value;
+-(NSMutableArray*)getOptions;
 
 @end

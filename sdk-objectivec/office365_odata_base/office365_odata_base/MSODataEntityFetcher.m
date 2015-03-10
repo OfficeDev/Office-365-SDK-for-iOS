@@ -38,7 +38,7 @@
     return self;
 }
 
--(NSURLSessionDataTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
+-(NSURLSessionTask *)oDataExecuteWithRequest:(id<MSODataRequest>)request callback:(void (^)(id<MSODataResponse>, MSODataException *))callback{
     
     id<MSODataURL> url = [request getUrl];
 
@@ -59,7 +59,7 @@
     }];
 }
 
--(NSURLSessionDataTask*) update:(id)updatedEntity : (void (^)(id, MSODataException *))callback{
+-(NSURLSessionTask*) update:(id)updatedEntity : (void (^)(id, MSODataException *))callback{
     
     NSString *payload = [[[self getResolver] getJsonSerializer]serialize:updatedEntity];
     
@@ -75,7 +75,7 @@
     }];
 }
 
--(NSURLSessionDataTask*) updateRaw:(NSString*)payload : (void (^)(NSString*, MSODataException *))callback{
+-(NSURLSessionTask*) updateRaw:(NSString*)payload : (void (^)(NSString*, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -92,7 +92,7 @@
     }];
 }
 
--(NSURLSessionDataTask*) delete : (void (^)(int,MSODataException *))callback{
+-(NSURLSessionTask*) delete : (void (^)(int,MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -103,7 +103,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
+-(NSURLSessionTask *)readRaw:(void (^)(NSString *, MSODataException *))callback{
     
     id<MSODataRequest> request = [[self getResolver] createODataRequest];
     
@@ -119,7 +119,7 @@
     }];
 }
 
--(NSURLSessionDataTask *)read:(void (^)(id, MSODataException *))callback{
+-(NSURLSessionTask *)read:(void (^)(id, MSODataException *))callback{
     
     return [self readRaw:^(NSString *r, MSODataException *e) {
         if (e == nil) {
