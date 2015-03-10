@@ -9,10 +9,13 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class NSData;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookAttachment.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type FileAttachment.
@@ -20,14 +23,9 @@
 
 @interface MSOutlookFileAttachment : MSOutlookAttachment
 
-
 @property NSString *ContentId;
-
 @property NSString *ContentLocation;
-
-@property bool IsContactPhoto;
-
+@property BOOL IsContactPhoto;
 @property NSData *ContentBytes;
-
 
 @end

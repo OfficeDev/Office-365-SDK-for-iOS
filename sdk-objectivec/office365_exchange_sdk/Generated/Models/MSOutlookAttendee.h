@@ -9,12 +9,14 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookAttendeeType.h"
 @class MSOutlookResponseStatus;
 
-#import <Foundation/Foundation.h>
+#import "MSOutlookAttendeeType.h"
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookRecipient.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type Attendee.
@@ -22,9 +24,7 @@
 
 @interface MSOutlookAttendee : MSOutlookRecipient
 
-
 @property MSOutlookResponseStatus *Status;
-
 @property MSOutlookAttendeeType Type;
 -(void)setTypeString:(NSString*)value;
 

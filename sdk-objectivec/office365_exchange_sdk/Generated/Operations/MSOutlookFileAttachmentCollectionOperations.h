@@ -9,13 +9,13 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookAttachmentCollectionOperations.h"
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
+#import "MSOutlookAttachmentCollectionOperations.h"
 
 /**
 * The header for type MSOutlookFileAttachmentCollectionOperations.
 */
 
 @interface MSOutlookFileAttachmentCollectionOperations : MSOutlookAttachmentCollectionOperations
-
 @end

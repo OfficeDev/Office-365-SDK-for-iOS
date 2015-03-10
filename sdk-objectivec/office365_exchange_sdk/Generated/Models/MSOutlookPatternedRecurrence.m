@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookPatternedRecurrence.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type PatternedRecurrence.

@@ -8,13 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookFolder.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookEntityOperations.h"
-
-#import "MSOutlookFolder.h"
-#import "MSOutlookMessage.h"
 
 /**
 * The header for type MSOutlookFolderOperations.
@@ -24,10 +21,8 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
--(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback;			
--(NSURLSessionDataTask*)copyRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback;			
-
--(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback;			
--(NSURLSessionDataTask*)moveRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback;			
-
+-(NSURLSessionTask*) copy : (NSString *) destinationId :  (void (^)(MSOutlookFolder *folder, MSODataException *error)) callback;
+-(NSURLSessionTask*) copyRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) move : (NSString *) destinationId :  (void (^)(MSOutlookFolder *folder, MSODataException *error)) callback;
+-(NSURLSessionTask*) moveRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
 @end

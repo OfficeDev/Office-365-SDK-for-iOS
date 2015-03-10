@@ -8,13 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookContactFolder.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookEntityOperations.h"
-
-#import "MSOutlookContact.h"
-#import "MSOutlookContactFolder.h"
 
 /**
 * The header for type MSOutlookContactFolderOperations.

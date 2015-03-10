@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookFileAttachmentFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookFileAttachment.h"
-#import "MSOutlookFileAttachmentFetcher.h"
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookFileAttachmentCollectionFetcher.
 */
 
-@protocol MSOutlookFileAttachmentCollectionFetcher
+@protocol MSOutlookFileAttachmentCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookFileAttachment> *fileAttachments, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSOutlookFileAttachment> *fileAttachments, MSODataException *error))callback;
 
 -(id<MSOutlookFileAttachmentCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookFileAttachmentCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSOutlookFileAttachmentCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookFileAttachmentCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookFileAttachmentCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSOutlookFileAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookFileAttachmentCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookFileAttachmentFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addFileAttachment:(MSOutlookFileAttachment* )entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, MSODataException *e))callback;
+-(NSURLSessionTask*)addFileAttachment:(MSOutlookFileAttachment* )entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, MSODataException *e))callback;
+
+@end
+
+@interface MSOutlookFileAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookFileAttachmentCollectionFetcher>
 
 @end

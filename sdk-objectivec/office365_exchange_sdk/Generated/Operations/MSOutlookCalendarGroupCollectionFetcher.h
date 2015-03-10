@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookCalendarGroupFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookCalendarGroup.h"
-#import "MSOutlookCalendarGroupFetcher.h"
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookCalendarGroupCollectionFetcher.
 */
 
-@protocol MSOutlookCalendarGroupCollectionFetcher
+@protocol MSOutlookCalendarGroupCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookCalendarGroup> *calendarGroups, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSOutlookCalendarGroup> *calendarGroups, MSODataException *error))callback;
 
 -(id<MSOutlookCalendarGroupCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookCalendarGroupCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSOutlookCalendarGroupCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookCalendarGroupCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarGroupCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSOutlookCalendarGroupCollectionFetcher : MSODataCollectionFetcher<MSOutlookCalendarGroupCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookCalendarGroupFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addCalendarGroup:(MSOutlookCalendarGroup* )entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, MSODataException *e))callback;
+-(NSURLSessionTask*)addCalendarGroup:(MSOutlookCalendarGroup* )entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, MSODataException *e))callback;
+
+@end
+
+@interface MSOutlookCalendarGroupCollectionFetcher : MSODataCollectionFetcher<MSOutlookCalendarGroupCollectionFetcher>
 
 @end

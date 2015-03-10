@@ -11,12 +11,10 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookRecurrenceRangeType) {
+typedef NS_ENUM(NSInteger, MSOutlookRecurrenceRangeType){
 
 	EndDate,
-
 	NoEnd,
-
 	Numbered
 
 };

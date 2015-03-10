@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookResponseStatus.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type ResponseStatus.
@@ -22,25 +22,25 @@
 	return self;
 }
 
-
 -(void)setResponseString:(NSString*)value{
 	if([value isEqualToString:@"None"]){
-        self.Response = None;
-    }
+		self.Response = None;
+	}
 	if([value isEqualToString:@"Organizer"]){
-        self.Response = Organizer;
-    }
+		self.Response = Organizer;
+	}
 	if([value isEqualToString:@"TentativelyAccepted"]){
-        self.Response = TentativelyAccepted;
-    }
+		self.Response = TentativelyAccepted;
+	}
 	if([value isEqualToString:@"Accepted"]){
-        self.Response = Accepted;
-    }
+		self.Response = Accepted;
+	}
 	if([value isEqualToString:@"Declined"]){
-        self.Response = Declined;
-    }
+		self.Response = Declined;
+	}
 	if([value isEqualToString:@"NotResponded"]){
-        self.Response = NotResponded;
-    }
+		self.Response = NotResponded;
+	}
 }
+
 @end

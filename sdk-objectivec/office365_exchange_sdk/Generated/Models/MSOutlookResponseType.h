@@ -11,18 +11,13 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookResponseType) {
+typedef NS_ENUM(NSInteger, MSOutlookResponseType){
 
 	None,
-
 	Organizer,
-
 	TentativelyAccepted,
-
 	Accepted,
-
 	Declined,
-
 	NotResponded
 
 };

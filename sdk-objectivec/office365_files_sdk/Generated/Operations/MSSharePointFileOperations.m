@@ -40,7 +40,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*file, MSODataException *error))callback{
+-(NSURLSessionTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*file, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
@@ -54,7 +54,7 @@
 	[[request getUrl] appendPathComponent:@"copy"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
         if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }

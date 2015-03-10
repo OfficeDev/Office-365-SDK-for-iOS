@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookItemBody.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type ItemBody.
@@ -22,13 +22,13 @@
 	return self;
 }
 
-
 -(void)setContentTypeString:(NSString*)value{
 	if([value isEqualToString:@"Text"]){
-        self.ContentType = Text;
-    }
+		self.ContentType = Text;
+	}
 	if([value isEqualToString:@"HTML"]){
-        self.ContentType = HTML;
-    }
+		self.ContentType = HTML;
+	}
 }
+
 @end

@@ -11,8 +11,9 @@
 
 #import "MSOutlookBodyType.h"
 
-#import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -21,12 +22,9 @@
 
 @interface MSOutlookItemBody : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSOutlookBodyType ContentType;
 -(void)setContentTypeString:(NSString*)value;
 @property NSString *Content;
-
 
 @end

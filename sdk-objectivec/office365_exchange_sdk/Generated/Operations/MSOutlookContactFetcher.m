@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookContactFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookContactFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookContactFetcher
 
@@ -24,17 +18,17 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookContact class]];
 }
 
--(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteContact:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 

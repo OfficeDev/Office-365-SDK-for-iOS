@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookItemFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookItemFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookItemFetcher
 
@@ -24,31 +18,28 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookItem class]];
 }
 
--(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteItem:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
-
-
-	
 -(MSOutlookMessageFetcher*) asMessage{
 	return [[MSOutlookMessageFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookMessage class]];
 }
-	
 -(MSOutlookEventFetcher*) asEvent{
 	return [[MSOutlookEventFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookEvent class]];
 }
-	
 -(MSOutlookContactFetcher*) asContact{
 	return [[MSOutlookContactFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookContact class]];
-}@end
+}
+
+@end

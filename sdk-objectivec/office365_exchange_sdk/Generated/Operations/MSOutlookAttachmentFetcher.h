@@ -9,38 +9,37 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookFileAttachmentFetcher;;
+@class MSOutlookItemAttachmentFetcher;;
+@class MSOutlookAttachmentOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookAttachmentOperations.h"
-#import "MSOutlookAttachment.h"
+#import "MSOutlookModels.h"
 
-
-#import "MSOutlookFileAttachmentFetcher.h"
-#import "MSOutlookItemAttachmentFetcher.h"
 /**
 * The header for type MSOutlookAttachmentFetcher.
 */
 
-@protocol MSOutlookAttachmentFetcher
+
+@protocol MSOutlookAttachmentFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookAttachment* attachment, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookAttachment* attachment, MSODataException *error))callback;
+-(NSURLSessionTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookAttachmentFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookAttachmentFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookAttachmentFetcher>)select : (NSString*) params;
 -(id<MSOutlookAttachmentFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookAttachmentOperations*) getOperations;
+	
+-(MSOutlookFileAttachmentFetcher*) asFileAttachment;	
+	
+-(MSOutlookItemAttachmentFetcher*) asItemAttachment;	
 @end
 
 @interface MSOutlookAttachmentFetcher : MSODataEntityFetcher<MSOutlookAttachmentFetcher>
 
--(MSOutlookAttachmentOperations*) getOperations;
-
-	
-	
--(MSOutlookFileAttachmentFetcher*) asFileAttachment;	
-	
-	
--(MSOutlookItemAttachmentFetcher*) asItemAttachment;	
-	
 @end

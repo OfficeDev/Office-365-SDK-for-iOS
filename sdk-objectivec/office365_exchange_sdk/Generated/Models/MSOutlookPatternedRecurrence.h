@@ -12,8 +12,10 @@
 @class MSOutlookRecurrencePattern;
 @class MSOutlookRecurrenceRange;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -22,12 +24,8 @@
 
 @interface MSOutlookPatternedRecurrence : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSOutlookRecurrencePattern *Pattern;
-
 @property MSOutlookRecurrenceRange *Range;
-
 
 @end

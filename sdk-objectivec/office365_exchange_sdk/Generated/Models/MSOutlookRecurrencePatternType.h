@@ -11,18 +11,13 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookRecurrencePatternType) {
+typedef NS_ENUM(NSInteger, MSOutlookRecurrencePatternType){
 
 	Daily,
-
 	Weekly,
-
 	AbsoluteMonthly,
-
 	RelativeMonthly,
-
 	AbsoluteYearly,
-
 	RelativeYearly
 
 };

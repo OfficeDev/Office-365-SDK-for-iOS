@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookCalendarOperations.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookCalendarOperations.
@@ -19,4 +19,6 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent{
     return [super initOperationWithUrl:urlComponent parent:parent];
-}@end
+}
+
+@end

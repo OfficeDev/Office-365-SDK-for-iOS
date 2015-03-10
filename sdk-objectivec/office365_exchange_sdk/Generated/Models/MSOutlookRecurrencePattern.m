@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookRecurrencePattern.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type RecurrencePattern.
@@ -22,67 +22,65 @@
 	return self;
 }
 
-
 -(void)setTypeString:(NSString*)value{
 	if([value isEqualToString:@"Daily"]){
-        self.Type = Daily;
-    }
+		self.Type = Daily;
+	}
 	if([value isEqualToString:@"Weekly"]){
-        self.Type = Weekly;
-    }
+		self.Type = Weekly;
+	}
 	if([value isEqualToString:@"AbsoluteMonthly"]){
-        self.Type = AbsoluteMonthly;
-    }
+		self.Type = AbsoluteMonthly;
+	}
 	if([value isEqualToString:@"RelativeMonthly"]){
-        self.Type = RelativeMonthly;
-    }
+		self.Type = RelativeMonthly;
+	}
 	if([value isEqualToString:@"AbsoluteYearly"]){
-        self.Type = AbsoluteYearly;
-    }
+		self.Type = AbsoluteYearly;
+	}
 	if([value isEqualToString:@"RelativeYearly"]){
-        self.Type = RelativeYearly;
-    }
+		self.Type = RelativeYearly;
+	}
 }
-
 -(void)setFirstDayOfWeekString:(NSString*)value{
 	if([value isEqualToString:@"Sunday"]){
-        self.FirstDayOfWeek = Sunday;
-    }
+		self.FirstDayOfWeek = Sunday;
+	}
 	if([value isEqualToString:@"Monday"]){
-        self.FirstDayOfWeek = Monday;
-    }
+		self.FirstDayOfWeek = Monday;
+	}
 	if([value isEqualToString:@"Tuesday"]){
-        self.FirstDayOfWeek = Tuesday;
-    }
+		self.FirstDayOfWeek = Tuesday;
+	}
 	if([value isEqualToString:@"Wednesday"]){
-        self.FirstDayOfWeek = Wednesday;
-    }
+		self.FirstDayOfWeek = Wednesday;
+	}
 	if([value isEqualToString:@"Thursday"]){
-        self.FirstDayOfWeek = Thursday;
-    }
+		self.FirstDayOfWeek = Thursday;
+	}
 	if([value isEqualToString:@"Friday"]){
-        self.FirstDayOfWeek = Friday;
-    }
+		self.FirstDayOfWeek = Friday;
+	}
 	if([value isEqualToString:@"Saturday"]){
-        self.FirstDayOfWeek = Saturday;
-    }
+		self.FirstDayOfWeek = Saturday;
+	}
 }
-
 -(void)setIndexString:(NSString*)value{
 	if([value isEqualToString:@"First"]){
-        self.Index = First;
-    }
+		self.Index = First;
+	}
 	if([value isEqualToString:@"Second"]){
-        self.Index = Second;
-    }
+		self.Index = Second;
+	}
 	if([value isEqualToString:@"Third"]){
-        self.Index = Third;
-    }
+		self.Index = Third;
+	}
 	if([value isEqualToString:@"Fourth"]){
-        self.Index = Fourth;
-    }
+		self.Index = Fourth;
+	}
 	if([value isEqualToString:@"Last"]){
-        self.Index = Last;
-    }
+		self.Index = Last;
+	}
 }
+
 @end

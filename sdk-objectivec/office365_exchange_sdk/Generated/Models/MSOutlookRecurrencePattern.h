@@ -11,9 +11,12 @@
 
 #import "MSOutlookRecurrencePatternType.h"
 #import "MSOutlookDayOfWeek.h"
+#import "MSOutlookDayOfWeek.h"
 #import "MSOutlookWeekIndex.h"
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -22,18 +25,13 @@
 
 @interface MSOutlookRecurrencePattern : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSOutlookRecurrencePatternType Type;
 -(void)setTypeString:(NSString*)value;
 @property int Interval;
-
 @property int DayOfMonth;
-
 @property int Month;
-
-@property NSMutableArray<MSOutlookDayOfWeek>* DaysOfWeek;
+@property NSMutableArray<MSOutlookDayOfWeek> *DaysOfWeek;
 @property MSOutlookDayOfWeek FirstDayOfWeek;
 -(void)setFirstDayOfWeekString:(NSString*)value;
 @property MSOutlookWeekIndex Index;

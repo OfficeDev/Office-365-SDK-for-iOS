@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookItemCollectionFetcher.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookItemCollectionFetcher.
@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookItem class]];
 }
 
--(NSURLSessionDataTask*)addItem:(MSOutlookItem*)entity withCallback:(void (^)(MSOutlookItem *item, MSODataException *e))callback{
+-(NSURLSessionTask*)addItem:(MSOutlookItem*)entity withCallback:(void (^)(MSOutlookItem *item, MSODataException *e))callback{
 	
 	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);

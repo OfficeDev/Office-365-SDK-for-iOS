@@ -8,16 +8,14 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-#import "MSOutlookEmailAddress.h"
-#import "MSOutlookPhysicalAddress.h"
 
-#import "MSOutlookItemCollectionOperations.h"
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
+#import "MSOutlookItemCollectionOperations.h"
 
 /**
 * The header for type MSOutlookContactCollectionOperations.
 */
 
 @interface MSOutlookContactCollectionOperations : MSOutlookItemCollectionOperations
-
 @end

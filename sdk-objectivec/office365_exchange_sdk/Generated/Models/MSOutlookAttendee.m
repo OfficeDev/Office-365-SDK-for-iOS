@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookAttendee.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Attendee.
@@ -22,16 +22,16 @@
 	return self;
 }
 
-
 -(void)setTypeString:(NSString*)value{
 	if([value isEqualToString:@"Required"]){
-        self.Type = Required;
-    }
+		self.Type = Required;
+	}
 	if([value isEqualToString:@"Optional"]){
-        self.Type = Optional;
-    }
+		self.Type = Optional;
+	}
 	if([value isEqualToString:@"Resource"]){
-        self.Type = Resource;
-    }
+		self.Type = Resource;
+	}
 }
+
 @end

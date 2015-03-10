@@ -9,43 +9,43 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookAttachmentFetcher;;
+@class MSOutlookAttachmentCollectionFetcher;;
+@class MSOutlookCalendarFetcher;;
+@class MSOutlookEventFetcher;;
+@class MSOutlookEventCollectionFetcher;;
+@class MSOutlookEventOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookEventOperations.h"
-#import "MSOutlookEvent.h"
-@class MSOutlookAttachmentCollectionFetcher;
-@class MSOutlookCalendarFetcher;
-@class MSOutlookEventCollectionFetcher;
-@class MSOutlookAttachmentFetcher;
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookEventFetcher.
 */
 
-@protocol MSOutlookEventFetcher
+
+@protocol MSOutlookEventFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookEvent* event, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookEvent* event, MSODataException *error))callback;
+-(NSURLSessionTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookEventFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookEventFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookEventFetcher>)select : (NSString*) params;
 -(id<MSOutlookEventFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookEventOperations*) getOperations;
+-(MSOutlookAttachmentCollectionFetcher*) getAttachments;
+
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
+-(MSOutlookCalendarFetcher*) getCalendar;
+-(MSOutlookEventCollectionFetcher*) getInstances;
+
+-(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id;
 @end
 
 @interface MSOutlookEventFetcher : MSODataEntityFetcher<MSOutlookEventFetcher>
 
--(MSOutlookEventOperations*) getOperations;
-
--(MSOutlookAttachmentCollectionFetcher*) getAttachments;
-
--(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
-
--(MSOutlookCalendarFetcher*) getCalendar;
-
--(MSOutlookEventCollectionFetcher*) getInstances;
-
--(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id;
-
-	
 @end

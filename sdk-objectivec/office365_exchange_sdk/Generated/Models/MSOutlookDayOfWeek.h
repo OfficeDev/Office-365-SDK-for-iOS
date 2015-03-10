@@ -11,20 +11,14 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookDayOfWeek) {
+typedef NS_ENUM(NSInteger, MSOutlookDayOfWeek){
 
 	Sunday,
-
 	Monday,
-
 	Tuesday,
-
 	Wednesday,
-
 	Thursday,
-
 	Friday,
-
 	Saturday
 
 };

@@ -11,8 +11,6 @@
 		EC08772C1A852C4C0077696D /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08772A1A852C4C0077696D /* ADALDependencyResolver.m */; };
 		EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1D35621A2799780064FCAF /* MSODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC1D35651A2799780064FCAF /* MSODataExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1D35631A2799780064FCAF /* MSODataExecutable.m */; };
-		EC3481C81AAA209200530D41 /* MSOdataStream.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3481C61AAA209200530D41 /* MSOdataStream.h */; };
-		EC3481C91AAA209200530D41 /* MSOdataStream.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3481C71AAA209200530D41 /* MSOdataStream.m */; };
 		EC4DE7BC1A1CD729004F16C4 /* office365_odata_core.h in Headers */ = {isa = PBXBuildFile; fileRef = ECC82DE11A1BDE87009A6142 /* office365_odata_core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8171A24C500004F16C4 /* MSODataCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE80C1A24C500004F16C4 /* MSODataCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8191A24C500004F16C4 /* MSODataDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE80E1A24C500004F16C4 /* MSODataDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -292,7 +290,6 @@
 				EC4DE8411A24C566004F16C4 /* MSODataBasicCredentials.h in Headers */,
 				EC4DE81F1A24C500004F16C4 /* MSODataRequest.h in Headers */,
 				EC4DE8201A24C500004F16C4 /* MSODataResponse.h in Headers */,
-				EC3481C81AAA209200530D41 /* MSOdataStream.h in Headers */,
 				EC4DE8741A24C675004F16C4 /* office365_odata_interfaces.h in Headers */,
 				EC4DE84F1A24C566004F16C4 /* MSODataURLImpl.h in Headers */,
 				EC4DE8491A24C566004F16C4 /* MSODataJsonSerializerImpl.h in Headers */,
@@ -371,7 +368,6 @@
 				EC4DE8521A24C566004F16C4 /* MSODataRequestImpl.m in Sources */,
 				EC4DE8421A24C566004F16C4 /* MSODataBasicCredentials.m in Sources */,
 				EC4DE86C1A24C655004F16C4 /* MSODataOperations.m in Sources */,
-				EC3481C91AAA209200530D41 /* MSOdataStream.m in Sources */,
 				EC4DE8501A24C566004F16C4 /* MSODataURLImpl.m in Sources */,
 				EC4DE8541A24C566004F16C4 /* MSODataResponseImpl.m in Sources */,
 				EC4DE8641A24C655004F16C4 /* MSODataBaseContainer.m in Sources */,

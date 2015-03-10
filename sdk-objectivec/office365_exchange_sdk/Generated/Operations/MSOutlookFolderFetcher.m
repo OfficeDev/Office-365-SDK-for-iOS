@@ -9,15 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookFolderFetcher.h"
-#import "MSOutlookFolderCollectionFetcher.h"
-#import "MSOutlookMessageCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookFolderFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookFolderFetcher
 
@@ -26,34 +18,32 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookFolder class]];
 }
 
--(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSOutlookFolderCollectionFetcher*) getChildFolders{
     return [[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookFolder class]];
 }
 
--(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id{
+-(id<MSOutlookFolderFetcher>) getChildFoldersById : (NSString*)_id{
     return [[[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookFolder class]] getById:_id];
 }
-
 -(MSOutlookMessageCollectionFetcher*) getMessages{
     return [[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self andEntityClass:[MSOutlookMessage class]];
 }
 
--(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id{
+-(id<MSOutlookMessageFetcher>) getMessagesById : (NSString*)_id{
     return [[[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self andEntityClass:[MSOutlookMessage class]] getById:_id];
 }
 

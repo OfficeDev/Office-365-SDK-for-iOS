@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookMessageOperations.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookMessageOperations.
@@ -21,12 +21,14 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
+
+-(NSURLSessionTask*) copy : (NSString *) destinationId :  (void (^)(MSOutlookMessage *message, MSODataException *error)) callback;{
 	
 	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
-	NSURLSessionDataTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookMessage class]];
             callback(result, error);
         }
@@ -38,20 +40,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)copyRaw : (NSString*) destinationId : (void (^)(NSString*message, MSODataException *error))callback{
+-(NSURLSessionTask*) copyRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Copy"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -60,15 +67,16 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
+-(NSURLSessionTask*) move : (NSString *) destinationId :  (void (^)(MSOutlookMessage *message, MSODataException *error)) callback;{
 	
 	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
-	NSURLSessionDataTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookMessage class]];
             callback(result, error);
         }
@@ -80,20 +88,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)moveRaw : (NSString*) destinationId : (void (^)(NSString*message, MSODataException *error))callback{
+-(NSURLSessionTask*) moveRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Move"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -102,14 +115,15 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)createReply : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
+-(NSURLSessionTask*) createReply :  (void (^)(MSOutlookMessage *message, MSODataException *error)) callback;{
 	
 
-	NSURLSessionDataTask* task = [self createReplyRaw  :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self createReplyRaw  :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookMessage class]];
             callback(result, error);
         }
@@ -121,15 +135,18 @@
     return task;
 }
 
--(NSURLSessionDataTask*)createReplyRaw : (void (^)(NSString*message, MSODataException *error))callback{
+-(NSURLSessionTask*) createReplyRaw :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
+	
 	
 	[[request getUrl] appendPathComponent:@"CreateReply"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -138,14 +155,15 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)createReplyAll : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
+-(NSURLSessionTask*) createReplyAll :  (void (^)(MSOutlookMessage *message, MSODataException *error)) callback;{
 	
 
-	NSURLSessionDataTask* task = [self createReplyAllRaw  :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self createReplyAllRaw  :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookMessage class]];
             callback(result, error);
         }
@@ -157,15 +175,18 @@
     return task;
 }
 
--(NSURLSessionDataTask*)createReplyAllRaw : (void (^)(NSString*message, MSODataException *error))callback{
+-(NSURLSessionTask*) createReplyAllRaw :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
+	
 	
 	[[request getUrl] appendPathComponent:@"CreateReplyAll"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -174,14 +195,15 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)createForward : (void (^)(MSOutlookMessage *message, MSODataException *error))callback{
+-(NSURLSessionTask*) createForward :  (void (^)(MSOutlookMessage *message, MSODataException *error)) callback;{
 	
 
-	NSURLSessionDataTask* task = [self createForwardRaw  :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self createForwardRaw  :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookMessage * result = (MSOutlookMessage *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookMessage class]];
             callback(result, error);
         }
@@ -193,15 +215,18 @@
     return task;
 }
 
--(NSURLSessionDataTask*)createForwardRaw : (void (^)(NSString*message, MSODataException *error))callback{
+-(NSURLSessionTask*) createForwardRaw :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
+	
 	
 	[[request getUrl] appendPathComponent:@"CreateForward"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -210,15 +235,16 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)reply : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) reply : (NSString *) comment :  (void (^)(int returnValue, MSODataException *error)) callback;{
 	
 	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
-	NSURLSessionDataTask* task = [self replyRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self replyRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : nil];
             callback(result, error);
         }
@@ -230,20 +256,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)replyRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) replyRaw : (NSString*) comment :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Reply"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -252,15 +283,16 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)replyAll : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) replyAll : (NSString *) comment :  (void (^)(int returnValue, MSODataException *error)) callback;{
 	
 	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 
-	NSURLSessionDataTask* task = [self replyAllRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self replyAllRaw 	: commentString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : nil];
             callback(result, error);
         }
@@ -272,20 +304,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)replyAllRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) replyAllRaw : (NSString*) comment :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"ReplyAll"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -294,16 +331,17 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)forward : (NSString *) comment : (NSMutableArray<MSOutlookRecipient> *) toRecipients : (void (^)(int returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) forward : (NSString *) comment : (MSOutlookRecipient *) toRecipients :  (void (^)(int returnValue, MSODataException *error)) callback;{
 	
 	NSString * commentString = [[[self getResolver] getJsonSerializer] serialize:comment : @"Comment"];
 	NSString * toRecipientsString = [[[self getResolver] getJsonSerializer] serialize:toRecipients : @"ToRecipients"];
 
-	NSURLSessionDataTask* task = [self forwardRaw 	: commentString: toRecipientsString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self forwardRaw 	: commentString: toRecipientsString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : nil];
             callback(result, error);
         }
@@ -315,21 +353,26 @@
     return task;
 }
 
--(NSURLSessionDataTask*)forwardRaw : (NSString*) comment : (NSString*) toRecipients : (void (^)(NSString*returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) forwardRaw : (NSString*) comment : (NSString*) toRecipients :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment",nil ],
-	[[NSDictionary alloc] initWithObjectsAndKeys :toRecipients,@"ToRecipients",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :comment,@"Comment", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys :toRecipients,@"ToRecipients", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Forward"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -338,14 +381,15 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)send : (void (^)(int returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) send :  (void (^)(int returnValue, MSODataException *error)) callback;{
 	
 
-	NSURLSessionDataTask* task = [self sendRaw  :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self sendRaw  :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			int result = (int)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : nil];
             callback(result, error);
         }
@@ -357,15 +401,18 @@
     return task;
 }
 
--(NSURLSessionDataTask*)sendRaw : (void (^)(NSString*returnValue, MSODataException *error))callback{
+-(NSURLSessionTask*) sendRaw :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
+	
 	
 	[[request getUrl] appendPathComponent:@"Send"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -374,5 +421,6 @@
     }];
     
     return task;
-}				
+}
+    				
 @end

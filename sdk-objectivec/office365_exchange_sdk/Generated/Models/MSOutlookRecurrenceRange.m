@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookRecurrenceRange.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type RecurrenceRange.
@@ -22,16 +22,16 @@
 	return self;
 }
 
-
 -(void)setTypeString:(NSString*)value{
 	if([value isEqualToString:@"EndDate"]){
-        self.Type = EndDate;
-    }
+		self.Type = EndDate;
+	}
 	if([value isEqualToString:@"NoEnd"]){
-        self.Type = NoEnd;
-    }
+		self.Type = NoEnd;
+	}
 	if([value isEqualToString:@"Numbered"]){
-        self.Type = Numbered;
-    }
+		self.Type = Numbered;
+	}
 }
+
 @end

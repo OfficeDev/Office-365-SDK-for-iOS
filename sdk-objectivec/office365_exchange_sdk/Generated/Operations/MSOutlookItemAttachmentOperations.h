@@ -8,12 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookItemAttachment.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookAttachmentOperations.h"
-
-#import "MSOutlookItem.h"
 
 /**
 * The header for type MSOutlookItemAttachmentOperations.

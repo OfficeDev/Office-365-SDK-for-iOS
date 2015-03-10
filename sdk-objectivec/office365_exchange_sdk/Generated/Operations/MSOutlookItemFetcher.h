@@ -9,42 +9,40 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookMessageFetcher;;
+@class MSOutlookEventFetcher;;
+@class MSOutlookContactFetcher;;
+@class MSOutlookItemOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookItemOperations.h"
-#import "MSOutlookItem.h"
+#import "MSOutlookModels.h"
 
-
-#import "MSOutlookMessageFetcher.h"
-#import "MSOutlookEventFetcher.h"
-#import "MSOutlookContactFetcher.h"
 /**
 * The header for type MSOutlookItemFetcher.
 */
 
-@protocol MSOutlookItemFetcher
+
+@protocol MSOutlookItemFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookItem* item, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteItem:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookItem* item, MSODataException *error))callback;
+-(NSURLSessionTask*) updateItem:(id)entity withCallback:(void (^)(MSOutlookItem*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteItem:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookItemFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookItemFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookItemFetcher>)select : (NSString*) params;
 -(id<MSOutlookItemFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookItemOperations*) getOperations;
+	
+-(MSOutlookMessageFetcher*) asMessage;	
+	
+-(MSOutlookEventFetcher*) asEvent;	
+	
+-(MSOutlookContactFetcher*) asContact;	
 @end
 
 @interface MSOutlookItemFetcher : MSODataEntityFetcher<MSOutlookItemFetcher>
 
--(MSOutlookItemOperations*) getOperations;
-
-	
-	
--(MSOutlookMessageFetcher*) asMessage;	
-	
-	
--(MSOutlookEventFetcher*) asEvent;	
-	
-	
--(MSOutlookContactFetcher*) asContact;	
-	
 @end

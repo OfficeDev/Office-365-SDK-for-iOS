@@ -9,40 +9,39 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookEventFetcher;;
+@class MSOutlookEventCollectionFetcher;;
+@class MSOutlookCalendarOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookCalendarOperations.h"
-#import "MSOutlookCalendar.h"
-@class MSOutlookEventCollectionFetcher;
-@class MSOutlookEventCollectionFetcher;
-@class MSOutlookEventFetcher;
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookCalendarFetcher.
 */
 
-@protocol MSOutlookCalendarFetcher
+
+@protocol MSOutlookCalendarFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendar* calendar, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookCalendar* calendar, MSODataException *error))callback;
+-(NSURLSessionTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookCalendarFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookCalendarFetcher>)select : (NSString*) params;
 -(id<MSOutlookCalendarFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookCalendarOperations*) getOperations;
+-(MSOutlookEventCollectionFetcher*) getCalendarView;
+
+-(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
+-(MSOutlookEventCollectionFetcher*) getEvents;
+
+-(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
 @end
 
 @interface MSOutlookCalendarFetcher : MSODataEntityFetcher<MSOutlookCalendarFetcher>
 
--(MSOutlookCalendarOperations*) getOperations;
-
--(MSOutlookEventCollectionFetcher*) getCalendarView;
-
--(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id;
-
--(MSOutlookEventCollectionFetcher*) getEvents;
-
--(MSOutlookEventFetcher*) getEventsById : (NSString*)_id;
-
-	
 @end

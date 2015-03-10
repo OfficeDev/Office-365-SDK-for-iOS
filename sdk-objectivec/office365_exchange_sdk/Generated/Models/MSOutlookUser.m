@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookUser.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type User.
@@ -21,6 +21,5 @@
 	self.$$__ODataType = @"#Microsoft.OutlookServices.User";
 	return self;
 }
-
 
 @end

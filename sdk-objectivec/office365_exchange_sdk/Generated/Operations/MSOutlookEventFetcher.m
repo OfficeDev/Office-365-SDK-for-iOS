@@ -9,16 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookEventFetcher.h"
-#import "MSOutlookAttachmentCollectionFetcher.h"
-#import "MSOutlookCalendarFetcher.h"
-#import "MSOutlookEventCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookEventFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookEventFetcher
 
@@ -27,39 +18,35 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookEvent class]];
 }
 
--(NSURLSessionDataTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateEvent:(id)entity withCallback:(void (^)(MSOutlookEvent*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteEvent:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSOutlookAttachmentCollectionFetcher*) getAttachments{
     return [[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]];
 }
 
--(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id{
+-(id<MSOutlookAttachmentFetcher>) getAttachmentsById : (NSString*)_id{
     return [[[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self andEntityClass:[MSOutlookAttachment class]] getById:_id];
 }
-
 -(MSOutlookCalendarFetcher*) getCalendar{
 	 return [[MSOutlookCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self andEntityClass: [MSOutlookCalendar class]];
 }
-
-
 -(MSOutlookEventCollectionFetcher*) getInstances{
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
--(MSOutlookEventFetcher*) getInstancesById : (NSString*)_id{
+-(id<MSOutlookEventFetcher>) getInstancesById : (NSString*)_id{
     return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
 }
 

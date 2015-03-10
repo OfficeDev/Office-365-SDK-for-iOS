@@ -11,8 +11,9 @@
 
 #import "MSOutlookResponseType.h"
 
-#import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -21,12 +22,9 @@
 
 @interface MSOutlookResponseStatus : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSOutlookResponseType Response;
 -(void)setResponseString:(NSString*)value;
 @property NSDate *Time;
-
 
 @end

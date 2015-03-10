@@ -10,8 +10,9 @@
  *******************************************************************************/
 
 
-#import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -20,18 +21,11 @@
 
 @interface MSOutlookPhysicalAddress : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property NSString *Street;
-
 @property NSString *City;
-
 @property NSString *State;
-
 @property NSString *CountryOrRegion;
-
 @property NSString *PostalCode;
-
 
 @end

@@ -10,11 +10,11 @@
  *******************************************************************************/
 
 #import "MSOutlookAttachmentCollectionOperations.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookAttachmentCollectionOperations.
 */
 
 @implementation MSOutlookAttachmentCollectionOperations
-
 @end

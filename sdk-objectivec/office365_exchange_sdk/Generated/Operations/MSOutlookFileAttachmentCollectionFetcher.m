@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookFileAttachmentCollectionFetcher.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookFileAttachmentCollectionFetcher.
@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookFileAttachment class]];
 }
 
--(NSURLSessionDataTask*)addFileAttachment:(MSOutlookFileAttachment*)entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, MSODataException *e))callback{
+-(NSURLSessionTask*)addFileAttachment:(MSOutlookFileAttachment*)entity withCallback:(void (^)(MSOutlookFileAttachment *fileAttachment, MSODataException *e))callback{
 	
 	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);

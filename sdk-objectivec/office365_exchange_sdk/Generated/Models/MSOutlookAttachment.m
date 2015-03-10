@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookAttachment.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Attachment.
@@ -21,6 +21,5 @@
 	self.$$__ODataType = @"#Microsoft.OutlookServices.Attachment";
 	return self;
 }
-
 
 @end

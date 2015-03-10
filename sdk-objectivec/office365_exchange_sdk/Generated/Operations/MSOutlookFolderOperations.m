@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookFolderOperations.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookFolderOperations.
@@ -21,12 +21,14 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
+
+-(NSURLSessionTask*) copy : (NSString *) destinationId :  (void (^)(MSOutlookFolder *folder, MSODataException *error)) callback;{
 	
 	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
-	NSURLSessionDataTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self copyRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookFolder class]];
             callback(result, error);
         }
@@ -38,20 +40,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)copyRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback{
+-(NSURLSessionTask*) copyRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Copy"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -60,15 +67,16 @@
     }];
     
     return task;
-}				
+}
+    				
 
-
--(NSURLSessionDataTask*)move : (NSString *) destinationId : (void (^)(MSOutlookFolder *folder, MSODataException *error))callback{
+-(NSURLSessionTask*) move : (NSString *) destinationId :  (void (^)(MSOutlookFolder *folder, MSODataException *error)) callback;{
 	
 	NSString * destinationIdString = [[[self getResolver] getJsonSerializer] serialize:destinationId : @"DestinationId"];
 
-	NSURLSessionDataTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
-       if(error == nil){
+	NSURLSessionTask* task = [self moveRaw 	: destinationIdString :^(NSString *returnValue, MSODataException *error){
+       
+	   if(error == nil){
 			MSOutlookFolder * result = (MSOutlookFolder *)[[[self getResolver]getJsonSerializer] deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] : [MSOutlookFolder class]];
             callback(result, error);
         }
@@ -80,20 +88,25 @@
     return task;
 }
 
--(NSURLSessionDataTask*)moveRaw : (NSString*) destinationId : (void (^)(NSString*folder, MSODataException *error))callback{
+-(NSURLSessionTask*) moveRaw : (NSString*) destinationId :  (void(^)(NSString* returnValue, MSODataException *error)) callback;{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
+	
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
-	[[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId",nil ],nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys :destinationId,@"DestinationId", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayload:parameters :[self getResolver]]dataUsingEncoding:NSUTF8StringEncoding];
-[request setContent:payload];
+	NSData* payload = [[MSODataBaseContainerHelper generatePayload : parameters
+                                                                  :[self getResolver]]dataUsingEncoding
+                                                                  :NSUTF8StringEncoding];
+	[request setContent:payload];
 
+	
 	[[request getUrl] appendPathComponent:@"Move"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
-        if(error == nil){
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+        
+		if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }
         else{
@@ -102,5 +115,6 @@
     }];
     
     return task;
-}				
+}
+    				
 @end

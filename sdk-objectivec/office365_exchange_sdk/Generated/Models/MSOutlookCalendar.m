@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookCalendar.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Calendar.
@@ -21,6 +21,5 @@
 	self.$$__ODataType = @"#Microsoft.OutlookServices.Calendar";
 	return self;
 }
-
 
 @end

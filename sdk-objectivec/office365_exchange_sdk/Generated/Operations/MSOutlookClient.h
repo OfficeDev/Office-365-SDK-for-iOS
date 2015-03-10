@@ -9,10 +9,11 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookUserFetcher.h"
-#import "MSOutlookUserCollectionFetcher.h"
+@class MSOutlookUserCollectionFetcher;
+@class MSOutlookUserFetcher;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookClient.
@@ -21,9 +22,7 @@
 @interface MSOutlookClient : MSODataBaseContainer
 
 -(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
-
--(MSOutlookUserFetcher*) getMe;
-
 -(MSOutlookUserCollectionFetcher*) getUsers;
+-(MSOutlookUserFetcher*) getMe;
 
 @end

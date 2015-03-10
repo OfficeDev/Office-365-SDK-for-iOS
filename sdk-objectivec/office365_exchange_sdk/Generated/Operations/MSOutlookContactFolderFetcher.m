@@ -9,15 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookContactFolderFetcher.h"
-#import "MSOutlookContactCollectionFetcher.h"
-#import "MSOutlookContactFolderCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookContactFolderFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookContactFolderFetcher
 
@@ -26,34 +18,32 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookContactFolder class]];
 }
 
--(NSURLSessionDataTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateContactFolder:(id)entity withCallback:(void (^)(MSOutlookContactFolder*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteContactFolder:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteContactFolder:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSOutlookContactCollectionFetcher*) getContacts{
     return [[MSOutlookContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self andEntityClass:[MSOutlookContact class]];
 }
 
--(MSOutlookContactFetcher*) getContactsById : (NSString*)_id{
+-(id<MSOutlookContactFetcher>) getContactsById : (NSString*)_id{
     return [[[MSOutlookContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self andEntityClass:[MSOutlookContact class]] getById:_id];
 }
-
 -(MSOutlookContactFolderCollectionFetcher*) getChildFolders{
     return [[MSOutlookContactFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookContactFolder class]];
 }
 
--(MSOutlookContactFolderFetcher*) getChildFoldersById : (NSString*)_id{
+-(id<MSOutlookContactFolderFetcher>) getChildFoldersById : (NSString*)_id{
     return [[[MSOutlookContactFolderCollectionFetcher alloc] initWithUrl:@"ChildFolders" parent:self andEntityClass:[MSOutlookContactFolder class]] getById:_id];
 }
 

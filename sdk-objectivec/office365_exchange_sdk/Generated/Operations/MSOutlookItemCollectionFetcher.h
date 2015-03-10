@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookItemFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookItem.h"
-#import "MSOutlookItemFetcher.h"
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookItemCollectionFetcher.
 */
 
-@protocol MSOutlookItemCollectionFetcher
+@protocol MSOutlookItemCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookItem> *items, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSOutlookItem> *items, MSODataException *error))callback;
 
 -(id<MSOutlookItemCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookItemCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSOutlookItemCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookItemCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookItemCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSOutlookItemCollectionFetcher : MSODataCollectionFetcher<MSOutlookItemCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookItemFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addItem:(MSOutlookItem* )entity withCallback:(void (^)(MSOutlookItem *item, MSODataException *e))callback;
+-(NSURLSessionTask*)addItem:(MSOutlookItem* )entity withCallback:(void (^)(MSOutlookItem *item, MSODataException *e))callback;
+
+@end
+
+@interface MSOutlookItemCollectionFetcher : MSODataCollectionFetcher<MSOutlookItemCollectionFetcher>
 
 @end

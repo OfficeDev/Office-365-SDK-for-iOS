@@ -8,21 +8,14 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-#import "MSOutlookFolder.h"
-#import "MSOutlookMessage.h"
-#import "MSOutlookCalendar.h"
-#import "MSOutlookCalendarGroup.h"
-#import "MSOutlookEvent.h"
-#import "MSOutlookContact.h"
-#import "MSOutlookContactFolder.h"
 
-#import "MSOutlookEntityCollectionOperations.h"
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
+#import "MSOutlookEntityCollectionOperations.h"
 
 /**
 * The header for type MSOutlookUserCollectionOperations.
 */
 
 @interface MSOutlookUserCollectionOperations : MSOutlookEntityCollectionOperations
-
 @end

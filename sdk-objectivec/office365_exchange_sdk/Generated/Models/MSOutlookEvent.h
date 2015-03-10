@@ -9,9 +9,6 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookImportance.h"
-#import "MSOutlookFreeBusyStatus.h"
-#import "MSOutlookEventType.h"
 @class MSOutlookItemBody;
 @class MSOutlookLocation;
 @class MSOutlookAttendee;
@@ -21,9 +18,14 @@
 @class MSOutlookCalendar;
 @class MSOutlookEvent;
 
-#import <Foundation/Foundation.h>
+#import "MSOutlookImportance.h"
+#import "MSOutlookFreeBusyStatus.h"
+#import "MSOutlookEventType.h"
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookItem.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type Event.
@@ -31,51 +33,29 @@
 
 @interface MSOutlookEvent : MSOutlookItem
 
-
 @property NSString *Subject;
-
 @property MSOutlookItemBody *Body;
-
 @property NSString *BodyPreview;
-
 @property MSOutlookImportance Importance;
-
 -(void)setImportanceString:(NSString*)value;
-@property bool HasAttachments;
-
+@property BOOL HasAttachments;
 @property NSDate *Start;
-
 @property NSDate *End;
-
 @property MSOutlookLocation *Location;
-
 @property MSOutlookFreeBusyStatus ShowAs;
-
 -(void)setShowAsString:(NSString*)value;
-@property bool IsAllDay;
-
-@property bool IsCancelled;
-
-@property bool IsOrganizer;
-
-@property bool ResponseRequested;
-
+@property BOOL IsAllDay;
+@property BOOL IsCancelled;
+@property BOOL IsOrganizer;
+@property BOOL ResponseRequested;
 @property MSOutlookEventType Type;
-
 -(void)setTypeString:(NSString*)value;
 @property NSString *SeriesMasterId;
-
 @property NSMutableArray<MSOutlookAttendee> *Attendees;
-
 @property MSOutlookPatternedRecurrence *Recurrence;
-
 @property MSOutlookRecipient *Organizer;
-
-@property NSMutableArray<MSOutlookAttachment> *Attachments;		
-		
-@property MSOutlookCalendar *Calendar;		
-		
-@property NSMutableArray<MSOutlookEvent> *Instances;		
-		
+@property NSMutableArray<MSOutlookAttachment> *Attachments;
+@property MSOutlookCalendar *Calendar;
+@property NSMutableArray<MSOutlookEvent> *Instances;
 
 @end

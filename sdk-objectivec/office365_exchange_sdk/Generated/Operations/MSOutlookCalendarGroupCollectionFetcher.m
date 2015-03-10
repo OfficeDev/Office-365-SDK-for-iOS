@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookCalendarGroupCollectionFetcher.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookCalendarGroupCollectionFetcher.
@@ -21,7 +21,7 @@
     return [super initWithUrl:urlComponent parent:parent andEntityClass:[MSOutlookCalendarGroup class]];
 }
 
--(NSURLSessionDataTask*)addCalendarGroup:(MSOutlookCalendarGroup*)entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, MSODataException *e))callback{
+-(NSURLSessionTask*)addCalendarGroup:(MSOutlookCalendarGroup*)entity withCallback:(void (^)(MSOutlookCalendarGroup *calendarGroup, MSODataException *e))callback{
 	
 	return [super add:entity :^(id r, MSODataException *e) {
         callback(r,e);

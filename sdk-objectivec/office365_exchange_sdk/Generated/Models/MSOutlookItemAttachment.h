@@ -11,9 +11,11 @@
 
 @class MSOutlookItem;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookAttachment.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type ItemAttachment.
@@ -21,8 +23,6 @@
 
 @interface MSOutlookItemAttachment : MSOutlookAttachment
 
-
-@property MSOutlookItem *Item;		
-		
+@property MSOutlookItem *Item;
 
 @end

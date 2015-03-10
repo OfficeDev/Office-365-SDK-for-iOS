@@ -11,18 +11,13 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookFreeBusyStatus) {
+typedef NS_ENUM(NSInteger, MSOutlookFreeBusyStatus){
 
 	Free,
-
 	Tentative,
-
 	Busy,
-
 	Oof,
-
 	WorkingElsewhere,
-
 	Unknown
 
 };

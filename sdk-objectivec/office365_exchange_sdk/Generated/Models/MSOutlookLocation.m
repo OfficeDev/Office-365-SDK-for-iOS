@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookLocation.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Location.

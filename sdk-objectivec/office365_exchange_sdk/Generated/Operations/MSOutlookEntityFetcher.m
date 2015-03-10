@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookEntityFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookEntityFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookEntityFetcher
 
@@ -24,47 +18,40 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookEntity class]];
 }
 
--(NSURLSessionDataTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateEntity:(id)entity withCallback:(void (^)(MSOutlookEntity*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteEntity:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
-
-
-	
 -(MSOutlookUserFetcher*) asUser{
 	return [[MSOutlookUserFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookUser class]];
 }
-	
 -(MSOutlookFolderFetcher*) asFolder{
 	return [[MSOutlookFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookFolder class]];
 }
-	
 -(MSOutlookItemFetcher*) asItem{
 	return [[MSOutlookItemFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookItem class]];
 }
-	
 -(MSOutlookAttachmentFetcher*) asAttachment{
 	return [[MSOutlookAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookAttachment class]];
 }
-	
 -(MSOutlookCalendarFetcher*) asCalendar{
 	return [[MSOutlookCalendarFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookCalendar class]];
 }
-	
 -(MSOutlookCalendarGroupFetcher*) asCalendarGroup{
 	return [[MSOutlookCalendarGroupFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookCalendarGroup class]];
 }
-	
 -(MSOutlookContactFolderFetcher*) asContactFolder{
 	return [[MSOutlookContactFolderFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookContactFolder class]];
-}@end
+}
+
+@end

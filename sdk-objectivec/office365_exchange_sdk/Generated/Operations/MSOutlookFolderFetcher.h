@@ -9,40 +9,41 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookFolderFetcher;;
+@class MSOutlookFolderCollectionFetcher;;
+@class MSOutlookMessageFetcher;;
+@class MSOutlookMessageCollectionFetcher;;
+@class MSOutlookFolderOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookFolderOperations.h"
-#import "MSOutlookFolder.h"
-@class MSOutlookFolderCollectionFetcher;
-@class MSOutlookMessageCollectionFetcher;
-@class MSOutlookMessageFetcher;
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookFolderFetcher.
 */
 
-@protocol MSOutlookFolderFetcher
+
+@protocol MSOutlookFolderFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookFolder* folder, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookFolder* folder, MSODataException *error))callback;
+-(NSURLSessionTask*) updateFolder:(id)entity withCallback:(void (^)(MSOutlookFolder*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteFolder:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookFolderFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookFolderFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookFolderFetcher>)select : (NSString*) params;
 -(id<MSOutlookFolderFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookFolderOperations*) getOperations;
+-(MSOutlookFolderCollectionFetcher*) getChildFolders;
+
+-(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id;
+-(MSOutlookMessageCollectionFetcher*) getMessages;
+
+-(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
 @end
 
 @interface MSOutlookFolderFetcher : MSODataEntityFetcher<MSOutlookFolderFetcher>
 
--(MSOutlookFolderOperations*) getOperations;
-
--(MSOutlookFolderCollectionFetcher*) getChildFolders;
-
--(MSOutlookFolderFetcher*) getChildFoldersById : (NSString*)_id;
-
--(MSOutlookMessageCollectionFetcher*) getMessages;
-
--(MSOutlookMessageFetcher*) getMessagesById : (NSString*)_id;
-
-	
 @end

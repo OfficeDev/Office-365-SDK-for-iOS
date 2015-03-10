@@ -9,13 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookAttachmentFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookAttachmentFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookAttachmentFetcher
 
@@ -24,27 +18,25 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookAttachment class]];
 }
 
--(NSURLSessionDataTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateAttachment:(id)entity withCallback:(void (^)(MSOutlookAttachment*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteAttachment:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
 
-
-
-	
 -(MSOutlookFileAttachmentFetcher*) asFileAttachment{
 	return [[MSOutlookFileAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookFileAttachment class]];
 }
-	
 -(MSOutlookItemAttachmentFetcher*) asItemAttachment{
 	return [[MSOutlookItemAttachmentFetcher alloc] initWithUrl :self.UrlComponent parent:self.Parent andEntityClass:[MSOutlookItemAttachment class]];
-}@end
+}
+
+@end

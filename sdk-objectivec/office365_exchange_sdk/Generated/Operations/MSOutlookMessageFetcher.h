@@ -9,35 +9,36 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookAttachmentFetcher;;
+@class MSOutlookAttachmentCollectionFetcher;;
+@class MSOutlookMessageOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookMessageOperations.h"
-#import "MSOutlookMessage.h"
-@class MSOutlookAttachmentCollectionFetcher;
-@class MSOutlookAttachmentFetcher;
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookMessageFetcher.
 */
 
-@protocol MSOutlookMessageFetcher
+
+@protocol MSOutlookMessageFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookMessage* message, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateMessage:(id)entity withCallback:(void (^)(MSOutlookMessage*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteMessage:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookMessage* message, MSODataException *error))callback;
+-(NSURLSessionTask*) updateMessage:(id)entity withCallback:(void (^)(MSOutlookMessage*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteMessage:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookMessageFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookMessageFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookMessageFetcher>)select : (NSString*) params;
 -(id<MSOutlookMessageFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookMessageOperations*) getOperations;
+-(MSOutlookAttachmentCollectionFetcher*) getAttachments;
+
+-(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
 @end
 
 @interface MSOutlookMessageFetcher : MSODataEntityFetcher<MSOutlookMessageFetcher>
 
--(MSOutlookMessageOperations*) getOperations;
-
--(MSOutlookAttachmentCollectionFetcher*) getAttachments;
-
--(MSOutlookAttachmentFetcher*) getAttachmentsById : (NSString*)_id;
-
-	
 @end

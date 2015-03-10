@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookMessage.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Message.
@@ -22,16 +22,15 @@
 	return self;
 }
 
-
 -(void)setImportanceString:(NSString*)value{
 	if([value isEqualToString:@"Low"]){
-        self.Importance = Low;
-    }
+		self.Importance = Low;
+	}
 	if([value isEqualToString:@"Normal"]){
-        self.Importance = Normal;
-    }
+		self.Importance = Normal;
+	}
 	if([value isEqualToString:@"High"]){
-        self.Importance = High;
-    }
+		self.Importance = High;
+	}
 }
 @end

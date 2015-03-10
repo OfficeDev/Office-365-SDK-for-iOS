@@ -11,14 +11,11 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookEventType) {
+typedef NS_ENUM(NSInteger, MSOutlookEventType){
 
 	SingleInstance,
-
 	Occurrence,
-
 	Exception,
-
 	SeriesMaster
 
 };

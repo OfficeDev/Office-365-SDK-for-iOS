@@ -9,15 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookCalendarFetcher.h"
-#import "MSOutlookEventCollectionFetcher.h"
-#import "MSOutlookEventCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookCalendarFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookCalendarFetcher
 
@@ -26,34 +18,32 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookCalendar class]];
 }
 
--(NSURLSessionDataTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateCalendar:(id)entity withCallback:(void (^)(MSOutlookCalendar*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteCalendar:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSOutlookEventCollectionFetcher*) getCalendarView{
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
--(MSOutlookEventFetcher*) getCalendarViewById : (NSString*)_id{
+-(id<MSOutlookEventFetcher>) getCalendarViewById : (NSString*)_id{
     return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
 }
-
 -(MSOutlookEventCollectionFetcher*) getEvents{
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self andEntityClass:[MSOutlookEvent class]];
 }
 
--(MSOutlookEventFetcher*) getEventsById : (NSString*)_id{
+-(id<MSOutlookEventFetcher>) getEventsById : (NSString*)_id{
     return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self andEntityClass:[MSOutlookEvent class]] getById:_id];
 }
 

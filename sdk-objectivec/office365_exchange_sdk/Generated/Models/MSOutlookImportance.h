@@ -11,12 +11,10 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookImportance) {
+typedef NS_ENUM(NSInteger, MSOutlookImportance){
 
 	Low,
-
 	Normal,
-
 	High
 
 };

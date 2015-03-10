@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookContact.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Contact.
@@ -21,6 +21,5 @@
 	self.$$__ODataType = @"#Microsoft.OutlookServices.Contact";
 	return self;
 }
-
 
 @end

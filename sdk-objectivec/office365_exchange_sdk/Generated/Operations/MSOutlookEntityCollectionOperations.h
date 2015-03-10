@@ -10,11 +10,11 @@
  *******************************************************************************/
 
 #import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookEntityCollectionOperations.
 */
 
 @interface MSOutlookEntityCollectionOperations : MSODataOperations
-
 @end

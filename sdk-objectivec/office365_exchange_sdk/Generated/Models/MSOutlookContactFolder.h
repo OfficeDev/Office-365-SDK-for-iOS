@@ -12,9 +12,11 @@
 @class MSOutlookContact;
 @class MSOutlookContactFolder;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookEntity.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type ContactFolder.
@@ -22,14 +24,9 @@
 
 @interface MSOutlookContactFolder : MSOutlookEntity
 
-
 @property NSString *ParentFolderId;
-
 @property NSString *DisplayName;
-
-@property NSMutableArray<MSOutlookContact> *Contacts;		
-		
-@property NSMutableArray<MSOutlookContactFolder> *ChildFolders;		
-		
+@property NSMutableArray<MSOutlookContact> *Contacts;
+@property NSMutableArray<MSOutlookContactFolder> *ChildFolders;
 
 @end

@@ -8,22 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookEvent.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookItemOperations.h"
-
-#import "MSOutlookItemBody.h"
-#import "MSOutlookImportance.h"
-#import "MSOutlookLocation.h"
-#import "MSOutlookFreeBusyStatus.h"
-#import "MSOutlookEventType.h"
-#import "MSOutlookAttendee.h"
-#import "MSOutlookPatternedRecurrence.h"
-#import "MSOutlookRecipient.h"
-#import "MSOutlookAttachment.h"
-#import "MSOutlookCalendar.h"
-#import "MSOutlookEvent.h"
 
 /**
 * The header for type MSOutlookEventOperations.
@@ -33,13 +21,10 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
--(NSURLSessionDataTask*)accept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
--(NSURLSessionDataTask*)acceptRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
-
--(NSURLSessionDataTask*)decline : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
--(NSURLSessionDataTask*)declineRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
-
--(NSURLSessionDataTask*)tentativelyAccept : (NSString *) comment : (void (^)(int returnValue, MSODataException *error))callback;			
--(NSURLSessionDataTask*)tentativelyAcceptRaw : (NSString*) comment : (void (^)(NSString*returnValue, MSODataException *error))callback;			
-
+-(NSURLSessionTask*) accept : (NSString *) comment :  (void (^)(int returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) acceptRaw : (NSString*) comment :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) decline : (NSString *) comment :  (void (^)(int returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) declineRaw : (NSString*) comment :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) tentativelyAccept : (NSString *) comment :  (void (^)(int returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) tentativelyAcceptRaw : (NSString*) comment :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
 @end

@@ -11,9 +11,11 @@
 
 @class MSOutlookCalendar;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookEntity.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type CalendarGroup.
@@ -21,14 +23,9 @@
 
 @interface MSOutlookCalendarGroup : MSOutlookEntity
 
-
 @property NSString *Name;
-
 @property NSString *ChangeKey;
-
 @property NSString *ClassId;
-
-@property NSMutableArray<MSOutlookCalendar> *Calendars;		
-		
+@property NSMutableArray<MSOutlookCalendar> *Calendars;
 
 @end

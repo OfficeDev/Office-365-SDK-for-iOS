@@ -11,10 +11,9 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookBodyType) {
+typedef NS_ENUM(NSInteger, MSOutlookBodyType){
 
 	Text,
-
 	HTML
 
 };

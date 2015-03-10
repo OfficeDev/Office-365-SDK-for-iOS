@@ -9,33 +9,33 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookItemAttachmentOperations.h"
-#import "MSOutlookItemAttachment.h"
-@class MSOutlookItemFetcher;
+@class MSOutlookItemFetcher;;
+@class MSOutlookItemAttachmentOperations;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookItemAttachmentFetcher.
 */
 
-@protocol MSOutlookItemAttachmentFetcher
+
+@protocol MSOutlookItemAttachmentFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookItemAttachment* itemAttachment, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteItemAttachment:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookItemAttachment* itemAttachment, MSODataException *error))callback;
+-(NSURLSessionTask*) updateItemAttachment:(id)entity withCallback:(void (^)(MSOutlookItemAttachment*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteItemAttachment:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookItemAttachmentFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookItemAttachmentFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookItemAttachmentFetcher>)select : (NSString*) params;
 -(id<MSOutlookItemAttachmentFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookItemAttachmentOperations*) getOperations;
+-(MSOutlookItemFetcher*) getItem;
 @end
 
 @interface MSOutlookItemAttachmentFetcher : MSODataEntityFetcher<MSOutlookItemAttachmentFetcher>
 
--(MSOutlookItemAttachmentOperations*) getOperations;
-
--(MSOutlookItemFetcher*) getItem;
-
-	
 @end

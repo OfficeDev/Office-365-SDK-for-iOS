@@ -9,35 +9,36 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookCalendarFetcher;;
+@class MSOutlookCalendarCollectionFetcher;;
+@class MSOutlookCalendarGroupOperations;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookCalendarGroupOperations.h"
-#import "MSOutlookCalendarGroup.h"
-@class MSOutlookCalendarCollectionFetcher;
-@class MSOutlookCalendarFetcher;
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookCalendarGroupFetcher.
 */
 
-@protocol MSOutlookCalendarGroupFetcher
+
+@protocol MSOutlookCalendarGroupFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookCalendarGroup* calendarGroup, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookCalendarGroup* calendarGroup, MSODataException *error))callback;
+-(NSURLSessionTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookCalendarGroupFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookCalendarGroupFetcher>)select : (NSString*) params;
 -(id<MSOutlookCalendarGroupFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookCalendarGroupOperations*) getOperations;
+-(MSOutlookCalendarCollectionFetcher*) getCalendars;
+
+-(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
 @end
 
 @interface MSOutlookCalendarGroupFetcher : MSODataEntityFetcher<MSOutlookCalendarGroupFetcher>
 
--(MSOutlookCalendarGroupOperations*) getOperations;
-
--(MSOutlookCalendarCollectionFetcher*) getCalendars;
-
--(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id;
-
-	
 @end

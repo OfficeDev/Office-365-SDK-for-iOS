@@ -9,18 +9,19 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
+@class MSOutlookContactFolderFetcher;
+
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookContactFolder.h"
-#import "MSOutlookContactFolderFetcher.h"
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookContactFolderCollectionFetcher.
 */
 
-@protocol MSOutlookContactFolderCollectionFetcher
+@protocol MSOutlookContactFolderCollectionFetcher<MSODataCollectionFetcher>
 
 @optional
--(NSURLSessionDataTask*)read:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, MSODataException *error))callback;
+-(NSURLSessionTask*)read:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, MSODataException *error))callback;
 
 -(id<MSOutlookContactFolderCollectionFetcher>)select : (NSString*) params;
 -(id<MSOutlookContactFolderCollectionFetcher>)filter : (NSString*) params;
@@ -30,12 +31,15 @@
 -(id<MSOutlookContactFolderCollectionFetcher>)orderBy : (NSString*) params;
 -(id<MSOutlookContactFolderCollectionFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookContactFolderCollectionFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
-@end
 
-@interface MSOutlookContactFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactFolderCollectionFetcher>
+@required
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 -(MSOutlookContactFolderFetcher*)getById:(NSString *)Id;
--(NSURLSessionDataTask*)addContactFolder:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *e))callback;
+-(NSURLSessionTask*)addContactFolder:(MSOutlookContactFolder* )entity withCallback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *e))callback;
+
+@end
+
+@interface MSOutlookContactFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactFolderCollectionFetcher>
 
 @end

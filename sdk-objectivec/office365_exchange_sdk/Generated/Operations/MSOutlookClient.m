@@ -9,7 +9,8 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookClient.h"
+#import "MSOutlookODataEntities.h"
+
 /**
 * The implementation file for type MSOutlookClient.
 */
@@ -20,12 +21,11 @@
     return [super initWithUrl:url dependencyResolver:resolver];
 }
 
--(MSOutlookUserFetcher*) getMe{
-	return [[MSOutlookUserFetcher alloc] initWithUrl:@"Me" parent:self andEntityClass: [MSOutlookUser class]];
-}
-
 -(MSOutlookUserCollectionFetcher*) getUsers{
 	return [[MSOutlookUserCollectionFetcher alloc] initWithUrl:@"Users" parent:self];
+}
+-(MSOutlookUserFetcher*) getMe{
+	return [[MSOutlookUserFetcher alloc] initWithUrl:@"Me" parent:self andEntityClass: [MSOutlookUser class]];
 }
 
 @end

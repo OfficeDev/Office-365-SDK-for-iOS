@@ -10,8 +10,9 @@
  *******************************************************************************/
 
 
-#import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -20,12 +21,8 @@
 
 @interface MSOutlookEmailAddress : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property NSString *Name;
-
 @property NSString *Address;
-
 
 @end

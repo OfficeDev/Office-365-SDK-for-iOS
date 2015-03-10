@@ -11,12 +11,10 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookAttendeeType) {
+typedef NS_ENUM(NSInteger, MSOutlookAttendeeType){
 
 	Required,
-
 	Optional,
-
 	Resource
 
 };

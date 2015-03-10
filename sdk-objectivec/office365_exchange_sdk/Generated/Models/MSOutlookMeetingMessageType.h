@@ -11,18 +11,13 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookMeetingMessageType) {
+typedef NS_ENUM(NSInteger, MSOutlookMeetingMessageType){
 
-	None,
-
+	//None,
 	MeetingRequest,
-
 	MeetingCancelled,
-
 	MeetingAccepted,
-
 	MeetingTenativelyAccepted,
-
 	MeetingDeclined
 
 };

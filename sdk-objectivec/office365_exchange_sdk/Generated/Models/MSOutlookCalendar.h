@@ -10,10 +10,13 @@
  *******************************************************************************/
 
 @class MSOutlookEvent;
+@class MSOutlookEvent;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookEntity.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type Calendar.
@@ -21,14 +24,9 @@
 
 @interface MSOutlookCalendar : MSOutlookEntity
 
-
 @property NSString *Name;
-
 @property NSString *ChangeKey;
-
-@property NSMutableArray<MSOutlookEvent> *CalendarView;		
-		
-@property NSMutableArray<MSOutlookEvent> *Events;		
-		
+@property NSMutableArray<MSOutlookEvent> *CalendarView;
+@property NSMutableArray<MSOutlookEvent> *Events;
 
 @end

@@ -21,7 +21,7 @@
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
--(NSURLSessionDataTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFolder *folder, MSODataException *error))callback{
+-(NSURLSessionTask*)copy : (NSString *) destFolderId : (NSString *) destFolderPath : (NSString *) newName : (void (^)(MSSharePointFolder *folder, MSODataException *error))callback{
 	
 	NSString * destFolderIdString = [[[self getResolver] getJsonSerializer] serialize:destFolderId : @"destFolderId"];
 	NSString * destFolderPathString = [[[self getResolver] getJsonSerializer] serialize:destFolderPath : @"destFolderPath"];
@@ -40,7 +40,7 @@
     return task;
 }
 
--(NSURLSessionDataTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*folder, MSODataException *error))callback{
+-(NSURLSessionTask*)copyRaw : (NSString*) destFolderId : (NSString*) destFolderPath : (NSString*) newName : (void (^)(NSString*folder, MSODataException *error))callback{
 
 	id<MSODataRequest> request = [[self getResolver] createODataRequest];
 	NSArray* parameters = [[NSArray alloc] initWithObjects:
@@ -54,7 +54,7 @@
 	[[request getUrl] appendPathComponent:@"copy"];
 	[request setVerb:POST];
 
-	NSURLSessionDataTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
+	NSURLSessionTask* task = [super oDataExecuteWithRequest:request callback:^(id<MSODataResponse> r, MSODataException *error) {
         if(error == nil){
             callback([[NSString alloc] initWithData:[r getPayload] encoding:NSUTF8StringEncoding], error);
         }

@@ -8,18 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookUser.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookEntityOperations.h"
-
-#import "MSOutlookFolder.h"
-#import "MSOutlookMessage.h"
-#import "MSOutlookCalendar.h"
-#import "MSOutlookCalendarGroup.h"
-#import "MSOutlookEvent.h"
-#import "MSOutlookContact.h"
-#import "MSOutlookContactFolder.h"
 
 /**
 * The header for type MSOutlookUserOperations.
@@ -29,7 +21,6 @@
 
 -(id)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
 
--(NSURLSessionDataTask*)sendMail : (MSOutlookMessage *) message : (bool) saveToSentItems : (void (^)(int returnValue, MSODataException *error))callback;			
--(NSURLSessionDataTask*)sendMailRaw : (NSString*) message : (NSString*) saveToSentItems : (void (^)(NSString*returnValue, MSODataException *error))callback;			
-
+-(NSURLSessionTask*) sendMail : (MSOutlookMessage *) message : (BOOL) saveToSentItems :  (void (^)(int returnValue, MSODataException *error)) callback;
+-(NSURLSessionTask*) sendMailRaw : (NSString*) message : (NSString*) saveToSentItems :  (void(^)(NSString* returnValue, MSODataException *error)) callback;
 @end

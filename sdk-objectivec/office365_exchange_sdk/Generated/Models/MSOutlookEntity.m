@@ -9,7 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookEntity.h"
+#import "MSOutlookModels.h"
 
 /**
 * The implementation file for type Entity.
@@ -21,6 +21,5 @@
 	self.$$__ODataType = @"#Microsoft.OutlookServices.Entity";
 	return self;
 }
-
 
 @end

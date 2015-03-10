@@ -9,14 +9,7 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import "MSOutlookCalendarGroupFetcher.h"
-#import "MSOutlookCalendarCollectionFetcher.h"
-
-
-/**
-* The implementation file for type MSOutlookCalendarGroupFetcher.
-*/
-
+#import "MSOutlookODataEntities.h"
 
 @implementation MSOutlookCalendarGroupFetcher
 
@@ -25,26 +18,25 @@
 }
 
 -(id)initWithUrl:(NSString*)urlComponent :(id<MSODataExecutable>)parent{
-    
     self.Parent = parent;
     self.UrlComponent = urlComponent;
+
     return [super initWithUrl:urlComponent parent:parent andEntityClass : [MSOutlookCalendarGroup class]];
 }
 
--(NSURLSessionDataTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, MSODataException * error))callback{
+-(NSURLSessionTask*) updateCalendarGroup:(id)entity withCallback:(void (^)(MSOutlookCalendarGroup*, MSODataException * error))callback{
 	return [super update:entity : callback];
 }
 
--(NSURLSessionDataTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback{
+-(NSURLSessionTask*) deleteCalendarGroup:(void (^)(int status, MSODataException * error))callback{
 	return [super delete:callback];
 }
-
 
 -(MSOutlookCalendarCollectionFetcher*) getCalendars{
     return [[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self andEntityClass:[MSOutlookCalendar class]];
 }
 
--(MSOutlookCalendarFetcher*) getCalendarsById : (NSString*)_id{
+-(id<MSOutlookCalendarFetcher>) getCalendarsById : (NSString*)_id{
     return [[[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self andEntityClass:[MSOutlookCalendar class]] getById:_id];
 }
 

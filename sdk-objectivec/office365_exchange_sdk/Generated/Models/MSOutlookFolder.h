@@ -12,9 +12,11 @@
 @class MSOutlookFolder;
 @class MSOutlookMessage;
 
-#import <Foundation/Foundation.h>
+
 #import "MSOutlookProtocols.h"
 #import "MSOutlookEntity.h"
+#import <Foundation/Foundation.h>
+
 
 /**
 * The header for type Folder.
@@ -22,16 +24,10 @@
 
 @interface MSOutlookFolder : MSOutlookEntity
 
-
 @property NSString *ParentFolderId;
-
 @property NSString *DisplayName;
-
 @property int ChildFolderCount;
-
-@property NSMutableArray<MSOutlookFolder> *ChildFolders;		
-		
-@property NSMutableArray<MSOutlookMessage> *Messages;		
-		
+@property NSMutableArray<MSOutlookFolder> *ChildFolders;
+@property NSMutableArray<MSOutlookMessage> *Messages;
 
 @end

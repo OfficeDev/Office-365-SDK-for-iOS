@@ -11,16 +11,12 @@
 
 @interface NSObject ()
 
-typedef NS_ENUM(NSInteger, MSOutlookWeekIndex) {
+typedef NS_ENUM(NSInteger, MSOutlookWeekIndex){
 
 	First,
-
 	Second,
-
 	Third,
-
 	Fourth,
-
 	Last
 
 };

@@ -11,8 +11,9 @@
 
 #import "MSOutlookRecurrenceRangeType.h"
 
-#import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
+
+#import <Foundation/Foundation.h>
 
 
 /**
@@ -21,16 +22,11 @@
 
 @interface MSOutlookRecurrenceRange : NSObject
 
-
 @property NSString *$$__ODataType;
-
 @property MSOutlookRecurrenceRangeType Type;
 -(void)setTypeString:(NSString*)value;
 @property NSDate *StartDate;
-
 @property NSDate *EndDate;
-
 @property int NumberOfOccurrences;
-
 
 @end

@@ -10,11 +10,11 @@
  *******************************************************************************/
 
 #import "MSOutlookContactFolderCollectionOperations.h"
+#import "MSOutlookODataEntities.h"
 
 /**
 * The implementation file for type MSOutlookContactFolderCollectionOperations.
 */
 
 @implementation MSOutlookContactFolderCollectionOperations
-
 @end

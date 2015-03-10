@@ -8,12 +8,10 @@
  * To make changes to this code, please make changes to the generation framework itself:
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
-
+					  		
 #import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookCalendar.h"
+#import "MSOutlookModels.h"
 #import "MSOutlookEntityOperations.h"
-
-#import "MSOutlookEvent.h"
 
 /**
 * The header for type MSOutlookCalendarOperations.

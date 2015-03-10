@@ -9,30 +9,31 @@
  * https://github.com/MSOpenTech/odata-codegen
  *******************************************************************************/
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSOutlookContactOperations.h"
-#import "MSOutlookContact.h"
+@class MSOutlookContactOperations;
 
+#import <office365_odata_base/office365_odata_base.h>
+#import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookContactFetcher.
 */
 
-@protocol MSOutlookContactFetcher
+
+@protocol MSOutlookContactFetcher<MSODataEntityFetcher>
 
 @optional
--(NSURLSessionDataTask *)read:(void (^)(MSOutlookContact* contact, MSODataException *error))callback;
--(NSURLSessionDataTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback;
--(NSURLSessionDataTask*) deleteContact:(void (^)(int status, MSODataException * error))callback;
+-(NSURLSessionTask*) read:(void (^)(MSOutlookContact* contact, MSODataException *error))callback;
+-(NSURLSessionTask*) updateContact:(id)entity withCallback:(void (^)(MSOutlookContact*, MSODataException * error))callback;
+-(NSURLSessionTask*) deleteContact:(void (^)(int status, MSODataException * error))callback;
 -(id<MSOutlookContactFetcher>)addCustomParameters : (NSString*)name : (id)value;
 -(id<MSOutlookContactFetcher>)addCustomHeaderWithName : (NSString*)name andValue : (NSString*) value;
 -(id<MSOutlookContactFetcher>)select : (NSString*) params;
 -(id<MSOutlookContactFetcher>)expand : (NSString*) value;
+
+@required
+-(MSOutlookContactOperations*) getOperations;
 @end
 
 @interface MSOutlookContactFetcher : MSODataEntityFetcher<MSOutlookContactFetcher>
 
--(MSOutlookContactOperations*) getOperations;
-
-	
 @end
