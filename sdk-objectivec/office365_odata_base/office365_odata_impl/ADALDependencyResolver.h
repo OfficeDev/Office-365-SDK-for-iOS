@@ -19,7 +19,7 @@
 -(void) acquireTokenSilentWithResource: (NSString*) resource
                               clientId: (NSString*) clientId
                            redirectUri: (NSURL*) redirectUri
-                       completionBlock: (id<ADAuthenticationResult>) completionBlock;
+                       completionBlock: (void(^)(id<ADAuthenticationResult>)) completionBlock;
 
 @end
 
