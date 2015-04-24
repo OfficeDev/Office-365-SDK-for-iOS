@@ -44,7 +44,7 @@
 }
 
 -(bool)isEnum{
-    return [self.Type isEqualToString:@"Tq"];
+    return [self.Type isEqualToString:@"Tq"] || [self.Type isEqualToString:@"Ti"];
 }
 
 -(bool)isStream{
