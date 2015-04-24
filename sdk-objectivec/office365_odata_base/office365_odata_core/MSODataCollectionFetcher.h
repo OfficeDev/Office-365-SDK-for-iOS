@@ -27,6 +27,7 @@
 - (MSODataCollectionFetcher *)skip:(int)value;
 - (MSODataCollectionFetcher *)expand:(NSString *)value;
 - (MSODataCollectionFetcher *)orderBy:(NSString *)params;
+- (MSODataCollectionFetcher *)search:(NSString *)params;
 
 - (NSURLSessionTask *)addEntity:(id)entity callback:(void (^)(id entityAdded, MSODataException *exception))callback;
 

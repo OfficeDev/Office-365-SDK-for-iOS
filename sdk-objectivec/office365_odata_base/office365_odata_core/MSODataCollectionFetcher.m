@@ -17,6 +17,7 @@
 @property (nonatomic) int top;
 @property (nonatomic) int skip;
 @property (nonatomic) BOOL isCount;
+@property (copy, nonatomic, readonly) NSString *search;
 @property (copy, nonatomic, readonly) NSString *filter;
 @property (copy, nonatomic, readonly) NSString *select;
 @property (copy, nonatomic, readonly) NSString *expand;
@@ -73,6 +74,13 @@
     return self;
 }
 
+- (MSODataCollectionFetcher *)search:(NSString *)params {
+    
+    _search = params;
+    
+    return self;
+}
+
 - (MSODataCollectionFetcher *)orderBy:(NSString*)params {
     
     _orderBy = params;
@@ -91,6 +99,7 @@
                                                       expand:self.expand
                                                       filter:self.filter
                                                      orderby:self.orderBy
+                                                      search:self.search
                                                   andIsCount:self.isCount];
     
     [MSODataBaseContainerHelper addCustomParametersToODataURLWithRequest:request
@@ -188,6 +197,7 @@
     _orderBy = nil;
     _expand = nil;
     _filter = nil;
+    _search = nil;
 }
 
 @end

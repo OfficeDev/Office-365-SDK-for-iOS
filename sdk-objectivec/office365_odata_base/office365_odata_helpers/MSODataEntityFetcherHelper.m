@@ -16,6 +16,7 @@
                               expand:(NSString *)expand
                               filter:(NSString *)filter
                              orderby:(NSString *)orderBy
+                              search:(NSString *)search
                           andIsCount:(BOOL)isCount {
     
     if (isCount) {
@@ -53,6 +54,11 @@
     if (orderBy != nil) {
         
         [url addQueryStringParameter:@"$orderBy" value:orderBy];
+    }
+    
+    if (search != nil) {
+        
+        [url addQueryStringParameter:@"$search" value:filter];
     }
 }
 
