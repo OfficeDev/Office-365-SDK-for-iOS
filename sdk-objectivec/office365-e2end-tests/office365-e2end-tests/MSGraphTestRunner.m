@@ -579,6 +579,13 @@
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getmemberOf] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
         
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
+        
         NSString *memberOfId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
         [[[[[self.Client getusers] getById:self.TestMail] getmemberOfById:memberOfId] readWithCallback:^(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception) {
@@ -672,6 +679,13 @@
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedObjects] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
         
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
+        
         NSString *ownedObjectId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
         [[[[[self.Client getusers] getById:self.TestMail] getownedObjectsById:ownedObjectId] readWithCallback:^(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception) {
@@ -735,6 +749,13 @@
 -(NSURLSessionTask*)TestGetMessagesById:(void (^) (Test*))result{
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getMessages] readWithCallback:^(NSArray<MSGraphServiceMessage> *messages, MSODataException *exception) {
+        
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
         
         NSString *messageId = messages == nil ? @"" : [[messages objectAtIndex:0] id];
         
@@ -831,6 +852,13 @@
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendars] readWithCallback:^(NSArray<MSGraphServiceCalendar> *calendars, MSODataException *exception) {
         
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
+        
         NSString *calendarId = calendars == nil ? @"" : [[calendars objectAtIndex:0] id];
         
         [[[[[[self.Client getusers] getById:self.TestMail] getCalendars] getById:calendarId] readWithCallback:^(MSGraphServiceCalendar *calendarItem, MSODataException *exception) {
@@ -924,6 +952,13 @@
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] readWithCallback:^(NSArray<MSGraphServiceCalendarGroup> *calendarGroups, MSODataException *exception) {
         
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
+        
         NSString *calendarGroupId = calendarGroups == nil ? @"" : [[calendarGroups objectAtIndex:0] id];
         
         [[[[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] getById:calendarGroupId] readWithCallback:^(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception) {
@@ -987,6 +1022,13 @@
 -(NSURLSessionTask*)TestGetEventsById:(void (^) (Test*))result{
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] readWithCallback:^(NSArray<MSGraphServiceEvent> *events, MSODataException *exception) {
+        
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
         
         NSString *eventId = events == nil ? @"" : [[events objectAtIndex:0] id];
         
@@ -1204,6 +1246,13 @@
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhotos] readWithCallback:^(NSArray<MSGraphServicePhoto> *photos, MSODataException *exception) {
         
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
+        
         NSString *photoId = photos == nil ? @"" : [[photos objectAtIndex:0] id];
         
         [[[[[[self.Client getusers] getById:self.TestMail]getUserPhotos] getById:photoId] readWithCallback:^(MSGraphServicePhoto *photo, MSODataException *exception) {
@@ -1325,6 +1374,13 @@
 -(NSURLSessionTask*)TestGetUserFilesById:(void (^) (Test*))result{
     
     NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getfiles] readWithCallback:^(NSArray<MSGraphServiceItem> *items, MSODataException *exception) {
+        
+        if (exception != nil) {
+            
+            result([self handleException:exception]);
+            
+            return;
+        }
         
         NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] id];
         
@@ -1484,4 +1540,16 @@
     [item setName:fileName];
     return item;
 }
+
+- (Test *)handleException:(MSODataException *)exception {
+    
+    Test *test = [Test alloc];
+    
+    test.ExecutionMessages = [NSMutableArray array];
+    [test.ExecutionMessages addObject:[exception localizedDescription]];
+    test.Passed = false;
+    
+    return test;
+}
+
 @end
