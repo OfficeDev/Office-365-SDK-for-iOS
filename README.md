@@ -23,7 +23,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
 
   To do this, add a Podfile file similar to the one used in this repo's samples to the folder where your project (.xcodeproj file) is stored. Add these lines into your Podfile:
   ```Ruby
-  pod 'Office365', '~>0.7.0'
+  pod 'Office365', '~>0.9.0'
   pod 'ADALiOS', '~>1.0.0'
   ```
   
@@ -52,12 +52,12 @@ Here's a quick guide to construct a simple application that retrieves messages u
   NSString *accessToken = tokenReturnedByADAL;
   MSODataDefaultDependencyResolver *resolver = [[MSODataDefaultDependencyResolver alloc] init];
   MSODataOAuthCredentials *credentials = [[MSODataOAuthCredentials alloc] init];
-  [credentials addToken:accessToken];
+  credentials.token = accessToken;
   
-  MSODataCredentialsImpl* credentialsImpl = [[MSODataCredentialsImpl alloc] init];
+  MSODataCredentialsImpl *credentialsImpl = [[MSODataCredentialsImpl alloc] init];
   
-  [credentialsImpl setCredentials:credentials];
-  [resolver setCredentialsFactory:credentialsImpl];
+  credentialsImpl.credentials = credentials;
+  resolver.credentialsFactory = credentialsImpl;
   
   MSODataOutlookClient *client =[[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
   ```
@@ -66,8 +66,8 @@ Here's a quick guide to construct a simple application that retrieves messages u
   Here's how to get all the messages for the current user.
 
   ```Objective-C
-  NSURLSessionTask* task = [[[client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, NSError *error) {
-    if(error == nil){
+  NSURLSessionTask* task = [[[client getMe] getMessages] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSODataException *exception) {
+    if(exception == nil){
       dispatch_async(dispatch_get_main_queue(),
         ^{
             // do something with 'messages' here
