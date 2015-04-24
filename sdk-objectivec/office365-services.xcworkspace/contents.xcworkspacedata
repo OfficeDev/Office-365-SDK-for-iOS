@@ -22,7 +22,4 @@
    <FileRef
       location = "group:Office365Sdks/../office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:office365_onedrive_sdk/office365_onedrive_sdk.xcodeproj">
-   </FileRef>
 </Workspace>
