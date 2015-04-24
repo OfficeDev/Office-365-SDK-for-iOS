@@ -16,15 +16,7 @@
                               expand:(NSString *)expand
                               filter:(NSString *)filter
                              orderby:(NSString *)orderBy
-                              search:(NSString *)search
-                          andIsCount:(BOOL)isCount {
-    
-    if (isCount) {
-        
-        [url appendPathComponent:@"$count"];
-        
-        return;
-    }
+                              search:(NSString *)search {
     
     if (top > -1) {
         
@@ -58,7 +50,7 @@
     
     if (search != nil) {
         
-        [url addQueryStringParameter:@"$search" value:filter];
+        [url addQueryStringParameter:@"$search" value:search];
     }
 }
 

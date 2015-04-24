@@ -16,7 +16,6 @@
 
 @property (nonatomic) int top;
 @property (nonatomic) int skip;
-@property (nonatomic) BOOL isCount;
 @property (copy, nonatomic, readonly) NSString *search;
 @property (copy, nonatomic, readonly) NSString *filter;
 @property (copy, nonatomic, readonly) NSString *select;
@@ -99,8 +98,7 @@
                                                       expand:self.expand
                                                       filter:self.filter
                                                      orderby:self.orderBy
-                                                      search:self.search
-                                                  andIsCount:self.isCount];
+                                                      search:self.search];
     
     [MSODataBaseContainerHelper addCustomParametersToODataURLWithRequest:request
                                                               parameters:self.customParameters
@@ -136,9 +134,8 @@
     
     id<MSODataRequest> request = [self.parent.resolver createODataRequest];
     
+    [[request url] appendPathComponent:@"$count"];
     [self reset];
-    
-    self.isCount = false;
     
     return [self oDataExecuteRequest:request callback:^(id<MSODataResponse> response, MSODataException *e) {
         
@@ -189,7 +186,6 @@
 
 - (void)reset {
     
-    _isCount = false;
     _top = -1;
     _skip = -1;
     _selectedId = nil;

@@ -27,6 +27,7 @@
     //General
     if([testName isEqualToString: @"TestGetUser"]) return [self TestGetUser:result];
     if([testName isEqualToString: @"TestTop"]) return [self TestTop:result];
+    if([testName isEqualToString: @"TestCount"]) return [self TestCount:result];
     if([testName isEqualToString: @"TestFilterWithTop"]) return [self TestFilterWithTop:result];
     if([testName isEqualToString: @"TestSelect"]) return [self TestSelect:result];
     if([testName isEqualToString: @"TestSkip"]) return [self TestSkip:result];
@@ -108,6 +109,7 @@
     
     [array addObject:[[Test alloc] initWithData:self :@"TestGetUser" :@"Get User" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestTop" :@"Can use top" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCount" :@"Can use count" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestFilterWithTop" :@"Can use filter with top" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSelect" :@"Can use select with top" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSkip" :@"Can use skip" ]];
@@ -253,6 +255,48 @@
             }]resume];
             
         }]resume];
+    }];
+    
+    return task;
+}
+
+
+- (NSURLSessionTask *)TestCount:(void (^) (Test*))result {
+    
+    MSOutlookServicesMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    
+    NSURLSessionTask *task = [[[self.Client getMe] getMessages] addMessage:newMessage
+                                                                  callback:^(MSOutlookServicesMessage *message, MSODataException *e) {
+        
+        [[[[self.Client getMe] getMessages] count:^(NSInteger count, MSODataException *e) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            
+            NSString* message = @"";
+            
+            if (e == nil && count > 0) {
+                
+                passed = true;
+                message =@"Ok - ";
+            }
+            else {
+                message = @"Not - ";
+                
+                if (e != nil)
+                    message = [message stringByAppendingString:[e localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+        
+        }] resume];
     }];
     
     return task;

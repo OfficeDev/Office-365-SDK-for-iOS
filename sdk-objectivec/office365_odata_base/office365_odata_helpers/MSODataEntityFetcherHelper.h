@@ -17,7 +17,6 @@
                               expand:(NSString *)expand
                               filter:(NSString *)filter
                              orderby:(NSString *)orderBy
-                              search:(NSString *)search
-                          andIsCount:(BOOL)isCount;
+                              search:(NSString *)search;
 
 @end

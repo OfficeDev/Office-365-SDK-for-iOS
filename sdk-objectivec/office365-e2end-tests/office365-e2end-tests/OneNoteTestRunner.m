@@ -22,6 +22,7 @@
     if([testName isEqualToString: @"TestGetSectionsById"]) return [self TestGetSectionsById:result];
     if([testName isEqualToString: @"TestGetSectionGroups"]) return [self TestGetSectionGroups:result];
     if([testName isEqualToString: @"TestGetPages"]) return [self TestGetPages:result];
+    if([testName isEqualToString: @"TestSearchPage"]) return [self TestSearchPage:result];
     if([testName isEqualToString: @"TestGetPageContent"]) return [self TestGetPageContent:result];
     if([testName isEqualToString: @"TestCreateSimplePage"]) return [self TestCreateSimplePage:result];
     if([testName isEqualToString: @"TestCreatePageWithEmbeddedWebImage"]) return [self TestCreatePageWithEmbeddedWebImage:result];
@@ -43,6 +44,7 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionsById" :@"Get sections by id" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionGroups" :@"Get sections groups" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetPages" :@"Get pages" ]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestSearchPage" :@"Search pages" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetPageContent" :@"Get page content" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateSimplePage" :@"Create simple page" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithEmbeddedWebImage" :@"Create page with embedded web img" ]];
@@ -478,6 +480,53 @@
     return task;
 }
 
+- (NSURLSessionTask *)TestSearchPage:(void(^)(Test *))result {
+    
+    NSString *imagePartName = @"sampleImage1";
+    NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created with an image on it</title>\
+                            <meta name=\"created\" content=\"%@\" />\
+                            </head><body><h1>This is a page with an image on it</h1><img src=\"name:%@\" alt=\"A beautiful logo\"/></body></html>", [self getSerializedCurrentDate],imagePartName];
+    
+    UIImage *someImage = [UIImage imageNamed: @"office365"];
+    NSData *contentBytes = UIImagePNGRepresentation(someImage);
+    
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
+    [multiparElements addObject:m1];
+    [multiparElements addObject:m2];
+    
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+        
+        [[[[self.Client getpages] search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNoteApiPage> *pages, MSODataException *exception) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.ExecutionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            if(error == nil && pages.count > 0)
+            {
+                passed = true;
+                message = @"Ok - ";
+            }else{
+                message = @"Not - ";
+                if(error!= nil)
+                    message = [message stringByAppendingString: [error localizedDescription]];
+            }
+            
+            test.Passed = passed;
+            [test.ExecutionMessages addObject:message];
+            
+            result(test);
+            
+        }] resume];
+    }];
+    
+    return task;
+}
+
 -(NSURLSessionTask*)TestCreatePageWithEmbeddedWebImage:(void (^) (Test*))result{
     
     NSString *embeddedPartName = @"embedded1";
@@ -493,14 +542,14 @@
                             </head><body><h1>This is a page with an image of an html page on it.</h1>\
                             <img data-render-src=\"name:%@\" alt=\"A website screen grab\" /></body></html>",[self getSerializedCurrentDate], embeddedPartName ];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
+    NSMutableArray* multiparElements = [[NSMutableArray alloc] init];
     MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:embeddedPartName andContentString:embeddedWebPage];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
