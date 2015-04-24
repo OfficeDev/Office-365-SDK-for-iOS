@@ -10,9 +10,13 @@
 @protocol MSODataURL
 
 @required
--(void)setBaseUrl : (NSString*)baseUrl;
--(void)appendPathComponent: (NSString*) pathComponent;
--(void)addQueryStringParameter : (NSString*) name : (NSString*) value;
--(NSString*)toString;
+
+@property (copy, nonatomic, readonly) NSMutableDictionary *queryStringParameters;
+@property (copy, nonatomic, readonly) NSMutableArray *pathComponents;
+@property (copy, nonatomic, readwrite) NSString *baseUrl;
+
+- (void)appendPathComponent:(NSString *)pathComponent;
+- (void)addQueryStringParameter:(NSString *)name value:(NSString *)value;
+- (NSString *)toString;
                                                     
 @end

@@ -7,61 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC34847F1AAF36B900530D41 /* MSSharePointModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34847E1AAF36B900530D41 /* MSSharePointModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC3484821AAF36C000530D41 /* MSSharePointODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484811AAF36C000530D41 /* MSSharePointODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1E41A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1C21A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1E51A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1C31A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.m */; };
-		EC78D1E61A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1C41A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1E71A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1C51A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.m */; };
-		EC78D1E81A2604F6004B0B5C /* MSSharePointDriveFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1C61A2604F6004B0B5C /* MSSharePointDriveFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1E91A2604F6004B0B5C /* MSSharePointDriveFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1C71A2604F6004B0B5C /* MSSharePointDriveFetcher.m */; };
-		EC78D1EA1A2604F6004B0B5C /* MSSharePointDriveOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1C81A2604F6004B0B5C /* MSSharePointDriveOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1EB1A2604F6004B0B5C /* MSSharePointDriveOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1C91A2604F6004B0B5C /* MSSharePointDriveOperations.m */; };
-		EC78D1EC1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1CA1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1ED1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1CB1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.m */; };
-		EC78D1EE1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1CC1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1EF1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1CD1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.m */; };
-		EC78D1F01A2604F6004B0B5C /* MSSharePointFileFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1CE1A2604F6004B0B5C /* MSSharePointFileFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1F11A2604F6004B0B5C /* MSSharePointFileFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1CF1A2604F6004B0B5C /* MSSharePointFileFetcher.m */; };
-		EC78D1F21A2604F6004B0B5C /* MSSharePointFileOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1D01A2604F6004B0B5C /* MSSharePointFileOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1F31A2604F6004B0B5C /* MSSharePointFileOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1D11A2604F6004B0B5C /* MSSharePointFileOperations.m */; };
-		EC78D1F41A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1D21A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1F51A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1D31A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.m */; };
-		EC78D1F61A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1D41A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1F71A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1D51A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.m */; };
-		EC78D1F81A2604F6004B0B5C /* MSSharePointFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1D61A2604F6004B0B5C /* MSSharePointFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1F91A2604F6004B0B5C /* MSSharePointFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1D71A2604F6004B0B5C /* MSSharePointFolderFetcher.m */; };
-		EC78D1FA1A2604F6004B0B5C /* MSSharePointFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1D81A2604F6004B0B5C /* MSSharePointFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1FB1A2604F6004B0B5C /* MSSharePointFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1D91A2604F6004B0B5C /* MSSharePointFolderOperations.m */; };
-		EC78D1FC1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1DA1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1FD1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1DB1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.m */; };
-		EC78D1FE1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1DC1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D1FF1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1DD1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.m */; };
-		EC78D2001A2604F6004B0B5C /* MSSharePointItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1DE1A2604F6004B0B5C /* MSSharePointItemFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2011A2604F6004B0B5C /* MSSharePointItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1DF1A2604F6004B0B5C /* MSSharePointItemFetcher.m */; };
-		EC78D2021A2604F6004B0B5C /* MSSharePointItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1E01A2604F6004B0B5C /* MSSharePointItemOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2031A2604F6004B0B5C /* MSSharePointItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1E11A2604F6004B0B5C /* MSSharePointItemOperations.m */; };
-		EC78D2041A2604F6004B0B5C /* MSSharePointClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D1E21A2604F6004B0B5C /* MSSharePointClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2051A2604F6004B0B5C /* MSSharePointClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D1E31A2604F6004B0B5C /* MSSharePointClient.m */; };
-		EC78D2171A2604FD004B0B5C /* MSSharePointDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2061A2604FD004B0B5C /* MSSharePointDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2181A2604FD004B0B5C /* MSSharePointDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2071A2604FD004B0B5C /* MSSharePointDrive.m */; };
-		EC78D2191A2604FD004B0B5C /* MSSharePointDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2081A2604FD004B0B5C /* MSSharePointDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D21A1A2604FD004B0B5C /* MSSharePointDriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2091A2604FD004B0B5C /* MSSharePointDriveQuota.m */; };
-		EC78D21B1A2604FD004B0B5C /* MSSharePointFile.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D20A1A2604FD004B0B5C /* MSSharePointFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D21C1A2604FD004B0B5C /* MSSharePointFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D20B1A2604FD004B0B5C /* MSSharePointFile.m */; };
-		EC78D21D1A2604FD004B0B5C /* MSSharePointFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D20C1A2604FD004B0B5C /* MSSharePointFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D21E1A2604FD004B0B5C /* MSSharePointFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D20D1A2604FD004B0B5C /* MSSharePointFolder.m */; };
-		EC78D21F1A2604FD004B0B5C /* MSSharePointIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D20E1A2604FD004B0B5C /* MSSharePointIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2201A2604FD004B0B5C /* MSSharePointIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D20F1A2604FD004B0B5C /* MSSharePointIdentity.m */; };
-		EC78D2211A2604FD004B0B5C /* MSSharePointIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2101A2604FD004B0B5C /* MSSharePointIdentitySet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2221A2604FE004B0B5C /* MSSharePointIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2111A2604FD004B0B5C /* MSSharePointIdentitySet.m */; };
-		EC78D2231A2604FE004B0B5C /* MSSharePointItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2121A2604FD004B0B5C /* MSSharePointItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2241A2604FE004B0B5C /* MSSharePointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2131A2604FD004B0B5C /* MSSharePointItem.m */; };
-		EC78D2251A2604FE004B0B5C /* MSSharePointItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2141A2604FD004B0B5C /* MSSharePointItemReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D2261A2604FE004B0B5C /* MSSharePointItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2151A2604FD004B0B5C /* MSSharePointItemReference.m */; };
-		EC78D2271A2604FE004B0B5C /* MSSharePointProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2161A2604FD004B0B5C /* MSSharePointProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267DF1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = EC82679D1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267E01AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EC82679E1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.m */; };
+		EC8267E11AE5349800A14A0B /* MSOneDriveServicesDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC82679F1AE5349800A14A0B /* MSOneDriveServicesDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267E21AE5349800A14A0B /* MSOneDriveServicesDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267A01AE5349800A14A0B /* MSOneDriveServicesDrive.m */; };
+		EC8267E31AE5349800A14A0B /* MSOneDriveServicesDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267A11AE5349800A14A0B /* MSOneDriveServicesDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267E41AE5349800A14A0B /* MSOneDriveServicesDriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267A21AE5349800A14A0B /* MSOneDriveServicesDriveQuota.m */; };
+		EC8267E51AE5349800A14A0B /* MSOneDriveServicesFile.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267A31AE5349800A14A0B /* MSOneDriveServicesFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267E61AE5349800A14A0B /* MSOneDriveServicesFile.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267A41AE5349800A14A0B /* MSOneDriveServicesFile.m */; };
+		EC8267E71AE5349800A14A0B /* MSOneDriveServicesFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267A51AE5349800A14A0B /* MSOneDriveServicesFolder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267E81AE5349800A14A0B /* MSOneDriveServicesFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267A61AE5349800A14A0B /* MSOneDriveServicesFolder.m */; };
+		EC8267E91AE5349800A14A0B /* MSOneDriveServicesIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267A71AE5349800A14A0B /* MSOneDriveServicesIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267EA1AE5349800A14A0B /* MSOneDriveServicesIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267A81AE5349800A14A0B /* MSOneDriveServicesIdentity.m */; };
+		EC8267EB1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267A91AE5349800A14A0B /* MSOneDriveServicesIdentitySet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267EC1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267AA1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.m */; };
+		EC8267ED1AE5349800A14A0B /* MSOneDriveServicesImageFacet.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267AB1AE5349800A14A0B /* MSOneDriveServicesImageFacet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267EE1AE5349800A14A0B /* MSOneDriveServicesImageFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267AC1AE5349800A14A0B /* MSOneDriveServicesImageFacet.m */; };
+		EC8267EF1AE5349800A14A0B /* MSOneDriveServicesItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267AD1AE5349800A14A0B /* MSOneDriveServicesItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F01AE5349800A14A0B /* MSOneDriveServicesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267AE1AE5349800A14A0B /* MSOneDriveServicesItem.m */; };
+		EC8267F11AE5349800A14A0B /* MSOneDriveServicesItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267AF1AE5349800A14A0B /* MSOneDriveServicesItemReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F21AE5349800A14A0B /* MSOneDriveServicesItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267B01AE5349800A14A0B /* MSOneDriveServicesItemReference.m */; };
+		EC8267F31AE5349800A14A0B /* MSOneDriveServicesModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267B11AE5349800A14A0B /* MSOneDriveServicesModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F41AE5349800A14A0B /* MSOneDriveServicesProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267B21AE5349800A14A0B /* MSOneDriveServicesProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F51AE5349800A14A0B /* MSOneDriveServicesClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267B41AE5349800A14A0B /* MSOneDriveServicesClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F61AE5349800A14A0B /* MSOneDriveServicesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267B51AE5349800A14A0B /* MSOneDriveServicesClient.m */; };
+		EC8267F71AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267B61AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267F81AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267B71AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m */; };
+		EC8267F91AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267B81AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267FA1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267B91AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m */; };
+		EC8267FB1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267BA1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267FC1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267BB1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.m */; };
+		EC8267FD1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267BC1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8267FE1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267BD1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.m */; };
+		EC8267FF1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267BE1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268001AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267BF1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.m */; };
+		EC8268011AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267C01AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268021AE5349900A14A0B /* MSOneDriveServicesDriveCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267C11AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.m */; };
+		EC8268031AE5349900A14A0B /* MSOneDriveServicesDriveFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267C21AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268041AE5349900A14A0B /* MSOneDriveServicesDriveFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267C31AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.m */; };
+		EC8268051AE5349900A14A0B /* MSOneDriveServicesDriveOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267C41AE5349800A14A0B /* MSOneDriveServicesDriveOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268061AE5349900A14A0B /* MSOneDriveServicesDriveOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267C51AE5349800A14A0B /* MSOneDriveServicesDriveOperations.m */; };
+		EC8268071AE5349900A14A0B /* MSOneDriveServicesFileCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267C61AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268081AE5349900A14A0B /* MSOneDriveServicesFileCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267C71AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.m */; };
+		EC8268091AE5349900A14A0B /* MSOneDriveServicesFileCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267C81AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82680A1AE5349900A14A0B /* MSOneDriveServicesFileCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267C91AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.m */; };
+		EC82680B1AE5349900A14A0B /* MSOneDriveServicesFileFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267CA1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82680C1AE5349900A14A0B /* MSOneDriveServicesFileFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267CB1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.m */; };
+		EC82680D1AE5349900A14A0B /* MSOneDriveServicesFileOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267CC1AE5349800A14A0B /* MSOneDriveServicesFileOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82680E1AE5349900A14A0B /* MSOneDriveServicesFileOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267CD1AE5349800A14A0B /* MSOneDriveServicesFileOperations.m */; };
+		EC82680F1AE5349900A14A0B /* MSOneDriveServicesFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267CE1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268101AE5349900A14A0B /* MSOneDriveServicesFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267CF1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.m */; };
+		EC8268111AE5349900A14A0B /* MSOneDriveServicesFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267D01AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268121AE5349900A14A0B /* MSOneDriveServicesFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267D11AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.m */; };
+		EC8268131AE5349900A14A0B /* MSOneDriveServicesFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267D21AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268141AE5349900A14A0B /* MSOneDriveServicesFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267D31AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.m */; };
+		EC8268151AE5349900A14A0B /* MSOneDriveServicesFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267D41AE5349800A14A0B /* MSOneDriveServicesFolderOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268161AE5349900A14A0B /* MSOneDriveServicesFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267D51AE5349800A14A0B /* MSOneDriveServicesFolderOperations.m */; };
+		EC8268171AE5349900A14A0B /* MSOneDriveServicesItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267D61AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC8268181AE5349900A14A0B /* MSOneDriveServicesItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267D71AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.m */; };
+		EC8268191AE5349900A14A0B /* MSOneDriveServicesItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267D81AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82681A1AE5349900A14A0B /* MSOneDriveServicesItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267D91AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.m */; };
+		EC82681B1AE5349900A14A0B /* MSOneDriveServicesItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267DA1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82681C1AE5349900A14A0B /* MSOneDriveServicesItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267DB1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.m */; };
+		EC82681D1AE5349900A14A0B /* MSOneDriveServicesItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267DC1AE5349800A14A0B /* MSOneDriveServicesItemOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC82681E1AE5349900A14A0B /* MSOneDriveServicesItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267DD1AE5349800A14A0B /* MSOneDriveServicesItemOperations.m */; };
+		EC82681F1AE5349900A14A0B /* MSOneDriveServicesODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267DE1AE5349800A14A0B /* MSOneDriveServicesODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECDEC0E71A25150200F84EAF /* office365_files_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0E61A25150200F84EAF /* office365_files_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDEC1521A251EB000F84EAF /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDEC0E51A2514CE00F84EAF /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,64 +87,75 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC34847E1AAF36B900530D41 /* MSSharePointModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointModels.h; sourceTree = "<group>"; };
-		EC3484811AAF36C000530D41 /* MSSharePointODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointODataEntities.h; sourceTree = "<group>"; };
-		EC78D1C21A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveCollectionFetcher.h; sourceTree = "<group>"; };
-		EC78D1C31A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveCollectionFetcher.m; sourceTree = "<group>"; };
-		EC78D1C41A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveCollectionOperations.h; sourceTree = "<group>"; };
-		EC78D1C51A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveCollectionOperations.m; sourceTree = "<group>"; };
-		EC78D1C61A2604F6004B0B5C /* MSSharePointDriveFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveFetcher.h; sourceTree = "<group>"; };
-		EC78D1C71A2604F6004B0B5C /* MSSharePointDriveFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveFetcher.m; sourceTree = "<group>"; };
-		EC78D1C81A2604F6004B0B5C /* MSSharePointDriveOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveOperations.h; sourceTree = "<group>"; };
-		EC78D1C91A2604F6004B0B5C /* MSSharePointDriveOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveOperations.m; sourceTree = "<group>"; };
-		EC78D1CA1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFileCollectionFetcher.h; sourceTree = "<group>"; };
-		EC78D1CB1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFileCollectionFetcher.m; sourceTree = "<group>"; };
-		EC78D1CC1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFileCollectionOperations.h; sourceTree = "<group>"; };
-		EC78D1CD1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFileCollectionOperations.m; sourceTree = "<group>"; };
-		EC78D1CE1A2604F6004B0B5C /* MSSharePointFileFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFileFetcher.h; sourceTree = "<group>"; };
-		EC78D1CF1A2604F6004B0B5C /* MSSharePointFileFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFileFetcher.m; sourceTree = "<group>"; };
-		EC78D1D01A2604F6004B0B5C /* MSSharePointFileOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFileOperations.h; sourceTree = "<group>"; };
-		EC78D1D11A2604F6004B0B5C /* MSSharePointFileOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFileOperations.m; sourceTree = "<group>"; };
-		EC78D1D21A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFolderCollectionFetcher.h; sourceTree = "<group>"; };
-		EC78D1D31A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFolderCollectionFetcher.m; sourceTree = "<group>"; };
-		EC78D1D41A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFolderCollectionOperations.h; sourceTree = "<group>"; };
-		EC78D1D51A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFolderCollectionOperations.m; sourceTree = "<group>"; };
-		EC78D1D61A2604F6004B0B5C /* MSSharePointFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFolderFetcher.h; sourceTree = "<group>"; };
-		EC78D1D71A2604F6004B0B5C /* MSSharePointFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFolderFetcher.m; sourceTree = "<group>"; };
-		EC78D1D81A2604F6004B0B5C /* MSSharePointFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFolderOperations.h; sourceTree = "<group>"; };
-		EC78D1D91A2604F6004B0B5C /* MSSharePointFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFolderOperations.m; sourceTree = "<group>"; };
-		EC78D1DA1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemCollectionFetcher.h; sourceTree = "<group>"; };
-		EC78D1DB1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemCollectionFetcher.m; sourceTree = "<group>"; };
-		EC78D1DC1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemCollectionOperations.h; sourceTree = "<group>"; };
-		EC78D1DD1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemCollectionOperations.m; sourceTree = "<group>"; };
-		EC78D1DE1A2604F6004B0B5C /* MSSharePointItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemFetcher.h; sourceTree = "<group>"; };
-		EC78D1DF1A2604F6004B0B5C /* MSSharePointItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemFetcher.m; sourceTree = "<group>"; };
-		EC78D1E01A2604F6004B0B5C /* MSSharePointItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemOperations.h; sourceTree = "<group>"; };
-		EC78D1E11A2604F6004B0B5C /* MSSharePointItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemOperations.m; sourceTree = "<group>"; };
-		EC78D1E21A2604F6004B0B5C /* MSSharePointClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointClient.h; sourceTree = "<group>"; };
-		EC78D1E31A2604F6004B0B5C /* MSSharePointClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointClient.m; sourceTree = "<group>"; };
-		EC78D2061A2604FD004B0B5C /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
-		EC78D2071A2604FD004B0B5C /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
-		EC78D2081A2604FD004B0B5C /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
-		EC78D2091A2604FD004B0B5C /* MSSharePointDriveQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveQuota.m; sourceTree = "<group>"; };
-		EC78D20A1A2604FD004B0B5C /* MSSharePointFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFile.h; sourceTree = "<group>"; };
-		EC78D20B1A2604FD004B0B5C /* MSSharePointFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFile.m; sourceTree = "<group>"; };
-		EC78D20C1A2604FD004B0B5C /* MSSharePointFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointFolder.h; sourceTree = "<group>"; };
-		EC78D20D1A2604FD004B0B5C /* MSSharePointFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointFolder.m; sourceTree = "<group>"; };
-		EC78D20E1A2604FD004B0B5C /* MSSharePointIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointIdentity.h; sourceTree = "<group>"; };
-		EC78D20F1A2604FD004B0B5C /* MSSharePointIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointIdentity.m; sourceTree = "<group>"; };
-		EC78D2101A2604FD004B0B5C /* MSSharePointIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointIdentitySet.h; sourceTree = "<group>"; };
-		EC78D2111A2604FD004B0B5C /* MSSharePointIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointIdentitySet.m; sourceTree = "<group>"; };
-		EC78D2121A2604FD004B0B5C /* MSSharePointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItem.h; sourceTree = "<group>"; };
-		EC78D2131A2604FD004B0B5C /* MSSharePointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItem.m; sourceTree = "<group>"; };
-		EC78D2141A2604FD004B0B5C /* MSSharePointItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemReference.h; sourceTree = "<group>"; };
-		EC78D2151A2604FD004B0B5C /* MSSharePointItemReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemReference.m; sourceTree = "<group>"; };
-		EC78D2161A2604FD004B0B5C /* MSSharePointProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointProtocols.h; sourceTree = "<group>"; };
+		EC82679D1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesCurrentUserRequestContext.h; sourceTree = "<group>"; };
+		EC82679E1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesCurrentUserRequestContext.m; sourceTree = "<group>"; };
+		EC82679F1AE5349800A14A0B /* MSOneDriveServicesDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDrive.h; sourceTree = "<group>"; };
+		EC8267A01AE5349800A14A0B /* MSOneDriveServicesDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDrive.m; sourceTree = "<group>"; };
+		EC8267A11AE5349800A14A0B /* MSOneDriveServicesDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDriveQuota.h; sourceTree = "<group>"; };
+		EC8267A21AE5349800A14A0B /* MSOneDriveServicesDriveQuota.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDriveQuota.m; sourceTree = "<group>"; };
+		EC8267A31AE5349800A14A0B /* MSOneDriveServicesFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFile.h; sourceTree = "<group>"; };
+		EC8267A41AE5349800A14A0B /* MSOneDriveServicesFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFile.m; sourceTree = "<group>"; };
+		EC8267A51AE5349800A14A0B /* MSOneDriveServicesFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFolder.h; sourceTree = "<group>"; };
+		EC8267A61AE5349800A14A0B /* MSOneDriveServicesFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFolder.m; sourceTree = "<group>"; };
+		EC8267A71AE5349800A14A0B /* MSOneDriveServicesIdentity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesIdentity.h; sourceTree = "<group>"; };
+		EC8267A81AE5349800A14A0B /* MSOneDriveServicesIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesIdentity.m; sourceTree = "<group>"; };
+		EC8267A91AE5349800A14A0B /* MSOneDriveServicesIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesIdentitySet.h; sourceTree = "<group>"; };
+		EC8267AA1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesIdentitySet.m; sourceTree = "<group>"; };
+		EC8267AB1AE5349800A14A0B /* MSOneDriveServicesImageFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesImageFacet.h; sourceTree = "<group>"; };
+		EC8267AC1AE5349800A14A0B /* MSOneDriveServicesImageFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesImageFacet.m; sourceTree = "<group>"; };
+		EC8267AD1AE5349800A14A0B /* MSOneDriveServicesItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItem.h; sourceTree = "<group>"; };
+		EC8267AE1AE5349800A14A0B /* MSOneDriveServicesItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItem.m; sourceTree = "<group>"; };
+		EC8267AF1AE5349800A14A0B /* MSOneDriveServicesItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItemReference.h; sourceTree = "<group>"; };
+		EC8267B01AE5349800A14A0B /* MSOneDriveServicesItemReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItemReference.m; sourceTree = "<group>"; };
+		EC8267B11AE5349800A14A0B /* MSOneDriveServicesModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesModels.h; sourceTree = "<group>"; };
+		EC8267B21AE5349800A14A0B /* MSOneDriveServicesProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesProtocols.h; sourceTree = "<group>"; };
+		EC8267B41AE5349800A14A0B /* MSOneDriveServicesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesClient.h; sourceTree = "<group>"; };
+		EC8267B51AE5349800A14A0B /* MSOneDriveServicesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesClient.m; sourceTree = "<group>"; };
+		EC8267B61AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h; sourceTree = "<group>"; };
+		EC8267B71AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m; sourceTree = "<group>"; };
+		EC8267B81AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h; sourceTree = "<group>"; };
+		EC8267B91AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m; sourceTree = "<group>"; };
+		EC8267BA1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesCurrentUserRequestContextFetcher.h; sourceTree = "<group>"; };
+		EC8267BB1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesCurrentUserRequestContextFetcher.m; sourceTree = "<group>"; };
+		EC8267BC1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesCurrentUserRequestContextOperations.h; sourceTree = "<group>"; };
+		EC8267BD1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesCurrentUserRequestContextOperations.m; sourceTree = "<group>"; };
+		EC8267BE1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDriveCollectionFetcher.h; sourceTree = "<group>"; };
+		EC8267BF1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDriveCollectionFetcher.m; sourceTree = "<group>"; };
+		EC8267C01AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDriveCollectionOperations.h; sourceTree = "<group>"; };
+		EC8267C11AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDriveCollectionOperations.m; sourceTree = "<group>"; };
+		EC8267C21AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDriveFetcher.h; sourceTree = "<group>"; };
+		EC8267C31AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDriveFetcher.m; sourceTree = "<group>"; };
+		EC8267C41AE5349800A14A0B /* MSOneDriveServicesDriveOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesDriveOperations.h; sourceTree = "<group>"; };
+		EC8267C51AE5349800A14A0B /* MSOneDriveServicesDriveOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesDriveOperations.m; sourceTree = "<group>"; };
+		EC8267C61AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFileCollectionFetcher.h; sourceTree = "<group>"; };
+		EC8267C71AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFileCollectionFetcher.m; sourceTree = "<group>"; };
+		EC8267C81AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFileCollectionOperations.h; sourceTree = "<group>"; };
+		EC8267C91AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFileCollectionOperations.m; sourceTree = "<group>"; };
+		EC8267CA1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFileFetcher.h; sourceTree = "<group>"; };
+		EC8267CB1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFileFetcher.m; sourceTree = "<group>"; };
+		EC8267CC1AE5349800A14A0B /* MSOneDriveServicesFileOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFileOperations.h; sourceTree = "<group>"; };
+		EC8267CD1AE5349800A14A0B /* MSOneDriveServicesFileOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFileOperations.m; sourceTree = "<group>"; };
+		EC8267CE1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		EC8267CF1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		EC8267D01AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFolderCollectionOperations.h; sourceTree = "<group>"; };
+		EC8267D11AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFolderCollectionOperations.m; sourceTree = "<group>"; };
+		EC8267D21AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFolderFetcher.h; sourceTree = "<group>"; };
+		EC8267D31AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFolderFetcher.m; sourceTree = "<group>"; };
+		EC8267D41AE5349800A14A0B /* MSOneDriveServicesFolderOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesFolderOperations.h; sourceTree = "<group>"; };
+		EC8267D51AE5349800A14A0B /* MSOneDriveServicesFolderOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesFolderOperations.m; sourceTree = "<group>"; };
+		EC8267D61AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItemCollectionFetcher.h; sourceTree = "<group>"; };
+		EC8267D71AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItemCollectionFetcher.m; sourceTree = "<group>"; };
+		EC8267D81AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItemCollectionOperations.h; sourceTree = "<group>"; };
+		EC8267D91AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItemCollectionOperations.m; sourceTree = "<group>"; };
+		EC8267DA1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItemFetcher.h; sourceTree = "<group>"; };
+		EC8267DB1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItemFetcher.m; sourceTree = "<group>"; };
+		EC8267DC1AE5349800A14A0B /* MSOneDriveServicesItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesItemOperations.h; sourceTree = "<group>"; };
+		EC8267DD1AE5349800A14A0B /* MSOneDriveServicesItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneDriveServicesItemOperations.m; sourceTree = "<group>"; };
+		EC8267DE1AE5349800A14A0B /* MSOneDriveServicesODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneDriveServicesODataEntities.h; sourceTree = "<group>"; };
 		ECDEC0C41A2514BB00F84EAF /* office365_files_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_files_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDEC0C81A2514BB00F84EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_files_sdk.h; sourceTree = "<group>"; };
 		ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
-		ECDEC0E61A25150200F84EAF /* office365_files_sdk-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "office365_files_sdk-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +170,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC82679B1AE5349800A14A0B /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				EC82679C1AE5349800A14A0B /* Models */,
+				EC8267B31AE5349800A14A0B /* Operations */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		EC82679C1AE5349800A14A0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC82679D1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.h */,
+				EC82679E1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.m */,
+				EC82679F1AE5349800A14A0B /* MSOneDriveServicesDrive.h */,
+				EC8267A01AE5349800A14A0B /* MSOneDriveServicesDrive.m */,
+				EC8267A11AE5349800A14A0B /* MSOneDriveServicesDriveQuota.h */,
+				EC8267A21AE5349800A14A0B /* MSOneDriveServicesDriveQuota.m */,
+				EC8267A31AE5349800A14A0B /* MSOneDriveServicesFile.h */,
+				EC8267A41AE5349800A14A0B /* MSOneDriveServicesFile.m */,
+				EC8267A51AE5349800A14A0B /* MSOneDriveServicesFolder.h */,
+				EC8267A61AE5349800A14A0B /* MSOneDriveServicesFolder.m */,
+				EC8267A71AE5349800A14A0B /* MSOneDriveServicesIdentity.h */,
+				EC8267A81AE5349800A14A0B /* MSOneDriveServicesIdentity.m */,
+				EC8267A91AE5349800A14A0B /* MSOneDriveServicesIdentitySet.h */,
+				EC8267AA1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.m */,
+				EC8267AB1AE5349800A14A0B /* MSOneDriveServicesImageFacet.h */,
+				EC8267AC1AE5349800A14A0B /* MSOneDriveServicesImageFacet.m */,
+				EC8267AD1AE5349800A14A0B /* MSOneDriveServicesItem.h */,
+				EC8267AE1AE5349800A14A0B /* MSOneDriveServicesItem.m */,
+				EC8267AF1AE5349800A14A0B /* MSOneDriveServicesItemReference.h */,
+				EC8267B01AE5349800A14A0B /* MSOneDriveServicesItemReference.m */,
+				EC8267B11AE5349800A14A0B /* MSOneDriveServicesModels.h */,
+				EC8267B21AE5349800A14A0B /* MSOneDriveServicesProtocols.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC8267B31AE5349800A14A0B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				EC8267B41AE5349800A14A0B /* MSOneDriveServicesClient.h */,
+				EC8267B51AE5349800A14A0B /* MSOneDriveServicesClient.m */,
+				EC8267B61AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h */,
+				EC8267B71AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m */,
+				EC8267B81AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h */,
+				EC8267B91AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m */,
+				EC8267BA1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.h */,
+				EC8267BB1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.m */,
+				EC8267BC1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.h */,
+				EC8267BD1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.m */,
+				EC8267BE1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.h */,
+				EC8267BF1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.m */,
+				EC8267C01AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.h */,
+				EC8267C11AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.m */,
+				EC8267C21AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.h */,
+				EC8267C31AE5349800A14A0B /* MSOneDriveServicesDriveFetcher.m */,
+				EC8267C41AE5349800A14A0B /* MSOneDriveServicesDriveOperations.h */,
+				EC8267C51AE5349800A14A0B /* MSOneDriveServicesDriveOperations.m */,
+				EC8267C61AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.h */,
+				EC8267C71AE5349800A14A0B /* MSOneDriveServicesFileCollectionFetcher.m */,
+				EC8267C81AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.h */,
+				EC8267C91AE5349800A14A0B /* MSOneDriveServicesFileCollectionOperations.m */,
+				EC8267CA1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.h */,
+				EC8267CB1AE5349800A14A0B /* MSOneDriveServicesFileFetcher.m */,
+				EC8267CC1AE5349800A14A0B /* MSOneDriveServicesFileOperations.h */,
+				EC8267CD1AE5349800A14A0B /* MSOneDriveServicesFileOperations.m */,
+				EC8267CE1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.h */,
+				EC8267CF1AE5349800A14A0B /* MSOneDriveServicesFolderCollectionFetcher.m */,
+				EC8267D01AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.h */,
+				EC8267D11AE5349800A14A0B /* MSOneDriveServicesFolderCollectionOperations.m */,
+				EC8267D21AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.h */,
+				EC8267D31AE5349800A14A0B /* MSOneDriveServicesFolderFetcher.m */,
+				EC8267D41AE5349800A14A0B /* MSOneDriveServicesFolderOperations.h */,
+				EC8267D51AE5349800A14A0B /* MSOneDriveServicesFolderOperations.m */,
+				EC8267D61AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.h */,
+				EC8267D71AE5349800A14A0B /* MSOneDriveServicesItemCollectionFetcher.m */,
+				EC8267D81AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.h */,
+				EC8267D91AE5349800A14A0B /* MSOneDriveServicesItemCollectionOperations.m */,
+				EC8267DA1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.h */,
+				EC8267DB1AE5349800A14A0B /* MSOneDriveServicesItemFetcher.m */,
+				EC8267DC1AE5349800A14A0B /* MSOneDriveServicesItemOperations.h */,
+				EC8267DD1AE5349800A14A0B /* MSOneDriveServicesItemOperations.m */,
+				EC8267DE1AE5349800A14A0B /* MSOneDriveServicesODataEntities.h */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
 		ECDEC0BA1A2514BB00F84EAF = {
 			isa = PBXGroup;
 			children = (
-				ECDEC0E91A2515A600F84EAF /* Generated */,
+				EC82679B1AE5349800A14A0B /* Generated */,
 				ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */,
 				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
@@ -171,7 +281,6 @@
 			children = (
 				ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */,
 				ECDEC0C71A2514BB00F84EAF /* Supporting Files */,
-				ECDEC0E61A25150200F84EAF /* office365_files_sdk-Prefix.pch */,
 			);
 			path = office365_files_sdk;
 			sourceTree = "<group>";
@@ -192,82 +301,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECDEC0E91A2515A600F84EAF /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				ECDEC0EA1A2515A600F84EAF /* Models */,
-				ECDEC0FC1A2515A600F84EAF /* Operations */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
-		ECDEC0EA1A2515A600F84EAF /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				EC34847E1AAF36B900530D41 /* MSSharePointModels.h */,
-				EC78D2061A2604FD004B0B5C /* MSSharePointDrive.h */,
-				EC78D2071A2604FD004B0B5C /* MSSharePointDrive.m */,
-				EC78D2081A2604FD004B0B5C /* MSSharePointDriveQuota.h */,
-				EC78D2091A2604FD004B0B5C /* MSSharePointDriveQuota.m */,
-				EC78D20A1A2604FD004B0B5C /* MSSharePointFile.h */,
-				EC78D20B1A2604FD004B0B5C /* MSSharePointFile.m */,
-				EC78D20C1A2604FD004B0B5C /* MSSharePointFolder.h */,
-				EC78D20D1A2604FD004B0B5C /* MSSharePointFolder.m */,
-				EC78D20E1A2604FD004B0B5C /* MSSharePointIdentity.h */,
-				EC78D20F1A2604FD004B0B5C /* MSSharePointIdentity.m */,
-				EC78D2101A2604FD004B0B5C /* MSSharePointIdentitySet.h */,
-				EC78D2111A2604FD004B0B5C /* MSSharePointIdentitySet.m */,
-				EC78D2121A2604FD004B0B5C /* MSSharePointItem.h */,
-				EC78D2131A2604FD004B0B5C /* MSSharePointItem.m */,
-				EC78D2141A2604FD004B0B5C /* MSSharePointItemReference.h */,
-				EC78D2151A2604FD004B0B5C /* MSSharePointItemReference.m */,
-				EC78D2161A2604FD004B0B5C /* MSSharePointProtocols.h */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		ECDEC0FC1A2515A600F84EAF /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				EC3484811AAF36C000530D41 /* MSSharePointODataEntities.h */,
-				EC78D1C21A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.h */,
-				EC78D1C31A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.m */,
-				EC78D1C41A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.h */,
-				EC78D1C51A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.m */,
-				EC78D1C61A2604F6004B0B5C /* MSSharePointDriveFetcher.h */,
-				EC78D1C71A2604F6004B0B5C /* MSSharePointDriveFetcher.m */,
-				EC78D1C81A2604F6004B0B5C /* MSSharePointDriveOperations.h */,
-				EC78D1C91A2604F6004B0B5C /* MSSharePointDriveOperations.m */,
-				EC78D1CA1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.h */,
-				EC78D1CB1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.m */,
-				EC78D1CC1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.h */,
-				EC78D1CD1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.m */,
-				EC78D1CE1A2604F6004B0B5C /* MSSharePointFileFetcher.h */,
-				EC78D1CF1A2604F6004B0B5C /* MSSharePointFileFetcher.m */,
-				EC78D1D01A2604F6004B0B5C /* MSSharePointFileOperations.h */,
-				EC78D1D11A2604F6004B0B5C /* MSSharePointFileOperations.m */,
-				EC78D1D21A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.h */,
-				EC78D1D31A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.m */,
-				EC78D1D41A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.h */,
-				EC78D1D51A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.m */,
-				EC78D1D61A2604F6004B0B5C /* MSSharePointFolderFetcher.h */,
-				EC78D1D71A2604F6004B0B5C /* MSSharePointFolderFetcher.m */,
-				EC78D1D81A2604F6004B0B5C /* MSSharePointFolderOperations.h */,
-				EC78D1D91A2604F6004B0B5C /* MSSharePointFolderOperations.m */,
-				EC78D1DA1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.h */,
-				EC78D1DB1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.m */,
-				EC78D1DC1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.h */,
-				EC78D1DD1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.m */,
-				EC78D1DE1A2604F6004B0B5C /* MSSharePointItemFetcher.h */,
-				EC78D1DF1A2604F6004B0B5C /* MSSharePointItemFetcher.m */,
-				EC78D1E01A2604F6004B0B5C /* MSSharePointItemOperations.h */,
-				EC78D1E11A2604F6004B0B5C /* MSSharePointItemOperations.m */,
-				EC78D1E21A2604F6004B0B5C /* MSSharePointClient.h */,
-				EC78D1E31A2604F6004B0B5C /* MSSharePointClient.m */,
-			);
-			path = Operations;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -275,36 +308,41 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC78D1EA1A2604F6004B0B5C /* MSSharePointDriveOperations.h in Headers */,
-				EC78D2211A2604FD004B0B5C /* MSSharePointIdentitySet.h in Headers */,
-				EC78D1EE1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.h in Headers */,
-				EC78D2271A2604FE004B0B5C /* MSSharePointProtocols.h in Headers */,
-				EC78D1FC1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.h in Headers */,
-				EC78D1F81A2604F6004B0B5C /* MSSharePointFolderFetcher.h in Headers */,
-				EC78D21D1A2604FD004B0B5C /* MSSharePointFolder.h in Headers */,
-				EC78D1EC1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.h in Headers */,
-				EC78D21B1A2604FD004B0B5C /* MSSharePointFile.h in Headers */,
-				EC78D2191A2604FD004B0B5C /* MSSharePointDriveQuota.h in Headers */,
-				EC78D1F21A2604F6004B0B5C /* MSSharePointFileOperations.h in Headers */,
-				EC78D2041A2604F6004B0B5C /* MSSharePointClient.h in Headers */,
-				EC78D2021A2604F6004B0B5C /* MSSharePointItemOperations.h in Headers */,
-				EC78D2231A2604FE004B0B5C /* MSSharePointItem.h in Headers */,
-				EC78D1F41A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.h in Headers */,
-				EC78D1E81A2604F6004B0B5C /* MSSharePointDriveFetcher.h in Headers */,
-				EC78D1FE1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.h in Headers */,
-				EC78D2001A2604F6004B0B5C /* MSSharePointItemFetcher.h in Headers */,
-				EC78D2251A2604FE004B0B5C /* MSSharePointItemReference.h in Headers */,
-				EC78D1E61A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.h in Headers */,
-				EC78D1F61A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.h in Headers */,
-				EC78D1E41A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.h in Headers */,
-				EC78D1F01A2604F6004B0B5C /* MSSharePointFileFetcher.h in Headers */,
-				EC78D21F1A2604FD004B0B5C /* MSSharePointIdentity.h in Headers */,
-				EC78D2171A2604FD004B0B5C /* MSSharePointDrive.h in Headers */,
-				EC3484821AAF36C000530D41 /* MSSharePointODataEntities.h in Headers */,
-				EC34847F1AAF36B900530D41 /* MSSharePointModels.h in Headers */,
-				EC78D1FA1A2604F6004B0B5C /* MSSharePointFolderOperations.h in Headers */,
+				EC8267F41AE5349800A14A0B /* MSOneDriveServicesProtocols.h in Headers */,
+				EC82681D1AE5349900A14A0B /* MSOneDriveServicesItemOperations.h in Headers */,
+				EC8267F71AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.h in Headers */,
+				EC8267EB1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.h in Headers */,
+				EC8268151AE5349900A14A0B /* MSOneDriveServicesFolderOperations.h in Headers */,
+				EC82681B1AE5349900A14A0B /* MSOneDriveServicesItemFetcher.h in Headers */,
+				EC8267E11AE5349800A14A0B /* MSOneDriveServicesDrive.h in Headers */,
+				EC8268051AE5349900A14A0B /* MSOneDriveServicesDriveOperations.h in Headers */,
+				EC8267F11AE5349800A14A0B /* MSOneDriveServicesItemReference.h in Headers */,
+				EC8267DF1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.h in Headers */,
+				EC82680B1AE5349900A14A0B /* MSOneDriveServicesFileFetcher.h in Headers */,
+				EC8268091AE5349900A14A0B /* MSOneDriveServicesFileCollectionOperations.h in Headers */,
+				EC8268191AE5349900A14A0B /* MSOneDriveServicesItemCollectionOperations.h in Headers */,
+				EC8268131AE5349900A14A0B /* MSOneDriveServicesFolderFetcher.h in Headers */,
+				EC82680F1AE5349900A14A0B /* MSOneDriveServicesFolderCollectionFetcher.h in Headers */,
+				EC8267E71AE5349800A14A0B /* MSOneDriveServicesFolder.h in Headers */,
+				EC8267E91AE5349800A14A0B /* MSOneDriveServicesIdentity.h in Headers */,
+				EC8268011AE5349800A14A0B /* MSOneDriveServicesDriveCollectionOperations.h in Headers */,
+				EC82681F1AE5349900A14A0B /* MSOneDriveServicesODataEntities.h in Headers */,
+				EC8268031AE5349900A14A0B /* MSOneDriveServicesDriveFetcher.h in Headers */,
+				EC8267ED1AE5349800A14A0B /* MSOneDriveServicesImageFacet.h in Headers */,
+				EC82680D1AE5349900A14A0B /* MSOneDriveServicesFileOperations.h in Headers */,
+				EC8267F31AE5349800A14A0B /* MSOneDriveServicesModels.h in Headers */,
+				EC8268111AE5349900A14A0B /* MSOneDriveServicesFolderCollectionOperations.h in Headers */,
+				EC8267E51AE5349800A14A0B /* MSOneDriveServicesFile.h in Headers */,
+				EC8267E31AE5349800A14A0B /* MSOneDriveServicesDriveQuota.h in Headers */,
+				EC8267F51AE5349800A14A0B /* MSOneDriveServicesClient.h in Headers */,
+				EC8267FF1AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.h in Headers */,
+				EC8267FD1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.h in Headers */,
+				EC8268171AE5349900A14A0B /* MSOneDriveServicesItemCollectionFetcher.h in Headers */,
+				EC8268071AE5349900A14A0B /* MSOneDriveServicesFileCollectionFetcher.h in Headers */,
+				EC8267F91AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.h in Headers */,
+				EC8267EF1AE5349800A14A0B /* MSOneDriveServicesItem.h in Headers */,
+				EC8267FB1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.h in Headers */,
 				ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */,
-				ECDEC0E71A25150200F84EAF /* office365_files_sdk-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,31 +430,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC78D1F91A2604F6004B0B5C /* MSSharePointFolderFetcher.m in Sources */,
-				EC78D1F51A2604F6004B0B5C /* MSSharePointFolderCollectionFetcher.m in Sources */,
-				EC78D1F31A2604F6004B0B5C /* MSSharePointFileOperations.m in Sources */,
-				EC78D1E91A2604F6004B0B5C /* MSSharePointDriveFetcher.m in Sources */,
-				EC78D2221A2604FE004B0B5C /* MSSharePointIdentitySet.m in Sources */,
-				EC78D1E51A2604F6004B0B5C /* MSSharePointDriveCollectionFetcher.m in Sources */,
-				EC78D1F71A2604F6004B0B5C /* MSSharePointFolderCollectionOperations.m in Sources */,
-				EC78D2261A2604FE004B0B5C /* MSSharePointItemReference.m in Sources */,
-				EC78D21C1A2604FD004B0B5C /* MSSharePointFile.m in Sources */,
-				EC78D1F11A2604F6004B0B5C /* MSSharePointFileFetcher.m in Sources */,
-				EC78D2241A2604FE004B0B5C /* MSSharePointItem.m in Sources */,
-				EC78D21A1A2604FD004B0B5C /* MSSharePointDriveQuota.m in Sources */,
-				EC78D2031A2604F6004B0B5C /* MSSharePointItemOperations.m in Sources */,
-				EC78D2201A2604FD004B0B5C /* MSSharePointIdentity.m in Sources */,
-				EC78D1FF1A2604F6004B0B5C /* MSSharePointItemCollectionOperations.m in Sources */,
-				EC78D2051A2604F6004B0B5C /* MSSharePointClient.m in Sources */,
-				EC78D1EF1A2604F6004B0B5C /* MSSharePointFileCollectionOperations.m in Sources */,
-				EC78D1E71A2604F6004B0B5C /* MSSharePointDriveCollectionOperations.m in Sources */,
-				EC78D1ED1A2604F6004B0B5C /* MSSharePointFileCollectionFetcher.m in Sources */,
-				EC78D2181A2604FD004B0B5C /* MSSharePointDrive.m in Sources */,
-				EC78D1FB1A2604F6004B0B5C /* MSSharePointFolderOperations.m in Sources */,
-				EC78D1EB1A2604F6004B0B5C /* MSSharePointDriveOperations.m in Sources */,
-				EC78D2011A2604F6004B0B5C /* MSSharePointItemFetcher.m in Sources */,
-				EC78D1FD1A2604F6004B0B5C /* MSSharePointItemCollectionFetcher.m in Sources */,
-				EC78D21E1A2604FD004B0B5C /* MSSharePointFolder.m in Sources */,
+				EC8268021AE5349900A14A0B /* MSOneDriveServicesDriveCollectionOperations.m in Sources */,
+				EC8268141AE5349900A14A0B /* MSOneDriveServicesFolderFetcher.m in Sources */,
+				EC8267EC1AE5349800A14A0B /* MSOneDriveServicesIdentitySet.m in Sources */,
+				EC8267E41AE5349800A14A0B /* MSOneDriveServicesDriveQuota.m in Sources */,
+				EC82681E1AE5349900A14A0B /* MSOneDriveServicesItemOperations.m in Sources */,
+				EC8267F81AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionFetcher.m in Sources */,
+				EC8267F61AE5349800A14A0B /* MSOneDriveServicesClient.m in Sources */,
+				EC8267E21AE5349800A14A0B /* MSOneDriveServicesDrive.m in Sources */,
+				EC8268041AE5349900A14A0B /* MSOneDriveServicesDriveFetcher.m in Sources */,
+				EC8268181AE5349900A14A0B /* MSOneDriveServicesItemCollectionFetcher.m in Sources */,
+				EC8268061AE5349900A14A0B /* MSOneDriveServicesDriveOperations.m in Sources */,
+				EC8268161AE5349900A14A0B /* MSOneDriveServicesFolderOperations.m in Sources */,
+				EC8267E81AE5349800A14A0B /* MSOneDriveServicesFolder.m in Sources */,
+				EC8267FC1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextFetcher.m in Sources */,
+				EC8267FE1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextOperations.m in Sources */,
+				EC82681A1AE5349900A14A0B /* MSOneDriveServicesItemCollectionOperations.m in Sources */,
+				EC8267FA1AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContextCollectionOperations.m in Sources */,
+				EC8267E01AE5349800A14A0B /* MSOneDriveServicesCurrentUserRequestContext.m in Sources */,
+				EC82680C1AE5349900A14A0B /* MSOneDriveServicesFileFetcher.m in Sources */,
+				EC8268081AE5349900A14A0B /* MSOneDriveServicesFileCollectionFetcher.m in Sources */,
+				EC8267E61AE5349800A14A0B /* MSOneDriveServicesFile.m in Sources */,
+				EC82681C1AE5349900A14A0B /* MSOneDriveServicesItemFetcher.m in Sources */,
+				EC8267EA1AE5349800A14A0B /* MSOneDriveServicesIdentity.m in Sources */,
+				EC8268001AE5349800A14A0B /* MSOneDriveServicesDriveCollectionFetcher.m in Sources */,
+				EC8267EE1AE5349800A14A0B /* MSOneDriveServicesImageFacet.m in Sources */,
+				EC8268121AE5349900A14A0B /* MSOneDriveServicesFolderCollectionOperations.m in Sources */,
+				EC8267F21AE5349800A14A0B /* MSOneDriveServicesItemReference.m in Sources */,
+				EC82680E1AE5349900A14A0B /* MSOneDriveServicesFileOperations.m in Sources */,
+				EC8267F01AE5349800A14A0B /* MSOneDriveServicesItem.m in Sources */,
+				EC82680A1AE5349900A14A0B /* MSOneDriveServicesFileCollectionOperations.m in Sources */,
+				EC8268101AE5349900A14A0B /* MSOneDriveServicesFolderCollectionFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,8 +559,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_files_sdk/office365_files_sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -534,8 +578,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_files_sdk/office365_files_sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

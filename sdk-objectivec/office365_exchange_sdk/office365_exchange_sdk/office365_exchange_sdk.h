@@ -12,5 +12,5 @@ FOUNDATION_EXPORT double office365_exchange_sdkVersionNumber;
 //! Project version string for office365_exchange_sdk.
 FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 
-#import <office365_exchange_sdk/MSOutlookODataEntities.h>
-#import <office365_exchange_sdk/MSOutlookModels.h>
+#import <office365_exchange_sdk/MSOutlookServicesODataEntities.h>
+#import <office365_exchange_sdk/MSOutlookServicesModels.h>

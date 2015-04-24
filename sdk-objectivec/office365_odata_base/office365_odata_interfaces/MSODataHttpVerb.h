@@ -7,16 +7,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject ()
-
 typedef NS_ENUM(NSInteger, MSODataHttpVerb) {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    HEAD,
-    OPTIONS,
-    PATCH
+    
+    HTTP_VERB_GET,
+    HTTP_VERB_POST,
+    HTTP_VERB_DELETE,
+    HTTP_VERB_PUT,
+    HTTP_VERB_HEAD,
+    HTTP_VERB_OPTIONS,
+    HTTP_VERB_PATCH
 };
-
-@end

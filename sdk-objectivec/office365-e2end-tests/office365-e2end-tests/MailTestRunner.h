@@ -11,10 +11,10 @@
 @interface MailTestRunner : BaseTestRunner
 
 @property TestParameters *Parameters;
-@property MSOutlookClient *Client;
+@property MSOutlookServicesClient *Client;
 @property NSString *TestMail;
 
--(id)initWithClient : (MSOutlookClient*)client;
+-(id)initWithClient : (MSOutlookServicesClient*)client;
 -(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (Test *))result;
 
 @end

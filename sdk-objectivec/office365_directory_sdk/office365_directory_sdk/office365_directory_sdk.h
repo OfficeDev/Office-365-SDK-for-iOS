@@ -1,10 +1,9 @@
-//
-//  office365_directory_sdk.h
-//  office365_directory_sdk
-//
-//  Created by Gustavo on 10/24/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
-//
+/*******************************************************************************
+ * Copyright (c) Microsoft Open Technologies, Inc.
+ * All Rights Reserved
+ * Licensed under the Apache License, Version 2.0.
+ * See License.txt in the project root for license information.
+ ******************************************************************************/
 
 #import <UIKit/UIKit.h>
 
@@ -16,5 +15,5 @@ FOUNDATION_EXPORT const unsigned char office365_directory_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_directory_sdk/PublicHeader.h>
 
-#import <office365_directory_sdk/MSGraphServiceModels.h>
-#import <office365_directory_sdk/MSGraphServiceODataEntities.h>
+#import <office365_directory_sdk/MSDirectoryServicesModels.h>
+#import <office365_directory_sdk/MSDirectoryServicesODataEntities.h>

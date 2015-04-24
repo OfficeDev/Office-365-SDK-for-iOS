@@ -3,4 +3,5 @@ platform :ios, '8.0'
 
 xcodeproj 'office365-e2end-tests'
 pod 'ADALIOS', '~> 1.0.0' # 1.0.0 < ver < 1.1.0
-pod 'Office365', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS', :branch => 'dev'
+pod 'LiveSDK'
+pod 'Office365', :git => 'https://github.com/MSOpenTech/Office-365-SDK-for-iOS', :branch => 'dev'

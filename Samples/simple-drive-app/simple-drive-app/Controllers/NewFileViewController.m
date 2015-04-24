@@ -9,7 +9,7 @@
 
 @interface NewFileViewController ()
 
-@property MSSharePointClient* client;
+@property (strong, nonatomic) MSOneDriveServicesClient *client;
 
 @end
 
@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSSharePointClient* client) {
+    [BaseController getClient:^(MSOneDriveServicesClient *client) {
+        
         self.client = client;
     }];
 }
@@ -31,16 +32,16 @@
     
     __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    MSSharePointItem* item = [[MSSharePointItem alloc] init];
+    MSOneDriveServicesItem *item = [[MSOneDriveServicesItem alloc] init];
     item.name = self.txtName.text;
     item.type = @"File";
     
     NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
     
-    [[[self.client getfiles] add:item :^(MSSharePointItem *item, NSError *e) {
+    [[[self.client getfiles] addEntity:item callback:^(MSOneDriveServicesItem *item, NSError *e) {
         __block NSString* _id = item.id;
         
-        [[[[[self.client getfiles] getById:_id] asFile] putContent:body withCallback:^(NSInteger result, NSError *error) {
+        [[[[[self.client getfiles] getById:_id] asFile] putContent:body callback:^(NSInteger result, NSError *error) {
             
             [[[[[self.client getfiles] getById:_id] asFile] getContentWithCallback:^(NSData *content, NSError *error) {
                 

@@ -7,36 +7,36 @@
 
 #import "MSODataResponseImpl.h"
 
-@interface MSODataResponseImpl()
-
-@property NSData* payload;
-@property NSURLResponse* response;
-@property NSInputStream* stream;
-
-@end
-
 @implementation MSODataResponseImpl
 
--(id)initWithPayload : (NSData*)payload : (NSURLResponse*) response{
-    self.payload = payload;
-    self.response = response;
+@synthesize data = _data;
+@synthesize stream = _stream;
+@synthesize response = _response;
+
+- (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response {
+    
+    if (self = [super init]) {
+        
+        _data = data;
+        _response = response;
+    }
+    
     return self;
 }
 
--(int)getStatus{
-    return (int)[(NSHTTPURLResponse*)self.response statusCode];
+- (instancetype)initWithStream:(NSInputStream *)stream response:(NSURLResponse *)response {
+    
+    if (self = [super init]) {
+    
+        _stream = stream;
+        _response = response;
+    }
+    
+    return self;
 }
 
--(NSData *)getPayload{
-    return self.payload;
-}
-
--(NSURLResponse *)getResponse{
-    return self.response;
-}
-
--(NSInputStream *)getStream{
-    return self.stream;
+- (int)status {
+    return (int)[(NSHTTPURLResponse *)self.response statusCode];
 }
 
 @end

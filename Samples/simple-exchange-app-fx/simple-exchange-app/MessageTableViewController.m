@@ -12,7 +12,7 @@
 @interface MessageTableViewController ()
 
 @property NSArray *Messages;
-@property MSOutlookClient* client;
+@property MSOutlookServicesClient* client;
 
 @end
 
@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSOutlookClient *client) {
+    [BaseController getClient:^(MSOutlookServicesClient *client) {
         self.client = client;
         [self getMessagesFromInbox];
     }];
@@ -54,16 +54,16 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
-    MSOutlookMessage *message = (MSOutlookMessage*)[self.Messages objectAtIndex:indexPath.row];
+    MSOutlookServicesMessage *message = (MSOutlookServicesMessage*)[self.Messages objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.Sender.EmailAddress.Name, message.Subject];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.sender.emailAddress.name, message.Subject];
     
     return cell;
 }
 
 -(void)getMessagesFromInbox{
     
-    NSURLSessionTask* task = [[[self.client getMe] getMessages] read:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.client getMe] getMessages] readWithCallback:^(NSArray<MSOutlookServicesMessage> *messages, MSODataException *error) {
         
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),

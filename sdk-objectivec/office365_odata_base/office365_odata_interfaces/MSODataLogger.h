@@ -11,8 +11,7 @@
 @protocol MSODataLogger
 
 @required
--(void) log:(NSString*)content : (MSODataLogLevel) logLevel __deprecated_msg("use logMessage:withLevel: instead");
 
--(void) logMessage:(NSString *)message withLevel:(MSODataLogLevel) logLevel;
+- (void)logMessage:(NSString *)message withLevel:(MSODataLogLevel)logLevel;
 
 @end

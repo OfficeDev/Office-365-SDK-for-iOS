@@ -6,24 +6,26 @@
  ******************************************************************************/
 
 #import "MSODataLoggerImpl.h"
+#import "MSODataLogger.h"
+#import "MSODataLogLevel.h"
 
 @implementation MSODataLoggerImpl
 
--(void) logMessage:(NSString *)message withLevel:(MSODataLogLevel)logLevel {
+- (void)logMessage:(NSString *)message withLevel:(MSODataLogLevel)logLevel {
     
-    NSString* levelString;
+    NSString *levelString;
     
     switch (logLevel) {
-        case ERROR:
+        case LOG_LEVEL_ERROR:
             levelString = @"ERROR";
             break;
-        case INFO:
+        case LOG_LEVEL_INFO:
             levelString = @"INFO";
             break;
-        case VERBOSE:
+        case LOG_LEVEL_VERBOSE:
             levelString = @"VERBOSE";
             break;
-        case WARNING:
+        case LOG_LEVEL_WARNING:
             levelString = @"WARNING";
             break;
         default:
@@ -31,11 +33,6 @@
     }
     
     NSLog(@"%@ : %@",levelString, message);
-}
-
-
--(void)log:(NSString *)content :(MSODataLogLevel)logLevel{
-    [self logMessage:content withLevel:logLevel];
 }
 
 @end

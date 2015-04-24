@@ -10,7 +10,7 @@
 
 @interface FilesTestRunner : BaseTestRunner
 
-@property MSSharePointClient *Client;
+@property MSOneDriveServicesClient *Client;
 
--(id)initWithClient : (MSSharePointClient*)client;
+-(id)initWithClient : (MSOneDriveServicesClient*)client;
 @end

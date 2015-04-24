@@ -5,104 +5,91 @@
  ******************************************************************************/
 
 #import "MSODataBaseContainerHelper.h"
+#import "MSODataDependencyResolver.h"
+#import "MSOCalendarSerializer.h"
+#import "MSODataRequest.h"
+#import "MSODataURL.h"
 
 @interface MSODataBaseContainerHelper()
 
-@property id<MSODataDependencyResolver> Resolver;
-@property NSString* UrlComponent;
+@property (copy, nonatomic, readonly) NSString *urlComponent;
 
 @end
 
 @implementation MSODataBaseContainerHelper
 
--(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver{
-    self.UrlComponent = url;
-    self.resolver = resolver;
+@synthesize resolver = _resolver;
+
+- (id)initWithUrl:(NSString *)url dependencyResolver:(id<MSODataDependencyResolver>)resolver {
+    
+    if (self = [super init]) {
+        
+        _urlComponent = url;
+        _resolver = resolver;
+    }
+    
     return self;
 }
 
-+(NSString*)generatePayload:(NSArray *)parameters :(id<MSODataDependencyResolver>)resolver{
++ (NSString *)generatePayloadWithParameters:(NSArray *)parameters
+                         dependencyResolver:(id<MSODataDependencyResolver>)resolver {
     
-    NSMutableString* result = [[NSMutableString alloc] initWithString:@"{"];
+    NSMutableString *result = [[NSMutableString alloc] initWithString:@"{"];
     
-    NSArray* reversedParameters = [[parameters reverseObjectEnumerator] allObjects];
-    for (NSDictionary* item in reversedParameters) {
+    NSArray *reversedParameters = [parameters reverseObjectEnumerator].allObjects;
+    
+    for (NSDictionary *item in reversedParameters) {
         
-        for (NSString* key in [item allKeys]) {
-        
-            NSString* value = [item objectForKey:key] ;
-            //NSString* parsed = [[resolver getJsonSerializer]serialize:object :key];
-            [result appendFormat:@"\"%@\":%@,",key,value];
+        for (NSString *key in item.allKeys) {
+            
+            [result appendFormat:@"\"%@\":%@,", key, [item objectForKey:key]];
         }
     }
     
-    NSString* r= [result substringWithRange:NSMakeRange(0, [result length] -1)];
-    result = [[NSMutableString alloc] initWithString:r];
-    [result appendFormat:@"}"];
-    NSString* value = result;
-    return value;
+    return [NSString stringWithFormat:@"%@}", [result substringWithRange:NSMakeRange(0, [result length] -1)]];
 }
 
--(id<MSODataDependencyResolver>)getResolver{
-    return self.Resolver;
-}
-
-+(void)addCustomParametersToODataURL : (id<MSODataRequest>) request : (NSDictionary*) parameters : (NSDictionary*) headers : (id<MSODataDependencyResolver>) resolver{
++ (void)addCustomParametersToODataURLWithRequest:(id<MSODataRequest>)request
+                                      parameters:(NSDictionary *)parameters
+                                         headers:(NSDictionary *)headers
+                              dependencyResolver:(id<MSODataDependencyResolver>)resolver {
     
-    for (NSString* key in [parameters allKeys]) {
+    for (NSString *key in parameters.allKeys) {
+       
         id object = [parameters objectForKey:key];
-        NSString* value = @"";
         
-        if([object isKindOfClass:[NSDate class]]){
-            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssz"];
-            NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
-            [dateFormatter setTimeZone:timeZone];
-            value = [[[dateFormatter stringFromDate:object] substringToIndex:19] stringByAppendingString:@"Z"];
-        }else{
-            value = [[NSString alloc] initWithFormat: @"\"%@\"", object];
-        }
+        NSString *value = [object isKindOfClass:[NSDate class]] ? [MSOCalendarSerializer serialize:object]
+                                                                : [[NSString alloc] initWithFormat: @"\"%@\"", object];
         
-        [[request getUrl] addQueryStringParameter:key : value];
+        [request.url addQueryStringParameter:key value:value];
     }
     
-    for (NSString* header in [headers allKeys]) {
-        [request addHeader:header : [headers objectForKey:header]];
+    for (NSString *header in headers.allKeys) {
+        
+        [request addHeaderWithName:header value:[headers objectForKey:header]];
     }
 }
 
-+(NSString*)getFunctionParameters :(NSDictionary*)parameters {
-    NSMutableString* theString = [[NSMutableString alloc] init];
++ (NSString *)getFunctionParameters:(NSDictionary *)parameters {
     
-    for (NSString* key in [parameters allKeys]) {
-        if([theString length]>0){
+    NSMutableString *theString = [[NSMutableString alloc] init];
+    
+    for (NSString *key in parameters.allKeys) {
+       
+        if (theString.length > 0) {
+            
             [theString appendString:@","];
         }
         
-        [theString appendString:key];
-        [theString appendString:@"="];
-        NSString* odataValue = [self toODataURLValue: [parameters objectForKey:key]];
-        [theString appendString:odataValue];
+        [theString appendFormat:@"%@=%@", key, [self toODataURLValue:[parameters objectForKey:key]]];
     }
     
     return theString;
 }
 
-+(NSString*) toODataURLValue : (id) o {
-    NSMutableString* result = [[NSMutableString alloc] init];
++ (NSString *)toODataURLValue:(id)o {
     
-    [result appendFormat:@"'%@'", o];
-    return result;
-    /*if (o instanceof String) {
-        return "'" + o + "'";
-    }
-    
-    if (o instanceof Calendar) {
-        return "'" + CalendarSerializer.serialize((Calendar)o) + "'";
-    }
-    
-    return o.toString();*/
-    //return nil;
+    return [NSString stringWithFormat:@"'%@'", o];
 }
 
 @end

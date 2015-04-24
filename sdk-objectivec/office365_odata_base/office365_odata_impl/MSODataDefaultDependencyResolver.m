@@ -5,65 +5,80 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import <Foundation/Foundation.h>
+#import "MSODataDefaultDependencyResolver.h"
+#import "MSODataHttpConnection.h"
+#import "MSODataJsonSerializerImpl.h"
+#import "MSODataRequestImpl.h"
+#import "MSODataLoggerImpl.h"
+
 #import <UIKit/UIKit.h>
-#import <office365_odata_base/office365_odata_base.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <mach/machine.h>
 
-@interface MSODataDefaultDependencyResolver()
-
-@property (nonatomic)  id<MSODataCredentials> mCredentials;
-
-@end
-
 @implementation MSODataDefaultDependencyResolver
 
--(void) setCredentials : (id<MSODataCredentials>) credentials{
-    self.mCredentials = credentials;
-}
+@synthesize httpTransport = _httpTransport;
+@synthesize logger = _logger;
+@synthesize jsonSerializer = _jsonSerializer;
+@synthesize credentials = _credentials;
 
--(id<MSODataHttpTransport>)getHttpTransport{
-    return [MSODataHttpConnection alloc];
-}
-
--(id<MSODataLogger>) getLogger{
-    return [MSODataLoggerImpl alloc];
-}
-
--(id<MSODataJsonSerializer>) getJsonSerializer{
-    MSODataJsonSerializerImpl* parser = [MSODataJsonSerializerImpl alloc];
-    [parser jsonSerializerImpl];
+- (id<MSODataHttpTransport>)httpTransport {
     
-    return parser;
+    if (!_httpTransport) {
+        
+        _httpTransport = [[MSODataHttpConnection alloc] init];
+    }
+    
+    return _httpTransport;
 }
 
--(id<MSODataCredentials>)getCredentials{
-    return self.mCredentials;
+- (id<MSODataLogger>)logger {
+    
+    if (!_logger) {
+        
+        _logger = [[MSODataLoggerImpl alloc] init];
+    }
+    return _logger;
 }
 
--(id<MSODataRequest>)createODataRequest{
+- (id<MSODataJsonSerializer>)jsonSerializer {
+    
+    if (!_jsonSerializer) {
+        
+        _jsonSerializer = [[MSODataJsonSerializerImpl alloc] init];
+    }
+    
+    return _jsonSerializer;
+}
+
+- (id<MSODataRequest>)createODataRequest {
+    
     return [[MSODataRequestImpl alloc] init];
 }
 
--(NSString*)getPlatformUserAgent : (NSString*) productName{
+- (NSString *)getPlatformUserAgent:(NSString *)productName {
     
-    NSMutableString* cpu = [[NSMutableString alloc] init];
+    NSMutableString *cpu = [[NSMutableString alloc] init];
+    
     cpu_type_t type;
     size_t size = sizeof(type);
     sysctlbyname("hw.cputype", &type, &size, NULL, 0);
     
-    if (type == CPU_TYPE_X86){
+    if (type == CPU_TYPE_X86) {
+        
         [cpu appendString:@"x86 "];
         
-    }else if (type == CPU_TYPE_ARM){
+    }else if (type == CPU_TYPE_ARM) {
+        
         [cpu appendString:@"ARM"];
     }
-    else if(type == CPU_TYPE_X86_64){
+    else if (type == CPU_TYPE_X86_64){
+        
         [cpu appendString:@"X86_64"];
     }
-    else{
+    else {
+        
         [cpu appendString:@"Other"];
     }
     

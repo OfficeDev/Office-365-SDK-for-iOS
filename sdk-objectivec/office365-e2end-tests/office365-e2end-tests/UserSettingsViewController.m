@@ -32,6 +32,7 @@
     self.txtRedirectUrl.text = [userDefaults objectForKey: @"RedirectUrl"];
     self.txtClientId.text =[userDefaults objectForKey: @"CliendId"];
     self.txtLoggedInUser.text = [userDefaults objectForKey:@"LogInUser"];
+    self.txtTestMail.text = [userDefaults objectForKey:@"TestMail"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +46,7 @@
     [userDefaults setObject:self.txtAuthorityUrl.text forKey:@"AuthorityUrl"];
     [userDefaults setObject:self.txtRedirectUrl.text forKey:@"RedirectUrl"];
     [userDefaults setObject:self.txtClientId.text forKey:@"CliendId"];
+    [userDefaults setObject:self.txtTestMail.text forKey:@"TestMail"];
     [userDefaults synchronize];
 }
 

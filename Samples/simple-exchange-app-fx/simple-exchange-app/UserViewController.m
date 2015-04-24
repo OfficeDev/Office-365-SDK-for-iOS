@@ -32,21 +32,21 @@
 }
 */
 
--(void)getMessagesFromInbox{
+- (void)getMessagesFromInbox {
  
-    [BaseController getClient:^(MSOutlookClient * client) {
-        NSURLSessionTask* task = [[client getMe] read:^(MSOutlookUser *user, NSError *error) {
+    [BaseController getClient:^(MSOutlookServicesClient *client) {
+        NSURLSessionTask* task = [[client getMe] readWithCallback:^(MSOutlookServicesUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                                   [[[client getResolver] getLogger] logMessage:@"Got results" withLevel:INFO];
+                                   [client.resolver.logger logMessage:@"Got results" withLevel:LOG_LEVEL_INFO];
                                    
-                                   self.lblDisplayName.text = user.DisplayName;
-                                   self.lblAlias.text =       user.Alias;
-                                   self.lblMailBoxId.text =   user.MailboxGuid;
+                                   self.lblDisplayName.text = user.displayName;
+                                   self.lblAlias.text =       user.alias;
+                                   self.lblMailBoxId.text =   user.mailboxGuid;
                                });
             } else {
-                [[[client getResolver] getLogger] logMessage:error.description withLevel:ERROR];
+                [client.resolver.logger logMessage:error.description withLevel:LOG_LEVEL_ERROR];
             }
         }];
         

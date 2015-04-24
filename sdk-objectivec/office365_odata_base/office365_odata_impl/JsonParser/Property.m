@@ -47,6 +47,10 @@
     return [self.Type isEqualToString:@"Tq"];
 }
 
+-(bool)isStream{
+    return [self.SubStringType isEqualToString:@"NSStream"];
+}
+
 -(bool)isCollection{
     return [self.SubStringType hasPrefix:@"NSMutableArray"] ||
     [self.SubStringType hasPrefix:@"NSArray"] ||

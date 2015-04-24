@@ -12,7 +12,7 @@
 
 @interface SendMessageViewController ()
 
-@property MSOutlookClient* client;
+@property MSOutlookServicesClient* client;
 
 @end
 
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [BaseController getClient:^(MSOutlookClient * client) {
+    [BaseController getClient:^(MSOutlookServicesClient *client) {
         self.client = client;
     }];
 }
@@ -31,14 +31,15 @@
 
 - (IBAction)SendMail:(id)sender{
     
-    MSOutlookMessage *message = [MSOutlookMessage alloc];
+    MSOutlookServicesMessage *message = [MSOutlookServicesMessage alloc];
     
-    message.Subject = self.txtSubject.text;
-    message.ToRecipients = [self getRecipients:self.txtTo.text];
-    message.Body = [[MSOutlookItemBody alloc] init];
-    message.Body.Content = self.txtBody.text;
+    message.subject = self.txtSubject.text;
+    message.toRecipients = [self getRecipients:self.txtTo.text];
+    message.body = [[MSOutlookServicesItemBody alloc] init];
+    message.body.content = self.txtBody.text;
     
-    NSURLSessionDataTask* task = [[[self.client getMe] getOperations]sendMail:message :true :^(int returnValue, MSODataException *error) {
+    NSURLSessionTask *task = [[self.client getMe].operations sendMailWithMessage:message saveToSentItems:true callback:^(int returnValue, MSODataException *error) {
+        
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         [alert show];
@@ -47,17 +48,17 @@
     [task resume];
 }
 
--(NSMutableArray<MSOutlookRecipient>*)getRecipients : (NSString*)text{
+- (NSMutableArray<MSOutlookServicesRecipient>*)getRecipients:(NSString *)text {
     
-    NSMutableArray<MSOutlookRecipient>* result = (NSMutableArray<MSOutlookRecipient>*)[NSMutableArray array];
+    NSMutableArray<MSOutlookServicesRecipient>* result = (NSMutableArray<MSOutlookServicesRecipient> *)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
     for (NSString* r in recipients) {
         
-        MSOutlookRecipient* recipient = [[MSOutlookRecipient alloc] init];
-        recipient.EmailAddress = [MSOutlookEmailAddress alloc];
-        recipient.EmailAddress.Address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        MSOutlookServicesRecipient* recipient = [[MSOutlookServicesRecipient alloc] init];
+        recipient.emailAddress = [MSOutlookServicesEmailAddress alloc];
+        recipient.emailAddress.address = [r stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         [result addObject: recipient];
     }

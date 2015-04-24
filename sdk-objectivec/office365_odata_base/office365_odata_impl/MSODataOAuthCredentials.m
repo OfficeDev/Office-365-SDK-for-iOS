@@ -6,21 +6,15 @@
  ******************************************************************************/
 
 #import "MSODataOAuthCredentials.h"
-
-@interface MSODataOAuthCredentials()
-
-@property NSString* token;
-
-@end
+#import "MSODataRequest.h"
 
 @implementation MSODataOAuthCredentials
 
--(void)addToken : (NSString*) token{
-    self.token = token;
-}
+@synthesize token = _token;
 
--(void)prepareRequest:(id<MSODataRequest>)request{
-    [request addHeader:@"Authorization" :[[NSString alloc] initWithFormat:@"Bearer %@", self.token]];
+- (void)prepareRequest:(id<MSODataRequest>)request {
+    
+    [request addHeaderWithName:@"Authorization" value:[[NSString alloc] initWithFormat:@"Bearer %@", self.token]];
 }
 
 @end

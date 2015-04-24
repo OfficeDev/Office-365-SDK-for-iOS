@@ -10,7 +10,8 @@
 #import <office365_odata_base/office365_odata_base.h>
 #import <office365_exchange_sdk/office365_exchange_sdk.h>
 #import <office365_discovery_sdk/office365_discovery_sdk.h>
-#import <office365_directory_sdk/office365_directory_sdk.h>
+#import <office365_onenote_sdk/office365_onenote_sdk.h>
+#import <office365_graph_sdk/office365_graph_sdk.h>
 
 @protocol Runner
 

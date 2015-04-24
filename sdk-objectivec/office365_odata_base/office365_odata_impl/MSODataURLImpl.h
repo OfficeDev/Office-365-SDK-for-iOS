@@ -10,6 +10,6 @@
 
 @interface MSODataURLImpl : NSObject<MSODataURL>
 
--(NSString*) toString;
+- (NSString *)toString;
 
 @end

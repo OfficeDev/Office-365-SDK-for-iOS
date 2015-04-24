@@ -5,10 +5,18 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_interfaces.h>
+
+@protocol MSODataURL;
 
 @interface MSODataEntityFetcherHelper : NSObject
 
-+(void)setPathForCollections : (id<MSODataURL>) url : (NSString*) urlComponent : (int) top : (int) skip : (NSString*) select : (NSString*) expand : (NSString*)  filter : (NSString*) orderBy;
++ (void)setPathForCollectionsWithUrl:(id<MSODataURL>)url
+                                 top:(int)top
+                                skip:(int)skip
+                              select:(NSString *)select
+                              expand:(NSString *)expand
+                              filter:(NSString *)filter
+                             orderby:(NSString *)orderBy
+                          andIsCount:(BOOL)isCount;
 
 @end

@@ -40,7 +40,7 @@
 
 -(NSURLSessionTask*)TestGetAllServices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getallServices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
      
         BOOL passed = false;
         
@@ -69,7 +69,7 @@
 
 -(NSURLSessionTask*)TestGetServices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -98,9 +98,9 @@
 
 -(NSURLSessionTask*)TestGetServiceById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
-        [[[[self.Client getservices] getById:oneServiceInfo.entityKey] read:^(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error) {
+        [[[[self.Client getallServices] getById:oneServiceInfo.entityKey] readWithCallback:^(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -131,11 +131,11 @@
 
 -(NSURLSessionTask*)TestFilterServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"entityKey eq '" stringByAppendingString:oneServiceInfo.entityKey] stringByAppendingString:@"'" ];
-        [[[[self.Client getservices]filter: filter]read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
+        [[[[self.Client getallServices]filter: filter]readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -165,11 +165,11 @@
 
 -(NSURLSessionTask*)TestSelectServices:(void (^) (Test*))result{
     //Get services
-    NSURLSessionTask *task = [[self.Client getservices] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         // Use filter to get service
         NSString *filter = [[@"ServiceName eq '" stringByAppendingString:oneServiceInfo.serviceName] stringByAppendingString:@"'" ];
-        [[[[[self.Client getservices]filter: filter] select:@"providerName" ] read:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
+        [[[[[self.Client getallServices]filter: filter] select:@"providerName" ] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -199,7 +199,7 @@
 
 -(NSURLSessionTask*)TestTopServices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getallServices] top:1] read:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getallServices] top:1] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
         
         BOOL passed = false;
         

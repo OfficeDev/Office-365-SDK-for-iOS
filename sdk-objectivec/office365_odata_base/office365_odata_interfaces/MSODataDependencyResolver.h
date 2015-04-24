@@ -6,21 +6,23 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSODataHttpTransport.h"
-#import "MSODataLogger.h"
-#import "MSODataJsonSerializer.h"
-#import "MSODataCredentials.h"
-#import "MSODataURL.h"
+
+@protocol MSODataHttpTransport;
+@protocol MSODataLogger;
+@protocol MSODataJsonSerializer;
+@protocol MSODataCredentials;
+@protocol MSODataRequest;
 
 @protocol MSODataDependencyResolver
 
 @required
--(void) setCredentials : (id<MSODataCredentials>) credentials;
--(id<MSODataHttpTransport>)getHttpTransport;
--(id<MSODataLogger>) getLogger;
--(id<MSODataJsonSerializer>) getJsonSerializer;
--(id<MSODataCredentials>)getCredentials;
--(id<MSODataRequest>)createODataRequest;
--(NSString*)getPlatformUserAgent : (NSString*) productName;
+
+@property (strong, atomic, readwrite) id<MSODataCredentials> credentials;
+@property (strong, nonatomic, readonly) id<MSODataHttpTransport> httpTransport;
+@property (strong, nonatomic, readonly) id<MSODataLogger> logger;
+@property (strong, nonatomic, readonly) id<MSODataJsonSerializer> jsonSerializer;
+
+- (id<MSODataRequest>)createODataRequest;
+- (NSString *)getPlatformUserAgent:(NSString *)productName;
 
 @end

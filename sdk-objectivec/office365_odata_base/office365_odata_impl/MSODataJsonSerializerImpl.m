@@ -6,44 +6,52 @@
  ******************************************************************************/
 
 #import "MSODataJsonSerializerImpl.h"
-#import <Foundation/Foundation.h>
-#import "JsonParser.h"
+#import "MSOJsonParser.h"
 
 @interface MSODataJsonSerializerImpl()
 
-@property JsonParser* parser;
+@property (copy, nonatomic, readonly) MSOJsonParser *parser;
 
 @end
 
 @implementation MSODataJsonSerializerImpl
 
--(void)jsonSerializerImpl{
-    NSDictionary* metadataValues = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    @"$$__ODataType", @"@odata.type",
-                                    @"$$__description", @"description",
-                                    @"$$__default",@"default", nil];
+- (instancetype)init {
     
-    self.parser = [[JsonParser alloc] initWithMetadataValues:metadataValues];
+    if (self = [super init]) {
+        
+        NSDictionary *metadataValues = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                        @"odataType", @"@odata.type",
+                                        @"$$__self", @"self",
+                                        @"$$__description", @"description",
+                                        @"$$__default",@"default", nil];
+        
+        _parser = [[MSOJsonParser alloc] initWithMetadataValues:metadataValues];
+    }
+
+    return self;
 }
 
--(NSString*) serialize : (id) objectToSerialize{
+- (NSString *)serialize:(id)objectToSerialize {
     
     return [self.parser toJsonString:objectToSerialize];
 }
 
--(NSString*) serialize : (id) objectToSerialize : (NSString*) name{
+- (NSString *)serialize:(id)objectToSerialize property:(NSString *)name {
     
     return [self.parser toJsonString:objectToSerialize Property:name];
 }
 
--(id) deserialize : (NSData*) serializedObject : (Class) clazz {
-    return [self.parser parseWithData:serializedObject forType:clazz selector:nil];
+- (id)deserialize:(NSData *)serializedObject asClass:(Class)theClass {
+    
+    return [self.parser parseWithData:serializedObject forType:theClass selector:nil];
 }
 
--(id) deserializeList : (NSData*) serializedList : (Class) clazz{
+- (id)deserializeList:(NSData *)serializedList asClass:(Class)theClass {
+    
     NSArray* selectors = [[NSArray alloc] initWithObjects:@"value", nil];
     
-    return [self.parser parseWithData:serializedList forType:clazz selector:selectors];
+    return [self.parser parseWithData:serializedList forType:theClass selector:selectors];
 }
 
 @end

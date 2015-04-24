@@ -7,24 +7,25 @@
 
 #import <Foundation/Foundation.h>
 #import "MSODataHttpVerb.h"
-#import "MSODataUrl.h"
+
+@protocol MSODataURL;
 
 @protocol MSODataRequest
 
 @required
--(void) setContent : (NSData*) content;
--(NSData*) getContent;
--(NSDictionary*)getHeaders;
--(void)setHeaders :(NSArray*) headers;
--(void)addHeader : (NSString*) name : (NSString*) value;
--(void)removeHeader : (NSString*) name;
--(MSODataHttpVerb) getVerb;
--(void)setVerb : (MSODataHttpVerb) httpVerb;
--(void)setUrl : (id<MSODataURL>) url;
--(id<MSODataURL>) getUrl;
--(void)setStreamedContent : (NSInputStream*) stream : (NSInteger) size;
--(NSInputStream*)getStreamedContent;
--(void)addOption: (NSString*) name : (NSString*) value;
--(NSMutableArray*)getOptions;
+
+@property (copy, nonatomic, readwrite) NSData *content;
+@property (strong, nonatomic, readwrite) NSInputStream *streamContent;
+@property (copy, nonatomic, readonly) NSMutableDictionary *headers;
+@property (copy, nonatomic, readonly) NSMutableArray *options;
+@property (copy, nonatomic, readwrite) id<MSODataURL> url;
+@property (nonatomic, readwrite) MSODataHttpVerb verb;
+@property (nonatomic, readwrite) NSInteger size;
+
+- (void)addHeaderWithName:(NSString *)name value:(NSString *)value;
+- (void)addOptionWithName:(NSString *)name value:(NSString *)value;
+/*
+- (void)removeHeaderWithName:(NSString *)name;
+*/
 
 @end
