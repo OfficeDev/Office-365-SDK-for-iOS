@@ -4,4 +4,4 @@ platform :ios, '7.0'
 xcodeproj 'simple-exchange-app'
 
 pod 'ADALiOS', '~> 1.0'   # 1.0 < ver < 2.0
-pod 'Office365/Discovery', '~> 0.8.3'
+pod 'Office365/Discovery', '~> 0.9.0'

@@ -8,16 +8,18 @@
 #import "FilesTestRunner.h"
 
 @implementation FilesTestRunner
--(id)initWithClient : (MSSharePointClient*)client{
+
+- (id)initWithClient:(MSOneDriveServicesClient *)client {
     self.Client = client;
     return self;
 }
 
--(NSURLSessionDataTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
+-(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
     
     if([testName isEqualToString: @"TestGetFiles"]) return [self TestGetFiles:result];
     if([testName isEqualToString: @"TestGetFileById"]) return [self TestGetFileById:result];
     if([testName isEqualToString: @"TestCreateFileWithContent"]) return [self TestCreateFileWithContent:result];
+    if([testName isEqualToString: @"TestCreateFileWithStreamContent"]) return [self TestCreateFileWithStreamContent:result];
     if([testName isEqualToString: @"TestUpdateFileContent"]) return [self TestUpdateFileContent:result];
     if([testName isEqualToString: @"TestGetDrive"]) return [self TestGetDrive:result];
     if([testName isEqualToString: @"TestTopFiles"]) return [self TestTopFiles:result];
@@ -33,18 +35,20 @@
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFiles" :@"Get Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetFileById" :@"Get File By Id" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestCreateFileWithContent" :@"Create Files with content"]];
+    [array addObject:[[Test alloc] initWithData:self :@"TestCreateFileWithStreamContent" :@"Create Files with stream content" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestUpdateFileContent" :@"Update files content" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestGetDrive" :@"Get drive" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestTopFiles" :@"Top Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestSelectFiles" :@"Select Files" ]];
     [array addObject:[[Test alloc] initWithData:self :@"TestDeleteFile" :@"Delete Files" ]];
+    
     return array;
 }
 
 
--(NSURLSessionDataTask*)TestGetFiles:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetFiles:(void (^) (Test *))result{
     
-    NSURLSessionDataTask *task = [[self.Client getfiles] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -71,12 +75,12 @@
 }
 
 
--(NSURLSessionDataTask*)TestGetFileById:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+-(NSURLSessionTask*)TestGetFileById:(void (^) (Test*))result{
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[self.Client getfiles] getById:addedItem.id]read:^(MSSharePointItem *item, MSODataException *error) {
+        [[[[self.Client getfiles] getById:addedItem.id]readWithCallback:^(MSOneDriveServicesItem *item, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -100,7 +104,7 @@
             
             //cleanup
             if(addedItem!= nil)
-                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"] deleteItem:^(int status, MSODataException *error) {
+                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }]resume];
@@ -113,14 +117,70 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestCreateFileWithContent:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+-(NSURLSessionTask*)TestCreateFileWithContent:(void (^) (Test*))result{
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id] asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
+            //Get file content
+            [[[[[self.Client getfiles]getById:addedItem.id] asFile] getContentWithCallback:^(NSData *addedContent, MSODataException *error) {
+                BOOL passed = false;
+                
+                Test *test = [Test alloc];
+                test.ExecutionMessages = [NSMutableArray array];
+                
+                NSString* message = @"";
+                
+                if(error == nil && addedItem != nil && [content isEqualToData:addedContent]){
+                    passed = TRUE;
+                    message = @"Ok - ";
+                }
+                else{
+                    message = @"Not - ";
+                    if(error != nil)
+                        message = [message stringByAppendingString:[error localizedDescription]];
+                }
+                
+                test.Passed = passed;
+                [test.ExecutionMessages addObject:message];
+                
+                //Cleanup
+                if (addedItem != nil) {
+                    
+                    [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"]
+                      deleteWithCallback:^(int status, MSODataException *error) {
+                        
+                          if(error!= nil)
+                            NSLog(@"Error: %@", error);
+                    
+                      }]resume];
+                }
+                
+                result(test);
+                
+            }]resume];
+        }]resume];
+    }];
+    
+    return task;
+}
+
+-(NSURLSessionTask*)TestCreateFileWithStreamContent:(void (^) (Test*))result {
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
+    
+    //Create file
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+        //Put content to file
+        NSInputStream *streamContent = [[NSInputStream alloc] initWithData:content];
+        NSInteger size = content.length;
+        
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:streamContent withSize:size callback:^(NSInteger response, MSODataException *error) {
             //Get file content
             [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *addedContent, MSODataException *error) {
                 BOOL passed = false;
@@ -144,11 +204,15 @@
                 [test.ExecutionMessages addObject:message];
                 
                 //Cleanup
-                if(addedItem!= nil)
-                    [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
-                        if(error!= nil)
+                if (addedItem!= nil) {
+                    
+                    [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {
+                        
+                        if (error!= nil)
                             NSLog(@"Error: %@", error);
+                    
                     }]resume];
+                }
                 
                 result(test);
                 
@@ -160,16 +224,18 @@
 }
 
 
--(NSURLSessionDataTask*)TestUpdateFileContent:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+-(NSURLSessionTask*)TestUpdateFileContent:(void (^) (Test*))result {
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
         //Put content to file
-        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content withCallback:^(NSInteger putContentResult, MSODataException *error) {
-            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent withCallback:^(NSInteger updatedContentResult, MSODataException *error) {
+        [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
+            [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent
+                                                                     callback:^(NSInteger updatedContentResult, MSODataException *error) {
                 
                 //Get file content
                 [[[[[self.Client getfiles]getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *newContent, MSODataException *error) {
@@ -194,11 +260,16 @@
                     [test.ExecutionMessages addObject:message];
                     
                     //Cleanup
-                    if(addedItem!= nil)
-                        [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
-                            if(error!= nil)
+                    if (addedItem!= nil) {
+                        
+                        [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"]
+                          deleteWithCallback:^(int status, MSODataException *error) {
+                              
+                            if (error!= nil)
                                 NSLog(@"Error: %@", error);
+                              
                         }]resume];
+                    }
                     
                     result(test);
                     
@@ -211,9 +282,9 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestGetDrive:(void (^) (Test*))result{
+-(NSURLSessionTask*)TestGetDrive:(void (^) (Test*))result{
     
-    NSURLSessionDataTask *task = [[self.Client getdrive] read:^(MSSharePointDrive *drive, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getdrive] readWithCallback:^(MSOneDriveServicesDrive *drive, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -239,15 +310,17 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestTopFiles:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
-    MSSharePointItem *itemToAdd2 = [self GetFileItem];
+-(NSURLSessionTask*)TestTopFiles:(void (^) (Test*))result{
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSOneDriveServicesItem *itemToAdd2 = [self GetFileItem];
+    
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Add second item
-        [[[self.Client getfiles] add:itemToAdd2 :^(MSSharePointItem *addedItem2, MSODataException *e) {
+        [[[self.Client getfiles] addEntity:itemToAdd2 callback:^(MSOneDriveServicesItem *addedItem2, MSODataException *e) {
             //Get top 1 item
-            [[[[self.Client getfiles] top:1]read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
+            [[[[self.Client getfiles] top:1]readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -269,17 +342,22 @@
                 [test.ExecutionMessages addObject:message];
                 
                 //cleanup
-                if(addedItem!= nil){
-                    [[[[[self.Client getfiles]getById:addedItem.id]addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
+                if (addedItem!= nil) {
+                    [[[[[self.Client getfiles]getById:addedItem.id]addCustomHeaderWithName:@"If-Match" value:@"*"]deleteWithCallback:^(int status, MSODataException *error) {
+                        
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
+                    
                     }] resume];
                 }
-            
+                
                 if(addedItem2!= nil)
-                    [[[[[self.Client getfiles]getById:addedItem2.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
-                        if(error!= nil)
+                    [[[[[self.Client getfiles]getById:addedItem2.id] addCustomHeaderWithName:@"If-Match"
+                                                                                       value:@"*"]deleteWithCallback:^(int status, MSODataException *error) {
+                        
+                        if (error!= nil)
                             NSLog(@"Error: %@", error);
+                    
                     }]resume];
                 
                 result(test);
@@ -290,12 +368,13 @@
     return task;
 }
 
--(NSURLSessionDataTask*)TestSelectFiles:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+-(NSURLSessionTask*)TestSelectFiles:(void (^) (Test*))result{
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] read:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
+        [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -304,9 +383,10 @@
             
             NSString* message = @"";
             
-            MSSharePointItem *selectedItem = nil;
+            MSOneDriveServicesItem *selectedItem = nil;
+            
             if(items.count > 0){
-                selectedItem =(MSSharePointItem*)[items objectAtIndex:0];
+                selectedItem =(MSOneDriveServicesItem *)[items objectAtIndex:0];
             }
             
             if(error == nil && selectedItem != nil && ![selectedItem.name isEqualToString:@""] && selectedItem.dateTimeLastModified == nil ){
@@ -323,12 +403,15 @@
             [test.ExecutionMessages addObject:message];
             
             //cleanup
-            if(addedItem!= nil)
-                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"]deleteItem:^(int status, MSODataException *error) {
+            if (addedItem!= nil) {
+                
+                [[[[[self.Client getfiles]getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {
+                   
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
+                
                 }]resume];
-            
+            }
             
             result(test);
         }]resume];
@@ -338,13 +421,14 @@
 }
 
 
--(NSURLSessionDataTask*)TestDeleteFile:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+-(NSURLSessionTask*)TestDeleteFile:(void (^) (Test*))result{
+    
+    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionDataTask *task = [[self.Client getfiles] add:itemToAdd :^(MSSharePointItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
         //Delete item
         
-        [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" andValue:@"*"] deleteItem:^(int status, MSODataException *error) {
+        [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -366,18 +450,21 @@
             [test.ExecutionMessages addObject:message];
             
             result(test);
-
+            
         }] resume];
     }];
     
     return task;
 }
 
--(MSSharePointItem *) GetFileItem{
+-(MSOneDriveServicesItem *)GetFileItem {
+    
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
-    MSSharePointItem *item = [[MSSharePointItem alloc] init];
+    MSOneDriveServicesItem *item = [[MSOneDriveServicesItem alloc] init];
+
     [item setType:@"File"];
     [item setName:fileName];
     return item;
 }
+
 @end

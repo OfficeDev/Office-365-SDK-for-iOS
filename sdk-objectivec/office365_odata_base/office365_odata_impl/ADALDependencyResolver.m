@@ -8,39 +8,48 @@
 #import "ADALDependencyResolver.h"
 #import "MSODataCredentials.h"
 #import "MSODataOAuthCredentials.h"
+#import "ADAuthenticationResult.h"
+#import "ADAuthenticationContext.h"
 
 @interface ADALDependencyResolver()
 
-@property id<ADAuthenticationContext> Context;
-@property NSString* ClientId;
-@property NSString* ResourceId;
-@property NSURL* RedirectUri;
+@property (strong, atomic, readonly) ADAuthenticationContext *context;
+@property (strong, atomic, readonly) NSString *clientId;
+@property (strong, atomic, readonly) NSURL *redirectUri;
 
 @end
 
 @implementation ADALDependencyResolver
 
--(id)initWithContext : (id<ADAuthenticationContext>) context andResourceId : (NSString*)resourceId andClientId : (NSString*) clientId andRedirectUri : (NSURL*) redirectUri{
+- (instancetype)initWithContext:(ADAuthenticationContext *)context
+                     resourceId:(NSString *)resourceId
+                       clientId:(NSString *)clientId
+                    redirectUri:(NSURL *)redirectUri {
     
-    self.ClientId = clientId;
-    self.Context = context;
-    self.ResourceId = resourceId;
-    self.RedirectUri = redirectUri;
+    if (self = [super init]) {
+    
+        _clientId = clientId;
+        _context = context;
+        _resourceId = resourceId;
+        _redirectUri = redirectUri;
+    }
     
     return self;
 }
 
--(id<MSODataCredentials>)getCredentials{
+- (id<MSODataCredentials>)credentials {
     
-    __block MSODataOAuthCredentials* credentials;
+    __block MSODataOAuthCredentials *credentials;
     
     dispatch_semaphore_t sem = dispatch_semaphore_create(0);
     
-    [self.Context acquireTokenSilentWithResource:self.ResourceId clientId:self.ClientId redirectUri:self.RedirectUri completionBlock:
-     ^(id<ADAuthenticationResult>result) {
+    [self.context acquireTokenSilentWithResource:self.resourceId
+                                        clientId:self.clientId
+                                     redirectUri:self.redirectUri
+                                 completionBlock:^(ADAuthenticationResult *result) {
          
-         credentials = [MSODataOAuthCredentials alloc];
-         [credentials addToken:result.accessToken];
+         credentials = [[MSODataOAuthCredentials alloc] init];
+         credentials.token = result.accessToken;
          
          dispatch_semaphore_signal(sem);
      }];
@@ -48,10 +57,6 @@
     dispatch_semaphore_wait(sem, 10);
     
     return credentials;
-}
-
--(NSString*)getResourceId{
-    return self.ResourceId;
 }
 
 @end

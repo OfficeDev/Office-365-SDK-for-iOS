@@ -53,8 +53,10 @@ static AuthenticationController* INSTANCE;
                               redirectUri:redirectUri
                           completionBlock:^(ADAuthenticationResult  *result) {
                               
-                              if (AD_SUCCEEDED != result.status){
-                                  [[[self getDependencyResolver] getLogger] log:result.error.errorDetails :ERROR];
+                              if (AD_SUCCEEDED != result.status) {
+                                  
+                                  [[self getDependencyResolver].logger logMessage:result.error.errorDetails withLevel:LOG_LEVEL_ERROR];
+                                  
                                   completionBlock(false);
                               }
                               else{
@@ -63,9 +65,8 @@ static AuthenticationController* INSTANCE;
                                   [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LogInUser"];
                                   [userDefaults synchronize];
                                   
-                                  DependencyResolver = [[ADALDependencyResolver alloc]
-                                                        initWithContext:authContext andResourceId:resourceId
-                                                        andClientId:clientId andRedirectUri:redirectUri];
+                                  DependencyResolver = [[ADALDependencyResolver alloc] initWithContext:authContext resourceId:resourceId clientId:clientId redirectUri:redirectUri];
+                                  
                                   completionBlock(true);
                               }
                           }];

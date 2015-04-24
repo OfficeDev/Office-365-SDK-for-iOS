@@ -7,97 +7,86 @@
 
 #import "MSODataRequestImpl.h"
 #import "MSODataURLImpl.h"
-
-@interface MSODataRequestImpl()
-
-@property NSMutableURLRequest* request;
-@property MSODataHttpVerb httpVerb;
-@property id<MSODataURL> odataUrl;
-
-@end
+#import "MSODataHttpVerb.h"
 
 @implementation MSODataRequestImpl
 
--(id)init;{
-    self.request = [[NSMutableURLRequest alloc]init];
-    self.odataUrl = [[MSODataURLImpl alloc] init];
+@synthesize streamContent = _streamContent;
+@synthesize options = _options;
+@synthesize content = _content;
+@synthesize headers = _headers;
+@synthesize size = _size;
+@synthesize url = _url;
+@synthesize verb = _verb;
+
+-(instancetype)init {
+    
+    if (self = [super init]) {
+        
+        _verb = HTTP_VERB_GET;
+        _headers = [NSMutableDictionary dictionary];
+        _options = [NSMutableArray array];
+        _content = nil;
+        _streamContent = nil;
+    }
+    
     return self;
 }
 
--(void) setContent : (NSData*) content{
-    self.request.HTTPBody = content;
-}
-
--(NSData*) getContent{
-    return self.request.HTTPBody;
-}
-
--(NSDictionary *) getHeaders{
-    return [self.request allHTTPHeaderFields];
-}
-
--(void)setHeaders :(NSArray*) headers{
-    for (NSDictionary* dicc in headers) {
-        [self.request addValue:[[dicc allKeys] objectAtIndex:0] forHTTPHeaderField:[[dicc allValues] objectAtIndex:0]];
-    }
-}
-
--(void)addHeader : (NSString*) name : (NSString*) value{
-    [self.request addValue:value forHTTPHeaderField: name];
-}
-
--(void)removeHeader : (NSString*) name{
-}
-
--(MSODataHttpVerb) getVerb{
-    return self.httpVerb;
-}
-
--(void)setVerb : (MSODataHttpVerb) httpVerb{
-    self.httpVerb = httpVerb;
-    self.request.HTTPMethod = [self verbToString :httpVerb];
-}
-
--(void)setUrl : (id<MSODataURL>) url{
-    self.odataUrl = url;
-}
-
--(NSMutableURLRequest*)getMutableRequest{
-    return self.request;
-}
-
--(void)setMutableRequest : (NSMutableURLRequest*)request{
-    self.request = request;
-}
-
--(id<MSODataURL>)getUrl{
-    return self.odataUrl;
-}
-
--(NSString*)verbToString : (MSODataHttpVerb) verb{
-
-    NSString* verbToString;
+- (id<MSODataURL>)url {
     
-    switch (verb) {
-        case GET:
+    if (_url == nil) {
+        _url = [[MSODataURLImpl alloc] init];
+    }
+    
+    return _url;
+}
+
+- (NSMutableArray *)options {
+    
+    if (_options == nil) {
+        _options = [NSMutableArray array];
+    }
+    
+    return _options;
+}
+
+- (void)addOptionWithName:(NSString *)name value:(NSString *)value {
+    
+    NSDictionary *dicc = [[NSMutableDictionary alloc] initWithObjectsAndKeys:value, name, nil];
+    [self.options addObject:dicc];
+}
+
+- (void)addHeaderWithName:(NSString *)name value:(NSString *)value {
+    
+    NSDictionary *dicc = [[NSMutableDictionary alloc] initWithObjectsAndKeys: value, name, nil];
+    [self.headers addEntriesFromDictionary:dicc];
+}
+
+- (NSString *)verbToString {
+    
+    NSString *verbToString;
+    
+    switch (_verb) {
+        case HTTP_VERB_GET:
             verbToString = @"GET";
             break;
-        case POST:
+        case HTTP_VERB_POST:
             verbToString = @"POST";
             break;
-        case DELETE:
+        case HTTP_VERB_DELETE:
             verbToString = @"DELETE";
             break;
-        case PATCH:
+        case HTTP_VERB_PATCH:
             verbToString = @"PATCH";
             break;
-        case PUT:
+        case HTTP_VERB_PUT:
             verbToString = @"PUT";
             break;
-        case HEAD:
+        case HTTP_VERB_HEAD:
             verbToString = @"HEAD";
             break;
-        case OPTIONS:
+        case HTTP_VERB_OPTIONS:
             verbToString = @"OPTIONS";
             break;
         default:

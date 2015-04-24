@@ -8,24 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "MSODataDefaultDependencyResolver.h"
 
-@protocol ADAuthenticationResult
-
-@property NSString* accessToken;
-
-@end
-
-@protocol ADAuthenticationContext
-
--(void) acquireTokenSilentWithResource: (NSString*) resource
-                              clientId: (NSString*) clientId
-                           redirectUri: (NSURL*) redirectUri
-                       completionBlock: (id<ADAuthenticationResult>) completionBlock;
-
-@end
+@class ADAuthenticationContext;
 
 @interface ADALDependencyResolver : MSODataDefaultDependencyResolver
 
--(id)initWithContext : (id<ADAuthenticationContext>) context andResourceId : (NSString*)resourceId andClientId : (NSString*) clientId andRedirectUri : (NSURL*) redirectUri;
--(NSString*)getResourceId;
+- (instancetype)initWithContext:(ADAuthenticationContext *)context
+                     resourceId:(NSString *)resourceId
+                       clientId:(NSString *)clientId
+                    redirectUri:(NSURL *)redirectUri;
+
+@property (strong, atomic) NSString *resourceId;
 
 @end

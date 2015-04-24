@@ -40,21 +40,36 @@
     return [self.Tests count];
 }
 
+- (IBAction)changeSwitchValue:(UISwitch *)sender {
+    
+    Test *test = [self.Tests objectAtIndex:sender.tag];
+    test.Selected = sender.on;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
     Test *test = [self.Tests objectAtIndex:indexPath.row];
-    UILabel* label = (UILabel *)[cell.contentView viewWithTag:2];
+    UILabel* label = (UILabel *)[cell.contentView.subviews objectAtIndex:1];
     label.text = test.DisplayName;
     
-    if(test.ExecutionMessages != nil){
+    UISwitch *_switch = ((UISwitch*)[cell.contentView.subviews objectAtIndex:0]);
+                                     //subviews:1]);
+    
+    _switch.tag = indexPath.row;
+    
+    [_switch setOn:test.Selected];
+    
+    if (test.ExecutionMessages != nil) {
         if(test.Passed){
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"passed.png"]];
         }
         if(!test.Passed){
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"failed.png"]];
         }
+    }else{
+        cell.accessoryView = nil;
     }
     
     return cell;
@@ -80,7 +95,8 @@
                 executed++;
                 
                 [self.tableView reloadData];
-                if(executed == [self.Tests count]) [spinner stopAnimating];
+                
+                if(executed >= [self.Tests count]) [spinner stopAnimating];
             }];
             
             [task resume];
@@ -104,23 +120,23 @@
     
     for (NSUInteger i = 0; i < [self.Tests count]; i++) {
         
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-        UISwitch* s = (UISwitch*)[cell viewWithTag:1];
+        __block Test *test = [self.Tests objectAtIndex:i];
         
-        if(s.isOn){
+        if(test.Selected){
+            
             toExecute++;
             @try {
-                NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
+                NSURLSessionDataTask *task = [test Run:^(Test *result) {
                     
-                    Test *test = [self.Tests objectAtIndex:i];
                     test.Passed = result.Passed;
                     test.ExecutionMessages = result.ExecutionMessages;
+                    
                     executed++;
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self.tableView reloadData];
                         
-                        if(executed == toExecute) [spinner stopAnimating];
+                        if(executed >= toExecute) [spinner stopAnimating];
                     });
                 }];
                 
@@ -128,11 +144,13 @@
             }
             @catch (NSException *e) {
                 NSLog(@"Exception: %@", e);
+                
+                if(executed >= toExecute) [spinner stopAnimating];
             }
         }
     }
     
-    if(toExecute==0)[spinner stopAnimating];
+    if (toExecute == 0) [spinner stopAnimating];
 }
 
 

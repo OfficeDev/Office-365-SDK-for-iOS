@@ -7,9 +7,10 @@
 
 #import "BaseTestRunner.h"
 #import "Test.h"
-#import "MSSharePointClient.h"
-@interface FilesTestRunner : BaseTestRunner
-@property MSSharePointClient *Client;
 
--(id)initWithClient : (MSSharePointClient*)client;
+@interface FilesTestRunner : BaseTestRunner
+
+@property MSOneDriveServicesClient *Client;
+
+-(id)initWithClient : (MSOneDriveServicesClient*)client;
 @end

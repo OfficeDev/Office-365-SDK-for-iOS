@@ -6,10 +6,8 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_interfaces.h>
+#import "MSODataJsonSerializer.h"
 
 @interface MSODataJsonSerializerImpl : NSObject<MSODataJsonSerializer>
-
--(void)jsonSerializerImpl;
 
 @end

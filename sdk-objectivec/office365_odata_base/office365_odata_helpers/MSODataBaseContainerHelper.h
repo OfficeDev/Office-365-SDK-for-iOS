@@ -5,14 +5,24 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_interfaces.h>
+
+@protocol MSODataDependencyResolver;
+@protocol MSODataRequest;
 
 @interface MSODataBaseContainerHelper : NSObject
 
--(id<MSODataDependencyResolver>) getResolver;
--(id)initWithUrl : (NSString *)url  dependencyResolver : (id<MSODataDependencyResolver>) resolver;
-+(NSString*)generatePayload :(NSArray*) parameters : (id<MSODataDependencyResolver>) resolver;
-+(void)addCustomParametersToODataURL : (id<MSODataRequest>) request : (NSDictionary*) parameters : (NSDictionary*) headers : (id<MSODataDependencyResolver>) resolver;
-+(NSString*)getFunctionParameters :(NSDictionary*)parameters;
+@property (copy, nonatomic) id<MSODataDependencyResolver> resolver;
+
+- (id)initWithUrl:(NSString *)url dependencyResolver:(id<MSODataDependencyResolver>)resolver;
+
++ (NSString *)generatePayloadWithParameters:(NSArray *)parameters
+                         dependencyResolver:(id<MSODataDependencyResolver>)resolver;
+
++ (void)addCustomParametersToODataURLWithRequest:(id<MSODataRequest>)request
+                                      parameters:(NSDictionary *)parameters
+                                         headers:(NSDictionary *)headers
+                              dependencyResolver:(id<MSODataDependencyResolver>)resolver;
+
++ (NSString *)getFunctionParameters:(NSDictionary *)parameters;
 
 @end

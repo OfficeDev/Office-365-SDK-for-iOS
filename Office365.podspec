@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
   s.name         = "Office365"
-  s.version      = "0.8.3"
+  s.version      = "0.9.0"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
 
   s.description  = <<-DESC
@@ -91,13 +91,6 @@ Pod::Spec.new do |s|
      subspec.header_dir = "office365_files_sdk"
   end
 
-  s.subspec 'Directory' do |subspec|
-     subspec.source_files = "sdk-objectivec/office365_directory_sdk/**/*.{h,m}"
-     subspec.dependency "Office365/OData"
-     subspec.public_header_files = "sdk-objectivec/office365_directory_sdk/**/*.h"
-     subspec.header_dir = "office365_directory_sdk"
-  end
-
   s.subspec 'Discovery' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_discovery_sdk/**/*.{h,m}"
      subspec.dependency "Office365/OData"
@@ -109,5 +102,19 @@ Pod::Spec.new do |s|
      subspec.source_files = "sdk-objectivec/office365-lists-sdk/**/*.{h,m}"
      subspec.public_header_files = "sdk-objectivec/office365-lists-sdk/**/*.h"
      subspec.header_dir = "office365-lists-sdk"
+  end
+
+  s.subspec 'OneNote' do |subspec|
+   subspec.source_files = "sdk-objectivec/office365_onenote_sdk/**/*.{h,m}"
+   subspec.dependency "Office365/OData"
+   subspec.public_header_files = "sdk-objectivec/office365_onenote_sdk/**/*.h"
+   subspec.header_dir = "office365_onenote_sdk"
+  end
+
+  s.subspec 'Graph' do |subspec|
+   subspec.source_files = "sdk-objectivec/office365_graph_sdk/**/*.{h,m}"
+   subspec.dependency "Office365/OData"
+   subspec.public_header_files = "sdk-objectivec/office365_graph_sdk/**/*.h"
+   subspec.header_dir = "office365_graph_sdk"
   end
 end

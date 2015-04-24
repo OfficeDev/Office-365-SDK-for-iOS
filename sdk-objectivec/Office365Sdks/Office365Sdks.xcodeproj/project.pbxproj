@@ -43,6 +43,20 @@
 			remoteGlobalIDString = ECDEC0C41A2514BB00F84EAF;
 			remoteInfo = office365_files_sdk;
 		};
+		EC7405991AB35E1600108A42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7405941AB35E1600108A42 /* office365_onenote_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC74056B1AB35DBB00108A42;
+			remoteInfo = office365_onenote_sdk;
+		};
+		EC74059B1AB35E1600108A42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC7405941AB35E1600108A42 /* office365_onenote_sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EC7405761AB35DBB00108A42;
+			remoteInfo = office365_onenote_sdkTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +64,7 @@
 		EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_discovery_sdk.xcodeproj; path = ../office365_discovery_sdk/office365_discovery_sdk.xcodeproj; sourceTree = "<group>"; };
 		EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_exchange_sdk.xcodeproj; path = ../office365_exchange_sdk/office365_exchange_sdk.xcodeproj; sourceTree = "<group>"; };
 		EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_files_sdk.xcodeproj; path = ../office365_files_sdk/office365_files_sdk.xcodeproj; sourceTree = "<group>"; };
+		EC7405941AB35E1600108A42 /* office365_onenote_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_onenote_sdk.xcodeproj; path = ../office365_onenote_sdk/office365_onenote_sdk.xcodeproj; sourceTree = "<group>"; };
 		EC78967C1A49F2D600DD9D1D /* Office365Sdks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Office365Sdks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7896801A49F2D600DD9D1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7896811A49F2D600DD9D1D /* Office365Sdks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Office365Sdks.h; sourceTree = "<group>"; };
@@ -105,12 +120,22 @@
 		EC33861B1A4A0D6F00759E5C /* Sdks */ = {
 			isa = PBXGroup;
 			children = (
+				EC7405941AB35E1600108A42 /* office365_onenote_sdk.xcodeproj */,
 				EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */,
 				EC33860F1A4A0D6200759E5C /* office365_exchange_sdk.xcodeproj */,
 				EC3386091A4A0D5B00759E5C /* office365_discovery_sdk.xcodeproj */,
 				EC3386031A4A0D5400759E5C /* office365_directory_sdk.xcodeproj */,
 			);
 			name = Sdks;
+			sourceTree = "<group>";
+		};
+		EC7405951AB35E1600108A42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC74059A1AB35E1600108A42 /* office365_onenote_sdk.framework */,
+				EC74059C1AB35E1600108A42 /* office365_onenote_sdkTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		EC7896721A49F2D600DD9D1D = {
@@ -221,6 +246,10 @@
 					ProductGroup = EC3386161A4A0D6A00759E5C /* Products */;
 					ProjectRef = EC3386151A4A0D6A00759E5C /* office365_files_sdk.xcodeproj */;
 				},
+				{
+					ProductGroup = EC7405951AB35E1600108A42 /* Products */;
+					ProjectRef = EC7405941AB35E1600108A42 /* office365_onenote_sdk.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -256,6 +285,20 @@
 			fileType = wrapper.framework;
 			path = office365_files_sdk.framework;
 			remoteRef = EC3386191A4A0D6A00759E5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC74059A1AB35E1600108A42 /* office365_onenote_sdk.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = office365_onenote_sdk.framework;
+			remoteRef = EC7405991AB35E1600108A42 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC74059C1AB35E1600108A42 /* office365_onenote_sdkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = office365_onenote_sdkTests.xctest;
+			remoteRef = EC74059B1AB35E1600108A42 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

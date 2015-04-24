@@ -45,19 +45,23 @@ static AuthenticationController* INSTANCE;
                               redirectUri:redirectUri
                           completionBlock:^(ADAuthenticationResult  *result) {
                               
-                              if (AD_SUCCEEDED != result.status){
-                                  [[[self getDependencyResolver] getLogger] logMessage:result.error.errorDetails withLevel:ERROR];
+                              if (AD_SUCCEEDED != result.status) {
+                                  
+                                  [[self getDependencyResolver].logger logMessage:result.error.errorDetails withLevel:LOG_LEVEL_ERROR];
+                                  
                                   completionBlock(false);
-                              } else {
+                              }
+                              else {
+                                  
                                   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                                   [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LoggedInUser"];
                                   [userDefaults synchronize];
                                   
                                   adalDependencyResolver = [[ADALDependencyResolver alloc]
                                                             initWithContext:authContext
-                                                              andResourceId:resourceId
-                                                                andClientId:clientId
-                                                             andRedirectUri:redirectUri];
+                                                              resourceId:resourceId
+                                                                clientId:clientId
+                                                             redirectUri:redirectUri];
                                   completionBlock(true);
                               }
                           }];

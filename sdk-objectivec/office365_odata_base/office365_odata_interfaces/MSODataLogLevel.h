@@ -7,13 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject ()
-
 typedef NS_ENUM(NSInteger, MSODataLogLevel) {
-    VERBOSE,
-    INFO,
-    WARNING,
-    ERROR
+    
+    LOG_LEVEL_VERBOSE,
+    LOG_LEVEL_INFO,
+    LOG_LEVEL_WARNING,
+    LOG_LEVEL_ERROR
 };
-
-@end

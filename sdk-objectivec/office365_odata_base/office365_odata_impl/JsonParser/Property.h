@@ -23,4 +23,5 @@
 -(bool)isNumber;
 -(bool)isBoolean;
 -(bool)isEnum;
+-(bool)isStream;
 @end

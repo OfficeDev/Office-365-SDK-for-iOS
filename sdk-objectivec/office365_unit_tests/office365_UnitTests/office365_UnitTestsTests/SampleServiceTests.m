@@ -9,11 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-#import <office365_odata_base/office365_odata_base.h>
-#import "MSSampleContainerClient.h"
+#import "MSSampleContainerODataEntities.h"
 #import "MSSampleContaunerEntityWithEnum.h"
-#import <office365_odata_base/NSString+NSStringExtensions.h>
-
 #import "MSSampleContaunerEntityWithEnum.h"
 
 @interface SampleServiceTests : XCTestCase
@@ -27,11 +24,10 @@
 - (void)setUp {
     [super setUp];
   
-    //self.mocktail = [Mocktail startWithContentsOfDirectoryAtURL:[[NSBundle bundleForClass:[self class]] bundleURL]];
-    
     MSODataDefaultDependencyResolver* resolver = [MSODataDefaultDependencyResolver alloc];
     MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
-    [credentials addToken:@"fakeToken"];
+    
+    [credentials setToken:@"fakeToken"];
     
     self.client = [[MSSampleContainerClient alloc] initWithUrl:@"http://localhost:8080/" dependencyResolver:resolver];
 }
@@ -63,9 +59,10 @@
 - (void)testGetNavigationList {
     //getNavigationsGET.json
     self.running = true;
+    
     __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[self.client getMe] getNavigations] read:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntities, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.client getMe] getNavigations] readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntities, MSODataException *error) {
         
         entities =anotherEntities;
         self.running = false;
@@ -80,10 +77,12 @@
 
 - (void)testGetNavigationItem {
     //getNavigationItemGET.json
+    
     self.running = true;
+    
     __block MSSampleContainerAnotherEntity *entity = nil;
     
-    NSURLSessionDataTask* task = [[[[self.client getMe] getNavigations] getById:@"SomeId" ] read:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.client getMe] getNavigations] getById:@"SomeId" ] readWithCallback:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *error) {
         
         entity =anotherEntity;
         self.running = false;
@@ -97,12 +96,14 @@
     XCTAssertTrue([entity.SomeString isEqualToString:[self getAnotherEntity].SomeString]);
 }
 
--(void) testGetNavigationItemWithSelect{
+- (void)testGetNavigationItemWithSelect {
     //getNavigationItemWithSelectGET.json
+    
     self.running = true;
+    
     __block MSSampleContainerAnotherEntity *entity = nil;
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe] getNavigations] getById:@"SomeId" ] select:@"SomeProp, AnotherProp"] read:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *error) {
+    NSURLSessionTask* task = [[[[[self.client getMe] getNavigations] getById:@"SomeId" ] select:@"SomeProp, AnotherProp"] readWithCallback:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *error) {
         
         entity =anotherEntity;
         self.running = false;
@@ -118,12 +119,12 @@
 
 //TODO: Enable when Raw is available after select
 
--(void) testGetNavigationItemRawWithSelect{
+- (void)testGetNavigationItemRawWithSelect {
     //getNavigationItemWithSelectGET.json
     self.running = true;
     __block NSString *jsonResult = nil;
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRaw:^(NSString *result, MSODataException *error) {
+    NSURLSessionTask* task = [[[[[self.client getMe]  getNavigations] getById:@"SomeId" ]  select:@"SomeProp, AnotherProp" ] readRawWithCallback:^(NSString *result, MSODataException *error) {
         
         jsonResult =result;
         self.running = false;
@@ -138,12 +139,14 @@
     XCTAssertTrue([jsonResult isEqualToString:expectedResponseString]);
 }
 
--(void) testGetNavigationListWithSelectAndTop{
+- (void)testGetNavigationListWithSelectAndTop {
     //getNavigationsWithSelectAndTopGET.json
+    
     self.running = true;
+    
     __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe] getNavigations] select:@"SomeProp, AnotherProp" ] top:1] read:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntities, MSODataException *error) {
+    NSURLSessionTask* task = [[[[[self.client getMe] getNavigations] select:@"SomeProp, AnotherProp" ] top:1] readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntities, MSODataException *error) {
         
         entities =anotherEntities;
         self.running = false;
@@ -159,12 +162,14 @@
 //TODO: testGetNavigationListRawWithSelectAndTop
 
 
--(void) testGetCollectionWithFilterAndExpand{
+- (void)testGetCollectionWithFilterAndExpand {
     //getCollectionsWithExpandAndFilter.json
+    
     self.running = true;
+    
     __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[[self.client getservices] expand:@"SomeProp"] filter:@"SomeProp eq 'SomeString'" ] read:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.client getservices] expand:@"SomeProp"] filter:@"SomeProp eq 'SomeString'" ] readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -177,12 +182,14 @@
     XCTAssertEqual([entities count], 1);
 }
 
--(void) testGetCollectionWithHeaders{
+- (void)testGetCollectionWithHeaders {
     //getCollectionsWithHeaders.json
+    
     self.running = true;
+    
     __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[[self.client getservices] addCustomHeaderWithName:@"Header1" andValue:@"Value1"] addCustomHeaderWithName:@"Header2" andValue:@"Value2"] read:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.client getservices] addCustomHeaderWithName:@"Header1" value:@"Value1"] addCustomHeaderWithName:@"Header2" value:@"Value2"] readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -197,11 +204,12 @@
 
 //TODO: Enable when missing X-ClientService-ClientTag header is available
 
--(void) testDefaultHeaders{
+- (void)testDefaultHeaders {
+    
     self.running = true;
     __block NSArray<MSSampleContainerSampleEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[self.client getservices] top:99 ] read:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
+    NSURLSessionTask* task = [[[self.client getservices] top:99 ] readWithCallback:^(NSArray<MSSampleContainerSampleEntity> *sampleEntitys, MSODataException *error) {
         
         entities =sampleEntitys;
         self.running = false;
@@ -216,12 +224,14 @@
 
 -(void) testDeleteNavigationItem{
     //deleteNavigationItemDELETE.json
+    
     self.running = true;
+    
     __block MSODataException *expectedError = nil;
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe] getNavigations] getById:@"SomeId" ] addCustomHeaderWithName:@"If-Match" andValue:@"*" ] deleteAnotherEntity:^(int status, MSODataException *error) {
+    NSURLSessionTask* task = [[[[[self.client getMe] getNavigations] getById:@"SomeId"] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int statusCode, MSODataException *exception) {
         
-        expectedError = error;
+        expectedError = exception;
         self.running = false;
     }];
     
@@ -237,7 +247,7 @@
     self.running = true;
     __block MSSampleContainerAnotherEntity *entity = nil;
     
-    NSURLSessionDataTask* task = [[[self.client getMe] getNavigations] addAnotherEntity:[self getAnotherEntity] withCallback:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *e) {
+    NSURLSessionTask* task = [[[self.client getMe] getNavigations] addAnotherEntity:[self getAnotherEntity] callback:^(MSSampleContainerAnotherEntity *anotherEntity, MSODataException *e) {
         
         entity =anotherEntity;
         self.running = false;
@@ -259,12 +269,11 @@
     MSSampleContainerAnotherEntity *entityToUpdate = [self getAnotherEntity];
     entityToUpdate.SomeString = @"Some Updated String";
     
-    NSURLSessionDataTask* task = [[[[[self.client getMe] getNavigations] getById:entityToUpdate.Id] addCustomHeaderWithName:@"IsPatch" andValue:@"yes" ] updateAnotherEntity:entityToUpdate withCallback:^(MSSampleContainerAnotherEntity * updatedEntity, MSODataException *error) {
+    NSURLSessionTask* task = [[[[[_client getMe] getNavigations] getById:entityToUpdate.Id] addCustomHeaderWithName:@"IsPatch" value:@"yes"] updateEntity:entityToUpdate callback:^(id updatedEntity, MSODataException *exception) {
         
         entity =updatedEntity;
         self.running = false;
     }];
-    
     
     [task resume];
     
@@ -279,7 +288,7 @@
     self.running = true;
     __block NSArray<MSSampleContainerAnotherEntity> *entities = nil;
     
-    NSURLSessionDataTask* task = [[[[self.client getMe] getNavigations] addCustomParameters:@"StringParam" :@"SomeValue"] read:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntitys, MSODataException *error) {
+    NSURLSessionTask* task = [[[[self.client getMe] getNavigations] addCustomParametersWithName:@"StringParam" value:@"SomeValue"] readWithCallback:^(NSArray<MSSampleContainerAnotherEntity> *anotherEntitys, MSODataException *error) {
         
         entities =anotherEntitys;
         self.running = false;
@@ -303,13 +312,13 @@
     MSSampleContaunerEntityWithEnum* t = [MSSampleContaunerEntityWithEnum alloc];
     NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding] ;
     
-    id entity = [[[self.client getResolver] getJsonSerializer] deserialize:data :[t class]];
+    id entity = [[[self.client resolver] jsonSerializer] deserialize:data asClass:[t class]];
     
     XCTAssertNotNil(entity);
 }
 
 //TODO: Reactor this: add semaphore or get method to terminator methods
--(void)blockUntilFinish : (NSURLSessionDataTask*)task{
+-(void)blockUntilFinish : (NSURLSessionTask*)task{
     
     while (self.running){}
 }

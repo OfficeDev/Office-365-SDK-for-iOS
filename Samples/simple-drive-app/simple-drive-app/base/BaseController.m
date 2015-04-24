@@ -9,24 +9,28 @@
 
 @implementation BaseController
 
-+(void)getClient : (void (^) (MSSharePointClient* ))callback{
++(void)getClient : (void (^) (MSOneDriveServicesClient *))callback{
     
-    AuthenticationController* authenticationController = [AuthenticationController getInstance];
-    NSString* hostName = @"https://teeudev1-my.sharepoint.com";
+    AuthenticationController *authenticationController = [AuthenticationController getInstance];
+    NSString *hostName = @"https://msopentechtest01-my.sharepoint.com";
     
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
-        if(authenticated){
-            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+        if (authenticated) {
+            
+            callback([[MSOneDriveServicesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
-        else{
+        else {
+            
             NSLog(@"Error in the authentication");
         }
     }];
 }
 
-+(UIActivityIndicatorView*)getSpinner : (UIView*)view{
++ (UIActivityIndicatorView*)getSpinner : (UIView*)view {
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
+    
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [view addSubview:spinner];
     spinner.hidesWhenStopped = YES;

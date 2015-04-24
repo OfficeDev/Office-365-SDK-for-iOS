@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC2CCA3019F8A03000D12E55 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC2CCA8919F8A22200D12E55 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */; };
-		EC2CCA8A19F8A29600D12E55 /* office365_discovery_sdk-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D2301A2606AD004B0B5C /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */; };
@@ -39,9 +40,10 @@
 		EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_discovery_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CCA2E19F8A02F00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_discovery_sdk.h; sourceTree = "<group>"; };
-		EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "office365_discovery_sdk-Prefix.pch"; sourceTree = "<group>"; };
 		EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		EC3484781AAF361500530D41 /* MSDiscoveryModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryModels.h; sourceTree = "<group>"; };
+		EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryODataEntities.h; sourceTree = "<group>"; };
+		EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_discovery_sdk.h; sourceTree = "<group>"; };
 		EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryProtocols.h; sourceTree = "<group>"; };
 		EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryServiceInfo.h; sourceTree = "<group>"; };
 		EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfo.m; sourceTree = "<group>"; };
@@ -107,8 +109,7 @@
 		EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */ = {
 			isa = PBXGroup;
 			children = (
-				EC2CCA2F19F8A02F00D12E55 /* office365_discovery_sdk.h */,
-				EC2CCA8719F8A0D300D12E55 /* office365_discovery_sdk-Prefix.pch */,
+				EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */,
 				EC2CCA2D19F8A02F00D12E55 /* Supporting Files */,
 			);
 			path = office365_discovery_sdk;
@@ -134,6 +135,7 @@
 		EC5C14C319F98A4100AAF5AC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EC3484781AAF361500530D41 /* MSDiscoveryModels.h */,
 				EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */,
 				EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */,
 				EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */,
@@ -144,6 +146,7 @@
 		EC5C14C919F98A4100AAF5AC /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */,
 				EC78D2311A2606B6004B0B5C /* MSDiscoveryClient.h */,
 				EC78D2321A2606B6004B0B5C /* MSDiscoveryClient.m */,
 				EC78D2331A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h */,
@@ -165,15 +168,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2CCA3019F8A03000D12E55 /* office365_discovery_sdk.h in Headers */,
 				EC78D2431A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h in Headers */,
-				EC2CCA8A19F8A29600D12E55 /* office365_discovery_sdk-Prefix.pch in Headers */,
 				EC78D23F1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */,
 				EC78D2411A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.h in Headers */,
 				EC78D23B1A2606B6004B0B5C /* MSDiscoveryClient.h in Headers */,
 				EC78D23D1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
+				EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */,
+				EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */,
 				EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */,
 				EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */,
+				EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,8 +370,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_discovery_sdk/office365_discovery_sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -386,8 +390,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/office365_discovery_sdk/office365_discovery_sdk-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

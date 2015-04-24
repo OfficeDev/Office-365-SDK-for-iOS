@@ -13,6 +13,7 @@
 @property NSString *Name;
 @property NSString *DisplayName;
 @property BOOL Passed;
+@property BOOL Selected;
 @property BaseTestRunner *TestRunner;
 
 -(id) initWithData : (BaseTestRunner*) testRunner : (NSString *)name : (NSString *)displyName;

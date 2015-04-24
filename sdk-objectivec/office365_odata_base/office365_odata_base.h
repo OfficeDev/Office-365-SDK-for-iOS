@@ -13,9 +13,13 @@ FOUNDATION_EXPORT double office365_odata_baseVersionNumber;
 //! Project version string for office365_odata_base.
 FOUNDATION_EXPORT const unsigned char office365_odata_baseVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <office365_odata_base/PublicHeader.h>
+// In this header, you should import all the public headers of your framework
+// using statements like #import <office365_odata_base/PublicHeader.h>
+
 #import <office365_odata_base/office365_odata_interfaces.h>
 #import <office365_odata_base/office365_odata_impl.h>
 #import <office365_odata_base/office365_odata_core.h>
-#import <office365_odata_base/JsonParser.h>
+
+#import <office365_odata_base/MSOCalendarSerializer.h>
+#import <office365_odata_base/MSOJsonParser.h>
 #import <office365_odata_base/Property.h>

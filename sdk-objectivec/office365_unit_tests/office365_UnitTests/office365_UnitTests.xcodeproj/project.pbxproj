@@ -17,6 +17,7 @@
 		1C4508BA1A3B2D59008C9668 /* deleteNavigationItemDELETE.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */; };
 		1C4508BB1A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */; };
 		1C4508BC1A3B2D59008C9668 /* getCollectionsWithHeaders.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */; };
+		EC056F4B1ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = EC056F4A1ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.m */; };
 		EC572D491A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */; };
 		EC572D4A1A38D37F006A8DE8 /* MSSampleContainerEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D281A38D37F006A8DE8 /* MSSampleContainerEntity.m */; };
 		EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */ = {isa = PBXBuildFile; fileRef = EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */; };
@@ -37,7 +38,6 @@
 		EC572D5A1A38D3D7006A8DE8 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC572D211A38D2F9006A8DE8 /* office365_odata_base.framework */; };
 		EC8514291A38C9F400385C38 /* SampleServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8514281A38C9F400385C38 /* SampleServiceTests.m */; };
 		EC8514331A38CC8900385C38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8514321A38CC8900385C38 /* Foundation.framework */; };
-		ECBE9FC81A828C2500DAA746 /* MSSampleContaunerEntityWithEnum.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,12 +61,11 @@
 		1C4508B01A3B2D59008C9668 /* deleteNavigationItemDELETE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = deleteNavigationItemDELETE.json; sourceTree = "<group>"; };
 		1C4508B11A3B2D59008C9668 /* getCollectionsWithExpandAndFilter.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithExpandAndFilter.json; sourceTree = "<group>"; };
 		1C4508B21A3B2D59008C9668 /* getCollectionsWithHeaders.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCollectionsWithHeaders.json; sourceTree = "<group>"; };
-		EC454C5B1A6564F300E08BA3 /* MSSampleContainerAnotherEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
-		EC454C5C1A6564F300E08BA3 /* MSSampleContainerAnotherEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntityFetcherProtocol.h; sourceTree = "<group>"; };
-		EC454C5D1A6564F300E08BA3 /* MSSampleContainerEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
-		EC454C5E1A6564F300E08BA3 /* MSSampleContainerEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEntityFetcherProtocol.h; sourceTree = "<group>"; };
-		EC454C5F1A6564F300E08BA3 /* MSSampleContainerSampleEntityCollectionFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityCollectionFetcherProtocol.h; sourceTree = "<group>"; };
-		EC454C601A6564F300E08BA3 /* MSSampleContainerSampleEntityFetcherProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerSampleEntityFetcherProtocol.h; sourceTree = "<group>"; };
+		EC056F461ADEACA10036E64B /* MSSampleContainerModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerModels.h; sourceTree = "<group>"; };
+		EC056F471ADEACB70036E64B /* MSSampleContainerODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerODataEntities.h; sourceTree = "<group>"; };
+		EC056F481ADEAD360036E64B /* MSSampleContainerEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEnum.h; sourceTree = "<group>"; };
+		EC056F491ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContaunerEntityWithEnum.h; sourceTree = "<group>"; };
+		EC056F4A1ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContaunerEntityWithEnum.m; sourceTree = "<group>"; };
 		EC572D1C1A38D2F9006A8DE8 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 		EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerAnotherEntity.h; sourceTree = "<group>"; };
 		EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSampleContainerAnotherEntity.m; sourceTree = "<group>"; };
@@ -113,9 +112,6 @@
 		EC8514211A38C9B300385C38 /* wiremock-1.52-standalone.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = "wiremock-1.52-standalone.jar"; sourceTree = "<group>"; };
 		EC8514281A38C9F400385C38 /* SampleServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleServiceTests.m; sourceTree = "<group>"; };
 		EC8514321A38CC8900385C38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		ECBE9FC21A815C5A00DAA746 /* MSSampleContainerEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSampleContainerEnum.h; sourceTree = "<group>"; };
-		ECBE9FC61A82586200DAA746 /* MSSampleContaunerEntityWithEnum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSampleContaunerEntityWithEnum.h; sourceTree = "<group>"; };
-		ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSampleContaunerEntityWithEnum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +155,10 @@
 		EC572D241A38D37F006A8DE8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EC056F481ADEAD360036E64B /* MSSampleContainerEnum.h */,
+				EC056F491ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.h */,
+				EC056F4A1ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.m */,
+				EC056F461ADEACA10036E64B /* MSSampleContainerModels.h */,
 				EC572D251A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.h */,
 				EC572D261A38D37F006A8DE8 /* MSSampleContainerAnotherEntity.m */,
 				EC572D271A38D37F006A8DE8 /* MSSampleContainerEntity.h */,
@@ -168,9 +168,6 @@
 				EC572D2B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m */,
 				EC572D2C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.h */,
 				EC572D2D1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m */,
-				ECBE9FC21A815C5A00DAA746 /* MSSampleContainerEnum.h */,
-				ECBE9FC61A82586200DAA746 /* MSSampleContaunerEntityWithEnum.h */,
-				ECBE9FC71A82586200DAA746 /* MSSampleContaunerEntityWithEnum.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,12 +175,7 @@
 		EC572D2E1A38D37F006A8DE8 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				EC454C5B1A6564F300E08BA3 /* MSSampleContainerAnotherEntityCollectionFetcherProtocol.h */,
-				EC454C5C1A6564F300E08BA3 /* MSSampleContainerAnotherEntityFetcherProtocol.h */,
-				EC454C5D1A6564F300E08BA3 /* MSSampleContainerEntityCollectionFetcherProtocol.h */,
-				EC454C5E1A6564F300E08BA3 /* MSSampleContainerEntityFetcherProtocol.h */,
-				EC454C5F1A6564F300E08BA3 /* MSSampleContainerSampleEntityCollectionFetcherProtocol.h */,
-				EC454C601A6564F300E08BA3 /* MSSampleContainerSampleEntityFetcherProtocol.h */,
+				EC056F471ADEACB70036E64B /* MSSampleContainerODataEntities.h */,
 				EC572D2F1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.h */,
 				EC572D301A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m */,
 				EC572D311A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.h */,
@@ -390,12 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECBE9FC81A828C2500DAA746 /* MSSampleContaunerEntityWithEnum.m in Sources */,
 				EC572D591A38D37F006A8DE8 /* MSSampleContainerSampleEntityOperations.m in Sources */,
 				EC572D4D1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionFetcher.m in Sources */,
 				EC572D4B1A38D37F006A8DE8 /* MSSampleContainerSampleComplexType.m in Sources */,
 				EC572D581A38D37F006A8DE8 /* MSSampleContainerSampleEntityFetcher.m in Sources */,
 				EC572D571A38D37F006A8DE8 /* MSSampleContainerSampleEntityCollectionOperations.m in Sources */,
+				EC056F4B1ADEAD360036E64B /* MSSampleContaunerEntityWithEnum.m in Sources */,
 				EC572D501A38D37F006A8DE8 /* MSSampleContainerAnotherEntityOperations.m in Sources */,
 				EC572D4C1A38D37F006A8DE8 /* MSSampleContainerSampleEntity.m in Sources */,
 				EC572D4E1A38D37F006A8DE8 /* MSSampleContainerAnotherEntityCollectionOperations.m in Sources */,

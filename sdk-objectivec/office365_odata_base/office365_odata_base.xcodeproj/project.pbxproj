@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		265209491AE17CF400E93C67 /* ADAL.h in Headers */ = {isa = PBXBuildFile; fileRef = 265209481AE17CF400E93C67 /* ADAL.h */; };
 		EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0877291A852C4C0077696D /* ADALDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC08772C1A852C4C0077696D /* ADALDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = EC08772A1A852C4C0077696D /* ADALDependencyResolver.m */; };
 		EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = EC1D35621A2799780064FCAF /* MSODataExecutable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,9 +22,9 @@
 		EC4DE81E1A24C500004F16C4 /* MSODataLogLevel.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8131A24C500004F16C4 /* MSODataLogLevel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE81F1A24C500004F16C4 /* MSODataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8141A24C500004F16C4 /* MSODataRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8201A24C500004F16C4 /* MSODataResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8151A24C500004F16C4 /* MSODataResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE8211A24C500004F16C4 /* MSODataUrl.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8161A24C500004F16C4 /* MSODataUrl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE83D1A24C566004F16C4 /* JsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8231A24C566004F16C4 /* JsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC4DE83E1A24C566004F16C4 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8241A24C566004F16C4 /* JsonParser.m */; };
+		EC4DE8211A24C500004F16C4 /* MSODataURL.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8161A24C500004F16C4 /* MSODataURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC4DE83D1A24C566004F16C4 /* MSOJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8231A24C566004F16C4 /* MSOJsonParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC4DE83E1A24C566004F16C4 /* MSOJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8241A24C566004F16C4 /* MSOJsonParser.m */; };
 		EC4DE83F1A24C566004F16C4 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8251A24C566004F16C4 /* Property.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC4DE8401A24C566004F16C4 /* Property.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8261A24C566004F16C4 /* Property.m */; };
 		EC4DE8411A24C566004F16C4 /* MSODataBasicCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,11 +67,64 @@
 		EC4DE87C1A24C69E004F16C4 /* MSODataEntityFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4DE8781A24C69E004F16C4 /* MSODataEntityFetcherHelper.m */; };
 		EC8EABF31A28B5E50027F3BE /* MSODataException.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8EABF11A28B5E50027F3BE /* MSODataException.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC8EABF41A28B5E50027F3BE /* MSODataException.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8EABF21A28B5E50027F3BE /* MSODataException.m */; };
+		ECBCEA061AE14ED1008DB01E /* ADALiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9D91AE14ED0008DB01E /* ADALiOS.h */; };
+		ECBCEA071AE14ED1008DB01E /* ADAuthenticationBroker.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DA1AE14ED0008DB01E /* ADAuthenticationBroker.h */; };
+		ECBCEA081AE14ED1008DB01E /* ADAuthenticationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DB1AE14ED0008DB01E /* ADAuthenticationContext.h */; };
+		ECBCEA091AE14ED1008DB01E /* ADAuthenticationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DC1AE14ED0008DB01E /* ADAuthenticationDelegate.h */; };
+		ECBCEA0A1AE14ED1008DB01E /* ADAuthenticationError.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DD1AE14ED0008DB01E /* ADAuthenticationError.h */; };
+		ECBCEA0B1AE14ED1008DB01E /* ADAuthenticationOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DE1AE14ED0008DB01E /* ADAuthenticationOperation.h */; };
+		ECBCEA0C1AE14ED1008DB01E /* ADAuthenticationParameters+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9DF1AE14ED1008DB01E /* ADAuthenticationParameters+Internal.h */; };
+		ECBCEA0D1AE14ED1008DB01E /* ADAuthenticationParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E01AE14ED1008DB01E /* ADAuthenticationParameters.h */; };
+		ECBCEA0E1AE14ED1008DB01E /* ADAuthenticationResult+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E11AE14ED1008DB01E /* ADAuthenticationResult+Internal.h */; };
+		ECBCEA0F1AE14ED1008DB01E /* ADAuthenticationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E21AE14ED1008DB01E /* ADAuthenticationResult.h */; };
+		ECBCEA101AE14ED1008DB01E /* ADAuthenticationSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E31AE14ED1008DB01E /* ADAuthenticationSettings.h */; };
+		ECBCEA111AE14ED1008DB01E /* ADAuthenticationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E41AE14ED1008DB01E /* ADAuthenticationViewController.h */; };
+		ECBCEA121AE14ED1008DB01E /* ADAuthenticationWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E51AE14ED1008DB01E /* ADAuthenticationWebViewController.h */; };
+		ECBCEA131AE14ED1008DB01E /* ADErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E61AE14ED1008DB01E /* ADErrorCodes.h */; };
+		ECBCEA141AE14ED1008DB01E /* ADInstanceDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E71AE14ED1008DB01E /* ADInstanceDiscovery.h */; };
+		ECBCEA151AE14ED1008DB01E /* ADKeyChainHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E81AE14ED1008DB01E /* ADKeyChainHelper.h */; };
+		ECBCEA161AE14ED1008DB01E /* ADKeychainTokenCacheStore.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9E91AE14ED1008DB01E /* ADKeychainTokenCacheStore.h */; };
+		ECBCEA171AE14ED1008DB01E /* ADLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9EA1AE14ED1008DB01E /* ADLogger.h */; };
+		ECBCEA181AE14ED1008DB01E /* ADOAuth2Constants.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9EB1AE14ED1008DB01E /* ADOAuth2Constants.h */; };
+		ECBCEA191AE14ED1008DB01E /* ADPersistentTokenCacheStore.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9EC1AE14ED1008DB01E /* ADPersistentTokenCacheStore.h */; };
+		ECBCEA1A1AE14ED1008DB01E /* ADTokenCacheStoreItem.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9ED1AE14ED1008DB01E /* ADTokenCacheStoreItem.h */; };
+		ECBCEA1B1AE14ED1008DB01E /* ADTokenCacheStoreKey.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9EE1AE14ED1008DB01E /* ADTokenCacheStoreKey.h */; };
+		ECBCEA1C1AE14ED1008DB01E /* ADTokenCacheStoring.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9EF1AE14ED1008DB01E /* ADTokenCacheStoring.h */; };
+		ECBCEA1D1AE14ED1008DB01E /* ADTokenCacheValue.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F01AE14ED1008DB01E /* ADTokenCacheValue.h */; };
+		ECBCEA1E1AE14ED1008DB01E /* ADURLProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F11AE14ED1008DB01E /* ADURLProtocol.h */; };
+		ECBCEA1F1AE14ED1008DB01E /* ADUserInformation.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F21AE14ED1008DB01E /* ADUserInformation.h */; };
+		ECBCEA201AE14ED1008DB01E /* ADWebRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F31AE14ED1008DB01E /* ADWebRequest.h */; };
+		ECBCEA211AE14ED1008DB01E /* ADWebResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F41AE14ED1008DB01E /* ADWebResponse.h */; };
+		ECBCEA221AE14ED1008DB01E /* ADWorkplaceJoined.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F51AE14ED1008DB01E /* ADWorkplaceJoined.h */; };
+		ECBCEA231AE14ED1008DB01E /* NSDictionary+ADExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F61AE14ED1008DB01E /* NSDictionary+ADExtensions.h */; };
+		ECBCEA241AE14ED1008DB01E /* NSString+ADHelperMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F71AE14ED1008DB01E /* NSString+ADHelperMethods.h */; };
+		ECBCEA251AE14ED1008DB01E /* NSURL+ADExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F81AE14ED1008DB01E /* NSURL+ADExtensions.h */; };
+		ECBCEA261AE14ED1008DB01E /* UIApplication+ADExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9F91AE14ED1008DB01E /* UIApplication+ADExtensions.h */; };
+		ECBCEA271AE14ED1008DB01E /* LiveAuthDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9FB1AE14ED1008DB01E /* LiveAuthDelegate.h */; };
+		ECBCEA281AE14ED1008DB01E /* LiveConnectClient.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9FC1AE14ED1008DB01E /* LiveConnectClient.h */; };
+		ECBCEA291AE14ED1008DB01E /* LiveConnectSession.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9FD1AE14ED1008DB01E /* LiveConnectSession.h */; };
+		ECBCEA2A1AE14ED1008DB01E /* LiveConnectSessionStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9FE1AE14ED1008DB01E /* LiveConnectSessionStatus.h */; };
+		ECBCEA2B1AE14ED1008DB01E /* LiveDownloadOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCE9FF1AE14ED1008DB01E /* LiveDownloadOperation.h */; };
+		ECBCEA2C1AE14ED1008DB01E /* LiveDownloadOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA001AE14ED1008DB01E /* LiveDownloadOperationDelegate.h */; };
+		ECBCEA2D1AE14ED1008DB01E /* LiveOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA011AE14ED1008DB01E /* LiveOperation.h */; };
+		ECBCEA2E1AE14ED1008DB01E /* LiveOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA021AE14ED1008DB01E /* LiveOperationDelegate.h */; };
+		ECBCEA2F1AE14ED1008DB01E /* LiveOperationProgress.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA031AE14ED1008DB01E /* LiveOperationProgress.h */; };
+		ECBCEA301AE14ED1008DB01E /* LiveUploadOperationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA041AE14ED1008DB01E /* LiveUploadOperationDelegate.h */; };
+		ECBCEA311AE14ED1008DB01E /* LiveUploadOverwriteOption.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBCEA051AE14ED1008DB01E /* LiveUploadOverwriteOption.h */; };
+		ECD134D51AB7268700278CFF /* MSODataMultipartCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD134D31AB7268700278CFF /* MSODataMultipartCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECD134D61AB7268700278CFF /* MSODataMultipartCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD134D41AB7268700278CFF /* MSODataMultipartCollectionFetcher.m */; };
+		ECD134D91AB85D2B00278CFF /* MSODataMultiPartElement.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD134D71AB85D2B00278CFF /* MSODataMultiPartElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECD134DA1AB85D2B00278CFF /* MSODataMultiPartElement.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD134D81AB85D2B00278CFF /* MSODataMultiPartElement.m */; };
+		ECD134DD1AB8606200278CFF /* LiveDependencyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD134DB1AB8606200278CFF /* LiveDependencyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECD134DE1AB8606200278CFF /* LiveDependencyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD134DC1AB8606200278CFF /* LiveDependencyResolver.m */; };
+		ECD2FDAB1ABCA6EB0019B3C1 /* MSOCalendarSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = ECD2FDA91ABCA6EB0019B3C1 /* MSOCalendarSerializer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECD2FDAC1ABCA6EB0019B3C1 /* MSOCalendarSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2FDAA1ABCA6EB0019B3C1 /* MSOCalendarSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2647EA5D19F4443800FD9527 /* office365_odata_base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_odata_base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2647EA6119F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2647EA6119F4443800FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		265209481AE17CF400E93C67 /* ADAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADAL.h; sourceTree = "<group>"; };
 		EC0877291A852C4C0077696D /* ADALDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADALDependencyResolver.h; sourceTree = "<group>"; };
 		EC08772A1A852C4C0077696D /* ADALDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADALDependencyResolver.m; sourceTree = "<group>"; };
 		EC1D35621A2799780064FCAF /* MSODataExecutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataExecutable.h; sourceTree = "<group>"; };
@@ -84,9 +138,9 @@
 		EC4DE8131A24C500004F16C4 /* MSODataLogLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataLogLevel.h; sourceTree = "<group>"; };
 		EC4DE8141A24C500004F16C4 /* MSODataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataRequest.h; sourceTree = "<group>"; };
 		EC4DE8151A24C500004F16C4 /* MSODataResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataResponse.h; sourceTree = "<group>"; };
-		EC4DE8161A24C500004F16C4 /* MSODataUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataUrl.h; sourceTree = "<group>"; };
-		EC4DE8231A24C566004F16C4 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
-		EC4DE8241A24C566004F16C4 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		EC4DE8161A24C500004F16C4 /* MSODataURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataURL.h; sourceTree = "<group>"; };
+		EC4DE8231A24C566004F16C4 /* MSOJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOJsonParser.h; sourceTree = "<group>"; };
+		EC4DE8241A24C566004F16C4 /* MSOJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOJsonParser.m; sourceTree = "<group>"; };
 		EC4DE8251A24C566004F16C4 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
 		EC4DE8261A24C566004F16C4 /* Property.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Property.m; sourceTree = "<group>"; };
 		EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataBasicCredentials.h; sourceTree = "<group>"; };
@@ -121,15 +175,67 @@
 		EC4DE8601A24C655004F16C4 /* MSODataOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataOperations.m; sourceTree = "<group>"; };
 		EC4DE8611A24C655004F16C4 /* MSODataReadable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataReadable.h; sourceTree = "<group>"; };
 		EC4DE86F1A24C675004F16C4 /* office365_odata_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_base.h; sourceTree = "<group>"; };
-		EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_impl.h; sourceTree = "<group>"; };
-		EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_odata_interfaces.h; sourceTree = "<group>"; };
+		EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = office365_odata_impl.h; path = office365_odata_impl/office365_odata_impl.h; sourceTree = SOURCE_ROOT; };
+		EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = office365_odata_interfaces.h; path = office365_odata_interfaces/office365_odata_interfaces.h; sourceTree = SOURCE_ROOT; };
 		EC4DE8751A24C69E004F16C4 /* MSODataBaseContainerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataBaseContainerHelper.h; sourceTree = "<group>"; };
 		EC4DE8761A24C69E004F16C4 /* MSODataBaseContainerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataBaseContainerHelper.m; sourceTree = "<group>"; };
 		EC4DE8771A24C69E004F16C4 /* MSODataEntityFetcherHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataEntityFetcherHelper.h; sourceTree = "<group>"; };
 		EC4DE8781A24C69E004F16C4 /* MSODataEntityFetcherHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataEntityFetcherHelper.m; sourceTree = "<group>"; };
 		EC8EABF11A28B5E50027F3BE /* MSODataException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataException.h; sourceTree = "<group>"; };
 		EC8EABF21A28B5E50027F3BE /* MSODataException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataException.m; sourceTree = "<group>"; };
+		ECBCE9D91AE14ED0008DB01E /* ADALiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADALiOS.h; sourceTree = "<group>"; };
+		ECBCE9DA1AE14ED0008DB01E /* ADAuthenticationBroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationBroker.h; sourceTree = "<group>"; };
+		ECBCE9DB1AE14ED0008DB01E /* ADAuthenticationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationContext.h; sourceTree = "<group>"; };
+		ECBCE9DC1AE14ED0008DB01E /* ADAuthenticationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationDelegate.h; sourceTree = "<group>"; };
+		ECBCE9DD1AE14ED0008DB01E /* ADAuthenticationError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationError.h; sourceTree = "<group>"; };
+		ECBCE9DE1AE14ED0008DB01E /* ADAuthenticationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationOperation.h; sourceTree = "<group>"; };
+		ECBCE9DF1AE14ED1008DB01E /* ADAuthenticationParameters+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADAuthenticationParameters+Internal.h"; sourceTree = "<group>"; };
+		ECBCE9E01AE14ED1008DB01E /* ADAuthenticationParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationParameters.h; sourceTree = "<group>"; };
+		ECBCE9E11AE14ED1008DB01E /* ADAuthenticationResult+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ADAuthenticationResult+Internal.h"; sourceTree = "<group>"; };
+		ECBCE9E21AE14ED1008DB01E /* ADAuthenticationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationResult.h; sourceTree = "<group>"; };
+		ECBCE9E31AE14ED1008DB01E /* ADAuthenticationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationSettings.h; sourceTree = "<group>"; };
+		ECBCE9E41AE14ED1008DB01E /* ADAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationViewController.h; sourceTree = "<group>"; };
+		ECBCE9E51AE14ED1008DB01E /* ADAuthenticationWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADAuthenticationWebViewController.h; sourceTree = "<group>"; };
+		ECBCE9E61AE14ED1008DB01E /* ADErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADErrorCodes.h; sourceTree = "<group>"; };
+		ECBCE9E71AE14ED1008DB01E /* ADInstanceDiscovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADInstanceDiscovery.h; sourceTree = "<group>"; };
+		ECBCE9E81AE14ED1008DB01E /* ADKeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADKeyChainHelper.h; sourceTree = "<group>"; };
+		ECBCE9E91AE14ED1008DB01E /* ADKeychainTokenCacheStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADKeychainTokenCacheStore.h; sourceTree = "<group>"; };
+		ECBCE9EA1AE14ED1008DB01E /* ADLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADLogger.h; sourceTree = "<group>"; };
+		ECBCE9EB1AE14ED1008DB01E /* ADOAuth2Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADOAuth2Constants.h; sourceTree = "<group>"; };
+		ECBCE9EC1AE14ED1008DB01E /* ADPersistentTokenCacheStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADPersistentTokenCacheStore.h; sourceTree = "<group>"; };
+		ECBCE9ED1AE14ED1008DB01E /* ADTokenCacheStoreItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTokenCacheStoreItem.h; sourceTree = "<group>"; };
+		ECBCE9EE1AE14ED1008DB01E /* ADTokenCacheStoreKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTokenCacheStoreKey.h; sourceTree = "<group>"; };
+		ECBCE9EF1AE14ED1008DB01E /* ADTokenCacheStoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTokenCacheStoring.h; sourceTree = "<group>"; };
+		ECBCE9F01AE14ED1008DB01E /* ADTokenCacheValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTokenCacheValue.h; sourceTree = "<group>"; };
+		ECBCE9F11AE14ED1008DB01E /* ADURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADURLProtocol.h; sourceTree = "<group>"; };
+		ECBCE9F21AE14ED1008DB01E /* ADUserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADUserInformation.h; sourceTree = "<group>"; };
+		ECBCE9F31AE14ED1008DB01E /* ADWebRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWebRequest.h; sourceTree = "<group>"; };
+		ECBCE9F41AE14ED1008DB01E /* ADWebResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWebResponse.h; sourceTree = "<group>"; };
+		ECBCE9F51AE14ED1008DB01E /* ADWorkplaceJoined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWorkplaceJoined.h; sourceTree = "<group>"; };
+		ECBCE9F61AE14ED1008DB01E /* NSDictionary+ADExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ADExtensions.h"; sourceTree = "<group>"; };
+		ECBCE9F71AE14ED1008DB01E /* NSString+ADHelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ADHelperMethods.h"; sourceTree = "<group>"; };
+		ECBCE9F81AE14ED1008DB01E /* NSURL+ADExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+ADExtensions.h"; sourceTree = "<group>"; };
+		ECBCE9F91AE14ED1008DB01E /* UIApplication+ADExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+ADExtensions.h"; sourceTree = "<group>"; };
+		ECBCE9FB1AE14ED1008DB01E /* LiveAuthDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveAuthDelegate.h; sourceTree = "<group>"; };
+		ECBCE9FC1AE14ED1008DB01E /* LiveConnectClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveConnectClient.h; sourceTree = "<group>"; };
+		ECBCE9FD1AE14ED1008DB01E /* LiveConnectSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveConnectSession.h; sourceTree = "<group>"; };
+		ECBCE9FE1AE14ED1008DB01E /* LiveConnectSessionStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveConnectSessionStatus.h; sourceTree = "<group>"; };
+		ECBCE9FF1AE14ED1008DB01E /* LiveDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDownloadOperation.h; sourceTree = "<group>"; };
+		ECBCEA001AE14ED1008DB01E /* LiveDownloadOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDownloadOperationDelegate.h; sourceTree = "<group>"; };
+		ECBCEA011AE14ED1008DB01E /* LiveOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveOperation.h; sourceTree = "<group>"; };
+		ECBCEA021AE14ED1008DB01E /* LiveOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveOperationDelegate.h; sourceTree = "<group>"; };
+		ECBCEA031AE14ED1008DB01E /* LiveOperationProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveOperationProgress.h; sourceTree = "<group>"; };
+		ECBCEA041AE14ED1008DB01E /* LiveUploadOperationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveUploadOperationDelegate.h; sourceTree = "<group>"; };
+		ECBCEA051AE14ED1008DB01E /* LiveUploadOverwriteOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveUploadOverwriteOption.h; sourceTree = "<group>"; };
 		ECC82DE11A1BDE87009A6142 /* office365_odata_core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_odata_core.h; sourceTree = "<group>"; };
+		ECD134D31AB7268700278CFF /* MSODataMultipartCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataMultipartCollectionFetcher.h; sourceTree = "<group>"; };
+		ECD134D41AB7268700278CFF /* MSODataMultipartCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataMultipartCollectionFetcher.m; sourceTree = "<group>"; };
+		ECD134D71AB85D2B00278CFF /* MSODataMultiPartElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSODataMultiPartElement.h; sourceTree = "<group>"; };
+		ECD134D81AB85D2B00278CFF /* MSODataMultiPartElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSODataMultiPartElement.m; sourceTree = "<group>"; };
+		ECD134DB1AB8606200278CFF /* LiveDependencyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveDependencyResolver.h; sourceTree = "<group>"; };
+		ECD134DC1AB8606200278CFF /* LiveDependencyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveDependencyResolver.m; sourceTree = "<group>"; };
+		ECD2FDA91ABCA6EB0019B3C1 /* MSOCalendarSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOCalendarSerializer.h; sourceTree = "<group>"; };
+		ECD2FDAA1ABCA6EB0019B3C1 /* MSOCalendarSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOCalendarSerializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -137,10 +243,8 @@
 			isa = PBXGroup;
 			children = (
 				EC4DE86F1A24C675004F16C4 /* office365_odata_base.h */,
-				EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */,
-				EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */,
-				ECC82DE11A1BDE87009A6142 /* office365_odata_core.h */,
-				2647EA5F19F4443800FD9527 /* office365_odata_base */,
+				ECBCE9D71AE14ED0008DB01E /* include */,
+				2647EA5F19F4443800FD9527 /* office365_odata_core */,
 				ECC82DE21A1BE94A009A6142 /* office365_odata_helpers */,
 				2647EA9919F4454000FD9527 /* office365_odata_impl */,
 				2647EA7F19F4453100FD9527 /* office365_odata_interfaces */,
@@ -157,9 +261,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2647EA5F19F4443800FD9527 /* office365_odata_base */ = {
+		2647EA5F19F4443800FD9527 /* office365_odata_core */ = {
 			isa = PBXGroup;
 			children = (
+				ECC82DE11A1BDE87009A6142 /* office365_odata_core.h */,
 				EC8EABF11A28B5E50027F3BE /* MSODataException.h */,
 				EC8EABF21A28B5E50027F3BE /* MSODataException.m */,
 				EC4DE8571A24C655004F16C4 /* MSODataBaseContainer.h */,
@@ -175,8 +280,14 @@
 				EC4DE8611A24C655004F16C4 /* MSODataReadable.h */,
 				EC1D35621A2799780064FCAF /* MSODataExecutable.h */,
 				EC1D35631A2799780064FCAF /* MSODataExecutable.m */,
+				ECD134D31AB7268700278CFF /* MSODataMultipartCollectionFetcher.h */,
+				ECD134D41AB7268700278CFF /* MSODataMultipartCollectionFetcher.m */,
+				ECD134D71AB85D2B00278CFF /* MSODataMultiPartElement.h */,
+				ECD134D81AB85D2B00278CFF /* MSODataMultiPartElement.m */,
+				ECD2FDA91ABCA6EB0019B3C1 /* MSOCalendarSerializer.h */,
+				ECD2FDAA1ABCA6EB0019B3C1 /* MSOCalendarSerializer.m */,
 			);
-			path = office365_odata_base;
+			path = office365_odata_core;
 			sourceTree = "<group>";
 		};
 		2647EA6019F4443800FD9527 /* Supporting Files */ = {
@@ -191,6 +302,7 @@
 		2647EA7F19F4453100FD9527 /* office365_odata_interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				EC4DE8711A24C675004F16C4 /* office365_odata_interfaces.h */,
 				EC4DE80C1A24C500004F16C4 /* MSODataCredentials.h */,
 				EC4DE80E1A24C500004F16C4 /* MSODataDependencyResolver.h */,
 				EC4DE80F1A24C500004F16C4 /* MSODataHttpTransport.h */,
@@ -200,7 +312,7 @@
 				EC4DE8131A24C500004F16C4 /* MSODataLogLevel.h */,
 				EC4DE8141A24C500004F16C4 /* MSODataRequest.h */,
 				EC4DE8151A24C500004F16C4 /* MSODataResponse.h */,
-				EC4DE8161A24C500004F16C4 /* MSODataUrl.h */,
+				EC4DE8161A24C500004F16C4 /* MSODataURL.h */,
 			);
 			path = office365_odata_interfaces;
 			sourceTree = "<group>";
@@ -208,6 +320,7 @@
 		2647EA9919F4454000FD9527 /* office365_odata_impl */ = {
 			isa = PBXGroup;
 			children = (
+				EC4DE8701A24C675004F16C4 /* office365_odata_impl.h */,
 				EC4DE8221A24C566004F16C4 /* JsonParser */,
 				EC4DE8271A24C566004F16C4 /* MSODataBasicCredentials.h */,
 				EC4DE8281A24C566004F16C4 /* MSODataBasicCredentials.m */,
@@ -231,6 +344,8 @@
 				EC4DE83C1A24C566004F16C4 /* NSString+NSStringExtensions.m */,
 				EC0877291A852C4C0077696D /* ADALDependencyResolver.h */,
 				EC08772A1A852C4C0077696D /* ADALDependencyResolver.m */,
+				ECD134DB1AB8606200278CFF /* LiveDependencyResolver.h */,
+				ECD134DC1AB8606200278CFF /* LiveDependencyResolver.m */,
 			);
 			path = office365_odata_impl;
 			sourceTree = "<group>";
@@ -238,12 +353,80 @@
 		EC4DE8221A24C566004F16C4 /* JsonParser */ = {
 			isa = PBXGroup;
 			children = (
-				EC4DE8231A24C566004F16C4 /* JsonParser.h */,
-				EC4DE8241A24C566004F16C4 /* JsonParser.m */,
+				EC4DE8231A24C566004F16C4 /* MSOJsonParser.h */,
+				EC4DE8241A24C566004F16C4 /* MSOJsonParser.m */,
 				EC4DE8251A24C566004F16C4 /* Property.h */,
 				EC4DE8261A24C566004F16C4 /* Property.m */,
 			);
 			path = JsonParser;
+			sourceTree = "<group>";
+		};
+		ECBCE9D71AE14ED0008DB01E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				ECBCE9D81AE14ED0008DB01E /* ADALiOS */,
+				ECBCE9FA1AE14ED1008DB01E /* LiveSDK */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		ECBCE9D81AE14ED0008DB01E /* ADALiOS */ = {
+			isa = PBXGroup;
+			children = (
+				265209481AE17CF400E93C67 /* ADAL.h */,
+				ECBCE9D91AE14ED0008DB01E /* ADALiOS.h */,
+				ECBCE9DA1AE14ED0008DB01E /* ADAuthenticationBroker.h */,
+				ECBCE9DB1AE14ED0008DB01E /* ADAuthenticationContext.h */,
+				ECBCE9DC1AE14ED0008DB01E /* ADAuthenticationDelegate.h */,
+				ECBCE9DD1AE14ED0008DB01E /* ADAuthenticationError.h */,
+				ECBCE9DE1AE14ED0008DB01E /* ADAuthenticationOperation.h */,
+				ECBCE9DF1AE14ED1008DB01E /* ADAuthenticationParameters+Internal.h */,
+				ECBCE9E01AE14ED1008DB01E /* ADAuthenticationParameters.h */,
+				ECBCE9E11AE14ED1008DB01E /* ADAuthenticationResult+Internal.h */,
+				ECBCE9E21AE14ED1008DB01E /* ADAuthenticationResult.h */,
+				ECBCE9E31AE14ED1008DB01E /* ADAuthenticationSettings.h */,
+				ECBCE9E41AE14ED1008DB01E /* ADAuthenticationViewController.h */,
+				ECBCE9E51AE14ED1008DB01E /* ADAuthenticationWebViewController.h */,
+				ECBCE9E61AE14ED1008DB01E /* ADErrorCodes.h */,
+				ECBCE9E71AE14ED1008DB01E /* ADInstanceDiscovery.h */,
+				ECBCE9E81AE14ED1008DB01E /* ADKeyChainHelper.h */,
+				ECBCE9E91AE14ED1008DB01E /* ADKeychainTokenCacheStore.h */,
+				ECBCE9EA1AE14ED1008DB01E /* ADLogger.h */,
+				ECBCE9EB1AE14ED1008DB01E /* ADOAuth2Constants.h */,
+				ECBCE9EC1AE14ED1008DB01E /* ADPersistentTokenCacheStore.h */,
+				ECBCE9ED1AE14ED1008DB01E /* ADTokenCacheStoreItem.h */,
+				ECBCE9EE1AE14ED1008DB01E /* ADTokenCacheStoreKey.h */,
+				ECBCE9EF1AE14ED1008DB01E /* ADTokenCacheStoring.h */,
+				ECBCE9F01AE14ED1008DB01E /* ADTokenCacheValue.h */,
+				ECBCE9F11AE14ED1008DB01E /* ADURLProtocol.h */,
+				ECBCE9F21AE14ED1008DB01E /* ADUserInformation.h */,
+				ECBCE9F31AE14ED1008DB01E /* ADWebRequest.h */,
+				ECBCE9F41AE14ED1008DB01E /* ADWebResponse.h */,
+				ECBCE9F51AE14ED1008DB01E /* ADWorkplaceJoined.h */,
+				ECBCE9F61AE14ED1008DB01E /* NSDictionary+ADExtensions.h */,
+				ECBCE9F71AE14ED1008DB01E /* NSString+ADHelperMethods.h */,
+				ECBCE9F81AE14ED1008DB01E /* NSURL+ADExtensions.h */,
+				ECBCE9F91AE14ED1008DB01E /* UIApplication+ADExtensions.h */,
+			);
+			path = ADALiOS;
+			sourceTree = "<group>";
+		};
+		ECBCE9FA1AE14ED1008DB01E /* LiveSDK */ = {
+			isa = PBXGroup;
+			children = (
+				ECBCE9FB1AE14ED1008DB01E /* LiveAuthDelegate.h */,
+				ECBCE9FC1AE14ED1008DB01E /* LiveConnectClient.h */,
+				ECBCE9FD1AE14ED1008DB01E /* LiveConnectSession.h */,
+				ECBCE9FE1AE14ED1008DB01E /* LiveConnectSessionStatus.h */,
+				ECBCE9FF1AE14ED1008DB01E /* LiveDownloadOperation.h */,
+				ECBCEA001AE14ED1008DB01E /* LiveDownloadOperationDelegate.h */,
+				ECBCEA011AE14ED1008DB01E /* LiveOperation.h */,
+				ECBCEA021AE14ED1008DB01E /* LiveOperationDelegate.h */,
+				ECBCEA031AE14ED1008DB01E /* LiveOperationProgress.h */,
+				ECBCEA041AE14ED1008DB01E /* LiveUploadOperationDelegate.h */,
+				ECBCEA051AE14ED1008DB01E /* LiveUploadOverwriteOption.h */,
+			);
+			path = LiveSDK;
 			sourceTree = "<group>";
 		};
 		ECC82DE21A1BE94A009A6142 /* office365_odata_helpers */ = {
@@ -281,7 +464,7 @@
 				EC4DE8511A24C566004F16C4 /* MSODataRequestImpl.h in Headers */,
 				EC4DE81D1A24C500004F16C4 /* MSODataLogger.h in Headers */,
 				EC4DE8631A24C655004F16C4 /* MSODataBaseContainer.h in Headers */,
-				EC4DE8211A24C500004F16C4 /* MSODataUrl.h in Headers */,
+				EC4DE8211A24C500004F16C4 /* MSODataURL.h in Headers */,
 				EC4DE8691A24C655004F16C4 /* MSODataMediaEntityFetcher.h in Headers */,
 				EC4DE8411A24C566004F16C4 /* MSODataBasicCredentials.h in Headers */,
 				EC4DE81F1A24C500004F16C4 /* MSODataRequest.h in Headers */,
@@ -289,7 +472,7 @@
 				EC4DE8741A24C675004F16C4 /* office365_odata_interfaces.h in Headers */,
 				EC4DE84F1A24C566004F16C4 /* MSODataURLImpl.h in Headers */,
 				EC4DE8491A24C566004F16C4 /* MSODataJsonSerializerImpl.h in Headers */,
-				EC4DE83D1A24C566004F16C4 /* JsonParser.h in Headers */,
+				EC4DE83D1A24C566004F16C4 /* MSOJsonParser.h in Headers */,
 				EC4DE86D1A24C655004F16C4 /* MSODataReadable.h in Headers */,
 				EC4DE86B1A24C655004F16C4 /* MSODataOperations.h in Headers */,
 				EC4DE81C1A24C500004F16C4 /* MSODataJsonSerializer.h in Headers */,
@@ -298,9 +481,58 @@
 				EC4DE8471A24C566004F16C4 /* MSODataHttpConnection.h in Headers */,
 				EC4DE81B1A24C500004F16C4 /* MSODataHttpVerb.h in Headers */,
 				EC8EABF31A28B5E50027F3BE /* MSODataException.h in Headers */,
+				ECD134DD1AB8606200278CFF /* LiveDependencyResolver.h in Headers */,
+				ECD134D91AB85D2B00278CFF /* MSODataMultiPartElement.h in Headers */,
+				ECD134D51AB7268700278CFF /* MSODataMultipartCollectionFetcher.h in Headers */,
 				EC1D35641A2799780064FCAF /* MSODataExecutable.h in Headers */,
 				EC08772B1A852C4C0077696D /* ADALDependencyResolver.h in Headers */,
+				ECD2FDAB1ABCA6EB0019B3C1 /* MSOCalendarSerializer.h in Headers */,
 				EC4DE8791A24C69E004F16C4 /* MSODataBaseContainerHelper.h in Headers */,
+				265209491AE17CF400E93C67 /* ADAL.h in Headers */,
+				ECBCEA301AE14ED1008DB01E /* LiveUploadOperationDelegate.h in Headers */,
+				ECBCEA0D1AE14ED1008DB01E /* ADAuthenticationParameters.h in Headers */,
+				ECBCEA091AE14ED1008DB01E /* ADAuthenticationDelegate.h in Headers */,
+				ECBCEA101AE14ED1008DB01E /* ADAuthenticationSettings.h in Headers */,
+				ECBCEA161AE14ED1008DB01E /* ADKeychainTokenCacheStore.h in Headers */,
+				ECBCEA0E1AE14ED1008DB01E /* ADAuthenticationResult+Internal.h in Headers */,
+				ECBCEA1B1AE14ED1008DB01E /* ADTokenCacheStoreKey.h in Headers */,
+				ECBCEA0C1AE14ED1008DB01E /* ADAuthenticationParameters+Internal.h in Headers */,
+				ECBCEA291AE14ED1008DB01E /* LiveConnectSession.h in Headers */,
+				ECBCEA221AE14ED1008DB01E /* ADWorkplaceJoined.h in Headers */,
+				ECBCEA121AE14ED1008DB01E /* ADAuthenticationWebViewController.h in Headers */,
+				ECBCEA311AE14ED1008DB01E /* LiveUploadOverwriteOption.h in Headers */,
+				ECBCEA111AE14ED1008DB01E /* ADAuthenticationViewController.h in Headers */,
+				ECBCEA191AE14ED1008DB01E /* ADPersistentTokenCacheStore.h in Headers */,
+				ECBCEA2D1AE14ED1008DB01E /* LiveOperation.h in Headers */,
+				ECBCEA1E1AE14ED1008DB01E /* ADURLProtocol.h in Headers */,
+				ECBCEA141AE14ED1008DB01E /* ADInstanceDiscovery.h in Headers */,
+				ECBCEA071AE14ED1008DB01E /* ADAuthenticationBroker.h in Headers */,
+				ECBCEA2F1AE14ED1008DB01E /* LiveOperationProgress.h in Headers */,
+				ECBCEA2E1AE14ED1008DB01E /* LiveOperationDelegate.h in Headers */,
+				ECBCEA201AE14ED1008DB01E /* ADWebRequest.h in Headers */,
+				ECBCEA1F1AE14ED1008DB01E /* ADUserInformation.h in Headers */,
+				ECBCEA0B1AE14ED1008DB01E /* ADAuthenticationOperation.h in Headers */,
+				ECBCEA2C1AE14ED1008DB01E /* LiveDownloadOperationDelegate.h in Headers */,
+				ECBCEA251AE14ED1008DB01E /* NSURL+ADExtensions.h in Headers */,
+				ECBCEA281AE14ED1008DB01E /* LiveConnectClient.h in Headers */,
+				ECBCEA151AE14ED1008DB01E /* ADKeyChainHelper.h in Headers */,
+				ECBCEA1D1AE14ED1008DB01E /* ADTokenCacheValue.h in Headers */,
+				ECBCEA0A1AE14ED1008DB01E /* ADAuthenticationError.h in Headers */,
+				ECBCEA1C1AE14ED1008DB01E /* ADTokenCacheStoring.h in Headers */,
+				ECBCEA241AE14ED1008DB01E /* NSString+ADHelperMethods.h in Headers */,
+				ECBCEA131AE14ED1008DB01E /* ADErrorCodes.h in Headers */,
+				ECBCEA081AE14ED1008DB01E /* ADAuthenticationContext.h in Headers */,
+				ECBCEA171AE14ED1008DB01E /* ADLogger.h in Headers */,
+				ECBCEA061AE14ED1008DB01E /* ADALiOS.h in Headers */,
+				ECBCEA2B1AE14ED1008DB01E /* LiveDownloadOperation.h in Headers */,
+				ECBCEA1A1AE14ED1008DB01E /* ADTokenCacheStoreItem.h in Headers */,
+				ECBCEA181AE14ED1008DB01E /* ADOAuth2Constants.h in Headers */,
+				ECBCEA2A1AE14ED1008DB01E /* LiveConnectSessionStatus.h in Headers */,
+				ECBCEA271AE14ED1008DB01E /* LiveAuthDelegate.h in Headers */,
+				ECBCEA211AE14ED1008DB01E /* ADWebResponse.h in Headers */,
+				ECBCEA0F1AE14ED1008DB01E /* ADAuthenticationResult.h in Headers */,
+				ECBCEA261AE14ED1008DB01E /* UIApplication+ADExtensions.h in Headers */,
+				ECBCEA231AE14ED1008DB01E /* NSDictionary+ADExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +592,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECD134D61AB7268700278CFF /* MSODataMultipartCollectionFetcher.m in Sources */,
+				ECD134DA1AB85D2B00278CFF /* MSODataMultiPartElement.m in Sources */,
 				EC4DE8401A24C566004F16C4 /* Property.m in Sources */,
+				ECD2FDAC1ABCA6EB0019B3C1 /* MSOCalendarSerializer.m in Sources */,
+				ECD134DE1AB8606200278CFF /* LiveDependencyResolver.m in Sources */,
 				EC4DE8521A24C566004F16C4 /* MSODataRequestImpl.m in Sources */,
 				EC4DE8421A24C566004F16C4 /* MSODataBasicCredentials.m in Sources */,
 				EC4DE86C1A24C655004F16C4 /* MSODataOperations.m in Sources */,
@@ -374,7 +610,7 @@
 				EC8EABF41A28B5E50027F3BE /* MSODataException.m in Sources */,
 				EC4DE87C1A24C69E004F16C4 /* MSODataEntityFetcherHelper.m in Sources */,
 				EC4DE8461A24C566004F16C4 /* MSODataDefaultDependencyResolver.m in Sources */,
-				EC4DE83E1A24C566004F16C4 /* JsonParser.m in Sources */,
+				EC4DE83E1A24C566004F16C4 /* MSOJsonParser.m in Sources */,
 				EC08772C1A852C4C0077696D /* ADALDependencyResolver.m in Sources */,
 				EC4DE84C1A24C566004F16C4 /* MSODataLoggerImpl.m in Sources */,
 				EC4DE87A1A24C69E004F16C4 /* MSODataBaseContainerHelper.m in Sources */,
@@ -482,7 +718,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -502,7 +738,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = office365_odata_base/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

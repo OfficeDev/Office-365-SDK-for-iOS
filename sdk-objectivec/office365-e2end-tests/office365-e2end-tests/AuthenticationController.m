@@ -10,15 +10,18 @@
 
 ADAuthenticationContext *authContext;
 ADALDependencyResolver* DependencyResolver;
+LiveConnectClient *liveClient;
 
 NSString *redirectUriString;
 NSString *authority;
 NSString *clientId;
 NSString *token;
-
+NSString *liveClientId;
+NSString *scopesString;
 static AuthenticationController* INSTANCE;
 
 -(id)init{
+    self = [super init];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -26,7 +29,15 @@ static AuthenticationController* INSTANCE;
     authority = [userDefaults objectForKey: @"AuthorityUrl"];
     clientId =[userDefaults objectForKey: @"CliendId"];
     token = [NSString alloc];
+    liveClientId = @"00000000441364FF";
+    scopesString = @"wl.signin wl.basic wl.offline_access wl.skydrive_update wl.contacts_create";
     
+    NSArray *scopes = [scopesString componentsSeparatedByString:@" "];
+    
+    liveClient = [[LiveConnectClient alloc] initWithClientId:liveClientId
+                                                      scopes:scopes
+                                                    delegate:nil
+                                                   userState:@"init"];
     return self;
 }
 
@@ -47,14 +58,15 @@ static AuthenticationController* INSTANCE;
     NSURL *redirectUri = [NSURL URLWithString:redirectUriString];
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-
+    
     [authContext acquireTokenWithResource:resourceId
                                  clientId:clientId
                               redirectUri:redirectUri
                           completionBlock:^(ADAuthenticationResult  *result) {
                               
                               if (AD_SUCCEEDED != result.status){
-                                  [[[self getDependencyResolver] getLogger] log:result.error.errorDetails :ERROR];
+                                  [[self getDependencyResolver].logger logMessage:result.error.errorDetails withLevel:LOG_LEVEL_ERROR];
+                                  
                                   completionBlock(false);
                               }
                               else{
@@ -63,18 +75,61 @@ static AuthenticationController* INSTANCE;
                                   [userDefaults setObject:result.tokenCacheStoreItem.userInformation.userId forKey:@"LogInUser"];
                                   [userDefaults synchronize];
                                   
-                                  DependencyResolver = [[ADALDependencyResolver alloc]
-                                                        initWithContext:authContext andResourceId:resourceId
-                                                        andClientId:clientId andRedirectUri:redirectUri];
+                                  DependencyResolver = [[ADALDependencyResolver alloc] initWithContext:authContext resourceId:resourceId clientId:clientId redirectUri:redirectUri];
+                                  
                                   completionBlock(true);
                               }
                           }];
     
 }
 
+-(void) initializeWithLiveSDK :(UIViewController*)viewController completionHandler:(void (^) (bool authenticated))completionBlock{
+    
+    if(liveClient.session != nil){
+        completionBlock(TRUE);
+    }else{
+        completionBlock(FALSE);
+    }
+}
+
+- (void)authenticateWithLiveSDK:(UIViewController *)controller : (void (^)(LiveConnectSession*)) callback{
+    
+    if (!liveClient.session) {
+        NSLog(@"Logging in");
+        
+        [liveClient login:controller delegate:controller userState:@"login"];
+        
+        dispatch_queue_t loginTask = dispatch_queue_create("authenticateWithLiveSDK", NULL);
+        
+        dispatch_async(loginTask, ^{
+            
+            dispatch_semaphore_t sem = dispatch_semaphore_create(0);
+            dispatch_semaphore_signal(sem);
+            
+            while (liveClient.session == nil) {
+                
+                dispatch_semaphore_wait(sem, 0.1);
+            }
+            
+            callback(liveClient.session);
+            
+        });
+    }
+}
+
 -(ADALDependencyResolver*) getDependencyResolver{
     return DependencyResolver;
 }
+
+-(MSODataDefaultDependencyResolver*) getLiveSDKDependencyResolver{
+    MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
+    [credentials setToken:liveClient.session.accessToken];
+    MSODataDefaultDependencyResolver* resolver = [[MSODataDefaultDependencyResolver alloc] init];
+    
+    [resolver setCredentials:credentials];
+    return resolver;
+}
+
 
 -(void)clearCredentials{
     id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;

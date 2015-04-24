@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:office365_graph_sdk/office365_graph_sdk.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Office365Sdks/Office365Sdks.xcodeproj">
    </FileRef>
    <FileRef
@@ -15,5 +18,8 @@
    </FileRef>
    <FileRef
       location = "group:office365_directory_sdk/office365_directory_sdk.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Office365Sdks/../office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
    </FileRef>
 </Workspace>

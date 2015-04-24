@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C1445F81ADE958B00ABB3E0 /* MSGraphTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1445F71ADE958B00ABB3E0 /* MSGraphTestRunner.m */; };
 		1C5688681A16391B0041D43E /* TestRunDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5688671A16391B0041D43E /* TestRunDetailViewController.m */; };
+		1C90BF821AB896EB0049CC13 /* OneNoteTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C90BF811AB896EB0049CC13 /* OneNoteTestRunner.m */; };
 		1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */; };
 		1C9D46541A14EEDC00D5361E /* SDKListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46531A14EEDC00D5361E /* SDKListTableViewController.m */; };
 		1C9D46571A14FDBD00D5361E /* FilesTestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C9D46561A14FDBD00D5361E /* FilesTestRunner.m */; };
@@ -33,8 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C1445F61ADE958B00ABB3E0 /* MSGraphTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphTestRunner.h; sourceTree = "<group>"; };
+		1C1445F71ADE958B00ABB3E0 /* MSGraphTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphTestRunner.m; sourceTree = "<group>"; };
 		1C5688661A16391B0041D43E /* TestRunDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunDetailViewController.h; sourceTree = "<group>"; };
 		1C5688671A16391B0041D43E /* TestRunDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunDetailViewController.m; sourceTree = "<group>"; };
+		1C90BF801AB896EB0049CC13 /* OneNoteTestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneNoteTestRunner.h; sourceTree = "<group>"; };
+		1C90BF811AB896EB0049CC13 /* OneNoteTestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneNoteTestRunner.m; sourceTree = "<group>"; };
 		1C9D464F1A14E84B00D5361E /* TestRunnerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunnerTableViewController.h; sourceTree = "<group>"; };
 		1C9D46501A14E84B00D5361E /* TestRunnerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunnerTableViewController.m; sourceTree = "<group>"; };
 		1C9D46521A14EEDC00D5361E /* SDKListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKListTableViewController.h; sourceTree = "<group>"; };
@@ -104,6 +110,10 @@
 				ECBBC9B819F1AD2C00DE04A4 /* MailTestRunner.m */,
 				1CFB946B1A1A7F4400F0C523 /* DiscoveryTestRunner.h */,
 				1CFB946C1A1A7F4400F0C523 /* DiscoveryTestRunner.m */,
+				1C90BF801AB896EB0049CC13 /* OneNoteTestRunner.h */,
+				1C90BF811AB896EB0049CC13 /* OneNoteTestRunner.m */,
+				1C1445F61ADE958B00ABB3E0 /* MSGraphTestRunner.h */,
+				1C1445F71ADE958B00ABB3E0 /* MSGraphTestRunner.m */,
 			);
 			name = Runners;
 			sourceTree = "<group>";
@@ -316,9 +326,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C90BF821AB896EB0049CC13 /* OneNoteTestRunner.m in Sources */,
 				ECBBC9CA19F1AD2C00DE04A4 /* AuthenticationController.m in Sources */,
 				1C9D46511A14E84B00D5361E /* TestRunnerTableViewController.m in Sources */,
 				ECBBC9C719F1AD2C00DE04A4 /* BaseTestRunner.m in Sources */,
+				1C1445F81ADE958B00ABB3E0 /* MSGraphTestRunner.m in Sources */,
 				ECBBC9CF19F1AD2C00DE04A4 /* UserSettingsViewController.m in Sources */,
 				1C9D46541A14EEDC00D5361E /* SDKListTableViewController.m in Sources */,
 				ECBBC99719F1ACD600DE04A4 /* ViewController.m in Sources */,
@@ -443,21 +455,12 @@
 			baseConfigurationReference = F177E74E44A121F723E1C19E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -469,21 +472,12 @@
 			baseConfigurationReference = 8D9840328BD6AC7791324B6B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/gustavo/Documents/MSOpenTech/o365sdk-ios/sdk-objectivec/office365_odata_base/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = "office365-e2end-tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_helpers/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_exchange_sdk/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_impl/build/Debug-iphoneos",
-					"/Users/lagash/o365sdk-ios/sdk-objectivec/office365_odata_interfaces/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

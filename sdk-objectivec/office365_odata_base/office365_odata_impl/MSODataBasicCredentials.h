@@ -6,10 +6,8 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import <office365_odata_base/office365_odata_interfaces.h>
+#import "MSODataCredentials.h"
 
 @interface MSODataBasicCredentials : NSObject<MSODataCredentials>
-
--(void)addToken : (NSString*) token;
 
 @end

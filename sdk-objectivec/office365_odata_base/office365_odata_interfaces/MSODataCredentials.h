@@ -6,11 +6,15 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSODataRequest.h"
+
+@protocol MSODataRequest;
 
 @protocol MSODataCredentials
 
-@required	
+@required
+
 - (void)prepareRequest:(id<MSODataRequest>)request;
+
+@property (copy, atomic, readwrite) NSString *token;
 
 @end

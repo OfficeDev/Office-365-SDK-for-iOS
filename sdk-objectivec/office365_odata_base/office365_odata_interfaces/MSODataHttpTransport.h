@@ -6,13 +6,15 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "MSODataRequest.h"
-#import "MSODataResponse.h"
 #import "MSODataException.h"
+
+@protocol MSODataRequest;
+@protocol MSODataResponse;
 
 @protocol MSODataHttpTransport
 
--(id<MSODataRequest>) createRequest;
--(NSURLSessionDataTask *)execute:(id<MSODataRequest>)request : (void (^)(id<MSODataResponse> response, MSODataException *error))callback;
+- (id<MSODataRequest>)createRequest;
+- (NSURLSessionTask *)executeRequest:(id<MSODataRequest>)request
+                            callback:(void (^)(id<MSODataResponse> response, MSODataException *exception))callback;
 
 @end

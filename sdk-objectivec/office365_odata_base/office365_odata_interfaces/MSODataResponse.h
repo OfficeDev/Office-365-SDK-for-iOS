@@ -10,12 +10,17 @@
 @protocol MSODataResponse
 
 @required
--(id)initWithPayload : (NSData*)payload : (NSURLResponse*) response;
--(NSData *)getPayload;
--(int)getStatus;
--(NSURLResponse*)getResponse;
+
+@property (strong, atomic, readonly) NSData *data;
+@property (strong, atomic, readonly) NSURLResponse *response;
+@property (strong, atomic, readonly) NSInputStream *stream;
+@property (atomic, readonly) int status;
+
+- (instancetype)initWithData:(NSData *)data response:(NSURLResponse *)response;
+- (instancetype)initWithStream:(NSInputStream *)stream response:(NSURLResponse *)response;
+
 
 @optional
--(void) close;
+- (void)close;
 
 @end

@@ -10,7 +10,11 @@
 #import "MailTestRunner.h"
 #import "FilesTestRunner.h"
 #import "DiscoveryTestRunner.h"
-@interface SDKListTableViewController : UITableViewController
+#import "OneNoteTestRunner.h"
+#import "MSGraphTestRunner.h"
+#import "LiveAuthDelegate.h"
+
+@interface SDKListTableViewController : UITableViewController<LiveAuthDelegate>
 
 @property NSMutableArray *availableSdks;
 
