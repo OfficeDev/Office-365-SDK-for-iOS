@@ -59,7 +59,7 @@ Here's a quick guide to construct a simple application that retrieves messages u
   credentialsImpl.credentials = credentials;
   resolver.credentialsFactory = credentialsImpl;
   
-  MSODataOutlookClient *client =[[MSOutlookClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
+  MSOutlookServicesClient *client =[[MSOutlookServicesClient alloc] initWithUrl:@"https://outlook.office365.com/api/v1.0"       dependencyResolver:resolver];
   ```
 
 6. Now, use the SDK to automate API calls and get the data you need.
