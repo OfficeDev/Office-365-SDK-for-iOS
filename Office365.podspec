@@ -1,72 +1,25 @@
 Pod::Spec.new do |s|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
   s.name         = "Office365"
   s.version      = "0.9.0"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
-
   s.description  = <<-DESC
 		   Client libraries for calling Office 365 service APIs from iOS apps.
-		   Libraries are generated from OData CSDL files.
-		   Work is in progress.
+		   These libraries are in preview.
                    DESC
-
   s.homepage     = "http://github.com/OfficeDev/Office-365-SDK-for-iOS"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
   s.license      = "Apache License, Version 2.0"
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
   s.author             = { "joshgav" => "josh.gavant@microsoft.com" }
   s.social_media_url   = "http://twitter.com/OpenAtMicrosoft"
 
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
   s.platform     = :ios
   s.ios.deployment_target = "6.0"
+  s.source       = { :git => "https://github.com/OfficeDev/Office-365-SDK-for-iOS.git",
+		             :tag => "v#{s.version}"
+		           }
+  s.exclude_files = "**/Build/**/*"
   s.requires_arc = true
 
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.source       = { :git => "https://github.com/OfficeDev/Office-365-SDK-for-iOS.git", 
-		     :tag => "v#{s.version}" 
-		   }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  s.exclude_files = "**/Build/**/*"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  # s.resource  = "icon.png"
-  # s.resources = "Resources/*.png"
-
-  # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
-
-  # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-
-  # s.requires_arc = true
-
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "ADALiOS", "=1.2.2"
 
   # --- Subspecs ------------------------------------------------------------------#
 
@@ -89,6 +42,13 @@ Pod::Spec.new do |s|
      subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_files_sdk/**/*.h"
      subspec.header_dir = "office365_files_sdk"
+  end
+
+  s.subspec 'AADGraph' do |subspec|
+     subspec.source_files = "sdk-objectivec/office365_directory_sdk/**/*.{h,m}"
+     subspec.dependency "Office365/OData"
+     subspec.public_header_files = "sdk-objectivc/office365_directory_sdk/**/*.{h,m}"
+     subspec.header_dir = "office365_directory_sdk"
   end
 
   s.subspec 'Discovery' do |subspec|
