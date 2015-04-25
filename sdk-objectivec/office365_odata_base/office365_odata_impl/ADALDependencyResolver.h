@@ -16,6 +16,8 @@
                      resourceId:(NSString *)resourceId
                        clientId:(NSString *)clientId
                     redirectUri:(NSURL *)redirectUri;
+- (instancetype)initWithPlist;
+- (void)interactiveLogon;
 
 @property (strong, atomic) NSString *resourceId;
 
