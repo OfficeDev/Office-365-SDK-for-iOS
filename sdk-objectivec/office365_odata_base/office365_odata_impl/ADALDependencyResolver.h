@@ -7,8 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MSODataDefaultDependencyResolver.h"
-#import "ADAuthenticationResult.h"
 
+@class ADAuthenticationResult;
 @class ADAuthenticationContext;
 
 @interface ADALDependencyResolver : MSODataDefaultDependencyResolver
