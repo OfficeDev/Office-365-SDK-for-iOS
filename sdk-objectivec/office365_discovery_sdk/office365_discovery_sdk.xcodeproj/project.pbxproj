@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC2CCA8919F8A22200D12E55 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */; };
 		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC34847C1AAF361B00530D41 /* MSDiscoveryODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34847B1AAF361B00530D41 /* MSDiscoveryODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		261068091AEDF3B900FBABEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
 		EC1E8FA219FEBF7200594501 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC1E8F9E19FEBF7200594501 /* office365_odata_base.xcodeproj */;
@@ -64,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2CCA8919F8A22200D12E55 /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +201,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2610680A1AEDF3B900FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_discovery_sdk;
 			productName = office365_discovery_sdk;
@@ -275,6 +281,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2610680A1AEDF3B900FBABEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = 261068091AEDF3B900FBABEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EC2CCA3B19F8A03000D12E55 /* Debug */ = {
@@ -375,6 +389,7 @@
 				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -395,6 +410,7 @@
 				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

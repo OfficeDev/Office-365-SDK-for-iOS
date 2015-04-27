@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC0D69BB19FACA180092895E /* office365_directory_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0D69BA19FACA180092895E /* office365_directory_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC0D6B7D19FACBC70092895E /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */; };
 		EC8269711AE5387000A14A0B /* MSDirectoryServicesAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8268AD1AE5387000A14A0B /* MSDirectoryServicesAlternativeSecurityId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC8269721AE5387000A14A0B /* MSDirectoryServicesAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8268AE1AE5387000A14A0B /* MSDirectoryServicesAlternativeSecurityId.m */; };
 		EC8269731AE5387000A14A0B /* MSDirectoryServicesApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8268AF1AE5387000A14A0B /* MSDirectoryServicesApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -424,7 +423,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC0D6B7D19FACBC70092895E /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,6 +1093,7 @@
 				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1115,6 +1114,7 @@
 				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

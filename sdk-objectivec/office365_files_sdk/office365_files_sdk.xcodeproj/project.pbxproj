@@ -73,10 +73,16 @@
 		EC82681E1AE5349900A14A0B /* MSOneDriveServicesItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8267DD1AE5349800A14A0B /* MSOneDriveServicesItemOperations.m */; };
 		EC82681F1AE5349900A14A0B /* MSOneDriveServicesODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8267DE1AE5349800A14A0B /* MSOneDriveServicesODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECDEC1521A251EB000F84EAF /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDEC0E51A2514CE00F84EAF /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2610680C1AEDF3D200FBABEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
 		ECDEC0E41A2514CE00F84EAF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */;
@@ -163,7 +169,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECDEC1521A251EB000F84EAF /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +366,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2610680D1AEDF3D200FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_files_sdk;
 			productName = office365_files_sdk;
@@ -466,6 +472,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2610680D1AEDF3D200FBABEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = 2610680C1AEDF3D200FBABEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		ECDEC0D81A2514BC00F84EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -502,7 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -541,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -564,6 +578,7 @@
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -583,6 +598,7 @@
 				INFOPLIST_FILE = office365_files_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

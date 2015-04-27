@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EC7405711AB35DBB00108A42 /* office365_onenote_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7405701AB35DBB00108A42 /* office365_onenote_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC7406311AB3616900108A42 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC7405A21AB35E3800108A42 /* office365_odata_base.framework */; };
 		ECFB3B921AE53CD400405654 /* MSOneNoteApiDiagnostic.h in Headers */ = {isa = PBXBuildFile; fileRef = ECFB3B4D1AE53CD400405654 /* MSOneNoteApiDiagnostic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECFB3B931AE53CD400405654 /* MSOneNoteApiDiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFB3B4E1AE53CD400405654 /* MSOneNoteApiDiagnostic.m */; };
 		ECFB3B941AE53CD400405654 /* MSOneNoteApiExternalLink.h in Headers */ = {isa = PBXBuildFile; fileRef = ECFB3B4F1AE53CD400405654 /* MSOneNoteApiExternalLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +79,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		261068151AEDF40E00FBABEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
 		EC7405A11AB35E3800108A42 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */;
@@ -169,7 +175,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC7406311AB3616900108A42 /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +378,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				261068161AEDF40E00FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_onenote_sdk;
 			productName = office365_onenote_sdk;
@@ -477,6 +483,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		261068161AEDF40E00FBABEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = 261068151AEDF40E00FBABEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		EC74057F1AB35DBB00108A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -579,6 +593,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -596,6 +611,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

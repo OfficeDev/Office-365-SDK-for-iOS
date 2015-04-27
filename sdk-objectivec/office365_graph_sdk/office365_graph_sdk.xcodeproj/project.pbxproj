@@ -392,10 +392,16 @@
 		EC3CE56A1AE98F4300901263 /* MSGraphServiceUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE3EA1AE98F4200901263 /* MSGraphServiceUserFetcher.m */; };
 		EC3CE56B1AE98F4300901263 /* MSGraphServiceUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3CE3EB1AE98F4200901263 /* MSGraphServiceUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC3CE56C1AE98F4300901263 /* MSGraphServiceUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3CE3EC1AE98F4200901263 /* MSGraphServiceUserOperations.m */; };
-		EC3CE5731AE98F6500901263 /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3CE5721AE98F6300901263 /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		261068111AEDF3ED00FBABEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
 		EC3CE5711AE98F6300901263 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */;
@@ -801,7 +807,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC3CE5731AE98F6500901263 /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1483,6 +1488,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				261068121AEDF3ED00FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_graph_sdk;
 			productName = office365_graph_sdk;
@@ -1741,6 +1747,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		261068121AEDF3ED00FBABEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = 261068111AEDF3ED00FBABEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		EC3CE2621AE98F1B00901263 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1840,6 +1854,7 @@
 				INFOPLIST_FILE = office365_graph_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1856,6 +1871,7 @@
 				INFOPLIST_FILE = office365_graph_sdk/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				OTHER_LIBTOOLFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
