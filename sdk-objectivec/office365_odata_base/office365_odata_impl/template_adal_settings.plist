@@ -11,6 +11,6 @@
 	<key>AuthorityUrl</key>
 	<string>https://login.microsoftonline.com/common/</string>
 	<key>GraphBaseUrl</key>
-	<string>https://graph.microsoft-ppe.com/beta/myorganization/</string>
+	<string>https://graph.microsoft.com/beta/myorganization/</string>
 </dict>
 </plist>

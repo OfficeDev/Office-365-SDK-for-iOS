@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MSODataDefaultDependencyResolver.h"
+#import "ADAuthenticationResult.h"
 
 @class ADAuthenticationContext;
 
@@ -18,6 +19,7 @@
                     redirectUri:(NSURL *)redirectUri;
 - (instancetype)initWithPlist;
 - (void)interactiveLogon;
+- (void)interactiveLogonWithCallback:(void(^)(ADAuthenticationResult *))callback;
 
 @property (strong, atomic) NSString *resourceId;
 

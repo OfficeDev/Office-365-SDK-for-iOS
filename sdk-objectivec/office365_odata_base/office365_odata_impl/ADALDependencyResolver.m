@@ -71,19 +71,35 @@
 }
 
 - (void)interactiveLogon {
+    [self interactiveLogonWithCallback:nil];
+}
+
+- (void)interactiveLogonWithCallback:(void(^)(ADAuthenticationResult *result))callback {
+    
+    void(^theCompletionBlock)(ADAuthenticationResult *);
+    
+    void(^nullCallback)(ADAuthenticationResult *) = ^(ADAuthenticationResult *result) {
+        if (result.status != AD_SUCCEEDED) {
+            [self.logger logMessage:result.error.errorDetails withLevel:LOG_LEVEL_ERROR];
+        } else {
+            [self.logger logMessage:@"AD auth succeeded." withLevel:LOG_LEVEL_INFO];
+        }
+    };
+    
+    if (callback) {
+        theCompletionBlock = callback;
+    } else {
+        theCompletionBlock = nullCallback;
+    }
+    
     [self.context acquireTokenWithResource:self.resourceId
                                   clientId:self.clientId
                                redirectUri:self.redirectUri
                             promptBehavior:AD_PROMPT_ALWAYS
                                     userId:nil
                       extraQueryParameters:nil
-                           completionBlock:^(ADAuthenticationResult *result) {
-                               if (result.status != AD_SUCCEEDED) {
-                                   [self.logger logMessage:result.error.errorDetails withLevel:LOG_LEVEL_ERROR];
-                               } else {
-                                   NSLog(@"Auth complete.");
-                               }
-                           }];
+                            completionBlock:theCompletionBlock];
+    
 }
 
 - (id<MSODataCredentials>)credentials {
