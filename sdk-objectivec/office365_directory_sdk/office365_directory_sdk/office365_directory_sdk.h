@@ -15,5 +15,5 @@ FOUNDATION_EXPORT const unsigned char office365_directory_sdkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <office365_directory_sdk/PublicHeader.h>
 
-#import <office365_directory_sdk/MSDirectoryServicesModels.h>
-#import <office365_directory_sdk/MSDirectoryServicesODataEntities.h>
+#import <office365_directory_sdk/MSDirectoryModels.h>
+#import <office365_directory_sdk/MSDirectoryODataEntities.h>
