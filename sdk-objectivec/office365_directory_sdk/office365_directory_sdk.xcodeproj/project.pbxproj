@@ -203,7 +203,6 @@
 		EC55F9AF1AF155D70099BB4C /* MSDirectoryUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EC1AF155D70099BB4C /* MSDirectoryUserFetcher.m */; };
 		EC55F9B01AF155D70099BB4C /* MSDirectoryUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8ED1AF155D70099BB4C /* MSDirectoryUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9B11AF155D70099BB4C /* MSDirectoryUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EE1AF155D70099BB4C /* MSDirectoryUserOperations.m */; };
-		EC55F9B21AF157620099BB4C /* office365_odata_base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1E8FA919FEBF7B00594501 /* office365_odata_base.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +211,13 @@
 			containerPortal = EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
+			remoteInfo = office365_odata_base;
+		};
+		EC55FA431AF1591C0099BB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC1E8FA419FEBF7B00594501 /* office365_odata_base.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
 			remoteInfo = office365_odata_base;
 		};
 /* End PBXContainerItemProxy section */
@@ -424,7 +430,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC55F9B21AF157620099BB4C /* office365_odata_base.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,6 +831,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EC55FA441AF1591C0099BB4C /* PBXTargetDependency */,
 			);
 			name = office365_directory_sdk;
 			productName = office365_directory_sdk;
@@ -995,6 +1001,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC55FA441AF1591C0099BB4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = office365_odata_base;
+			targetProxy = EC55FA431AF1591C0099BB4C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EC0D69C619FACA180092895E /* Debug */ = {
