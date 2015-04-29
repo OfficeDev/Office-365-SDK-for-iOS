@@ -3,10 +3,9 @@ language: objective-c
 before_install:
   - java -version
   - pod --version
-  - cd sdk-objectivec/office365_unit_tests/office365_UnitTests; pod install; cd ..; cd ..; cd ..
+  - cd sdk-objectivec/office365_unit_tests/office365_UnitTests && pod install && cd .. && cd .. && cd ..
   - curl -O http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock/1.52/wiremock-1.52-standalone.jar
   - java -jar wiremock-1.52-standalone.jar --record-mappings  --port 8080 --verbose --root-dir "sdk-objectivec/office365_unit_tests/office365_UnitTests/WireMock" &
-  - cd sdk-objectivec/office365_unit_tests/office365_UnitTests; pod install; cd ..; cd ..; cd ..
 
 script:
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_exchange_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
