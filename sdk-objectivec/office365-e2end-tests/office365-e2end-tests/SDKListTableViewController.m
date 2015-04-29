@@ -54,7 +54,7 @@
     
     if ([name isEqualToString:@"Exchange"]) {
         
-        [[[BaseController alloc]init]getMailClient:^(MSOutlookServicesClient *c) {
+        [[[BaseController alloc]init]getMailClient:^(MSOutlookClient *c) {
             MailTestRunner *runner = [[MailTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
@@ -62,7 +62,7 @@
     
     if ([name isEqualToString:@"Files"]) {
         
-        [[[BaseController alloc]init]getSharePointClient:^(MSOneDriveServicesClient *c) {
+        [[[BaseController alloc]init]getSharePointClient:^(MSSharePointClient *c) {
             FilesTestRunner *runner = [[FilesTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
@@ -77,7 +77,7 @@
     }
     
     if ([name isEqualToString:@"OneNote"]) {
-        [baseController getOneNoteClient: self :^(MSOneNoteApiClient *c) {
+        [baseController getOneNoteClient: self :^(MSOneNoteClient *c) {
             
             if (c!= nil) {
                 
@@ -107,7 +107,7 @@
     }
     
     if([name isEqualToString:@"MSGraph"]){
-        [[[BaseController alloc]init]getMSGraphClient:^(MSGraphServiceClient *c) {
+        [[[BaseController alloc]init]getMSGraphClient:^(MSGraphClient *c) {
             MSGraphTestRunner *runner = [[MSGraphTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];

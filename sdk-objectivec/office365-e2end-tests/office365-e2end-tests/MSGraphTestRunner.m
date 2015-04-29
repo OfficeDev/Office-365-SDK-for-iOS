@@ -2,7 +2,7 @@
 #import "MSGraphTestRunner.h"
 
 @implementation MSGraphTestRunner
--(id)initWithClient : (MSGraphServiceClient*)client{
+-(id)initWithClient : (MSGraphClient*)client{
     self.Client = client;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString* mail = [userDefaults objectForKey: @"TestMail"];
@@ -113,7 +113,7 @@
 
 -(NSURLSessionTask*)TestGetApplications:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getapplications] readWithCallback:^(NSArray<MSGraphServiceApplication> *applications, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getapplications] readWithCallback:^(NSArray<MSGraphApplication> *applications, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -142,7 +142,7 @@
 
 -(NSURLSessionTask*)TestGetContacts:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getcontacts] readWithCallback:^(NSArray<MSGraphServiceContact> *contacts, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getcontacts] readWithCallback:^(NSArray<MSGraphContact> *contacts, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -171,7 +171,7 @@
 
 -(NSURLSessionTask*)TestGetDeviceConfiguration:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getdeviceConfiguration] readWithCallback:^(NSArray<MSGraphServiceDeviceConfiguration> *deviceConfigurations, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getdeviceConfiguration] readWithCallback:^(NSArray<MSGraphDeviceConfiguration> *deviceConfigurations, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -200,7 +200,7 @@
 
 -(NSURLSessionTask*)TestGetDevices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getdevices] readWithCallback:^(NSArray<MSGraphServiceDevice> *devices, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getdevices] readWithCallback:^(NSArray<MSGraphDevice> *devices, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -229,7 +229,7 @@
 
 -(NSURLSessionTask*)TestGetGroups:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getgroups] readWithCallback:^(NSArray<MSGraphServiceGroup> *groups, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getgroups] readWithCallback:^(NSArray<MSGraphGroup> *groups, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -258,7 +258,7 @@
 
 -(NSURLSessionTask*)TestGetDirectoryRoles:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getdirectoryRoles] readWithCallback:^(NSArray<MSGraphServiceDirectoryRole> *directoryRoles, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getdirectoryRoles] readWithCallback:^(NSArray<MSGraphDirectoryRole> *directoryRoles, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -287,7 +287,7 @@
 
 -(NSURLSessionTask*)TestGetDirectoryRoleTemplates:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getdirectoryRoleTemplates] readWithCallback:^(NSArray<MSGraphServiceDirectoryRoleTemplate> *directoryRoleTemplates, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getdirectoryRoleTemplates] readWithCallback:^(NSArray<MSGraphDirectoryRoleTemplate> *directoryRoleTemplates, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -316,7 +316,7 @@
 
 -(NSURLSessionTask*)TestGetServicePrincipals:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getservicePrincipals] readWithCallback:^(NSArray<MSGraphServiceServicePrincipal> *servicePrincipals, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getservicePrincipals] readWithCallback:^(NSArray<MSGraphServicePrincipal> *servicePrincipals, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -345,7 +345,7 @@
 
 -(NSURLSessionTask*)TestGetTenantDetails:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client gettenantDetails] readWithCallback:^(NSArray<MSGraphServiceTenantDetail> *tenantDetails, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client gettenantDetails] readWithCallback:^(NSArray<MSGraphTenantDetail> *tenantDetails, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -374,7 +374,7 @@
 
 -(NSURLSessionTask*)TestGetUsers:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getusers] top:1] readWithCallback:^(NSArray<MSGraphServiceUser> *users, MSODataException *exception) {
+    NSURLSessionTask *task = [[[self.Client getusers] top:1] readWithCallback:^(NSArray<MSGraphUser> *users, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -403,7 +403,7 @@
 
 -(NSURLSessionTask*)TestGetSubscribedSkus:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getsubscribedSkus] readWithCallback:^(NSArray<MSGraphServiceSubscribedSku> *subscribedSkus, MSODataException *exception) {
+    NSURLSessionTask *task = [[self.Client getsubscribedSkus] readWithCallback:^(NSArray<MSGraphSubscribedSku> *subscribedSkus, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -432,7 +432,7 @@
 
 -(NSURLSessionTask*)TestGetUserAppRoleAssignments:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getappRoleAssignments] readWithCallback:^(NSArray<MSGraphServiceAppRoleAssignment> *appRoleAssignments, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getappRoleAssignments] readWithCallback:^(NSArray<MSGraphAppRoleAssignment> *appRoleAssignments, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -461,7 +461,7 @@
 
 -(NSURLSessionTask*)TestGetOauth2PermissionGrants:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getoauth2PermissionGrants] readWithCallback:^(NSArray<MSGraphServiceOAuth2PermissionGrant> *oAuth2PermissionGrants, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getoauth2PermissionGrants] readWithCallback:^(NSArray<MSGraphOAuth2PermissionGrant> *oAuth2PermissionGrants, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -490,7 +490,7 @@
 
 -(NSURLSessionTask*)TestGetOwnedDevices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedDevices] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedDevices] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -519,7 +519,7 @@
 
 -(NSURLSessionTask*)TestGetRegisteredDevices:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getregisteredDevices] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getregisteredDevices] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -548,7 +548,7 @@
 
 -(NSURLSessionTask*)TestGetMemberOf:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getmemberOf] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getmemberOf] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -577,7 +577,7 @@
 
 -(NSURLSessionTask*)TestGetMemberOfById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getmemberOf] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getmemberOf] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -588,7 +588,7 @@
         
         NSString *memberOfId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
-        [[[[[self.Client getusers] getById:self.TestMail] getmemberOfById:memberOfId] readWithCallback:^(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception) {
+        [[[[[self.Client getusers] getById:self.TestMail] getmemberOfById:memberOfId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -619,7 +619,7 @@
 
 -(NSURLSessionTask*)TestGetCreatedObjects:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getcreatedObjects] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getcreatedObjects] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -648,7 +648,7 @@
 
 -(NSURLSessionTask*)TestGetOwnedObjects:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedObjects] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedObjects] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -677,7 +677,7 @@
 
 -(NSURLSessionTask*)TestGetOwnedObjectsById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedObjects] readWithCallback:^(NSArray<MSGraphServiceDirectoryObject> *directoryObjects, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getownedObjects] readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -688,7 +688,7 @@
         
         NSString *ownedObjectId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
-        [[[[[self.Client getusers] getById:self.TestMail] getownedObjectsById:ownedObjectId] readWithCallback:^(MSGraphServiceDirectoryObject *directoryObject, MSODataException *exception) {
+        [[[[[self.Client getusers] getById:self.TestMail] getownedObjectsById:ownedObjectId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -719,7 +719,7 @@
 
 -(NSURLSessionTask*)TestGetMessages:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getMessages] readWithCallback:^(NSArray<MSGraphServiceMessage> *messages, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getMessages] readWithCallback:^(NSArray<MSGraphMessage> *messages, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -748,7 +748,7 @@
 
 -(NSURLSessionTask*)TestGetMessagesById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getMessages] readWithCallback:^(NSArray<MSGraphServiceMessage> *messages, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getMessages] readWithCallback:^(NSArray<MSGraphMessage> *messages, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -759,7 +759,7 @@
         
         NSString *messageId = messages == nil ? @"" : [[messages objectAtIndex:0] id];
         
-        [[[[[self.Client getusers] getById:self.TestMail] getMessagesById:messageId] readWithCallback:^(MSGraphServiceMessage *messageItem, MSODataException *exception) {
+        [[[[[self.Client getusers] getById:self.TestMail] getMessagesById:messageId] readWithCallback:^(MSGraphMessage *messageItem, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -789,7 +789,7 @@
 }
 
 -(NSURLSessionTask*)TestSendMessage:(void (^) (Test*))result{
-    MSGraphServiceMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
+    MSGraphMessage *newMessage = [self getSampleMessage:@"My Subject" : self.TestMail : @""];
     
     //Send Mail
     NSURLSessionTask* task = [[[[self.Client getusers] getById:self.TestMail] operations] sendMailWithMessage:newMessage saveToSentItems:true callback:^(int returnValue, MSODataException *exception) {
@@ -821,7 +821,7 @@
 
 -(NSURLSessionTask*)TestGetCalendars:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendars] readWithCallback:^(NSArray<MSGraphServiceCalendar> *calendars, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendars] readWithCallback:^(NSArray<MSGraphCalendar> *calendars, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -850,7 +850,7 @@
 
 -(NSURLSessionTask*)TestGetCalendarById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendars] readWithCallback:^(NSArray<MSGraphServiceCalendar> *calendars, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendars] readWithCallback:^(NSArray<MSGraphCalendar> *calendars, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -861,7 +861,7 @@
         
         NSString *calendarId = calendars == nil ? @"" : [[calendars objectAtIndex:0] id];
         
-        [[[[[[self.Client getusers] getById:self.TestMail] getCalendars] getById:calendarId] readWithCallback:^(MSGraphServiceCalendar *calendarItem, MSODataException *exception) {
+        [[[[[[self.Client getusers] getById:self.TestMail] getCalendars] getById:calendarId] readWithCallback:^(MSGraphCalendar *calendarItem, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -892,7 +892,7 @@
 
 -(NSURLSessionTask*)TestGetDefaultCalendar:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendar] readWithCallback:^(MSGraphServiceCalendar *calendar, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendar] readWithCallback:^(MSGraphCalendar *calendar, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -921,7 +921,7 @@
 
 -(NSURLSessionTask*)TestGetCalendarGroups:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] readWithCallback:^(NSArray<MSGraphServiceCalendarGroup> *calendarGroups, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] readWithCallback:^(NSArray<MSGraphCalendarGroup> *calendarGroups, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -950,7 +950,7 @@
 
 -(NSURLSessionTask*)TestGetCalendarGroupById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] readWithCallback:^(NSArray<MSGraphServiceCalendarGroup> *calendarGroups, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] readWithCallback:^(NSArray<MSGraphCalendarGroup> *calendarGroups, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -961,7 +961,7 @@
         
         NSString *calendarGroupId = calendarGroups == nil ? @"" : [[calendarGroups objectAtIndex:0] id];
         
-        [[[[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] getById:calendarGroupId] readWithCallback:^(MSGraphServiceCalendarGroup *calendarGroup, MSODataException *exception) {
+        [[[[[[self.Client getusers] getById:self.TestMail] getCalendarGroups] getById:calendarGroupId] readWithCallback:^(MSGraphCalendarGroup *calendarGroup, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -992,7 +992,7 @@
 
 -(NSURLSessionTask*)TestGetEvents:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents ] readWithCallback:^(NSArray<MSGraphServiceEvent> *events, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents ] readWithCallback:^(NSArray<MSGraphEvent> *events, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -1021,7 +1021,7 @@
 
 -(NSURLSessionTask*)TestGetEventsById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] readWithCallback:^(NSArray<MSGraphServiceEvent> *events, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] readWithCallback:^(NSArray<MSGraphEvent> *events, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -1032,7 +1032,7 @@
         
         NSString *eventId = events == nil ? @"" : [[events objectAtIndex:0] id];
         
-        [[[[[[self.Client getusers] getById:self.TestMail]getEvents] getById:eventId] readWithCallback:^(MSGraphServiceEvent *event, MSODataException *exception) {
+        [[[[[[self.Client getusers] getById:self.TestMail]getEvents] getById:eventId] readWithCallback:^(MSGraphEvent *event, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -1062,9 +1062,9 @@
 }
 
 -(NSURLSessionTask*)TestCreateEvents:(void (^) (Test*))result{
-    MSGraphServiceEvent *event = [self getSampleEvent];
+    MSGraphEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphEvent *addedEvent, MSODataException *e) {
         
         BOOL passed = false;
         
@@ -1099,14 +1099,14 @@
 }
 
 -(NSURLSessionTask*)TestUpdateEvents:(void (^) (Test*))result{
-    MSGraphServiceEvent *event = [self getSampleEvent];
+    MSGraphEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphEvent *addedEvent, MSODataException *e) {
         
         NSString *updatedSubject = [@"Updated" stringByAppendingString:event.Subject];
         event.Subject = updatedSubject;
         // Update Event
-        [[[[[[self.Client getusers] getById:self.TestMail] getEvents] getById:addedEvent.Id]updateEvent:event callback:^(MSGraphServiceEvent *updatedEvent, MSODataException *error) {
+        [[[[[[self.Client getusers] getById:self.TestMail] getEvents] getById:addedEvent.Id]updateEvent:event callback:^(MSGraphEvent *updatedEvent, MSODataException *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1141,9 +1141,9 @@
 }
 
 -(NSURLSessionTask*)TestDeleteEvents:(void (^) (Test*))result{
-    MSGraphServiceEvent *event = [self getSampleEvent];
+    MSGraphEvent *event = [self getSampleEvent];
     //Create Event
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getEvents] addEvent:event callback:^(MSGraphEvent *addedEvent, MSODataException *e) {
         //Delete event
         [[[[[[self.Client getusers] getById:self.TestMail]getEvents]getById:addedEvent.Id]deleteEvent:^(int status, MSODataException *error) {
             BOOL passed = false;
@@ -1175,10 +1175,10 @@
 }
 
 -(NSURLSessionTask*)TestGetCalendarView:(void (^) (Test*))result{
-    MSGraphServiceEvent *newEvent = [self getSampleEvent];
-    NSURLSessionTask* task = [[[[self.Client getusers] getById:self.TestMail]  getEvents] addEvent:newEvent callback:^(MSGraphServiceEvent *addedEvent, MSODataException *e) {
+    MSGraphEvent *newEvent = [self getSampleEvent];
+    NSURLSessionTask* task = [[[[self.Client getusers] getById:self.TestMail]  getEvents] addEvent:newEvent callback:^(MSGraphEvent *addedEvent, MSODataException *e) {
         
-        [[[[[[[self.Client getusers] getById:self.TestMail] getCalendarView] addCustomParametersWithName:@"startdatetime" value:newEvent.Start] addCustomParametersWithName:@"enddatetime" value:newEvent.End ] readWithCallback:^(NSArray<MSGraphServiceEvent> *events, MSODataException *error) {
+        [[[[[[[self.Client getusers] getById:self.TestMail] getCalendarView] addCustomParametersWithName:@"startdatetime" value:newEvent.Start] addCustomParametersWithName:@"enddatetime" value:newEvent.End ] readWithCallback:^(NSArray<MSGraphEvent> *events, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -1215,7 +1215,7 @@
 
 -(NSURLSessionTask*)TestGetUserPhotos:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhotos] readWithCallback:^(NSArray<MSGraphServicePhoto> *photos, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhotos] readWithCallback:^(NSArray<MSGraphPhoto> *photos, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -1244,7 +1244,7 @@
 
 -(NSURLSessionTask*)TestGetUserPhotoById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhotos] readWithCallback:^(NSArray<MSGraphServicePhoto> *photos, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhotos] readWithCallback:^(NSArray<MSGraphPhoto> *photos, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -1255,7 +1255,7 @@
         
         NSString *photoId = photos == nil ? @"" : [[photos objectAtIndex:0] id];
         
-        [[[[[[self.Client getusers] getById:self.TestMail]getUserPhotos] getById:photoId] readWithCallback:^(MSGraphServicePhoto *photo, MSODataException *exception) {
+        [[[[[[self.Client getusers] getById:self.TestMail]getUserPhotos] getById:photoId] readWithCallback:^(MSGraphPhoto *photo, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -1286,7 +1286,7 @@
 
 -(NSURLSessionTask*)TestGetUserPhoto:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhoto] readWithCallback:^(MSGraphServicePhoto *photo, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getUserPhoto] readWithCallback:^(MSGraphPhoto *photo, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -1315,7 +1315,7 @@
 
 -(NSURLSessionTask*)TestGetUserDrive:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getdrive] readWithCallback:^(MSGraphServiceDrive *drive, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getdrive] readWithCallback:^(MSGraphDrive *drive, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -1344,7 +1344,7 @@
 
 -(NSURLSessionTask*)TestGetUserFiles:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getfiles] readWithCallback:^(NSArray<MSGraphServiceItem> *items, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getfiles] readWithCallback:^(NSArray<MSGraphItem> *items, MSODataException *exception) {
         
         BOOL passed = false;
         
@@ -1373,7 +1373,7 @@
 
 -(NSURLSessionTask*)TestGetUserFilesById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getfiles] readWithCallback:^(NSArray<MSGraphServiceItem> *items, MSODataException *exception) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail] getfiles] readWithCallback:^(NSArray<MSGraphItem> *items, MSODataException *exception) {
         
         if (exception != nil) {
             
@@ -1384,7 +1384,7 @@
         
         NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] id];
         
-        [[[[[[self.Client getusers] getById:self.TestMail] getfiles] getById:itemId] readWithCallback:^(MSGraphServiceItem *item, MSODataException *exception) {
+        [[[[[[self.Client getusers] getById:self.TestMail] getfiles] getById:itemId] readWithCallback:^(MSGraphItem *item, MSODataException *exception) {
             
             BOOL passed = false;
             
@@ -1415,11 +1415,11 @@
 
 -(NSURLSessionTask*)TestCreateFileWithContent:(void (^) (Test*))result{
     
-    MSGraphServiceItem *itemToAdd = [self getFileItem];
+    MSGraphItem *itemToAdd = [self getFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSInputStream* contentStream = [NSInputStream inputStreamWithData:content];
     //Create file
-    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail ] getfiles] addEntity:itemToAdd callback:^(MSGraphServiceItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[[[self.Client getusers] getById:self.TestMail ] getfiles] addEntity:itemToAdd callback:^(MSGraphItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[[[[self.Client getusers] getById:self.TestMail ] getfiles]getById:addedItem.id] asFile] operations] uploadContentWithContentStream:contentStream callback:^(int returnValue, MSODataException *exception) {
             
@@ -1467,58 +1467,58 @@
     return task;
 }
 
--(MSGraphServiceMessage*) getSampleMessage : (NSString*) subject  : (NSString*) to  : (NSString*) cc   {
-    MSGraphServiceMessage *message = [[MSGraphServiceMessage alloc]init];
+-(MSGraphMessage*) getSampleMessage : (NSString*) subject  : (NSString*) to  : (NSString*) cc   {
+    MSGraphMessage *message = [[MSGraphMessage alloc]init];
     //To recipient
-    MSGraphServiceRecipient *toRecipient = [[MSGraphServiceRecipient alloc] init];
-    MSGraphServiceEmailAddress* email = [[ MSGraphServiceEmailAddress alloc]init];
+    MSGraphRecipient *toRecipient = [[MSGraphRecipient alloc] init];
+    MSGraphEmailAddress* email = [[ MSGraphEmailAddress alloc]init];
     [email setAddress:to];
     [toRecipient setEmailAddress:email];
     
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
-    [message setToRecipients:(NSMutableArray< MSGraphServiceRecipient>*)toRecipients];
+    [message setToRecipients:(NSMutableArray< MSGraphRecipient>*)toRecipients];
     
     //Cc recipient
     if(![cc isEqualToString:@""]){
-        MSGraphServiceRecipient *ccRecipient = [[ MSGraphServiceRecipient alloc] init];
-        MSGraphServiceEmailAddress* emailCc = [[ MSGraphServiceEmailAddress alloc]init];
+        MSGraphRecipient *ccRecipient = [[ MSGraphRecipient alloc] init];
+        MSGraphEmailAddress* emailCc = [[ MSGraphEmailAddress alloc]init];
         [emailCc setAddress:cc];
         [ccRecipient setEmailAddress:emailCc];
-        NSMutableArray< MSGraphServiceRecipient> *ccRecipients = (NSMutableArray< MSGraphServiceRecipient>*)[[NSMutableArray alloc]init];
+        NSMutableArray< MSGraphRecipient> *ccRecipients = (NSMutableArray< MSGraphRecipient>*)[[NSMutableArray alloc]init];
         [toRecipients addObject:ccRecipient];
         [message setToRecipients:ccRecipients];
     }
     
     //Body & Subject
     [message setSubject:subject];
-    MSGraphServiceItemBody *body = [[ MSGraphServiceItemBody alloc]init];
+    MSGraphItemBody *body = [[ MSGraphItemBody alloc]init];
     [body setContent:@"This is the email body"];
     [message setBody:body];
     
     return message;
 }
 
--(MSGraphServiceEvent*) getSampleEvent{
+-(MSGraphEvent*) getSampleEvent{
     
-    MSGraphServiceEvent *event= [[MSGraphServiceEvent alloc]init];
+    MSGraphEvent *event= [[MSGraphEvent alloc]init];
     event.Subject = @"Today's appointment";
     event.Start = [NSDate date];
     event.End = [[NSDate date] dateByAddingTimeInterval: 3600];
-    MSGraphServiceImportance importance = MSGraphService_Importance_High;
+    MSGraphImportance importance = MSGraph_Importance_High;
     event.Importance = importance;
     
     //Event Body
-    MSGraphServiceItemBody *itemBody = [[MSGraphServiceItemBody alloc] init];
+    MSGraphItemBody *itemBody = [[MSGraphItemBody alloc] init];
     itemBody.Content = @"This is the appointment info";
     
-    MSGraphServiceBodyType bt = MSGraphService_BodyType_Text;
+    MSGraphBodyType bt = MSGraph_BodyType_Text;
     itemBody.ContentType = bt;
     event.Body = itemBody;
     
     // Attendees
-    MSGraphServiceAttendee *attendee1 = [[MSGraphServiceAttendee alloc]init];
-    MSGraphServiceEmailAddress *email = [[MSGraphServiceEmailAddress alloc]init];
+    MSGraphAttendee *attendee1 = [[MSGraphAttendee alloc]init];
+    MSGraphEmailAddress *email = [[MSGraphEmailAddress alloc]init];
     
     email.Address = self.TestMail;
     attendee1.EmailAddress = email;
@@ -1526,15 +1526,15 @@
     NSMutableArray *attendees = [[NSMutableArray alloc] init];
     [attendees addObject:attendee1];
     
-    event.Attendees = (NSMutableArray<MSGraphServiceAttendee>*)attendees;
+    event.Attendees = (NSMutableArray<MSGraphAttendee>*)attendees;
     
     return event;
 }
 
-- (MSGraphServiceItem *)getFileItem {
+- (MSGraphItem *)getFileItem {
     
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
-    MSGraphServiceItem *item = [[MSGraphServiceItem alloc] init];
+    MSGraphItem *item = [[MSGraphItem alloc] init];
     
     [item setType:@"File"];
     [item setName:fileName];

@@ -9,7 +9,7 @@
 
 @interface OneNoteTestRunner : BaseTestRunner
 
-@property MSOneNoteApiClient *Client;
+@property MSOneNoteClient *Client;
 
--(id)initWithClient : (MSOneNoteApiClient*)client;
+-(id)initWithClient : (MSOneNoteClient*)client;
 @end

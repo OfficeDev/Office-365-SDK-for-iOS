@@ -9,7 +9,7 @@
 
 @implementation BaseController
 
--(void)getMailClient : (void (^) (MSOutlookServicesClient* ))callback{
+-(void)getMailClient : (void (^) (MSOutlookClient* ))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://outlook.office365.com";
@@ -17,7 +17,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSOutlookServicesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -25,7 +25,7 @@
     }];
 }
 
--(void) getSharePointClient:(void (^)(MSOneDriveServicesClient *))callback{
+-(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://msopentechtest01-my.sharepoint.com";
@@ -33,7 +33,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSOneDriveServicesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -57,7 +57,7 @@
     }];
 }
 
--(void) getMSGraphClient:(void (^)(MSGraphServiceClient *))callback{
+-(void) getMSGraphClient:(void (^)(MSGraphClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"00000003-0000-0000-c000-000000000000";
@@ -65,7 +65,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSGraphServiceClient alloc] initWithUrl:@"https://graph.microsoft.com/beta/myOrganization/" dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSGraphClient alloc] initWithUrl:@"https://graph.microsoft.com/beta/myOrganization/" dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -73,7 +73,7 @@
     }];
 }
 
--(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteApiClient *))callback{
+-(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
 
@@ -82,13 +82,13 @@
     }];
 }
 
--(MSOneNoteApiClient*) getOneNoteClient: (BOOL) authenticated{
+-(MSOneNoteClient*) getOneNoteClient: (BOOL) authenticated{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://www.onenote.com/api/beta/";
     
     if(authenticated){
-        return[[ MSOneNoteApiClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
+        return[[ MSOneNoteClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
     }
     else{
         return nil;

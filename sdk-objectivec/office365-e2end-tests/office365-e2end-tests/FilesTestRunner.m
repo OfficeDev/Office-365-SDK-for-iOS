@@ -9,7 +9,7 @@
 
 @implementation FilesTestRunner
 
-- (id)initWithClient:(MSOneDriveServicesClient *)client {
+- (id)initWithClient:(MSSharePointClient *)client {
     self.Client = client;
     return self;
 }
@@ -48,7 +48,7 @@
 
 -(NSURLSessionTask*)TestGetFiles:(void (^) (Test *))result{
     
-    NSURLSessionTask *task = [[self.Client getfiles] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] readWithCallback:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -76,11 +76,11 @@
 
 
 -(NSURLSessionTask*)TestGetFileById:(void (^) (Test*))result{
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[self.Client getfiles] getById:addedItem.id]readWithCallback:^(MSOneDriveServicesItem *item, MSODataException *error) {
+        [[[[self.Client getfiles] getById:addedItem.id]readWithCallback:^(MSSharePointItem *item, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -119,11 +119,11 @@
 
 -(NSURLSessionTask*)TestCreateFileWithContent:(void (^) (Test*))result{
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id] asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
             //Get file content
@@ -171,11 +171,11 @@
 
 -(NSURLSessionTask*)TestCreateFileWithStreamContent:(void (^) (Test*))result {
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
         NSInputStream *streamContent = [[NSInputStream alloc] initWithData:content];
         NSInteger size = content.length;
@@ -226,12 +226,12 @@
 
 -(NSURLSessionTask*)TestUpdateFileContent:(void (^) (Test*))result {
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *error) {
         //Put content to file
         [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:content callback:^(NSInteger putContentResult, MSODataException *error) {
             [[[[[self.Client getfiles]getById:addedItem.id]asFile] putContent:updatedContent
@@ -284,7 +284,7 @@
 
 -(NSURLSessionTask*)TestGetDrive:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getdrive] readWithCallback:^(MSOneDriveServicesDrive *drive, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getdrive] readWithCallback:^(MSSharePointDrive *drive, MSODataException *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -312,15 +312,15 @@
 
 -(NSURLSessionTask*)TestTopFiles:(void (^) (Test*))result{
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
-    MSOneDriveServicesItem *itemToAdd2 = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd2 = [self GetFileItem];
     
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *e) {
         //Add second item
-        [[[self.Client getfiles] addEntity:itemToAdd2 callback:^(MSOneDriveServicesItem *addedItem2, MSODataException *e) {
+        [[[self.Client getfiles] addEntity:itemToAdd2 callback:^(MSSharePointItem *addedItem2, MSODataException *e) {
             //Get top 1 item
-            [[[[self.Client getfiles] top:1]readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
+            [[[[self.Client getfiles] top:1]readWithCallback:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -370,11 +370,11 @@
 
 -(NSURLSessionTask*)TestSelectFiles:(void (^) (Test*))result{
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *e) {
         //Get item
-        [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, MSODataException *error) {
+        [[[[[self.Client getfiles] select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray<MSSharePointItem> *items, MSODataException *error) {
             
             BOOL passed = false;
             
@@ -383,10 +383,10 @@
             
             NSString* message = @"";
             
-            MSOneDriveServicesItem *selectedItem = nil;
+            MSSharePointItem *selectedItem = nil;
             
             if(items.count > 0){
-                selectedItem =(MSOneDriveServicesItem *)[items objectAtIndex:0];
+                selectedItem =(MSSharePointItem *)[items objectAtIndex:0];
             }
             
             if(error == nil && selectedItem != nil && ![selectedItem.name isEqualToString:@""] && selectedItem.dateTimeLastModified == nil ){
@@ -423,9 +423,9 @@
 
 -(NSURLSessionTask*)TestDeleteFile:(void (^) (Test*))result{
     
-    MSOneDriveServicesItem *itemToAdd = [self GetFileItem];
+    MSSharePointItem *itemToAdd = [self GetFileItem];
     // Add new item
-    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSOneDriveServicesItem *addedItem, MSODataException *e) {
+    NSURLSessionTask *task = [[self.Client getfiles] addEntity:itemToAdd callback:^(MSSharePointItem *addedItem, MSODataException *e) {
         //Delete item
         
         [[[[[self.Client getfiles] getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSODataException *error) {
@@ -457,10 +457,10 @@
     return task;
 }
 
--(MSOneDriveServicesItem *)GetFileItem {
+-(MSSharePointItem *)GetFileItem {
     
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
-    MSOneDriveServicesItem *item = [[MSOneDriveServicesItem alloc] init];
+    MSSharePointItem *item = [[MSSharePointItem alloc] init];
 
     [item setType:@"File"];
     [item setName:fileName];

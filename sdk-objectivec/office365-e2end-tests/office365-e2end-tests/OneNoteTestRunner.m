@@ -7,7 +7,8 @@
 #import "OneNoteTestRunner.h"
 
 @implementation OneNoteTestRunner
--(id)initWithClient : (MSOneNoteApiClient*)client{
+-(id)initWithClient : (MSOneNoteClient*)client{
+    
     self.Client = client;
     return self;
 }
@@ -59,8 +60,8 @@
 
 -(NSURLSessionTask*)TestCreateNotebooks:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'" ] readWithCallback:^(NSArray<MSOneNoteApiNotebook> *notebooks, MSODataException *error) {
-        MSOneNoteApiNotebook *newNotebook = [[MSOneNoteApiNotebook alloc] init];
+    NSURLSessionTask *task = [[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'" ] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
+        MSOneNoteNotebook *newNotebook = [[MSOneNoteNotebook alloc] init];
         newNotebook.name = @"Test notebook iOS";
         
         
@@ -68,7 +69,7 @@
         
         test.ExecutionMessages = [NSMutableArray array];
         if([notebooks count] == 0){
-            [[[self.Client getnotebooks] addNotebook:newNotebook callback:^(MSOneNoteApiNotebook *notebook, MSODataException *e) {
+            [[[self.Client getnotebooks] addNotebook:newNotebook callback:^(MSOneNoteNotebook *notebook, MSODataException *e) {
                 BOOL passed = false;
                 NSString* message = @"";
                 
@@ -99,7 +100,7 @@
 -(NSURLSessionTask*)TestGetNotebooks:(void (^) (Test*))result{
     
     NSURLSessionTask *task = [[self.Client getnotebooks]
-                              readWithCallback:^(NSArray<MSOneNoteApiNotebook> *notebooks, MSODataException *exception) {
+                              readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *exception) {
                                   
                                   BOOL passed = false;
                                   
@@ -131,15 +132,15 @@
 
 -(NSURLSessionTask*)TestGetNotebooksById:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getnotebooks] readWithCallback:^(NSArray<MSOneNoteApiNotebook> *notebooks, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getnotebooks] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
        
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
         
         if (error == nil && notebooks != nil && [notebooks count] > 0) {
-            MSOneNoteApiNotebook *singleNotebook = [notebooks objectAtIndex:0];
+            MSOneNoteNotebook *singleNotebook = [notebooks objectAtIndex:0];
             
-            [[[[self.Client getnotebooks] getById:singleNotebook.id] readWithCallback:^(MSOneNoteApiNotebook *notebook, MSODataException *error2) {
+            [[[[self.Client getnotebooks] getById:singleNotebook.id] readWithCallback:^(MSOneNoteNotebook *notebook, MSODataException *error2) {
                 BOOL passed = false;
                 NSString* message = @"";
                 if(error2 == nil && notebook != nil)
@@ -177,7 +178,7 @@
 
 -(NSURLSessionTask*)TestGetSections:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteApiSection> *sections, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -210,18 +211,18 @@
 
 -(NSURLSessionTask*)TestCreateSections:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteApiNotebook> *notebooks, MSODataException *error) {
+    NSURLSessionTask *task = [[[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
         
         if (notebooks > 0) {
             
-            MSOneNoteApiSection *newSection = [[MSOneNoteApiSection alloc]init];
+            MSOneNoteSection *newSection = [[MSOneNoteSection alloc]init];
             newSection.name = [@"Section-" stringByAppendingString:[[NSUUID UUID] UUIDString]];
             
             [[[[[self.Client getnotebooks]
                 getById:[[notebooks objectAtIndex:0] id]] getsections]
-             addSection:newSection callback:^(MSOneNoteApiSection *addedSection, MSODataException *e) {
+             addSection:newSection callback:^(MSOneNoteSection *addedSection, MSODataException *e) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -259,16 +260,16 @@
 - (NSURLSessionTask *)TestGetSectionsById:(void(^)(Test *))result {
     
     NSURLSessionTask *task = [[[self.Client getsections] top:1]
-                                            readWithCallback:^(NSArray<MSOneNoteApiSection> *sections, MSODataException *error) {
+                                            readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
         
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
         
         if ([sections count] > 0) {
             
-            MSOneNoteApiSection *s =[sections objectAtIndex:0];
+            MSOneNoteSection *s =[sections objectAtIndex:0];
             
-            [[[[self.Client getsections] getById: s.id] readWithCallback:^(MSOneNoteApiSection *section, MSODataException *error) {
+            [[[[self.Client getsections] getById: s.id] readWithCallback:^(MSOneNoteSection *section, MSODataException *error) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -305,7 +306,7 @@
 - (NSURLSessionTask *)TestGetSectionGroups:(void(^)(Test *))result {
     
     NSURLSessionTask *task = [[self.Client getsectionGroups]
-                              readWithCallback:^(NSArray<MSOneNoteApiSectionGroup> *sectionGroups, MSODataException *error) {
+                              readWithCallback:^(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSODataException *error) {
         
         BOOL passed = false;
         
@@ -340,7 +341,7 @@
 
 -(NSURLSessionTask*)TestGetPages:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNoteApiPage> *pages, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *error) {
         
         BOOL passed = false;
         Test *test = [Test alloc];
@@ -372,14 +373,14 @@
 
 -(NSURLSessionTask*)TestGetPagesFromSection:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteApiSection> *sections, MSODataException *error) {
+    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
         
         Test *test = [Test alloc];
         test.ExecutionMessages = [NSMutableArray array];
         /*
          if(error == nil && sections != nil && [sections count] >0)
          {
-         MSOneNoteApiSection *singleSection= [sections objectAtIndex:0];
+         MSOneNoteSection *singleSection= [sections objectAtIndex:0];
          [[[[self.Client getsections] getById:singleSection.id]
          BOOL passed = false;
          NSString* message = @"";
@@ -416,8 +417,8 @@
 
 -(NSURLSessionTask*)TestGetPageContent:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNoteApiPage> *pages, MSODataException *error) {
-        MSOneNoteApiPage *page = [pages objectAtIndex:0];
+    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *error) {
+        MSOneNotePage *page = [pages objectAtIndex:0];
         [[[[self.Client getpages] getById:page.id] getContentWithCallback:^(NSData *content, MSODataException *error) {
             BOOL passed = false;
             
@@ -498,7 +499,7 @@
     
     NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
         
-        [[[[self.Client getpages] search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNoteApiPage> *pages, MSODataException *exception) {
+        [[[[self.Client getpages] search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *exception) {
             
             BOOL passed = false;
             

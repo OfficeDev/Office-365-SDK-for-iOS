@@ -15,11 +15,11 @@
 
 @interface BaseController : NSObject
 
-- (void)getMailClient:(void(^)(MSOutlookServicesClient *c))callback;
-- (void)getSharePointClient:(void (^)(MSOneDriveServicesClient *c))callback;
+- (void)getMailClient:(void(^)(MSOutlookClient *c))callback;
+- (void)getSharePointClient:(void (^)(MSSharePointClient *c))callback;
 - (void)getDiscoveryClient:(void (^)(MSDiscoveryClient *c))callback;
--(void)getMSGraphClient : (void (^) (MSGraphServiceClient* c))callback;
-- (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteApiClient *c))callback;
-- (MSOneNoteApiClient *)getOneNoteClient: (BOOL) authenticated;
+-(void)getMSGraphClient : (void (^) (MSGraphClient* c))callback;
+- (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteClient *c))callback;
+- (MSOneNoteClient *)getOneNoteClient: (BOOL) authenticated;
 
 @end
