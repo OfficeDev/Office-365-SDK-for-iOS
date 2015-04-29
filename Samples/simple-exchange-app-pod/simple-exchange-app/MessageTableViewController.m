@@ -12,7 +12,7 @@
 @interface MessageTableViewController ()
 
 @property NSArray *Messages;
-@property MSOutlookServicesClient* client;
+@property MSOutlookClient* client;
 
 @end
 
@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSOutlookServicesClient *client) {
+    [BaseController getClient:^(MSOutlookClient *client) {
         self.client = client;
         [self getMessagesFromInbox];
     }];
@@ -54,7 +54,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MessageCell" forIndexPath:indexPath];
     
-    MSOutlookServicesMessage *message = (MSOutlookServicesMessage *)[self.Messages objectAtIndex:indexPath.row];
+    MSOutlookMessage *message = (MSOutlookMessage *)[self.Messages objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%@" ,message.sender.emailAddress.name, message.subject];
     
@@ -63,7 +63,7 @@
 
 -(void)getMessagesFromInbox{
     
-    NSURLSessionTask *task = [[[self.client getMe] getMessages] readWithCallback:^(NSArray<MSOutlookServicesMessage> *messages, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.client getMe] getMessages] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
         
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),

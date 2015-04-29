@@ -11,7 +11,7 @@
 @interface FolderTableViewController()
 
 @property NSArray *Folders;
-@property MSOutlookServicesClient* client;
+@property MSOutlookClient* client;
 
 @end
 
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSOutlookServicesClient *client) {
+    [BaseController getClient:^(MSOutlookClient *client) {
         self.client = client;
         [self getFolders];
     }];
@@ -53,7 +53,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FolderCell" forIndexPath:indexPath];
     
-    MSOutlookServicesFolder *folder = (MSOutlookServicesFolder*)[self.Folders objectAtIndex:indexPath.row];
+    MSOutlookFolder *folder = (MSOutlookFolder*)[self.Folders objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%@" ,folder.displayName];
     
@@ -62,7 +62,7 @@
 
 - (void)getFolders {
     
-    NSURLSessionTask *task = [[[self.client getMe] getFolders] readWithCallback:^(NSArray<MSOutlookServicesFolder> *folders, MSODataException *error) {
+    NSURLSessionTask *task = [[[self.client getMe] getFolders] readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
         
         if (error == nil) {
             

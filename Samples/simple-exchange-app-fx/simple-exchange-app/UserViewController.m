@@ -34,8 +34,8 @@
 
 - (void)getMessagesFromInbox {
  
-    [BaseController getClient:^(MSOutlookServicesClient *client) {
-        NSURLSessionTask* task = [[client getMe] readWithCallback:^(MSOutlookServicesUser *user, NSError *error) {
+    [BaseController getClient:^(MSOutlookClient *client) {
+        NSURLSessionTask* task = [[client getMe] readWithCallback:^(MSOutlookUser *user, NSError *error) {
             if(error == nil){
                 dispatch_async(dispatch_get_main_queue(),
                                ^{

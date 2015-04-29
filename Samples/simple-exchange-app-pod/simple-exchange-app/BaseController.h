@@ -11,6 +11,6 @@
 
 @interface BaseController : NSObject
 
-+(void)getClient : (void (^) (MSOutlookServicesClient* ))callback;
++(void)getClient : (void (^) (MSOutlookClient* ))callback;
 
 @end
