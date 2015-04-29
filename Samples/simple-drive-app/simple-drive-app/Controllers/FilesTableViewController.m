@@ -10,7 +10,7 @@
 @interface FilesTableViewController()
 
 @property NSArray *Files;
-@property MSOneDriveServicesClient* client;
+@property MSSharePointClient* client;
 
 @end
 
@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSOneDriveServicesClient * client) {
+    [BaseController getClient:^(MSSharePointClient * client) {
         
         self.client = client;
         [self getFiles];
@@ -53,7 +53,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FileCell" forIndexPath:indexPath];
     
-    MSOneDriveServicesItem *file = (MSOneDriveServicesItem*)[self.Files objectAtIndex:indexPath.row];
+    MSSharePointItem *file = (MSSharePointItem*)[self.Files objectAtIndex:indexPath.row];
     
     cell.textLabel.text = file.name;
     
@@ -65,7 +65,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     
-    [[[self.client  getfiles] readWithCallback:^(NSArray<MSOneDriveServicesItem> *items, NSError *error) {
+    [[[self.client  getfiles] readWithCallback:^(NSArray<MSSharePointItem> *items, NSError *error) {
         
         if (error == nil) {
             
@@ -101,7 +101,7 @@
         
         __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
         
-        MSOneDriveServicesFile *fileToDelete = [self.Files objectAtIndex:indexPath.row];
+        MSSharePointFile *fileToDelete = [self.Files objectAtIndex:indexPath.row];
         
         [[[[self.client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
             

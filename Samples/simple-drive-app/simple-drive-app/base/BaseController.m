@@ -9,7 +9,7 @@
 
 @implementation BaseController
 
-+(void)getClient : (void (^) (MSOneDriveServicesClient *))callback{
++(void)getClient : (void (^) (MSSharePointClient *))callback{
     
     AuthenticationController *authenticationController = [AuthenticationController getInstance];
     NSString *hostName = @"https://msopentechtest01-my.sharepoint.com";
@@ -18,7 +18,7 @@
         
         if (authenticated) {
             
-            callback([[MSOneDriveServicesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else {
             

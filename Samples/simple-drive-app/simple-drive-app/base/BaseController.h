@@ -9,7 +9,7 @@
 
 @interface BaseController : NSObject
 
-+(void)getClient : (void (^) (MSOneDriveServicesClient *))callback;
++(void)getClient : (void (^) (MSSharePointClient *))callback;
 +(UIActivityIndicatorView*)getSpinner : (UIView*)view;
 
 @end

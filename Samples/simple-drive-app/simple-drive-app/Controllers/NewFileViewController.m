@@ -9,7 +9,7 @@
 
 @interface NewFileViewController ()
 
-@property (strong, nonatomic) MSOneDriveServicesClient *client;
+@property (strong, nonatomic) MSSharePointClient *client;
 
 @end
 
@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [BaseController getClient:^(MSOneDriveServicesClient *client) {
+    [BaseController getClient:^(MSSharePointClient *client) {
         
         self.client = client;
     }];
@@ -32,13 +32,13 @@
     
     __block UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    MSOneDriveServicesItem *item = [[MSOneDriveServicesItem alloc] init];
+    MSSharePointItem *item = [[MSSharePointItem alloc] init];
     item.name = self.txtName.text;
     item.type = @"File";
     
     NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
     
-    [[[self.client getfiles] addEntity:item callback:^(MSOneDriveServicesItem *item, NSError *e) {
+    [[[self.client getfiles] addEntity:item callback:^(MSSharePointItem *item, NSError *e) {
         __block NSString* _id = item.id;
         
         [[[[[self.client getfiles] getById:_id] asFile] putContent:body callback:^(NSInteger result, NSError *error) {
@@ -49,7 +49,7 @@
                                ^{
                                    
                                    NSString* title = @"Error!";
-                                   NSString* contentResultString = [NSString alloc];
+                                   NSString* contentResultString;
                                    
                                    if(error == nil){
                                        title = @"File Created!";
