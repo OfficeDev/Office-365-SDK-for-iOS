@@ -4,6 +4,8 @@ before_install:
   - java -version
   - curl -O http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock/1.52/wiremock-1.52-standalone.jar
   - java -jar wiremock-1.52-standalone.jar --record-mappings  --port 8080 --verbose --root-dir "sdk-objectivec/office365_unit_tests/office365_UnitTests/WireMock" &
+  - cd sdk-objectivec/office365_unit_tests/office365_UnitTests; pod install; cd ..; cd ..; cd ..
+  
 script:
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_exchange_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_files_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
@@ -12,7 +14,7 @@ script:
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_onenote_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
   - xctool workspace sdk-objectivec/office365-services.xcworkspace -scheme office365_graph_sdk -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
 
-  - xctool test -workspace sdk-objectivec/office365_unit_tests/office365_UnitTest.xcworkspace -scheme office365_UnitTests -sdk iphonesimulator
+  - xctool test -workspace sdk-objectivec/office365_unit_tests/office365_UnitTests/office365_UnitTests.xcworkspace -scheme office365_UnitTestsTests -sdk iphonesimulator
 
 after_success:
   - curl http://localhost:8080/__admin/shutdown
