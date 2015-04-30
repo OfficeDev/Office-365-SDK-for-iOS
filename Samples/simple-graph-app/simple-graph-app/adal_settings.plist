@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ClientId</key>
+	<string></string>
+	<key>RedirectUri</key>
+	<string>https://client.test.app</string>
+	<key>ResourceId</key>
+	<string>https://graph.microsoft.com/</string>
+	<key>AuthorityUrl</key>
+	<string>https://login.microsoftonline.com/common/</string>
+	<key>GraphMyOrg</key>
+	<string>https://graph.microsoft.com/beta/myorganization/</string>
+	<key>GraphMe</key>
+	<string>https://graph.microsoft.com/beta/me</string>
+</dict>
+</plist>
