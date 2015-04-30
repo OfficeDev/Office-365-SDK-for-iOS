@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Office365"
-  s.version      = "0.9.0"
+  s.version      = "0.9.1"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
   s.description  = <<-DESC
 		   Client libraries for calling Office 365 service APIs from iOS apps.

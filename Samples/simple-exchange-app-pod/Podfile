@@ -4,4 +4,4 @@ platform :ios, '7.0'
 xcodeproj 'simple-exchange-app'
 
 pod 'ADALIOS', '~> 1.2.2' # 1.2.2 < ver < 1.2.2
-pod 'Office365/Outlook', :git => 'https://github.com/MSOpenTech/Office-365-SDK-for-iOS', :branch => 'dev'
+pod 'Office365/Outlook', '~> 0.9.1'
