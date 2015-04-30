@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/OpenAtMicrosoft"
 
   s.platform     = :ios
-  s.ios.deployment_target = "6.0"
+  s.ios.deployment_target = "7.0"
   s.source       = { :git => "https://github.com/OfficeDev/Office-365-SDK-for-iOS.git",
 		             :tag => "v#{s.version}"
 		           }
