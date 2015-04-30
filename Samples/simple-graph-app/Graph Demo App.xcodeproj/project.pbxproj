@@ -36,7 +36,7 @@
 		EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		ECD1AE8E19EEFEDA00C4940F /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
 		ECD1AE8F19EEFEDA00C4940F /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
-		ECD9F40219784BB600ABB418 /* simple-graph-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-graph-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD9F40219784BB600ABB418 /* Graph Demo App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Graph Demo App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD9F40619784BB600ABB418 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECD9F40719784BB600ABB418 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECD9F40919784BB600ABB418 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		ECD9F40319784BB600ABB418 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECD9F40219784BB600ABB418 /* simple-graph-app.app */,
+				ECD9F40219784BB600ABB418 /* Graph Demo App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ECD9F40119784BB600ABB418 /* simple-graph-app */ = {
+		ECD9F40119784BB600ABB418 /* Graph Demo App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-graph-app" */;
+			buildConfigurationList = ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "Graph Demo App" */;
 			buildPhases = (
 				D029B046F845E7A6592C88C9 /* Check Pods Manifest.lock */,
 				ECD9F3FE19784BB600ABB418 /* Sources */,
@@ -155,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = "simple-graph-app";
+			name = "Graph Demo App";
 			productName = "simple-exchange-app";
-			productReference = ECD9F40219784BB600ABB418 /* simple-graph-app.app */;
+			productReference = ECD9F40219784BB600ABB418 /* Graph Demo App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +176,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "simple-graph-app" */;
+			buildConfigurationList = ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "Graph Demo App" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ECD9F40119784BB600ABB418 /* simple-graph-app */,
+				ECD9F40119784BB600ABB418 /* Graph Demo App */,
 			);
 		};
 /* End PBXProject section */
@@ -359,12 +359,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
-					"/Users/joshgav/git/azure-activedirectory-library-for-objc/Build/Products/Debug-iphonesimulator",
-				);
+				CURRENT_PROJECT_VERSION = 0.5.0;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/simple-graph-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -373,7 +369,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Graph Demo App";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -385,12 +381,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.1.1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Build/Products/Debug-iphoneos",
-					"/Users/joshgav/git/azure-activedirectory-library-for-objc/Build/Products/Debug-iphonesimulator",
-				);
+				CURRENT_PROJECT_VERSION = 0.5.0;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/simple-graph-app/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -399,7 +391,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Graph Demo App";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -407,7 +399,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "simple-graph-app" */ = {
+		ECD9F3FD19784BB600ABB418 /* Build configuration list for PBXProject "Graph Demo App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECD9F42319784BB600ABB418 /* Debug */,
@@ -416,7 +408,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "simple-graph-app" */ = {
+		ECD9F42519784BB600ABB418 /* Build configuration list for PBXNativeTarget "Graph Demo App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECD9F42619784BB600ABB418 /* Debug */,

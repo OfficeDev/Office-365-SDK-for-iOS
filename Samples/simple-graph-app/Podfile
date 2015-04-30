@@ -3,5 +3,5 @@ platform :ios, '8.3'
 
 xcodeproj 'simple-graph-app'
 
-pod 'Office365/Graph', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS'
+pod 'Office365/Graph', :head
 

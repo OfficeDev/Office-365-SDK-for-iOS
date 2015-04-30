@@ -12,6 +12,7 @@
 
 @interface UserViewController ()
 
+@property (strong, nonatomic, readwrite)ADALDependencyResolver *dependencyResolver;
 @property (strong, nonatomic) NSDictionary *settings;
 @property (strong, nonatomic) NSArray *users;
 
@@ -25,7 +26,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"adal_settings" ofType:@"plist"];
     _settings = [[NSDictionary alloc] initWithContentsOfFile:path];
     
-    [[AuthManager instance].dependencyResolver interactiveLogonWithCallback:^(ADAuthenticationResult *theResult) {
+    self.dependencyResolver = [[ADALDependencyResolver alloc] initWithPlist];
+    [self.dependencyResolver interactiveLogonWithCallback:^(ADAuthenticationResult *theResult) {
         if (theResult.status != AD_SUCCEEDED) {
             [[AuthManager instance].dependencyResolver.logger logMessage:theResult.error.errorDetails withLevel:LOG_LEVEL_ERROR];
         } else {
@@ -43,12 +45,8 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)refresh:(id)sender {
-
-}
-
 - (void)updateUsers {
-    MSGraphClient *graphClient = [[MSGraphClient alloc] initWithUrl:[self.settings valueForKey:@"GraphMyOrg"] dependencyResolver:[AuthManager instance].dependencyResolver];
+    MSGraphClient *graphClient = [[MSGraphClient alloc] initWithUrl:[self.settings valueForKey:@"GraphMyOrg"] dependencyResolver:self.dependencyResolver];
     
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
@@ -83,7 +81,9 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
     MSGraphUser *selectedUser = (MSGraphUser *)self.users[row];
+    
     self.mailNickname.text = selectedUser.mailNickname;
     self.displayName.text = selectedUser.displayName;
     self.userType.text = selectedUser.userType;
