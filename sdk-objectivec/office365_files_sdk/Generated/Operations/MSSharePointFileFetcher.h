@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSSharePointFileOperations;
+@class MSSharePointFileFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointFileFetcher.
 */
 
-@protocol MSSharePointFileFetcher<MSODataEntityFetcher>
+@protocol MSSharePointFileFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointFile *file, MSODataException *exception))callback;
-- (id<MSSharePointFileFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointFileFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSSharePointFileFetcher>)select:(NSString *)params;
-- (id<MSSharePointFileFetcher>)expand:(NSString *)value;
+- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointFile *file, MSOrcError *error))callback;
+- (MSSharePointFileFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointFileFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointFileFetcher *)select:(NSString *)params;
+- (MSSharePointFileFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSSharePointFileOperations *operations;
 
-
 @end
 
-@interface MSSharePointFileFetcher : MSODataMediaEntityFetcher<MSSharePointFileFetcher>
+@interface MSSharePointFileFetcher : MSOrcMediaEntityFetcher<MSSharePointFileFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFile:(MSSharePointFile *)file callback:(void (^)(MSSharePointFile *file, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFile:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (NSURLSessionTask *)update:(MSSharePointFile *)file callback:(void(^)(MSSharePointFile *file, MSOrcError *error))callback;
+- (NSURLSessionTask *)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

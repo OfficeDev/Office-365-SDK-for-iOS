@@ -15,37 +15,40 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSSharePointItemFetcher;
 @class MSSharePointItemCollectionFetcher;
 @class MSSharePointFolderOperations;
+@class MSSharePointFolderFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointFolderFetcher.
 */
 
-@protocol MSSharePointFolderFetcher<MSODataEntityFetcher>
+@protocol MSSharePointFolderFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointFolder *folder, MSODataException *exception))callback;
-- (id<MSSharePointFolderFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointFolderFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSSharePointFolderFetcher>)select:(NSString *)params;
-- (id<MSSharePointFolderFetcher>)expand:(NSString *)value;
+- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointFolder *folder, MSOrcError *error))callback;
+- (MSSharePointFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointFolderFetcher *)select:(NSString *)params;
+- (MSSharePointFolderFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSSharePointFolderOperations *operations;
 
-- (MSSharePointItemCollectionFetcher *)getchildren;
-- (MSSharePointItemFetcher *) getchildrenById:(NSString*)_id;
-
 @end
 
-@interface MSSharePointFolderFetcher : MSODataEntityFetcher<MSSharePointFolderFetcher>
+@interface MSSharePointFolderFetcher : MSOrcEntityFetcher<MSSharePointFolderFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFolder:(MSSharePointFolder *)folder callback:(void (^)(MSSharePointFolder *folder, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFolder:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (NSURLSessionTask *)update:(MSSharePointFolder *)folder callback:(void(^)(MSSharePointFolder *folder, MSOrcError *error))callback;
+- (NSURLSessionTask *)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=children) MSSharePointItemCollectionFetcher *children;
+
+- (MSSharePointItemFetcher *)getChildrenById:(NSString*)id;
+
 
 @end

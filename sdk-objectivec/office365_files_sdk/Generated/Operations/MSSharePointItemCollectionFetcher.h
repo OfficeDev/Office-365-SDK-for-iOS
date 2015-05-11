@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSSharePointItemFetcher;
+@class MSSharePointItemCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointItemCollectionFetcher.
 */
 
-@protocol MSSharePointItemCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSSharePointItemCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointItem> *items, MSODataException *exception))callback;
+- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointItem> *items, MSOrcError *error))callback;
 
-- (id<MSSharePointItemCollectionFetcher>)select:(NSString *)params;
-- (id<MSSharePointItemCollectionFetcher>)filter:(NSString *)params;
-- (id<MSSharePointItemCollectionFetcher>)top:(int)value;
-- (id<MSSharePointItemCollectionFetcher>)skip:(int)value;
-- (id<MSSharePointItemCollectionFetcher>)expand:(NSString *)value;
-- (id<MSSharePointItemCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSSharePointItemCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointItemCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointItemCollectionFetcher *)select:(NSString *)params;
+- (MSSharePointItemCollectionFetcher *)filter:(NSString *)params;
+- (MSSharePointItemCollectionFetcher *)search:(NSString *)params;
+- (MSSharePointItemCollectionFetcher *)top:(int)value;
+- (MSSharePointItemCollectionFetcher *)skip:(int)value;
+- (MSSharePointItemCollectionFetcher *)expand:(NSString *)value;
+- (MSSharePointItemCollectionFetcher *)orderBy:(NSString *)params;
+- (MSSharePointItemCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointItemCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSSharePointItemFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addItem:(MSSharePointItem *)entity callback:(void (^)(MSSharePointItem *item, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSSharePointItem *)entity callback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback;
 
 @end
 
-@interface MSSharePointItemCollectionFetcher : MSODataCollectionFetcher<MSSharePointItemCollectionFetcher>
+@interface MSSharePointItemCollectionFetcher : MSOrcCollectionFetcher<MSSharePointItemCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

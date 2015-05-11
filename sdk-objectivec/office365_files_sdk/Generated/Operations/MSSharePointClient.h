@@ -14,20 +14,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @class MSSharePointItemCollectionFetcher;
 @class MSSharePointDriveFetcher;
-@class MSSharePointCurrentUserRequestContextFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointClient.
 */
 
-@interface MSSharePointClient : MSODataBaseContainer
+@interface MSSharePointClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSSharePointItemCollectionFetcher*) getfiles;
--(MSSharePointDriveFetcher*) getdrive;
--(MSSharePointCurrentUserRequestContextFetcher*) getme;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=files) MSSharePointItemCollectionFetcher *files;
+@property (retain, nonatomic, readonly, getter=drive) MSSharePointDriveFetcher *drive;
 
 @end

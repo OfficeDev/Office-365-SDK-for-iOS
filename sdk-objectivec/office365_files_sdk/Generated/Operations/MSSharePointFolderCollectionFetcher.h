@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSSharePointFolderFetcher;
+@class MSSharePointFolderCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointFolderCollectionFetcher.
 */
 
-@protocol MSSharePointFolderCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSSharePointFolderCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointFolder> *folders, MSODataException *exception))callback;
+- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointFolder> *folders, MSOrcError *error))callback;
 
-- (id<MSSharePointFolderCollectionFetcher>)select:(NSString *)params;
-- (id<MSSharePointFolderCollectionFetcher>)filter:(NSString *)params;
-- (id<MSSharePointFolderCollectionFetcher>)top:(int)value;
-- (id<MSSharePointFolderCollectionFetcher>)skip:(int)value;
-- (id<MSSharePointFolderCollectionFetcher>)expand:(NSString *)value;
-- (id<MSSharePointFolderCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSSharePointFolderCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointFolderCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointFolderCollectionFetcher *)select:(NSString *)params;
+- (MSSharePointFolderCollectionFetcher *)filter:(NSString *)params;
+- (MSSharePointFolderCollectionFetcher *)search:(NSString *)params;
+- (MSSharePointFolderCollectionFetcher *)top:(int)value;
+- (MSSharePointFolderCollectionFetcher *)skip:(int)value;
+- (MSSharePointFolderCollectionFetcher *)expand:(NSString *)value;
+- (MSSharePointFolderCollectionFetcher *)orderBy:(NSString *)params;
+- (MSSharePointFolderCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointFolderCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSSharePointFolderFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addFolder:(MSSharePointFolder *)entity callback:(void (^)(MSSharePointFolder *folder, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSSharePointFolder *)entity callback:(void (^)(MSSharePointFolder *folder, MSOrcError *error))callback;
 
 @end
 
-@interface MSSharePointFolderCollectionFetcher : MSODataCollectionFetcher<MSSharePointFolderCollectionFetcher>
+@interface MSSharePointFolderCollectionFetcher : MSOrcCollectionFetcher<MSSharePointFolderCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

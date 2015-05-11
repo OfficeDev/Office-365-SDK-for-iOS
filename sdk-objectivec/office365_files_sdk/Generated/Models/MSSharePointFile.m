@@ -22,7 +22,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @synthesize odataType = _odataType;
 @synthesize contentUrl = _contentUrl;
-@synthesize image = _image;
 
 - (instancetype)init {
 

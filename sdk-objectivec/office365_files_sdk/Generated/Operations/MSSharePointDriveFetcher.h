@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSSharePointDriveOperations;
+@class MSSharePointDriveFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointDriveFetcher.
 */
 
-@protocol MSSharePointDriveFetcher<MSODataEntityFetcher>
+@protocol MSSharePointDriveFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointDrive *drive, MSODataException *exception))callback;
-- (id<MSSharePointDriveFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointDriveFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSSharePointDriveFetcher>)select:(NSString *)params;
-- (id<MSSharePointDriveFetcher>)expand:(NSString *)value;
+- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback;
+- (MSSharePointDriveFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointDriveFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointDriveFetcher *)select:(NSString *)params;
+- (MSSharePointDriveFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSSharePointDriveOperations *operations;
 
-
 @end
 
-@interface MSSharePointDriveFetcher : MSODataEntityFetcher<MSSharePointDriveFetcher>
+@interface MSSharePointDriveFetcher : MSOrcEntityFetcher<MSSharePointDriveFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDrive:(MSSharePointDrive *)drive callback:(void (^)(MSSharePointDrive *drive, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDrive:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (NSURLSessionTask *)update:(MSSharePointDrive *)drive callback:(void(^)(MSSharePointDrive *drive, MSOrcError *error))callback;
+- (NSURLSessionTask *)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

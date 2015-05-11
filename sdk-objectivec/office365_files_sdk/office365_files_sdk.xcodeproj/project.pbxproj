@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC55F0731AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0311AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F0741AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0321AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.m */; };
 		EC55F0751AF14ED90099BB4C /* MSSharePointDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0761AF14ED90099BB4C /* MSSharePointDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */; };
 		EC55F0771AF14ED90099BB4C /* MSSharePointDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,8 +19,6 @@
 		EC55F07E1AF14ED90099BB4C /* MSSharePointIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F03C1AF14ED90099BB4C /* MSSharePointIdentity.m */; };
 		EC55F07F1AF14ED90099BB4C /* MSSharePointIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F03D1AF14ED90099BB4C /* MSSharePointIdentitySet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0801AF14ED90099BB4C /* MSSharePointIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F03E1AF14ED90099BB4C /* MSSharePointIdentitySet.m */; };
-		EC55F0811AF14ED90099BB4C /* MSSharePointImageFacet.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F03F1AF14ED90099BB4C /* MSSharePointImageFacet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F0821AF14ED90099BB4C /* MSSharePointImageFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0401AF14ED90099BB4C /* MSSharePointImageFacet.m */; };
 		EC55F0831AF14ED90099BB4C /* MSSharePointItem.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0411AF14ED90099BB4C /* MSSharePointItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0841AF14ED90099BB4C /* MSSharePointItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0421AF14ED90099BB4C /* MSSharePointItem.m */; };
 		EC55F0851AF14ED90099BB4C /* MSSharePointItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0431AF14ED90099BB4C /* MSSharePointItemReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,14 +27,6 @@
 		EC55F0881AF14ED90099BB4C /* MSSharePointProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0461AF14ED90099BB4C /* MSSharePointProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0891AF14ED90099BB4C /* MSSharePointClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0481AF14ED90099BB4C /* MSSharePointClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F08A1AF14ED90099BB4C /* MSSharePointClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0491AF14ED90099BB4C /* MSSharePointClient.m */; };
-		EC55F08B1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F04A1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F08C1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F04B1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.m */; };
-		EC55F08D1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F04C1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F08E1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F04D1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.m */; };
-		EC55F08F1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F04E1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F0901AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F04F1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.m */; };
-		EC55F0911AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0501AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC55F0921AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0511AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.m */; };
 		EC55F0931AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0521AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0941AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0531AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.m */; };
 		EC55F0951AF14ED90099BB4C /* MSSharePointDriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0541AF14ED90099BB4C /* MSSharePointDriveCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,25 +64,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2610680C1AEDF3D200FBABEB /* PBXContainerItemProxy */ = {
+		EC2249FC1B0126D800344D00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-		ECDEC0E41A2514CE00F84EAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */;
+			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
-			remoteInfo = office365_odata_base;
+			remoteGlobalIDString = ECDB431C1AFA4C4A000B0781;
+			remoteInfo = orc_engine_core;
+		};
+		EC2249FE1B0126D800344D00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = ECDB43271AFA4C4A000B0781;
+			remoteInfo = orc_engine_coreTests;
+		};
+		EC224A001B0126DF00344D00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = ECDB431B1AFA4C4A000B0781;
+			remoteInfo = orc_engine_core;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC55F0311AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointCurrentUserRequestContext.h; sourceTree = "<group>"; };
-		EC55F0321AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointCurrentUserRequestContext.m; sourceTree = "<group>"; };
+		EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = orc_engine_core.xcodeproj; path = "../../../../orc-for-ios/orc_engine_core/orc_engine_core.xcodeproj"; sourceTree = "<group>"; };
 		EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
 		EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
 		EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
@@ -107,8 +101,6 @@
 		EC55F03C1AF14ED90099BB4C /* MSSharePointIdentity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointIdentity.m; sourceTree = "<group>"; };
 		EC55F03D1AF14ED90099BB4C /* MSSharePointIdentitySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointIdentitySet.h; sourceTree = "<group>"; };
 		EC55F03E1AF14ED90099BB4C /* MSSharePointIdentitySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointIdentitySet.m; sourceTree = "<group>"; };
-		EC55F03F1AF14ED90099BB4C /* MSSharePointImageFacet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointImageFacet.h; sourceTree = "<group>"; };
-		EC55F0401AF14ED90099BB4C /* MSSharePointImageFacet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointImageFacet.m; sourceTree = "<group>"; };
 		EC55F0411AF14ED90099BB4C /* MSSharePointItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItem.h; sourceTree = "<group>"; };
 		EC55F0421AF14ED90099BB4C /* MSSharePointItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItem.m; sourceTree = "<group>"; };
 		EC55F0431AF14ED90099BB4C /* MSSharePointItemReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemReference.h; sourceTree = "<group>"; };
@@ -117,14 +109,6 @@
 		EC55F0461AF14ED90099BB4C /* MSSharePointProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointProtocols.h; sourceTree = "<group>"; };
 		EC55F0481AF14ED90099BB4C /* MSSharePointClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointClient.h; sourceTree = "<group>"; };
 		EC55F0491AF14ED90099BB4C /* MSSharePointClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointClient.m; sourceTree = "<group>"; };
-		EC55F04A1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointCurrentUserRequestContextCollectionFetcher.h; sourceTree = "<group>"; };
-		EC55F04B1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointCurrentUserRequestContextCollectionFetcher.m; sourceTree = "<group>"; };
-		EC55F04C1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointCurrentUserRequestContextCollectionOperations.h; sourceTree = "<group>"; };
-		EC55F04D1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointCurrentUserRequestContextCollectionOperations.m; sourceTree = "<group>"; };
-		EC55F04E1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointCurrentUserRequestContextFetcher.h; sourceTree = "<group>"; };
-		EC55F04F1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointCurrentUserRequestContextFetcher.m; sourceTree = "<group>"; };
-		EC55F0501AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointCurrentUserRequestContextOperations.h; sourceTree = "<group>"; };
-		EC55F0511AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointCurrentUserRequestContextOperations.m; sourceTree = "<group>"; };
 		EC55F0521AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveCollectionFetcher.h; sourceTree = "<group>"; };
 		EC55F0531AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDriveCollectionFetcher.m; sourceTree = "<group>"; };
 		EC55F0541AF14ED90099BB4C /* MSSharePointDriveCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveCollectionOperations.h; sourceTree = "<group>"; };
@@ -161,7 +145,6 @@
 		ECDEC0C41A2514BB00F84EAF /* office365_files_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_files_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDEC0C81A2514BB00F84EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_files_sdk.h; sourceTree = "<group>"; };
-		ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,11 +158,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2249F81B0126D800344D00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC2249FD1B0126D800344D00 /* orc_engine_core.framework */,
+				EC2249FF1B0126D800344D00 /* orc_engine_coreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EC55F0301AF14ED90099BB4C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EC55F0311AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.h */,
-				EC55F0321AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.m */,
 				EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */,
 				EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */,
 				EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */,
@@ -192,8 +182,6 @@
 				EC55F03C1AF14ED90099BB4C /* MSSharePointIdentity.m */,
 				EC55F03D1AF14ED90099BB4C /* MSSharePointIdentitySet.h */,
 				EC55F03E1AF14ED90099BB4C /* MSSharePointIdentitySet.m */,
-				EC55F03F1AF14ED90099BB4C /* MSSharePointImageFacet.h */,
-				EC55F0401AF14ED90099BB4C /* MSSharePointImageFacet.m */,
 				EC55F0411AF14ED90099BB4C /* MSSharePointItem.h */,
 				EC55F0421AF14ED90099BB4C /* MSSharePointItem.m */,
 				EC55F0431AF14ED90099BB4C /* MSSharePointItemReference.h */,
@@ -209,14 +197,6 @@
 			children = (
 				EC55F0481AF14ED90099BB4C /* MSSharePointClient.h */,
 				EC55F0491AF14ED90099BB4C /* MSSharePointClient.m */,
-				EC55F04A1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.h */,
-				EC55F04B1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.m */,
-				EC55F04C1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.h */,
-				EC55F04D1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.m */,
-				EC55F04E1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.h */,
-				EC55F04F1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.m */,
-				EC55F0501AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.h */,
-				EC55F0511AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.m */,
 				EC55F0521AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.h */,
 				EC55F0531AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.m */,
 				EC55F0541AF14ED90099BB4C /* MSSharePointDriveCollectionOperations.h */,
@@ -266,8 +246,8 @@
 		ECDEC0BA1A2514BB00F84EAF = {
 			isa = PBXGroup;
 			children = (
+				EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */,
 				EC82679B1AE5349800A14A0B /* Generated */,
-				ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */,
 				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
 			);
@@ -298,14 +278,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ECDEC0E11A2514CE00F84EAF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ECDEC0E51A2514CE00F84EAF /* office365_odata_base.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -313,24 +285,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC55F0731AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.h in Headers */,
 				EC55F0AF1AF14ED90099BB4C /* MSSharePointItemFetcher.h in Headers */,
 				EC55F09D1AF14ED90099BB4C /* MSSharePointFileCollectionOperations.h in Headers */,
 				EC55F0851AF14ED90099BB4C /* MSSharePointItemReference.h in Headers */,
 				EC55F0AB1AF14ED90099BB4C /* MSSharePointItemCollectionFetcher.h in Headers */,
 				EC55F09F1AF14ED90099BB4C /* MSSharePointFileFetcher.h in Headers */,
-				EC55F08B1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.h in Headers */,
 				EC55F07D1AF14ED90099BB4C /* MSSharePointIdentity.h in Headers */,
 				EC55F0A31AF14ED90099BB4C /* MSSharePointFolderCollectionFetcher.h in Headers */,
 				EC55F0B31AF14ED90099BB4C /* MSSharePointODataEntities.h in Headers */,
 				EC55F0951AF14ED90099BB4C /* MSSharePointDriveCollectionOperations.h in Headers */,
 				EC55F07F1AF14ED90099BB4C /* MSSharePointIdentitySet.h in Headers */,
 				EC55F07B1AF14ED90099BB4C /* MSSharePointFolder.h in Headers */,
-				EC55F08F1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.h in Headers */,
 				EC55F0791AF14ED90099BB4C /* MSSharePointFile.h in Headers */,
 				EC55F0751AF14ED90099BB4C /* MSSharePointDrive.h in Headers */,
 				EC55F0871AF14ED90099BB4C /* MSSharePointModels.h in Headers */,
-				EC55F0911AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.h in Headers */,
 				EC55F0A91AF14ED90099BB4C /* MSSharePointFolderOperations.h in Headers */,
 				EC55F0881AF14ED90099BB4C /* MSSharePointProtocols.h in Headers */,
 				EC55F09B1AF14ED90099BB4C /* MSSharePointFileCollectionFetcher.h in Headers */,
@@ -338,12 +306,10 @@
 				EC55F0891AF14ED90099BB4C /* MSSharePointClient.h in Headers */,
 				ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */,
 				EC55F0991AF14ED90099BB4C /* MSSharePointDriveOperations.h in Headers */,
-				EC55F0811AF14ED90099BB4C /* MSSharePointImageFacet.h in Headers */,
 				EC55F0AD1AF14ED90099BB4C /* MSSharePointItemCollectionOperations.h in Headers */,
 				EC55F0B11AF14ED90099BB4C /* MSSharePointItemOperations.h in Headers */,
 				EC55F0A11AF14ED90099BB4C /* MSSharePointFileOperations.h in Headers */,
 				EC55F0A51AF14ED90099BB4C /* MSSharePointFolderCollectionOperations.h in Headers */,
-				EC55F08D1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.h in Headers */,
 				EC55F0A71AF14ED90099BB4C /* MSSharePointFolderFetcher.h in Headers */,
 				EC55F0771AF14ED90099BB4C /* MSSharePointDriveQuota.h in Headers */,
 				EC55F0931AF14ED90099BB4C /* MSSharePointDriveCollectionFetcher.h in Headers */,
@@ -366,7 +332,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				2610680D1AEDF3D200FBABEB /* PBXTargetDependency */,
+				EC224A011B0126DF00344D00 /* PBXTargetDependency */,
 			);
 			name = office365_files_sdk;
 			productName = office365_files_sdk;
@@ -400,8 +366,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = ECDEC0E11A2514CE00F84EAF /* Products */;
-					ProjectRef = ECDEC0E01A2514CE00F84EAF /* office365_odata_base.xcodeproj */;
+					ProductGroup = EC2249F81B0126D800344D00 /* Products */;
+					ProjectRef = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -412,11 +378,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		ECDEC0E51A2514CE00F84EAF /* office365_odata_base.framework */ = {
+		EC2249FD1B0126D800344D00 /* orc_engine_core.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = office365_odata_base.framework;
-			remoteRef = ECDEC0E41A2514CE00F84EAF /* PBXContainerItemProxy */;
+			path = orc_engine_core.framework;
+			remoteRef = EC2249FC1B0126D800344D00 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EC2249FF1B0126D800344D00 /* orc_engine_coreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = orc_engine_coreTests.xctest;
+			remoteRef = EC2249FE1B0126D800344D00 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -437,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC55F0A21AF14ED90099BB4C /* MSSharePointFileOperations.m in Sources */,
-				EC55F08E1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionOperations.m in Sources */,
 				EC55F0781AF14ED90099BB4C /* MSSharePointDriveQuota.m in Sources */,
 				EC55F07C1AF14ED90099BB4C /* MSSharePointFolder.m in Sources */,
 				EC55F0A61AF14ED90099BB4C /* MSSharePointFolderCollectionOperations.m in Sources */,
@@ -451,20 +423,15 @@
 				EC55F09C1AF14ED90099BB4C /* MSSharePointFileCollectionFetcher.m in Sources */,
 				EC55F0B01AF14ED90099BB4C /* MSSharePointItemFetcher.m in Sources */,
 				EC55F0801AF14ED90099BB4C /* MSSharePointIdentitySet.m in Sources */,
-				EC55F0741AF14ED90099BB4C /* MSSharePointCurrentUserRequestContext.m in Sources */,
-				EC55F0921AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextOperations.m in Sources */,
 				EC55F0A01AF14ED90099BB4C /* MSSharePointFileFetcher.m in Sources */,
 				EC55F09A1AF14ED90099BB4C /* MSSharePointDriveOperations.m in Sources */,
 				EC55F0AE1AF14ED90099BB4C /* MSSharePointItemCollectionOperations.m in Sources */,
 				EC55F07A1AF14ED90099BB4C /* MSSharePointFile.m in Sources */,
 				EC55F09E1AF14ED90099BB4C /* MSSharePointFileCollectionOperations.m in Sources */,
 				EC55F0861AF14ED90099BB4C /* MSSharePointItemReference.m in Sources */,
-				EC55F0821AF14ED90099BB4C /* MSSharePointImageFacet.m in Sources */,
 				EC55F0AA1AF14ED90099BB4C /* MSSharePointFolderOperations.m in Sources */,
 				EC55F0AC1AF14ED90099BB4C /* MSSharePointItemCollectionFetcher.m in Sources */,
-				EC55F08C1AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextCollectionFetcher.m in Sources */,
 				EC55F0B21AF14ED90099BB4C /* MSSharePointItemOperations.m in Sources */,
-				EC55F0901AF14ED90099BB4C /* MSSharePointCurrentUserRequestContextFetcher.m in Sources */,
 				EC55F0761AF14ED90099BB4C /* MSSharePointDrive.m in Sources */,
 				EC55F08A1AF14ED90099BB4C /* MSSharePointClient.m in Sources */,
 			);
@@ -473,10 +440,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2610680D1AEDF3D200FBABEB /* PBXTargetDependency */ = {
+		EC224A011B0126DF00344D00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = office365_odata_base;
-			targetProxy = 2610680C1AEDF3D200FBABEB /* PBXContainerItemProxy */;
+			name = orc_engine_core;
+			targetProxy = EC224A001B0126DF00344D00 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

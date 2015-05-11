@@ -32,9 +32,4 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSSharePointFolderFetcher.h"
 #import "MSSharePointFolderOperations.h"
 
-#import "MSSharePointCurrentUserRequestContextCollectionFetcher.h"
-#import "MSSharePointCurrentUserRequestContextCollectionOperations.h"
-#import "MSSharePointCurrentUserRequestContextFetcher.h"
-#import "MSSharePointCurrentUserRequestContextOperations.h"
-
 #import "MSSharePointClient.h" 

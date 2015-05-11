@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSSharePointDriveFetcher;
+@class MSSharePointDriveCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSSharePointModels.h"
 
 /**
 * The header for type MSSharePointDriveCollectionFetcher.
 */
 
-@protocol MSSharePointDriveCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSSharePointDriveCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointDrive> *drives, MSODataException *exception))callback;
+- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointDrive> *drives, MSOrcError *error))callback;
 
-- (id<MSSharePointDriveCollectionFetcher>)select:(NSString *)params;
-- (id<MSSharePointDriveCollectionFetcher>)filter:(NSString *)params;
-- (id<MSSharePointDriveCollectionFetcher>)top:(int)value;
-- (id<MSSharePointDriveCollectionFetcher>)skip:(int)value;
-- (id<MSSharePointDriveCollectionFetcher>)expand:(NSString *)value;
-- (id<MSSharePointDriveCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSSharePointDriveCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSSharePointDriveCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSSharePointDriveCollectionFetcher *)select:(NSString *)params;
+- (MSSharePointDriveCollectionFetcher *)filter:(NSString *)params;
+- (MSSharePointDriveCollectionFetcher *)search:(NSString *)params;
+- (MSSharePointDriveCollectionFetcher *)top:(int)value;
+- (MSSharePointDriveCollectionFetcher *)skip:(int)value;
+- (MSSharePointDriveCollectionFetcher *)expand:(NSString *)value;
+- (MSSharePointDriveCollectionFetcher *)orderBy:(NSString *)params;
+- (MSSharePointDriveCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSSharePointDriveCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSSharePointDriveFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDrive:(MSSharePointDrive *)entity callback:(void (^)(MSSharePointDrive *drive, MSODataException *e))callback;
+- (NSURLSessionTask *)add:(MSSharePointDrive *)entity callback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback;
 
 @end
 
-@interface MSSharePointDriveCollectionFetcher : MSODataCollectionFetcher<MSSharePointDriveCollectionFetcher>
+@interface MSSharePointDriveCollectionFetcher : MSOrcCollectionFetcher<MSSharePointDriveCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end
