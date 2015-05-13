@@ -16,38 +16,39 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookEventFetcher;
 @class MSOutlookContactFetcher;
 @class MSOutlookItemOperations;
+@class MSOutlookItemFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookItemFetcher.
 */
 
-@protocol MSOutlookItemFetcher<MSODataEntityFetcher>
+@protocol MSOutlookItemFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookItem *item, MSODataException *exception))callback;
-- (id<MSOutlookItemFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookItemFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookItemFetcher>)select:(NSString *)params;
-- (id<MSOutlookItemFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookItem *item, MSOrcError *error))callback;
+- (MSOutlookItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookItemFetcher *)select:(NSString *)params;
+- (MSOutlookItemFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookItemOperations *operations;
 
+@end
+
+@interface MSOutlookItemFetcher : MSOrcEntityFetcher<MSOutlookItemFetcherProtocol>
+
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookItem *)item callback:(void(^)(MSOutlookItem *item, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 - (MSOutlookMessageFetcher *)asMessage;	
 - (MSOutlookEventFetcher *)asEvent;	
 - (MSOutlookContactFetcher *)asContact;	
-
-@end
-
-@interface MSOutlookItemFetcher : MSODataEntityFetcher<MSOutlookItemFetcher>
-
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateItem:(MSOutlookItem *)item callback:(void (^)(MSOutlookItem *item, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteItem:(void (^)(int status, MSODataException *exception))callback;
 
 @end

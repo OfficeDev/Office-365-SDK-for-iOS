@@ -17,39 +17,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookContactFolderFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
 @class MSOutlookContactFolderOperations;
+@class MSOutlookContactFolderFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookContactFolderFetcher.
 */
 
-@protocol MSOutlookContactFolderFetcher<MSODataEntityFetcher>
+@protocol MSOutlookContactFolderFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *exception))callback;
-- (id<MSOutlookContactFolderFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookContactFolderFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookContactFolderFetcher>)select:(NSString *)params;
-- (id<MSOutlookContactFolderFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookContactFolder *contactFolder, MSOrcError *error))callback;
+- (MSOutlookContactFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookContactFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookContactFolderFetcher *)select:(NSString *)params;
+- (MSOutlookContactFolderFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookContactFolderOperations *operations;
 
-- (MSOutlookContactCollectionFetcher *)getContacts;
-- (MSOutlookContactFetcher *) getContactsById:(NSString*)_id;
-- (MSOutlookContactFolderCollectionFetcher *)getChildFolders;
-- (MSOutlookContactFolderFetcher *) getChildFoldersById:(NSString*)_id;
-
 @end
 
-@interface MSOutlookContactFolderFetcher : MSODataEntityFetcher<MSOutlookContactFolderFetcher>
+@interface MSOutlookContactFolderFetcher : MSOrcEntityFetcher<MSOutlookContactFolderFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateContactFolder:(MSOutlookContactFolder *)contactFolder callback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteContactFolder:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookContactFolder *)contactFolder callback:(void(^)(MSOutlookContactFolder *contactFolder, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=contacts) MSOutlookContactCollectionFetcher *contacts;
+
+- (MSOutlookContactFetcher *)getContactsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=childFolders) MSOutlookContactFolderCollectionFetcher *childFolders;
+
+- (MSOutlookContactFolderFetcher *)getChildFoldersById:(NSString*)id;
+
 
 @end

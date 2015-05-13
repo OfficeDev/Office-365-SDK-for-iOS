@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOutlookItemAttachmentFetcher;
+@class MSOutlookItemAttachmentCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookItemAttachmentCollectionFetcher.
 */
 
-@protocol MSOutlookItemAttachmentCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSOutlookItemAttachmentCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSOutlookItemAttachment> *itemAttachments, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSOutlookItemAttachment> *itemAttachments, MSOrcError *error))callback;
 
-- (id<MSOutlookItemAttachmentCollectionFetcher>)select:(NSString *)params;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)filter:(NSString *)params;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)top:(int)value;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)skip:(int)value;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)expand:(NSString *)value;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookItemAttachmentCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookItemAttachmentCollectionFetcher *)select:(NSString *)params;
+- (MSOutlookItemAttachmentCollectionFetcher *)filter:(NSString *)params;
+- (MSOutlookItemAttachmentCollectionFetcher *)search:(NSString *)params;
+- (MSOutlookItemAttachmentCollectionFetcher *)top:(int)value;
+- (MSOutlookItemAttachmentCollectionFetcher *)skip:(int)value;
+- (MSOutlookItemAttachmentCollectionFetcher *)expand:(NSString *)value;
+- (MSOutlookItemAttachmentCollectionFetcher *)orderBy:(NSString *)params;
+- (MSOutlookItemAttachmentCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookItemAttachmentCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSOutlookItemAttachmentFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addItemAttachment:(MSOutlookItemAttachment *)entity callback:(void (^)(MSOutlookItemAttachment *itemAttachment, MSODataException *e))callback;
+- (void)add:(MSOutlookItemAttachment *)entity callback:(void (^)(MSOutlookItemAttachment *itemAttachment, MSOrcError *error))callback;
 
 @end
 
-@interface MSOutlookItemAttachmentCollectionFetcher : MSODataCollectionFetcher<MSOutlookItemAttachmentCollectionFetcher>
+@interface MSOutlookItemAttachmentCollectionFetcher : MSOrcCollectionFetcher<MSOutlookItemAttachmentCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

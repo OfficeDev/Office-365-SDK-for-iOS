@@ -18,40 +18,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookEventFetcher;
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookEventOperations;
+@class MSOutlookEventFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookEventFetcher.
 */
 
-@protocol MSOutlookEventFetcher<MSODataEntityFetcher>
+@protocol MSOutlookEventFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookEvent *event, MSODataException *exception))callback;
-- (id<MSOutlookEventFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookEventFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookEventFetcher>)select:(NSString *)params;
-- (id<MSOutlookEventFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookEvent *event, MSOrcError *error))callback;
+- (MSOutlookEventFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookEventFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookEventFetcher *)select:(NSString *)params;
+- (MSOutlookEventFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookEventOperations *operations;
 
-- (MSOutlookAttachmentCollectionFetcher *)getAttachments;
-- (MSOutlookAttachmentFetcher *) getAttachmentsById:(NSString*)_id;
-- (MSOutlookCalendarFetcher *)getCalendar;
-- (MSOutlookEventCollectionFetcher *)getInstances;
-- (MSOutlookEventFetcher *) getInstancesById:(NSString*)_id;
-
 @end
 
-@interface MSOutlookEventFetcher : MSODataEntityFetcher<MSOutlookEventFetcher>
+@interface MSOutlookEventFetcher : MSOrcEntityFetcher<MSOutlookEventFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateEvent:(MSOutlookEvent *)event callback:(void (^)(MSOutlookEvent *event, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteEvent:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookEvent *)event callback:(void(^)(MSOutlookEvent *event, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=attachments) MSOutlookAttachmentCollectionFetcher *attachments;
+
+- (MSOutlookAttachmentFetcher *)getAttachmentsById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=calendar) MSOutlookCalendarFetcher *calendar;
+@property (retain, nonatomic, readonly, getter=instances) MSOutlookEventCollectionFetcher *instances;
+
+- (MSOutlookEventFetcher *)getInstancesById:(NSString*)id;
+
 
 @end

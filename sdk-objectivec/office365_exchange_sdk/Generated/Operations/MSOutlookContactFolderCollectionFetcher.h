@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOutlookContactFolderFetcher;
+@class MSOutlookContactFolderCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookContactFolderCollectionFetcher.
 */
 
-@protocol MSOutlookContactFolderCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSOutlookContactFolderCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSOutlookContactFolder> *contactFolders, MSOrcError *error))callback;
 
-- (id<MSOutlookContactFolderCollectionFetcher>)select:(NSString *)params;
-- (id<MSOutlookContactFolderCollectionFetcher>)filter:(NSString *)params;
-- (id<MSOutlookContactFolderCollectionFetcher>)top:(int)value;
-- (id<MSOutlookContactFolderCollectionFetcher>)skip:(int)value;
-- (id<MSOutlookContactFolderCollectionFetcher>)expand:(NSString *)value;
-- (id<MSOutlookContactFolderCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSOutlookContactFolderCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookContactFolderCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookContactFolderCollectionFetcher *)select:(NSString *)params;
+- (MSOutlookContactFolderCollectionFetcher *)filter:(NSString *)params;
+- (MSOutlookContactFolderCollectionFetcher *)search:(NSString *)params;
+- (MSOutlookContactFolderCollectionFetcher *)top:(int)value;
+- (MSOutlookContactFolderCollectionFetcher *)skip:(int)value;
+- (MSOutlookContactFolderCollectionFetcher *)expand:(NSString *)value;
+- (MSOutlookContactFolderCollectionFetcher *)orderBy:(NSString *)params;
+- (MSOutlookContactFolderCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookContactFolderCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSOutlookContactFolderFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addContactFolder:(MSOutlookContactFolder *)entity callback:(void (^)(MSOutlookContactFolder *contactFolder, MSODataException *e))callback;
+- (void)add:(MSOutlookContactFolder *)entity callback:(void (^)(MSOutlookContactFolder *contactFolder, MSOrcError *error))callback;
 
 @end
 
-@interface MSOutlookContactFolderCollectionFetcher : MSODataCollectionFetcher<MSOutlookContactFolderCollectionFetcher>
+@interface MSOutlookContactFolderCollectionFetcher : MSOrcCollectionFetcher<MSOutlookContactFolderCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

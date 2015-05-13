@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOutlookContactOperations;
+@class MSOutlookContactFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookContactFetcher.
 */
 
-@protocol MSOutlookContactFetcher<MSODataEntityFetcher>
+@protocol MSOutlookContactFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookContact *contact, MSODataException *exception))callback;
-- (id<MSOutlookContactFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookContactFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookContactFetcher>)select:(NSString *)params;
-- (id<MSOutlookContactFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookContact *contact, MSOrcError *error))callback;
+- (MSOutlookContactFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookContactFetcher *)select:(NSString *)params;
+- (MSOutlookContactFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookContactOperations *operations;
 
-
 @end
 
-@interface MSOutlookContactFetcher : MSODataEntityFetcher<MSOutlookContactFetcher>
+@interface MSOutlookContactFetcher : MSOrcEntityFetcher<MSOutlookContactFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateContact:(MSOutlookContact *)contact callback:(void (^)(MSOutlookContact *contact, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteContact:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookContact *)contact callback:(void(^)(MSOutlookContact *contact, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

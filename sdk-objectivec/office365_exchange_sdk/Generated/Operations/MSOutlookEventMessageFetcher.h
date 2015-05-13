@@ -14,36 +14,38 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @class MSOutlookEventFetcher;
 @class MSOutlookEventMessageOperations;
+@class MSOutlookEventMessageFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookEventMessageFetcher.
 */
 
-@protocol MSOutlookEventMessageFetcher<MSODataEntityFetcher>
+@protocol MSOutlookEventMessageFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookEventMessage *eventMessage, MSODataException *exception))callback;
-- (id<MSOutlookEventMessageFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookEventMessageFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookEventMessageFetcher>)select:(NSString *)params;
-- (id<MSOutlookEventMessageFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookEventMessage *eventMessage, MSOrcError *error))callback;
+- (MSOutlookEventMessageFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookEventMessageFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookEventMessageFetcher *)select:(NSString *)params;
+- (MSOutlookEventMessageFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookEventMessageOperations *operations;
 
-- (MSOutlookEventFetcher *)getEvent;
-
 @end
 
-@interface MSOutlookEventMessageFetcher : MSODataEntityFetcher<MSOutlookEventMessageFetcher>
+@interface MSOutlookEventMessageFetcher : MSOrcEntityFetcher<MSOutlookEventMessageFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateEventMessage:(MSOutlookEventMessage *)eventMessage callback:(void (^)(MSOutlookEventMessage *eventMessage, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteEventMessage:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookEventMessage *)eventMessage callback:(void(^)(MSOutlookEventMessage *eventMessage, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=event) MSOutlookEventFetcher *event;
 
 @end

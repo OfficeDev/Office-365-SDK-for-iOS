@@ -17,39 +17,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookMessageFetcher;
 @class MSOutlookMessageCollectionFetcher;
 @class MSOutlookFolderOperations;
+@class MSOutlookFolderFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookFolderFetcher.
 */
 
-@protocol MSOutlookFolderFetcher<MSODataEntityFetcher>
+@protocol MSOutlookFolderFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookFolder *folder, MSODataException *exception))callback;
-- (id<MSOutlookFolderFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookFolderFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookFolderFetcher>)select:(NSString *)params;
-- (id<MSOutlookFolderFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookFolder *folder, MSOrcError *error))callback;
+- (MSOutlookFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookFolderFetcher *)select:(NSString *)params;
+- (MSOutlookFolderFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookFolderOperations *operations;
 
-- (MSOutlookFolderCollectionFetcher *)getChildFolders;
-- (MSOutlookFolderFetcher *) getChildFoldersById:(NSString*)_id;
-- (MSOutlookMessageCollectionFetcher *)getMessages;
-- (MSOutlookMessageFetcher *) getMessagesById:(NSString*)_id;
-
 @end
 
-@interface MSOutlookFolderFetcher : MSODataEntityFetcher<MSOutlookFolderFetcher>
+@interface MSOutlookFolderFetcher : MSOrcEntityFetcher<MSOutlookFolderFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFolder:(MSOutlookFolder *)folder callback:(void (^)(MSOutlookFolder *folder, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFolder:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookFolder *)folder callback:(void(^)(MSOutlookFolder *folder, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=childFolders) MSOutlookFolderCollectionFetcher *childFolders;
+
+- (MSOutlookFolderFetcher *)getChildFoldersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=messages) MSOutlookMessageCollectionFetcher *messages;
+
+- (MSOutlookMessageFetcher *)getMessagesById:(NSString*)id;
+
 
 @end

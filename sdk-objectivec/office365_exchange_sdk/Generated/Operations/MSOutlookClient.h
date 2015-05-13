@@ -15,17 +15,17 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookUserCollectionFetcher;
 @class MSOutlookUserFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookClient.
 */
 
-@interface MSOutlookClient : MSODataBaseContainer
+@interface MSOutlookClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSOutlookUserCollectionFetcher*) getUsers;
--(MSOutlookUserFetcher*) getMe;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=users) MSOutlookUserCollectionFetcher *users;
+@property (retain, nonatomic, readonly, getter=me) MSOutlookUserFetcher *me;
 
 @end

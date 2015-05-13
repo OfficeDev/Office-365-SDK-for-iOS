@@ -15,39 +15,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookEventFetcher;
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookCalendarOperations;
+@class MSOutlookCalendarFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookCalendarFetcher.
 */
 
-@protocol MSOutlookCalendarFetcher<MSODataEntityFetcher>
+@protocol MSOutlookCalendarFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookCalendar *calendar, MSODataException *exception))callback;
-- (id<MSOutlookCalendarFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookCalendarFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookCalendarFetcher>)select:(NSString *)params;
-- (id<MSOutlookCalendarFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookCalendar *calendar, MSOrcError *error))callback;
+- (MSOutlookCalendarFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookCalendarFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookCalendarFetcher *)select:(NSString *)params;
+- (MSOutlookCalendarFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookCalendarOperations *operations;
 
-- (MSOutlookEventCollectionFetcher *)getCalendarView;
-- (MSOutlookEventFetcher *) getCalendarViewById:(NSString*)_id;
-- (MSOutlookEventCollectionFetcher *)getEvents;
-- (MSOutlookEventFetcher *) getEventsById:(NSString*)_id;
-
 @end
 
-@interface MSOutlookCalendarFetcher : MSODataEntityFetcher<MSOutlookCalendarFetcher>
+@interface MSOutlookCalendarFetcher : MSOrcEntityFetcher<MSOutlookCalendarFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateCalendar:(MSOutlookCalendar *)calendar callback:(void (^)(MSOutlookCalendar *calendar, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteCalendar:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookCalendar *)calendar callback:(void(^)(MSOutlookCalendar *calendar, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=calendarView) MSOutlookEventCollectionFetcher *calendarView;
+
+- (MSOutlookEventFetcher *)getCalendarViewById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=events) MSOutlookEventCollectionFetcher *events;
+
+- (MSOutlookEventFetcher *)getEventsById:(NSString*)id;
+
 
 @end

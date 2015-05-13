@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOutlookUserFetcher;
+@class MSOutlookUserCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookUserCollectionFetcher.
 */
 
-@protocol MSOutlookUserCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSOutlookUserCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSOutlookUser> *users, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSOutlookUser> *users, MSOrcError *error))callback;
 
-- (id<MSOutlookUserCollectionFetcher>)select:(NSString *)params;
-- (id<MSOutlookUserCollectionFetcher>)filter:(NSString *)params;
-- (id<MSOutlookUserCollectionFetcher>)top:(int)value;
-- (id<MSOutlookUserCollectionFetcher>)skip:(int)value;
-- (id<MSOutlookUserCollectionFetcher>)expand:(NSString *)value;
-- (id<MSOutlookUserCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSOutlookUserCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookUserCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookUserCollectionFetcher *)select:(NSString *)params;
+- (MSOutlookUserCollectionFetcher *)filter:(NSString *)params;
+- (MSOutlookUserCollectionFetcher *)search:(NSString *)params;
+- (MSOutlookUserCollectionFetcher *)top:(int)value;
+- (MSOutlookUserCollectionFetcher *)skip:(int)value;
+- (MSOutlookUserCollectionFetcher *)expand:(NSString *)value;
+- (MSOutlookUserCollectionFetcher *)orderBy:(NSString *)params;
+- (MSOutlookUserCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookUserCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSOutlookUserFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addUser:(MSOutlookUser *)entity callback:(void (^)(MSOutlookUser *user, MSODataException *e))callback;
+- (void)add:(MSOutlookUser *)entity callback:(void (^)(MSOutlookUser *user, MSOrcError *error))callback;
 
 @end
 
-@interface MSOutlookUserCollectionFetcher : MSODataCollectionFetcher<MSOutlookUserCollectionFetcher>
+@interface MSOutlookUserCollectionFetcher : MSOrcCollectionFetcher<MSOutlookUserCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

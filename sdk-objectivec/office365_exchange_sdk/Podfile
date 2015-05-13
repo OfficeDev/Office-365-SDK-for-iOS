@@ -1,0 +1,6 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.0'
+
+xcodeproj 'office365_exchange_sdk'
+
+pod 'OrcEngine/Core', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'

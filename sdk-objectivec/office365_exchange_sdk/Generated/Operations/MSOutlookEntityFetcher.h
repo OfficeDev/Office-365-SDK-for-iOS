@@ -20,27 +20,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOutlookCalendarGroupFetcher;
 @class MSOutlookContactFolderFetcher;
 @class MSOutlookEntityOperations;
+@class MSOutlookEntityFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookEntityFetcher.
 */
 
-@protocol MSOutlookEntityFetcher<MSODataEntityFetcher>
+@protocol MSOutlookEntityFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookEntity *entity, MSODataException *exception))callback;
-- (id<MSOutlookEntityFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookEntityFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookEntityFetcher>)select:(NSString *)params;
-- (id<MSOutlookEntityFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookEntity *entity, MSOrcError *error))callback;
+- (MSOutlookEntityFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookEntityFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookEntityFetcher *)select:(NSString *)params;
+- (MSOutlookEntityFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookEntityOperations *operations;
+
+@end
+
+@interface MSOutlookEntityFetcher : MSOrcEntityFetcher<MSOutlookEntityFetcherProtocol>
+
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookEntity *)entity callback:(void(^)(MSOutlookEntity *entity, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
 
 - (MSOutlookAttachmentFetcher *)asAttachment;	
 - (MSOutlookItemFetcher *)asItem;	
@@ -49,13 +58,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 - (MSOutlookCalendarFetcher *)asCalendar;	
 - (MSOutlookCalendarGroupFetcher *)asCalendarGroup;	
 - (MSOutlookContactFolderFetcher *)asContactFolder;	
-
-@end
-
-@interface MSOutlookEntityFetcher : MSODataEntityFetcher<MSOutlookEntityFetcher>
-
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateEntity:(MSOutlookEntity *)entity callback:(void (^)(MSOutlookEntity *entity, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteEntity:(void (^)(int status, MSODataException *exception))callback;
 
 @end

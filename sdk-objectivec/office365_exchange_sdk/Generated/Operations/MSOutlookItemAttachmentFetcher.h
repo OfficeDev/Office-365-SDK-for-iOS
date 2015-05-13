@@ -14,36 +14,38 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @class MSOutlookItemFetcher;
 @class MSOutlookItemAttachmentOperations;
+@class MSOutlookItemAttachmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOutlookModels.h"
 
 /**
 * The header for type MSOutlookItemAttachmentFetcher.
 */
 
-@protocol MSOutlookItemAttachmentFetcher<MSODataEntityFetcher>
+@protocol MSOutlookItemAttachmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOutlookItemAttachment *itemAttachment, MSODataException *exception))callback;
-- (id<MSOutlookItemAttachmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOutlookItemAttachmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOutlookItemAttachmentFetcher>)select:(NSString *)params;
-- (id<MSOutlookItemAttachmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOutlookItemAttachment *itemAttachment, MSOrcError *error))callback;
+- (MSOutlookItemAttachmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOutlookItemAttachmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOutlookItemAttachmentFetcher *)select:(NSString *)params;
+- (MSOutlookItemAttachmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOutlookItemAttachmentOperations *operations;
 
-- (MSOutlookItemFetcher *)getItem;
-
 @end
 
-@interface MSOutlookItemAttachmentFetcher : MSODataEntityFetcher<MSOutlookItemAttachmentFetcher>
+@interface MSOutlookItemAttachmentFetcher : MSOrcEntityFetcher<MSOutlookItemAttachmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateItemAttachment:(MSOutlookItemAttachment *)itemAttachment callback:(void (^)(MSOutlookItemAttachment *itemAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteItemAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOutlookItemAttachment *)itemAttachment callback:(void(^)(MSOutlookItemAttachment *itemAttachment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=item) MSOutlookItemFetcher *item;
 
 @end
