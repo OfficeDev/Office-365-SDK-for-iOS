@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSOneNotePageCollectionOperations.h"
-#import "MSOneNoteODataEntities.h"
+#import "MSOneNoteOrcEntities.h"
 
 /**
 * The implementation file for type MSOneNotePageCollectionOperations.

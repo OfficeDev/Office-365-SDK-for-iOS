@@ -17,39 +17,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNoteSectionGroupFetcher;
 @class MSOneNoteSectionGroupCollectionFetcher;
 @class MSOneNoteNotebookOperations;
+@class MSOneNoteNotebookFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteNotebookFetcher.
 */
 
-@protocol MSOneNoteNotebookFetcher<MSODataEntityFetcher, MSODataMultipartCollectionFetcher>
+@protocol MSOneNoteNotebookFetcherProtocol<MSOrcEntityFetcher, MSODataMultipartCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOneNoteNotebook *notebook, MSODataException *exception))callback;
-- (id<MSOneNoteNotebookFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNoteNotebookFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOneNoteNotebookFetcher>)select:(NSString *)params;
-- (id<MSOneNoteNotebookFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOneNoteNotebook *notebook, MSOrcError *error))callback;
+- (MSOneNoteNotebookFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNoteNotebookFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNoteNotebookFetcher *)select:(NSString *)params;
+- (MSOneNoteNotebookFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOneNoteNotebookOperations *operations;
 
-- (MSOneNoteSectionCollectionFetcher *)getsections;
-- (MSOneNoteSectionFetcher *) getsectionsById:(NSString*)_id;
-- (MSOneNoteSectionGroupCollectionFetcher *)getsectionGroups;
-- (MSOneNoteSectionGroupFetcher *) getsectionGroupsById:(NSString*)_id;
-
 @end
 
-@interface MSOneNoteNotebookFetcher : MSODataEntityFetcher<MSOneNoteNotebookFetcher>
+@interface MSOneNoteNotebookFetcher : MSOrcEntityFetcher<MSOneNoteNotebookFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateNotebook:(MSOneNoteNotebook *)notebook callback:(void (^)(MSOneNoteNotebook *notebook, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteNotebook:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOneNoteNotebook *)notebook callback:(void(^)(MSOneNoteNotebook *notebook, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=sections) MSOneNoteSectionCollectionFetcher *sections;
+
+- (MSOneNoteSectionFetcher *)getSectionsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=sectionGroups) MSOneNoteSectionGroupCollectionFetcher *sectionGroups;
+
+- (MSOneNoteSectionGroupFetcher *)getSectionGroupsById:(NSString*)id;
+
 
 @end

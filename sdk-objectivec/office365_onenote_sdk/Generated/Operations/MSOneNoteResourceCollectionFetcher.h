@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOneNoteResourceFetcher;
+@class MSOneNoteResourceCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteResourceCollectionFetcher.
 */
 
-@protocol MSOneNoteResourceCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSOneNoteResourceCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSOneNoteResource> *resources, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSOneNoteResource> *resources, MSOrcError *error))callback;
 
-- (id<MSOneNoteResourceCollectionFetcher>)select:(NSString *)params;
-- (id<MSOneNoteResourceCollectionFetcher>)filter:(NSString *)params;
-- (id<MSOneNoteResourceCollectionFetcher>)top:(int)value;
-- (id<MSOneNoteResourceCollectionFetcher>)skip:(int)value;
-- (id<MSOneNoteResourceCollectionFetcher>)expand:(NSString *)value;
-- (id<MSOneNoteResourceCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSOneNoteResourceCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNoteResourceCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNoteResourceCollectionFetcher *)select:(NSString *)params;
+- (MSOneNoteResourceCollectionFetcher *)filter:(NSString *)params;
+- (MSOneNoteResourceCollectionFetcher *)search:(NSString *)params;
+- (MSOneNoteResourceCollectionFetcher *)top:(int)value;
+- (MSOneNoteResourceCollectionFetcher *)skip:(int)value;
+- (MSOneNoteResourceCollectionFetcher *)expand:(NSString *)value;
+- (MSOneNoteResourceCollectionFetcher *)orderBy:(NSString *)params;
+- (MSOneNoteResourceCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNoteResourceCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSOneNoteResourceFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addResource:(MSOneNoteResource *)entity callback:(void (^)(MSOneNoteResource *resource, MSODataException *e))callback;
+- (void)add:(MSOneNoteResource *)entity callback:(void (^)(MSOneNoteResource *resource, MSOrcError *error))callback;
 
 @end
 
-@interface MSOneNoteResourceCollectionFetcher : MSODataCollectionFetcher<MSOneNoteResourceCollectionFetcher>
+@interface MSOneNoteResourceCollectionFetcher : MSOrcCollectionFetcher<MSOneNoteResourceCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

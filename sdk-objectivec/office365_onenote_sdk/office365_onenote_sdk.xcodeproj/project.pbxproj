@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC44EF2B1B03EE0A0085186B /* MSOneNoteOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC44EF2A1B03EE0A0085186B /* MSOneNoteOrcEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9FC1AF158200099BB4C /* MSOneNoteDiagnostic.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9B71AF158200099BB4C /* MSOneNoteDiagnostic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9FD1AF158200099BB4C /* MSOneNoteDiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F9B81AF158200099BB4C /* MSOneNoteDiagnostic.m */; };
 		EC55F9FE1AF158200099BB4C /* MSOneNoteExternalLink.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9B91AF158200099BB4C /* MSOneNoteExternalLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,7 +43,6 @@
 		EC55FA1C1AF158200099BB4C /* MSOneNoteNotebookFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F9D81AF158200099BB4C /* MSOneNoteNotebookFetcher.m */; };
 		EC55FA1D1AF158200099BB4C /* MSOneNoteNotebookOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9D91AF158200099BB4C /* MSOneNoteNotebookOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55FA1E1AF158200099BB4C /* MSOneNoteNotebookOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F9DA1AF158200099BB4C /* MSOneNoteNotebookOperations.m */; };
-		EC55FA1F1AF158200099BB4C /* MSOneNoteODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9DB1AF158200099BB4C /* MSOneNoteODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55FA201AF158200099BB4C /* MSOneNotePageCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9DC1AF158200099BB4C /* MSOneNotePageCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55FA211AF158200099BB4C /* MSOneNotePageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F9DD1AF158200099BB4C /* MSOneNotePageCollectionFetcher.m */; };
 		EC55FA221AF158200099BB4C /* MSOneNotePageCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F9DE1AF158200099BB4C /* MSOneNotePageCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -78,24 +78,8 @@
 		EC7405711AB35DBB00108A42 /* office365_onenote_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7405701AB35DBB00108A42 /* office365_onenote_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		261068151AEDF40E00FBABEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-		EC7405A11AB35E3800108A42 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		EC44EF2A1B03EE0A0085186B /* MSOneNoteOrcEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteOrcEntities.h; sourceTree = "<group>"; };
 		EC55F9B71AF158200099BB4C /* MSOneNoteDiagnostic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteDiagnostic.h; sourceTree = "<group>"; };
 		EC55F9B81AF158200099BB4C /* MSOneNoteDiagnostic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteDiagnostic.m; sourceTree = "<group>"; };
 		EC55F9B91AF158200099BB4C /* MSOneNoteExternalLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteExternalLink.h; sourceTree = "<group>"; };
@@ -131,7 +115,6 @@
 		EC55F9D81AF158200099BB4C /* MSOneNoteNotebookFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteNotebookFetcher.m; sourceTree = "<group>"; };
 		EC55F9D91AF158200099BB4C /* MSOneNoteNotebookOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteNotebookOperations.h; sourceTree = "<group>"; };
 		EC55F9DA1AF158200099BB4C /* MSOneNoteNotebookOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteNotebookOperations.m; sourceTree = "<group>"; };
-		EC55F9DB1AF158200099BB4C /* MSOneNoteODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteODataEntities.h; sourceTree = "<group>"; };
 		EC55F9DC1AF158200099BB4C /* MSOneNotePageCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNotePageCollectionFetcher.h; sourceTree = "<group>"; };
 		EC55F9DD1AF158200099BB4C /* MSOneNotePageCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNotePageCollectionFetcher.m; sourceTree = "<group>"; };
 		EC55F9DE1AF158200099BB4C /* MSOneNotePageCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNotePageCollectionOperations.h; sourceTree = "<group>"; };
@@ -167,7 +150,6 @@
 		EC74056B1AB35DBB00108A42 /* office365_onenote_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_onenote_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC74056F1AB35DBB00108A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7405701AB35DBB00108A42 /* office365_onenote_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_onenote_sdk.h; sourceTree = "<group>"; };
-		EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +207,7 @@
 		EC55F9D01AF158200099BB4C /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				EC44EF2A1B03EE0A0085186B /* MSOneNoteOrcEntities.h */,
 				EC55F9D11AF158200099BB4C /* MSOneNoteClient.h */,
 				EC55F9D21AF158200099BB4C /* MSOneNoteClient.m */,
 				EC55F9D31AF158200099BB4C /* MSOneNoteNotebookCollectionFetcher.h */,
@@ -235,7 +218,6 @@
 				EC55F9D81AF158200099BB4C /* MSOneNoteNotebookFetcher.m */,
 				EC55F9D91AF158200099BB4C /* MSOneNoteNotebookOperations.h */,
 				EC55F9DA1AF158200099BB4C /* MSOneNoteNotebookOperations.m */,
-				EC55F9DB1AF158200099BB4C /* MSOneNoteODataEntities.h */,
 				EC55F9DC1AF158200099BB4C /* MSOneNotePageCollectionFetcher.h */,
 				EC55F9DD1AF158200099BB4C /* MSOneNotePageCollectionFetcher.m */,
 				EC55F9DE1AF158200099BB4C /* MSOneNotePageCollectionOperations.h */,
@@ -276,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				EC55F9B51AF158200099BB4C /* Generated */,
-				EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */,
 				EC74056D1AB35DBB00108A42 /* office365_onenote_sdk */,
 				EC74056C1AB35DBB00108A42 /* Products */,
 			);
@@ -307,14 +288,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EC74059E1AB35E3800108A42 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC7405A21AB35E3800108A42 /* office365_odata_base.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -332,7 +305,6 @@
 				EC55FA141AF158200099BB4C /* MSOneNoteUserRole.h in Headers */,
 				EC55FA201AF158200099BB4C /* MSOneNotePageCollectionFetcher.h in Headers */,
 				EC55FA0E1AF158200099BB4C /* MSOneNoteResource.h in Headers */,
-				EC55FA1F1AF158200099BB4C /* MSOneNoteODataEntities.h in Headers */,
 				EC55FA3E1AF158200099BB4C /* MSOneNoteSectionOperations.h in Headers */,
 				EC55FA101AF158200099BB4C /* MSOneNoteSection.h in Headers */,
 				EC55FA0A1AF158200099BB4C /* MSOneNotePatchContentCommand.h in Headers */,
@@ -358,6 +330,7 @@
 				EC55FA0D1AF158200099BB4C /* MSOneNoteProtocols.h in Headers */,
 				EC55FA2A1AF158200099BB4C /* MSOneNoteResourceCollectionOperations.h in Headers */,
 				EC55FA341AF158200099BB4C /* MSOneNoteSectionFetcher.h in Headers */,
+				EC44EF2B1B03EE0A0085186B /* MSOneNoteOrcEntities.h in Headers */,
 				EC55FA221AF158200099BB4C /* MSOneNotePageCollectionOperations.h in Headers */,
 				EC55FA121AF158200099BB4C /* MSOneNoteSectionGroup.h in Headers */,
 			);
@@ -378,7 +351,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				261068161AEDF40E00FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_onenote_sdk;
 			productName = office365_onenote_sdk;
@@ -409,28 +381,12 @@
 			mainGroup = EC7405611AB35DBA00108A42;
 			productRefGroup = EC74056C1AB35DBB00108A42 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = EC74059E1AB35E3800108A42 /* Products */;
-					ProjectRef = EC74059D1AB35E3800108A42 /* office365_odata_base.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				EC74056A1AB35DBB00108A42 /* office365_onenote_sdk */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		EC7405A21AB35E3800108A42 /* office365_odata_base.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = office365_odata_base.framework;
-			remoteRef = EC7405A11AB35E3800108A42 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EC7405691AB35DBB00108A42 /* Resources */ = {
@@ -482,14 +438,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		261068161AEDF40E00FBABEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = office365_odata_base;
-			targetProxy = 261068151AEDF40E00FBABEB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EC74057F1AB35DBB00108A42 /* Debug */ = {

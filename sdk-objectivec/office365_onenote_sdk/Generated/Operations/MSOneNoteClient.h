@@ -18,20 +18,20 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNotePageCollectionFetcher;
 @class MSOneNoteResourceCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteClient.
 */
 
-@interface MSOneNoteClient : MSODataBaseContainer
+@interface MSOneNoteClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSOneNoteNotebookCollectionFetcher*) getnotebooks;
--(MSOneNoteSectionGroupCollectionFetcher*) getsectionGroups;
--(MSOneNoteSectionCollectionFetcher*) getsections;
--(MSODataMultipartCollectionFetcher*) getpages;
--(MSOneNoteResourceCollectionFetcher*) getresources;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=notebooks) MSOneNoteNotebookCollectionFetcher *notebooks;
+@property (retain, nonatomic, readonly, getter=sectionGroups) MSOneNoteSectionGroupCollectionFetcher *sectionGroups;
+@property (retain, nonatomic, readonly, getter=sections) MSOneNoteSectionCollectionFetcher *sections;
+@property (retain, nonatomic, readonly, getter=pages) MSODataMultipartCollectionFetcher *pages;
+@property (retain, nonatomic, readonly, getter=resources) MSOneNoteResourceCollectionFetcher *resources;
 
 @end

@@ -15,37 +15,40 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNoteSectionFetcher;
 @class MSOneNoteNotebookFetcher;
 @class MSOneNotePageOperations;
+@class MSOneNotePageFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNotePageFetcher.
 */
 
-@protocol MSOneNotePageFetcher<MSODataEntityFetcher>
+@protocol MSOneNotePageFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOneNotePage *page, MSODataException *exception))callback;
-- (id<MSOneNotePageFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNotePageFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOneNotePageFetcher>)select:(NSString *)params;
-- (id<MSOneNotePageFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOneNotePage *page, MSOrcError *error))callback;
+- (MSOneNotePageFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNotePageFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNotePageFetcher *)select:(NSString *)params;
+- (MSOneNotePageFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOneNotePageOperations *operations;
 
-- (MSOneNoteSectionFetcher *)getparentSection;
-- (MSOneNoteNotebookFetcher *)getparentNotebook;
-
 @end
 
-@interface MSOneNotePageFetcher : MSODataMediaEntityFetcher<MSOneNotePageFetcher>
+@interface MSOneNotePageFetcher : MSOrcMediaEntityFetcher<MSOneNotePageFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updatePage:(MSOneNotePage *)page callback:(void (^)(MSOneNotePage *page, MSODataException *error))callback;
-- (NSURLSessionTask *) deletePage:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOneNotePage *)page callback:(void(^)(MSOneNotePage *page, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=parentSection) MSOneNoteSectionFetcher *parentSection;
+
+@property (retain, nonatomic, readonly, getter=parentNotebook) MSOneNoteNotebookFetcher *parentNotebook;
 
 @end

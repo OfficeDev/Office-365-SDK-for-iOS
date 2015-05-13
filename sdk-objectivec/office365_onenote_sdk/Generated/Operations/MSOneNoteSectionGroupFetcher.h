@@ -18,41 +18,48 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNoteSectionCollectionFetcher;
 @class MSOneNoteSectionGroupCollectionFetcher;
 @class MSOneNoteSectionGroupOperations;
+@class MSOneNoteSectionGroupFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteSectionGroupFetcher.
 */
 
-@protocol MSOneNoteSectionGroupFetcher<MSODataEntityFetcher>
+@protocol MSOneNoteSectionGroupFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOneNoteSectionGroup *sectionGroup, MSODataException *exception))callback;
-- (id<MSOneNoteSectionGroupFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNoteSectionGroupFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOneNoteSectionGroupFetcher>)select:(NSString *)params;
-- (id<MSOneNoteSectionGroupFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOneNoteSectionGroup *sectionGroup, MSOrcError *error))callback;
+- (MSOneNoteSectionGroupFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNoteSectionGroupFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNoteSectionGroupFetcher *)select:(NSString *)params;
+- (MSOneNoteSectionGroupFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOneNoteSectionGroupOperations *operations;
 
-- (MSOneNoteNotebookFetcher *)getparentNotebook;
-- (MSOneNoteSectionGroupFetcher *)getparentSectionGroup;
-- (MSOneNoteSectionCollectionFetcher *)getsections;
-- (MSOneNoteSectionFetcher *) getsectionsById:(NSString*)_id;
-- (MSOneNoteSectionGroupCollectionFetcher *)getsectionGroups;
-- (MSOneNoteSectionGroupFetcher *) getsectionGroupsById:(NSString*)_id;
-
 @end
 
-@interface MSOneNoteSectionGroupFetcher : MSODataEntityFetcher<MSOneNoteSectionGroupFetcher>
+@interface MSOneNoteSectionGroupFetcher : MSOrcEntityFetcher<MSOneNoteSectionGroupFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateSectionGroup:(MSOneNoteSectionGroup *)sectionGroup callback:(void (^)(MSOneNoteSectionGroup *sectionGroup, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteSectionGroup:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOneNoteSectionGroup *)sectionGroup callback:(void(^)(MSOneNoteSectionGroup *sectionGroup, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=parentNotebook) MSOneNoteNotebookFetcher *parentNotebook;
+
+@property (retain, nonatomic, readonly, getter=parentSectionGroup) MSOneNoteSectionGroupFetcher *parentSectionGroup;
+@property (retain, nonatomic, readonly, getter=sections) MSOneNoteSectionCollectionFetcher *sections;
+
+- (MSOneNoteSectionFetcher *)getSectionsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=sectionGroups) MSOneNoteSectionGroupCollectionFetcher *sectionGroups;
+
+- (MSOneNoteSectionGroupFetcher *)getSectionGroupsById:(NSString*)id;
+
 
 @end

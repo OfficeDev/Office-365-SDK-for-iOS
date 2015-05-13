@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOneNoteResourceOperations;
+@class MSOneNoteResourceFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteResourceFetcher.
 */
 
-@protocol MSOneNoteResourceFetcher<MSODataEntityFetcher>
+@protocol MSOneNoteResourceFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSOneNoteResource *resource, MSODataException *exception))callback;
-- (id<MSOneNoteResourceFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNoteResourceFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSOneNoteResourceFetcher>)select:(NSString *)params;
-- (id<MSOneNoteResourceFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSOneNoteResource *resource, MSOrcError *error))callback;
+- (MSOneNoteResourceFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNoteResourceFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNoteResourceFetcher *)select:(NSString *)params;
+- (MSOneNoteResourceFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSOneNoteResourceOperations *operations;
 
-
 @end
 
-@interface MSOneNoteResourceFetcher : MSODataMediaEntityFetcher<MSOneNoteResourceFetcher>
+@interface MSOneNoteResourceFetcher : MSOrcMediaEntityFetcher<MSOneNoteResourceFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateResource:(MSOneNoteResource *)resource callback:(void (^)(MSOneNoteResource *resource, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteResource:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSOneNoteResource *)resource callback:(void(^)(MSOneNoteResource *resource, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

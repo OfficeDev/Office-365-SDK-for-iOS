@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSOneNoteSectionGroupFetcher;
+@class MSOneNoteSectionGroupCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteSectionGroupCollectionFetcher.
 */
 
-@protocol MSOneNoteSectionGroupCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSOneNoteSectionGroupCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSOrcError *error))callback;
 
-- (id<MSOneNoteSectionGroupCollectionFetcher>)select:(NSString *)params;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)filter:(NSString *)params;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)top:(int)value;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)skip:(int)value;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)expand:(NSString *)value;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSOneNoteSectionGroupCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSOneNoteSectionGroupCollectionFetcher *)select:(NSString *)params;
+- (MSOneNoteSectionGroupCollectionFetcher *)filter:(NSString *)params;
+- (MSOneNoteSectionGroupCollectionFetcher *)search:(NSString *)params;
+- (MSOneNoteSectionGroupCollectionFetcher *)top:(int)value;
+- (MSOneNoteSectionGroupCollectionFetcher *)skip:(int)value;
+- (MSOneNoteSectionGroupCollectionFetcher *)expand:(NSString *)value;
+- (MSOneNoteSectionGroupCollectionFetcher *)orderBy:(NSString *)params;
+- (MSOneNoteSectionGroupCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSOneNoteSectionGroupCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSOneNoteSectionGroupFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addSectionGroup:(MSOneNoteSectionGroup *)entity callback:(void (^)(MSOneNoteSectionGroup *sectionGroup, MSODataException *e))callback;
+- (void)add:(MSOneNoteSectionGroup *)entity callback:(void (^)(MSOneNoteSectionGroup *sectionGroup, MSOrcError *error))callback;
 
 @end
 
-@interface MSOneNoteSectionGroupCollectionFetcher : MSODataCollectionFetcher<MSOneNoteSectionGroupCollectionFetcher>
+@interface MSOneNoteSectionGroupCollectionFetcher : MSOrcCollectionFetcher<MSOneNoteSectionGroupCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end
