@@ -26,7 +26,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 * The header for type MSOneNoteNotebookFetcher.
 */
 
-@protocol MSOneNoteNotebookFetcherProtocol<MSOrcEntityFetcher, MSODataMultipartCollectionFetcher>
+@protocol MSOneNoteNotebookFetcherProtocol<MSOrcEntityFetcher, MSOrcMultipartCollectionFetcher>
 
 @optional
 

@@ -56,7 +56,7 @@
     [request.url appendPathComponent:@"PatchContent"];
     [request setVerb:HTTP_VERB_POST];
     
-    return [super oDataExecuteRequest:request callback:^(id<MSODataResponse> response, MSOrcError *error) {
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *error) {
         
         if (error == nil) {
             
