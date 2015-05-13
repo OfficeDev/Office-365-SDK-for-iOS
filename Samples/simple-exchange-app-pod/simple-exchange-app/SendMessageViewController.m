@@ -38,14 +38,13 @@
     message.body = [[MSOutlookItemBody alloc] init];
     message.body.content = self.txtBody.text;
     
-    NSURLSessionTask *task = [[self.client getMe].operations sendMailWithMessage:message saveToSentItems:true callback:^(int returnValue, MSODataException *error) {
+    [self.client.me.operations sendMailWithMessage:message saveToSentItems:true
+                                          callback:^(int returnValue, MSOrcError *error) {
         
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Message sent!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         [alert show];
     }];
-    
-    [task resume];
 }
 
 -(NSMutableArray<MSOutlookRecipient>*)getRecipients :(NSString*)text {

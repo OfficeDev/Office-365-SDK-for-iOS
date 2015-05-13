@@ -63,7 +63,7 @@
 
 -(void)getMessagesFromInbox{
     
-    NSURLSessionTask *task = [[[self.client getMe] getMessages] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSODataException *error) {
+    [self.client.me.messages readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
         
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
@@ -73,8 +73,6 @@
                            });
         }
     }];
-    
-    [task resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{

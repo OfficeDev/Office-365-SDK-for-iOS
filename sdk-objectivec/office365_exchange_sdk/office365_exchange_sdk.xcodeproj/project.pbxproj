@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16035FE2FBF223F1A8A6B4B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF19FAAB30D0C8A1DEB4088 /* libPods.a */; };
 		2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F7741AF154E30099BB4C /* MSOutlookAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F6C01AF154E20099BB4C /* MSOutlookAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F7751AF154E30099BB4C /* MSOutlookAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F6C11AF154E20099BB4C /* MSOutlookAttachment.m */; };
@@ -187,7 +186,7 @@
 		EC55F8241AF154E30099BB4C /* MSOutlookUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F7711AF154E30099BB4C /* MSOutlookUserFetcher.m */; };
 		EC55F8251AF154E30099BB4C /* MSOutlookUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F7721AF154E30099BB4C /* MSOutlookUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F8261AF154E30099BB4C /* MSOutlookUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F7731AF154E30099BB4C /* MSOutlookUserOperations.m */; };
-		ECF394D01B03C723002371AA /* MSOutlookOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF394CF1B03C723002371AA /* MSOutlookOrcEntities.h */; };
+		ECF394D01B03C723002371AA /* MSOutlookOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF394CF1B03C723002371AA /* MSOutlookOrcEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -383,7 +382,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16035FE2FBF223F1A8A6B4B1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +690,6 @@
 				EC55F7DA1AF154E30099BB4C /* MSOutlookContactFolderOperations.h in Headers */,
 				EC55F7AD1AF154E30099BB4C /* MSOutlookRecurrenceRangeType.h in Headers */,
 				EC55F7EC1AF154E30099BB4C /* MSOutlookEventMessageCollectionFetcher.h in Headers */,
-				ECF394D01B03C723002371AA /* MSOutlookOrcEntities.h in Headers */,
 				EC55F7AA1AF154E30099BB4C /* MSOutlookRecurrencePatternType.h in Headers */,
 				EC55F7881AF154E30099BB4C /* MSOutlookEvent.h in Headers */,
 				EC55F7C81AF154E30099BB4C /* MSOutlookCalendarGroupOperations.h in Headers */,
@@ -749,6 +746,7 @@
 				EC55F8231AF154E30099BB4C /* MSOutlookUserFetcher.h in Headers */,
 				EC55F8081AF154E30099BB4C /* MSOutlookItemAttachmentCollectionOperations.h in Headers */,
 				EC55F7951AF154E30099BB4C /* MSOutlookItem.h in Headers */,
+				ECF394D01B03C723002371AA /* MSOutlookOrcEntities.h in Headers */,
 				EC55F7971AF154E30099BB4C /* MSOutlookItemAttachment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

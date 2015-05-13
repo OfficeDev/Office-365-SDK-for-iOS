@@ -35,8 +35,8 @@
 -(void)getMessagesFromInbox{
  
     [BaseController getClient:^(MSOutlookClient *client) {
-        
-        NSURLSessionTask* task = [[client getMe] readWithCallback:^(MSOutlookUser *user, NSError *error) {
+    
+        [client.me readWithCallback:^(MSOutlookUser *user, NSError *error) {
             
             if (error == nil) {
                 dispatch_async(dispatch_get_main_queue(),
@@ -44,15 +44,13 @@
                                    [client.resolver.logger logMessage:@"Got results" withLevel:LOG_LEVEL_INFO];
                                    
                                    self.lblDisplayName.text = user.displayName;
-                                   self.lblAlias.text =       user.alias;
-                                   self.lblMailBoxId.text =   user.mailboxGuid;
+                                   self.lblAlias.text = user.alias;
+                                   self.lblMailBoxId.text = user.mailboxGuid;
                                });
             } else {
                 [client.resolver.logger logMessage:error.description withLevel:LOG_LEVEL_ERROR];
             }
         }];
-        
-        [task resume];
     }];
 }
 

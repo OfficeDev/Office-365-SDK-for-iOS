@@ -5,12 +5,6 @@
       location = "group:simple-exchange-app.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../../sdk-objectivec/office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../../sdk-objectivec/office365_odata_base/office365_odata_base.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

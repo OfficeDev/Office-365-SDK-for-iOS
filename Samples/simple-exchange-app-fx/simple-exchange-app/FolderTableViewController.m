@@ -62,7 +62,7 @@
 
 - (void)getFolders {
     
-    NSURLSessionTask* task = [[[self.client getMe] getFolders] readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSODataException *error) {
+    [self.client.me.folders readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSOrcError *error) {
         
         if (error == nil) {
             
@@ -73,8 +73,6 @@
                            });
         }
     }];
-    
-    [task resume];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
