@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDirectoryLinkChangeFetcher;
+@class MSGraphDirectoryLinkChangeCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryLinkChangeCollectionFetcher.
 */
 
-@protocol MSGraphDirectoryLinkChangeCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphDirectoryLinkChangeCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphDirectoryLinkChange> *directoryLinkChanges, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphDirectoryLinkChange> *directoryLinkChanges, MSOrcError *error))callback;
 
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)top:(int)value;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)skip:(int)value;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryLinkChangeCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)search:(NSString *)params;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)top:(int)value;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)skip:(int)value;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryLinkChangeCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphDirectoryLinkChangeFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDirectoryLinkChange:(MSGraphDirectoryLinkChange *)entity callback:(void (^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSODataException *e))callback;
+- (void)add:(MSGraphDirectoryLinkChange *)entity callback:(void (^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphDirectoryLinkChangeCollectionFetcher : MSODataCollectionFetcher<MSGraphDirectoryLinkChangeCollectionFetcher>
+@interface MSGraphDirectoryLinkChangeCollectionFetcher : MSOrcCollectionFetcher<MSGraphDirectoryLinkChangeCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

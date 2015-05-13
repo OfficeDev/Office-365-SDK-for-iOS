@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphFolderOperations;
+@class MSGraphFolderFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphFolderFetcher.
 */
 
-@protocol MSGraphFolderFetcher<MSODataEntityFetcher>
+@protocol MSGraphFolderFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphFolder *folder, MSODataException *exception))callback;
-- (id<MSGraphFolderFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphFolderFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphFolderFetcher>)select:(NSString *)params;
-- (id<MSGraphFolderFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphFolder *folder, MSOrcError *error))callback;
+- (MSGraphFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphFolderFetcher *)select:(NSString *)params;
+- (MSGraphFolderFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphFolderOperations *operations;
 
-
 @end
 
-@interface MSGraphFolderFetcher : MSODataEntityFetcher<MSGraphFolderFetcher>
+@interface MSGraphFolderFetcher : MSOrcEntityFetcher<MSGraphFolderFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFolder:(MSGraphFolder *)folder callback:(void (^)(MSGraphFolder *folder, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFolder:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphFolder *)folder callback:(void(^)(MSGraphFolder *folder, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

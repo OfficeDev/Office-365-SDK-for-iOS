@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphReferenceAttachmentOperations;
+@class MSGraphReferenceAttachmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphReferenceAttachmentFetcher.
 */
 
-@protocol MSGraphReferenceAttachmentFetcher<MSODataEntityFetcher>
+@protocol MSGraphReferenceAttachmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphReferenceAttachment *referenceAttachment, MSODataException *exception))callback;
-- (id<MSGraphReferenceAttachmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphReferenceAttachmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphReferenceAttachmentFetcher>)select:(NSString *)params;
-- (id<MSGraphReferenceAttachmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphReferenceAttachment *referenceAttachment, MSOrcError *error))callback;
+- (MSGraphReferenceAttachmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphReferenceAttachmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphReferenceAttachmentFetcher *)select:(NSString *)params;
+- (MSGraphReferenceAttachmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphReferenceAttachmentOperations *operations;
 
-
 @end
 
-@interface MSGraphReferenceAttachmentFetcher : MSODataEntityFetcher<MSGraphReferenceAttachmentFetcher>
+@interface MSGraphReferenceAttachmentFetcher : MSOrcEntityFetcher<MSGraphReferenceAttachmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateReferenceAttachment:(MSGraphReferenceAttachment *)referenceAttachment callback:(void (^)(MSGraphReferenceAttachment *referenceAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteReferenceAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphReferenceAttachment *)referenceAttachment callback:(void(^)(MSGraphReferenceAttachment *referenceAttachment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

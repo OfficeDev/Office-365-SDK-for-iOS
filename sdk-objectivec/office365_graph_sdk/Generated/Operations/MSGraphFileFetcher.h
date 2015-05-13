@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphFileOperations;
+@class MSGraphFileFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphFileFetcher.
 */
 
-@protocol MSGraphFileFetcher<MSODataEntityFetcher>
+@protocol MSGraphFileFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphFile *file, MSODataException *exception))callback;
-- (id<MSGraphFileFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphFileFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphFileFetcher>)select:(NSString *)params;
-- (id<MSGraphFileFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphFile *file, MSOrcError *error))callback;
+- (MSGraphFileFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphFileFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphFileFetcher *)select:(NSString *)params;
+- (MSGraphFileFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphFileOperations *operations;
 
-
 @end
 
-@interface MSGraphFileFetcher : MSODataEntityFetcher<MSGraphFileFetcher>
+@interface MSGraphFileFetcher : MSOrcEntityFetcher<MSGraphFileFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFile:(MSGraphFile *)file callback:(void (^)(MSGraphFile *file, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFile:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphFile *)file callback:(void(^)(MSGraphFile *file, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

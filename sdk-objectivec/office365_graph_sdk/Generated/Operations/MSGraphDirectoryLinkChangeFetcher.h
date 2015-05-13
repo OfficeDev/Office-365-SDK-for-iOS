@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDirectoryLinkChangeOperations;
+@class MSGraphDirectoryLinkChangeFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryLinkChangeFetcher.
 */
 
-@protocol MSGraphDirectoryLinkChangeFetcher<MSODataEntityFetcher>
+@protocol MSGraphDirectoryLinkChangeFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSODataException *exception))callback;
-- (id<MSGraphDirectoryLinkChangeFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryLinkChangeFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDirectoryLinkChangeFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryLinkChangeFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
+- (MSGraphDirectoryLinkChangeFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryLinkChangeFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryLinkChangeFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryLinkChangeFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDirectoryLinkChangeOperations *operations;
 
-
 @end
 
-@interface MSGraphDirectoryLinkChangeFetcher : MSODataEntityFetcher<MSGraphDirectoryLinkChangeFetcher>
+@interface MSGraphDirectoryLinkChangeFetcher : MSOrcEntityFetcher<MSGraphDirectoryLinkChangeFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryLinkChange:(MSGraphDirectoryLinkChange *)directoryLinkChange callback:(void (^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryLinkChange:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDirectoryLinkChange *)directoryLinkChange callback:(void(^)(MSGraphDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

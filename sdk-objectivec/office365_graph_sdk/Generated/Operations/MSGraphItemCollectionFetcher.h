@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphItemFetcher;
+@class MSGraphItemCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphItemCollectionFetcher.
 */
 
-@protocol MSGraphItemCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphItemCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphItem> *items, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphItem> *items, MSOrcError *error))callback;
 
-- (id<MSGraphItemCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphItemCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphItemCollectionFetcher>)top:(int)value;
-- (id<MSGraphItemCollectionFetcher>)skip:(int)value;
-- (id<MSGraphItemCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphItemCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphItemCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphItemCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphItemCollectionFetcher *)select:(NSString *)params;
+- (MSGraphItemCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphItemCollectionFetcher *)search:(NSString *)params;
+- (MSGraphItemCollectionFetcher *)top:(int)value;
+- (MSGraphItemCollectionFetcher *)skip:(int)value;
+- (MSGraphItemCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphItemCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphItemCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphItemCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphItemFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addItem:(MSGraphItem *)entity callback:(void (^)(MSGraphItem *item, MSODataException *e))callback;
+- (void)add:(MSGraphItem *)entity callback:(void (^)(MSGraphItem *item, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphItemCollectionFetcher : MSODataCollectionFetcher<MSGraphItemCollectionFetcher>
+@interface MSGraphItemCollectionFetcher : MSOrcCollectionFetcher<MSGraphItemCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

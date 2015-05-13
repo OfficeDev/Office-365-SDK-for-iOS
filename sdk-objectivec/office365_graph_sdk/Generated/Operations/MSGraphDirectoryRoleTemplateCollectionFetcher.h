@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDirectoryRoleTemplateFetcher;
+@class MSGraphDirectoryRoleTemplateCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryRoleTemplateCollectionFetcher.
 */
 
-@protocol MSGraphDirectoryRoleTemplateCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphDirectoryRoleTemplateCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphDirectoryRoleTemplate> *directoryRoleTemplates, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphDirectoryRoleTemplate> *directoryRoleTemplates, MSOrcError *error))callback;
 
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)top:(int)value;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)skip:(int)value;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryRoleTemplateCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)search:(NSString *)params;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)top:(int)value;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)skip:(int)value;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryRoleTemplateCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphDirectoryRoleTemplateFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDirectoryRoleTemplate:(MSGraphDirectoryRoleTemplate *)entity callback:(void (^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *e))callback;
+- (void)add:(MSGraphDirectoryRoleTemplate *)entity callback:(void (^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphDirectoryRoleTemplateCollectionFetcher : MSODataCollectionFetcher<MSGraphDirectoryRoleTemplateCollectionFetcher>
+@interface MSGraphDirectoryRoleTemplateCollectionFetcher : MSOrcCollectionFetcher<MSGraphDirectoryRoleTemplateCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

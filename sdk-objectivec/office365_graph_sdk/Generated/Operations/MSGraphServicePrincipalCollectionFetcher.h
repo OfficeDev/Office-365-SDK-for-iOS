@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphServicePrincipalFetcher;
+@class MSGraphServicePrincipalCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphServicePrincipalCollectionFetcher.
 */
 
-@protocol MSGraphServicePrincipalCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphServicePrincipalCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphServicePrincipal> *servicePrincipals, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphServicePrincipal> *servicePrincipals, MSOrcError *error))callback;
 
-- (id<MSGraphServicePrincipalCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphServicePrincipalCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphServicePrincipalCollectionFetcher>)top:(int)value;
-- (id<MSGraphServicePrincipalCollectionFetcher>)skip:(int)value;
-- (id<MSGraphServicePrincipalCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphServicePrincipalCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphServicePrincipalCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphServicePrincipalCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphServicePrincipalCollectionFetcher *)select:(NSString *)params;
+- (MSGraphServicePrincipalCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphServicePrincipalCollectionFetcher *)search:(NSString *)params;
+- (MSGraphServicePrincipalCollectionFetcher *)top:(int)value;
+- (MSGraphServicePrincipalCollectionFetcher *)skip:(int)value;
+- (MSGraphServicePrincipalCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphServicePrincipalCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphServicePrincipalCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphServicePrincipalCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphServicePrincipalFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addServicePrincipal:(MSGraphServicePrincipal *)entity callback:(void (^)(MSGraphServicePrincipal *servicePrincipal, MSODataException *e))callback;
+- (void)add:(MSGraphServicePrincipal *)entity callback:(void (^)(MSGraphServicePrincipal *servicePrincipal, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphServicePrincipalCollectionFetcher : MSODataCollectionFetcher<MSGraphServicePrincipalCollectionFetcher>
+@interface MSGraphServicePrincipalCollectionFetcher : MSOrcCollectionFetcher<MSGraphServicePrincipalCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

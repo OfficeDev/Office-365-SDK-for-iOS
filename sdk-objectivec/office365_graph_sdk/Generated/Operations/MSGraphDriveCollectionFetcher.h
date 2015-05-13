@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDriveFetcher;
+@class MSGraphDriveCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDriveCollectionFetcher.
 */
 
-@protocol MSGraphDriveCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphDriveCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphDrive> *drives, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphDrive> *drives, MSOrcError *error))callback;
 
-- (id<MSGraphDriveCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphDriveCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphDriveCollectionFetcher>)top:(int)value;
-- (id<MSGraphDriveCollectionFetcher>)skip:(int)value;
-- (id<MSGraphDriveCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphDriveCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphDriveCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDriveCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDriveCollectionFetcher *)select:(NSString *)params;
+- (MSGraphDriveCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphDriveCollectionFetcher *)search:(NSString *)params;
+- (MSGraphDriveCollectionFetcher *)top:(int)value;
+- (MSGraphDriveCollectionFetcher *)skip:(int)value;
+- (MSGraphDriveCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphDriveCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphDriveCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDriveCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphDriveFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDrive:(MSGraphDrive *)entity callback:(void (^)(MSGraphDrive *drive, MSODataException *e))callback;
+- (void)add:(MSGraphDrive *)entity callback:(void (^)(MSGraphDrive *drive, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphDriveCollectionFetcher : MSODataCollectionFetcher<MSGraphDriveCollectionFetcher>
+@interface MSGraphDriveCollectionFetcher : MSOrcCollectionFetcher<MSGraphDriveCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

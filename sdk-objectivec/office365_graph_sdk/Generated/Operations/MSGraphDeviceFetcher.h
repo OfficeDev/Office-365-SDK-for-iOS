@@ -15,39 +15,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDeviceOperations;
+@class MSGraphDeviceFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDeviceFetcher.
 */
 
-@protocol MSGraphDeviceFetcher<MSODataEntityFetcher>
+@protocol MSGraphDeviceFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDevice *device, MSODataException *exception))callback;
-- (id<MSGraphDeviceFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDeviceFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDeviceFetcher>)select:(NSString *)params;
-- (id<MSGraphDeviceFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDevice *device, MSOrcError *error))callback;
+- (MSGraphDeviceFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDeviceFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDeviceFetcher *)select:(NSString *)params;
+- (MSGraphDeviceFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDeviceOperations *operations;
 
-- (MSGraphDirectoryObjectCollectionFetcher *)getregisteredOwners;
-- (MSGraphDirectoryObjectFetcher *) getregisteredOwnersById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getregisteredUsers;
-- (MSGraphDirectoryObjectFetcher *) getregisteredUsersById:(NSString*)_id;
-
 @end
 
-@interface MSGraphDeviceFetcher : MSODataEntityFetcher<MSGraphDeviceFetcher>
+@interface MSGraphDeviceFetcher : MSOrcEntityFetcher<MSGraphDeviceFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDevice:(MSGraphDevice *)device callback:(void (^)(MSGraphDevice *device, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDevice:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDevice *)device callback:(void(^)(MSGraphDevice *device, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=registeredOwners) MSGraphDirectoryObjectCollectionFetcher *registeredOwners;
+
+- (MSGraphDirectoryObjectFetcher *)getRegisteredOwnersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=registeredUsers) MSGraphDirectoryObjectCollectionFetcher *registeredUsers;
+
+- (MSGraphDirectoryObjectFetcher *)getRegisteredUsersById:(NSString*)id;
+
 
 @end

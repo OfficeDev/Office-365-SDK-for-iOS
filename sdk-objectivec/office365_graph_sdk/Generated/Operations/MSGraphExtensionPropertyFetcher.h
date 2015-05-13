@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphExtensionPropertyOperations;
+@class MSGraphExtensionPropertyFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphExtensionPropertyFetcher.
 */
 
-@protocol MSGraphExtensionPropertyFetcher<MSODataEntityFetcher>
+@protocol MSGraphExtensionPropertyFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphExtensionProperty *extensionProperty, MSODataException *exception))callback;
-- (id<MSGraphExtensionPropertyFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphExtensionPropertyFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphExtensionPropertyFetcher>)select:(NSString *)params;
-- (id<MSGraphExtensionPropertyFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphExtensionProperty *extensionProperty, MSOrcError *error))callback;
+- (MSGraphExtensionPropertyFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphExtensionPropertyFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphExtensionPropertyFetcher *)select:(NSString *)params;
+- (MSGraphExtensionPropertyFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphExtensionPropertyOperations *operations;
 
-
 @end
 
-@interface MSGraphExtensionPropertyFetcher : MSODataEntityFetcher<MSGraphExtensionPropertyFetcher>
+@interface MSGraphExtensionPropertyFetcher : MSOrcEntityFetcher<MSGraphExtensionPropertyFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateExtensionProperty:(MSGraphExtensionProperty *)extensionProperty callback:(void (^)(MSGraphExtensionProperty *extensionProperty, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteExtensionProperty:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphExtensionProperty *)extensionProperty callback:(void(^)(MSGraphExtensionProperty *extensionProperty, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

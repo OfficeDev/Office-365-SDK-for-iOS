@@ -18,40 +18,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphEventFetcher;
 @class MSGraphEventCollectionFetcher;
 @class MSGraphEventOperations;
+@class MSGraphEventFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphEventFetcher.
 */
 
-@protocol MSGraphEventFetcher<MSODataEntityFetcher>
+@protocol MSGraphEventFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphEvent *event, MSODataException *exception))callback;
-- (id<MSGraphEventFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphEventFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphEventFetcher>)select:(NSString *)params;
-- (id<MSGraphEventFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphEvent *event, MSOrcError *error))callback;
+- (MSGraphEventFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphEventFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphEventFetcher *)select:(NSString *)params;
+- (MSGraphEventFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphEventOperations *operations;
 
-- (MSGraphAttachmentCollectionFetcher *)getAttachments;
-- (MSGraphAttachmentFetcher *) getAttachmentsById:(NSString*)_id;
-- (MSGraphCalendarFetcher *)getCalendar;
-- (MSGraphEventCollectionFetcher *)getInstances;
-- (MSGraphEventFetcher *) getInstancesById:(NSString*)_id;
-
 @end
 
-@interface MSGraphEventFetcher : MSODataEntityFetcher<MSGraphEventFetcher>
+@interface MSGraphEventFetcher : MSOrcEntityFetcher<MSGraphEventFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateEvent:(MSGraphEvent *)event callback:(void (^)(MSGraphEvent *event, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteEvent:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphEvent *)event callback:(void(^)(MSGraphEvent *event, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
+
+- (MSGraphAttachmentFetcher *)getAttachmentsById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=calendar) MSGraphCalendarFetcher *calendar;
+@property (retain, nonatomic, readonly, getter=instances) MSGraphEventCollectionFetcher *instances;
+
+- (MSGraphEventFetcher *)getInstancesById:(NSString*)id;
+
 
 @end

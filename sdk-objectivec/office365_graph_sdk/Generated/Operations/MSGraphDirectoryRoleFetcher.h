@@ -15,43 +15,52 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryRoleOperations;
+@class MSGraphDirectoryRoleFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryRoleFetcher.
 */
 
-@protocol MSGraphDirectoryRoleFetcher<MSODataEntityFetcher>
+@protocol MSGraphDirectoryRoleFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDirectoryRole *directoryRole, MSODataException *exception))callback;
-- (id<MSGraphDirectoryRoleFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryRoleFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDirectoryRoleFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryRoleFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDirectoryRole *directoryRole, MSOrcError *error))callback;
+- (MSGraphDirectoryRoleFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryRoleFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryRoleFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryRoleFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDirectoryRoleOperations *operations;
 
-- (MSGraphDirectoryObjectCollectionFetcher *)getmembers;
-- (MSGraphDirectoryObjectFetcher *) getmembersById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getmemberOf;
-- (MSGraphDirectoryObjectFetcher *) getmemberOfById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getowners;
-- (MSGraphDirectoryObjectFetcher *) getownersById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getownedObjects;
-- (MSGraphDirectoryObjectFetcher *) getownedObjectsById:(NSString*)_id;
-
 @end
 
-@interface MSGraphDirectoryRoleFetcher : MSODataEntityFetcher<MSGraphDirectoryRoleFetcher>
+@interface MSGraphDirectoryRoleFetcher : MSOrcEntityFetcher<MSGraphDirectoryRoleFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryRole:(MSGraphDirectoryRole *)directoryRole callback:(void (^)(MSGraphDirectoryRole *directoryRole, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryRole:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDirectoryRole *)directoryRole callback:(void(^)(MSGraphDirectoryRole *directoryRole, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
+
+- (MSGraphDirectoryObjectFetcher *)getMembersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
+
+- (MSGraphDirectoryObjectFetcher *)getMemberOfById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=ownedObjects) MSGraphDirectoryObjectCollectionFetcher *ownedObjects;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnedObjectsById:(NSString*)id;
+
 
 @end

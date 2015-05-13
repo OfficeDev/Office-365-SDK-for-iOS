@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphPhotoFetcher;
+@class MSGraphPhotoCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphPhotoCollectionFetcher.
 */
 
-@protocol MSGraphPhotoCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphPhotoCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphPhoto> *photos, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphPhoto> *photos, MSOrcError *error))callback;
 
-- (id<MSGraphPhotoCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphPhotoCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphPhotoCollectionFetcher>)top:(int)value;
-- (id<MSGraphPhotoCollectionFetcher>)skip:(int)value;
-- (id<MSGraphPhotoCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphPhotoCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphPhotoCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphPhotoCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphPhotoCollectionFetcher *)select:(NSString *)params;
+- (MSGraphPhotoCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphPhotoCollectionFetcher *)search:(NSString *)params;
+- (MSGraphPhotoCollectionFetcher *)top:(int)value;
+- (MSGraphPhotoCollectionFetcher *)skip:(int)value;
+- (MSGraphPhotoCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphPhotoCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphPhotoCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphPhotoCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphPhotoFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addPhoto:(MSGraphPhoto *)entity callback:(void (^)(MSGraphPhoto *photo, MSODataException *e))callback;
+- (void)add:(MSGraphPhoto *)entity callback:(void (^)(MSGraphPhoto *photo, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphPhotoCollectionFetcher : MSODataCollectionFetcher<MSGraphPhotoCollectionFetcher>
+@interface MSGraphPhotoCollectionFetcher : MSOrcCollectionFetcher<MSGraphPhotoCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

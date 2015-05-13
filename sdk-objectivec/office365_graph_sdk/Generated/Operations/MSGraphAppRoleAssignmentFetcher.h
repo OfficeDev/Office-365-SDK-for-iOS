@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphAppRoleAssignmentOperations;
+@class MSGraphAppRoleAssignmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphAppRoleAssignmentFetcher.
 */
 
-@protocol MSGraphAppRoleAssignmentFetcher<MSODataEntityFetcher>
+@protocol MSGraphAppRoleAssignmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphAppRoleAssignment *appRoleAssignment, MSODataException *exception))callback;
-- (id<MSGraphAppRoleAssignmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphAppRoleAssignmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphAppRoleAssignmentFetcher>)select:(NSString *)params;
-- (id<MSGraphAppRoleAssignmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
+- (MSGraphAppRoleAssignmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphAppRoleAssignmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphAppRoleAssignmentFetcher *)select:(NSString *)params;
+- (MSGraphAppRoleAssignmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphAppRoleAssignmentOperations *operations;
 
-
 @end
 
-@interface MSGraphAppRoleAssignmentFetcher : MSODataEntityFetcher<MSGraphAppRoleAssignmentFetcher>
+@interface MSGraphAppRoleAssignmentFetcher : MSOrcEntityFetcher<MSGraphAppRoleAssignmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateAppRoleAssignment:(MSGraphAppRoleAssignment *)appRoleAssignment callback:(void (^)(MSGraphAppRoleAssignment *appRoleAssignment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteAppRoleAssignment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphAppRoleAssignment *)appRoleAssignment callback:(void(^)(MSGraphAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

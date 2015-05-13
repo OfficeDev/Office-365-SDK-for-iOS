@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphPhotoOperations;
+@class MSGraphPhotoFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphPhotoFetcher.
 */
 
-@protocol MSGraphPhotoFetcher<MSODataEntityFetcher>
+@protocol MSGraphPhotoFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphPhoto *photo, MSODataException *exception))callback;
-- (id<MSGraphPhotoFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphPhotoFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphPhotoFetcher>)select:(NSString *)params;
-- (id<MSGraphPhotoFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphPhoto *photo, MSOrcError *error))callback;
+- (MSGraphPhotoFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphPhotoFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphPhotoFetcher *)select:(NSString *)params;
+- (MSGraphPhotoFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphPhotoOperations *operations;
 
-
 @end
 
-@interface MSGraphPhotoFetcher : MSODataEntityFetcher<MSGraphPhotoFetcher>
+@interface MSGraphPhotoFetcher : MSOrcEntityFetcher<MSGraphPhotoFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updatePhoto:(MSGraphPhoto *)photo callback:(void (^)(MSGraphPhoto *photo, MSODataException *error))callback;
-- (NSURLSessionTask *) deletePhoto:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphPhoto *)photo callback:(void(^)(MSGraphPhoto *photo, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphOutlookItemFetcher;
+@class MSGraphOutlookItemCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphOutlookItemCollectionFetcher.
 */
 
-@protocol MSGraphOutlookItemCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphOutlookItemCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphOutlookItem> *outlookItems, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphOutlookItem> *outlookItems, MSOrcError *error))callback;
 
-- (id<MSGraphOutlookItemCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphOutlookItemCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphOutlookItemCollectionFetcher>)top:(int)value;
-- (id<MSGraphOutlookItemCollectionFetcher>)skip:(int)value;
-- (id<MSGraphOutlookItemCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphOutlookItemCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphOutlookItemCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphOutlookItemCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphOutlookItemCollectionFetcher *)select:(NSString *)params;
+- (MSGraphOutlookItemCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphOutlookItemCollectionFetcher *)search:(NSString *)params;
+- (MSGraphOutlookItemCollectionFetcher *)top:(int)value;
+- (MSGraphOutlookItemCollectionFetcher *)skip:(int)value;
+- (MSGraphOutlookItemCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphOutlookItemCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphOutlookItemCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphOutlookItemCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphOutlookItemFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addOutlookItem:(MSGraphOutlookItem *)entity callback:(void (^)(MSGraphOutlookItem *outlookItem, MSODataException *e))callback;
+- (void)add:(MSGraphOutlookItem *)entity callback:(void (^)(MSGraphOutlookItem *outlookItem, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphOutlookItemCollectionFetcher : MSODataCollectionFetcher<MSGraphOutlookItemCollectionFetcher>
+@interface MSGraphOutlookItemCollectionFetcher : MSOrcCollectionFetcher<MSGraphOutlookItemCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

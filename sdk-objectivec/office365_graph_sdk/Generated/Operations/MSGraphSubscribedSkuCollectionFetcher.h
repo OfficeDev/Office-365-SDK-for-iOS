@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphSubscribedSkuFetcher;
+@class MSGraphSubscribedSkuCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphSubscribedSkuCollectionFetcher.
 */
 
-@protocol MSGraphSubscribedSkuCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphSubscribedSkuCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphSubscribedSku> *subscribedSkus, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphSubscribedSku> *subscribedSkus, MSOrcError *error))callback;
 
-- (id<MSGraphSubscribedSkuCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)top:(int)value;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)skip:(int)value;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphSubscribedSkuCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphSubscribedSkuCollectionFetcher *)select:(NSString *)params;
+- (MSGraphSubscribedSkuCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphSubscribedSkuCollectionFetcher *)search:(NSString *)params;
+- (MSGraphSubscribedSkuCollectionFetcher *)top:(int)value;
+- (MSGraphSubscribedSkuCollectionFetcher *)skip:(int)value;
+- (MSGraphSubscribedSkuCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphSubscribedSkuCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphSubscribedSkuCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphSubscribedSkuCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphSubscribedSkuFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addSubscribedSku:(MSGraphSubscribedSku *)entity callback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSODataException *e))callback;
+- (void)add:(MSGraphSubscribedSku *)entity callback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphSubscribedSkuCollectionFetcher : MSODataCollectionFetcher<MSGraphSubscribedSkuCollectionFetcher>
+@interface MSGraphSubscribedSkuCollectionFetcher : MSOrcCollectionFetcher<MSGraphSubscribedSkuCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

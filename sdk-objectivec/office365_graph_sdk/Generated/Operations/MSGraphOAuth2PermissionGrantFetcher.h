@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphOAuth2PermissionGrantOperations;
+@class MSGraphOAuth2PermissionGrantFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphOAuth2PermissionGrantFetcher.
 */
 
-@protocol MSGraphOAuth2PermissionGrantFetcher<MSODataEntityFetcher>
+@protocol MSGraphOAuth2PermissionGrantFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *exception))callback;
-- (id<MSGraphOAuth2PermissionGrantFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphOAuth2PermissionGrantFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphOAuth2PermissionGrantFetcher>)select:(NSString *)params;
-- (id<MSGraphOAuth2PermissionGrantFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
+- (MSGraphOAuth2PermissionGrantFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphOAuth2PermissionGrantFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphOAuth2PermissionGrantFetcher *)select:(NSString *)params;
+- (MSGraphOAuth2PermissionGrantFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphOAuth2PermissionGrantOperations *operations;
 
-
 @end
 
-@interface MSGraphOAuth2PermissionGrantFetcher : MSODataEntityFetcher<MSGraphOAuth2PermissionGrantFetcher>
+@interface MSGraphOAuth2PermissionGrantFetcher : MSOrcEntityFetcher<MSGraphOAuth2PermissionGrantFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateOAuth2PermissionGrant:(MSGraphOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void (^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteOAuth2PermissionGrant:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void(^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

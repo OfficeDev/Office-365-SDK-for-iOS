@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSGraphDirectoryRoleCollectionOperations.h"
-#import "MSGraphODataEntities.h"
+#import "MSGraphOrcEntities.h"
 
 /**
 * The implementation file for type MSGraphDirectoryRoleCollectionOperations.

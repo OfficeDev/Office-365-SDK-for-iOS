@@ -15,40 +15,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphContactOperations;
+@class MSGraphContactFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphContactFetcher.
 */
 
-@protocol MSGraphContactFetcher<MSODataEntityFetcher>
+@protocol MSGraphContactFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphContact *contact, MSODataException *exception))callback;
-- (id<MSGraphContactFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphContactFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphContactFetcher>)select:(NSString *)params;
-- (id<MSGraphContactFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphContact *contact, MSOrcError *error))callback;
+- (MSGraphContactFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphContactFetcher *)select:(NSString *)params;
+- (MSGraphContactFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphContactOperations *operations;
 
-- (MSGraphDirectoryObjectFetcher *)getmanager;
-- (MSGraphDirectoryObjectCollectionFetcher *)getdirectReports;
-- (MSGraphDirectoryObjectFetcher *) getdirectReportsById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getmemberOf;
-- (MSGraphDirectoryObjectFetcher *) getmemberOfById:(NSString*)_id;
-
 @end
 
-@interface MSGraphContactFetcher : MSODataEntityFetcher<MSGraphContactFetcher>
+@interface MSGraphContactFetcher : MSOrcEntityFetcher<MSGraphContactFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateContact:(MSGraphContact *)contact callback:(void (^)(MSGraphContact *contact, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteContact:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphContact *)contact callback:(void(^)(MSGraphContact *contact, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=manager) MSGraphDirectoryObjectFetcher *manager;
+@property (retain, nonatomic, readonly, getter=directReports) MSGraphDirectoryObjectCollectionFetcher *directReports;
+
+- (MSGraphDirectoryObjectFetcher *)getDirectReportsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
+
+- (MSGraphDirectoryObjectFetcher *)getMemberOfById:(NSString*)id;
+
 
 @end

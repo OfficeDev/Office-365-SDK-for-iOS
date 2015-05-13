@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphFileAttachmentOperations;
+@class MSGraphFileAttachmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphFileAttachmentFetcher.
 */
 
-@protocol MSGraphFileAttachmentFetcher<MSODataEntityFetcher>
+@protocol MSGraphFileAttachmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphFileAttachment *fileAttachment, MSODataException *exception))callback;
-- (id<MSGraphFileAttachmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphFileAttachmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphFileAttachmentFetcher>)select:(NSString *)params;
-- (id<MSGraphFileAttachmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphFileAttachment *fileAttachment, MSOrcError *error))callback;
+- (MSGraphFileAttachmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphFileAttachmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphFileAttachmentFetcher *)select:(NSString *)params;
+- (MSGraphFileAttachmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphFileAttachmentOperations *operations;
 
-
 @end
 
-@interface MSGraphFileAttachmentFetcher : MSODataEntityFetcher<MSGraphFileAttachmentFetcher>
+@interface MSGraphFileAttachmentFetcher : MSOrcEntityFetcher<MSGraphFileAttachmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateFileAttachment:(MSGraphFileAttachment *)fileAttachment callback:(void (^)(MSGraphFileAttachment *fileAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteFileAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphFileAttachment *)fileAttachment callback:(void(^)(MSGraphFileAttachment *fileAttachment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

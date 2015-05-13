@@ -18,41 +18,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphFileFetcher;
 @class MSGraphFolderFetcher;
 @class MSGraphItemOperations;
+@class MSGraphItemFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphItemFetcher.
 */
 
-@protocol MSGraphItemFetcher<MSODataEntityFetcher>
+@protocol MSGraphItemFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphItem *item, MSODataException *exception))callback;
-- (id<MSGraphItemFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphItemFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphItemFetcher>)select:(NSString *)params;
-- (id<MSGraphItemFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphItem *item, MSOrcError *error))callback;
+- (MSGraphItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphItemFetcher *)select:(NSString *)params;
+- (MSGraphItemFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphItemOperations *operations;
 
-- (MSGraphUserFetcher *)getcreatedByUser;
-- (MSGraphUserFetcher *)getlastModifiedByUser;
-- (MSGraphItemCollectionFetcher *)getchildren;
-- (MSGraphItemFetcher *) getchildrenById:(NSString*)_id;
-- (MSGraphFileFetcher *)asFile;	
-- (MSGraphFolderFetcher *)asFolder;	
-
 @end
 
-@interface MSGraphItemFetcher : MSODataEntityFetcher<MSGraphItemFetcher>
+@interface MSGraphItemFetcher : MSOrcEntityFetcher<MSGraphItemFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateItem:(MSGraphItem *)item callback:(void (^)(MSGraphItem *item, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteItem:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphItem *)item callback:(void(^)(MSGraphItem *item, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=createdByUser) MSGraphUserFetcher *createdByUser;
+
+@property (retain, nonatomic, readonly, getter=lastModifiedByUser) MSGraphUserFetcher *lastModifiedByUser;
+@property (retain, nonatomic, readonly, getter=children) MSGraphItemCollectionFetcher *children;
+
+- (MSGraphItemFetcher *)getChildrenById:(NSString*)id;
+
+- (MSGraphFileFetcher *)asFile;	
+- (MSGraphFolderFetcher *)asFolder;	
 
 @end

@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDeviceConfigurationOperations;
+@class MSGraphDeviceConfigurationFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDeviceConfigurationFetcher.
 */
 
-@protocol MSGraphDeviceConfigurationFetcher<MSODataEntityFetcher>
+@protocol MSGraphDeviceConfigurationFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDeviceConfiguration *deviceConfiguration, MSODataException *exception))callback;
-- (id<MSGraphDeviceConfigurationFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDeviceConfigurationFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDeviceConfigurationFetcher>)select:(NSString *)params;
-- (id<MSGraphDeviceConfigurationFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDeviceConfiguration *deviceConfiguration, MSOrcError *error))callback;
+- (MSGraphDeviceConfigurationFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDeviceConfigurationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDeviceConfigurationFetcher *)select:(NSString *)params;
+- (MSGraphDeviceConfigurationFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDeviceConfigurationOperations *operations;
 
-
 @end
 
-@interface MSGraphDeviceConfigurationFetcher : MSODataEntityFetcher<MSGraphDeviceConfigurationFetcher>
+@interface MSGraphDeviceConfigurationFetcher : MSOrcEntityFetcher<MSGraphDeviceConfigurationFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDeviceConfiguration:(MSGraphDeviceConfiguration *)deviceConfiguration callback:(void (^)(MSGraphDeviceConfiguration *deviceConfiguration, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDeviceConfiguration:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDeviceConfiguration *)deviceConfiguration callback:(void(^)(MSGraphDeviceConfiguration *deviceConfiguration, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

@@ -17,40 +17,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphApplicationOperations;
+@class MSGraphApplicationFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphApplicationFetcher.
 */
 
-@protocol MSGraphApplicationFetcher<MSODataEntityFetcher>
+@protocol MSGraphApplicationFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphApplication *application, MSODataException *exception))callback;
-- (id<MSGraphApplicationFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphApplicationFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphApplicationFetcher>)select:(NSString *)params;
-- (id<MSGraphApplicationFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphApplication *application, MSOrcError *error))callback;
+- (MSGraphApplicationFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphApplicationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphApplicationFetcher *)select:(NSString *)params;
+- (MSGraphApplicationFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphApplicationOperations *operations;
 
-- (MSGraphExtensionPropertyCollectionFetcher *)getextensionProperties;
-- (MSGraphExtensionPropertyFetcher *) getextensionPropertiesById:(NSString*)_id;
-- (MSGraphDirectoryObjectFetcher *)getcreatedOnBehalfOf;
-- (MSGraphDirectoryObjectCollectionFetcher *)getowners;
-- (MSGraphDirectoryObjectFetcher *) getownersById:(NSString*)_id;
-
 @end
 
-@interface MSGraphApplicationFetcher : MSODataEntityFetcher<MSGraphApplicationFetcher>
+@interface MSGraphApplicationFetcher : MSOrcEntityFetcher<MSGraphApplicationFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateApplication:(MSGraphApplication *)application callback:(void (^)(MSGraphApplication *application, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteApplication:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphApplication *)application callback:(void(^)(MSGraphApplication *application, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=extensionProperties) MSGraphExtensionPropertyCollectionFetcher *extensionProperties;
+
+- (MSGraphExtensionPropertyFetcher *)getExtensionPropertiesById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=createdOnBehalfOf) MSGraphDirectoryObjectFetcher *createdOnBehalfOf;
+@property (retain, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnersById:(NSString*)id;
+
 
 @end

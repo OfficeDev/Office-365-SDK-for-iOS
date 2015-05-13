@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphCalendarFetcher;
+@class MSGraphCalendarCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphCalendarCollectionFetcher.
 */
 
-@protocol MSGraphCalendarCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphCalendarCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphCalendar> *calendars, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphCalendar> *calendars, MSOrcError *error))callback;
 
-- (id<MSGraphCalendarCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphCalendarCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphCalendarCollectionFetcher>)top:(int)value;
-- (id<MSGraphCalendarCollectionFetcher>)skip:(int)value;
-- (id<MSGraphCalendarCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphCalendarCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphCalendarCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphCalendarCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphCalendarCollectionFetcher *)select:(NSString *)params;
+- (MSGraphCalendarCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphCalendarCollectionFetcher *)search:(NSString *)params;
+- (MSGraphCalendarCollectionFetcher *)top:(int)value;
+- (MSGraphCalendarCollectionFetcher *)skip:(int)value;
+- (MSGraphCalendarCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphCalendarCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphCalendarCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphCalendarCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphCalendarFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addCalendar:(MSGraphCalendar *)entity callback:(void (^)(MSGraphCalendar *calendar, MSODataException *e))callback;
+- (void)add:(MSGraphCalendar *)entity callback:(void (^)(MSGraphCalendar *calendar, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphCalendarCollectionFetcher : MSODataCollectionFetcher<MSGraphCalendarCollectionFetcher>
+@interface MSGraphCalendarCollectionFetcher : MSOrcCollectionFetcher<MSGraphCalendarCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

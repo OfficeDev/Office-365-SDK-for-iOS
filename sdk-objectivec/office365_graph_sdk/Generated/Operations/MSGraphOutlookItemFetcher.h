@@ -15,37 +15,38 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphMessageFetcher;
 @class MSGraphEventFetcher;
 @class MSGraphOutlookItemOperations;
+@class MSGraphOutlookItemFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphOutlookItemFetcher.
 */
 
-@protocol MSGraphOutlookItemFetcher<MSODataEntityFetcher>
+@protocol MSGraphOutlookItemFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphOutlookItem *outlookItem, MSODataException *exception))callback;
-- (id<MSGraphOutlookItemFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphOutlookItemFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphOutlookItemFetcher>)select:(NSString *)params;
-- (id<MSGraphOutlookItemFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphOutlookItem *outlookItem, MSOrcError *error))callback;
+- (MSGraphOutlookItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphOutlookItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphOutlookItemFetcher *)select:(NSString *)params;
+- (MSGraphOutlookItemFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphOutlookItemOperations *operations;
 
-- (MSGraphMessageFetcher *)asMessage;	
-- (MSGraphEventFetcher *)asEvent;	
-
 @end
 
-@interface MSGraphOutlookItemFetcher : MSODataEntityFetcher<MSGraphOutlookItemFetcher>
+@interface MSGraphOutlookItemFetcher : MSOrcEntityFetcher<MSGraphOutlookItemFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateOutlookItem:(MSGraphOutlookItem *)outlookItem callback:(void (^)(MSGraphOutlookItem *outlookItem, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteOutlookItem:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphOutlookItem *)outlookItem callback:(void(^)(MSGraphOutlookItem *outlookItem, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+- (MSGraphMessageFetcher *)asMessage;	
+- (MSGraphEventFetcher *)asEvent;	
 
 @end

@@ -32,69 +32,104 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphItemFetcher;
 @class MSGraphItemCollectionFetcher;
 @class MSGraphUserOperations;
+@class MSGraphUserFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphUserFetcher.
 */
 
-@protocol MSGraphUserFetcher<MSODataEntityFetcher>
+@protocol MSGraphUserFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphUser *user, MSODataException *exception))callback;
-- (id<MSGraphUserFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphUserFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphUserFetcher>)select:(NSString *)params;
-- (id<MSGraphUserFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphUser *user, MSOrcError *error))callback;
+- (MSGraphUserFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphUserFetcher *)select:(NSString *)params;
+- (MSGraphUserFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphUserOperations *operations;
 
-- (MSGraphAppRoleAssignmentCollectionFetcher *)getappRoleAssignments;
-- (MSGraphAppRoleAssignmentFetcher *) getappRoleAssignmentsById:(NSString*)_id;
-- (MSGraphOAuth2PermissionGrantCollectionFetcher *)getoauth2PermissionGrants;
-- (MSGraphOAuth2PermissionGrantFetcher *) getoauth2PermissionGrantsById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getownedDevices;
-- (MSGraphDirectoryObjectFetcher *) getownedDevicesById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getregisteredDevices;
-- (MSGraphDirectoryObjectFetcher *) getregisteredDevicesById:(NSString*)_id;
-- (MSGraphDirectoryObjectFetcher *)getmanager;
-- (MSGraphDirectoryObjectCollectionFetcher *)getdirectReports;
-- (MSGraphDirectoryObjectFetcher *) getdirectReportsById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getmemberOf;
-- (MSGraphDirectoryObjectFetcher *) getmemberOfById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getcreatedObjects;
-- (MSGraphDirectoryObjectFetcher *) getcreatedObjectsById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getownedObjects;
-- (MSGraphDirectoryObjectFetcher *) getownedObjectsById:(NSString*)_id;
-- (MSGraphMessageCollectionFetcher *)getMessages;
-- (MSGraphMessageFetcher *) getMessagesById:(NSString*)_id;
-- (MSGraphCalendarCollectionFetcher *)getCalendars;
-- (MSGraphCalendarFetcher *) getCalendarsById:(NSString*)_id;
-- (MSGraphCalendarFetcher *)getCalendar;
-- (MSGraphCalendarGroupCollectionFetcher *)getCalendarGroups;
-- (MSGraphCalendarGroupFetcher *) getCalendarGroupsById:(NSString*)_id;
-- (MSGraphEventCollectionFetcher *)getEvents;
-- (MSGraphEventFetcher *) getEventsById:(NSString*)_id;
-- (MSGraphEventCollectionFetcher *)getCalendarView;
-- (MSGraphEventFetcher *) getCalendarViewById:(NSString*)_id;
-- (MSGraphPhotoFetcher *)getUserPhoto;
-- (MSGraphPhotoCollectionFetcher *)getUserPhotos;
-- (MSGraphPhotoFetcher *) getUserPhotosById:(NSString*)_id;
-- (MSGraphDriveFetcher *)getdrive;
-- (MSGraphItemCollectionFetcher *)getfiles;
-- (MSGraphItemFetcher *) getfilesById:(NSString*)_id;
-
 @end
 
-@interface MSGraphUserFetcher : MSODataEntityFetcher<MSGraphUserFetcher>
+@interface MSGraphUserFetcher : MSOrcEntityFetcher<MSGraphUserFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateUser:(MSGraphUser *)user callback:(void (^)(MSGraphUser *user, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteUser:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphUser *)user callback:(void(^)(MSGraphUser *user, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
+
+- (MSGraphAppRoleAssignmentFetcher *)getAppRoleAssignmentsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+
+- (MSGraphOAuth2PermissionGrantFetcher *)getOauth2PermissionGrantsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=ownedDevices) MSGraphDirectoryObjectCollectionFetcher *ownedDevices;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnedDevicesById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=registeredDevices) MSGraphDirectoryObjectCollectionFetcher *registeredDevices;
+
+- (MSGraphDirectoryObjectFetcher *)getRegisteredDevicesById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=manager) MSGraphDirectoryObjectFetcher *manager;
+@property (retain, nonatomic, readonly, getter=directReports) MSGraphDirectoryObjectCollectionFetcher *directReports;
+
+- (MSGraphDirectoryObjectFetcher *)getDirectReportsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
+
+- (MSGraphDirectoryObjectFetcher *)getMemberOfById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=createdObjects) MSGraphDirectoryObjectCollectionFetcher *createdObjects;
+
+- (MSGraphDirectoryObjectFetcher *)getCreatedObjectsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=ownedObjects) MSGraphDirectoryObjectCollectionFetcher *ownedObjects;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnedObjectsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=messages) MSGraphMessageCollectionFetcher *messages;
+
+- (MSGraphMessageFetcher *)getMessagesById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=calendars) MSGraphCalendarCollectionFetcher *calendars;
+
+- (MSGraphCalendarFetcher *)getCalendarsById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=calendar) MSGraphCalendarFetcher *calendar;
+@property (retain, nonatomic, readonly, getter=calendarGroups) MSGraphCalendarGroupCollectionFetcher *calendarGroups;
+
+- (MSGraphCalendarGroupFetcher *)getCalendarGroupsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=events) MSGraphEventCollectionFetcher *events;
+
+- (MSGraphEventFetcher *)getEventsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=calendarView) MSGraphEventCollectionFetcher *calendarView;
+
+- (MSGraphEventFetcher *)getCalendarViewById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=userPhoto) MSGraphPhotoFetcher *userPhoto;
+@property (retain, nonatomic, readonly, getter=userPhotos) MSGraphPhotoCollectionFetcher *userPhotos;
+
+- (MSGraphPhotoFetcher *)getUserPhotosById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
+@property (retain, nonatomic, readonly, getter=files) MSGraphItemCollectionFetcher *files;
+
+- (MSGraphItemFetcher *)getFilesById:(NSString*)id;
+
 
 @end

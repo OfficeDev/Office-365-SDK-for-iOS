@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDriveOperations;
+@class MSGraphDriveFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDriveFetcher.
 */
 
-@protocol MSGraphDriveFetcher<MSODataEntityFetcher>
+@protocol MSGraphDriveFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDrive *drive, MSODataException *exception))callback;
-- (id<MSGraphDriveFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDriveFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDriveFetcher>)select:(NSString *)params;
-- (id<MSGraphDriveFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDrive *drive, MSOrcError *error))callback;
+- (MSGraphDriveFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDriveFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDriveFetcher *)select:(NSString *)params;
+- (MSGraphDriveFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDriveOperations *operations;
 
-
 @end
 
-@interface MSGraphDriveFetcher : MSODataEntityFetcher<MSGraphDriveFetcher>
+@interface MSGraphDriveFetcher : MSOrcEntityFetcher<MSGraphDriveFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDrive:(MSGraphDrive *)drive callback:(void (^)(MSGraphDrive *drive, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDrive:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDrive *)drive callback:(void(^)(MSGraphDrive *drive, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

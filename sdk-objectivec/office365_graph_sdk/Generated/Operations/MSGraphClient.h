@@ -26,28 +26,28 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphOAuth2PermissionGrantCollectionFetcher;
 @class MSGraphSubscribedSkuCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphClient.
 */
 
-@interface MSGraphClient : MSODataBaseContainer
+@interface MSGraphClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSGraphDirectoryObjectCollectionFetcher*) getdirectoryObjects;
--(MSGraphApplicationCollectionFetcher*) getapplications;
--(MSGraphContactCollectionFetcher*) getcontacts;
--(MSGraphDeviceConfigurationCollectionFetcher*) getdeviceConfiguration;
--(MSGraphDeviceCollectionFetcher*) getdevices;
--(MSGraphGroupCollectionFetcher*) getgroups;
--(MSGraphDirectoryRoleCollectionFetcher*) getdirectoryRoles;
--(MSGraphDirectoryRoleTemplateCollectionFetcher*) getdirectoryRoleTemplates;
--(MSGraphServicePrincipalCollectionFetcher*) getservicePrincipals;
--(MSGraphTenantDetailCollectionFetcher*) gettenantDetails;
--(MSGraphUserCollectionFetcher*) getusers;
--(MSGraphOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
--(MSGraphSubscribedSkuCollectionFetcher*) getsubscribedSkus;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=directoryObjects) MSGraphDirectoryObjectCollectionFetcher *directoryObjects;
+@property (retain, nonatomic, readonly, getter=applications) MSGraphApplicationCollectionFetcher *applications;
+@property (retain, nonatomic, readonly, getter=contacts) MSGraphContactCollectionFetcher *contacts;
+@property (retain, nonatomic, readonly, getter=deviceConfiguration) MSGraphDeviceConfigurationCollectionFetcher *deviceConfiguration;
+@property (retain, nonatomic, readonly, getter=devices) MSGraphDeviceCollectionFetcher *devices;
+@property (retain, nonatomic, readonly, getter=groups) MSGraphGroupCollectionFetcher *groups;
+@property (retain, nonatomic, readonly, getter=directoryRoles) MSGraphDirectoryRoleCollectionFetcher *directoryRoles;
+@property (retain, nonatomic, readonly, getter=directoryRoleTemplates) MSGraphDirectoryRoleTemplateCollectionFetcher *directoryRoleTemplates;
+@property (retain, nonatomic, readonly, getter=servicePrincipals) MSGraphServicePrincipalCollectionFetcher *servicePrincipals;
+@property (retain, nonatomic, readonly, getter=tenantDetails) MSGraphTenantDetailCollectionFetcher *tenantDetails;
+@property (retain, nonatomic, readonly, getter=users) MSGraphUserCollectionFetcher *users;
+@property (retain, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+@property (retain, nonatomic, readonly, getter=subscribedSkus) MSGraphSubscribedSkuCollectionFetcher *subscribedSkus;
 
 @end

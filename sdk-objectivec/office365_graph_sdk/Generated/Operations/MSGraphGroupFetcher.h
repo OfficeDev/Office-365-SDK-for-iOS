@@ -17,44 +17,54 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphGroupOperations;
+@class MSGraphGroupFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphGroupFetcher.
 */
 
-@protocol MSGraphGroupFetcher<MSODataEntityFetcher>
+@protocol MSGraphGroupFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphGroup *group, MSODataException *exception))callback;
-- (id<MSGraphGroupFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphGroupFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphGroupFetcher>)select:(NSString *)params;
-- (id<MSGraphGroupFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphGroup *group, MSOrcError *error))callback;
+- (MSGraphGroupFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphGroupFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphGroupFetcher *)select:(NSString *)params;
+- (MSGraphGroupFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphGroupOperations *operations;
 
-- (MSGraphAppRoleAssignmentCollectionFetcher *)getappRoleAssignments;
-- (MSGraphAppRoleAssignmentFetcher *) getappRoleAssignmentsById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getmembers;
-- (MSGraphDirectoryObjectFetcher *) getmembersById:(NSString*)_id;
-- (MSGraphDirectoryObjectCollectionFetcher *)getmemberOf;
-- (MSGraphDirectoryObjectFetcher *) getmemberOfById:(NSString*)_id;
-- (MSGraphDirectoryObjectFetcher *)getcreatedOnBehalfOf;
-- (MSGraphDirectoryObjectCollectionFetcher *)getowners;
-- (MSGraphDirectoryObjectFetcher *) getownersById:(NSString*)_id;
-
 @end
 
-@interface MSGraphGroupFetcher : MSODataEntityFetcher<MSGraphGroupFetcher>
+@interface MSGraphGroupFetcher : MSOrcEntityFetcher<MSGraphGroupFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateGroup:(MSGraphGroup *)group callback:(void (^)(MSGraphGroup *group, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteGroup:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphGroup *)group callback:(void(^)(MSGraphGroup *group, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
+
+- (MSGraphAppRoleAssignmentFetcher *)getAppRoleAssignmentsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
+
+- (MSGraphDirectoryObjectFetcher *)getMembersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
+
+- (MSGraphDirectoryObjectFetcher *)getMemberOfById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=createdOnBehalfOf) MSGraphDirectoryObjectFetcher *createdOnBehalfOf;
+@property (retain, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
+
+- (MSGraphDirectoryObjectFetcher *)getOwnersById:(NSString*)id;
+
 
 @end

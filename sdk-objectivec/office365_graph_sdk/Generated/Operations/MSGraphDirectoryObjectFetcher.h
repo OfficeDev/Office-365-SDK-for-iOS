@@ -26,27 +26,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphServicePrincipalFetcher;
 @class MSGraphTenantDetailFetcher;
 @class MSGraphDirectoryObjectOperations;
+@class MSGraphDirectoryObjectFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryObjectFetcher.
 */
 
-@protocol MSGraphDirectoryObjectFetcher<MSODataEntityFetcher>
+@protocol MSGraphDirectoryObjectFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDirectoryObject *directoryObject, MSODataException *exception))callback;
-- (id<MSGraphDirectoryObjectFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryObjectFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDirectoryObjectFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryObjectFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDirectoryObject *directoryObject, MSOrcError *error))callback;
+- (MSGraphDirectoryObjectFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryObjectFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryObjectFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryObjectFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDirectoryObjectOperations *operations;
+
+@end
+
+@interface MSGraphDirectoryObjectFetcher : MSOrcEntityFetcher<MSGraphDirectoryObjectFetcherProtocol>
+
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDirectoryObject *)directoryObject callback:(void(^)(MSGraphDirectoryObject *directoryObject, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
 
 - (MSGraphApplicationFetcher *)asApplication;	
 - (MSGraphExtensionPropertyFetcher *)asExtensionProperty;	
@@ -61,13 +70,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 - (MSGraphGroupFetcher *)asGroup;	
 - (MSGraphServicePrincipalFetcher *)asServicePrincipal;	
 - (MSGraphTenantDetailFetcher *)asTenantDetail;	
-
-@end
-
-@interface MSGraphDirectoryObjectFetcher : MSODataEntityFetcher<MSGraphDirectoryObjectFetcher>
-
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryObject:(MSGraphDirectoryObject *)directoryObject callback:(void (^)(MSGraphDirectoryObject *directoryObject, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryObject:(void (^)(int status, MSODataException *exception))callback;
 
 @end

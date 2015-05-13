@@ -14,36 +14,38 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @class MSGraphOutlookItemFetcher;
 @class MSGraphItemAttachmentOperations;
+@class MSGraphItemAttachmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphItemAttachmentFetcher.
 */
 
-@protocol MSGraphItemAttachmentFetcher<MSODataEntityFetcher>
+@protocol MSGraphItemAttachmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphItemAttachment *itemAttachment, MSODataException *exception))callback;
-- (id<MSGraphItemAttachmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphItemAttachmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphItemAttachmentFetcher>)select:(NSString *)params;
-- (id<MSGraphItemAttachmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphItemAttachment *itemAttachment, MSOrcError *error))callback;
+- (MSGraphItemAttachmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphItemAttachmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphItemAttachmentFetcher *)select:(NSString *)params;
+- (MSGraphItemAttachmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphItemAttachmentOperations *operations;
 
-- (MSGraphOutlookItemFetcher *)getItem;
-
 @end
 
-@interface MSGraphItemAttachmentFetcher : MSODataEntityFetcher<MSGraphItemAttachmentFetcher>
+@interface MSGraphItemAttachmentFetcher : MSOrcEntityFetcher<MSGraphItemAttachmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateItemAttachment:(MSGraphItemAttachment *)itemAttachment callback:(void (^)(MSGraphItemAttachment *itemAttachment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteItemAttachment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphItemAttachment *)itemAttachment callback:(void(^)(MSGraphItemAttachment *itemAttachment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=item) MSGraphOutlookItemFetcher *item;
 
 @end

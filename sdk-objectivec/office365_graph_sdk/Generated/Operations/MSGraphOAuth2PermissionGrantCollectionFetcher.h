@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphOAuth2PermissionGrantFetcher;
+@class MSGraphOAuth2PermissionGrantCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphOAuth2PermissionGrantCollectionFetcher.
 */
 
-@protocol MSGraphOAuth2PermissionGrantCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphOAuth2PermissionGrantCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphOAuth2PermissionGrant> *oAuth2PermissionGrants, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphOAuth2PermissionGrant> *oAuth2PermissionGrants, MSOrcError *error))callback;
 
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)top:(int)value;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)skip:(int)value;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphOAuth2PermissionGrantCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)select:(NSString *)params;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)search:(NSString *)params;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)top:(int)value;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)skip:(int)value;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphOAuth2PermissionGrantCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphOAuth2PermissionGrantFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addOAuth2PermissionGrant:(MSGraphOAuth2PermissionGrant *)entity callback:(void (^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *e))callback;
+- (void)add:(MSGraphOAuth2PermissionGrant *)entity callback:(void (^)(MSGraphOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphOAuth2PermissionGrantCollectionFetcher : MSODataCollectionFetcher<MSGraphOAuth2PermissionGrantCollectionFetcher>
+@interface MSGraphOAuth2PermissionGrantCollectionFetcher : MSOrcCollectionFetcher<MSGraphOAuth2PermissionGrantCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

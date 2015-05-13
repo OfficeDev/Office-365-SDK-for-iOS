@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphContactFetcher;
+@class MSGraphContactCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphContactCollectionFetcher.
 */
 
-@protocol MSGraphContactCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphContactCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphContact> *contacts, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphContact> *contacts, MSOrcError *error))callback;
 
-- (id<MSGraphContactCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphContactCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphContactCollectionFetcher>)top:(int)value;
-- (id<MSGraphContactCollectionFetcher>)skip:(int)value;
-- (id<MSGraphContactCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphContactCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphContactCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphContactCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphContactCollectionFetcher *)select:(NSString *)params;
+- (MSGraphContactCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphContactCollectionFetcher *)search:(NSString *)params;
+- (MSGraphContactCollectionFetcher *)top:(int)value;
+- (MSGraphContactCollectionFetcher *)skip:(int)value;
+- (MSGraphContactCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphContactCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphContactCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphContactCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphContactFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addContact:(MSGraphContact *)entity callback:(void (^)(MSGraphContact *contact, MSODataException *e))callback;
+- (void)add:(MSGraphContact *)entity callback:(void (^)(MSGraphContact *contact, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphContactCollectionFetcher : MSODataCollectionFetcher<MSGraphContactCollectionFetcher>
+@interface MSGraphContactCollectionFetcher : MSOrcCollectionFetcher<MSGraphContactCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

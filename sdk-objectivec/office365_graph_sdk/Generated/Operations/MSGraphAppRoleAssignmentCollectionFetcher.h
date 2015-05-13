@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphAppRoleAssignmentFetcher;
+@class MSGraphAppRoleAssignmentCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphAppRoleAssignmentCollectionFetcher.
 */
 
-@protocol MSGraphAppRoleAssignmentCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphAppRoleAssignmentCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphAppRoleAssignment> *appRoleAssignments, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphAppRoleAssignment> *appRoleAssignments, MSOrcError *error))callback;
 
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)top:(int)value;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)skip:(int)value;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphAppRoleAssignmentCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)select:(NSString *)params;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)search:(NSString *)params;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)top:(int)value;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)skip:(int)value;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphAppRoleAssignmentCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphAppRoleAssignmentFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addAppRoleAssignment:(MSGraphAppRoleAssignment *)entity callback:(void (^)(MSGraphAppRoleAssignment *appRoleAssignment, MSODataException *e))callback;
+- (void)add:(MSGraphAppRoleAssignment *)entity callback:(void (^)(MSGraphAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphAppRoleAssignmentCollectionFetcher : MSODataCollectionFetcher<MSGraphAppRoleAssignmentCollectionFetcher>
+@interface MSGraphAppRoleAssignmentCollectionFetcher : MSOrcCollectionFetcher<MSGraphAppRoleAssignmentCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC3CE2541AE98F1B00901263 /* office365_graph_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3CE2531AE98F1B00901263 /* office365_graph_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC44EF281B03EA2C0085186B /* MSGraphOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC44EF271B03EA2C0085186B /* MSGraphOrcEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F53D1AF1539C0099BB4C /* MSGraphAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F3BC1AF1539B0099BB4C /* MSGraphAlternativeSecurityId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F53E1AF1539C0099BB4C /* MSGraphAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F3BD1AF1539B0099BB4C /* MSGraphAlternativeSecurityId.m */; };
 		EC55F53F1AF1539C0099BB4C /* MSGraphApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F3BE1AF1539B0099BB4C /* MSGraphApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -335,7 +336,6 @@
 		EC55F6811AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F5011AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantFetcher.m */; };
 		EC55F6821AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F5021AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F6831AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F5031AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.m */; };
-		EC55F6841AF1539C0099BB4C /* MSGraphODataEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F5041AF1539C0099BB4C /* MSGraphODataEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F6851AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F5051AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F6861AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F5061AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.m */; };
 		EC55F6871AF1539C0099BB4C /* MSGraphOutlookItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F5071AF1539C0099BB4C /* MSGraphOutlookItemCollectionOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -394,28 +394,11 @@
 		EC55F6BC1AF1539C0099BB4C /* MSGraphUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F53C1AF1539C0099BB4C /* MSGraphUserOperations.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		261068111AEDF3ED00FBABEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 2647EA5C19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-		EC3CE5711AE98F6300901263 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2647EA5D19F4443800FD9527;
-			remoteInfo = office365_odata_base;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		EC3CE24E1AE98F1B00901263 /* office365_graph_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_graph_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3CE2521AE98F1B00901263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3CE2531AE98F1B00901263 /* office365_graph_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_graph_sdk.h; sourceTree = "<group>"; };
-		EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_odata_base.xcodeproj; path = ../office365_odata_base/office365_odata_base.xcodeproj; sourceTree = "<group>"; };
+		EC44EF271B03EA2C0085186B /* MSGraphOrcEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphOrcEntities.h; sourceTree = "<group>"; };
 		EC55F3BC1AF1539B0099BB4C /* MSGraphAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC55F3BD1AF1539B0099BB4C /* MSGraphAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC55F3BE1AF1539B0099BB4C /* MSGraphApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphApplication.h; sourceTree = "<group>"; };
@@ -743,7 +726,6 @@
 		EC55F5011AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphOAuth2PermissionGrantFetcher.m; sourceTree = "<group>"; };
 		EC55F5021AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphOAuth2PermissionGrantOperations.h; sourceTree = "<group>"; };
 		EC55F5031AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphOAuth2PermissionGrantOperations.m; sourceTree = "<group>"; };
-		EC55F5041AF1539C0099BB4C /* MSGraphODataEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphODataEntities.h; sourceTree = "<group>"; };
 		EC55F5051AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphOutlookItemCollectionFetcher.h; sourceTree = "<group>"; };
 		EC55F5061AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphOutlookItemCollectionFetcher.m; sourceTree = "<group>"; };
 		EC55F5071AF1539C0099BB4C /* MSGraphOutlookItemCollectionOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphOutlookItemCollectionOperations.h; sourceTree = "<group>"; };
@@ -817,7 +799,6 @@
 			isa = PBXGroup;
 			children = (
 				EC55F3BA1AF1539B0099BB4C /* Generated */,
-				EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */,
 				EC3CE2501AE98F1B00901263 /* office365_graph_sdk */,
 				EC3CE24F1AE98F1B00901263 /* Products */,
 			);
@@ -846,14 +827,6 @@
 				EC3CE2521AE98F1B00901263 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EC3CE56E1AE98F6200901263 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EC3CE5721AE98F6300901263 /* office365_odata_base.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		EC55F3BA1AF1539B0099BB4C /* Generated */ = {
@@ -1008,6 +981,7 @@
 		EC55F4411AF1539C0099BB4C /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				EC44EF271B03EA2C0085186B /* MSGraphOrcEntities.h */,
 				EC55F4421AF1539C0099BB4C /* MSGraphApplicationCollectionFetcher.h */,
 				EC55F4431AF1539C0099BB4C /* MSGraphApplicationCollectionFetcher.m */,
 				EC55F4441AF1539C0099BB4C /* MSGraphApplicationCollectionOperations.h */,
@@ -1202,7 +1176,6 @@
 				EC55F5011AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantFetcher.m */,
 				EC55F5021AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.h */,
 				EC55F5031AF1539C0099BB4C /* MSGraphOAuth2PermissionGrantOperations.m */,
-				EC55F5041AF1539C0099BB4C /* MSGraphODataEntities.h */,
 				EC55F5051AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.h */,
 				EC55F5061AF1539C0099BB4C /* MSGraphOutlookItemCollectionFetcher.m */,
 				EC55F5071AF1539C0099BB4C /* MSGraphOutlookItemCollectionOperations.h */,
@@ -1272,7 +1245,6 @@
 			files = (
 				EC55F6A91AF1539C0099BB4C /* MSGraphSubscribedSkuFetcher.h in Headers */,
 				EC55F6B91AF1539C0099BB4C /* MSGraphUserFetcher.h in Headers */,
-				EC55F6841AF1539C0099BB4C /* MSGraphODataEntities.h in Headers */,
 				EC55F6AF1AF1539C0099BB4C /* MSGraphTenantDetailCollectionOperations.h in Headers */,
 				EC55F5F01AF1539C0099BB4C /* MSGraphContactFetcher.h in Headers */,
 				EC55F6201AF1539C0099BB4C /* MSGraphDirectoryRoleTemplateFetcher.h in Headers */,
@@ -1469,6 +1441,7 @@
 				EC55F5E81AF1539C0099BB4C /* MSGraphCalendarOperations.h in Headers */,
 				EC55F61C1AF1539C0099BB4C /* MSGraphDirectoryRoleTemplateCollectionFetcher.h in Headers */,
 				EC55F6A31AF1539C0099BB4C /* MSGraphServicePrincipalOperations.h in Headers */,
+				EC44EF281B03EA2C0085186B /* MSGraphOrcEntities.h in Headers */,
 				EC55F6891AF1539C0099BB4C /* MSGraphOutlookItemFetcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1488,7 +1461,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				261068121AEDF3ED00FBABEB /* PBXTargetDependency */,
 			);
 			name = office365_graph_sdk;
 			productName = office365_graph_sdk;
@@ -1519,28 +1491,12 @@
 			mainGroup = EC3CE2441AE98F1B00901263;
 			productRefGroup = EC3CE24F1AE98F1B00901263 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = EC3CE56E1AE98F6200901263 /* Products */;
-					ProjectRef = EC3CE56D1AE98F6200901263 /* office365_odata_base.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				EC3CE24D1AE98F1B00901263 /* office365_graph_sdk */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		EC3CE5721AE98F6300901263 /* office365_odata_base.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = office365_odata_base.framework;
-			remoteRef = EC3CE5711AE98F6300901263 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EC3CE24C1AE98F1B00901263 /* Resources */ = {
@@ -1746,14 +1702,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		261068121AEDF3ED00FBABEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = office365_odata_base;
-			targetProxy = 261068111AEDF3ED00FBABEB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EC3CE2621AE98F1B00901263 /* Debug */ = {

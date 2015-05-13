@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphSubscribedSkuOperations;
+@class MSGraphSubscribedSkuFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphSubscribedSkuFetcher.
 */
 
-@protocol MSGraphSubscribedSkuFetcher<MSODataEntityFetcher>
+@protocol MSGraphSubscribedSkuFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSODataException *exception))callback;
-- (id<MSGraphSubscribedSkuFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphSubscribedSkuFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphSubscribedSkuFetcher>)select:(NSString *)params;
-- (id<MSGraphSubscribedSkuFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSOrcError *error))callback;
+- (MSGraphSubscribedSkuFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphSubscribedSkuFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphSubscribedSkuFetcher *)select:(NSString *)params;
+- (MSGraphSubscribedSkuFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphSubscribedSkuOperations *operations;
 
-
 @end
 
-@interface MSGraphSubscribedSkuFetcher : MSODataEntityFetcher<MSGraphSubscribedSkuFetcher>
+@interface MSGraphSubscribedSkuFetcher : MSOrcEntityFetcher<MSGraphSubscribedSkuFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateSubscribedSku:(MSGraphSubscribedSku *)subscribedSku callback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteSubscribedSku:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphSubscribedSku *)subscribedSku callback:(void(^)(MSGraphSubscribedSku *subscribedSku, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphItemAttachmentFetcher;
+@class MSGraphItemAttachmentCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphItemAttachmentCollectionFetcher.
 */
 
-@protocol MSGraphItemAttachmentCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphItemAttachmentCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphItemAttachment> *itemAttachments, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphItemAttachment> *itemAttachments, MSOrcError *error))callback;
 
-- (id<MSGraphItemAttachmentCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphItemAttachmentCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphItemAttachmentCollectionFetcher>)top:(int)value;
-- (id<MSGraphItemAttachmentCollectionFetcher>)skip:(int)value;
-- (id<MSGraphItemAttachmentCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphItemAttachmentCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphItemAttachmentCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphItemAttachmentCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphItemAttachmentCollectionFetcher *)select:(NSString *)params;
+- (MSGraphItemAttachmentCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphItemAttachmentCollectionFetcher *)search:(NSString *)params;
+- (MSGraphItemAttachmentCollectionFetcher *)top:(int)value;
+- (MSGraphItemAttachmentCollectionFetcher *)skip:(int)value;
+- (MSGraphItemAttachmentCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphItemAttachmentCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphItemAttachmentCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphItemAttachmentCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphItemAttachmentFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addItemAttachment:(MSGraphItemAttachment *)entity callback:(void (^)(MSGraphItemAttachment *itemAttachment, MSODataException *e))callback;
+- (void)add:(MSGraphItemAttachment *)entity callback:(void (^)(MSGraphItemAttachment *itemAttachment, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphItemAttachmentCollectionFetcher : MSODataCollectionFetcher<MSGraphItemAttachmentCollectionFetcher>
+@interface MSGraphItemAttachmentCollectionFetcher : MSOrcCollectionFetcher<MSGraphItemAttachmentCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

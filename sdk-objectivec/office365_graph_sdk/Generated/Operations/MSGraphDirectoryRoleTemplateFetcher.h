@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphDirectoryRoleTemplateOperations;
+@class MSGraphDirectoryRoleTemplateFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphDirectoryRoleTemplateFetcher.
 */
 
-@protocol MSGraphDirectoryRoleTemplateFetcher<MSODataEntityFetcher>
+@protocol MSGraphDirectoryRoleTemplateFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *exception))callback;
-- (id<MSGraphDirectoryRoleTemplateFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphDirectoryRoleTemplateFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphDirectoryRoleTemplateFetcher>)select:(NSString *)params;
-- (id<MSGraphDirectoryRoleTemplateFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
+- (MSGraphDirectoryRoleTemplateFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphDirectoryRoleTemplateFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphDirectoryRoleTemplateFetcher *)select:(NSString *)params;
+- (MSGraphDirectoryRoleTemplateFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphDirectoryRoleTemplateOperations *operations;
 
-
 @end
 
-@interface MSGraphDirectoryRoleTemplateFetcher : MSODataEntityFetcher<MSGraphDirectoryRoleTemplateFetcher>
+@interface MSGraphDirectoryRoleTemplateFetcher : MSOrcEntityFetcher<MSGraphDirectoryRoleTemplateFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryRoleTemplate:(MSGraphDirectoryRoleTemplate *)directoryRoleTemplate callback:(void (^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryRoleTemplate:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphDirectoryRoleTemplate *)directoryRoleTemplate callback:(void(^)(MSGraphDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

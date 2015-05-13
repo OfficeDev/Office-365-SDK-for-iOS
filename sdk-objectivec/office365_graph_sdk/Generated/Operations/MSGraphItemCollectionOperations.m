@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSGraphItemCollectionOperations.h"
-#import "MSGraphODataEntities.h"
+#import "MSGraphOrcEntities.h"
 
 /**
 * The implementation file for type MSGraphItemCollectionOperations.
@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @implementation MSGraphItemCollectionOperations
 
-- (NSURLSessionTask *)addWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSStream *) content callback:(void (^)(MSGraphItem *item, MSODataException *error))callback {
+- (void)addWithPath:(NSString *)path nameConflict:(NSString *)nameConflict type:(NSString *)type content:(NSStream *)content callback:(void (^)(MSGraphItem *item, MSOrcError *error))callback {
 
 	
 	NSString *pathString = [self.resolver.jsonSerializer serialize:path property:@"path"];
@@ -29,33 +29,31 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	NSString *typeString = [self.resolver.jsonSerializer serialize:type property:@"type"];
 	NSString *contentString = [self.resolver.jsonSerializer serialize:content property:@"content"];
 
-	NSURLSessionTask *task = [self addRawWithPath:pathString nameConflict:nameConflictString type:typeString content:contentString callback:^(NSString *returnValue, MSODataException *exception) {
+	return [self addRawWithPath:pathString nameConflict:nameConflictString type:typeString content:contentString callback:^(NSString *returnValue, MSOrcError *e) {
        
 	   if (exception == nil) {
 
 			MSGraphItem * result = (MSGraphItem *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSGraphItem class]];
             
-			callback(result, exception);
+			callback(result, e);
         }
         else {
 
-            callback(nil, exception);
+            callback(nil, e);
         }
     }];
-    
-    return task;
 }
 
-- (NSURLSessionTask *)addRawWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSString *) content callback:(void (^)(NSString *item, MSODataException *error))callback {
+- (void)addRawWithPath:(NSString *) path nameConflict:(NSString *) nameConflict type:(NSString *) type content:(NSString *) content callback:(void (^)(NSString *item, MSOrcError *error))callback {
 
-	id<MSODataRequest> request = [super.resolver createODataRequest];
+	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSArray *parameters = [[NSArray alloc] initWithObjects:
                           [[NSDictionary alloc] initWithObjectsAndKeys :path,@"path", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :nameConflict,@"nameConflict", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :type,@"type", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :content,@"content", nil], nil];
 
-	NSData* payload = [[MSODataBaseContainerHelper generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
+	NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
 
 	[request setContent:payload];
 
@@ -64,45 +62,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	[request.url appendPathComponent:@"add"];
 	[request setContent:payload];
 
-	NSURLSessionTask *task = [super oDataExecuteRequest:request 
-										       callback:^(id<MSODataResponse> response, MSODataException *exception) {
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+		
 		if (exception == nil) {
 
-            callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], exception);
+            callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
         }
         else {
 
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], exception);
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
         }
     }];
-    
-    return task;
 }
 		
 
-- (NSURLSessionTask *)getByPathWithPath:(NSString *) path callback:(void (^)(MSGraphItem *item, MSODataException *exception))callback {
+- (void)getByPathWithPath:(NSString *)path callback:(void (^)(MSGraphItem *item, MSOrcError *error))callback {
 
-	id<MSODataRequest> request = [super.resolver createODataRequest];
+	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:path,@"path",nil];
 
 
-	NSString *parameters = [MSODataBaseContainerHelper getFunctionParameters:params];
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 	
 	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
 		
-	NSURLSessionTask *task = [super oDataExecuteRequest:request callback:^(id<MSODataResponse> response, MSODataException *exception){
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e){
 
-       if (exception == nil) {
+       if (e == nil) {
 
 			MSGraphItem * result = (MSGraphItem *)[super.resolver.jsonSerializer deserialize:response.data asClass:[MSGraphItem class]];
-            callback(result, exception);
+            callback(result, e);
         }
         else {
 
-            callback(nil, exception);
+            callback(nil, e);
         }
     }];
-    
-    return task;
 }		
 @end

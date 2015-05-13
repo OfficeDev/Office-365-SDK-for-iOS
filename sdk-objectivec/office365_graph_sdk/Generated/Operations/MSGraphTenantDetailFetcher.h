@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphTenantDetailOperations;
+@class MSGraphTenantDetailFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphTenantDetailFetcher.
 */
 
-@protocol MSGraphTenantDetailFetcher<MSODataEntityFetcher>
+@protocol MSGraphTenantDetailFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphTenantDetail *tenantDetail, MSODataException *exception))callback;
-- (id<MSGraphTenantDetailFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphTenantDetailFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphTenantDetailFetcher>)select:(NSString *)params;
-- (id<MSGraphTenantDetailFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphTenantDetail *tenantDetail, MSOrcError *error))callback;
+- (MSGraphTenantDetailFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphTenantDetailFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphTenantDetailFetcher *)select:(NSString *)params;
+- (MSGraphTenantDetailFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphTenantDetailOperations *operations;
 
-
 @end
 
-@interface MSGraphTenantDetailFetcher : MSODataEntityFetcher<MSGraphTenantDetailFetcher>
+@interface MSGraphTenantDetailFetcher : MSOrcEntityFetcher<MSGraphTenantDetailFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateTenantDetail:(MSGraphTenantDetail *)tenantDetail callback:(void (^)(MSGraphTenantDetail *tenantDetail, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteTenantDetail:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphTenantDetail *)tenantDetail callback:(void(^)(MSGraphTenantDetail *tenantDetail, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

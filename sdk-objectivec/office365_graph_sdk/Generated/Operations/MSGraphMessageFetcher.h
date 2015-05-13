@@ -16,38 +16,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphAttachmentCollectionFetcher;
 @class MSGraphEventMessageFetcher;
 @class MSGraphMessageOperations;
+@class MSGraphMessageFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphMessageFetcher.
 */
 
-@protocol MSGraphMessageFetcher<MSODataEntityFetcher>
+@protocol MSGraphMessageFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSGraphMessage *message, MSODataException *exception))callback;
-- (id<MSGraphMessageFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphMessageFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSGraphMessageFetcher>)select:(NSString *)params;
-- (id<MSGraphMessageFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSGraphMessage *message, MSOrcError *error))callback;
+- (MSGraphMessageFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphMessageFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphMessageFetcher *)select:(NSString *)params;
+- (MSGraphMessageFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSGraphMessageOperations *operations;
 
-- (MSGraphAttachmentCollectionFetcher *)getAttachments;
-- (MSGraphAttachmentFetcher *) getAttachmentsById:(NSString*)_id;
-- (MSGraphEventMessageFetcher *)asEventMessage;	
-
 @end
 
-@interface MSGraphMessageFetcher : MSODataEntityFetcher<MSGraphMessageFetcher>
+@interface MSGraphMessageFetcher : MSOrcEntityFetcher<MSGraphMessageFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateMessage:(MSGraphMessage *)message callback:(void (^)(MSGraphMessage *message, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteMessage:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSGraphMessage *)message callback:(void(^)(MSGraphMessage *message, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
+
+- (MSGraphAttachmentFetcher *)getAttachmentsById:(NSString*)id;
+
+- (MSGraphEventMessageFetcher *)asEventMessage;	
 
 @end

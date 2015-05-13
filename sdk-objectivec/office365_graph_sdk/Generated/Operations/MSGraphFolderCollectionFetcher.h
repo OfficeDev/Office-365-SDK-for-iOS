@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSGraphFolderFetcher;
+@class MSGraphFolderCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSGraphModels.h"
 
 /**
 * The header for type MSGraphFolderCollectionFetcher.
 */
 
-@protocol MSGraphFolderCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSGraphFolderCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSGraphFolder> *folders, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSGraphFolder> *folders, MSOrcError *error))callback;
 
-- (id<MSGraphFolderCollectionFetcher>)select:(NSString *)params;
-- (id<MSGraphFolderCollectionFetcher>)filter:(NSString *)params;
-- (id<MSGraphFolderCollectionFetcher>)top:(int)value;
-- (id<MSGraphFolderCollectionFetcher>)skip:(int)value;
-- (id<MSGraphFolderCollectionFetcher>)expand:(NSString *)value;
-- (id<MSGraphFolderCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSGraphFolderCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSGraphFolderCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSGraphFolderCollectionFetcher *)select:(NSString *)params;
+- (MSGraphFolderCollectionFetcher *)filter:(NSString *)params;
+- (MSGraphFolderCollectionFetcher *)search:(NSString *)params;
+- (MSGraphFolderCollectionFetcher *)top:(int)value;
+- (MSGraphFolderCollectionFetcher *)skip:(int)value;
+- (MSGraphFolderCollectionFetcher *)expand:(NSString *)value;
+- (MSGraphFolderCollectionFetcher *)orderBy:(NSString *)params;
+- (MSGraphFolderCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSGraphFolderCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSGraphFolderFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addFolder:(MSGraphFolder *)entity callback:(void (^)(MSGraphFolder *folder, MSODataException *e))callback;
+- (void)add:(MSGraphFolder *)entity callback:(void (^)(MSGraphFolder *folder, MSOrcError *error))callback;
 
 @end
 
-@interface MSGraphFolderCollectionFetcher : MSODataCollectionFetcher<MSGraphFolderCollectionFetcher>
+@interface MSGraphFolderCollectionFetcher : MSOrcCollectionFetcher<MSGraphFolderCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end
