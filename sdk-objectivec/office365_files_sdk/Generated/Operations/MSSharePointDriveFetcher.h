@@ -26,7 +26,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback;
+- (void) readWithCallback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback;
 - (MSSharePointDriveFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSSharePointDriveFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSSharePointDriveFetcher *)select:(NSString *)params;
@@ -41,8 +41,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSSharePointDriveFetcher : MSOrcEntityFetcher<MSSharePointDriveFetcherProtocol>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
-- (NSURLSessionTask *)update:(MSSharePointDrive *)drive callback:(void(^)(MSSharePointDrive *drive, MSOrcError *error))callback;
-- (NSURLSessionTask *)delete:(void(^)(int status, MSOrcError *error))callback;
+- (void)update:(MSSharePointDrive *)drive callback:(void(^)(MSSharePointDrive *drive, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
 
 
 @end

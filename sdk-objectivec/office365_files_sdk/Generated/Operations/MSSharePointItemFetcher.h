@@ -28,7 +28,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback;
+- (void) readWithCallback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback;
 - (MSSharePointItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSSharePointItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSSharePointItemFetcher *)select:(NSString *)params;
@@ -43,8 +43,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @interface MSSharePointItemFetcher : MSOrcEntityFetcher<MSSharePointItemFetcherProtocol>
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
-- (NSURLSessionTask *)update:(MSSharePointItem *)item callback:(void(^)(MSSharePointItem *item, MSOrcError *error))callback;
-- (NSURLSessionTask *)delete:(void(^)(int status, MSOrcError *error))callback;
+- (void)update:(MSSharePointItem *)item callback:(void(^)(MSSharePointItem *item, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
 
 - (MSSharePointFileFetcher *)asFile;	
 - (MSSharePointFolderFetcher *)asFolder;	

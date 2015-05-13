@@ -20,5 +20,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSSharePointItemCollectionOperations : MSOrcOperations
-- (NSURLSessionTask *)getByPathWithPath:(NSString *)path callback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback;			
+- (void)getByPathWithPath:(NSString *)path callback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback;			
 @end

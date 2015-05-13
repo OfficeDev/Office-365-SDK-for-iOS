@@ -28,12 +28,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return self;
 }
 
-- (NSURLSessionTask *)update:(id)entity callback:(void (^)(MSSharePointItem *item, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSSharePointItem *item, MSOrcError *e))callback {
 
-	return [super updateEntity:entity callback:callback];
+	return [super update:entity callback:callback];
 }
 
-- (NSURLSessionTask *)delete:(void (^)(int status, MSOrcError *e))callback {
+- (void)delete:(void (^)(int status, MSOrcError *e))callback {
 
 	return [super deleteWithCallback:callback];
 }

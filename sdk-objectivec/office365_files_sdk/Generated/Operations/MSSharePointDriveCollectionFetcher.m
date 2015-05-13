@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSSharePointDrive class]];
 }
 
-- (NSURLSessionTask *)add:(MSSharePointDrive*)entity callback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback {
+- (void)add:(MSSharePointDrive*)entity callback:(void (^)(MSSharePointDrive *drive, MSOrcError *error))callback {
 	
 	return [super add:entity callback:^(id entityAdded, MSOrcError *e) {
 

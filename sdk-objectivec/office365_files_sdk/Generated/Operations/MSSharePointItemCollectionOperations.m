@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @implementation MSSharePointItemCollectionOperations
 
-- (NSURLSessionTask *)getByPathWithPath:(NSString *)path callback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback {
+- (void)getByPathWithPath:(NSString *)path callback:(void (^)(MSSharePointItem *item, MSOrcError *error))callback {
 
 	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:path,@"path",nil];
@@ -31,7 +31,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	
 	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"getByPath(%@)",parameters]];
 		
-	NSURLSessionTask *task = [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e){
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e){
 
        if (e == nil) {
 
@@ -43,7 +43,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
             callback(nil, e);
         }
     }];
-    
-    return task;
 }		
 @end

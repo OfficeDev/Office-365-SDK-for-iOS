@@ -18,42 +18,30 @@ Pod::Spec.new do |s|
 		           }
   s.exclude_files = "**/Build/**/*"
   s.requires_arc = true
-
-  s.dependency "ADALiOS", "=1.2.2"
+  s.dependency "OrcEngine/Implementation"
 
   # --- Subspecs ------------------------------------------------------------------#
 
-  s.subspec 'OData' do |subspec|
-     subspec.source_files  = "sdk-objectivec/office365_odata_base/**/*.{h,m}"
-     subspec.exclude_files = "sdk-objectivec/office365_odata_base/Build/**/*"
-     subspec.public_header_files = "sdk-objectivec/office365_odata_base/**/*.h"
-     subspec.header_dir = "office365_odata_base"
-  end
-
   s.subspec 'Outlook' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_exchange_sdk/**/*.{h,m}"
-     subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_exchange_sdk/**/*.h"
      subspec.header_dir = "office365_exchange_sdk"
   end
 
   s.subspec 'Files' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_files_sdk/**/*.{h,m}"
-     subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_files_sdk/**/*.h"
      subspec.header_dir = "office365_files_sdk"
   end
 
   s.subspec 'AADGraph' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_directory_sdk/**/*.{h,m}"
-     subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivc/office365_directory_sdk/**/*.{h,m}"
      subspec.header_dir = "office365_directory_sdk"
   end
 
   s.subspec 'Discovery' do |subspec|
      subspec.source_files = "sdk-objectivec/office365_discovery_sdk/**/*.{h,m}"
-     subspec.dependency "Office365/OData"
      subspec.public_header_files = "sdk-objectivec/office365_discovery_sdk/**/*.h"
      subspec.header_dir = "office365_discovery_sdk"
   end
@@ -66,14 +54,12 @@ Pod::Spec.new do |s|
 
   s.subspec 'OneNote' do |subspec|
    subspec.source_files = "sdk-objectivec/office365_onenote_sdk/**/*.{h,m}"
-   subspec.dependency "Office365/OData"
    subspec.public_header_files = "sdk-objectivec/office365_onenote_sdk/**/*.h"
    subspec.header_dir = "office365_onenote_sdk"
   end
 
   s.subspec 'Graph' do |subspec|
    subspec.source_files = "sdk-objectivec/office365_graph_sdk/**/*.{h,m}"
-   subspec.dependency "Office365/OData"
    subspec.public_header_files = "sdk-objectivec/office365_graph_sdk/**/*.h"
    subspec.header_dir = "office365_graph_sdk"
   end

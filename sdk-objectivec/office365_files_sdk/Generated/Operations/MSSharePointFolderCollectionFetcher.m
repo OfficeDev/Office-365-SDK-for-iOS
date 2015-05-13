@@ -25,7 +25,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     return [super initWithUrl:urlComponent parent:parent asClass:[MSSharePointFolder class]];
 }
 
-- (NSURLSessionTask *)add:(MSSharePointFolder*)entity callback:(void (^)(MSSharePointFolder *folder, MSOrcError *error))callback {
+- (void)add:(MSSharePointFolder*)entity callback:(void (^)(MSSharePointFolder *folder, MSOrcError *error))callback {
 	
 	return [super add:entity callback:^(id entityAdded, MSOrcError *e) {
 

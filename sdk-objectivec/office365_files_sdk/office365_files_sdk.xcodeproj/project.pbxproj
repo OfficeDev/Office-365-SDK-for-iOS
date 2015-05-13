@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D023D100FB27D3036CEF64A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D4021C16D7F70CD60456AB /* libPods.a */; };
 		EC55F0751AF14ED90099BB4C /* MSSharePointDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0761AF14ED90099BB4C /* MSSharePointDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */; };
 		EC55F0771AF14ED90099BB4C /* MSSharePointDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,32 +64,10 @@
 		ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EC2249FC1B0126D800344D00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ECDB431C1AFA4C4A000B0781;
-			remoteInfo = orc_engine_core;
-		};
-		EC2249FE1B0126D800344D00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ECDB43271AFA4C4A000B0781;
-			remoteInfo = orc_engine_coreTests;
-		};
-		EC224A001B0126DF00344D00 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = ECDB431B1AFA4C4A000B0781;
-			remoteInfo = orc_engine_core;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = orc_engine_core.xcodeproj; path = "../../../../orc-for-ios/orc_engine_core/orc_engine_core.xcodeproj"; sourceTree = "<group>"; };
+		633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C4D4021C16D7F70CD60456AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
 		EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
 		EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
@@ -152,19 +131,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D023D100FB27D3036CEF64A5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC2249F81B0126D800344D00 /* Products */ = {
+		31D3ABE779606D5BFB23C3F0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EC2249FD1B0126D800344D00 /* orc_engine_core.framework */,
-				EC2249FF1B0126D800344D00 /* orc_engine_coreTests.xctest */,
+				633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */,
+				CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */,
 			);
-			name = Products;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		61D78D373387A446570DDD92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4021C16D7F70CD60456AB /* libPods.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EC55F0301AF14ED90099BB4C /* Models */ = {
@@ -246,10 +234,11 @@
 		ECDEC0BA1A2514BB00F84EAF = {
 			isa = PBXGroup;
 			children = (
-				EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */,
 				EC82679B1AE5349800A14A0B /* Generated */,
 				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
+				31D3ABE779606D5BFB23C3F0 /* Pods */,
+				61D78D373387A446570DDD92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -324,15 +313,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "office365_files_sdk" */;
 			buildPhases = (
+				498810DCDDCF1EB4C8758CFC /* Check Pods Manifest.lock */,
 				ECDEC0BF1A2514BB00F84EAF /* Sources */,
 				ECDEC0C01A2514BB00F84EAF /* Frameworks */,
 				ECDEC0C11A2514BB00F84EAF /* Headers */,
 				ECDEC0C21A2514BB00F84EAF /* Resources */,
+				39EE01F0AA1158EE9E4924DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EC224A011B0126DF00344D00 /* PBXTargetDependency */,
 			);
 			name = office365_files_sdk;
 			productName = office365_files_sdk;
@@ -364,35 +354,12 @@
 			mainGroup = ECDEC0BA1A2514BB00F84EAF;
 			productRefGroup = ECDEC0C51A2514BB00F84EAF /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = EC2249F81B0126D800344D00 /* Products */;
-					ProjectRef = EC2249F71B0126D800344D00 /* orc_engine_core.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ECDEC0C31A2514BB00F84EAF /* office365_files_sdk */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		EC2249FD1B0126D800344D00 /* orc_engine_core.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = orc_engine_core.framework;
-			remoteRef = EC2249FC1B0126D800344D00 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EC2249FF1B0126D800344D00 /* orc_engine_coreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = orc_engine_coreTests.xctest;
-			remoteRef = EC2249FE1B0126D800344D00 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ECDEC0C21A2514BB00F84EAF /* Resources */ = {
@@ -403,6 +370,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39EE01F0AA1158EE9E4924DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		498810DCDDCF1EB4C8758CFC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECDEC0BF1A2514BB00F84EAF /* Sources */ = {
@@ -438,14 +438,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EC224A011B0126DF00344D00 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = orc_engine_core;
-			targetProxy = EC224A001B0126DF00344D00 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		ECDEC0D81A2514BC00F84EAF /* Debug */ = {
@@ -534,6 +526,7 @@
 		};
 		ECDEC0DB1A2514BC00F84EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -554,6 +547,7 @@
 		};
 		ECDEC0DC1A2514BC00F84EAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;

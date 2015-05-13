@@ -26,7 +26,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSSharePointFile> *files, MSOrcError *error))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSSharePointFile> *files, MSOrcError *error))callback;
 
 - (MSSharePointFileCollectionFetcher *)select:(NSString *)params;
 - (MSSharePointFileCollectionFetcher *)filter:(NSString *)params;
@@ -42,7 +42,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSSharePointFileFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)add:(MSSharePointFile *)entity callback:(void (^)(MSSharePointFile *file, MSOrcError *error))callback;
+- (void)add:(MSSharePointFile *)entity callback:(void (^)(MSSharePointFile *file, MSOrcError *error))callback;
 
 @end
 
