@@ -37,13 +37,14 @@
     item.type = @"File";
     
     NSData* body = [self.txtBody.text dataUsingEncoding:NSUTF8StringEncoding];
+    __weak NewFileViewController *weakSelf = self;
     
-    [[[self.client getfiles] addEntity:item callback:^(MSSharePointItem *item, NSError *e) {
+    [self.client.files add:item callback:^(MSSharePointItem *item, NSError *e) {
         __block NSString* _id = item.id;
         
-        [[[[[self.client getfiles] getById:_id] asFile] putContent:body callback:^(NSInteger result, NSError *error) {
+        [[[weakSelf.client.files getById:_id] asFile] putContent:body callback:^(NSInteger result, MSOrcError *error) {
             
-            [[[[[self.client getfiles] getById:_id] asFile] getContentWithCallback:^(NSData *content, NSError *error) {
+            [[[weakSelf.client.files getById:_id] asFile] getContentWithCallback:^(NSData *content, MSOrcError *error) {
                 
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
@@ -59,14 +60,12 @@
                                    }
                                    
                                    [spinner stopAnimating];
-                                   UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:contentResultString delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                                   UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:contentResultString delegate:weakSelf cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                                    [alert show];
                                });
                 
-            }] resume];
-            
-            
-        }] resume];
-    }] resume];
+            }];
+        }];
+    }];
 }
 @end

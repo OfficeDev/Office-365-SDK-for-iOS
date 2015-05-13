@@ -60,12 +60,12 @@
     return cell;
 }
 
--(void)getFiles{
+-(void)getFiles {
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     
-    [[[self.client  getfiles] readWithCallback:^(NSArray<MSSharePointItem> *items, NSError *error) {
+    [self.client.files readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
         
         if (error == nil) {
             
@@ -85,7 +85,7 @@
                                [alert show];
                            });
         }
-    }] resume];
+    }];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
@@ -103,7 +103,7 @@
         
         MSSharePointFile *fileToDelete = [self.Files objectAtIndex:indexPath.row];
         
-        [[[[self.client getfiles] getById:fileToDelete.id] deleteItem:^(int status, NSError *error) {
+        [[self.client.files getById:fileToDelete.id] delete:^(int status, MSOrcError *error) {
             
             dispatch_async(dispatch_get_main_queue(),
                            ^{
@@ -117,7 +117,7 @@
                                [alert show];
                            });
             
-        }] resume];
+        }];
         
     }
 }
