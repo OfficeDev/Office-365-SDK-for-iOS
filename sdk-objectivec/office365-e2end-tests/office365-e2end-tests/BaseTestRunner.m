@@ -8,6 +8,9 @@
 
 @implementation BaseTestRunner
 
--(NSMutableArray*)getTests{return nil;}
+- (NSMutableArray *)getTests {
+    
+    return nil;
+}
 
 @end

@@ -16,6 +16,6 @@
 
 @interface SDKListTableViewController : UITableViewController<LiveAuthDelegate>
 
-@property NSMutableArray *availableSdks;
+@property (nonatomic, strong) NSMutableArray *availableSdks;
 
 @end

@@ -28,26 +28,25 @@
     [self.availableSdks addObject:@"MSGraph"];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.availableSdks count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     NSString *sdkName= [self.availableSdks objectAtIndex:indexPath.row];
     cell.textLabel.text = sdkName;
+    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSString *name = [self.availableSdks objectAtIndex:indexPath.row];
     BaseController *baseController = [[BaseController alloc]init];
@@ -106,20 +105,22 @@
         }];
     }
     
-    if([name isEqualToString:@"MSGraph"]){
-        [[[BaseController alloc]init]getMSGraphClient:^(MSGraphClient *c) {
+    if ([name isEqualToString:@"MSGraph"]) {
+        
+        [[[BaseController alloc] init] getMSGraphClient:^(MSGraphClient *c) {
+            
             MSGraphTestRunner *runner = [[MSGraphTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"segue"]) {
         
         TestRunnerTableViewController *vc =  segue.destinationViewController;
-        vc.TestRunner = (BaseTestRunner*)sender;
+        vc.TestRunner = (BaseTestRunner *)sender;
     }
 }
 

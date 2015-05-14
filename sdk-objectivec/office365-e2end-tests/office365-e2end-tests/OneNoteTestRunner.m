@@ -6,70 +6,81 @@
 
 #import "OneNoteTestRunner.h"
 
+@interface OneNoteTestRunner()
+
+@property (nonatomic, weak) OneNoteTestRunner *weakSelf;
+@end
 @implementation OneNoteTestRunner
--(id)initWithClient : (MSOneNoteClient*)client{
+
+- (id)initWithClient:(MSOneNoteClient*)client {
     
-    self.Client = client;
+    if (self = [super init]) {
+
+        self.client = client;
+        _weakSelf = self;
+    }
+    
     return self;
 }
 
--(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
+- (void)run:(NSString *)testName completionHandler:(void(^)(id test))result {
     
-    if([testName isEqualToString: @"TestGetNotebooks"]) return [self TestGetNotebooks:result];
-    if([testName isEqualToString: @"TestGetNotebooksById"]) return [self TestGetNotebooksById:result];
-    if([testName isEqualToString: @"TestCreateNotebooks"]) return [self TestCreateNotebooks:result];
-    if([testName isEqualToString: @"TestGetSections"]) return [self TestGetSections:result];
-    if([testName isEqualToString: @"TestCreateSections"]) return [self TestCreateSections:result];
-    if([testName isEqualToString: @"TestGetSectionsById"]) return [self TestGetSectionsById:result];
-    if([testName isEqualToString: @"TestGetSectionGroups"]) return [self TestGetSectionGroups:result];
-    if([testName isEqualToString: @"TestGetPages"]) return [self TestGetPages:result];
-    if([testName isEqualToString: @"TestSearchPage"]) return [self TestSearchPage:result];
-    if([testName isEqualToString: @"TestGetPageContent"]) return [self TestGetPageContent:result];
-    if([testName isEqualToString: @"TestCreateSimplePage"]) return [self TestCreateSimplePage:result];
-    if([testName isEqualToString: @"TestCreatePageWithEmbeddedWebImage"]) return [self TestCreatePageWithEmbeddedWebImage:result];
-    if([testName isEqualToString: @"TestCreatePageWithImage"]) return [self TestCreatePageWithImage:result];
-    if([testName isEqualToString: @"TestCreatePageWithNoteTags"]) return [self TestCreatePageWithNoteTags:result];
-    if([testName isEqualToString: @"TestCreatePageWithAttachment"]) return [self TestCreatePageWithAttachment:result];
-    
-    return nil;
+    if([testName isEqualToString: @"TestGetNotebooks"]) return [self testGetNotebooks:result];
+    if([testName isEqualToString: @"TestGetNotebooksById"]) return [self testGetNotebooksById:result];
+    if([testName isEqualToString: @"TestCreateNotebooks"]) return [self testCreateNotebooks:result];
+    if([testName isEqualToString: @"TestGetSections"]) return [self testGetSections:result];
+    if([testName isEqualToString: @"TestCreateSections"]) return [self testCreateSections:result];
+    if([testName isEqualToString: @"TestGetSectionsById"]) return [self testGetSectionsById:result];
+    if([testName isEqualToString: @"TestGetSectionGroups"]) return [self testGetSectionGroups:result];
+    if([testName isEqualToString: @"TestGetPages"]) return [self testGetPages:result];
+    if([testName isEqualToString: @"TestSearchPage"]) return [self testSearchPage:result];
+    if([testName isEqualToString: @"TestGetPageContent"]) return [self testGetPageContent:result];
+    if([testName isEqualToString: @"TestCreateSimplePage"]) return [self testCreateSimplePage:result];
+    if([testName isEqualToString: @"TestCreatePageWithEmbeddedWebImage"]) return [self testCreatePageWithEmbeddedWebImage:result];
+    if([testName isEqualToString: @"TestCreatePageWithImage"]) return [self testCreatePageWithImage:result];
+    if([testName isEqualToString: @"TestCreatePageWithNoteTags"]) return [self testCreatePageWithNoteTags:result];
+    if([testName isEqualToString: @"TestCreatePageWithAttachment"]) return [self testCreatePageWithAttachment:result];
 }
 
--(NSMutableArray*)getTests{
+- (NSMutableArray *)getTests {
+    
     NSMutableArray* array = [NSMutableArray array];
     
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetNotebooks" :@"Get notebooks" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetNotebooksById" :@"Get notebooks by id" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreateNotebooks" :@"Create notebooks" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetSections" :@"Get sections" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreateSections" :@"Create sections" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionsById" :@"Get sections by id" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetSectionGroups" :@"Get sections groups" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetPages" :@"Get pages" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestSearchPage" :@"Search pages" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetPageContent" :@"Get page content" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreateSimplePage" :@"Create simple page" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithEmbeddedWebImage" :@"Create page with embedded web img" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithImage" :@"Create page with image" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithNoteTags" :@"Create page with note tags" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestCreatePageWithAttachment" :@"Create page with attachment" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetNotebooks" displayName:@"Get notebooks" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetNotebooksById" displayName:@"Get notebooks by id" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreateNotebooks" displayName:@"Create notebooks" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetSections" displayName:@"Get sections" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreateSections" displayName:@"Create sections" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetSectionsById" displayName:@"Get sections by id" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetSectionGroups" displayName:@"Get sections groups" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetPages" displayName:@"Get pages" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestSearchPage" displayName:@"Search pages" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetPageContent" displayName:@"Get page content" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreateSimplePage" displayName:@"Create simple page" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreatePageWithEmbeddedWebImage" displayName:@"Create page with embedded web img"]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreatePageWithImage" displayName:@"Create page with image" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreatePageWithNoteTags" displayName:@"Create page with note tags" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestCreatePageWithAttachment" displayName:@"Create page with attachment" ]];
     
     return array;
 }
 
 #pragma mark TestNoteBooks
 
--(NSURLSessionTask*)TestCreateNotebooks:(void (^) (Test*))result{
+- (void)testCreateNotebooks:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'" ] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
+    return [[self.client.notebooks filter:@"name eq 'Test notebook iOS'"] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+        
         MSOneNoteNotebook *newNotebook = [[MSOneNoteNotebook alloc] init];
         newNotebook.name = @"Test notebook iOS";
         
-        
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
-        if([notebooks count] == 0){
-            [[[self.Client getnotebooks] addNotebook:newNotebook callback:^(MSOneNoteNotebook *notebook, MSODataException *e) {
+        test.executionMessages = [NSMutableArray array];
+        
+        if ([notebooks count] == 0) {
+            
+            [self.client.notebooks add:newNotebook callback:^(MSOneNoteNotebook *notebook, MSOrcError *e) {
                 BOOL passed = false;
                 NSString* message = @"";
                 
@@ -83,64 +94,64 @@
                         message = [message stringByAppendingString: [error localizedDescription]];
                 }
                 
-                test.Passed = passed;
-                [test.ExecutionMessages addObject:message];
+                test.passed = passed;
+                [test.executionMessages addObject:message];
                 result(test);
-            }] resume];
-        }else{
-            test.Passed = true;
-            [test.ExecutionMessages addObject:@"Ok - Notebook already exists"];
+            }];
+        }
+        else {
+            
+            test.passed = true;
+            [test.executionMessages addObject:@"Ok - Notebook already exists"];
             result(test);
         }
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestGetNotebooks:(void (^) (Test*))result{
+- (void)testGetNotebooks:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[self.Client getnotebooks]
-                              readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *exception) {
-                                  
-                                  BOOL passed = false;
-                                  
-                                  Test *test = [Test alloc];
-                                  
-                                  test.ExecutionMessages = [NSMutableArray array];
-                                  NSString* message = @"";
-                                  
-                                  if (exception == nil && notebooks != nil) {
-                                      
-                                      passed = true;
-                                      message = @"Ok - ";
-                                  }
-                                  else {
-                                      
-                                      message = @"Not - ";
-                                      if (exception != nil)
-                                          message = [message stringByAppendingString: [exception localizedDescription]];
-                                  }
-                                  
-                                  test.Passed = passed;
-                                  [test.ExecutionMessages addObject:message];
-                                  
-                                  result(test);
-                              }];
-    
-    return task;
-}
-
--(NSURLSessionTask*)TestGetNotebooksById:(void (^) (Test*))result{
-    
-    NSURLSessionTask *task = [[self.Client getnotebooks] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
-       
+    return [self.client.notebooks readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+        
+        BOOL passed = false;
+        
         Test *test = [Test alloc];
-        test.ExecutionMessages = [NSMutableArray array];
+        
+        test.executionMessages = [NSMutableArray array];
+        NSString* message = @"";
+        
+        if (error == nil && notebooks != nil) {
+            
+            passed = true;
+            message = @"Ok - ";
+        }
+        else {
+            
+            message = @"Not - ";
+            
+            if (error != nil)
+                message = [message stringByAppendingString: [error localizedDescription]];
+        }
+        
+        test.passed = passed;
+        [test.executionMessages addObject:message];
+        
+        result(test);
+    }];
+}
+
+- (void)testGetNotebooksById:(void(^)(Test *))result {
+    
+    return [self.client.notebooks readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+        
+        Test *test = [Test alloc];
+        test.executionMessages = [NSMutableArray array];
         
         if (error == nil && notebooks != nil && [notebooks count] > 0) {
+            
             MSOneNoteNotebook *singleNotebook = [notebooks objectAtIndex:0];
             
-            [[[[self.Client getnotebooks] getById:singleNotebook.id] readWithCallback:^(MSOneNoteNotebook *notebook, MSODataException *error2) {
+            [[self.client.notebooks getById:singleNotebook.id] readWithCallback:^(MSOneNoteNotebook *notebook, MSOrcError *error2) {
+                
                 BOOL passed = false;
                 NSString* message = @"";
                 if(error2 == nil && notebook != nil)
@@ -153,38 +164,39 @@
                         message = [message stringByAppendingString: [error localizedDescription]];
                 }
                 
-                test.Passed = passed;
-                [test.ExecutionMessages addObject:message];
+                test.passed = passed;
+                [test.executionMessages addObject:message];
                 result(test);
                 
-            }] resume];
-        }else{
+            }];
+        }
+        else {
+            
             NSString *message = @"Not - Error getting notebooks";
             
-            if(error!= nil){
+            if (error!= nil) {
+                
                 message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = false;
-            [test.ExecutionMessages addObject:message];
+            test.passed = false;
+            [test.executionMessages addObject:message];
             result(test);
         }
     }];
-    
-    return task;
 }
 
 #pragma mark TestSections
 
--(NSURLSessionTask*)TestGetSections:(void (^) (Test*))result{
+- (void)testGetSections:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
+    return [self.client.sections readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
         
         BOOL passed = false;
         
         Test *test = [Test alloc];
+        test.executionMessages = [NSMutableArray array];
         
-        test.ExecutionMessages = [NSMutableArray array];
         NSString* message = @"";
         
         if (error == nil && sections != nil) {
@@ -200,33 +212,30 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestCreateSections:(void (^) (Test*))result{
+- (void)testCreateSections:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[[[self.Client getnotebooks] filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSODataException *error) {
+    return [[[self.client.notebooks filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+        
         Test *test = [Test alloc];
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         
         if (notebooks > 0) {
             
             MSOneNoteSection *newSection = [[MSOneNoteSection alloc]init];
             newSection.name = [@"Section-" stringByAppendingString:[[NSUUID UUID] UUIDString]];
             
-            [[[[[self.Client getnotebooks]
-                getById:[[notebooks objectAtIndex:0] id]] getsections]
-             addSection:newSection callback:^(MSOneNoteSection *addedSection, MSODataException *e) {
+            [[self.client.notebooks getById:[[notebooks objectAtIndex:0] id]].sections add:newSection callback:^(MSOneNoteSection *addedSection, MSOrcError *e) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
-                 
+                
                 if (error == nil && addedSection != nil) {
                     
                     passed = true;
@@ -240,36 +249,33 @@
                         message = [message stringByAppendingString: [error localizedDescription]];
                 }
                 
-                test.Passed = passed;
-                [test.ExecutionMessages addObject:message];
+                test.passed = passed;
+                [test.executionMessages addObject:message];
                 
                 result(test);
-            }] resume];
+            }];
         }
         else {
             
-            test.Passed = false;
-            [test.ExecutionMessages addObject:@"Not - Notebook does not exist"];
+            test.passed = false;
+            [test.executionMessages addObject:@"Not - Notebook does not exist"];
             result(test);
         }
     }];
-    
-    return task;
 }
 
-- (NSURLSessionTask *)TestGetSectionsById:(void(^)(Test *))result {
+- (void)testGetSectionsById:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[[self.Client getsections] top:1]
-                                            readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
+    return [[self.client.sections top:1] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
         
         Test *test = [Test alloc];
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         
         if ([sections count] > 0) {
             
             MSOneNoteSection *s =[sections objectAtIndex:0];
             
-            [[[[self.Client getsections] getById: s.id] readWithCallback:^(MSOneNoteSection *section, MSODataException *error) {
+            [[self.client.sections getById: s.id] readWithCallback:^(MSOneNoteSection *section, MSOrcError *error) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -287,36 +293,33 @@
                         message = [message stringByAppendingString: [error localizedDescription]];
                 }
                 
-                test.Passed = passed;
-                [test.ExecutionMessages addObject:message];
+                test.passed = passed;
+                [test.executionMessages addObject:message];
                 result(test);
-            }] resume];
+            }];
         }
         else {
             
-            test.Passed = false;
-            [test.ExecutionMessages addObject:@"Not - No existing sections"];
+            test.passed = false;
+            [test.executionMessages addObject:@"Not - No existing sections"];
             result(test);
         }
     }];
-    
-    return task;
 }
 
-- (NSURLSessionTask *)TestGetSectionGroups:(void(^)(Test *))result {
+- (void)testGetSectionGroups:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[self.Client getsectionGroups]
-                              readWithCallback:^(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSODataException *error) {
+    return [self.client.sectionGroups readWithCallback:^(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSOrcError *error) {
         
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
-                                  
+        
         if (error == nil && sectionGroups != nil) {
-
+            
             passed = true;
             message = @"Ok - ";
         }
@@ -328,25 +331,23 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
 #pragma mark TestPages
 
--(NSURLSessionTask*)TestGetPages:(void (^) (Test*))result{
+- (void)testGetPages:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *error) {
+    return [[self.client.pages top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
         
         BOOL passed = false;
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString *message = @"";
         
         if (error == nil && pages != nil) {
@@ -362,21 +363,19 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestGetPagesFromSection:(void (^) (Test*))result{
+- (void)testGetPagesFromSection:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[self.Client getsections] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSODataException *error) {
+    return [self.client.sections readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
         
         Test *test = [Test alloc];
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         /*
          if(error == nil && sections != nil && [sections count] >0)
          {
@@ -394,8 +393,8 @@
          message = [message stringByAppendingString: [error localizedDescription]];
          }
          
-         test.Passed = passed;
-         [test.ExecutionMessages addObject:message];
+         test.passed = passed;
+         [test.executionMessages addObject:message];
          result(test);
          
          }] resume];
@@ -406,25 +405,24 @@
             message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = false;
-        [test.ExecutionMessages addObject:message];
+        test.passed = false;
+        [test.executionMessages addObject:message];
         result(test);
         //}
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestGetPageContent:(void (^) (Test*))result{
+- (void)testGetPageContent:(void (^) (Test*))result{
     
-    NSURLSessionTask *task = [[[self.Client getpages] top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *error) {
+    return [[self.client.pages top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
         MSOneNotePage *page = [pages objectAtIndex:0];
-        [[[[self.Client getpages] getById:page.id] getContentWithCallback:^(NSData *content, MSODataException *error) {
+        
+        [[self.client.pages getById:page.id] getContentWithCallback:^(NSData *content, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
             
-            test.ExecutionMessages = [NSMutableArray array];
+            test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
             if(error == nil && content != nil && content.length > 0)
             {
@@ -436,31 +434,29 @@
                     message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
+            test.passed = passed;
+            [test.executionMessages addObject:message];
             
             result(test);
-        }] resume];
+        }];
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestCreateSimplePage:(void (^) (Test*))result{
+- (void)testCreateSimplePage:(void(^)(Test *))result {
     
     NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created from basic HTML-formatted text</title><meta name=\"created\" content=\"%@\" /></head><body><p>This is a page that just contains some simple <i>formatted</i> <b>text</b></p><p>Here is a <a href=\"http://www.microsoft.com\">link</a></p></body></html>", @"2013-06-11T12:45:00.000-8:00"];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     [multiparElements addObject:m1];
     
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    return [self.client.pages addParts:((NSMutableArray<MSOrcMultiPartElement> *)multiparElements) withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil)
         {
@@ -472,16 +468,14 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
-- (NSURLSessionTask *)TestSearchPage:(void(^)(Test *))result {
+- (void)testSearchPage:(void(^)(Test *))result {
     
     NSString *imagePartName = @"sampleImage1";
     NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created with an image on it</title>\
@@ -492,21 +486,27 @@
     NSData *contentBytes = UIImagePNGRepresentation(someImage);
     
     NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
-    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
+    
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    MSOrcMultiPartElement *m2 = [[MSOrcMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
+    
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    __weak OneNoteTestRunner *weakSelf = self;
+    
+    return [weakSelf.client.pages addParts:(NSMutableArray<MSOrcMultiPartElement> *)multiparElements
+                          withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
         
-        [[[[self.Client getpages] search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSODataException *exception) {
+        [[weakSelf.client.pages search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
             
             BOOL passed = false;
             
             Test *test = [Test alloc];
             
-            test.ExecutionMessages = [NSMutableArray array];
+            test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
+            
             if(error == nil && pages.count > 0)
             {
                 passed = true;
@@ -517,18 +517,16 @@
                     message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
+            test.passed = passed;
+            [test.executionMessages addObject:message];
             
             result(test);
             
-        }] resume];
+        }];
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestCreatePageWithEmbeddedWebImage:(void (^) (Test*))result{
+- (void)testCreatePageWithEmbeddedWebImage:(void (^) (Test*))result{
     
     NSString *embeddedPartName = @"embedded1";
     NSString *embeddedWebPage = @"<html><head><title>An embedded webpage</title></head><body><h1>This is a screen grab of a web page</h1>\
@@ -544,19 +542,20 @@
                             <img data-render-src=\"name:%@\" alt=\"A website screen grab\" /></body></html>",[self getSerializedCurrentDate], embeddedPartName ];
     
     NSMutableArray* multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
-    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:embeddedPartName andContentString:embeddedWebPage];
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    MSOrcMultiPartElement *m2 = [[MSOrcMultiPartElement alloc] initWithName:embeddedPartName andContentString:embeddedWebPage];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:(NSMutableArray<MSODataMultiPartElement> *)multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    return [self.client.pages addParts:(NSMutableArray<MSOrcMultiPartElement> *)multiparElements withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
+        
         if(error == nil)
         {
             passed = true;
@@ -567,16 +566,14 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestCreatePageWithImage:(void (^) (Test*))result{
+- (void)testCreatePageWithImage:(void (^)(Test*))result{
     
     NSString *imagePartName = @"sampleImage1";
     NSString *simpleHtml = [NSString stringWithFormat: @"<html><head><title>A simple page created with an image on it</title>\
@@ -586,39 +583,43 @@
     UIImage * someImage = [UIImage imageNamed: @"office365"];
     NSData *contentBytes = UIImagePNGRepresentation(someImage);
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
-    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    MSOrcMultiPartElement *m2 = [[MSOrcMultiPartElement alloc] initWithName:imagePartName andContentType:@"image/png" andContent:contentBytes];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    return [self.client.pages addParts:((NSMutableArray<MSOrcMultiPartElement> *)multiparElements)
+                          withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
+        
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
-        if(error == nil)
-        {
+                              
+        if (error == nil) {
+            
             passed = true;
             message = @"Ok - ";
-        }else{
+        }
+        else {
+            
             message = @"Not - ";
+            
             if(error!= nil)
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestCreatePageWithNoteTags:(void (^) (Test*))result{
+- (void)testCreatePageWithNoteTags:(void (^) (Test*))result{
     NSString *simpleHtml = [NSString stringWithFormat: @"<html>\
                             <head>\
                             <title data-tag=\"to-do:completed\">A page created with note tags</title>\
@@ -670,16 +671,18 @@
                             </body>\
                             </html>",[self getSerializedCurrentDate]];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:simpleHtml];
     [multiparElements addObject:m1];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    return [self.client.pages addParts:((NSMutableArray<MSOrcMultiPartElement> *)multiparElements)
+                          withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
+                              
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil)
         {
@@ -691,17 +694,15 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
 
--(NSURLSessionTask*)TestCreatePageWithAttachment:(void (^) (Test*))result{
+- (void)testCreatePageWithAttachment:(void (^) (Test*))result{
     NSString *attachmentPartName = @"attachment1";
     NSString *pageHtml = [NSString stringWithFormat: @"<html><head><title>A page created with a file attachment</title>\
                           <meta name=\"created\" content=\"%@\" /></head>\
@@ -710,18 +711,19 @@
     
     NSData *attachmentContent = [@"Dummy content" dataUsingEncoding: NSUTF8StringEncoding];
     
-    NSMutableArray<MSODataMultiPartElement> *multiparElements = [[NSMutableArray alloc] init];
-    MSODataMultiPartElement *m1 = [[MSODataMultiPartElement alloc] initWithName:@"Presentation" andContentString:pageHtml];
-    MSODataMultiPartElement *m2 = [[MSODataMultiPartElement alloc] initWithName:attachmentPartName andContentType:@"text/plain" andContent:attachmentContent];
+    NSMutableArray *multiparElements = [[NSMutableArray alloc] init];
+    MSOrcMultiPartElement *m1 = [[MSOrcMultiPartElement alloc] initWithName:@"Presentation" andContentString:pageHtml];
+    MSOrcMultiPartElement *m2 = [[MSOrcMultiPartElement alloc] initWithName:attachmentPartName andContentType:@"text/plain" andContent:attachmentContent];
     [multiparElements addObject:m1];
     [multiparElements addObject:m2];
     
-    NSURLSessionTask *task = [[self.Client getpages] addParts:multiparElements withCallback:^(id<MSODataResponse> response, MSODataException *error) {
+    return [self.client.pages addParts:((NSMutableArray<MSOrcMultiPartElement> *)multiparElements) withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
+        
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil)
         {
@@ -733,13 +735,11 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
 -(NSString *) getSerializedCurrentDate{

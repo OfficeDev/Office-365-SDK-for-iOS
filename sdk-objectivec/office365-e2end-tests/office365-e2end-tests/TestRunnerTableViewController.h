@@ -10,8 +10,9 @@
 #import "TestRunDetailViewController.h"
 
 @interface TestRunnerTableViewController : UITableViewController
-@property NSMutableArray *Tests;
-@property BaseTestRunner *TestRunner;
+
+@property (nonatomic, strong) NSMutableArray *Tests;
+@property (nonatomic, strong) BaseTestRunner *TestRunner;
 
 - (IBAction)RunAllTests:(id)sender;
 

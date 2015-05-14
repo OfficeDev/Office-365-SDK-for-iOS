@@ -9,7 +9,8 @@
 
 @interface DiscoveryTestRunner : BaseTestRunner
 
-@property MSDiscoveryClient *Client;
+@property (nonatomic, strong) MSDiscoveryClient *client;
 
--(id)initWithClient : (MSDiscoveryClient*)client;
+-(id)initWithClient:(MSDiscoveryClient *)client;
+
 @end

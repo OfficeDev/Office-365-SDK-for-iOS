@@ -9,14 +9,14 @@
 
 @interface Test : NSObject
 
-@property NSMutableArray *ExecutionMessages;
-@property NSString *Name;
-@property NSString *DisplayName;
-@property BOOL Passed;
-@property BOOL Selected;
-@property BaseTestRunner *TestRunner;
+@property (nonatomic, strong) NSMutableArray *executionMessages;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic) BOOL passed;
+@property (nonatomic) BOOL selected;
+@property (nonatomic, strong) BaseTestRunner *testRunner;
 
--(id) initWithData : (BaseTestRunner*) testRunner : (NSString *)name : (NSString *)displyName;
--(NSURLSessionDataTask*)Run :(void (^) (Test *))result;
+- (id)initWithData:(BaseTestRunner *)testRunner name:(NSString *)name displayName:(NSString *)displyName;
+- (void)run:(void(^)(Test *))result;
 
 @end

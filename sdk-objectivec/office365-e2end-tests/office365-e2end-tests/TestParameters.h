@@ -8,6 +8,6 @@
 
 @interface TestParameters : NSObject
 
-@property NSString* ServiceUrl;
+@property (nonatomic, strong) NSString *serviceUrl;
 
 @end

@@ -11,9 +11,10 @@
 
 @interface TestRunDetailViewController : ViewController
 
-@property Test *testRunned;
+@property (weak, nonatomic) Test *testRunned;
 
--(void) initWithTest : (Test *)test;
+- (void)initWithTest:(Test *)test;
+
 @property (weak, nonatomic) IBOutlet UILabel *testSummary;
 @property (weak, nonatomic) IBOutlet UILabel *testName;
 

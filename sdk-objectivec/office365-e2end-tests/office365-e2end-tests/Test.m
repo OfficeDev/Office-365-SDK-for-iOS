@@ -9,17 +9,28 @@
 
 @implementation Test
 
--(id) initWithData : (BaseTestRunner*) testRunner : (NSString *)name : (NSString *)displyName{
-    self.TestRunner = testRunner;
-    self.Name = name;
-    self.DisplayName = displyName;
+@synthesize executionMessages = _executionMessages;
+@synthesize name = _name;
+@synthesize displayName = _displayName;
+@synthesize passed = _passed;
+@synthesize selected = _selected;
+@synthesize testRunner = _testRunner;
+
+-(id)initWithData:(BaseTestRunner *)testRunner name:(NSString *)name displayName:(NSString *)displyName {
+    
+    if (self = [super init]) {
+        
+        _testRunner = testRunner;
+        _name = name;
+        _displayName = displyName;
+    }
     
     return self;
 }
 
--(NSURLSessionDataTask *)Run :(void (^) (Test*))result{
+-(void)run:(void(^)(Test *))result {
 
-    return [self.TestRunner Run:self.Name completionHandler:^(id test) {
+    return [self.testRunner run:self.name completionHandler:^(id test) {
         result(test);
     }];
 }

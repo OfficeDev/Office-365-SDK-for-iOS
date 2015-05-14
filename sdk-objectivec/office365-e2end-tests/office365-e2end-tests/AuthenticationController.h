@@ -10,7 +10,7 @@
 #import <ADALiOS/ADAuthenticationSettings.h>
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
-#import <office365_odata_base/office365_odata_base.h>
+#import "orc_engine_impl.h"
 #import <LiveSDK/LiveConnectClient.h>
 
 @interface AuthenticationController : NSObject
@@ -21,7 +21,7 @@
 -(void) initialize :(NSString *)resourceId : (BOOL) clearCache completionHandler:(void (^) (bool authenticated))completionBlock;
 -(void) initializeWithLiveSDK : (UIViewController*) viewController completionHandler:(void (^) (bool authenticated))completionBlock;
 -(ADALDependencyResolver*) getDependencyResolver;
--(MSODataDefaultDependencyResolver*) getLiveSDKDependencyResolver;
+-(MSOrcDefaultDependencyResolver*) getLiveSDKDependencyResolver;
 - (void)authenticateWithLiveSDK:(UIViewController *)controller : (void (^)(LiveConnectSession*)) callback;
 
 @end

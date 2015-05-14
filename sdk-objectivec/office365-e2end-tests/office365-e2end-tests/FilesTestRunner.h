@@ -10,7 +10,8 @@
 
 @interface FilesTestRunner : BaseTestRunner
 
-@property MSSharePointClient *Client;
+@property (strong, nonatomic) MSSharePointClient *client;
 
--(id)initWithClient : (MSSharePointClient*)client;
+- (id)initWithClient:(MSSharePointClient *)client;
+
 @end

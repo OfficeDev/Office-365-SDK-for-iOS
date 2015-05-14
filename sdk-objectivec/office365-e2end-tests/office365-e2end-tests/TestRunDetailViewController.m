@@ -18,12 +18,13 @@
     [super viewDidLoad];
     
     self.testSummary.numberOfLines = 0;
-    self.testName.text = self.testRunned.Name;
+    self.testName.text = self.testRunned.name;
     
     NSString *text = @"";
-    for (NSUInteger i = 0; i < self.testRunned.ExecutionMessages.count; i++)
-    {
-        text = [text stringByAppendingString:[self.testRunned.ExecutionMessages objectAtIndex:i]];
+    
+    for (NSUInteger i = 0; i < self.testRunned.executionMessages.count; i++) {
+        
+        text = [text stringByAppendingString:[self.testRunned.executionMessages objectAtIndex:i]];
         text = [text stringByAppendingString:@"\n"];
     }
     

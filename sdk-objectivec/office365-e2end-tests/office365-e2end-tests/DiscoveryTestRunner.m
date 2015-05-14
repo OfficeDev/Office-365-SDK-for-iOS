@@ -7,46 +7,52 @@
 #import "DiscoveryTestRunner.h"
 
 @implementation DiscoveryTestRunner
--(id)initWithClient : (MSDiscoveryClient*)client{
-    self.Client = client;
+
+- (id)initWithClient:(MSDiscoveryClient *)client{
+    
+    if(self = [super init]) {
+        
+        self.client = client;
+    }
+    
     return self;
 }
 
--(NSURLSessionTask *)Run : (NSString *)testName completionHandler:(void (^) (id test))result{
+- (void)run:(NSString *)testName completionHandler:(void(^)(id test))result{
     
-    if([testName isEqualToString: @"TestGetAllServices"]) return [self TestGetAllServices:result];
-    if([testName isEqualToString: @"TestGetServices"]) return [self TestGetServices:result];
-    if([testName isEqualToString: @"TestGetServiceById"]) return [self TestGetServiceById:result];
+    if([testName isEqualToString: @"TestGetAllServices"]) return [self testGetAllServices:result];
+    if([testName isEqualToString: @"TestGetServices"]) return [self testGetServices:result];
+    if([testName isEqualToString: @"TestGetServiceById"]) return [self testGetServiceById:result];
     
     //Select, top, filter
-    if([testName isEqualToString: @"TestFilterServices"]) return [self TestFilterServices:result];
-    if([testName isEqualToString: @"TestSelectServices"]) return [self TestSelectServices:result];
-    if([testName isEqualToString: @"TestTopServices"]) return [self TestTopServices:result];
-    return nil;
+    if([testName isEqualToString: @"TestFilterServices"]) return [self testFilterServices:result];
+    if([testName isEqualToString: @"TestSelectServices"]) return [self testSelectServices:result];
+    if([testName isEqualToString: @"TestTopServices"]) return [self testTopServices:result];
 }
 
--(NSMutableArray*)getTests{
-    NSMutableArray* array = [NSMutableArray array];
+- (NSMutableArray *)getTests {
     
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetAllServices" :@"Get all services" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetServices" :@"Get services" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestGetServiceById" :@"Get service by id" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestFilterServices" :@"Filter services" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestSelectServices" :@"Select services" ]];
-    [array addObject:[[Test alloc] initWithData:self :@"TestTopServices" :@"Top services" ]];
+    NSMutableArray *array = [NSMutableArray array];
+    
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetAllServices" displayName:@"Get all services" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetServices" displayName:@"Get services" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetServiceById" displayName:@"Get service by id" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestFilterServices" displayName:@"Filter services" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestSelectServices" displayName:@"Select services" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestTopServices" displayName:@"Top services" ]];
     
     return array;
 }
 
--(NSURLSessionTask*)TestGetAllServices:(void (^) (Test*))result{
+- (void)testGetAllServices:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
      
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil && serviceInfos != nil)
         {
@@ -58,24 +64,22 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestGetServices:(void (^) (Test*))result{
+- (void)testGetServices:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
         
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil && serviceInfos != nil)
         {
@@ -87,25 +91,26 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestGetServiceById:(void (^) (Test*))result{
+- (void)testGetServiceById:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+        
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
-        [[[[self.Client getallServices] getById:oneServiceInfo.entityKey] readWithCallback:^(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error) {
+        
+        [[self.client.allServices getById:oneServiceInfo.entityKey] readWithCallback:^(MSDiscoveryServiceInfo *serviceInfo, MSOrcError *error) {
+            
             BOOL passed = false;
             
             Test *test = [Test alloc];
             
-            test.ExecutionMessages = [NSMutableArray array];
+            test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
             if(error == nil && serviceInfo != nil && [serviceInfo.entityKey isEqualToString:oneServiceInfo.entityKey])
             {
@@ -117,32 +122,36 @@
                     message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
+            test.passed = passed;
+            [test.executionMessages addObject:message];
             
             result(test);
  
-        }]resume];
-        
+        }];
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestFilterServices:(void (^) (Test*))result{
+- (void)testFilterServices:(void(^)(Test *))result {
+   
     //Get services
-    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+        
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
+        
         // Use filter to get service
         NSString *filter = [[@"entityKey eq '" stringByAppendingString:oneServiceInfo.entityKey] stringByAppendingString:@"'" ];
-        [[[[self.Client getallServices]filter: filter]readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
+        
+        [[self.client.allServices filter:filter] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSOrcError *error) {
+            
             BOOL passed = false;
             
             Test *test = [Test alloc];
             
-            test.ExecutionMessages = [NSMutableArray array];
+            test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
-            if(error == nil && filteredServiceInfos.count == 1 && [[(MSDiscoveryServiceInfo*)[filteredServiceInfos objectAtIndex:0] entityKey] isEqualToString:oneServiceInfo.entityKey])
+            
+            if(error == nil && filteredServiceInfos.count == 1
+               && [[(MSDiscoveryServiceInfo*)[filteredServiceInfos objectAtIndex:0] entityKey] isEqualToString:oneServiceInfo.entityKey])
             {
                 passed = true;
                 message = @"Ok - ";
@@ -152,29 +161,32 @@
                     message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
+            test.passed = passed;
+            [test.executionMessages addObject:message];
             
             result(test);
             
-        }]resume];
+        }];
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestSelectServices:(void (^) (Test*))result{
+- (void)testSelectServices:(void(^)(Test *))result {
+    
     //Get services
-    NSURLSessionTask *task = [[self.Client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+        
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
+        
         // Use filter to get service
         NSString *filter = [[@"ServiceName eq '" stringByAppendingString:oneServiceInfo.serviceName] stringByAppendingString:@"'" ];
-        [[[[[self.Client getallServices]filter: filter] select:@"providerName" ] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSODataException *error) {
+       
+        [[[self.client.allServices filter:filter] select:@"providerName"] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSOrcError *error) {
+            
             BOOL passed = false;
             
             Test *test = [Test alloc];
             
-            test.ExecutionMessages = [NSMutableArray array];
+            test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
             if(error == nil && filteredServiceInfos.count > 0 && [(MSDiscoveryServiceInfo*)[filteredServiceInfos objectAtIndex:0] serviceName] == nil)
             {
@@ -186,26 +198,24 @@
                     message = [message stringByAppendingString: [error localizedDescription]];
             }
             
-            test.Passed = passed;
-            [test.ExecutionMessages addObject:message];
+            test.passed = passed;
+            [test.executionMessages addObject:message];
             
             result(test);
             
-        }]resume];
+        }];
     }];
-    
-    return task;
 }
 
--(NSURLSessionTask*)TestTopServices:(void (^) (Test*))result{
+- (void)testTopServices:(void(^)(Test *))result {
     
-    NSURLSessionTask *task = [[[self.Client getallServices] top:1] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *error) {
+    return [[self.client.allServices top:1] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
         
         BOOL passed = false;
         
         Test *test = [Test alloc];
         
-        test.ExecutionMessages = [NSMutableArray array];
+        test.executionMessages = [NSMutableArray array];
         NSString* message = @"";
         if(error == nil && serviceInfos != nil && serviceInfos.count == 1)
         {
@@ -217,14 +227,11 @@
                 message = [message stringByAppendingString: [error localizedDescription]];
         }
         
-        test.Passed = passed;
-        [test.ExecutionMessages addObject:message];
+        test.passed = passed;
+        [test.executionMessages addObject:message];
         
         result(test);
     }];
-    
-    return task;
 }
-
 
 @end

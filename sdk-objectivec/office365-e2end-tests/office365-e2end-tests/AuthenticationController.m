@@ -121,10 +121,10 @@ static AuthenticationController* INSTANCE;
     return DependencyResolver;
 }
 
--(MSODataDefaultDependencyResolver*) getLiveSDKDependencyResolver{
-    MSODataOAuthCredentials* credentials = [MSODataOAuthCredentials alloc];
+-(MSOrcDefaultDependencyResolver*) getLiveSDKDependencyResolver{
+    MSOrcOAuthCredentials* credentials = [MSOrcOAuthCredentials alloc];
     [credentials setToken:liveClient.session.accessToken];
-    MSODataDefaultDependencyResolver* resolver = [[MSODataDefaultDependencyResolver alloc] init];
+    MSOrcDefaultDependencyResolver* resolver = [[MSOrcDefaultDependencyResolver alloc] init];
     
     [resolver setCredentials:credentials];
     return resolver;

@@ -9,11 +9,10 @@
 
 @implementation TestRunnerTableViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Run Selected" style:UIBarButtonItemStylePlain target:self action:@selector(RunSelected:)];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Run Selected" style:UIBarButtonItemStylePlain target:self action:@selector(runSelected:)];
     
     NSArray *buttons = [[NSArray alloc] init];
     buttons = [buttons arrayByAddingObject:self.navigationItem.rightBarButtonItem];
@@ -25,6 +24,7 @@
 }
 
 - (void)loadInitialData {
+    
     for (Test* test in self.TestRunner.getTests) {
         [self.Tests addObject:test];
     }
@@ -43,32 +43,34 @@
 - (IBAction)changeSwitchValue:(UISwitch *)sender {
     
     Test *test = [self.Tests objectAtIndex:sender.tag];
-    test.Selected = sender.on;
+    test.selected = sender.on;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
     
     Test *test = [self.Tests objectAtIndex:indexPath.row];
     UILabel* label = (UILabel *)[cell.contentView.subviews objectAtIndex:1];
-    label.text = test.DisplayName;
+    label.text = test.displayName;
     
     UISwitch *_switch = ((UISwitch*)[cell.contentView.subviews objectAtIndex:0]);
                                      //subviews:1]);
     
     _switch.tag = indexPath.row;
     
-    [_switch setOn:test.Selected];
+    [_switch setOn:test.selected];
     
-    if (test.ExecutionMessages != nil) {
-        if(test.Passed){
+    if (test.executionMessages != nil) {
+        
+        if (test.passed) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"passed.png"]];
         }
-        if(!test.Passed){
+        else if (!test.passed) {
             cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"failed.png"]];
         }
-    }else{
+    }
+    else {
         cell.accessoryView = nil;
     }
     
@@ -76,6 +78,7 @@
 }
 
 - (IBAction)RunAllTests:(id)sender {
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
@@ -87,19 +90,18 @@
     
     for (int i = 0; i < [self.Tests count]; i++) {
         @try {
-            NSURLSessionDataTask *task = [[self.Tests objectAtIndex:i] Run:^(Test *result) {
+            
+            [[self.Tests objectAtIndex:i] run:^(Test *result) {
                 
                 Test *test = [self.Tests objectAtIndex:i];
-                test.Passed = result.Passed;
-                test.ExecutionMessages = result.ExecutionMessages;
+                test.passed = result.passed;
+                test.executionMessages = result.executionMessages;
                 executed++;
                 
                 [self.tableView reloadData];
                 
                 if(executed >= [self.Tests count]) [spinner stopAnimating];
             }];
-            
-            [task resume];
         }
         @catch (NSException *e) {
             NSLog(@"Exception: %@", e);
@@ -107,7 +109,8 @@
     }
 }
 
--(IBAction) RunSelected :(id)sender{
+- (IBAction)runSelected:(id)sender {
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake(135,140,50,50)];
     spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     [self.view addSubview:spinner];
@@ -122,14 +125,14 @@
         
         __block Test *test = [self.Tests objectAtIndex:i];
         
-        if(test.Selected){
+        if(test.selected){
             
             toExecute++;
             @try {
-                NSURLSessionDataTask *task = [test Run:^(Test *result) {
+                [test run:^(Test *result) {
                     
-                    test.Passed = result.Passed;
-                    test.ExecutionMessages = result.ExecutionMessages;
+                    test.passed = result.passed;
+                    test.executionMessages = result.executionMessages;
                     
                     executed++;
                     
@@ -139,8 +142,6 @@
                         if(executed >= toExecute) [spinner stopAnimating];
                     });
                 }];
-                
-                [task resume];
             }
             @catch (NSException *e) {
                 NSLog(@"Exception: %@", e);
@@ -154,14 +155,13 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Test *test = [self.Tests objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"viewDetailSegue" sender:test];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"viewDetailSegue"]){
         TestRunDetailViewController *vc =  segue.destinationViewController;
         vc.testRunned = (Test*)sender;
