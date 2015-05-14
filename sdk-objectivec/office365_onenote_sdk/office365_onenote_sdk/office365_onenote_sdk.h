@@ -12,5 +12,5 @@ FOUNDATION_EXPORT double office365_onenote_sdkVersionNumber;
 //! Project version string for office365_onenote_sdk.
 FOUNDATION_EXPORT const unsigned char office365_onenote_sdkVersionString[];
 
-#import <office365_onenote_sdk/MSOneNoteODataEntities.h>
+#import <office365_onenote_sdk/MSOneNoteOrcEntities.h>
 #import <office365_onenote_sdk/MSOneNoteModels.h>
