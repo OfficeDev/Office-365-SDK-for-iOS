@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryAppRoleAssignmentFetcher;
+@class MSDirectoryAppRoleAssignmentCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryAppRoleAssignmentCollectionFetcher.
 */
 
-@protocol MSDirectoryAppRoleAssignmentCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryAppRoleAssignmentCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryAppRoleAssignment> *appRoleAssignments, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryAppRoleAssignment> *appRoleAssignments, MSOrcError *error))callback;
 
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryAppRoleAssignmentCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)top:(int)value;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)skip:(int)value;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryAppRoleAssignmentCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryAppRoleAssignmentFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addAppRoleAssignment:(MSDirectoryAppRoleAssignment *)entity callback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSODataException *e))callback;
+- (void)add:(MSDirectoryAppRoleAssignment *)entity callback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryAppRoleAssignmentCollectionFetcher : MSODataCollectionFetcher<MSDirectoryAppRoleAssignmentCollectionFetcher>
+@interface MSDirectoryAppRoleAssignmentCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryAppRoleAssignmentCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

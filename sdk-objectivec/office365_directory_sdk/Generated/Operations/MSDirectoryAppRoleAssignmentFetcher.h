@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryAppRoleAssignmentOperations;
+@class MSDirectoryAppRoleAssignmentFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryAppRoleAssignmentFetcher.
 */
 
-@protocol MSDirectoryAppRoleAssignmentFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryAppRoleAssignmentFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSODataException *exception))callback;
-- (id<MSDirectoryAppRoleAssignmentFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryAppRoleAssignmentFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryAppRoleAssignmentFetcher>)select:(NSString *)params;
-- (id<MSDirectoryAppRoleAssignmentFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
+- (MSDirectoryAppRoleAssignmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryAppRoleAssignmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryAppRoleAssignmentFetcher *)select:(NSString *)params;
+- (MSDirectoryAppRoleAssignmentFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryAppRoleAssignmentOperations *operations;
 
-
 @end
 
-@interface MSDirectoryAppRoleAssignmentFetcher : MSODataEntityFetcher<MSDirectoryAppRoleAssignmentFetcher>
+@interface MSDirectoryAppRoleAssignmentFetcher : MSOrcEntityFetcher<MSDirectoryAppRoleAssignmentFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateAppRoleAssignment:(MSDirectoryAppRoleAssignment *)appRoleAssignment callback:(void (^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteAppRoleAssignment:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryAppRoleAssignment *)appRoleAssignment callback:(void(^)(MSDirectoryAppRoleAssignment *appRoleAssignment, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

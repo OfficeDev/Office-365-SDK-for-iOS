@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryDirectoryRoleTemplateOperations;
+@class MSDirectoryDirectoryRoleTemplateFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDirectoryRoleTemplateFetcher.
 */
 
-@protocol MSDirectoryDirectoryRoleTemplateFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryDirectoryRoleTemplateFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *exception))callback;
-- (id<MSDirectoryDirectoryRoleTemplateFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDirectoryRoleTemplateFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryDirectoryRoleTemplateFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDirectoryRoleTemplateFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
+- (MSDirectoryDirectoryRoleTemplateFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDirectoryRoleTemplateFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDirectoryRoleTemplateFetcher *)select:(NSString *)params;
+- (MSDirectoryDirectoryRoleTemplateFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryDirectoryRoleTemplateOperations *operations;
 
-
 @end
 
-@interface MSDirectoryDirectoryRoleTemplateFetcher : MSODataEntityFetcher<MSDirectoryDirectoryRoleTemplateFetcher>
+@interface MSDirectoryDirectoryRoleTemplateFetcher : MSOrcEntityFetcher<MSDirectoryDirectoryRoleTemplateFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryRoleTemplate:(MSDirectoryDirectoryRoleTemplate *)directoryRoleTemplate callback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryRoleTemplate:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryDirectoryRoleTemplate *)directoryRoleTemplate callback:(void(^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

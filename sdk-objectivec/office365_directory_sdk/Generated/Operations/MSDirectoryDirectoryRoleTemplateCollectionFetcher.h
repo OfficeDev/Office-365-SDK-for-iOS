@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryDirectoryRoleTemplateFetcher;
+@class MSDirectoryDirectoryRoleTemplateCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDirectoryRoleTemplateCollectionFetcher.
 */
 
-@protocol MSDirectoryDirectoryRoleTemplateCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryDirectoryRoleTemplateCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryDirectoryRoleTemplate> *directoryRoleTemplates, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryDirectoryRoleTemplate> *directoryRoleTemplates, MSOrcError *error))callback;
 
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDirectoryRoleTemplateCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)top:(int)value;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)skip:(int)value;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDirectoryRoleTemplateCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryDirectoryRoleTemplateFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDirectoryRoleTemplate:(MSDirectoryDirectoryRoleTemplate *)entity callback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSODataException *e))callback;
+- (void)add:(MSDirectoryDirectoryRoleTemplate *)entity callback:(void (^)(MSDirectoryDirectoryRoleTemplate *directoryRoleTemplate, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryDirectoryRoleTemplateCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryRoleTemplateCollectionFetcher>
+@interface MSDirectoryDirectoryRoleTemplateCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryDirectoryRoleTemplateCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

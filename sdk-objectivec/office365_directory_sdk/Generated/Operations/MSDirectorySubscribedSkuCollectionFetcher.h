@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectorySubscribedSkuFetcher;
+@class MSDirectorySubscribedSkuCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectorySubscribedSkuCollectionFetcher.
 */
 
-@protocol MSDirectorySubscribedSkuCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectorySubscribedSkuCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectorySubscribedSku> *subscribedSkus, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectorySubscribedSku> *subscribedSkus, MSOrcError *error))callback;
 
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)top:(int)value;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)skip:(int)value;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectorySubscribedSkuCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectorySubscribedSkuCollectionFetcher *)select:(NSString *)params;
+- (MSDirectorySubscribedSkuCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectorySubscribedSkuCollectionFetcher *)search:(NSString *)params;
+- (MSDirectorySubscribedSkuCollectionFetcher *)top:(int)value;
+- (MSDirectorySubscribedSkuCollectionFetcher *)skip:(int)value;
+- (MSDirectorySubscribedSkuCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectorySubscribedSkuCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectorySubscribedSkuCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectorySubscribedSkuCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectorySubscribedSkuFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addSubscribedSku:(MSDirectorySubscribedSku *)entity callback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSODataException *e))callback;
+- (void)add:(MSDirectorySubscribedSku *)entity callback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectorySubscribedSkuCollectionFetcher : MSODataCollectionFetcher<MSDirectorySubscribedSkuCollectionFetcher>
+@interface MSDirectorySubscribedSkuCollectionFetcher : MSOrcCollectionFetcher<MSDirectorySubscribedSkuCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

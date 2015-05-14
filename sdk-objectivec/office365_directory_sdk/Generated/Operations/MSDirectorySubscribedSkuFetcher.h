@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectorySubscribedSkuOperations;
+@class MSDirectorySubscribedSkuFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectorySubscribedSkuFetcher.
 */
 
-@protocol MSDirectorySubscribedSkuFetcher<MSODataEntityFetcher>
+@protocol MSDirectorySubscribedSkuFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSODataException *exception))callback;
-- (id<MSDirectorySubscribedSkuFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectorySubscribedSkuFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectorySubscribedSkuFetcher>)select:(NSString *)params;
-- (id<MSDirectorySubscribedSkuFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSOrcError *error))callback;
+- (MSDirectorySubscribedSkuFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectorySubscribedSkuFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectorySubscribedSkuFetcher *)select:(NSString *)params;
+- (MSDirectorySubscribedSkuFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectorySubscribedSkuOperations *operations;
 
-
 @end
 
-@interface MSDirectorySubscribedSkuFetcher : MSODataEntityFetcher<MSDirectorySubscribedSkuFetcher>
+@interface MSDirectorySubscribedSkuFetcher : MSOrcEntityFetcher<MSDirectorySubscribedSkuFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateSubscribedSku:(MSDirectorySubscribedSku *)subscribedSku callback:(void (^)(MSDirectorySubscribedSku *subscribedSku, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteSubscribedSku:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectorySubscribedSku *)subscribedSku callback:(void(^)(MSDirectorySubscribedSku *subscribedSku, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

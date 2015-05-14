@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryOAuth2PermissionGrantOperations;
+@class MSDirectoryOAuth2PermissionGrantFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryOAuth2PermissionGrantFetcher.
 */
 
-@protocol MSDirectoryOAuth2PermissionGrantFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryOAuth2PermissionGrantFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *exception))callback;
-- (id<MSDirectoryOAuth2PermissionGrantFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryOAuth2PermissionGrantFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryOAuth2PermissionGrantFetcher>)select:(NSString *)params;
-- (id<MSDirectoryOAuth2PermissionGrantFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
+- (MSDirectoryOAuth2PermissionGrantFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryOAuth2PermissionGrantFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryOAuth2PermissionGrantFetcher *)select:(NSString *)params;
+- (MSDirectoryOAuth2PermissionGrantFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryOAuth2PermissionGrantOperations *operations;
 
-
 @end
 
-@interface MSDirectoryOAuth2PermissionGrantFetcher : MSODataEntityFetcher<MSDirectoryOAuth2PermissionGrantFetcher>
+@interface MSDirectoryOAuth2PermissionGrantFetcher : MSOrcEntityFetcher<MSDirectoryOAuth2PermissionGrantFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateOAuth2PermissionGrant:(MSDirectoryOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteOAuth2PermissionGrant:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryOAuth2PermissionGrant *)oAuth2PermissionGrant callback:(void(^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

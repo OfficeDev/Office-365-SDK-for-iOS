@@ -28,42 +28,65 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryServicePrincipalFetcher;
 @class MSDirectoryTenantDetailFetcher;
 @class MSDirectoryDirectoryObjectOperations;
+@class MSDirectoryDirectoryObjectFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDirectoryObjectFetcher.
 */
 
-@protocol MSDirectoryDirectoryObjectFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryDirectoryObjectFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryDirectoryObject *directoryObject, MSODataException *exception))callback;
-- (id<MSDirectoryDirectoryObjectFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDirectoryObjectFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryDirectoryObjectFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDirectoryObjectFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryDirectoryObject *directoryObject, MSOrcError *error))callback;
+- (MSDirectoryDirectoryObjectFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDirectoryObjectFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDirectoryObjectFetcher *)select:(NSString *)params;
+- (MSDirectoryDirectoryObjectFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryDirectoryObjectOperations *operations;
 
-- (MSDirectoryDirectoryObjectFetcher *)getcreatedOnBehalfOf;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getcreatedObjects;
-- (MSDirectoryDirectoryObjectFetcher *) getcreatedObjectsById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectFetcher *)getmanager;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getdirectReports;
-- (MSDirectoryDirectoryObjectFetcher *) getdirectReportsById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getmembers;
-- (MSDirectoryDirectoryObjectFetcher *) getmembersById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getmemberOf;
-- (MSDirectoryDirectoryObjectFetcher *) getmemberOfById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getowners;
-- (MSDirectoryDirectoryObjectFetcher *) getownersById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getownedObjects;
-- (MSDirectoryDirectoryObjectFetcher *) getownedObjectsById:(NSString*)_id;
+@end
+
+@interface MSDirectoryDirectoryObjectFetcher : MSOrcEntityFetcher<MSDirectoryDirectoryObjectFetcherProtocol>
+
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryDirectoryObject *)directoryObject callback:(void(^)(MSDirectoryDirectoryObject *directoryObject, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+
+@property (retain, nonatomic, readonly, getter=createdOnBehalfOf) MSDirectoryDirectoryObjectFetcher *createdOnBehalfOf;
+@property (retain, nonatomic, readonly, getter=createdObjects) MSDirectoryDirectoryObjectCollectionFetcher *createdObjects;
+
+- (MSDirectoryDirectoryObjectFetcher *)getCreatedObjectsById:(NSString*)id;
+
+
+@property (retain, nonatomic, readonly, getter=manager) MSDirectoryDirectoryObjectFetcher *manager;
+@property (retain, nonatomic, readonly, getter=directReports) MSDirectoryDirectoryObjectCollectionFetcher *directReports;
+
+- (MSDirectoryDirectoryObjectFetcher *)getDirectReportsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=members) MSDirectoryDirectoryObjectCollectionFetcher *members;
+
+- (MSDirectoryDirectoryObjectFetcher *)getMembersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=memberOf) MSDirectoryDirectoryObjectCollectionFetcher *memberOf;
+
+- (MSDirectoryDirectoryObjectFetcher *)getMemberOfById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=owners) MSDirectoryDirectoryObjectCollectionFetcher *owners;
+
+- (MSDirectoryDirectoryObjectFetcher *)getOwnersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=ownedObjects) MSDirectoryDirectoryObjectCollectionFetcher *ownedObjects;
+
+- (MSDirectoryDirectoryObjectFetcher *)getOwnedObjectsById:(NSString*)id;
+
 - (MSDirectoryApplicationFetcher *)asApplication;	
 - (MSDirectoryUserFetcher *)asUser;	
 - (MSDirectoryExtensionPropertyFetcher *)asExtensionProperty;	
@@ -77,13 +100,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 - (MSDirectoryDirectoryRoleTemplateFetcher *)asDirectoryRoleTemplate;	
 - (MSDirectoryServicePrincipalFetcher *)asServicePrincipal;	
 - (MSDirectoryTenantDetailFetcher *)asTenantDetail;	
-
-@end
-
-@interface MSDirectoryDirectoryObjectFetcher : MSODataEntityFetcher<MSDirectoryDirectoryObjectFetcher>
-
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryObject:(MSDirectoryDirectoryObject *)directoryObject callback:(void (^)(MSDirectoryDirectoryObject *directoryObject, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryObject:(void (^)(int status, MSODataException *exception))callback;
 
 @end

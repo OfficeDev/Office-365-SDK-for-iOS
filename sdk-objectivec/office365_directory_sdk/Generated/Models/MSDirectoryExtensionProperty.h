@@ -14,8 +14,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSDirectoryProtocols.h"
-
-
 #import "MSDirectoryDirectoryObject.h"
 
 /**
@@ -23,10 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSDirectoryExtensionProperty : MSDirectoryDirectoryObject
-@property (retain, nonatomic, readwrite) NSString *appDisplayName;
-@property (retain, nonatomic, readwrite) NSString *name;
-@property (retain, nonatomic, readwrite) NSString *dataType;
-@property (nonatomic) BOOL isSyncedFromOnPremises;
-@property (retain, nonatomic, readwrite) NSMutableArray *targetObjects;
+
+@property (retain, nonatomic, readwrite, getter=appDisplayName, setter=setAppDisplayName:) NSString *appDisplayName;
+@property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *name;
+@property (retain, nonatomic, readwrite, getter=dataType, setter=setDataType:) NSString *dataType;
+@property (nonatomic, getter=isSyncedFromOnPremises, setter=setIsSyncedFromOnPremises:) BOOL isSyncedFromOnPremises;
+@property (retain, nonatomic, readwrite, getter=targetObjects, setter=setTargetObjects:) NSMutableArray *targetObjects;
 
 @end

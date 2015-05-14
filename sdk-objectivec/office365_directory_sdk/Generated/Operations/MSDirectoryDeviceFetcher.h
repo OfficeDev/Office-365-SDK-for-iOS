@@ -15,39 +15,44 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryDirectoryObjectFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryDeviceOperations;
+@class MSDirectoryDeviceFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDeviceFetcher.
 */
 
-@protocol MSDirectoryDeviceFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryDeviceFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryDevice *device, MSODataException *exception))callback;
-- (id<MSDirectoryDeviceFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDeviceFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryDeviceFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDeviceFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryDevice *device, MSOrcError *error))callback;
+- (MSDirectoryDeviceFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDeviceFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDeviceFetcher *)select:(NSString *)params;
+- (MSDirectoryDeviceFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryDeviceOperations *operations;
 
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getregisteredOwners;
-- (MSDirectoryDirectoryObjectFetcher *) getregisteredOwnersById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getregisteredUsers;
-- (MSDirectoryDirectoryObjectFetcher *) getregisteredUsersById:(NSString*)_id;
-
 @end
 
-@interface MSDirectoryDeviceFetcher : MSODataEntityFetcher<MSDirectoryDeviceFetcher>
+@interface MSDirectoryDeviceFetcher : MSOrcEntityFetcher<MSDirectoryDeviceFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDevice:(MSDirectoryDevice *)device callback:(void (^)(MSDirectoryDevice *device, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDevice:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryDevice *)device callback:(void(^)(MSDirectoryDevice *device, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=registeredOwners) MSDirectoryDirectoryObjectCollectionFetcher *registeredOwners;
+
+- (MSDirectoryDirectoryObjectFetcher *)getRegisteredOwnersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=registeredUsers) MSDirectoryDirectoryObjectCollectionFetcher *registeredUsers;
+
+- (MSDirectoryDirectoryObjectFetcher *)getRegisteredUsersById:(NSString*)id;
+
 
 @end

@@ -19,43 +19,52 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryDirectoryObjectFetcher;
 @class MSDirectoryDirectoryObjectCollectionFetcher;
 @class MSDirectoryUserOperations;
+@class MSDirectoryUserFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryUserFetcher.
 */
 
-@protocol MSDirectoryUserFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryUserFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryUser *user, MSODataException *exception))callback;
-- (id<MSDirectoryUserFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryUserFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryUserFetcher>)select:(NSString *)params;
-- (id<MSDirectoryUserFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryUser *user, MSOrcError *error))callback;
+- (MSDirectoryUserFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryUserFetcher *)select:(NSString *)params;
+- (MSDirectoryUserFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryUserOperations *operations;
 
-- (MSDirectoryAppRoleAssignmentCollectionFetcher *)getappRoleAssignments;
-- (MSDirectoryAppRoleAssignmentFetcher *) getappRoleAssignmentsById:(NSString*)_id;
-- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)getoauth2PermissionGrants;
-- (MSDirectoryOAuth2PermissionGrantFetcher *) getoauth2PermissionGrantsById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getownedDevices;
-- (MSDirectoryDirectoryObjectFetcher *) getownedDevicesById:(NSString*)_id;
-- (MSDirectoryDirectoryObjectCollectionFetcher *)getregisteredDevices;
-- (MSDirectoryDirectoryObjectFetcher *) getregisteredDevicesById:(NSString*)_id;
-
 @end
 
-@interface MSDirectoryUserFetcher : MSODataEntityFetcher<MSDirectoryUserFetcher>
+@interface MSDirectoryUserFetcher : MSOrcEntityFetcher<MSDirectoryUserFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateUser:(MSDirectoryUser *)user callback:(void (^)(MSDirectoryUser *user, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteUser:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryUser *)user callback:(void(^)(MSDirectoryUser *user, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryAppRoleAssignmentCollectionFetcher *appRoleAssignments;
+
+- (MSDirectoryAppRoleAssignmentFetcher *)getAppRoleAssignmentsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=oauth2PermissionGrants) MSDirectoryOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+
+- (MSDirectoryOAuth2PermissionGrantFetcher *)getOauth2PermissionGrantsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=ownedDevices) MSDirectoryDirectoryObjectCollectionFetcher *ownedDevices;
+
+- (MSDirectoryDirectoryObjectFetcher *)getOwnedDevicesById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=registeredDevices) MSDirectoryDirectoryObjectCollectionFetcher *registeredDevices;
+
+- (MSDirectoryDirectoryObjectFetcher *)getRegisteredDevicesById:(NSString*)id;
+
 
 @end

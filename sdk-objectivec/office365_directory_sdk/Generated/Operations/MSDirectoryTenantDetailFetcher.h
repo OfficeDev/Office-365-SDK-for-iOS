@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryTenantDetailOperations;
+@class MSDirectoryTenantDetailFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryTenantDetailFetcher.
 */
 
-@protocol MSDirectoryTenantDetailFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryTenantDetailFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSODataException *exception))callback;
-- (id<MSDirectoryTenantDetailFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryTenantDetailFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryTenantDetailFetcher>)select:(NSString *)params;
-- (id<MSDirectoryTenantDetailFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSOrcError *error))callback;
+- (MSDirectoryTenantDetailFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryTenantDetailFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryTenantDetailFetcher *)select:(NSString *)params;
+- (MSDirectoryTenantDetailFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryTenantDetailOperations *operations;
 
-
 @end
 
-@interface MSDirectoryTenantDetailFetcher : MSODataEntityFetcher<MSDirectoryTenantDetailFetcher>
+@interface MSDirectoryTenantDetailFetcher : MSOrcEntityFetcher<MSDirectoryTenantDetailFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateTenantDetail:(MSDirectoryTenantDetail *)tenantDetail callback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteTenantDetail:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryTenantDetail *)tenantDetail callback:(void(^)(MSDirectoryTenantDetail *tenantDetail, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

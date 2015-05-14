@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryDirectoryLinkChangeOperations;
+@class MSDirectoryDirectoryLinkChangeFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDirectoryLinkChangeFetcher.
 */
 
-@protocol MSDirectoryDirectoryLinkChangeFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryDirectoryLinkChangeFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSODataException *exception))callback;
-- (id<MSDirectoryDirectoryLinkChangeFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDirectoryLinkChangeFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryDirectoryLinkChangeFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDirectoryLinkChangeFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
+- (MSDirectoryDirectoryLinkChangeFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDirectoryLinkChangeFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDirectoryLinkChangeFetcher *)select:(NSString *)params;
+- (MSDirectoryDirectoryLinkChangeFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryDirectoryLinkChangeOperations *operations;
 
-
 @end
 
-@interface MSDirectoryDirectoryLinkChangeFetcher : MSODataEntityFetcher<MSDirectoryDirectoryLinkChangeFetcher>
+@interface MSDirectoryDirectoryLinkChangeFetcher : MSOrcEntityFetcher<MSDirectoryDirectoryLinkChangeFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDirectoryLinkChange:(MSDirectoryDirectoryLinkChange *)directoryLinkChange callback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDirectoryLinkChange:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryDirectoryLinkChange *)directoryLinkChange callback:(void(^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

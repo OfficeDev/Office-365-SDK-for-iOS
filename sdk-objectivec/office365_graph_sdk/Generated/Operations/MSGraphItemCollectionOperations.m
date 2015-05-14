@@ -31,7 +31,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 	return [self addRawWithPath:pathString nameConflict:nameConflictString type:typeString content:contentString callback:^(NSString *returnValue, MSOrcError *e) {
        
-	   if (exception == nil) {
+	   if (e == nil) {
 
 			MSGraphItem * result = (MSGraphItem *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSGraphItem class]];
             
@@ -64,7 +64,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
 		
-		if (exception == nil) {
+		if (e == nil) {
 
             callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
         }

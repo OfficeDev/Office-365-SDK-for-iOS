@@ -14,8 +14,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSDirectoryProtocols.h"
-
-
 #import "MSDirectoryDirectoryObject.h"
 
 /**
@@ -23,12 +21,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSDirectoryAppRoleAssignment : MSDirectoryDirectoryObject
-@property (retain, nonatomic, readwrite) NSDate *creationTimestamp;
-@property (retain, nonatomic, readwrite) NSString *id;
-@property (retain, nonatomic, readwrite) NSString *principalDisplayName;
-@property (retain, nonatomic, readwrite) NSString *principalId;
-@property (retain, nonatomic, readwrite) NSString *principalType;
-@property (retain, nonatomic, readwrite) NSString *resourceDisplayName;
-@property (retain, nonatomic, readwrite) NSString *resourceId;
+
+@property (retain, nonatomic, readwrite, getter=creationTimestamp, setter=setCreationTimestamp:) NSDate *creationTimestamp;
+@property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
+@property (retain, nonatomic, readwrite, getter=principalDisplayName, setter=setPrincipalDisplayName:) NSString *principalDisplayName;
+@property (retain, nonatomic, readwrite, getter=principalId, setter=setPrincipalId:) NSString *principalId;
+@property (retain, nonatomic, readwrite, getter=principalType, setter=setPrincipalType:) NSString *principalType;
+@property (retain, nonatomic, readwrite, getter=resourceDisplayName, setter=setResourceDisplayName:) NSString *resourceDisplayName;
+@property (retain, nonatomic, readwrite, getter=resourceId, setter=setResourceId:) NSString *resourceId;
 
 @end

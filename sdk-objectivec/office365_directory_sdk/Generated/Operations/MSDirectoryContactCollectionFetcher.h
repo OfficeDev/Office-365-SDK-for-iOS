@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryContactFetcher;
+@class MSDirectoryContactCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryContactCollectionFetcher.
 */
 
-@protocol MSDirectoryContactCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryContactCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryContact> *contacts, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryContact> *contacts, MSOrcError *error))callback;
 
-- (id<MSDirectoryContactCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryContactCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryContactCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryContactCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryContactCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryContactCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryContactCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryContactCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryContactCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryContactCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryContactCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryContactCollectionFetcher *)top:(int)value;
+- (MSDirectoryContactCollectionFetcher *)skip:(int)value;
+- (MSDirectoryContactCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryContactCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryContactCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryContactCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryContactFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addContact:(MSDirectoryContact *)entity callback:(void (^)(MSDirectoryContact *contact, MSODataException *e))callback;
+- (void)add:(MSDirectoryContact *)entity callback:(void (^)(MSDirectoryContact *contact, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryContactCollectionFetcher : MSODataCollectionFetcher<MSDirectoryContactCollectionFetcher>
+@interface MSDirectoryContactCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryContactCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

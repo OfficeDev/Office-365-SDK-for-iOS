@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDiscoveryServiceInfoFetcher;
+@class MSDiscoveryServiceInfoCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryServiceInfoCollectionFetcher.
 */
 
-@protocol MSDiscoveryServiceInfoCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDiscoveryServiceInfoCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error))callback;
 
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)select:(NSString *)params;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)top:(int)value;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)skip:(int)value;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDiscoveryServiceInfoCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDiscoveryServiceInfoCollectionFetcher *)select:(NSString *)params;
+- (MSDiscoveryServiceInfoCollectionFetcher *)filter:(NSString *)params;
+- (MSDiscoveryServiceInfoCollectionFetcher *)search:(NSString *)params;
+- (MSDiscoveryServiceInfoCollectionFetcher *)top:(int)value;
+- (MSDiscoveryServiceInfoCollectionFetcher *)skip:(int)value;
+- (MSDiscoveryServiceInfoCollectionFetcher *)expand:(NSString *)value;
+- (MSDiscoveryServiceInfoCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDiscoveryServiceInfoCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDiscoveryServiceInfoCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDiscoveryServiceInfoFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addServiceInfo:(MSDiscoveryServiceInfo *)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *e))callback;
+- (void)add:(MSDiscoveryServiceInfo *)entity callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSOrcError *error))callback;
 
 @end
 
-@interface MSDiscoveryServiceInfoCollectionFetcher : MSODataCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcher>
+@interface MSDiscoveryServiceInfoCollectionFetcher : MSOrcCollectionFetcher<MSDiscoveryServiceInfoCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

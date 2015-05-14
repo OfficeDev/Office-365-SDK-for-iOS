@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryContactOperations;
+@class MSDirectoryContactFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryContactFetcher.
 */
 
-@protocol MSDirectoryContactFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryContactFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryContact *contact, MSODataException *exception))callback;
-- (id<MSDirectoryContactFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryContactFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryContactFetcher>)select:(NSString *)params;
-- (id<MSDirectoryContactFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryContact *contact, MSOrcError *error))callback;
+- (MSDirectoryContactFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryContactFetcher *)select:(NSString *)params;
+- (MSDirectoryContactFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryContactOperations *operations;
 
-
 @end
 
-@interface MSDirectoryContactFetcher : MSODataEntityFetcher<MSDirectoryContactFetcher>
+@interface MSDirectoryContactFetcher : MSOrcEntityFetcher<MSDirectoryContactFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateContact:(MSDirectoryContact *)contact callback:(void (^)(MSDirectoryContact *contact, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteContact:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryContact *)contact callback:(void(^)(MSDirectoryContact *contact, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

@@ -15,37 +15,40 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryExtensionPropertyFetcher;
 @class MSDirectoryExtensionPropertyCollectionFetcher;
 @class MSDirectoryApplicationOperations;
+@class MSDirectoryApplicationFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryApplicationFetcher.
 */
 
-@protocol MSDirectoryApplicationFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryApplicationFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryApplication *application, MSODataException *exception))callback;
-- (id<MSDirectoryApplicationFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryApplicationFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryApplicationFetcher>)select:(NSString *)params;
-- (id<MSDirectoryApplicationFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryApplication *application, MSOrcError *error))callback;
+- (MSDirectoryApplicationFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryApplicationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryApplicationFetcher *)select:(NSString *)params;
+- (MSDirectoryApplicationFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryApplicationOperations *operations;
 
-- (MSDirectoryExtensionPropertyCollectionFetcher *)getextensionProperties;
-- (MSDirectoryExtensionPropertyFetcher *) getextensionPropertiesById:(NSString*)_id;
-
 @end
 
-@interface MSDirectoryApplicationFetcher : MSODataEntityFetcher<MSDirectoryApplicationFetcher>
+@interface MSDirectoryApplicationFetcher : MSOrcEntityFetcher<MSDirectoryApplicationFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateApplication:(MSDirectoryApplication *)application callback:(void (^)(MSDirectoryApplication *application, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteApplication:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryApplication *)application callback:(void(^)(MSDirectoryApplication *application, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=extensionProperties) MSDirectoryExtensionPropertyCollectionFetcher *extensionProperties;
+
+- (MSDirectoryExtensionPropertyFetcher *)getExtensionPropertiesById:(NSString*)id;
+
 
 @end

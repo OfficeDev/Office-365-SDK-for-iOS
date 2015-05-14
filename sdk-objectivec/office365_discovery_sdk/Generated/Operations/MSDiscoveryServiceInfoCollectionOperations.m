@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSDiscoveryServiceInfoCollectionOperations.h"
-#import "MSDiscoveryODataEntities.h"
+#import "MSDiscoveryOrcEntities.h"
 
 /**
 * The implementation file for type MSDiscoveryServiceInfoCollectionOperations.

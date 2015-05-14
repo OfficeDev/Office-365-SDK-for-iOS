@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryTenantDetailFetcher;
+@class MSDirectoryTenantDetailCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryTenantDetailCollectionFetcher.
 */
 
-@protocol MSDirectoryTenantDetailCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryTenantDetailCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryTenantDetail> *tenantDetails, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryTenantDetail> *tenantDetails, MSOrcError *error))callback;
 
-- (id<MSDirectoryTenantDetailCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryTenantDetailCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryTenantDetailCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryTenantDetailCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryTenantDetailCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryTenantDetailCollectionFetcher *)top:(int)value;
+- (MSDirectoryTenantDetailCollectionFetcher *)skip:(int)value;
+- (MSDirectoryTenantDetailCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryTenantDetailCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryTenantDetailCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryTenantDetailCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryTenantDetailFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addTenantDetail:(MSDirectoryTenantDetail *)entity callback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSODataException *e))callback;
+- (void)add:(MSDirectoryTenantDetail *)entity callback:(void (^)(MSDirectoryTenantDetail *tenantDetail, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryTenantDetailCollectionFetcher : MSODataCollectionFetcher<MSDirectoryTenantDetailCollectionFetcher>
+@interface MSDirectoryTenantDetailCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryTenantDetailCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

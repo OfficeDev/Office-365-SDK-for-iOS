@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D023D100FB27D3036CEF64A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4D4021C16D7F70CD60456AB /* libPods.a */; };
 		EC55F0751AF14ED90099BB4C /* MSSharePointDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F0761AF14ED90099BB4C /* MSSharePointDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */; };
 		EC55F0771AF14ED90099BB4C /* MSSharePointDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,9 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C4D4021C16D7F70CD60456AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC55F0331AF14ED90099BB4C /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
 		EC55F0341AF14ED90099BB4C /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
 		EC55F0351AF14ED90099BB4C /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
@@ -131,22 +128,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D023D100FB27D3036CEF64A5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31D3ABE779606D5BFB23C3F0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */,
-				CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		61D78D373387A446570DDD92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +224,6 @@
 				EC82679B1AE5349800A14A0B /* Generated */,
 				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
-				31D3ABE779606D5BFB23C3F0 /* Pods */,
 				61D78D373387A446570DDD92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -313,12 +299,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "office365_files_sdk" */;
 			buildPhases = (
-				498810DCDDCF1EB4C8758CFC /* Check Pods Manifest.lock */,
 				ECDEC0BF1A2514BB00F84EAF /* Sources */,
 				ECDEC0C01A2514BB00F84EAF /* Frameworks */,
 				ECDEC0C11A2514BB00F84EAF /* Headers */,
 				ECDEC0C21A2514BB00F84EAF /* Resources */,
-				39EE01F0AA1158EE9E4924DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -370,39 +354,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		39EE01F0AA1158EE9E4924DD /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		498810DCDDCF1EB4C8758CFC /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECDEC0BF1A2514BB00F84EAF /* Sources */ = {
@@ -526,7 +477,6 @@
 		};
 		ECDEC0DB1A2514BC00F84EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 633BB6EE6E2744CDBD898393 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -547,7 +497,6 @@
 		};
 		ECDEC0DC1A2514BC00F84EAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEDBBEB7FC9176F7CAC31CF6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;

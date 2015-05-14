@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSDirectoryDeviceConfigurationCollectionOperations.h"
-#import "MSDirectoryODataEntities.h"
+#import "MSDirectoryOrcEntities.h"
 
 /**
 * The implementation file for type MSDirectoryDeviceConfigurationCollectionOperations.

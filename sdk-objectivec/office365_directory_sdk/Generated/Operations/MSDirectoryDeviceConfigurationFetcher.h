@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryDeviceConfigurationOperations;
+@class MSDirectoryDeviceConfigurationFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDeviceConfigurationFetcher.
 */
 
-@protocol MSDirectoryDeviceConfigurationFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryDeviceConfigurationFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryDeviceConfiguration *deviceConfiguration, MSODataException *exception))callback;
-- (id<MSDirectoryDeviceConfigurationFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDeviceConfigurationFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryDeviceConfigurationFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDeviceConfigurationFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryDeviceConfiguration *deviceConfiguration, MSOrcError *error))callback;
+- (MSDirectoryDeviceConfigurationFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDeviceConfigurationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDeviceConfigurationFetcher *)select:(NSString *)params;
+- (MSDirectoryDeviceConfigurationFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryDeviceConfigurationOperations *operations;
 
-
 @end
 
-@interface MSDirectoryDeviceConfigurationFetcher : MSODataEntityFetcher<MSDirectoryDeviceConfigurationFetcher>
+@interface MSDirectoryDeviceConfigurationFetcher : MSOrcEntityFetcher<MSDirectoryDeviceConfigurationFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateDeviceConfiguration:(MSDirectoryDeviceConfiguration *)deviceConfiguration callback:(void (^)(MSDirectoryDeviceConfiguration *deviceConfiguration, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteDeviceConfiguration:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryDeviceConfiguration *)deviceConfiguration callback:(void(^)(MSDirectoryDeviceConfiguration *deviceConfiguration, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

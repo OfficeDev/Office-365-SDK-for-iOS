@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryOAuth2PermissionGrantFetcher;
+@class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryOAuth2PermissionGrantCollectionFetcher.
 */
 
-@protocol MSDirectoryOAuth2PermissionGrantCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryOAuth2PermissionGrantCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryOAuth2PermissionGrant> *oAuth2PermissionGrants, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryOAuth2PermissionGrant> *oAuth2PermissionGrants, MSOrcError *error))callback;
 
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryOAuth2PermissionGrantCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)top:(int)value;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)skip:(int)value;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryOAuth2PermissionGrantFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addOAuth2PermissionGrant:(MSDirectoryOAuth2PermissionGrant *)entity callback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSODataException *e))callback;
+- (void)add:(MSDirectoryOAuth2PermissionGrant *)entity callback:(void (^)(MSDirectoryOAuth2PermissionGrant *oAuth2PermissionGrant, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryOAuth2PermissionGrantCollectionFetcher : MSODataCollectionFetcher<MSDirectoryOAuth2PermissionGrantCollectionFetcher>
+@interface MSDirectoryOAuth2PermissionGrantCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryOAuth2PermissionGrantCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

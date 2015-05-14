@@ -17,41 +17,48 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryOAuth2PermissionGrantFetcher;
 @class MSDirectoryOAuth2PermissionGrantCollectionFetcher;
 @class MSDirectoryServicePrincipalOperations;
+@class MSDirectoryServicePrincipalFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryServicePrincipalFetcher.
 */
 
-@protocol MSDirectoryServicePrincipalFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryServicePrincipalFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSODataException *exception))callback;
-- (id<MSDirectoryServicePrincipalFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryServicePrincipalFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryServicePrincipalFetcher>)select:(NSString *)params;
-- (id<MSDirectoryServicePrincipalFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSOrcError *error))callback;
+- (MSDirectoryServicePrincipalFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryServicePrincipalFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryServicePrincipalFetcher *)select:(NSString *)params;
+- (MSDirectoryServicePrincipalFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryServicePrincipalOperations *operations;
 
-- (MSDirectoryAppRoleAssignmentCollectionFetcher *)getappRoleAssignedTo;
-- (MSDirectoryAppRoleAssignmentFetcher *) getappRoleAssignedToById:(NSString*)_id;
-- (MSDirectoryAppRoleAssignmentCollectionFetcher *)getappRoleAssignments;
-- (MSDirectoryAppRoleAssignmentFetcher *) getappRoleAssignmentsById:(NSString*)_id;
-- (MSDirectoryOAuth2PermissionGrantCollectionFetcher *)getoauth2PermissionGrants;
-- (MSDirectoryOAuth2PermissionGrantFetcher *) getoauth2PermissionGrantsById:(NSString*)_id;
-
 @end
 
-@interface MSDirectoryServicePrincipalFetcher : MSODataEntityFetcher<MSDirectoryServicePrincipalFetcher>
+@interface MSDirectoryServicePrincipalFetcher : MSOrcEntityFetcher<MSDirectoryServicePrincipalFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateServicePrincipal:(MSDirectoryServicePrincipal *)servicePrincipal callback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteServicePrincipal:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryServicePrincipal *)servicePrincipal callback:(void(^)(MSDirectoryServicePrincipal *servicePrincipal, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignedTo) MSDirectoryAppRoleAssignmentCollectionFetcher *appRoleAssignedTo;
+
+- (MSDirectoryAppRoleAssignmentFetcher *)getAppRoleAssignedToById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryAppRoleAssignmentCollectionFetcher *appRoleAssignments;
+
+- (MSDirectoryAppRoleAssignmentFetcher *)getAppRoleAssignmentsById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=oauth2PermissionGrants) MSDirectoryOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+
+- (MSDirectoryOAuth2PermissionGrantFetcher *)getOauth2PermissionGrantsById:(NSString*)id;
+
 
 @end

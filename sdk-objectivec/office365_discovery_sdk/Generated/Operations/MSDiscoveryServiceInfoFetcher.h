@@ -13,35 +13,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDiscoveryServiceInfoOperations;
+@class MSDiscoveryServiceInfoFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryServiceInfoFetcher.
 */
 
-@protocol MSDiscoveryServiceInfoFetcher<MSODataEntityFetcher>
+@protocol MSDiscoveryServiceInfoFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *exception))callback;
-- (id<MSDiscoveryServiceInfoFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDiscoveryServiceInfoFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDiscoveryServiceInfoFetcher>)select:(NSString *)params;
-- (id<MSDiscoveryServiceInfoFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSOrcError *error))callback;
+- (MSDiscoveryServiceInfoFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDiscoveryServiceInfoFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDiscoveryServiceInfoFetcher *)select:(NSString *)params;
+- (MSDiscoveryServiceInfoFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDiscoveryServiceInfoOperations *operations;
 
-
 @end
 
-@interface MSDiscoveryServiceInfoFetcher : MSODataEntityFetcher<MSDiscoveryServiceInfoFetcher>
+@interface MSDiscoveryServiceInfoFetcher : MSOrcEntityFetcher<MSDiscoveryServiceInfoFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateServiceInfo:(MSDiscoveryServiceInfo *)serviceInfo callback:(void (^)(MSDiscoveryServiceInfo *serviceInfo, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteServiceInfo:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDiscoveryServiceInfo *)serviceInfo callback:(void(^)(MSDiscoveryServiceInfo *serviceInfo, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
 
 @end

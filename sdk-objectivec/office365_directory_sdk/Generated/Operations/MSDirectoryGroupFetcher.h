@@ -15,37 +15,40 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryAppRoleAssignmentFetcher;
 @class MSDirectoryAppRoleAssignmentCollectionFetcher;
 @class MSDirectoryGroupOperations;
+@class MSDirectoryGroupFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryGroupFetcher.
 */
 
-@protocol MSDirectoryGroupFetcher<MSODataEntityFetcher>
+@protocol MSDirectoryGroupFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 
-- (NSURLSessionTask *) readWithCallback:(void (^)(MSDirectoryGroup *group, MSODataException *exception))callback;
-- (id<MSDirectoryGroupFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryGroupFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
-- (id<MSDirectoryGroupFetcher>)select:(NSString *)params;
-- (id<MSDirectoryGroupFetcher>)expand:(NSString *)value;
+- (void) readWithCallback:(void (^)(MSDirectoryGroup *group, MSOrcError *error))callback;
+- (MSDirectoryGroupFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryGroupFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryGroupFetcher *)select:(NSString *)params;
+- (MSDirectoryGroupFetcher *)expand:(NSString *)value;
 
 @required
 
 @property (copy, nonatomic, readonly) MSDirectoryGroupOperations *operations;
 
-- (MSDirectoryAppRoleAssignmentCollectionFetcher *)getappRoleAssignments;
-- (MSDirectoryAppRoleAssignmentFetcher *) getappRoleAssignmentsById:(NSString*)_id;
-
 @end
 
-@interface MSDirectoryGroupFetcher : MSODataEntityFetcher<MSDirectoryGroupFetcher>
+@interface MSDirectoryGroupFetcher : MSOrcEntityFetcher<MSDirectoryGroupFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSODataExecutable>)parent;
-- (NSURLSessionTask *) updateGroup:(MSDirectoryGroup *)group callback:(void (^)(MSDirectoryGroup *group, MSODataException *error))callback;
-- (NSURLSessionTask *) deleteGroup:(void (^)(int status, MSODataException *exception))callback;
+- (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
+- (void)update:(MSDirectoryGroup *)group callback:(void(^)(MSDirectoryGroup *group, MSOrcError *error))callback;
+- (void)delete:(void(^)(int status, MSOrcError *error))callback;
+
+@property (retain, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryAppRoleAssignmentCollectionFetcher *appRoleAssignments;
+
+- (MSDirectoryAppRoleAssignmentFetcher *)getAppRoleAssignmentsById:(NSString*)id;
+
 
 @end

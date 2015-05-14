@@ -14,8 +14,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSDirectoryProtocols.h"
-
-
 #import "MSDirectoryDirectoryObject.h"
 
 /**
@@ -23,10 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSDirectoryDirectoryRole : MSDirectoryDirectoryObject
-@property (retain, nonatomic, readwrite) NSString *$$__description;
-@property (retain, nonatomic, readwrite) NSString *displayName;
-@property (nonatomic) BOOL isSystem;
-@property (nonatomic) BOOL roleDisabled;
-@property (retain, nonatomic, readwrite) NSString *roleTemplateId;
+
+@property (retain, nonatomic, readwrite, getter=description, setter=setDescription:) NSString *$$__description;
+@property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *displayName;
+@property (nonatomic, getter=isSystem, setter=setIsSystem:) BOOL isSystem;
+@property (nonatomic, getter=roleDisabled, setter=setRoleDisabled:) BOOL roleDisabled;
+@property (retain, nonatomic, readwrite, getter=roleTemplateId, setter=setRoleTemplateId:) NSString *roleTemplateId;
 
 @end

@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryDirectoryLinkChangeFetcher;
+@class MSDirectoryDirectoryLinkChangeCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryDirectoryLinkChangeCollectionFetcher.
 */
 
-@protocol MSDirectoryDirectoryLinkChangeCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryDirectoryLinkChangeCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryDirectoryLinkChange> *directoryLinkChanges, MSOrcError *error))callback;
 
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryDirectoryLinkChangeCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)top:(int)value;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)skip:(int)value;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryDirectoryLinkChangeCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryDirectoryLinkChangeFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addDirectoryLinkChange:(MSDirectoryDirectoryLinkChange *)entity callback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSODataException *e))callback;
+- (void)add:(MSDirectoryDirectoryLinkChange *)entity callback:(void (^)(MSDirectoryDirectoryLinkChange *directoryLinkChange, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryDirectoryLinkChangeCollectionFetcher : MSODataCollectionFetcher<MSDirectoryDirectoryLinkChangeCollectionFetcher>
+@interface MSDirectoryDirectoryLinkChangeCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryDirectoryLinkChangeCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

@@ -14,8 +14,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSDirectoryProtocols.h"
-
-
 #import "MSDirectoryDirectoryObject.h"
 
 /**
@@ -23,12 +21,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSDirectoryDirectoryLinkChange : MSDirectoryDirectoryObject
-@property (retain, nonatomic, readwrite) NSString *associationType;
-@property (retain, nonatomic, readwrite) NSString *sourceObjectId;
-@property (retain, nonatomic, readwrite) NSString *sourceObjectType;
-@property (retain, nonatomic, readwrite) NSString *sourceObjectUri;
-@property (retain, nonatomic, readwrite) NSString *targetObjectId;
-@property (retain, nonatomic, readwrite) NSString *targetObjectType;
-@property (retain, nonatomic, readwrite) NSString *targetObjectUri;
+
+@property (retain, nonatomic, readwrite, getter=associationType, setter=setAssociationType:) NSString *associationType;
+@property (retain, nonatomic, readwrite, getter=sourceObjectId, setter=setSourceObjectId:) NSString *sourceObjectId;
+@property (retain, nonatomic, readwrite, getter=sourceObjectType, setter=setSourceObjectType:) NSString *sourceObjectType;
+@property (retain, nonatomic, readwrite, getter=sourceObjectUri, setter=setSourceObjectUri:) NSString *sourceObjectUri;
+@property (retain, nonatomic, readwrite, getter=targetObjectId, setter=setTargetObjectId:) NSString *targetObjectId;
+@property (retain, nonatomic, readwrite, getter=targetObjectType, setter=setTargetObjectType:) NSString *targetObjectType;
+@property (retain, nonatomic, readwrite, getter=targetObjectUri, setter=setTargetObjectUri:) NSString *targetObjectUri;
 
 @end

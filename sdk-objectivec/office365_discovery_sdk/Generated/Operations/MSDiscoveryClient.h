@@ -14,17 +14,17 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @class MSDiscoveryServiceInfoCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDiscoveryModels.h"
 
 /**
 * The header for type MSDiscoveryClient.
 */
 
-@interface MSDiscoveryClient : MSODataBaseContainer
+@interface MSDiscoveryClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSDiscoveryServiceInfoCollectionFetcher*) getallServices;
--(MSDiscoveryServiceInfoCollectionFetcher*) getservices;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=allServices) MSDiscoveryServiceInfoCollectionFetcher *allServices;
+@property (retain, nonatomic, readonly, getter=services) MSDiscoveryServiceInfoCollectionFetcher *services;
 
 @end

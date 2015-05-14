@@ -16,22 +16,20 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSDirectoryProtocols.h"
 
 
-
-
 /**
 * The header for type OAuth2PermissionGrant.
 */
 
 @interface MSDirectoryOAuth2PermissionGrant : NSObject
 
-@property (copy, nonatomic, readonly) NSString *odataType;
-@property (retain, nonatomic, readwrite) NSString *clientId;
-@property (retain, nonatomic, readwrite) NSString *consentType;
-@property (retain, nonatomic, readwrite) NSDate *expiryTime;
-@property (retain, nonatomic, readwrite) NSString *objectId;
-@property (retain, nonatomic, readwrite) NSString *principalId;
-@property (retain, nonatomic, readwrite) NSString *resourceId;
-@property (retain, nonatomic, readwrite) NSString *scope;
-@property (retain, nonatomic, readwrite) NSDate *startTime;
+@property (retain, nonatomic, readonly) NSString *odataType;
+@property (retain, nonatomic, readwrite, getter=clientId, setter=setClientId:) NSString *clientId;
+@property (retain, nonatomic, readwrite, getter=consentType, setter=setConsentType:) NSString *consentType;
+@property (retain, nonatomic, readwrite, getter=expiryTime, setter=setExpiryTime:) NSDate *expiryTime;
+@property (retain, nonatomic, readwrite, getter=objectId, setter=setObjectId:) NSString *objectId;
+@property (retain, nonatomic, readwrite, getter=principalId, setter=setPrincipalId:) NSString *principalId;
+@property (retain, nonatomic, readwrite, getter=resourceId, setter=setResourceId:) NSString *resourceId;
+@property (retain, nonatomic, readwrite, getter=scope, setter=setScope:) NSString *scope;
+@property (retain, nonatomic, readwrite, getter=startTime, setter=setStartTime:) NSDate *startTime;
 
 @end

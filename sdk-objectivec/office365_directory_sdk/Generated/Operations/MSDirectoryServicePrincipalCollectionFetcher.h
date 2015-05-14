@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryServicePrincipalFetcher;
+@class MSDirectoryServicePrincipalCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryServicePrincipalCollectionFetcher.
 */
 
-@protocol MSDirectoryServicePrincipalCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryServicePrincipalCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryServicePrincipal> *servicePrincipals, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryServicePrincipal> *servicePrincipals, MSOrcError *error))callback;
 
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryServicePrincipalCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryServicePrincipalCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryServicePrincipalCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryServicePrincipalCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryServicePrincipalCollectionFetcher *)top:(int)value;
+- (MSDirectoryServicePrincipalCollectionFetcher *)skip:(int)value;
+- (MSDirectoryServicePrincipalCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryServicePrincipalCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryServicePrincipalCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryServicePrincipalCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryServicePrincipalFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addServicePrincipal:(MSDirectoryServicePrincipal *)entity callback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSODataException *e))callback;
+- (void)add:(MSDirectoryServicePrincipal *)entity callback:(void (^)(MSDirectoryServicePrincipal *servicePrincipal, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryServicePrincipalCollectionFetcher : MSODataCollectionFetcher<MSDirectoryServicePrincipalCollectionFetcher>
+@interface MSDirectoryServicePrincipalCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryServicePrincipalCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

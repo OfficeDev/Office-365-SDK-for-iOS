@@ -84,8 +84,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"content(%@)",parameters]];
 	[request setVerb:HTTP_VERB_POST];
 
-	NSURLSessionTask *task = [super orcExecuteRequest:request 
-											 callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
 	   if (e == nil) {
 
@@ -97,7 +96,5 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
             callback(nil, e);
         }
     }];
-    
-    return task;
 }
 @end

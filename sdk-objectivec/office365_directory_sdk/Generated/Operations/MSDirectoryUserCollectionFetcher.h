@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryUserFetcher;
+@class MSDirectoryUserCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryUserCollectionFetcher.
 */
 
-@protocol MSDirectoryUserCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryUserCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryUser> *users, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryUser> *users, MSOrcError *error))callback;
 
-- (id<MSDirectoryUserCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryUserCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryUserCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryUserCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryUserCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryUserCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryUserCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryUserCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryUserCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryUserCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryUserCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryUserCollectionFetcher *)top:(int)value;
+- (MSDirectoryUserCollectionFetcher *)skip:(int)value;
+- (MSDirectoryUserCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryUserCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryUserCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryUserCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryUserFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addUser:(MSDirectoryUser *)entity callback:(void (^)(MSDirectoryUser *user, MSODataException *e))callback;
+- (void)add:(MSDirectoryUser *)entity callback:(void (^)(MSDirectoryUser *user, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryUserCollectionFetcher : MSODataCollectionFetcher<MSDirectoryUserCollectionFetcher>
+@interface MSDirectoryUserCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryUserCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

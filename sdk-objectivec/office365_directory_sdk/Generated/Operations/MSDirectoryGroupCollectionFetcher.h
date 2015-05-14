@@ -13,39 +13,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 @class MSDirectoryGroupFetcher;
+@class MSDirectoryGroupCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryGroupCollectionFetcher.
 */
 
-@protocol MSDirectoryGroupCollectionFetcher<MSODataCollectionFetcher>
+@protocol MSDirectoryGroupCollectionFetcherProtocol<MSOrcCollectionFetcher>
 
 @optional
 
-- (NSURLSessionTask *)readWithCallback:(void (^)(NSArray<MSDirectoryGroup> *groups, MSODataException *exception))callback;
+- (void)readWithCallback:(void (^)(NSArray<MSDirectoryGroup> *groups, MSOrcError *error))callback;
 
-- (id<MSDirectoryGroupCollectionFetcher>)select:(NSString *)params;
-- (id<MSDirectoryGroupCollectionFetcher>)filter:(NSString *)params;
-- (id<MSDirectoryGroupCollectionFetcher>)top:(int)value;
-- (id<MSDirectoryGroupCollectionFetcher>)skip:(int)value;
-- (id<MSDirectoryGroupCollectionFetcher>)expand:(NSString *)value;
-- (id<MSDirectoryGroupCollectionFetcher>)orderBy:(NSString *)params;
-- (id<MSDirectoryGroupCollectionFetcher>)addCustomParametersWithName:(NSString *)name value:(id)value;
-- (id<MSDirectoryGroupCollectionFetcher>)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
+- (MSDirectoryGroupCollectionFetcher *)select:(NSString *)params;
+- (MSDirectoryGroupCollectionFetcher *)filter:(NSString *)params;
+- (MSDirectoryGroupCollectionFetcher *)search:(NSString *)params;
+- (MSDirectoryGroupCollectionFetcher *)top:(int)value;
+- (MSDirectoryGroupCollectionFetcher *)skip:(int)value;
+- (MSDirectoryGroupCollectionFetcher *)expand:(NSString *)value;
+- (MSDirectoryGroupCollectionFetcher *)orderBy:(NSString *)params;
+- (MSDirectoryGroupCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
+- (MSDirectoryGroupCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 
 @required
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (MSDirectoryGroupFetcher *)getById:(NSString *)Id;
-- (NSURLSessionTask *)addGroup:(MSDirectoryGroup *)entity callback:(void (^)(MSDirectoryGroup *group, MSODataException *e))callback;
+- (void)add:(MSDirectoryGroup *)entity callback:(void (^)(MSDirectoryGroup *group, MSOrcError *error))callback;
 
 @end
 
-@interface MSDirectoryGroupCollectionFetcher : MSODataCollectionFetcher<MSDirectoryGroupCollectionFetcher>
+@interface MSDirectoryGroupCollectionFetcher : MSOrcCollectionFetcher<MSDirectoryGroupCollectionFetcherProtocol>
 
-- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSODataExecutable>)parent;
+- (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 @end

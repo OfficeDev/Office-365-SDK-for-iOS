@@ -24,27 +24,27 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryTenantDetailCollectionFetcher;
 @class MSDirectoryDeviceCollectionFetcher;
 
-#import <office365_odata_base/office365_odata_base.h>
+#import <orc_engine_core/orc_engine_core.h>
 #import "MSDirectoryModels.h"
 
 /**
 * The header for type MSDirectoryClient.
 */
 
-@interface MSDirectoryClient : MSODataBaseContainer
+@interface MSDirectoryClient : MSOrcBaseContainer
 
-- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSODataDependencyResolver>)resolver;
--(MSDirectoryDirectoryObjectCollectionFetcher*) getdirectoryObjects;
--(MSDirectoryOAuth2PermissionGrantCollectionFetcher*) getoauth2PermissionGrants;
--(MSDirectorySubscribedSkuCollectionFetcher*) getsubscribedSkus;
--(MSDirectoryDirectoryObjectCollectionFetcher*) getdeletedDirectoryObjects;
--(MSDirectoryUserCollectionFetcher*) getusers;
--(MSDirectoryApplicationCollectionFetcher*) getapplications;
--(MSDirectoryContactCollectionFetcher*) getcontacts;
--(MSDirectoryGroupCollectionFetcher*) getgroups;
--(MSDirectoryDirectoryRoleCollectionFetcher*) getroles;
--(MSDirectoryServicePrincipalCollectionFetcher*) getservicePrincipals;
--(MSDirectoryTenantDetailCollectionFetcher*) gettenantDetails;
--(MSDirectoryDeviceCollectionFetcher*) getdevices;
+- (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
+@property (retain, nonatomic, readonly, getter=directoryObjects) MSDirectoryDirectoryObjectCollectionFetcher *directoryObjects;
+@property (retain, nonatomic, readonly, getter=oauth2PermissionGrants) MSDirectoryOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+@property (retain, nonatomic, readonly, getter=subscribedSkus) MSDirectorySubscribedSkuCollectionFetcher *subscribedSkus;
+@property (retain, nonatomic, readonly, getter=deletedDirectoryObjects) MSDirectoryDirectoryObjectCollectionFetcher *deletedDirectoryObjects;
+@property (retain, nonatomic, readonly, getter=users) MSDirectoryUserCollectionFetcher *users;
+@property (retain, nonatomic, readonly, getter=applications) MSDirectoryApplicationCollectionFetcher *applications;
+@property (retain, nonatomic, readonly, getter=contacts) MSDirectoryContactCollectionFetcher *contacts;
+@property (retain, nonatomic, readonly, getter=groups) MSDirectoryGroupCollectionFetcher *groups;
+@property (retain, nonatomic, readonly, getter=roles) MSDirectoryDirectoryRoleCollectionFetcher *roles;
+@property (retain, nonatomic, readonly, getter=servicePrincipals) MSDirectoryServicePrincipalCollectionFetcher *servicePrincipals;
+@property (retain, nonatomic, readonly, getter=tenantDetails) MSDirectoryTenantDetailCollectionFetcher *tenantDetails;
+@property (retain, nonatomic, readonly, getter=devices) MSDirectoryDeviceCollectionFetcher *devices;
 
 @end
