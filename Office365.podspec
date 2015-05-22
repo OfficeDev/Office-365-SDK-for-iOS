@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 		           }
   s.exclude_files = "**/Build/**/*"
   s.requires_arc = true
-  s.dependency "OrcEngine/Implementation"
+  s.dependency "orc"
 
   # --- Subspecs ------------------------------------------------------------------#
 
