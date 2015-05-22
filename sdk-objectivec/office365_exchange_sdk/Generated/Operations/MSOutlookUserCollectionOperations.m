@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSOutlookUserCollectionOperations.h"
-#import "MSOutlookOrcEntities.h"
+#import "MSOutlookFetchers.h"
 
 /**
 * The implementation file for type MSOutlookUserCollectionOperations.
