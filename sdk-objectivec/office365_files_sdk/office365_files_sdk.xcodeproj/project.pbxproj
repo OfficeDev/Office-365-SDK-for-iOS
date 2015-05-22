@@ -66,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C4D4021C16D7F70CD60456AB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC25FEF61B0FC61B00E227BA /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
 		EC25FEF71B0FC61B00E227BA /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
 		EC25FEF81B0FC61B00E227BA /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
@@ -138,14 +137,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61D78D373387A446570DDD92 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4021C16D7F70CD60456AB /* libPods.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EC25FEF41B0FC61B00E227BA /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +221,6 @@
 				EC25FEF41B0FC61B00E227BA /* Generated */,
 				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
-				61D78D373387A446570DDD92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -497,7 +487,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -517,7 +510,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

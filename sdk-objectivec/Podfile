@@ -3,25 +3,10 @@ platform :ios, '8.0'
 
 workspace 'all_services'
 xcodeproj 'outlook_services/outlook_services'
-
-target :office365_directory_sdk do
-  xcodeproj 'office365_directory_sdk/office365_directory_sdk'
-end
-
-target :office365_discovery_sdk do
-  xcodeproj 'office365_discovery_sdk/office365_discovery_sdk'
-end
-
-target :office365_files_sdk do
-  xcodeproj 'office365_files_sdk/office365_files_sdk'
-end
-
-target :office365_graph_sdk do
-  xcodeproj 'office365_graph_sdk/office365_graph_sdk'
-end
-
-target :office365_onenote_sdk do
-  xcodeproj 'office365_onenote_sdk/office365_onenote_sdk'
-end
+xcodeproj 'office365_directory_sdk/office365_directory_sdk'
+xcodeproj 'office365_discovery_sdk/office365_discovery_sdk'
+xcodeproj 'office365_files_sdk/office365_files_sdk'
+xcodeproj 'office365_graph_sdk/office365_graph_sdk'
+xcodeproj 'office365_onenote_sdk/office365_onenote_sdk'
 
 pod 'orc', '=0.10.0'

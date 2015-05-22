@@ -209,8 +209,6 @@
 		EC0D69B519FACA180092895E /* office365_directory_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_directory_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D69B919FACA180092895E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0D69BA19FACA180092895E /* office365_directory_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_directory_sdk.h; sourceTree = "<group>"; };
-		EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
-		EC25FEE71B0FC4CC00E227BA /* api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = api.framework; path = "../../../../orc-for-ios/api/build/Debug-iphoneos/api.framework"; sourceTree = "<group>"; };
 		EC55F82B1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC55F82C1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC55F82D1AF155D60099BB4C /* MSDirectoryApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryApplication.h; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 			children = (
 				EC55F8291AF155D60099BB4C /* Generated */,
 				EC0D69B719FACA180092895E /* office365_directory_sdk */,
-				EC0D6B7E19FACBCF0092895E /* Frameworks */,
 				EC0D69B619FACA180092895E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -452,15 +449,6 @@
 				EC0D69B919FACA180092895E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		EC0D6B7E19FACBCF0092895E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EC25FEE71B0FC4CC00E227BA /* api.framework */,
-				EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EC55F8291AF155D60099BB4C /* Generated */ = {
@@ -1063,7 +1051,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1087,7 +1078,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

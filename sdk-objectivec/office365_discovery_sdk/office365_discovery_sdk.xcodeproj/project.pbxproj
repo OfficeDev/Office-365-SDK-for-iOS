@@ -28,7 +28,6 @@
 /* Begin PBXFileReference section */
 		EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_discovery_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CCA2E19F8A02F00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
 		EC3484781AAF361500530D41 /* MSDiscoveryModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryModels.h; sourceTree = "<group>"; };
 		EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_discovery_sdk.h; sourceTree = "<group>"; };
 		EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryProtocols.h; sourceTree = "<group>"; };
@@ -58,20 +57,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EC0D6B7F19FACBD90092895E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EC2CCA8819F8A22200D12E55 /* office365_odata_base.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EC2CCA2019F8A02F00D12E55 = {
 			isa = PBXGroup;
 			children = (
 				EC2CCA4319F8A0BE00D12E55 /* Generated */,
 				EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */,
-				EC0D6B7F19FACBD90092895E /* Frameworks */,
 				EC2CCA2B19F8A02F00D12E55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -338,7 +328,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -359,7 +352,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
