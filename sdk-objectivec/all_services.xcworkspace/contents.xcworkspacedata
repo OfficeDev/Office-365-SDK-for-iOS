@@ -5,13 +5,10 @@
       location = "group:office365_graph_sdk/office365_graph_sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Office365Sdks/Office365Sdks.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:office365_files_sdk/office365_files_sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:office365_exchange_sdk/office365_exchange_sdk.xcodeproj">
+      location = "group:outlook_services/outlook_services.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:office365_discovery_sdk/office365_discovery_sdk.xcodeproj">
@@ -20,6 +17,9 @@
       location = "group:office365_directory_sdk/office365_directory_sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Office365Sdks/../office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
+      location = "group:office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
