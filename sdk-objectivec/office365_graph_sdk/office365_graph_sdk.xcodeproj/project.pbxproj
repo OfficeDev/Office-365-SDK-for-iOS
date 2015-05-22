@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F66CEB3229C0E72EBAC05DB /* libPods-office365_graph_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */; };
 		EC25FD5D1B0FBFBF00E227BA /* MSGraphAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FBDC1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FD5E1B0FBFBF00E227BA /* MSGraphAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FBDD1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.m */; };
 		EC25FD5F1B0FBFBF00E227BA /* MSGraphApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FBDE1B0FBFBD00E227BA /* MSGraphApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -395,6 +396,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_graph_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk.release.xcconfig"; sourceTree = "<group>"; };
+		244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_graph_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_graph_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		EC25FBDC1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC25FBDD1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC25FBDE1B0FBFBD00E227BA /* MSGraphApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphApplication.h; sourceTree = "<group>"; };
@@ -789,12 +793,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F66CEB3229C0E72EBAC05DB /* libPods-office365_graph_sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		263E2A27076E6E37F4D4BD0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */,
+				04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E1114AC8EB51BF3A8CFFE7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC25FBDA1B0FBFBD00E227BA /* Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -1208,6 +1230,8 @@
 				EC25FBDA1B0FBFBD00E227BA /* Generated */,
 				EC3CE2501AE98F1B00901263 /* office365_graph_sdk */,
 				EC3CE24F1AE98F1B00901263 /* Products */,
+				263E2A27076E6E37F4D4BD0E /* Pods */,
+				8E1114AC8EB51BF3A8CFFE7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1453,10 +1477,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC3CE2641AE98F1B00901263 /* Build configuration list for PBXNativeTarget "office365_graph_sdk" */;
 			buildPhases = (
+				DFEF8A6F94A7F3482BD30CAE /* Check Pods Manifest.lock */,
 				EC3CE2491AE98F1B00901263 /* Sources */,
 				EC3CE24A1AE98F1B00901263 /* Frameworks */,
 				EC3CE24B1AE98F1B00901263 /* Headers */,
 				EC3CE24C1AE98F1B00901263 /* Resources */,
+				2ED4799AF4C8FFA1B2C12D42 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1507,6 +1533,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2ED4799AF4C8FFA1B2C12D42 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFEF8A6F94A7F3482BD30CAE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC3CE2491AE98F1B00901263 /* Sources */ = {
@@ -1794,6 +1853,7 @@
 		};
 		EC3CE2651AE98F1B00901263 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1807,7 +1867,6 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1815,6 +1874,7 @@
 		};
 		EC3CE2661AE98F1B00901263 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1828,7 +1888,6 @@
 					"$(inherited)",
 					"-ObjC",
 				);
-				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

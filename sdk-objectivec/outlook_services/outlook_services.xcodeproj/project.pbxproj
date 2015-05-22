@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2647EB0E19F44D9D00FD9527 /* outlook_services.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* outlook_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48A52D2D39A65B28F56E282A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CADBC7E18B72966465DDA82C /* libPods.a */; };
+		981E09CE479B082F9095F2E2 /* libPods-outlook_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C01AA4938B6B4A6A74530A9B /* libPods-outlook_services.a */; };
 		EC7A742F1B0FA52300AFF3A8 /* MSOutlookAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A737B1B0FA52200AFF3A8 /* MSOutlookAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A74301B0FA52300AFF3A8 /* MSOutlookAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A737C1B0FA52200AFF3A8 /* MSOutlookAttachment.m */; };
 		EC7A74311B0FA52300AFF3A8 /* MSOutlookAttendee.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A737D1B0FA52200AFF3A8 /* MSOutlookAttendee.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -194,8 +194,9 @@
 		2647EB0819F44D9D00FD9527 /* outlook_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = outlook_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EB0C19F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2647EB0D19F44D9D00FD9527 /* outlook_services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = outlook_services.h; sourceTree = "<group>"; };
-		7353B1899DC0C023D61D2A9D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		A10932AE3D3F246F13796CA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		38AE28204672120BDEC9FC62 /* Pods-outlook_services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outlook_services.release.xcconfig"; path = "../Pods/Target Support Files/Pods-outlook_services/Pods-outlook_services.release.xcconfig"; sourceTree = "<group>"; };
+		7222DE2E592A8C9D10F0C178 /* Pods-outlook_services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-outlook_services.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-outlook_services/Pods-outlook_services.debug.xcconfig"; sourceTree = "<group>"; };
+		C01AA4938B6B4A6A74530A9B /* libPods-outlook_services.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-outlook_services.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADBC7E18B72966465DDA82C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7A737B1B0FA52200AFF3A8 /* MSOutlookAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookAttachment.h; sourceTree = "<group>"; };
 		EC7A737C1B0FA52200AFF3A8 /* MSOutlookAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookAttachment.m; sourceTree = "<group>"; };
@@ -383,7 +384,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A52D2D39A65B28F56E282A /* libPods.a in Frameworks */,
+				981E09CE479B082F9095F2E2 /* libPods-outlook_services.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				CADBC7E18B72966465DDA82C /* libPods.a */,
+				C01AA4938B6B4A6A74530A9B /* libPods-outlook_services.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -437,8 +439,8 @@
 		9AF655E2C851FED1336835BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7353B1899DC0C023D61D2A9D /* Pods.debug.xcconfig */,
-				A10932AE3D3F246F13796CA9 /* Pods.release.xcconfig */,
+				7222DE2E592A8C9D10F0C178 /* Pods-outlook_services.debug.xcconfig */,
+				38AE28204672120BDEC9FC62 /* Pods-outlook_services.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -831,7 +833,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-outlook_services/Pods-outlook_services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DDB5712F9DC6FFF11E6358FD /* Check Pods Manifest.lock */ = {
@@ -1030,7 +1032,7 @@
 		};
 		2647EB1F19F44D9D00FD9527 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7353B1899DC0C023D61D2A9D /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 7222DE2E592A8C9D10F0C178 /* Pods-outlook_services.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1058,7 +1060,7 @@
 		};
 		2647EB2019F44D9D00FD9527 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A10932AE3D3F246F13796CA9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 38AE28204672120BDEC9FC62 /* Pods-outlook_services.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;

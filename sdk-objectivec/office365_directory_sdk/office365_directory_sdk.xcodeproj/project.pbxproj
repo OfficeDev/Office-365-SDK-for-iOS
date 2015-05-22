@@ -203,9 +203,14 @@
 		EC55F9B01AF155D70099BB4C /* MSDirectoryUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8ED1AF155D70099BB4C /* MSDirectoryUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9B11AF155D70099BB4C /* MSDirectoryUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EE1AF155D70099BB4C /* MSDirectoryUserOperations.m */; };
 		EC8921DF1B04E3AE00802659 /* MSDirectoryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8921DE1B04E3AE00802659 /* MSDirectoryFetchers.h */; };
+		EDF21812DBA03D42E4C41BF4 /* libPods-office365_directory_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_directory_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_directory_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk.debug.xcconfig"; sourceTree = "<group>"; };
+		3D9C9D9723D9BB6C3C2C4F40 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_directory_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk.release.xcconfig"; sourceTree = "<group>"; };
 		EC0D69B519FACA180092895E /* office365_directory_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_directory_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D69B919FACA180092895E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0D69BA19FACA180092895E /* office365_directory_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_directory_sdk.h; sourceTree = "<group>"; };
@@ -411,18 +416,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF21812DBA03D42E4C41BF4 /* libPods-office365_directory_sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E2267BC9AE9A776A1F6D0B7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */,
+				84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D58772E8CDE34181E43745A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D9C9D9723D9BB6C3C2C4F40 /* libPods.a */,
+				148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC0D69AB19FACA180092895E = {
 			isa = PBXGroup;
 			children = (
 				EC55F8291AF155D60099BB4C /* Generated */,
 				EC0D69B719FACA180092895E /* office365_directory_sdk */,
 				EC0D69B619FACA180092895E /* Products */,
+				2E2267BC9AE9A776A1F6D0B7 /* Pods */,
+				9D58772E8CDE34181E43745A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -786,10 +812,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC0D69C819FACA180092895E /* Build configuration list for PBXNativeTarget "office365_directory_sdk" */;
 			buildPhases = (
+				45F6B02B2869C677327B6A4D /* Check Pods Manifest.lock */,
 				EC0D69B019FACA180092895E /* Sources */,
 				EC0D69B119FACA180092895E /* Frameworks */,
 				EC0D69B219FACA180092895E /* Headers */,
 				EC0D69B319FACA180092895E /* Resources */,
+				D097541FB8EF26A555C6C6B6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -841,6 +869,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45F6B02B2869C677327B6A4D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D097541FB8EF26A555C6C6B6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC0D69B019FACA180092895E /* Sources */ = {
@@ -1035,6 +1096,7 @@
 		};
 		EC0D69C919FACA180092895E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1062,6 +1124,7 @@
 		};
 		EC0D69CA19FACA180092895E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;

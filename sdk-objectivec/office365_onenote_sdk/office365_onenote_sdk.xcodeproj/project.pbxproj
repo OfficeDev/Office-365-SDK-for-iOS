@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E4D263A5316379101063F41 /* libPods-office365_onenote_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1ECFDC3AC071B0742F6B4C3 /* libPods-office365_onenote_sdk.a */; };
 		EC7405711AB35DBB00108A42 /* office365_onenote_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7405701AB35DBB00108A42 /* office365_onenote_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A758E1B0FACD900AFF3A8 /* MSOneNoteCopyNotebookModel.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A75131B0FACD900AFF3A8 /* MSOneNoteCopyNotebookModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A758F1B0FACD900AFF3A8 /* MSOneNoteCopyNotebookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A75141B0FACD900AFF3A8 /* MSOneNoteCopyNotebookModel.m */; };
@@ -133,6 +134,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		635BC7353346282E1DEEEC3D /* Pods-office365_onenote_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_onenote_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_onenote_sdk/Pods-office365_onenote_sdk.debug.xcconfig"; sourceTree = "<group>"; };
+		65C876C83EC465C90357956E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FF07BA775ED80D131F6DD85 /* Pods-office365_onenote_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_onenote_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_onenote_sdk/Pods-office365_onenote_sdk.release.xcconfig"; sourceTree = "<group>"; };
 		EC74056B1AB35DBB00108A42 /* office365_onenote_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_onenote_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC74056F1AB35DBB00108A42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7405701AB35DBB00108A42 /* office365_onenote_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_onenote_sdk.h; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 		EC7A758B1B0FACD900AFF3A8 /* MSOneNoteSiteFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteSiteFetcher.m; sourceTree = "<group>"; };
 		EC7A758C1B0FACD900AFF3A8 /* MSOneNoteSiteOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteSiteOperations.h; sourceTree = "<group>"; };
 		EC7A758D1B0FACD900AFF3A8 /* MSOneNoteSiteOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteSiteOperations.m; sourceTree = "<group>"; };
+		F1ECFDC3AC071B0742F6B4C3 /* libPods-office365_onenote_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_onenote_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,18 +270,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4D263A5316379101063F41 /* libPods-office365_onenote_sdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7928267AA2C1FF56DB1242E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65C876C83EC465C90357956E /* libPods.a */,
+				F1ECFDC3AC071B0742F6B4C3 /* libPods-office365_onenote_sdk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E5F9112EF11FEBE990BFE46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				635BC7353346282E1DEEEC3D /* Pods-office365_onenote_sdk.debug.xcconfig */,
+				8FF07BA775ED80D131F6DD85 /* Pods-office365_onenote_sdk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EC7405611AB35DBA00108A42 = {
 			isa = PBXGroup;
 			children = (
 				EC7A75111B0FACD900AFF3A8 /* Generated */,
 				EC74056D1AB35DBB00108A42 /* office365_onenote_sdk */,
 				EC74056C1AB35DBB00108A42 /* Products */,
+				7E5F9112EF11FEBE990BFE46 /* Pods */,
+				7928267AA2C1FF56DB1242E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -532,10 +558,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC7405811AB35DBB00108A42 /* Build configuration list for PBXNativeTarget "office365_onenote_sdk" */;
 			buildPhases = (
+				78E5B13981732A561BD176FA /* Check Pods Manifest.lock */,
 				EC7405661AB35DBB00108A42 /* Sources */,
 				EC7405671AB35DBB00108A42 /* Frameworks */,
 				EC7405681AB35DBB00108A42 /* Headers */,
 				EC7405691AB35DBB00108A42 /* Resources */,
+				0F05DDDBC1CC27E922CCEE5E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -586,6 +614,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F05DDDBC1CC27E922CCEE5E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_onenote_sdk/Pods-office365_onenote_sdk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78E5B13981732A561BD176FA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EC7405661AB35DBB00108A42 /* Sources */ = {
@@ -748,6 +809,7 @@
 		};
 		EC7405821AB35DBB00108A42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 635BC7353346282E1DEEEC3D /* Pods-office365_onenote_sdk.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -773,6 +835,7 @@
 		};
 		EC7405831AB35DBB00108A42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FF07BA775ED80D131F6DD85 /* Pods-office365_onenote_sdk.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
