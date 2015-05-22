@@ -30,7 +30,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSDirectoryDirectoryObjectOperations;
 @class MSDirectoryDirectoryObjectFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSDirectoryModels.h"
 
 /**

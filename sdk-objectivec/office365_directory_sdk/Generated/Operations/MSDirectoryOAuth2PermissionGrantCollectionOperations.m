@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSDirectoryOAuth2PermissionGrantCollectionOperations.h"
-#import "MSDirectoryOrcEntities.h"
+#import "MSDirectoryFetchers.h"
 
 /**
 * The implementation file for type MSDirectoryOAuth2PermissionGrantCollectionOperations.

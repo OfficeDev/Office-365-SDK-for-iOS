@@ -202,7 +202,7 @@
 		EC55F9AF1AF155D70099BB4C /* MSDirectoryUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EC1AF155D70099BB4C /* MSDirectoryUserFetcher.m */; };
 		EC55F9B01AF155D70099BB4C /* MSDirectoryUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8ED1AF155D70099BB4C /* MSDirectoryUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9B11AF155D70099BB4C /* MSDirectoryUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EE1AF155D70099BB4C /* MSDirectoryUserOperations.m */; };
-		EC8921DF1B04E3AE00802659 /* MSDirectoryOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8921DE1B04E3AE00802659 /* MSDirectoryOrcEntities.h */; };
+		EC8921DF1B04E3AE00802659 /* MSDirectoryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8921DE1B04E3AE00802659 /* MSDirectoryFetchers.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +210,7 @@
 		EC0D69B919FACA180092895E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0D69BA19FACA180092895E /* office365_directory_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_directory_sdk.h; sourceTree = "<group>"; };
 		EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = office365_odata_base.framework; path = "../office365_odata_base/build/Debug-iphoneos/office365_odata_base.framework"; sourceTree = "<group>"; };
+		EC25FEE71B0FC4CC00E227BA /* api.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = api.framework; path = "../../../../orc-for-ios/api/build/Debug-iphoneos/api.framework"; sourceTree = "<group>"; };
 		EC55F82B1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC55F82C1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC55F82D1AF155D60099BB4C /* MSDirectoryApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryApplication.h; sourceTree = "<group>"; };
@@ -404,7 +405,7 @@
 		EC55F8EC1AF155D70099BB4C /* MSDirectoryUserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryUserFetcher.m; sourceTree = "<group>"; };
 		EC55F8ED1AF155D70099BB4C /* MSDirectoryUserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryUserOperations.h; sourceTree = "<group>"; };
 		EC55F8EE1AF155D70099BB4C /* MSDirectoryUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryUserOperations.m; sourceTree = "<group>"; };
-		EC8921DE1B04E3AE00802659 /* MSDirectoryOrcEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryOrcEntities.h; sourceTree = "<group>"; };
+		EC8921DE1B04E3AE00802659 /* MSDirectoryFetchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryFetchers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,6 +457,7 @@
 		EC0D6B7E19FACBCF0092895E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EC25FEE71B0FC4CC00E227BA /* api.framework */,
 				EC0D6B7C19FACBC70092895E /* office365_odata_base.framework */,
 			);
 			name = Frameworks;
@@ -544,7 +546,7 @@
 		EC55F86B1AF155D60099BB4C /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				EC8921DE1B04E3AE00802659 /* MSDirectoryOrcEntities.h */,
+				EC8921DE1B04E3AE00802659 /* MSDirectoryFetchers.h */,
 				EC55F86C1AF155D60099BB4C /* MSDirectoryApplicationCollectionFetcher.h */,
 				EC55F86D1AF155D60099BB4C /* MSDirectoryApplicationCollectionFetcher.m */,
 				EC55F86E1AF155D60099BB4C /* MSDirectoryApplicationCollectionOperations.h */,
@@ -706,7 +708,7 @@
 				EC55F93B1AF155D70099BB4C /* MSDirectoryAppRoleAssignmentFetcher.h in Headers */,
 				EC55F90F1AF155D70099BB4C /* MSDirectoryLicenseUnitsDetail.h in Headers */,
 				EC55F9711AF155D70099BB4C /* MSDirectoryDirectoryRoleTemplateCollectionFetcher.h in Headers */,
-				EC8921DF1B04E3AE00802659 /* MSDirectoryOrcEntities.h in Headers */,
+				EC8921DF1B04E3AE00802659 /* MSDirectoryFetchers.h in Headers */,
 				EC55F9311AF155D70099BB4C /* MSDirectoryApplicationCollectionOperations.h in Headers */,
 				EC55F9831AF155D70099BB4C /* MSDirectoryGroupCollectionOperations.h in Headers */,
 				EC55F91B1AF155D70099BB4C /* MSDirectoryProvisionedPlan.h in Headers */,
@@ -1051,7 +1053,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/orc-for-ios/api/build/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
@@ -1072,7 +1077,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/gustavo/Documents/MSOpenTech/orc-for-ios/api/build/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
