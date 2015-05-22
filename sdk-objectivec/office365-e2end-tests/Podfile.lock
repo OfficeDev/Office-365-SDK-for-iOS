@@ -1,5 +1,5 @@
 PODS:
-  - ADALiOS (1.2.2)
+  - ADALiOS (1.2.4)
   - LiveSDK (5.6.1)
   - Office365 (0.9.1):
     - Office365/AADGraph (= 0.9.1)
@@ -9,51 +9,53 @@ PODS:
     - Office365/Lists (= 0.9.1)
     - Office365/OneNote (= 0.9.1)
     - Office365/Outlook (= 0.9.1)
-    - OrcEngine/Implementation
+    - orc
   - Office365/AADGraph (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/Discovery (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/Files (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/Graph (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/Lists (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/OneNote (0.9.1):
-    - OrcEngine/Implementation
+    - orc
   - Office365/Outlook (0.9.1):
-    - OrcEngine/Implementation
-  - OrcEngine/Core (0.1.0)
-  - OrcEngine/Implementation (0.1.0):
-    - OrcEngine/Core
+    - orc
+  - orc (0.10.0):
+    - orc/api (= 0.10.0)
+    - orc/core (= 0.10.0)
+    - orc/impl (= 0.10.0)
+  - orc/api (0.10.0)
+  - orc/core (0.10.0):
+    - orc/api
+  - orc/impl (0.10.0):
+    - ADALiOS (= 1.2.4)
+    - LiveSDK (= 5.6.1)
+    - orc/core
 
 DEPENDENCIES:
   - ADALIOS (~> 1.2.2)
   - LiveSDK
   - Office365 (from `https://github.com/greathansen/Office-365-SDK-for-iOS`, branch `orc-poc`)
-  - OrcEngine/Implementation (from `https://github.com/MSOpenTech/orc-for-ios.git`, branch `dev`)
+  - orc (~> 0.10.0)
 
 EXTERNAL SOURCES:
   Office365:
     :branch: orc-poc
     :git: https://github.com/greathansen/Office-365-SDK-for-iOS
-  OrcEngine:
-    :branch: dev
-    :git: https://github.com/MSOpenTech/orc-for-ios.git
 
 CHECKOUT OPTIONS:
   Office365:
-    :commit: 757e75afb2cabc2fae3e797185b20408f8aa3582
+    :commit: 50a29c7a1d7ce6508fb22c2634482363dfb4a826
     :git: https://github.com/greathansen/Office-365-SDK-for-iOS
-  OrcEngine:
-    :commit: 6274a0c01a74c026b893b27bb1f6b5b81371b83c
-    :git: https://github.com/MSOpenTech/orc-for-ios.git
 
 SPEC CHECKSUMS:
-  ADALiOS: c32489782fa3b646cfaa581b9e84e394396fc6ac
+  ADALiOS: 8179aed8e136bf79dca5a4138a0c1a0d52701cb2
   LiveSDK: 2627cf5872b33b3d960df27082a9a17afb74835d
-  Office365: 2f4cb4ee81738a4cdad7f910d80cf781dad7f191
-  OrcEngine: 447a23248b3c7cf5dc866f1be07f0dfc7dd1a04e
+  Office365: b41f1e49443b3cb97279686144cc9da581d36575
+  orc: ac27c0615f525bb8b613e5a5889ad54118d536e8
 
 COCOAPODS: 0.35.0
