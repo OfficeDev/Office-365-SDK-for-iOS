@@ -22,7 +22,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 * The header for type MSOneNotePageCollectionFetcher.
 */
 
-@protocol MSOneNotePageCollectionFetcherProtocol<MSOrcCollectionFetcher>
+@protocol MSOneNotePageCollectionFetcherProtocol<MSOrcCollectionFetcher,MSOrcMultipartCollectionFetcher>
 
 @optional
 
