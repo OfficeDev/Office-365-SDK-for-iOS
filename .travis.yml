@@ -4,6 +4,12 @@ before_install:
   - java -version
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - cd sdk-objectivec/office365_unit_tests/office365_UnitTests && pod install && cd .. && cd .. && cd ..
+  - cd sdk-objectivec/office365_exchange_sdk && pod install && cd .. && cd .. && cd ..
+  - cd sdk-objectivec/office365_files_sdk && pod install && cd .. && cd ..
+  - cd sdk-objectivec/office365_discovery_sdk && pod install && cd .. && cd ..
+  - cd sdk-objectivec/office365_directory_sdk && pod install && cd .. && cd ..
+  - cd sdk-objectivec/office365_onenote_sdk && pod install && cd .. && cd ..
+  - cd sdk-objectivec/office365_graph_sdk && pod install && cd .. && cd ..
   - curl -O http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock/1.52/wiremock-1.52-standalone.jar
   - java -jar wiremock-1.52-standalone.jar --record-mappings  --port 8080 --verbose --root-dir "sdk-objectivec/office365_unit_tests/office365_UnitTests/WireMock" &
 
