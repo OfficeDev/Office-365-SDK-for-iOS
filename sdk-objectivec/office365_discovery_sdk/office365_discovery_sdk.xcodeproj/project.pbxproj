@@ -22,7 +22,7 @@
 		EC78D2421A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D2381A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.m */; };
 		EC78D2431A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2391A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D2441A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D23A1A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.m */; };
-		EC8921F51B04E40A00802659 /* MSDiscoveryOrcEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8921F41B04E40A00802659 /* MSDiscoveryOrcEntities.h */; };
+		EC7A75051B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A75041B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		EC78D2381A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfoFetcher.m; sourceTree = "<group>"; };
 		EC78D2391A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryServiceInfoOperations.h; sourceTree = "<group>"; };
 		EC78D23A1A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfoOperations.m; sourceTree = "<group>"; };
-		EC8921F41B04E40A00802659 /* MSDiscoveryOrcEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryOrcEntities.h; sourceTree = "<group>"; };
+		EC7A75041B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryFetchers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		EC5C14C919F98A4100AAF5AC /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				EC8921F41B04E40A00802659 /* MSDiscoveryOrcEntities.h */,
+				EC7A75041B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h */,
 				EC78D2311A2606B6004B0B5C /* MSDiscoveryClient.h */,
 				EC78D2321A2606B6004B0B5C /* MSDiscoveryClient.m */,
 				EC78D2331A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h */,
@@ -149,11 +149,11 @@
 				EC78D2431A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h in Headers */,
 				EC78D23F1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */,
 				EC78D2411A2606B6004B0B5C /* MSDiscoveryServiceInfoFetcher.h in Headers */,
-				EC8921F51B04E40A00802659 /* MSDiscoveryOrcEntities.h in Headers */,
 				EC78D23B1A2606B6004B0B5C /* MSDiscoveryClient.h in Headers */,
 				EC78D23D1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
 				EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */,
 				EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */,
+				EC7A75051B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h in Headers */,
 				EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */,
 				EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */,
 			);
