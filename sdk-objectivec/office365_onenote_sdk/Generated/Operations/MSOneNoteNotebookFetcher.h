@@ -19,14 +19,14 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNoteNotebookOperations;
 @class MSOneNoteNotebookFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSOneNoteModels.h"
 
 /**
 * The header for type MSOneNoteNotebookFetcher.
 */
 
-@protocol MSOneNoteNotebookFetcherProtocol<MSOrcEntityFetcher, MSOrcMultipartCollectionFetcher>
+@protocol MSOneNoteNotebookFetcherProtocol<MSOrcEntityFetcher>
 
 @optional
 

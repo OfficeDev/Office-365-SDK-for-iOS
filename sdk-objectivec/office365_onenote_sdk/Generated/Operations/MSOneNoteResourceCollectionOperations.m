@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSOneNoteResourceCollectionOperations.h"
-#import "MSOneNoteOrcEntities.h"
+#import "MSOneNoteFetchers.h"
 
 /**
 * The implementation file for type MSOneNoteResourceCollectionOperations.

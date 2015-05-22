@@ -35,7 +35,28 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @protocol MSOneNoteDiagnostic
 @end
 
+@protocol MSOneNoteSiteMetadata
+@end
+
 @protocol MSOneNotePatchContentCommand
+@end
+
+@protocol MSOneNoteCopyNotebookModel
+@end
+
+@protocol MSOneNoteCopySectionModel
+@end
+
+@protocol MSOneNoteCopyPageModel
+@end
+
+@protocol MSOneNoteMe
+@end
+
+@protocol MSOneNoteMyOrganization
+@end
+
+@protocol MSOneNoteNotes
 @end
 
 @protocol MSOneNoteNotebook
@@ -51,4 +72,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @end
 
 @protocol MSOneNoteResource
+@end
+
+@protocol MSOneNoteSiteCollection
+@end
+
+@protocol MSOneNoteSite
 @end

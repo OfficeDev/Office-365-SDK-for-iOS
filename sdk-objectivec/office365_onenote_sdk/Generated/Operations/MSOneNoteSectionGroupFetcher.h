@@ -20,7 +20,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSOneNoteSectionGroupOperations;
 @class MSOneNoteSectionGroupFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSOneNoteModels.h"
 
 /**

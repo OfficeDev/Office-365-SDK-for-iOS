@@ -31,7 +31,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize self = _self;
 @synthesize createdTime = _createdTime;
 @synthesize parentNotebook = _parentNotebook;
-//@synthesize parentSectionGroup = _parentSectionGroup;
+@synthesize parentSectionGroup = _parentSectionGroup;
 @synthesize sections = _sections;
 @synthesize sectionGroups = _sectionGroups;
 

@@ -3,4 +3,5 @@ platform :ios, '8.0'
 
 xcodeproj 'office365_onenote_sdk'
 
-pod 'OrcEngine/Core', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
+pod 'orc/api', '~> 0.10.0'
+pod 'orc/core', '~> 0.10.0'
