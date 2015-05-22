@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSSharePointFolderCollectionOperations.h"
-#import "MSSharePointOrcEntities.h"
+#import "MSSharePointFetchers.h"
 
 /**
 * The implementation file for type MSSharePointFolderCollectionOperations.

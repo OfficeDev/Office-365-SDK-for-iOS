@@ -23,6 +23,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @protocol MSSharePointIdentity
 @end
 
+@protocol MSSharePointImageFacet
+@end
+
 @protocol MSSharePointItemReference
 @end
 

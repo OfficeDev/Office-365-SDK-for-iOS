@@ -15,6 +15,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSSharePointDriveQuota.h"
 #import "MSSharePointIdentitySet.h"
 #import "MSSharePointIdentity.h"
+#import "MSSharePointImageFacet.h"
 #import "MSSharePointItemReference.h"
 #import "MSSharePointDrive.h"
 #import "MSSharePointItem.h"

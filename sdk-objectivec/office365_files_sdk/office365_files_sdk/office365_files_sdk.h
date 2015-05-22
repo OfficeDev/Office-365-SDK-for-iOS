@@ -17,4 +17,4 @@ FOUNDATION_EXPORT const unsigned char office365_files_sdkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <office365_files_sdk/PublicHeader.h>
 
 #import <office365_files_sdk/MSSharePointModels.h>
-#import <office365_files_sdk/MSSharePointODataEntities.h>
+#import <office365_files_sdk/MSSharePointFetchers.h>

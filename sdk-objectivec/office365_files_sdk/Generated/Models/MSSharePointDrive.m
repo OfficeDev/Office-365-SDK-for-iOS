@@ -24,6 +24,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize id = _id;
 @synthesize owner = _owner;
 @synthesize quota = _quota;
+@synthesize files = _files;
 
 - (instancetype)init {
 
