@@ -15,4 +15,4 @@ FOUNDATION_EXPORT const unsigned char office365_graph_sdkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <office365_graph_sdk/PublicHeader.h>
 
 #import <office365_graph_sdk/MSGraphModels.h>
-#import <office365_graph_sdk/MSGraphOrcEntities.h>
+#import <office365_graph_sdk/MSGraphFetchers.h>

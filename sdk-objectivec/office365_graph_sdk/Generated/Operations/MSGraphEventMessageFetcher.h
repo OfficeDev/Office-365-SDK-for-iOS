@@ -16,7 +16,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphEventMessageOperations;
 @class MSGraphEventMessageFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSGraphModels.h"
 
 /**

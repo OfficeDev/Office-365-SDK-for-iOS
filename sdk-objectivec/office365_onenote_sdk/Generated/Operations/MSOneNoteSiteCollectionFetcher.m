@@ -45,7 +45,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (MSOneNoteSiteFetcher *)getSitesById:(NSString *)id {
 
-    return [[[MSOneNoteSiteCollectionFetcher alloc] initWithUrl:@"sites" parent:self asClass:[MSOneNoteSite class]] getById:id];
+    return [[[MSOneNoteSiteCollectionFetcher alloc] initWithUrl:@"sites" parent:self asClass:[MSOneNoteSite class]] getSitesById:id];
 }
 
 @end

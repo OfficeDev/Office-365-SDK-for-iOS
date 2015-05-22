@@ -44,17 +44,17 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }];
 }
 
-- (void)copyToNotebookRawWithId:(NSString *) id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
+- (void)copyToNotebookRawWithId:(NSString *)_id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
 
 	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSArray *parameters = [[NSArray alloc] initWithObjects:
-                          [[NSDictionary alloc] initWithObjectsAndKeys :id,@"id", nil],
-                          [[NSDictionary alloc] initWithObjectsAndKeys :siteCollectionId,@"siteCollectionId", nil],
-                          [[NSDictionary alloc] initWithObjectsAndKeys :siteId,@"siteId", nil], nil];
+                          [[NSDictionary alloc] initWithObjectsAndKeys:_id,@"id", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys:siteCollectionId,@"siteCollectionId", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys:siteId,@"siteId", nil], nil];
 
 	NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
 
-    [request setContent:payload];
+	[request setContent:payload];
 	
 	[request setVerb:HTTP_VERB_POST];
 	 	[request.url appendPathComponent:@"Microsoft.OneNote.Api.CopyToNotebook"];
@@ -72,9 +72,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }];
 }
     				
-- (void)copyToSectionGroupWithId:(NSString *)id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId callback:(void (^)(MSOneNoteCopySectionModel *copySectionModel, MSOrcError *error))callback {
+- (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId callback:(void (^)(MSOneNoteCopySectionModel *copySectionModel, MSOrcError *error))callback {
 	
-	NSString *idString = [self.resolver.jsonSerializer serialize:id property:@"id"];
+	NSString *idString = [self.resolver.jsonSerializer serialize:_id property:@"id"];
 	NSString *siteCollectionIdString = [self.resolver.jsonSerializer serialize:siteCollectionId property:@"siteCollectionId"];
 	NSString *siteIdString = [self.resolver.jsonSerializer serialize:siteId property:@"siteId"];
 	return [self copyToSectionGroupRawWithId:idString siteCollectionId:siteCollectionIdString siteId:siteIdString callback:^(NSString *returnValue, MSOrcError *e) {
@@ -91,18 +91,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }];
 }
 
-- (void)copyToSectionGroupRawWithId:(NSString *) id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
+- (void)copyToSectionGroupRawWithId:(NSString *)_id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
 
 	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSArray *parameters = [[NSArray alloc] initWithObjects:
-                          [[NSDictionary alloc] initWithObjectsAndKeys :id,@"id", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys :_id,@"id", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :siteCollectionId,@"siteCollectionId", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :siteId,@"siteId", nil], nil];
 
 	NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
 
 	[request setContent:payload];
-
+	
 	[request setVerb:HTTP_VERB_POST];
 	 	[request.url appendPathComponent:@"Microsoft.OneNote.Api.CopyToSectionGroup"];
      

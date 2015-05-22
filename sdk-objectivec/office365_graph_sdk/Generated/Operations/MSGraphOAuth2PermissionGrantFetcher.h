@@ -15,7 +15,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphOAuth2PermissionGrantOperations;
 @class MSGraphOAuth2PermissionGrantFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSGraphModels.h"
 
 /**

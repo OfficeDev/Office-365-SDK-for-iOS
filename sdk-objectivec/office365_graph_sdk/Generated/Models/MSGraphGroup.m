@@ -24,6 +24,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize $$__description = _$$__description;
 @synthesize dirSyncEnabled = _dirSyncEnabled;
 @synthesize displayName = _displayName;
+@synthesize groupType = _groupType;
+@synthesize isPublic = _isPublic;
 @synthesize lastDirSyncTime = _lastDirSyncTime;
 @synthesize mail = _mail;
 @synthesize mailNickname = _mailNickname;
@@ -37,6 +39,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize memberOf = _memberOf;
 @synthesize createdOnBehalfOf = _createdOnBehalfOf;
 @synthesize owners = _owners;
+@synthesize files = _files;
 
 - (instancetype)init {
 

@@ -13,7 +13,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 ******************************************************************************/
 
 #import "MSGraphDirectoryLinkChangeCollectionOperations.h"
-#import "MSGraphOrcEntities.h"
+#import "MSGraphFetchers.h"
 
 /**
 * The implementation file for type MSGraphDirectoryLinkChangeCollectionOperations.

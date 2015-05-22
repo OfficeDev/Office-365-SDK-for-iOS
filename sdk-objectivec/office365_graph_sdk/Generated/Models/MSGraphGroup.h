@@ -15,6 +15,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphProvisioningError;
 @class MSGraphAppRoleAssignment;
 @class MSGraphDirectoryObject;
+@class MSGraphItem;
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
@@ -29,6 +30,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=description, setter=setDescription:) NSString *$$__description;
 @property (nonatomic, getter=dirSyncEnabled, setter=setDirSyncEnabled:) BOOL dirSyncEnabled;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *displayName;
+@property (retain, nonatomic, readwrite, getter=groupType, setter=setGroupType:) NSString *groupType;
+@property (nonatomic, getter=isPublic, setter=setIsPublic:) BOOL isPublic;
 @property (retain, nonatomic, readwrite, getter=lastDirSyncTime, setter=setLastDirSyncTime:) NSDate *lastDirSyncTime;
 @property (retain, nonatomic, readwrite, getter=mail, setter=setMail:) NSString *mail;
 @property (retain, nonatomic, readwrite, getter=mailNickname, setter=setMailNickname:) NSString *mailNickname;
@@ -42,5 +45,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=memberOf, setter=setMemberOf:) NSMutableArray<MSGraphDirectoryObject> *memberOf;
 @property (retain, nonatomic, readwrite, getter=createdOnBehalfOf, setter=setCreatedOnBehalfOf:) MSGraphDirectoryObject *createdOnBehalfOf;
 @property (retain, nonatomic, readwrite, getter=owners, setter=setOwners:) NSMutableArray<MSGraphDirectoryObject> *owners;
+@property (retain, nonatomic, readwrite, getter=files, setter=setFiles:) NSMutableArray<MSGraphItem> *files;
 
 @end

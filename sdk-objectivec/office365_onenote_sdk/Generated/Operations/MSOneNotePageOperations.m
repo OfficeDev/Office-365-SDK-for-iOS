@@ -70,9 +70,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }];
 }
     				
-- (void)copyToSectionWithId:(NSString *)id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId callback:(void (^)(MSOneNoteCopyPageModel *copyPageModel, MSOrcError *error))callback {
+- (void)copyToSectionWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId callback:(void (^)(MSOneNoteCopyPageModel *copyPageModel, MSOrcError *error))callback {
 	
-	NSString *idString = [self.resolver.jsonSerializer serialize:id property:@"id"];
+	NSString *idString = [self.resolver.jsonSerializer serialize:_id property:@"id"];
 	NSString *siteCollectionIdString = [self.resolver.jsonSerializer serialize:siteCollectionId property:@"siteCollectionId"];
 	NSString *siteIdString = [self.resolver.jsonSerializer serialize:siteId property:@"siteId"];
 	return [self copyToSectionRawWithId:idString siteCollectionId:siteCollectionIdString siteId:siteIdString callback:^(NSString *returnValue, MSOrcError *e) {
@@ -89,11 +89,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }];
 }
 
-- (void)copyToSectionRawWithId:(NSString *) id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
+- (void)copyToSectionRawWithId:(NSString *)_id siteCollectionId:(NSString *) siteCollectionId siteId:(NSString *) siteId callback:(void(^)(NSString *returnValue, MSOrcError *error))callback {
 
 	id<MSOrcRequest> request = [super.resolver createOrcRequest];
 	NSArray *parameters = [[NSArray alloc] initWithObjects:
-                          [[NSDictionary alloc] initWithObjectsAndKeys :id,@"id", nil],
+                          [[NSDictionary alloc] initWithObjectsAndKeys :_id,@"id", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :siteCollectionId,@"siteCollectionId", nil],
                           [[NSDictionary alloc] initWithObjectsAndKeys :siteId,@"siteId", nil], nil];
 

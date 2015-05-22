@@ -16,10 +16,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
+@class MSGraphItemFetcher;
+@class MSGraphItemCollectionFetcher;
 @class MSGraphGroupOperations;
 @class MSGraphGroupFetcher;
 
-#import <orc_engine_core/orc_engine_core.h>
+#import <core/core.h>
 #import "MSGraphModels.h"
 
 /**
@@ -65,6 +67,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
 
 - (MSGraphDirectoryObjectFetcher *)getOwnersById:(NSString*)id;
+
+@property (retain, nonatomic, readonly, getter=files) MSGraphItemCollectionFetcher *files;
+
+- (MSGraphItemFetcher *)getFilesById:(NSString*)id;
 
 
 @end
