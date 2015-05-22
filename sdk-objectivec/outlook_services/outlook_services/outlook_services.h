@@ -6,11 +6,8 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for office365_exchange_sdk.
 FOUNDATION_EXPORT double office365_exchange_sdkVersionNumber;
-
-//! Project version string for office365_exchange_sdk.
 FOUNDATION_EXPORT const unsigned char office365_exchange_sdkVersionString[];
 
-#import <office365_exchange_sdk/MSOutlookFetchers.h>
-#import <office365_exchange_sdk/MSOutlookModels.h>
+#import <outlook_services/MSOutlookFetchers.h>
+#import <outlook_services/MSOutlookModels.h>

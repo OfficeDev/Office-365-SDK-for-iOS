@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2647EB0719F44D9D00FD9527"
-               BuildableName = "office365_exchange_sdk.framework"
-               BlueprintName = "office365_exchange_sdk"
-               ReferencedContainer = "container:office365_exchange_sdk.xcodeproj">
+               BuildableName = "outlook_services.framework"
+               BlueprintName = "outlook_services"
+               ReferencedContainer = "container:outlook_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2647EB0719F44D9D00FD9527"
-            BuildableName = "office365_exchange_sdk.framework"
-            BlueprintName = "office365_exchange_sdk"
-            ReferencedContainer = "container:office365_exchange_sdk.xcodeproj">
+            BuildableName = "outlook_services.framework"
+            BlueprintName = "outlook_services"
+            ReferencedContainer = "container:outlook_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2647EB0719F44D9D00FD9527"
-            BuildableName = "office365_exchange_sdk.framework"
-            BlueprintName = "office365_exchange_sdk"
-            ReferencedContainer = "container:office365_exchange_sdk.xcodeproj">
+            BuildableName = "outlook_services.framework"
+            BlueprintName = "outlook_services"
+            ReferencedContainer = "container:outlook_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

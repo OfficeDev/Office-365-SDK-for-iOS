@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2647EB0E19F44D9D00FD9527 /* outlook_services.h in Headers */ = {isa = PBXBuildFile; fileRef = 2647EB0D19F44D9D00FD9527 /* outlook_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		48A52D2D39A65B28F56E282A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CADBC7E18B72966465DDA82C /* libPods.a */; };
 		EC7A742F1B0FA52300AFF3A8 /* MSOutlookAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A737B1B0FA52200AFF3A8 /* MSOutlookAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A74301B0FA52300AFF3A8 /* MSOutlookAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A737C1B0FA52200AFF3A8 /* MSOutlookAttachment.m */; };
 		EC7A74311B0FA52300AFF3A8 /* MSOutlookAttendee.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A737D1B0FA52200AFF3A8 /* MSOutlookAttendee.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -190,9 +191,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_exchange_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2647EB0819F44D9D00FD9527 /* outlook_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = outlook_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2647EB0C19F44D9D00FD9527 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_exchange_sdk.h; sourceTree = "<group>"; };
+		2647EB0D19F44D9D00FD9527 /* outlook_services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = outlook_services.h; sourceTree = "<group>"; };
+		CADBC7E18B72966465DDA82C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE3C8DFDDB3056125EA031B4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E7F9676A57AB27959C7DF4F4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC7A737B1B0FA52200AFF3A8 /* MSOutlookAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookAttachment.h; sourceTree = "<group>"; };
 		EC7A737C1B0FA52200AFF3A8 /* MSOutlookAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookAttachment.m; sourceTree = "<group>"; };
 		EC7A737D1B0FA52200AFF3A8 /* MSOutlookAttendee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookAttendee.h; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48A52D2D39A65B28F56E282A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,27 +394,28 @@
 			isa = PBXGroup;
 			children = (
 				EC7A73791B0FA52200AFF3A8 /* Generated */,
-				2647EB0A19F44D9D00FD9527 /* office365_exchange_sdk */,
-				2647ECB319F4549B00FD9527 /* Frameworks */,
+				2647EB0A19F44D9D00FD9527 /* outlook_services */,
 				2647EB0919F44D9D00FD9527 /* Products */,
+				9AF655E2C851FED1336835BF /* Pods */,
+				429DABC679673C50207689B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		2647EB0919F44D9D00FD9527 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */,
+				2647EB0819F44D9D00FD9527 /* outlook_services.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2647EB0A19F44D9D00FD9527 /* office365_exchange_sdk */ = {
+		2647EB0A19F44D9D00FD9527 /* outlook_services */ = {
 			isa = PBXGroup;
 			children = (
-				2647EB0D19F44D9D00FD9527 /* office365_exchange_sdk.h */,
+				2647EB0D19F44D9D00FD9527 /* outlook_services.h */,
 				2647EB0B19F44D9D00FD9527 /* Supporting Files */,
 			);
-			path = office365_exchange_sdk;
+			path = outlook_services;
 			sourceTree = "<group>";
 		};
 		2647EB0B19F44D9D00FD9527 /* Supporting Files */ = {
@@ -420,11 +426,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2647ECB319F4549B00FD9527 /* Frameworks */ = {
+		429DABC679673C50207689B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CADBC7E18B72966465DDA82C /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9AF655E2C851FED1336835BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE3C8DFDDB3056125EA031B4 /* Pods.debug.xcconfig */,
+				E7F9676A57AB27959C7DF4F4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EC7A73791B0FA52200AFF3A8 /* Generated */ = {
@@ -671,7 +687,7 @@
 				EC7A748D1B0FA52300AFF3A8 /* MSOutlookContactFetcher.h in Headers */,
 				EC7A749B1B0FA52300AFF3A8 /* MSOutlookEntityCollectionOperations.h in Headers */,
 				EC7A74DA1B0FA52300AFF3A8 /* MSOutlookUserCollectionFetcher.h in Headers */,
-				2647EB0E19F44D9D00FD9527 /* office365_exchange_sdk.h in Headers */,
+				2647EB0E19F44D9D00FD9527 /* outlook_services.h in Headers */,
 				EC7A74771B0FA52300AFF3A8 /* MSOutlookCalendarCollectionFetcher.h in Headers */,
 				EC7A74631B0FA52300AFF3A8 /* MSOutlookRecurrencePattern.h in Headers */,
 				EC7A74311B0FA52300AFF3A8 /* MSOutlookAttendee.h in Headers */,
@@ -740,22 +756,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */ = {
+		2647EB0719F44D9D00FD9527 /* outlook_services */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2647EB1E19F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "office365_exchange_sdk" */;
+			buildConfigurationList = 2647EB1E19F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "outlook_services" */;
 			buildPhases = (
+				DDB5712F9DC6FFF11E6358FD /* Check Pods Manifest.lock */,
 				2647EB0319F44D9D00FD9527 /* Sources */,
 				2647EB0419F44D9D00FD9527 /* Frameworks */,
 				2647EB0519F44D9D00FD9527 /* Headers */,
 				2647EB0619F44D9D00FD9527 /* Resources */,
+				BD8784D31B4545BB8CA8F469 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = office365_exchange_sdk;
-			productName = office365_exchange_sdk;
-			productReference = 2647EB0819F44D9D00FD9527 /* office365_exchange_sdk.framework */;
+			name = outlook_services;
+			productName = outlook_services;
+			productReference = 2647EB0819F44D9D00FD9527 /* outlook_services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -773,7 +791,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2647EB0219F44D9D00FD9527 /* Build configuration list for PBXProject "office365_exchange_sdk" */;
+			buildConfigurationList = 2647EB0219F44D9D00FD9527 /* Build configuration list for PBXProject "outlook_services" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -785,7 +803,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2647EB0719F44D9D00FD9527 /* office365_exchange_sdk */,
+				2647EB0719F44D9D00FD9527 /* outlook_services */,
 			);
 		};
 /* End PBXProject section */
@@ -799,6 +817,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD8784D31B4545BB8CA8F469 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDB5712F9DC6FFF11E6358FD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2647EB0319F44D9D00FD9527 /* Sources */ = {
@@ -979,6 +1030,7 @@
 		};
 		2647EB1F19F44D9D00FD9527 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3C8DFDDB3056125EA031B4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -988,12 +1040,15 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_exchange_sdk/Info.plist;
+				INFOPLIST_FILE = outlook_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1003,6 +1058,7 @@
 		};
 		2647EB2019F44D9D00FD9527 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7F9676A57AB27959C7DF4F4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1012,12 +1068,15 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_exchange_sdk/Info.plist;
+				INFOPLIST_FILE = outlook_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1028,7 +1087,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2647EB0219F44D9D00FD9527 /* Build configuration list for PBXProject "office365_exchange_sdk" */ = {
+		2647EB0219F44D9D00FD9527 /* Build configuration list for PBXProject "outlook_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2647EB1C19F44D9D00FD9527 /* Debug */,
@@ -1037,7 +1096,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2647EB1E19F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "office365_exchange_sdk" */ = {
+		2647EB1E19F44D9D00FD9527 /* Build configuration list for PBXNativeTarget "outlook_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2647EB1F19F44D9D00FD9527 /* Debug */,

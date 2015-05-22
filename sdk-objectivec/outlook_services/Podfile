@@ -1,0 +1,7 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.0'
+
+xcodeproj 'outlook_services'
+
+pod 'orc', '= 0.10.0'
+
