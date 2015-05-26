@@ -62,14 +62,14 @@
 		EC25FF621B0FC61B00E227BA /* MSSharePointItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FF2B1B0FC61B00E227BA /* MSSharePointItemFetcher.m */; };
 		EC25FF631B0FC61B00E227BA /* MSSharePointItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FF2C1B0FC61B00E227BA /* MSSharePointItemOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FF641B0FC61B00E227BA /* MSSharePointItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FF2D1B0FC61B00E227BA /* MSSharePointItemOperations.m */; };
-		ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDE8164D0984FC1ACC54BF01 /* libPods-office365_files_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F5F502E40A175FCDE61CE /* libPods-office365_files_sdk.a */; };
+		ECDEC0CA1A2514BB00F84EAF /* files_services.h in Headers */ = {isa = PBXBuildFile; fileRef = ECDEC0C91A2514BB00F84EAF /* files_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDE8164D0984FC1ACC54BF01 /* libPods-files_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 475F5F502E40A175FCDE61CE /* libPods-files_services.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		475F5F502E40A175FCDE61CE /* libPods-office365_files_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_files_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		57C9EC73B368679494D6E09D /* Pods-office365_files_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_files_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_files_sdk/Pods-office365_files_sdk.debug.xcconfig"; sourceTree = "<group>"; };
-		B5572601FC28E141406FD6D7 /* Pods-office365_files_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_files_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_files_sdk/Pods-office365_files_sdk.release.xcconfig"; sourceTree = "<group>"; };
+		475F5F502E40A175FCDE61CE /* libPods-files_services.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-files_services.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		57C9EC73B368679494D6E09D /* Pods-files_services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-files_services.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-files_services/Pods-files_services.debug.xcconfig"; sourceTree = "<group>"; };
+		B5572601FC28E141406FD6D7 /* Pods-files_services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-files_services.release.xcconfig"; path = "../Pods/Target Support Files/Pods-files_services/Pods-files_services.release.xcconfig"; sourceTree = "<group>"; };
 		EC25FEF61B0FC61B00E227BA /* MSSharePointDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDrive.h; sourceTree = "<group>"; };
 		EC25FEF71B0FC61B00E227BA /* MSSharePointDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointDrive.m; sourceTree = "<group>"; };
 		EC25FEF81B0FC61B00E227BA /* MSSharePointDriveQuota.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointDriveQuota.h; sourceTree = "<group>"; };
@@ -125,9 +125,9 @@
 		EC25FF2B1B0FC61B00E227BA /* MSSharePointItemFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemFetcher.m; sourceTree = "<group>"; };
 		EC25FF2C1B0FC61B00E227BA /* MSSharePointItemOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSSharePointItemOperations.h; sourceTree = "<group>"; };
 		EC25FF2D1B0FC61B00E227BA /* MSSharePointItemOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSSharePointItemOperations.m; sourceTree = "<group>"; };
-		ECDEC0C41A2514BB00F84EAF /* office365_files_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_files_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECDEC0C41A2514BB00F84EAF /* files_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = files_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECDEC0C81A2514BB00F84EAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_files_sdk.h; sourceTree = "<group>"; };
+		ECDEC0C91A2514BB00F84EAF /* files_services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = files_services.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE8164D0984FC1ACC54BF01 /* libPods-office365_files_sdk.a in Frameworks */,
+				FDE8164D0984FC1ACC54BF01 /* libPods-files_services.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,8 +145,8 @@
 		18D045DBF9EC2D52AA730AD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				57C9EC73B368679494D6E09D /* Pods-office365_files_sdk.debug.xcconfig */,
-				B5572601FC28E141406FD6D7 /* Pods-office365_files_sdk.release.xcconfig */,
+				57C9EC73B368679494D6E09D /* Pods-files_services.debug.xcconfig */,
+				B5572601FC28E141406FD6D7 /* Pods-files_services.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -154,7 +154,7 @@
 		87E2095C9F06046A91AE5C4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				475F5F502E40A175FCDE61CE /* libPods-office365_files_sdk.a */,
+				475F5F502E40A175FCDE61CE /* libPods-files_services.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				EC25FEF41B0FC61B00E227BA /* Generated */,
-				ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */,
+				ECDEC0C61A2514BB00F84EAF /* files_services */,
 				ECDEC0C51A2514BB00F84EAF /* Products */,
 				18D045DBF9EC2D52AA730AD7 /* Pods */,
 				87E2095C9F06046A91AE5C4D /* Frameworks */,
@@ -251,18 +251,18 @@
 		ECDEC0C51A2514BB00F84EAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECDEC0C41A2514BB00F84EAF /* office365_files_sdk.framework */,
+				ECDEC0C41A2514BB00F84EAF /* files_services.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECDEC0C61A2514BB00F84EAF /* office365_files_sdk */ = {
+		ECDEC0C61A2514BB00F84EAF /* files_services */ = {
 			isa = PBXGroup;
 			children = (
-				ECDEC0C91A2514BB00F84EAF /* office365_files_sdk.h */,
+				ECDEC0C91A2514BB00F84EAF /* files_services.h */,
 				ECDEC0C71A2514BB00F84EAF /* Supporting Files */,
 			);
-			path = office365_files_sdk;
+			path = files_services;
 			sourceTree = "<group>";
 		};
 		ECDEC0C71A2514BB00F84EAF /* Supporting Files */ = {
@@ -304,7 +304,7 @@
 				EC25FF531B0FC61B00E227BA /* MSSharePointFileOperations.h in Headers */,
 				EC25FF511B0FC61B00E227BA /* MSSharePointFileFetcher.h in Headers */,
 				EC25FF611B0FC61B00E227BA /* MSSharePointItemFetcher.h in Headers */,
-				ECDEC0CA1A2514BB00F84EAF /* office365_files_sdk.h in Headers */,
+				ECDEC0CA1A2514BB00F84EAF /* files_services.h in Headers */,
 				EC25FF301B0FC61B00E227BA /* MSSharePointDriveQuota.h in Headers */,
 				EC25FF5D1B0FC61B00E227BA /* MSSharePointItemCollectionFetcher.h in Headers */,
 				EC25FF441B0FC61B00E227BA /* MSSharePointDriveCollectionFetcher.h in Headers */,
@@ -316,9 +316,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		ECDEC0C31A2514BB00F84EAF /* office365_files_sdk */ = {
+		ECDEC0C31A2514BB00F84EAF /* files_services */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "office365_files_sdk" */;
+			buildConfigurationList = ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "files_services" */;
 			buildPhases = (
 				163283AFB5EB0AAC7E3327A4 /* Check Pods Manifest.lock */,
 				ECDEC0BF1A2514BB00F84EAF /* Sources */,
@@ -331,9 +331,9 @@
 			);
 			dependencies = (
 			);
-			name = office365_files_sdk;
-			productName = office365_files_sdk;
-			productReference = ECDEC0C41A2514BB00F84EAF /* office365_files_sdk.framework */;
+			name = files_services;
+			productName = files_services;
+			productReference = ECDEC0C41A2514BB00F84EAF /* files_services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +351,7 @@
 					};
 				};
 			};
-			buildConfigurationList = ECDEC0BE1A2514BB00F84EAF /* Build configuration list for PBXProject "office365_files_sdk" */;
+			buildConfigurationList = ECDEC0BE1A2514BB00F84EAF /* Build configuration list for PBXProject "files_services" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -363,7 +363,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ECDEC0C31A2514BB00F84EAF /* office365_files_sdk */,
+				ECDEC0C31A2514BB00F84EAF /* files_services */,
 			);
 		};
 /* End PBXProject section */
@@ -406,7 +406,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_files_sdk/Pods-office365_files_sdk-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-files_services/Pods-files_services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -534,7 +534,7 @@
 		};
 		ECDEC0DB1A2514BC00F84EAF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57C9EC73B368679494D6E09D /* Pods-office365_files_sdk.debug.xcconfig */;
+			baseConfigurationReference = 57C9EC73B368679494D6E09D /* Pods-files_services.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -543,7 +543,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_files_sdk/Info.plist;
+				INFOPLIST_FILE = files_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -558,7 +558,7 @@
 		};
 		ECDEC0DC1A2514BC00F84EAF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5572601FC28E141406FD6D7 /* Pods-office365_files_sdk.release.xcconfig */;
+			baseConfigurationReference = B5572601FC28E141406FD6D7 /* Pods-files_services.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -567,7 +567,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_files_sdk/Info.plist;
+				INFOPLIST_FILE = files_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -583,7 +583,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		ECDEC0BE1A2514BB00F84EAF /* Build configuration list for PBXProject "office365_files_sdk" */ = {
+		ECDEC0BE1A2514BB00F84EAF /* Build configuration list for PBXProject "files_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECDEC0D81A2514BC00F84EAF /* Debug */,
@@ -592,7 +592,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "office365_files_sdk" */ = {
+		ECDEC0DA1A2514BC00F84EAF /* Build configuration list for PBXNativeTarget "files_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECDEC0DB1A2514BC00F84EAF /* Debug */,

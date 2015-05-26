@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ECDEC0C31A2514BB00F84EAF"
-               BuildableName = "office365_files_sdk.framework"
-               BlueprintName = "office365_files_sdk"
-               ReferencedContainer = "container:office365_files_sdk.xcodeproj">
+               BuildableName = "files_services.framework"
+               BlueprintName = "files_services"
+               ReferencedContainer = "container:files_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECDEC0C31A2514BB00F84EAF"
-            BuildableName = "office365_files_sdk.framework"
-            BlueprintName = "office365_files_sdk"
-            ReferencedContainer = "container:office365_files_sdk.xcodeproj">
+            BuildableName = "files_services.framework"
+            BlueprintName = "files_services"
+            ReferencedContainer = "container:files_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECDEC0C31A2514BB00F84EAF"
-            BuildableName = "office365_files_sdk.framework"
-            BlueprintName = "office365_files_sdk"
-            ReferencedContainer = "container:office365_files_sdk.xcodeproj">
+            BuildableName = "files_services.framework"
+            BlueprintName = "files_services"
+            ReferencedContainer = "container:files_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
