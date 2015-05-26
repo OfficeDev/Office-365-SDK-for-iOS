@@ -13,8 +13,8 @@ target :outlook_services do
   pod 'orc', '=0.10.0'
 end
 
-target :office365_directory_sdk do
-  xcodeproj 'office365_directory_sdk/office365_directory_sdk'
+target :directory_services do
+  xcodeproj 'directory_services/directory_services'
   pod 'orc', '=0.10.0'
 end
 

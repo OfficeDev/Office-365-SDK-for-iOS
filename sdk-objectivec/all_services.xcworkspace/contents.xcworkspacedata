@@ -14,12 +14,12 @@
       location = "group:office365_discovery_sdk/office365_discovery_sdk.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:office365_directory_sdk/office365_directory_sdk.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:directory_services/directory_services.xcodeproj">
    </FileRef>
 </Workspace>

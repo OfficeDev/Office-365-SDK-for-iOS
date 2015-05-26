@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:office365_directory_sdk.xcodeproj">
+      location = "self:directory_services.xcodeproj">
    </FileRef>
 </Workspace>

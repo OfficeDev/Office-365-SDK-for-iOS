@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC0D69BB19FACA180092895E /* office365_directory_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0D69BA19FACA180092895E /* office365_directory_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC0D69BB19FACA180092895E /* directory_services.h in Headers */ = {isa = PBXBuildFile; fileRef = EC0D69BA19FACA180092895E /* directory_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F8EF1AF155D70099BB4C /* MSDirectoryAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F82B1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F8F01AF155D70099BB4C /* MSDirectoryAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F82C1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.m */; };
 		EC55F8F11AF155D70099BB4C /* MSDirectoryApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F82D1AF155D60099BB4C /* MSDirectoryApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,17 +203,17 @@
 		EC55F9B01AF155D70099BB4C /* MSDirectoryUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8ED1AF155D70099BB4C /* MSDirectoryUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9B11AF155D70099BB4C /* MSDirectoryUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8EE1AF155D70099BB4C /* MSDirectoryUserOperations.m */; };
 		EC8921DF1B04E3AE00802659 /* MSDirectoryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = EC8921DE1B04E3AE00802659 /* MSDirectoryFetchers.h */; };
-		EDF21812DBA03D42E4C41BF4 /* libPods-office365_directory_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */; };
+		EDF21812DBA03D42E4C41BF4 /* libPods-directory_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 148A9696DAB3C5FF350FF241 /* libPods-directory_services.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_directory_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_directory_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk.debug.xcconfig"; sourceTree = "<group>"; };
+		148A9696DAB3C5FF350FF241 /* libPods-directory_services.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-directory_services.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7F2310CAFE27284B2680FF /* Pods-directory_services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-directory_services.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-directory_services/Pods-directory_services.debug.xcconfig"; sourceTree = "<group>"; };
 		3D9C9D9723D9BB6C3C2C4F40 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_directory_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk.release.xcconfig"; sourceTree = "<group>"; };
-		EC0D69B519FACA180092895E /* office365_directory_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_directory_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FE07EB1010322F62EB0046 /* Pods-directory_services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-directory_services.release.xcconfig"; path = "../Pods/Target Support Files/Pods-directory_services/Pods-directory_services.release.xcconfig"; sourceTree = "<group>"; };
+		EC0D69B519FACA180092895E /* directory_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = directory_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D69B919FACA180092895E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC0D69BA19FACA180092895E /* office365_directory_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_directory_sdk.h; sourceTree = "<group>"; };
+		EC0D69BA19FACA180092895E /* directory_services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = directory_services.h; sourceTree = "<group>"; };
 		EC55F82B1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC55F82C1AF155D60099BB4C /* MSDirectoryAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC55F82D1AF155D60099BB4C /* MSDirectoryApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryApplication.h; sourceTree = "<group>"; };
@@ -416,7 +416,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF21812DBA03D42E4C41BF4 /* libPods-office365_directory_sdk.a in Frameworks */,
+				EDF21812DBA03D42E4C41BF4 /* libPods-directory_services.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,8 +426,8 @@
 		2E2267BC9AE9A776A1F6D0B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */,
-				84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */,
+				2B7F2310CAFE27284B2680FF /* Pods-directory_services.debug.xcconfig */,
+				84FE07EB1010322F62EB0046 /* Pods-directory_services.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -436,7 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9C9D9723D9BB6C3C2C4F40 /* libPods.a */,
-				148A9696DAB3C5FF350FF241 /* libPods-office365_directory_sdk.a */,
+				148A9696DAB3C5FF350FF241 /* libPods-directory_services.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -445,7 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				EC55F8291AF155D60099BB4C /* Generated */,
-				EC0D69B719FACA180092895E /* office365_directory_sdk */,
+				EC0D69B719FACA180092895E /* directory_services */,
 				EC0D69B619FACA180092895E /* Products */,
 				2E2267BC9AE9A776A1F6D0B7 /* Pods */,
 				9D58772E8CDE34181E43745A /* Frameworks */,
@@ -455,18 +455,18 @@
 		EC0D69B619FACA180092895E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC0D69B519FACA180092895E /* office365_directory_sdk.framework */,
+				EC0D69B519FACA180092895E /* directory_services.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC0D69B719FACA180092895E /* office365_directory_sdk */ = {
+		EC0D69B719FACA180092895E /* directory_services */ = {
 			isa = PBXGroup;
 			children = (
-				EC0D69BA19FACA180092895E /* office365_directory_sdk.h */,
+				EC0D69BA19FACA180092895E /* directory_services.h */,
 				EC0D69B819FACA180092895E /* Supporting Files */,
 			);
-			path = office365_directory_sdk;
+			path = directory_services;
 			sourceTree = "<group>";
 		};
 		EC0D69B819FACA180092895E /* Supporting Files */ = {
@@ -708,7 +708,7 @@
 				EC55F9411AF155D70099BB4C /* MSDirectoryContactCollectionFetcher.h in Headers */,
 				EC55F9291AF155D70099BB4C /* MSDirectoryTenantDetail.h in Headers */,
 				EC55F9731AF155D70099BB4C /* MSDirectoryDirectoryRoleTemplateCollectionOperations.h in Headers */,
-				EC0D69BB19FACA180092895E /* office365_directory_sdk.h in Headers */,
+				EC0D69BB19FACA180092895E /* directory_services.h in Headers */,
 				EC55F9A81AF155D70099BB4C /* MSDirectoryTenantDetailOperations.h in Headers */,
 				EC55F9471AF155D70099BB4C /* MSDirectoryContactOperations.h in Headers */,
 				EC55F9531AF155D70099BB4C /* MSDirectoryDeviceConfigurationOperations.h in Headers */,
@@ -808,9 +808,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC0D69B419FACA180092895E /* office365_directory_sdk */ = {
+		EC0D69B419FACA180092895E /* directory_services */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC0D69C819FACA180092895E /* Build configuration list for PBXNativeTarget "office365_directory_sdk" */;
+			buildConfigurationList = EC0D69C819FACA180092895E /* Build configuration list for PBXNativeTarget "directory_services" */;
 			buildPhases = (
 				45F6B02B2869C677327B6A4D /* Check Pods Manifest.lock */,
 				EC0D69B019FACA180092895E /* Sources */,
@@ -823,9 +823,9 @@
 			);
 			dependencies = (
 			);
-			name = office365_directory_sdk;
-			productName = office365_directory_sdk;
-			productReference = EC0D69B519FACA180092895E /* office365_directory_sdk.framework */;
+			name = directory_services;
+			productName = directory_services;
+			productReference = EC0D69B519FACA180092895E /* directory_services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -843,7 +843,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC0D69AF19FACA180092895E /* Build configuration list for PBXProject "office365_directory_sdk" */;
+			buildConfigurationList = EC0D69AF19FACA180092895E /* Build configuration list for PBXProject "directory_services" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -855,7 +855,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC0D69B419FACA180092895E /* office365_directory_sdk */,
+				EC0D69B419FACA180092895E /* directory_services */,
 			);
 		};
 /* End PBXProject section */
@@ -898,7 +898,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_directory_sdk/Pods-office365_directory_sdk-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-directory_services/Pods-directory_services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1096,7 +1096,7 @@
 		};
 		EC0D69C919FACA180092895E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B7F2310CAFE27284B2680FF /* Pods-office365_directory_sdk.debug.xcconfig */;
+			baseConfigurationReference = 2B7F2310CAFE27284B2680FF /* Pods-directory_services.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1109,7 +1109,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
+				INFOPLIST_FILE = directory_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -1124,7 +1124,7 @@
 		};
 		EC0D69CA19FACA180092895E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84FE07EB1010322F62EB0046 /* Pods-office365_directory_sdk.release.xcconfig */;
+			baseConfigurationReference = 84FE07EB1010322F62EB0046 /* Pods-directory_services.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1137,7 +1137,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_directory_sdk/Info.plist;
+				INFOPLIST_FILE = directory_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -1153,7 +1153,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC0D69AF19FACA180092895E /* Build configuration list for PBXProject "office365_directory_sdk" */ = {
+		EC0D69AF19FACA180092895E /* Build configuration list for PBXProject "directory_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC0D69C619FACA180092895E /* Debug */,
@@ -1162,7 +1162,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC0D69C819FACA180092895E /* Build configuration list for PBXNativeTarget "office365_directory_sdk" */ = {
+		EC0D69C819FACA180092895E /* Build configuration list for PBXNativeTarget "directory_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC0D69C919FACA180092895E /* Debug */,
