@@ -1,0 +1,8 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.0'
+
+workspace 'sdk_tests'
+xcodeproj 'sdk_tests'
+
+pod 'orc', '~> 0.10.0'
+pod 'Office365', :path => '../..'

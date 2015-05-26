@@ -1,0 +1,7 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.0'
+
+workspace 'core_tests'
+xcodeproj 'core_tests'
+
+pod 'orc'

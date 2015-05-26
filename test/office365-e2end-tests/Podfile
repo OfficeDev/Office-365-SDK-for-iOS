@@ -1,9 +1,0 @@
-source 'https://github.com/Cocoapods/Specs.git'
-platform :ios, '8.0'
-
-xcodeproj 'office365-e2end-tests'
-
-pod 'LiveSDK'
-pod 'ADALIOS', '~> 1.2.2' # 1.2.2 < ver < 1.2.2
-pod 'orc', '~> 0.10.0'
-pod 'Office365', :git => 'https://github.com/greathansen/Office-365-SDK-for-iOS', :branch => 'orc-poc'

@@ -21,3 +21,6 @@ DerivedData
 
 # Mac
 .DS_Store
+
+# Java
+*.jar
