@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:office365_discovery_sdk.xcodeproj">
+      location = "self:discovery_services.xcodeproj">
    </FileRef>
 </Workspace>

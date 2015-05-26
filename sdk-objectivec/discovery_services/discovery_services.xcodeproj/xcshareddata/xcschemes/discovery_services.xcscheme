@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC2CCA2919F8A02F00D12E55"
-               BuildableName = "office365_discovery_sdk.framework"
-               BlueprintName = "office365_discovery_sdk"
-               ReferencedContainer = "container:office365_discovery_sdk.xcodeproj">
+               BuildableName = "discovery_services.framework"
+               BlueprintName = "discovery_services"
+               ReferencedContainer = "container:discovery_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC2CCA2919F8A02F00D12E55"
-            BuildableName = "office365_discovery_sdk.framework"
-            BlueprintName = "office365_discovery_sdk"
-            ReferencedContainer = "container:office365_discovery_sdk.xcodeproj">
+            BuildableName = "discovery_services.framework"
+            BlueprintName = "discovery_services"
+            ReferencedContainer = "container:discovery_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC2CCA2919F8A02F00D12E55"
-            BuildableName = "office365_discovery_sdk.framework"
-            BlueprintName = "office365_discovery_sdk"
-            ReferencedContainer = "container:office365_discovery_sdk.xcodeproj">
+            BuildableName = "discovery_services.framework"
+            BlueprintName = "discovery_services"
+            ReferencedContainer = "container:discovery_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

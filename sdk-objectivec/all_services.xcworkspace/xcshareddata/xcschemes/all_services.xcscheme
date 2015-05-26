@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC0D69B419FACA180092895E"
-               BuildableName = "office365_directory_sdk.framework"
-               BlueprintName = "office365_directory_sdk"
-               ReferencedContainer = "container:office365_directory_sdk/office365_directory_sdk.xcodeproj">
+               BuildableName = "directory_services.framework"
+               BlueprintName = "directory_services"
+               ReferencedContainer = "container:directory_services/directory_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC2CCA2919F8A02F00D12E55"
-               BuildableName = "office365_discovery_sdk.framework"
-               BlueprintName = "office365_discovery_sdk"
-               ReferencedContainer = "container:office365_discovery_sdk/office365_discovery_sdk.xcodeproj">
+               BuildableName = "discovery_services.framework"
+               BlueprintName = "discovery_services"
+               ReferencedContainer = "container:discovery_services/discovery_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -103,9 +103,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC0D69B419FACA180092895E"
-            BuildableName = "office365_directory_sdk.framework"
-            BlueprintName = "office365_directory_sdk"
-            ReferencedContainer = "container:office365_directory_sdk/office365_directory_sdk.xcodeproj">
+            BuildableName = "directory_services.framework"
+            BlueprintName = "directory_services"
+            ReferencedContainer = "container:directory_services/directory_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -122,9 +122,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC0D69B419FACA180092895E"
-            BuildableName = "office365_directory_sdk.framework"
-            BlueprintName = "office365_directory_sdk"
-            ReferencedContainer = "container:office365_directory_sdk/office365_directory_sdk.xcodeproj">
+            BuildableName = "directory_services.framework"
+            BlueprintName = "directory_services"
+            ReferencedContainer = "container:directory_services/directory_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -140,9 +140,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC0D69B419FACA180092895E"
-            BuildableName = "office365_directory_sdk.framework"
-            BlueprintName = "office365_directory_sdk"
-            ReferencedContainer = "container:office365_directory_sdk/office365_directory_sdk.xcodeproj">
+            BuildableName = "directory_services.framework"
+            BlueprintName = "directory_services"
+            ReferencedContainer = "container:directory_services/directory_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

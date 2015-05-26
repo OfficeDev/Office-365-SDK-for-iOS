@@ -11,7 +11,7 @@
       location = "group:outlook_services/outlook_services.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:office365_discovery_sdk/office365_discovery_sdk.xcodeproj">
+      location = "group:discovery_services/discovery_services.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:office365_onenote_sdk/office365_onenote_sdk.xcodeproj">

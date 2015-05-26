@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52383252DD32377FE8236B0B /* libPods-office365_discovery_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6429418BE20687D1F6E79C /* libPods-office365_discovery_sdk.a */; };
+		52383252DD32377FE8236B0B /* libPods-discovery_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6429418BE20687D1F6E79C /* libPods-discovery_services.a */; };
 		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC48AD821AE1AC5A0074F9A6 /* discovery_services.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34848B1AAF3B6200530D41 /* discovery_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D2301A2606AD004B0B5C /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */; };
@@ -27,12 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		255CA66FAB80AE19FC3679FE /* Pods-office365_discovery_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_discovery_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_discovery_sdk/Pods-office365_discovery_sdk.debug.xcconfig"; sourceTree = "<group>"; };
-		CD6429418BE20687D1F6E79C /* libPods-office365_discovery_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_discovery_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_discovery_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		255CA66FAB80AE19FC3679FE /* Pods-discovery_services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discovery_services.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-discovery_services/Pods-discovery_services.debug.xcconfig"; sourceTree = "<group>"; };
+		CD6429418BE20687D1F6E79C /* libPods-discovery_services.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-discovery_services.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2CCA2A19F8A02F00D12E55 /* discovery_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = discovery_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC2CCA2E19F8A02F00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3484781AAF361500530D41 /* MSDiscoveryModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryModels.h; sourceTree = "<group>"; };
-		EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = office365_discovery_sdk.h; sourceTree = "<group>"; };
+		EC34848B1AAF3B6200530D41 /* discovery_services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discovery_services.h; sourceTree = "<group>"; };
 		EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryProtocols.h; sourceTree = "<group>"; };
 		EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryServiceInfo.h; sourceTree = "<group>"; };
 		EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfo.m; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		EC78D2391A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryServiceInfoOperations.h; sourceTree = "<group>"; };
 		EC78D23A1A2606B6004B0B5C /* MSDiscoveryServiceInfoOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfoOperations.m; sourceTree = "<group>"; };
 		EC7A75041B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryFetchers.h; sourceTree = "<group>"; };
-		FACBA1F525341AD447285700 /* Pods-office365_discovery_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_discovery_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_discovery_sdk/Pods-office365_discovery_sdk.release.xcconfig"; sourceTree = "<group>"; };
+		FACBA1F525341AD447285700 /* Pods-discovery_services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-discovery_services.release.xcconfig"; path = "../Pods/Target Support Files/Pods-discovery_services/Pods-discovery_services.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52383252DD32377FE8236B0B /* libPods-office365_discovery_sdk.a in Frameworks */,
+				52383252DD32377FE8236B0B /* libPods-discovery_services.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,8 +65,8 @@
 		4D6E051BF57565817C6BCAA6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				255CA66FAB80AE19FC3679FE /* Pods-office365_discovery_sdk.debug.xcconfig */,
-				FACBA1F525341AD447285700 /* Pods-office365_discovery_sdk.release.xcconfig */,
+				255CA66FAB80AE19FC3679FE /* Pods-discovery_services.debug.xcconfig */,
+				FACBA1F525341AD447285700 /* Pods-discovery_services.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -74,7 +74,7 @@
 		B863873319DBDB7F318B2B73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD6429418BE20687D1F6E79C /* libPods-office365_discovery_sdk.a */,
+				CD6429418BE20687D1F6E79C /* libPods-discovery_services.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				EC2CCA4319F8A0BE00D12E55 /* Generated */,
-				EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */,
+				EC2CCA2C19F8A02F00D12E55 /* discovery_services */,
 				EC2CCA2B19F8A02F00D12E55 /* Products */,
 				4D6E051BF57565817C6BCAA6 /* Pods */,
 				B863873319DBDB7F318B2B73 /* Frameworks */,
@@ -93,18 +93,18 @@
 		EC2CCA2B19F8A02F00D12E55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */,
+				EC2CCA2A19F8A02F00D12E55 /* discovery_services.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC2CCA2C19F8A02F00D12E55 /* office365_discovery_sdk */ = {
+		EC2CCA2C19F8A02F00D12E55 /* discovery_services */ = {
 			isa = PBXGroup;
 			children = (
-				EC34848B1AAF3B6200530D41 /* office365_discovery_sdk.h */,
+				EC34848B1AAF3B6200530D41 /* discovery_services.h */,
 				EC2CCA2D19F8A02F00D12E55 /* Supporting Files */,
 			);
-			path = office365_discovery_sdk;
+			path = discovery_services;
 			sourceTree = "<group>";
 		};
 		EC2CCA2D19F8A02F00D12E55 /* Supporting Files */ = {
@@ -169,16 +169,16 @@
 				EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */,
 				EC7A75051B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h in Headers */,
 				EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */,
-				EC48AD821AE1AC5A0074F9A6 /* office365_discovery_sdk.h in Headers */,
+				EC48AD821AE1AC5A0074F9A6 /* discovery_services.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC2CCA2919F8A02F00D12E55 /* office365_discovery_sdk */ = {
+		EC2CCA2919F8A02F00D12E55 /* discovery_services */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC2CCA3D19F8A03000D12E55 /* Build configuration list for PBXNativeTarget "office365_discovery_sdk" */;
+			buildConfigurationList = EC2CCA3D19F8A03000D12E55 /* Build configuration list for PBXNativeTarget "discovery_services" */;
 			buildPhases = (
 				758D87BBE818DE75CEAF18E5 /* Check Pods Manifest.lock */,
 				EC2CCA2519F8A02F00D12E55 /* Sources */,
@@ -191,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = office365_discovery_sdk;
-			productName = office365_discovery_sdk;
-			productReference = EC2CCA2A19F8A02F00D12E55 /* office365_discovery_sdk.framework */;
+			name = discovery_services;
+			productName = discovery_services;
+			productReference = EC2CCA2A19F8A02F00D12E55 /* discovery_services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC2CCA2419F8A02F00D12E55 /* Build configuration list for PBXProject "office365_discovery_sdk" */;
+			buildConfigurationList = EC2CCA2419F8A02F00D12E55 /* Build configuration list for PBXProject "discovery_services" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,7 +223,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC2CCA2919F8A02F00D12E55 /* office365_discovery_sdk */,
+				EC2CCA2919F8A02F00D12E55 /* discovery_services */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_discovery_sdk/Pods-office365_discovery_sdk-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-discovery_services/Pods-discovery_services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -374,7 +374,7 @@
 		};
 		EC2CCA3E19F8A03000D12E55 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 255CA66FAB80AE19FC3679FE /* Pods-office365_discovery_sdk.debug.xcconfig */;
+			baseConfigurationReference = 255CA66FAB80AE19FC3679FE /* Pods-discovery_services.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -384,7 +384,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
+				INFOPLIST_FILE = discovery_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -399,7 +399,7 @@
 		};
 		EC2CCA3F19F8A03000D12E55 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FACBA1F525341AD447285700 /* Pods-office365_discovery_sdk.release.xcconfig */;
+			baseConfigurationReference = FACBA1F525341AD447285700 /* Pods-discovery_services.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -409,7 +409,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = office365_discovery_sdk/Info.plist;
+				INFOPLIST_FILE = discovery_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -425,7 +425,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC2CCA2419F8A02F00D12E55 /* Build configuration list for PBXProject "office365_discovery_sdk" */ = {
+		EC2CCA2419F8A02F00D12E55 /* Build configuration list for PBXProject "discovery_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC2CCA3B19F8A03000D12E55 /* Debug */,
@@ -434,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC2CCA3D19F8A03000D12E55 /* Build configuration list for PBXNativeTarget "office365_discovery_sdk" */ = {
+		EC2CCA3D19F8A03000D12E55 /* Build configuration list for PBXNativeTarget "discovery_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC2CCA3E19F8A03000D12E55 /* Debug */,
