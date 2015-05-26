@@ -6,11 +6,8 @@
  ******************************************************************************/
 #import <UIKit/UIKit.h>
 
-//! Project version number for office365_onenote_sdk.
-FOUNDATION_EXPORT double office365_onenote_sdkVersionNumber;
+FOUNDATION_EXPORT double onenote_servicesVersionNumber;
+FOUNDATION_EXPORT const unsigned char onenote_servicesVersionString[];
 
-//! Project version string for office365_onenote_sdk.
-FOUNDATION_EXPORT const unsigned char office365_onenote_sdkVersionString[];
-
-#import <office365_onenote_sdk/MSOneNoteFetchers.h>
-#import <office365_onenote_sdk/MSOneNoteModels.h>
+#import <onenote_services/MSOneNoteFetchers.h>
+#import <onenote_services/MSOneNoteModels.h>

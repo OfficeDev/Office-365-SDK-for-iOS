@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F66CEB3229C0E72EBAC05DB /* libPods-office365_graph_sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */; };
+		6F66CEB3229C0E72EBAC05DB /* libPods-unified_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 244F3D6CB6AA7AD51DD9C7DB /* libPods-unified_services.a */; };
 		EC25FD5D1B0FBFBF00E227BA /* MSGraphAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FBDC1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FD5E1B0FBFBF00E227BA /* MSGraphAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FBDD1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.m */; };
 		EC25FD5F1B0FBFBF00E227BA /* MSGraphApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FBDE1B0FBFBD00E227BA /* MSGraphApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -392,13 +392,13 @@
 		EC25FEDA1B0FBFBF00E227BA /* MSGraphUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FD5A1B0FBFBF00E227BA /* MSGraphUserFetcher.m */; };
 		EC25FEDB1B0FBFBF00E227BA /* MSGraphUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FD5B1B0FBFBF00E227BA /* MSGraphUserOperations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FEDC1B0FBFBF00E227BA /* MSGraphUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FD5C1B0FBFBF00E227BA /* MSGraphUserOperations.m */; };
-		EC3CE2541AE98F1B00901263 /* office365_graph_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3CE2531AE98F1B00901263 /* office365_graph_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC3CE2541AE98F1B00901263 /* unified_services.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3CE2531AE98F1B00901263 /* unified_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_graph_sdk.release.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk.release.xcconfig"; sourceTree = "<group>"; };
-		244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-office365_graph_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-office365_graph_sdk.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk.debug.xcconfig"; sourceTree = "<group>"; };
+		04220875549E3424A14D397D /* Pods-unified_services.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unified_services.release.xcconfig"; path = "../Pods/Target Support Files/Pods-unified_services/Pods-unified_services.release.xcconfig"; sourceTree = "<group>"; };
+		244F3D6CB6AA7AD51DD9C7DB /* libPods-unified_services.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unified_services.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3233958D26591599EB8C89E /* Pods-unified_services.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unified_services.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-unified_services/Pods-unified_services.debug.xcconfig"; sourceTree = "<group>"; };
 		EC25FBDC1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphAlternativeSecurityId.h; sourceTree = "<group>"; };
 		EC25FBDD1B0FBFBD00E227BA /* MSGraphAlternativeSecurityId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphAlternativeSecurityId.m; sourceTree = "<group>"; };
 		EC25FBDE1B0FBFBD00E227BA /* MSGraphApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphApplication.h; sourceTree = "<group>"; };
@@ -783,9 +783,9 @@
 		EC25FD5A1B0FBFBF00E227BA /* MSGraphUserFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphUserFetcher.m; sourceTree = "<group>"; };
 		EC25FD5B1B0FBFBF00E227BA /* MSGraphUserOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphUserOperations.h; sourceTree = "<group>"; };
 		EC25FD5C1B0FBFBF00E227BA /* MSGraphUserOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphUserOperations.m; sourceTree = "<group>"; };
-		EC3CE24E1AE98F1B00901263 /* office365_graph_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = office365_graph_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC3CE24E1AE98F1B00901263 /* unified_services.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = unified_services.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC3CE2521AE98F1B00901263 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC3CE2531AE98F1B00901263 /* office365_graph_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = office365_graph_sdk.h; sourceTree = "<group>"; };
+		EC3CE2531AE98F1B00901263 /* unified_services.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unified_services.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -793,7 +793,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F66CEB3229C0E72EBAC05DB /* libPods-office365_graph_sdk.a in Frameworks */,
+				6F66CEB3229C0E72EBAC05DB /* libPods-unified_services.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -803,8 +803,8 @@
 		263E2A27076E6E37F4D4BD0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */,
-				04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */,
+				D3233958D26591599EB8C89E /* Pods-unified_services.debug.xcconfig */,
+				04220875549E3424A14D397D /* Pods-unified_services.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -812,7 +812,7 @@
 		8E1114AC8EB51BF3A8CFFE7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				244F3D6CB6AA7AD51DD9C7DB /* libPods-office365_graph_sdk.a */,
+				244F3D6CB6AA7AD51DD9C7DB /* libPods-unified_services.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1228,7 +1228,7 @@
 			isa = PBXGroup;
 			children = (
 				EC25FBDA1B0FBFBD00E227BA /* Generated */,
-				EC3CE2501AE98F1B00901263 /* office365_graph_sdk */,
+				EC3CE2501AE98F1B00901263 /* unified_services */,
 				EC3CE24F1AE98F1B00901263 /* Products */,
 				263E2A27076E6E37F4D4BD0E /* Pods */,
 				8E1114AC8EB51BF3A8CFFE7F /* Frameworks */,
@@ -1238,18 +1238,18 @@
 		EC3CE24F1AE98F1B00901263 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EC3CE24E1AE98F1B00901263 /* office365_graph_sdk.framework */,
+				EC3CE24E1AE98F1B00901263 /* unified_services.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EC3CE2501AE98F1B00901263 /* office365_graph_sdk */ = {
+		EC3CE2501AE98F1B00901263 /* unified_services */ = {
 			isa = PBXGroup;
 			children = (
-				EC3CE2531AE98F1B00901263 /* office365_graph_sdk.h */,
+				EC3CE2531AE98F1B00901263 /* unified_services.h */,
 				EC3CE2511AE98F1B00901263 /* Supporting Files */,
 			);
-			path = office365_graph_sdk;
+			path = unified_services;
 			sourceTree = "<group>";
 		};
 		EC3CE2511AE98F1B00901263 /* Supporting Files */ = {
@@ -1331,7 +1331,7 @@
 				EC25FD951B0FBFBF00E227BA /* MSGraphFreeBusyStatus.h in Headers */,
 				EC25FE771B0FBFBF00E227BA /* MSGraphFolderCollectionOperations.h in Headers */,
 				EC25FDB01B0FBFBF00E227BA /* MSGraphModels.h in Headers */,
-				EC3CE2541AE98F1B00901263 /* office365_graph_sdk.h in Headers */,
+				EC3CE2541AE98F1B00901263 /* unified_services.h in Headers */,
 				EC25FE021B0FBFBF00E227BA /* MSGraphCalendarGroupCollectionOperations.h in Headers */,
 				EC25FDB31B0FBFBF00E227BA /* MSGraphOAuth2PermissionGrant.h in Headers */,
 				EC25FE581B0FBFBF00E227BA /* MSGraphEventMessageOperations.h in Headers */,
@@ -1473,9 +1473,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		EC3CE24D1AE98F1B00901263 /* office365_graph_sdk */ = {
+		EC3CE24D1AE98F1B00901263 /* unified_services */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EC3CE2641AE98F1B00901263 /* Build configuration list for PBXNativeTarget "office365_graph_sdk" */;
+			buildConfigurationList = EC3CE2641AE98F1B00901263 /* Build configuration list for PBXNativeTarget "unified_services" */;
 			buildPhases = (
 				DFEF8A6F94A7F3482BD30CAE /* Check Pods Manifest.lock */,
 				EC3CE2491AE98F1B00901263 /* Sources */,
@@ -1488,9 +1488,9 @@
 			);
 			dependencies = (
 			);
-			name = office365_graph_sdk;
-			productName = office365_graph_sdk;
-			productReference = EC3CE24E1AE98F1B00901263 /* office365_graph_sdk.framework */;
+			name = unified_services;
+			productName = unified_services;
+			productReference = EC3CE24E1AE98F1B00901263 /* unified_services.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1507,7 +1507,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EC3CE2481AE98F1B00901263 /* Build configuration list for PBXProject "office365_graph_sdk" */;
+			buildConfigurationList = EC3CE2481AE98F1B00901263 /* Build configuration list for PBXProject "unified_services" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1519,7 +1519,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EC3CE24D1AE98F1B00901263 /* office365_graph_sdk */,
+				EC3CE24D1AE98F1B00901263 /* unified_services */,
 			);
 		};
 /* End PBXProject section */
@@ -1547,7 +1547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-office365_graph_sdk/Pods-office365_graph_sdk-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-unified_services/Pods-unified_services-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFEF8A6F94A7F3482BD30CAE /* Check Pods Manifest.lock */ = {
@@ -1853,13 +1853,13 @@
 		};
 		EC3CE2651AE98F1B00901263 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D3233958D26591599EB8C89E /* Pods-office365_graph_sdk.debug.xcconfig */;
+			baseConfigurationReference = D3233958D26591599EB8C89E /* Pods-unified_services.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = office365_graph_sdk/Info.plist;
+				INFOPLIST_FILE = unified_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -1874,13 +1874,13 @@
 		};
 		EC3CE2661AE98F1B00901263 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04220875549E3424A14D397D /* Pods-office365_graph_sdk.release.xcconfig */;
+			baseConfigurationReference = 04220875549E3424A14D397D /* Pods-unified_services.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = office365_graph_sdk/Info.plist;
+				INFOPLIST_FILE = unified_services/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
@@ -1896,7 +1896,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC3CE2481AE98F1B00901263 /* Build configuration list for PBXProject "office365_graph_sdk" */ = {
+		EC3CE2481AE98F1B00901263 /* Build configuration list for PBXProject "unified_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC3CE2621AE98F1B00901263 /* Debug */,
@@ -1905,7 +1905,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EC3CE2641AE98F1B00901263 /* Build configuration list for PBXNativeTarget "office365_graph_sdk" */ = {
+		EC3CE2641AE98F1B00901263 /* Build configuration list for PBXNativeTarget "unified_services" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EC3CE2651AE98F1B00901263 /* Debug */,

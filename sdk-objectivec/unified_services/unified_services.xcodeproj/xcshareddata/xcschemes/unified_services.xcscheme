@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC3CE24D1AE98F1B00901263"
-               BuildableName = "office365_graph_sdk.framework"
-               BlueprintName = "office365_graph_sdk"
-               ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+               BuildableName = "unified_services.framework"
+               BlueprintName = "unified_services"
+               ReferencedContainer = "container:unified_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC3CE2581AE98F1B00901263"
-               BuildableName = "office365_graph_sdkTests.xctest"
-               BlueprintName = "office365_graph_sdkTests"
-               ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+               BuildableName = "unified_servicesTests.xctest"
+               BlueprintName = "unified_servicesTests"
+               ReferencedContainer = "container:unified_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC3CE2581AE98F1B00901263"
-               BuildableName = "office365_graph_sdkTests.xctest"
-               BlueprintName = "office365_graph_sdkTests"
-               ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+               BuildableName = "unified_servicesTests.xctest"
+               BlueprintName = "unified_servicesTests"
+               ReferencedContainer = "container:unified_services.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC3CE24D1AE98F1B00901263"
-            BuildableName = "office365_graph_sdk.framework"
-            BlueprintName = "office365_graph_sdk"
-            ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+            BuildableName = "unified_services.framework"
+            BlueprintName = "unified_services"
+            ReferencedContainer = "container:unified_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC3CE24D1AE98F1B00901263"
-            BuildableName = "office365_graph_sdk.framework"
-            BlueprintName = "office365_graph_sdk"
-            ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+            BuildableName = "unified_services.framework"
+            BlueprintName = "unified_services"
+            ReferencedContainer = "container:unified_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC3CE24D1AE98F1B00901263"
-            BuildableName = "office365_graph_sdk.framework"
-            BlueprintName = "office365_graph_sdk"
-            ReferencedContainer = "container:office365_graph_sdk.xcodeproj">
+            BuildableName = "unified_services.framework"
+            BlueprintName = "unified_services"
+            ReferencedContainer = "container:unified_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

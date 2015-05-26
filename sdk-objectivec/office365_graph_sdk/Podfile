@@ -1,7 +1,0 @@
-source 'https://github.com/Cocoapods/Specs.git'
-platform :ios, '8.0'
-
-xcodeproj 'office365_graph_sdk'
-
-pod 'orc/api', '~> 0.10.0'
-pod 'orc/core', '~> 0.10.0'

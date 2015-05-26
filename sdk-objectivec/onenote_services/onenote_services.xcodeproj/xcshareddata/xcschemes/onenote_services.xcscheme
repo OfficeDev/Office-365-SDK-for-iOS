@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC74056A1AB35DBB00108A42"
-               BuildableName = "office365_onenote_sdk.framework"
-               BlueprintName = "office365_onenote_sdk"
-               ReferencedContainer = "container:office365_onenote_sdk.xcodeproj">
+               BuildableName = "onenote_services.framework"
+               BlueprintName = "onenote_services"
+               ReferencedContainer = "container:onenote_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC74056A1AB35DBB00108A42"
-            BuildableName = "office365_onenote_sdk.framework"
-            BlueprintName = "office365_onenote_sdk"
-            ReferencedContainer = "container:office365_onenote_sdk.xcodeproj">
+            BuildableName = "onenote_services.framework"
+            BlueprintName = "onenote_services"
+            ReferencedContainer = "container:onenote_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EC74056A1AB35DBB00108A42"
-            BuildableName = "office365_onenote_sdk.framework"
-            BlueprintName = "office365_onenote_sdk"
-            ReferencedContainer = "container:office365_onenote_sdk.xcodeproj">
+            BuildableName = "onenote_services.framework"
+            BlueprintName = "onenote_services"
+            ReferencedContainer = "container:onenote_services.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

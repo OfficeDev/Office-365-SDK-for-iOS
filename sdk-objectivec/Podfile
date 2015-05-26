@@ -6,7 +6,7 @@ workspace 'all_services'
 xcodeproj 'outlook_services/outlook_services'
 
 # This is the only way to link with each project/SDK.
-# 'outlook_services', 'directory_services', 'discovery_services', 'files_services', 'office365_graph_sdk', 'office365_onenote_sdk'
+# 'outlook_services', 'directory_services', 'discovery_services', 'files_services', 'unified_services', 'onenote_services'
 
 target :outlook_services do
   xcodeproj 'outlook_services/outlook_services'
@@ -28,12 +28,12 @@ target :files_services do
   pod 'orc', '=0.10.0'
 end
 
-target :office365_graph_sdk do
-  xcodeproj 'office365_graph_sdk/office365_graph_sdk'
+target :unified_services do
+  xcodeproj 'unified_services/unified_services'
   pod 'orc', '=0.10.0'
 end
 
-target :office365_onenote_sdk do
-  xcodeproj 'office365_onenote_sdk/office365_onenote_sdk'
+target :onenote_services do
+  xcodeproj 'onenote_services/onenote_services'
   pod 'orc', '=0.10.0'
 end

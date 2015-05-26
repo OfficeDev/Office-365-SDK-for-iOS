@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ECDEC0C31A2514BB00F84EAF"
-               BuildableName = "office365_files_sdk.framework"
-               BlueprintName = "office365_files_sdk"
-               ReferencedContainer = "container:office365_files_sdk/office365_files_sdk.xcodeproj">
+               BuildableName = "files_services.framework"
+               BlueprintName = "files_services"
+               ReferencedContainer = "container:files_services/files_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -57,9 +57,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC3CE24D1AE98F1B00901263"
-               BuildableName = "office365_graph_sdk.framework"
-               BlueprintName = "office365_graph_sdk"
-               ReferencedContainer = "container:office365_graph_sdk/office365_graph_sdk.xcodeproj">
+               BuildableName = "unified_services.framework"
+               BlueprintName = "unified_services"
+               ReferencedContainer = "container:unified_services/unified_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -71,9 +71,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC74056A1AB35DBB00108A42"
-               BuildableName = "office365_onenote_sdk.framework"
-               BlueprintName = "office365_onenote_sdk"
-               ReferencedContainer = "container:office365_onenote_sdk/office365_onenote_sdk.xcodeproj">
+               BuildableName = "onenote_services.framework"
+               BlueprintName = "onenote_services"
+               ReferencedContainer = "container:onenote_services/onenote_services.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
