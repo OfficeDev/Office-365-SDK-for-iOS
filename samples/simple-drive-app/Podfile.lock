@@ -1,0 +1,38 @@
+PODS:
+  - ADALiOS (1.2.2)
+  - LiveSDK (5.6.1)
+  - Office365/Files (0.9.1):
+    - OrcEngine/Implementation
+  - OrcEngine/Core (0.1.0)
+  - OrcEngine/Implementation (0.1.0):
+    - OrcEngine/Core
+
+DEPENDENCIES:
+  - ADALIOS (~> 1.2.2)
+  - LiveSDK
+  - Office365/Files (from `https://github.com/greathansen/Office-365-SDK-for-iOS`, branch `orc-poc`)
+  - OrcEngine/Implementation (from `https://github.com/MSOpenTech/orc-for-ios.git`, branch `dev`)
+
+EXTERNAL SOURCES:
+  Office365:
+    :branch: orc-poc
+    :git: https://github.com/greathansen/Office-365-SDK-for-iOS
+  OrcEngine:
+    :branch: dev
+    :git: https://github.com/MSOpenTech/orc-for-ios.git
+
+CHECKOUT OPTIONS:
+  Office365:
+    :commit: 9da4f39335bb6db78965f478a571a0a175bda0ef
+    :git: https://github.com/greathansen/Office-365-SDK-for-iOS
+  OrcEngine:
+    :commit: 6274a0c01a74c026b893b27bb1f6b5b81371b83c
+    :git: https://github.com/MSOpenTech/orc-for-ios.git
+
+SPEC CHECKSUMS:
+  ADALiOS: c32489782fa3b646cfaa581b9e84e394396fc6ac
+  LiveSDK: 2627cf5872b33b3d960df27082a9a17afb74835d
+  Office365: 2f4cb4ee81738a4cdad7f910d80cf781dad7f191
+  OrcEngine: 447a23248b3c7cf5dc866f1be07f0dfc7dd1a04e
+
+COCOAPODS: 0.35.0
