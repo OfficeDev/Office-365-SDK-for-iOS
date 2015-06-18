@@ -15,7 +15,7 @@
 
 @implementation ListClient
 
-const NSString *apiUrl = @"/_api/lists";
+const NSString *apiUrl = @"/_api/web/lists";
 
 - (NSURLSessionDataTask *)getLists:(void (^)(NSMutableArray *lists, NSError *error))callback{
     
