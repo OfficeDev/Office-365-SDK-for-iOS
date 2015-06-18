@@ -1247,7 +1247,7 @@
 - (void)testSendHtmlMessages:(void (^) (Test *))result{
     
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Html Subject" to:self.testMail cc:@""];
-    newMessage.body.content = @"<h1>This is an Html body.</h1><a href='#'>With Link!</a>";
+    newMessage.body.content = @"<h1>This is an Html body.</h1><a href=\"https://microsoft.com\">With Link!</a>";
     newMessage.body.contentType = MSOutlook_BodyType_HTML;
     
     //Send Mail
