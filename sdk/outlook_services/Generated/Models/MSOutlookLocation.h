@@ -17,13 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Location.
 */
 
-@interface MSOutlookLocation : NSObject
+@interface MSOutlookLocation : MSOrcBaseEntity
 
 @property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;

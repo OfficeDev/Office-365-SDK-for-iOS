@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookAttendee	
 
 @synthesize odataType = _odataType;
-@synthesize Status = _Status;
-@synthesize Type = _Type;
+@synthesize Status = _status;
+@synthesize Type = _type;
 
 - (instancetype)init {
 
@@ -34,21 +34,32 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setStatus:(MSOutlookResponseStatus *)  status;
+{
+    _status =  status;
+    [self valueChanged:status forProperty:@"Status"];
+}
+
+
 - (void)setTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"Required"]) {
 
 		self.Type = MSOutlook_AttendeeType_Required;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Optional"]) {
 
 		self.Type = MSOutlook_AttendeeType_Optional;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Resource"]) {
 
 		self.Type = MSOutlook_AttendeeType_Resource;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 }
 

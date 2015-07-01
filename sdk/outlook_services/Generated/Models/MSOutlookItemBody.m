@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookItemBody	
 
 @synthesize odataType = _odataType;
-@synthesize ContentType = _ContentType;
-@synthesize Content = _Content;
+@synthesize ContentType = _contentType;
+@synthesize Content = _content;
 
 - (instancetype)init {
 
@@ -34,17 +34,27 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setContentTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"Text"]) {
 
 		self.ContentType = MSOutlook_BodyType_Text;
+        [self valueChanged:value forProperty:@"ContentType"];
 	}
 
 	if ([value isEqualToString:@"HTML"]) {
 
 		self.ContentType = MSOutlook_BodyType_HTML;
+        [self valueChanged:value forProperty:@"ContentType"];
 	}
 }
+ 
+- (void)setContent:(NSString *)  content;
+{
+    _content =  content;
+    [self valueChanged:content forProperty:@"Content"];
+}
+
 
 @end

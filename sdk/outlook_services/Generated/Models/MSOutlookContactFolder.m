@@ -21,10 +21,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookContactFolder	
 
 @synthesize odataType = _odataType;
-@synthesize ParentFolderId = _ParentFolderId;
-@synthesize DisplayName = _DisplayName;
-@synthesize Contacts = _Contacts;
-@synthesize ChildFolders = _ChildFolders;
+@synthesize ParentFolderId = _parentFolderId;
+@synthesize DisplayName = _displayName;
+@synthesize Contacts = _contacts;
+@synthesize ChildFolders = _childFolders;
 
 - (instancetype)init {
 
@@ -34,6 +34,34 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setParentFolderId:(NSString *)  parentFolderId;
+{
+    _parentFolderId =  parentFolderId;
+    [self valueChanged:parentFolderId forProperty:@"ParentFolderId"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
+}
+
+ 
+- (void)setContacts:(NSMutableArray<MSOutlookContact> *)  contacts;
+{
+    _contacts =  contacts;
+    [self valueChanged:contacts forProperty:@"Contacts"];
+}
+
+ 
+- (void)setChildFolders:(NSMutableArray<MSOutlookContactFolder> *)  childFolders;
+{
+    _childFolders =  childFolders;
+    [self valueChanged:childFolders forProperty:@"ChildFolders"];
 }
 
 @end

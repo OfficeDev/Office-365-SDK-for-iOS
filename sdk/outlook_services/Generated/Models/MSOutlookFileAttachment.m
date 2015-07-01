@@ -21,10 +21,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookFileAttachment	
 
 @synthesize odataType = _odataType;
-@synthesize ContentId = _ContentId;
-@synthesize ContentLocation = _ContentLocation;
-@synthesize IsContactPhoto = _IsContactPhoto;
-@synthesize ContentBytes = _ContentBytes;
+@synthesize ContentId = _contentId;
+@synthesize ContentLocation = _contentLocation;
+@synthesize IsContactPhoto = _isContactPhoto;
+@synthesize ContentBytes = _contentBytes;
 
 - (instancetype)init {
 
@@ -34,6 +34,34 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setContentId:(NSString *)  contentId;
+{
+    _contentId =  contentId;
+    [self valueChanged:contentId forProperty:@"ContentId"];
+}
+
+ 
+- (void)setContentLocation:(NSString *)  contentLocation;
+{
+    _contentLocation =  contentLocation;
+    [self valueChanged:contentLocation forProperty:@"ContentLocation"];
+}
+
+ 
+- (void)setIsContactPhoto:(BOOL )  isContactPhoto;
+{
+    _isContactPhoto =  isContactPhoto;
+    [self valueChangedForBool:isContactPhoto forProperty:@"IsContactPhoto"];
+}
+
+ 
+- (void)setContentBytes:(NSData *)  contentBytes;
+{
+    _contentBytes =  contentBytes;
+    [self valueChanged:contentBytes forProperty:@"ContentBytes"];
 }
 
 @end

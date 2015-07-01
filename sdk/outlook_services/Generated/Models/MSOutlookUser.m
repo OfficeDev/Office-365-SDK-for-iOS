@@ -21,19 +21,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookUser	
 
 @synthesize odataType = _odataType;
-@synthesize DisplayName = _DisplayName;
-@synthesize Alias = _Alias;
-@synthesize MailboxGuid = _MailboxGuid;
-@synthesize Folders = _Folders;
-@synthesize Messages = _Messages;
-@synthesize RootFolder = _RootFolder;
-@synthesize Calendars = _Calendars;
-@synthesize Calendar = _Calendar;
-@synthesize CalendarGroups = _CalendarGroups;
-@synthesize Events = _Events;
-@synthesize CalendarView = _CalendarView;
-@synthesize Contacts = _Contacts;
-@synthesize ContactFolders = _ContactFolders;
+@synthesize DisplayName = _displayName;
+@synthesize Alias = _alias;
+@synthesize MailboxGuid = _mailboxGuid;
+@synthesize Folders = _folders;
+@synthesize Messages = _messages;
+@synthesize RootFolder = _rootFolder;
+@synthesize Calendars = _calendars;
+@synthesize Calendar = _calendar;
+@synthesize CalendarGroups = _calendarGroups;
+@synthesize Events = _events;
+@synthesize CalendarView = _calendarView;
+@synthesize Contacts = _contacts;
+@synthesize ContactFolders = _contactFolders;
 
 - (instancetype)init {
 
@@ -43,6 +43,97 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
+}
+
+ 
+- (void)setAlias:(NSString *)  alias;
+{
+    _alias =  alias;
+    [self valueChanged:alias forProperty:@"Alias"];
+}
+
+ 
+- (void)setMailboxGuid:(NSString *)  mailboxGuid;
+{
+    _mailboxGuid =  mailboxGuid;
+    [self valueChanged:mailboxGuid forProperty:@"MailboxGuid"];
+}
+
+ 
+- (void)setFolders:(NSMutableArray<MSOutlookFolder> *)  folders;
+{
+    _folders =  folders;
+    [self valueChanged:folders forProperty:@"Folders"];
+}
+
+ 
+- (void)setMessages:(NSMutableArray<MSOutlookMessage> *)  messages;
+{
+    _messages =  messages;
+    [self valueChanged:messages forProperty:@"Messages"];
+}
+
+ 
+- (void)setRootFolder:(MSOutlookFolder *)  rootFolder;
+{
+    _rootFolder =  rootFolder;
+    [self valueChanged:rootFolder forProperty:@"RootFolder"];
+}
+
+ 
+- (void)setCalendars:(NSMutableArray<MSOutlookCalendar> *)  calendars;
+{
+    _calendars =  calendars;
+    [self valueChanged:calendars forProperty:@"Calendars"];
+}
+
+ 
+- (void)setCalendar:(MSOutlookCalendar *)  calendar;
+{
+    _calendar =  calendar;
+    [self valueChanged:calendar forProperty:@"Calendar"];
+}
+
+ 
+- (void)setCalendarGroups:(NSMutableArray<MSOutlookCalendarGroup> *)  calendarGroups;
+{
+    _calendarGroups =  calendarGroups;
+    [self valueChanged:calendarGroups forProperty:@"CalendarGroups"];
+}
+
+ 
+- (void)setEvents:(NSMutableArray<MSOutlookEvent> *)  events;
+{
+    _events =  events;
+    [self valueChanged:events forProperty:@"Events"];
+}
+
+ 
+- (void)setCalendarView:(NSMutableArray<MSOutlookEvent> *)  calendarView;
+{
+    _calendarView =  calendarView;
+    [self valueChanged:calendarView forProperty:@"CalendarView"];
+}
+
+ 
+- (void)setContacts:(NSMutableArray<MSOutlookContact> *)  contacts;
+{
+    _contacts =  contacts;
+    [self valueChanged:contacts forProperty:@"Contacts"];
+}
+
+ 
+- (void)setContactFolders:(NSMutableArray<MSOutlookContactFolder> *)  contactFolders;
+{
+    _contactFolders =  contactFolders;
+    [self valueChanged:contactFolders forProperty:@"ContactFolders"];
 }
 
 @end

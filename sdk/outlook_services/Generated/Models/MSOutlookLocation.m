@@ -21,9 +21,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookLocation	
 
 @synthesize odataType = _odataType;
-@synthesize DisplayName = _DisplayName;
-@synthesize Address = _Address;
-@synthesize Coordinates = _Coordinates;
+@synthesize DisplayName = _displayName;
+@synthesize Address = _address;
+@synthesize Coordinates = _coordinates;
 
 - (instancetype)init {
 
@@ -33,6 +33,27 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
+}
+
+ 
+- (void)setAddress:(MSOutlookPhysicalAddress *)  address;
+{
+    _address =  address;
+    [self valueChanged:address forProperty:@"Address"];
+}
+
+ 
+- (void)setCoordinates:(MSOutlookGeoCoordinates *)  coordinates;
+{
+    _coordinates =  coordinates;
+    [self valueChanged:coordinates forProperty:@"Coordinates"];
 }
 
 

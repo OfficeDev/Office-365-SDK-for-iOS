@@ -21,10 +21,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookCalendarGroup	
 
 @synthesize odataType = _odataType;
-@synthesize Name = _Name;
-@synthesize ChangeKey = _ChangeKey;
-@synthesize ClassId = _ClassId;
-@synthesize Calendars = _Calendars;
+@synthesize Name = _name;
+@synthesize ChangeKey = _changeKey;
+@synthesize ClassId = _classId;
+@synthesize Calendars = _calendars;
 
 - (instancetype)init {
 
@@ -34,6 +34,34 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"Name"];
+}
+
+ 
+- (void)setChangeKey:(NSString *)  changeKey;
+{
+    _changeKey =  changeKey;
+    [self valueChanged:changeKey forProperty:@"ChangeKey"];
+}
+
+ 
+- (void)setClassId:(NSString *)  classId;
+{
+    _classId =  classId;
+    [self valueChanged:classId forProperty:@"ClassId"];
+}
+
+ 
+- (void)setCalendars:(NSMutableArray<MSOutlookCalendar> *)  calendars;
+{
+    _calendars =  calendars;
+    [self valueChanged:calendars forProperty:@"Calendars"];
 }
 
 @end

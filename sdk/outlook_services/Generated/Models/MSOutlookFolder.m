@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookFolder	
 
 @synthesize odataType = _odataType;
-@synthesize ParentFolderId = _ParentFolderId;
-@synthesize DisplayName = _DisplayName;
-@synthesize ChildFolderCount = _ChildFolderCount;
-@synthesize ChildFolders = _ChildFolders;
-@synthesize Messages = _Messages;
+@synthesize ParentFolderId = _parentFolderId;
+@synthesize DisplayName = _displayName;
+@synthesize ChildFolderCount = _childFolderCount;
+@synthesize ChildFolders = _childFolders;
+@synthesize Messages = _messages;
 
 - (instancetype)init {
 
@@ -35,6 +35,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setParentFolderId:(NSString *)  parentFolderId;
+{
+    _parentFolderId =  parentFolderId;
+    [self valueChanged:parentFolderId forProperty:@"ParentFolderId"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
+}
+
+ 
+- (void)setChildFolderCount:(int )  childFolderCount;
+{
+    _childFolderCount =  childFolderCount;
+    [self valueChangedForInt:childFolderCount forProperty:@"ChildFolderCount"];
+}
+
+ 
+- (void)setChildFolders:(NSMutableArray<MSOutlookFolder> *)  childFolders;
+{
+    _childFolders =  childFolders;
+    [self valueChanged:childFolders forProperty:@"ChildFolders"];
+}
+
+ 
+- (void)setMessages:(NSMutableArray<MSOutlookMessage> *)  messages;
+{
+    _messages =  messages;
+    [self valueChanged:messages forProperty:@"Messages"];
 }
 
 @end

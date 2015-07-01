@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookCalendar	
 
 @synthesize odataType = _odataType;
-@synthesize Name = _Name;
-@synthesize ChangeKey = _ChangeKey;
-@synthesize Color = _Color;
-@synthesize CalendarView = _CalendarView;
-@synthesize Events = _Events;
+@synthesize Name = _name;
+@synthesize ChangeKey = _changeKey;
+@synthesize Color = _color;
+@synthesize CalendarView = _calendarView;
+@synthesize Events = _events;
 
 - (instancetype)init {
 
@@ -37,61 +37,101 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"Name"];
+}
+
+ 
+- (void)setChangeKey:(NSString *)  changeKey;
+{
+    _changeKey =  changeKey;
+    [self valueChanged:changeKey forProperty:@"ChangeKey"];
+}
+
+
 - (void)setColorString:(NSString *)value {
 
 	if ([value isEqualToString:@"LightBlue"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightBlue;
+		_color = MSOutlook_CalendarColor_LightBlue;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightGreen"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightGreen;
+		_color = MSOutlook_CalendarColor_LightGreen;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightOrange"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightOrange;
+		_color = MSOutlook_CalendarColor_LightOrange;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightGray"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightGray;
+		_color = MSOutlook_CalendarColor_LightGray;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightYellow"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightYellow;
+		_color = MSOutlook_CalendarColor_LightYellow;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightTeal"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightTeal;
+		_color = MSOutlook_CalendarColor_LightTeal;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightPink"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightPink;
+		_color = MSOutlook_CalendarColor_LightPink;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightBrown"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightBrown;
+		_color = MSOutlook_CalendarColor_LightBrown;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"LightRed"]) {
 		
-		_Color = MSOutlook_CalendarColor_LightRed;
+		_color = MSOutlook_CalendarColor_LightRed;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"MaxColor"]) {
 		
-		_Color = MSOutlook_CalendarColor_MaxColor;
+		_color = MSOutlook_CalendarColor_MaxColor;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 
 	if ([value isEqualToString:@"Auto"]) {
 		
-		_Color = MSOutlook_CalendarColor_Auto;
+		_color = MSOutlook_CalendarColor_Auto;
+        [self valueChanged:value forProperty:@"Color"];
 	}
 }
+ 
+- (void)setCalendarView:(NSMutableArray<MSOutlookEvent> *)  calendarView;
+{
+    _calendarView =  calendarView;
+    [self valueChanged:calendarView forProperty:@"CalendarView"];
+}
+
+ 
+- (void)setEvents:(NSMutableArray<MSOutlookEvent> *)  events;
+{
+    _events =  events;
+    [self valueChanged:events forProperty:@"Events"];
+}
+
 @end

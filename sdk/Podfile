@@ -10,30 +10,30 @@ xcodeproj 'outlook_services/outlook_services'
 
 target :outlook_services do
   xcodeproj 'outlook_services/outlook_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end
 
 target :directory_services do
   xcodeproj 'directory_services/directory_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end
 
 target :discovery_services do
   xcodeproj 'discovery_services/discovery_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end
 
 target :files_services do
   xcodeproj 'files_services/files_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end
 
 target :unified_services do
   xcodeproj 'unified_services/unified_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end
 
 target :onenote_services do
   xcodeproj 'onenote_services/onenote_services'
-  pod 'orc', '=0.10.1'
+  pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios', :branch => 'dev'
 end

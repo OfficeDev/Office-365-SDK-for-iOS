@@ -15,13 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
 #import "MSOutlookResponseType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ResponseStatus.
 */
 
-@interface MSOutlookResponseStatus : NSObject
+@interface MSOutlookResponseStatus : MSOrcBaseEntity
 
 @property (retain, nonatomic, readonly) NSString *odataType;
 @property  (nonatomic, getter=response, setter=setResponse:) MSOutlookResponseType Response;

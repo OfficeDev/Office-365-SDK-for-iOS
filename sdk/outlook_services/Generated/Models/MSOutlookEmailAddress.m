@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookEmailAddress	
 
 @synthesize odataType = _odataType;
-@synthesize Name = _Name;
-@synthesize Address = _Address;
+@synthesize Name = _name;
+@synthesize Address = _address;
 
 - (instancetype)init {
 
@@ -32,6 +32,20 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"Name"];
+}
+
+ 
+- (void)setAddress:(NSString *)  address;
+{
+    _address =  address;
+    [self valueChanged:address forProperty:@"Address"];
 }
 
 
