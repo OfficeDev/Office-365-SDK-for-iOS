@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type CopySectionModel.
 */
 
-@interface MSOneNoteCopySectionModel : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteCopySectionModel : MSOrcBaseEntity
 @property (nonatomic, getter=isDefault, setter=setIsDefault:) BOOL isDefault;
 @property (retain, nonatomic, readwrite, getter=pagesUrl, setter=setPagesUrl:) NSString *pagesUrl;
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *name;
@@ -30,7 +28,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=lastModifiedBy, setter=setLastModifiedBy:) NSString *lastModifiedBy;
 @property (retain, nonatomic, readwrite, getter=lastModifiedTime, setter=setLastModifiedTime:) NSDate *lastModifiedTime;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
-@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *self;
+@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *$$__self;
 @property (retain, nonatomic, readwrite, getter=createdTime, setter=setCreatedTime:) NSDate *createdTime;
 
 @end

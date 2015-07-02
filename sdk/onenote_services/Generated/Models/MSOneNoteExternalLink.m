@@ -33,5 +33,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setHref:(NSString *)  href;
+{
+    _href =  href;
+    [self valueChanged:href forProperty:@"href"];
+}
+
 
 @end

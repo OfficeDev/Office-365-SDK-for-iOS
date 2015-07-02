@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type AppRole.
 */
 
-@interface MSGraphAppRole : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphAppRole : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=allowedMemberTypes, setter=setAllowedMemberTypes:) NSMutableArray *allowedMemberTypes;
 @property (retain, nonatomic, readwrite, getter=description, setter=setDescription:) NSString *$$__description;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *displayName;

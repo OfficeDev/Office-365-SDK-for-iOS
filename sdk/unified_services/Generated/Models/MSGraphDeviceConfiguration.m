@@ -36,4 +36,32 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setPublicIssuerCertificates:(NSMutableArray *)  publicIssuerCertificates;
+{
+    _publicIssuerCertificates =  publicIssuerCertificates;
+    [self valueChanged:publicIssuerCertificates forProperty:@"publicIssuerCertificates"];
+}
+
+ 
+- (void)setCloudPublicIssuerCertificates:(NSMutableArray *)  cloudPublicIssuerCertificates;
+{
+    _cloudPublicIssuerCertificates =  cloudPublicIssuerCertificates;
+    [self valueChanged:cloudPublicIssuerCertificates forProperty:@"cloudPublicIssuerCertificates"];
+}
+
+ 
+- (void)setRegistrationQuota:(int )  registrationQuota;
+{
+    _registrationQuota =  registrationQuota;
+    [self valueChangedForInt:registrationQuota forProperty:@"registrationQuota"];
+}
+
+ 
+- (void)setMaximumRegistrationInactivityPeriod:(int )  maximumRegistrationInactivityPeriod;
+{
+    _maximumRegistrationInactivityPeriod =  maximumRegistrationInactivityPeriod;
+    [self valueChangedForInt:maximumRegistrationInactivityPeriod forProperty:@"maximumRegistrationInactivityPeriod"];
+}
+
 @end

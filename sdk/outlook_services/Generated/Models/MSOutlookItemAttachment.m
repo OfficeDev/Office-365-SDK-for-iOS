@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookItemAttachment	
 
 @synthesize odataType = _odataType;
-@synthesize Item = _Item;
+@synthesize Item = _item;
 
 - (instancetype)init {
 
@@ -31,6 +31,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setItem:(MSOutlookItem *)  item;
+{
+    _item =  item;
+    [self valueChanged:item forProperty:@"Item"];
 }
 
 @end

@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ImageFacet.
 */
 
-@interface MSGraphImageFacet : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphImageFacet : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=dateTimeTaken, setter=setDateTimeTaken:) NSDate *dateTimeTaken;
 
 @end

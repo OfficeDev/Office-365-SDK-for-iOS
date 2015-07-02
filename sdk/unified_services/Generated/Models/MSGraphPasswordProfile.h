@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type PasswordProfile.
 */
 
-@interface MSGraphPasswordProfile : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphPasswordProfile : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=password, setter=setPassword:) NSString *password;
 @property (nonatomic, getter=forceChangePasswordNextLogin, setter=setForceChangePasswordNextLogin:) BOOL forceChangePasswordNextLogin;
 

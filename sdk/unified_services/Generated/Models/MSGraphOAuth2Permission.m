@@ -40,5 +40,61 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAdminConsentDescription:(NSString *)  adminConsentDescription;
+{
+    _adminConsentDescription =  adminConsentDescription;
+    [self valueChanged:adminConsentDescription forProperty:@"adminConsentDescription"];
+}
+
+ 
+- (void)setAdminConsentDisplayName:(NSString *)  adminConsentDisplayName;
+{
+    _adminConsentDisplayName =  adminConsentDisplayName;
+    [self valueChanged:adminConsentDisplayName forProperty:@"adminConsentDisplayName"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setIsEnabled:(BOOL )  isEnabled;
+{
+    _isEnabled =  isEnabled;
+    [self valueChangedForBool:isEnabled forProperty:@"isEnabled"];
+}
+
+ 
+- (void)setType:(NSString *)  type;
+{
+    _type =  type;
+    [self valueChanged:type forProperty:@"type"];
+}
+
+ 
+- (void)setUserConsentDescription:(NSString *)  userConsentDescription;
+{
+    _userConsentDescription =  userConsentDescription;
+    [self valueChanged:userConsentDescription forProperty:@"userConsentDescription"];
+}
+
+ 
+- (void)setUserConsentDisplayName:(NSString *)  userConsentDisplayName;
+{
+    _userConsentDisplayName =  userConsentDisplayName;
+    [self valueChanged:userConsentDisplayName forProperty:@"userConsentDisplayName"];
+}
+
+ 
+- (void)setValue:(NSString *)  value;
+{
+    _value =  value;
+    [self valueChanged:value forProperty:@"value"];
+}
+
 
 @end

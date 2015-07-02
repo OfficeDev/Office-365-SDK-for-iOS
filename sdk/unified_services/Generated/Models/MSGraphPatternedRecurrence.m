@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphPatternedRecurrence	
 
 @synthesize odataType = _odataType;
-@synthesize Pattern = _Pattern;
-@synthesize Range = _Range;
+@synthesize Pattern = _pattern;
+@synthesize Range = _range;
 
 - (instancetype)init {
 
@@ -32,6 +32,20 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setPattern:(MSGraphRecurrencePattern *)  pattern;
+{
+    _pattern =  pattern;
+    [self valueChanged:pattern forProperty:@"Pattern"];
+}
+
+ 
+- (void)setRange:(MSGraphRecurrenceRange *)  range;
+{
+    _range =  range;
+    [self valueChanged:range forProperty:@"Range"];
 }
 
 

@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type PhysicalAddress.
 */
 
-@interface MSOutlookPhysicalAddress : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOutlookPhysicalAddress : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=street, setter=setStreet:) NSString *Street;
 @property (retain, nonatomic, readwrite, getter=city, setter=setCity:) NSString *City;
 @property (retain, nonatomic, readwrite, getter=state, setter=setState:) NSString *State;

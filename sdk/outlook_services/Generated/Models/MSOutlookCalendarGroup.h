@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookCalendarGroup : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=changeKey, setter=setChangeKey:) NSString *ChangeKey;
 @property (retain, nonatomic, readwrite, getter=classId, setter=setClassId:) NSString *ClassId;

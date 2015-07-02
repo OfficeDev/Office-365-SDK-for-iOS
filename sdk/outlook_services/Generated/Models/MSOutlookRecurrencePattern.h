@@ -17,15 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSOutlookRecurrencePatternType.h"
 #import "MSOutlookDayOfWeek.h"
 #import "MSOutlookWeekIndex.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type RecurrencePattern.
 */
 
-@interface MSOutlookRecurrencePattern : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOutlookRecurrencePattern : MSOrcBaseEntity
 @property  (nonatomic, getter=type, setter=setType:) MSOutlookRecurrencePatternType Type;
 - (void)setTypeString:(NSString *)value;
 @property (nonatomic, getter=interval, setter=setInterval:) int Interval;

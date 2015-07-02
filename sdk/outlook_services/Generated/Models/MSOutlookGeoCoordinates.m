@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookGeoCoordinates	
 
 @synthesize odataType = _odataType;
-@synthesize Altitude = _Altitude;
-@synthesize Latitude = _Latitude;
-@synthesize Longitude = _Longitude;
-@synthesize Accuracy = _Accuracy;
-@synthesize AltitudeAccuracy = _AltitudeAccuracy;
+@synthesize Altitude = _altitude;
+@synthesize Latitude = _latitude;
+@synthesize Longitude = _longitude;
+@synthesize Accuracy = _accuracy;
+@synthesize AltitudeAccuracy = _altitudeAccuracy;
 
 - (instancetype)init {
 
@@ -35,6 +35,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setAltitude:(MSOutlookDouble *)  altitude;
+{
+    _altitude =  altitude;
+    [self valueChanged:altitude forProperty:@"Altitude"];
+}
+
+ 
+- (void)setLatitude:(MSOutlookDouble *)  latitude;
+{
+    _latitude =  latitude;
+    [self valueChanged:latitude forProperty:@"Latitude"];
+}
+
+ 
+- (void)setLongitude:(MSOutlookDouble *)  longitude;
+{
+    _longitude =  longitude;
+    [self valueChanged:longitude forProperty:@"Longitude"];
+}
+
+ 
+- (void)setAccuracy:(MSOutlookDouble *)  accuracy;
+{
+    _accuracy =  accuracy;
+    [self valueChanged:accuracy forProperty:@"Accuracy"];
+}
+
+ 
+- (void)setAltitudeAccuracy:(MSOutlookDouble *)  altitudeAccuracy;
+{
+    _altitudeAccuracy =  altitudeAccuracy;
+    [self valueChanged:altitudeAccuracy forProperty:@"AltitudeAccuracy"];
 }
 
 

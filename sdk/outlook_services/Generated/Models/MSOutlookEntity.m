@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookEntity	
 
 @synthesize odataType = _odataType;
-@synthesize Id = _Id;
+@synthesize Id = _id;
 
 - (instancetype)init {
 
@@ -31,6 +31,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"Id"];
 }
 
 @end

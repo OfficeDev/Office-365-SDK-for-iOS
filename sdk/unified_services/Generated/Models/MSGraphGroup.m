@@ -51,4 +51,137 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDescription:(NSString *)  $$__description;
+{
+    _$$__description =  $$__description;
+    [self valueChanged:$$__description forProperty:@"$$__description"];
+}
+
+ 
+- (void)setDirSyncEnabled:(BOOL )  dirSyncEnabled;
+{
+    _dirSyncEnabled =  dirSyncEnabled;
+    [self valueChangedForBool:dirSyncEnabled forProperty:@"dirSyncEnabled"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setGroupType:(NSString *)  groupType;
+{
+    _groupType =  groupType;
+    [self valueChanged:groupType forProperty:@"groupType"];
+}
+
+ 
+- (void)setIsPublic:(BOOL )  isPublic;
+{
+    _isPublic =  isPublic;
+    [self valueChangedForBool:isPublic forProperty:@"isPublic"];
+}
+
+ 
+- (void)setLastDirSyncTime:(NSDate *)  lastDirSyncTime;
+{
+    _lastDirSyncTime =  lastDirSyncTime;
+    [self valueChanged:lastDirSyncTime forProperty:@"lastDirSyncTime"];
+}
+
+ 
+- (void)setMail:(NSString *)  mail;
+{
+    _mail =  mail;
+    [self valueChanged:mail forProperty:@"mail"];
+}
+
+ 
+- (void)setMailNickname:(NSString *)  mailNickname;
+{
+    _mailNickname =  mailNickname;
+    [self valueChanged:mailNickname forProperty:@"mailNickname"];
+}
+
+ 
+- (void)setMailEnabled:(BOOL )  mailEnabled;
+{
+    _mailEnabled =  mailEnabled;
+    [self valueChangedForBool:mailEnabled forProperty:@"mailEnabled"];
+}
+
+ 
+- (void)setOnPremisesSecurityIdentifier:(NSString *)  onPremisesSecurityIdentifier;
+{
+    _onPremisesSecurityIdentifier =  onPremisesSecurityIdentifier;
+    [self valueChanged:onPremisesSecurityIdentifier forProperty:@"onPremisesSecurityIdentifier"];
+}
+
+ 
+- (void)setProvisioningErrors:(NSMutableArray<MSGraphProvisioningError> *)  provisioningErrors;
+{
+    _provisioningErrors =  provisioningErrors;
+    [self valueChanged:provisioningErrors forProperty:@"provisioningErrors"];
+}
+
+ 
+- (void)setProxyAddresses:(NSMutableArray *)  proxyAddresses;
+{
+    _proxyAddresses =  proxyAddresses;
+    [self valueChanged:proxyAddresses forProperty:@"proxyAddresses"];
+}
+
+ 
+- (void)setSecurityEnabled:(BOOL )  securityEnabled;
+{
+    _securityEnabled =  securityEnabled;
+    [self valueChangedForBool:securityEnabled forProperty:@"securityEnabled"];
+}
+
+ 
+- (void)setAppRoleAssignments:(NSMutableArray<MSGraphAppRoleAssignment> *)  appRoleAssignments;
+{
+    _appRoleAssignments =  appRoleAssignments;
+    [self valueChanged:appRoleAssignments forProperty:@"appRoleAssignments"];
+}
+
+ 
+- (void)setMembers:(NSMutableArray<MSGraphDirectoryObject> *)  members;
+{
+    _members =  members;
+    [self valueChanged:members forProperty:@"members"];
+}
+
+ 
+- (void)setMemberOf:(NSMutableArray<MSGraphDirectoryObject> *)  memberOf;
+{
+    _memberOf =  memberOf;
+    [self valueChanged:memberOf forProperty:@"memberOf"];
+}
+
+ 
+- (void)setCreatedOnBehalfOf:(MSGraphDirectoryObject *)  createdOnBehalfOf;
+{
+    _createdOnBehalfOf =  createdOnBehalfOf;
+    [self valueChanged:createdOnBehalfOf forProperty:@"createdOnBehalfOf"];
+}
+
+ 
+- (void)setOwners:(NSMutableArray<MSGraphDirectoryObject> *)  owners;
+{
+    _owners =  owners;
+    [self valueChanged:owners forProperty:@"owners"];
+}
+
+ 
+- (void)setFiles:(NSMutableArray<MSGraphItem> *)  files;
+{
+    _files =  files;
+    [self valueChanged:files forProperty:@"files"];
+}
+
 @end

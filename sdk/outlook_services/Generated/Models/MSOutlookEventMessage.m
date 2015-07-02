@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookEventMessage	
 
 @synthesize odataType = _odataType;
-@synthesize MeetingMessageType = _MeetingMessageType;
-@synthesize Event = _Event;
+@synthesize MeetingMessageType = _meetingMessageType;
+@synthesize Event = _event;
 
 - (instancetype)init {
 
@@ -34,36 +34,50 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setMeetingMessageTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"None"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_None;
+		_meetingMessageType = MSOutlook_MeetingMessageType_None;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingRequest"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_MeetingRequest;
+		_meetingMessageType = MSOutlook_MeetingMessageType_MeetingRequest;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingCancelled"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_MeetingCancelled;
+		_meetingMessageType = MSOutlook_MeetingMessageType_MeetingCancelled;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingAccepted"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_MeetingAccepted;
+		_meetingMessageType = MSOutlook_MeetingMessageType_MeetingAccepted;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingTenativelyAccepted"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_MeetingTenativelyAccepted;
+		_meetingMessageType = MSOutlook_MeetingMessageType_MeetingTenativelyAccepted;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingDeclined"]) {
 		
-		_MeetingMessageType = MSOutlook_MeetingMessageType_MeetingDeclined;
+		_meetingMessageType = MSOutlook_MeetingMessageType_MeetingDeclined;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 }
+ 
+- (void)setEvent:(MSOutlookEvent *)  event;
+{
+    _event =  event;
+    [self valueChanged:event forProperty:@"Event"];
+}
+
 @end

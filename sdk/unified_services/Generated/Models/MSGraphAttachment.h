@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Attachment.
 */
 
-@interface MSGraphAttachment : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphAttachment : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *Id;
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=contentType, setter=setContentType:) NSString *ContentType;

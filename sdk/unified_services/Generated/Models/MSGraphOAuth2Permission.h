@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type OAuth2Permission.
 */
 
-@interface MSGraphOAuth2Permission : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphOAuth2Permission : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=adminConsentDescription, setter=setAdminConsentDescription:) NSString *adminConsentDescription;
 @property (retain, nonatomic, readwrite, getter=adminConsentDisplayName, setter=setAdminConsentDisplayName:) NSString *adminConsentDisplayName;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;

@@ -28,7 +28,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize lastModifiedBy = _lastModifiedBy;
 @synthesize lastModifiedTime = _lastModifiedTime;
 @synthesize id = _id;
-@synthesize self = _self;
+@synthesize $$__self = _$$__self;
 @synthesize createdTime = _createdTime;
 @synthesize parentNotebook = _parentNotebook;
 @synthesize parentSectionGroup = _parentSectionGroup;
@@ -42,6 +42,90 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setIsDefault:(BOOL )  isDefault;
+{
+    _isDefault =  isDefault;
+    [self valueChangedForBool:isDefault forProperty:@"isDefault"];
+}
+
+ 
+- (void)setPagesUrl:(NSString *)  pagesUrl;
+{
+    _pagesUrl =  pagesUrl;
+    [self valueChanged:pagesUrl forProperty:@"pagesUrl"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"name"];
+}
+
+ 
+- (void)setCreatedBy:(NSString *)  createdBy;
+{
+    _createdBy =  createdBy;
+    [self valueChanged:createdBy forProperty:@"createdBy"];
+}
+
+ 
+- (void)setLastModifiedBy:(NSString *)  lastModifiedBy;
+{
+    _lastModifiedBy =  lastModifiedBy;
+    [self valueChanged:lastModifiedBy forProperty:@"lastModifiedBy"];
+}
+
+ 
+- (void)setLastModifiedTime:(NSDate *)  lastModifiedTime;
+{
+    _lastModifiedTime =  lastModifiedTime;
+    [self valueChanged:lastModifiedTime forProperty:@"lastModifiedTime"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSelf:(NSString *)  $$__self;
+{
+    _$$__self =  $$__self;
+    [self valueChanged:$$__self forProperty:@"$$__self"];
+}
+
+ 
+- (void)setCreatedTime:(NSDate *)  createdTime;
+{
+    _createdTime =  createdTime;
+    [self valueChanged:createdTime forProperty:@"createdTime"];
+}
+
+ 
+- (void)setParentNotebook:(MSOneNoteNotebook *)  parentNotebook;
+{
+    _parentNotebook =  parentNotebook;
+    [self valueChanged:parentNotebook forProperty:@"parentNotebook"];
+}
+
+ 
+- (void)setParentSectionGroup:(MSOneNoteSectionGroup *)  parentSectionGroup;
+{
+    _parentSectionGroup =  parentSectionGroup;
+    [self valueChanged:parentSectionGroup forProperty:@"parentSectionGroup"];
+}
+
+ 
+- (void)setPages:(NSMutableArray<MSOneNotePage> *)  pages;
+{
+    _pages =  pages;
+    [self valueChanged:pages forProperty:@"pages"];
 }
 
 @end

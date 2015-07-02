@@ -36,5 +36,33 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setErrorDetail:(NSString *)  errorDetail;
+{
+    _errorDetail =  errorDetail;
+    [self valueChanged:errorDetail forProperty:@"errorDetail"];
+}
+
+ 
+- (void)setResolved:(BOOL )  resolved;
+{
+    _resolved =  resolved;
+    [self valueChangedForBool:resolved forProperty:@"resolved"];
+}
+
+ 
+- (void)setService:(NSString *)  service;
+{
+    _service =  service;
+    [self valueChanged:service forProperty:@"service"];
+}
+
+ 
+- (void)setTimestamp:(NSDate *)  timestamp;
+{
+    _timestamp =  timestamp;
+    [self valueChanged:timestamp forProperty:@"timestamp"];
+}
+
 
 @end

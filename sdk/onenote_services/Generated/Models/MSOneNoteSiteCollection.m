@@ -34,4 +34,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSites:(NSMutableArray<MSOneNoteSite> *)  sites;
+{
+    _sites =  sites;
+    [self valueChanged:sites forProperty:@"sites"];
+}
+
 @end

@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookCalendar : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=changeKey, setter=setChangeKey:) NSString *ChangeKey;
 @property  (nonatomic, getter=color, setter=setColor:) MSOutlookCalendarColor Color;

@@ -37,4 +37,39 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAppDisplayName:(NSString *)  appDisplayName;
+{
+    _appDisplayName =  appDisplayName;
+    [self valueChanged:appDisplayName forProperty:@"appDisplayName"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"name"];
+}
+
+ 
+- (void)setDataType:(NSString *)  dataType;
+{
+    _dataType =  dataType;
+    [self valueChanged:dataType forProperty:@"dataType"];
+}
+
+ 
+- (void)setIsSyncedFromOnPremises:(BOOL )  isSyncedFromOnPremises;
+{
+    _isSyncedFromOnPremises =  isSyncedFromOnPremises;
+    [self valueChangedForBool:isSyncedFromOnPremises forProperty:@"isSyncedFromOnPremises"];
+}
+
+ 
+- (void)setTargetObjects:(NSMutableArray *)  targetObjects;
+{
+    _targetObjects =  targetObjects;
+    [self valueChanged:targetObjects forProperty:@"targetObjects"];
+}
+
 @end

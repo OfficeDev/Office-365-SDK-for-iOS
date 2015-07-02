@@ -59,4 +59,193 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAccountEnabled:(BOOL )  accountEnabled;
+{
+    _accountEnabled =  accountEnabled;
+    [self valueChangedForBool:accountEnabled forProperty:@"accountEnabled"];
+}
+
+ 
+- (void)setAppDisplayName:(NSString *)  appDisplayName;
+{
+    _appDisplayName =  appDisplayName;
+    [self valueChanged:appDisplayName forProperty:@"appDisplayName"];
+}
+
+ 
+- (void)setAppId:(NSString *)  appId;
+{
+    _appId =  appId;
+    [self valueChanged:appId forProperty:@"appId"];
+}
+
+ 
+- (void)setAppOwnerTenantId:(NSString *)  appOwnerTenantId;
+{
+    _appOwnerTenantId =  appOwnerTenantId;
+    [self valueChanged:appOwnerTenantId forProperty:@"appOwnerTenantId"];
+}
+
+ 
+- (void)setAppRoleAssignmentRequired:(BOOL )  appRoleAssignmentRequired;
+{
+    _appRoleAssignmentRequired =  appRoleAssignmentRequired;
+    [self valueChangedForBool:appRoleAssignmentRequired forProperty:@"appRoleAssignmentRequired"];
+}
+
+ 
+- (void)setAppRoles:(NSMutableArray<MSGraphAppRole> *)  appRoles;
+{
+    _appRoles =  appRoles;
+    [self valueChanged:appRoles forProperty:@"appRoles"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setErrorUrl:(NSString *)  errorUrl;
+{
+    _errorUrl =  errorUrl;
+    [self valueChanged:errorUrl forProperty:@"errorUrl"];
+}
+
+ 
+- (void)setHomepage:(NSString *)  homepage;
+{
+    _homepage =  homepage;
+    [self valueChanged:homepage forProperty:@"homepage"];
+}
+
+ 
+- (void)setKeyCredentials:(NSMutableArray<MSGraphKeyCredential> *)  keyCredentials;
+{
+    _keyCredentials =  keyCredentials;
+    [self valueChanged:keyCredentials forProperty:@"keyCredentials"];
+}
+
+ 
+- (void)setLogoutUrl:(NSString *)  logoutUrl;
+{
+    _logoutUrl =  logoutUrl;
+    [self valueChanged:logoutUrl forProperty:@"logoutUrl"];
+}
+
+ 
+- (void)setOauth2Permissions:(NSMutableArray<MSGraphOAuth2Permission> *)  oauth2Permissions;
+{
+    _oauth2Permissions =  oauth2Permissions;
+    [self valueChanged:oauth2Permissions forProperty:@"oauth2Permissions"];
+}
+
+ 
+- (void)setPasswordCredentials:(NSMutableArray<MSGraphPasswordCredential> *)  passwordCredentials;
+{
+    _passwordCredentials =  passwordCredentials;
+    [self valueChanged:passwordCredentials forProperty:@"passwordCredentials"];
+}
+
+ 
+- (void)setPreferredTokenSigningKeyThumbprint:(NSString *)  preferredTokenSigningKeyThumbprint;
+{
+    _preferredTokenSigningKeyThumbprint =  preferredTokenSigningKeyThumbprint;
+    [self valueChanged:preferredTokenSigningKeyThumbprint forProperty:@"preferredTokenSigningKeyThumbprint"];
+}
+
+ 
+- (void)setPublisherName:(NSString *)  publisherName;
+{
+    _publisherName =  publisherName;
+    [self valueChanged:publisherName forProperty:@"publisherName"];
+}
+
+ 
+- (void)setReplyUrls:(NSMutableArray *)  replyUrls;
+{
+    _replyUrls =  replyUrls;
+    [self valueChanged:replyUrls forProperty:@"replyUrls"];
+}
+
+ 
+- (void)setSamlMetadataUrl:(NSString *)  samlMetadataUrl;
+{
+    _samlMetadataUrl =  samlMetadataUrl;
+    [self valueChanged:samlMetadataUrl forProperty:@"samlMetadataUrl"];
+}
+
+ 
+- (void)setServicePrincipalNames:(NSMutableArray *)  servicePrincipalNames;
+{
+    _servicePrincipalNames =  servicePrincipalNames;
+    [self valueChanged:servicePrincipalNames forProperty:@"servicePrincipalNames"];
+}
+
+ 
+- (void)setTags:(NSMutableArray *)  tags;
+{
+    _tags =  tags;
+    [self valueChanged:tags forProperty:@"tags"];
+}
+
+ 
+- (void)setAppRoleAssignedTo:(MSGraphAppRoleAssignment *)  appRoleAssignedTo;
+{
+    _appRoleAssignedTo =  appRoleAssignedTo;
+    [self valueChanged:appRoleAssignedTo forProperty:@"appRoleAssignedTo"];
+}
+
+ 
+- (void)setAppRoleAssignments:(NSMutableArray<MSGraphAppRoleAssignment> *)  appRoleAssignments;
+{
+    _appRoleAssignments =  appRoleAssignments;
+    [self valueChanged:appRoleAssignments forProperty:@"appRoleAssignments"];
+}
+
+ 
+- (void)setOauth2PermissionGrants:(NSMutableArray<MSGraphOAuth2PermissionGrant> *)  oauth2PermissionGrants;
+{
+    _oauth2PermissionGrants =  oauth2PermissionGrants;
+    [self valueChanged:oauth2PermissionGrants forProperty:@"oauth2PermissionGrants"];
+}
+
+ 
+- (void)setMemberOf:(NSMutableArray<MSGraphDirectoryObject> *)  memberOf;
+{
+    _memberOf =  memberOf;
+    [self valueChanged:memberOf forProperty:@"memberOf"];
+}
+
+ 
+- (void)setCreatedOnBehalfOf:(MSGraphDirectoryObject *)  createdOnBehalfOf;
+{
+    _createdOnBehalfOf =  createdOnBehalfOf;
+    [self valueChanged:createdOnBehalfOf forProperty:@"createdOnBehalfOf"];
+}
+
+ 
+- (void)setCreatedObjects:(NSMutableArray<MSGraphDirectoryObject> *)  createdObjects;
+{
+    _createdObjects =  createdObjects;
+    [self valueChanged:createdObjects forProperty:@"createdObjects"];
+}
+
+ 
+- (void)setOwners:(NSMutableArray<MSGraphDirectoryObject> *)  owners;
+{
+    _owners =  owners;
+    [self valueChanged:owners forProperty:@"owners"];
+}
+
+ 
+- (void)setOwnedObjects:(NSMutableArray<MSGraphDirectoryObject> *)  ownedObjects;
+{
+    _ownedObjects =  ownedObjects;
+    [self valueChanged:ownedObjects forProperty:@"ownedObjects"];
+}
+
 @end

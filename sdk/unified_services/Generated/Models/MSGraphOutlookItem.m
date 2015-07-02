@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphOutlookItem	
 
 @synthesize odataType = _odataType;
-@synthesize Id = _Id;
-@synthesize ChangeKey = _ChangeKey;
-@synthesize Categories = _Categories;
-@synthesize DateTimeCreated = _DateTimeCreated;
-@synthesize DateTimeLastModified = _DateTimeLastModified;
+@synthesize Id = _id;
+@synthesize ChangeKey = _changeKey;
+@synthesize Categories = _categories;
+@synthesize DateTimeCreated = _dateTimeCreated;
+@synthesize DateTimeLastModified = _dateTimeLastModified;
 
 - (instancetype)init {
 
@@ -35,6 +35,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"Id"];
+}
+
+ 
+- (void)setChangeKey:(NSString *)  changeKey;
+{
+    _changeKey =  changeKey;
+    [self valueChanged:changeKey forProperty:@"ChangeKey"];
+}
+
+ 
+- (void)setCategories:(NSMutableArray *)  categories;
+{
+    _categories =  categories;
+    [self valueChanged:categories forProperty:@"Categories"];
+}
+
+ 
+- (void)setDateTimeCreated:(NSDate *)  dateTimeCreated;
+{
+    _dateTimeCreated =  dateTimeCreated;
+    [self valueChanged:dateTimeCreated forProperty:@"DateTimeCreated"];
+}
+
+ 
+- (void)setDateTimeLastModified:(NSDate *)  dateTimeLastModified;
+{
+    _dateTimeLastModified =  dateTimeLastModified;
+    [self valueChanged:dateTimeLastModified forProperty:@"DateTimeLastModified"];
 }
 
 @end

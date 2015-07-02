@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type EmailAddress.
 */
 
-@interface MSOutlookEmailAddress : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOutlookEmailAddress : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=address, setter=setAddress:) NSString *Address;
 

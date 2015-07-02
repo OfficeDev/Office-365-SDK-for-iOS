@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type AssignedPlan.
 */
 
-@interface MSGraphAssignedPlan : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphAssignedPlan : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=assignedTimestamp, setter=setAssignedTimestamp:) NSDate *assignedTimestamp;
 @property (retain, nonatomic, readwrite, getter=capabilityStatus, setter=setCapabilityStatus:) NSString *capabilityStatus;
 @property (retain, nonatomic, readwrite, getter=service, setter=setService:) NSString *service;

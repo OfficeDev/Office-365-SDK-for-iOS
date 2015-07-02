@@ -21,30 +21,30 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphEvent	
 
 @synthesize odataType = _odataType;
-@synthesize Subject = _Subject;
-@synthesize Body = _Body;
-@synthesize BodyPreview = _BodyPreview;
-@synthesize Importance = _Importance;
-@synthesize HasAttachments = _HasAttachments;
-@synthesize Start = _Start;
-@synthesize End = _End;
-@synthesize Location = _Location;
-@synthesize ShowAs = _ShowAs;
-@synthesize IsAllDay = _IsAllDay;
-@synthesize IsCancelled = _IsCancelled;
-@synthesize IsOrganizer = _IsOrganizer;
-@synthesize ResponseRequested = _ResponseRequested;
-@synthesize Type = _Type;
-@synthesize SeriesMasterId = _SeriesMasterId;
-@synthesize Attendees = _Attendees;
-@synthesize Recurrence = _Recurrence;
-@synthesize Organizer = _Organizer;
-@synthesize StartTimeZone = _StartTimeZone;
-@synthesize EndTimeZone = _EndTimeZone;
-@synthesize WebLink = _WebLink;
-@synthesize Attachments = _Attachments;
-@synthesize Calendar = _Calendar;
-@synthesize Instances = _Instances;
+@synthesize Subject = _subject;
+@synthesize Body = _body;
+@synthesize BodyPreview = _bodyPreview;
+@synthesize Importance = _importance;
+@synthesize HasAttachments = _hasAttachments;
+@synthesize Start = _start;
+@synthesize End = _end;
+@synthesize Location = _location;
+@synthesize ShowAs = _showAs;
+@synthesize IsAllDay = _isAllDay;
+@synthesize IsCancelled = _isCancelled;
+@synthesize IsOrganizer = _isOrganizer;
+@synthesize ResponseRequested = _responseRequested;
+@synthesize Type = _type;
+@synthesize SeriesMasterId = _seriesMasterId;
+@synthesize Attendees = _attendees;
+@synthesize Recurrence = _recurrence;
+@synthesize Organizer = _organizer;
+@synthesize StartTimeZone = _startTimeZone;
+@synthesize EndTimeZone = _endTimeZone;
+@synthesize WebLink = _webLink;
+@synthesize Attachments = _attachments;
+@synthesize Calendar = _calendar;
+@synthesize Instances = _instances;
 
 - (instancetype)init {
 
@@ -56,75 +56,238 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setSubject:(NSString *)  subject;
+{
+    _subject =  subject;
+    [self valueChanged:subject forProperty:@"Subject"];
+}
+
+ 
+- (void)setBody:(MSGraphItemBody *)  body;
+{
+    _body =  body;
+    [self valueChanged:body forProperty:@"Body"];
+}
+
+ 
+- (void)setBodyPreview:(NSString *)  bodyPreview;
+{
+    _bodyPreview =  bodyPreview;
+    [self valueChanged:bodyPreview forProperty:@"BodyPreview"];
+}
+
+
 - (void)setImportanceString:(NSString *)value {
 
 	if ([value isEqualToString:@"Low"]) {
 		
-		_Importance = MSGraph_Importance_Low;
+		_importance = MSGraph_Importance_Low;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"Normal"]) {
 		
-		_Importance = MSGraph_Importance_Normal;
+		_importance = MSGraph_Importance_Normal;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"High"]) {
 		
-		_Importance = MSGraph_Importance_High;
+		_importance = MSGraph_Importance_High;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 }
+ 
+- (void)setHasAttachments:(BOOL )  hasAttachments;
+{
+    _hasAttachments =  hasAttachments;
+    [self valueChangedForBool:hasAttachments forProperty:@"HasAttachments"];
+}
+
+ 
+- (void)setStart:(NSDate *)  start;
+{
+    _start =  start;
+    [self valueChanged:start forProperty:@"Start"];
+}
+
+ 
+- (void)setEnd:(NSDate *)  end;
+{
+    _end =  end;
+    [self valueChanged:end forProperty:@"End"];
+}
+
+ 
+- (void)setLocation:(MSGraphLocation *)  location;
+{
+    _location =  location;
+    [self valueChanged:location forProperty:@"Location"];
+}
+
+
 - (void)setShowAsString:(NSString *)value {
 
 	if ([value isEqualToString:@"Free"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_Free;
+		_showAs = MSGraph_FreeBusyStatus_Free;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Tentative"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_Tentative;
+		_showAs = MSGraph_FreeBusyStatus_Tentative;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Busy"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_Busy;
+		_showAs = MSGraph_FreeBusyStatus_Busy;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Oof"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_Oof;
+		_showAs = MSGraph_FreeBusyStatus_Oof;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"WorkingElsewhere"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_WorkingElsewhere;
+		_showAs = MSGraph_FreeBusyStatus_WorkingElsewhere;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Unknown"]) {
 		
-		_ShowAs = MSGraph_FreeBusyStatus_Unknown;
+		_showAs = MSGraph_FreeBusyStatus_Unknown;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 }
+ 
+- (void)setIsAllDay:(BOOL )  isAllDay;
+{
+    _isAllDay =  isAllDay;
+    [self valueChangedForBool:isAllDay forProperty:@"IsAllDay"];
+}
+
+ 
+- (void)setIsCancelled:(BOOL )  isCancelled;
+{
+    _isCancelled =  isCancelled;
+    [self valueChangedForBool:isCancelled forProperty:@"IsCancelled"];
+}
+
+ 
+- (void)setIsOrganizer:(BOOL )  isOrganizer;
+{
+    _isOrganizer =  isOrganizer;
+    [self valueChangedForBool:isOrganizer forProperty:@"IsOrganizer"];
+}
+
+ 
+- (void)setResponseRequested:(BOOL )  responseRequested;
+{
+    _responseRequested =  responseRequested;
+    [self valueChangedForBool:responseRequested forProperty:@"ResponseRequested"];
+}
+
+
 - (void)setTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"SingleInstance"]) {
 		
-		_Type = MSGraph_EventType_SingleInstance;
+		_type = MSGraph_EventType_SingleInstance;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Occurrence"]) {
 		
-		_Type = MSGraph_EventType_Occurrence;
+		_type = MSGraph_EventType_Occurrence;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Exception"]) {
 		
-		_Type = MSGraph_EventType_Exception;
+		_type = MSGraph_EventType_Exception;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"SeriesMaster"]) {
 		
-		_Type = MSGraph_EventType_SeriesMaster;
+		_type = MSGraph_EventType_SeriesMaster;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 }
+ 
+- (void)setSeriesMasterId:(NSString *)  seriesMasterId;
+{
+    _seriesMasterId =  seriesMasterId;
+    [self valueChanged:seriesMasterId forProperty:@"SeriesMasterId"];
+}
+
+ 
+- (void)setAttendees:(NSMutableArray<MSGraphAttendee> *)  attendees;
+{
+    _attendees =  attendees;
+    [self valueChanged:attendees forProperty:@"Attendees"];
+}
+
+ 
+- (void)setRecurrence:(MSGraphPatternedRecurrence *)  recurrence;
+{
+    _recurrence =  recurrence;
+    [self valueChanged:recurrence forProperty:@"Recurrence"];
+}
+
+ 
+- (void)setOrganizer:(MSGraphRecipient *)  organizer;
+{
+    _organizer =  organizer;
+    [self valueChanged:organizer forProperty:@"Organizer"];
+}
+
+ 
+- (void)setStartTimeZone:(NSString *)  startTimeZone;
+{
+    _startTimeZone =  startTimeZone;
+    [self valueChanged:startTimeZone forProperty:@"StartTimeZone"];
+}
+
+ 
+- (void)setEndTimeZone:(NSString *)  endTimeZone;
+{
+    _endTimeZone =  endTimeZone;
+    [self valueChanged:endTimeZone forProperty:@"EndTimeZone"];
+}
+
+ 
+- (void)setWebLink:(NSString *)  webLink;
+{
+    _webLink =  webLink;
+    [self valueChanged:webLink forProperty:@"WebLink"];
+}
+
+ 
+- (void)setAttachments:(NSMutableArray<MSGraphAttachment> *)  attachments;
+{
+    _attachments =  attachments;
+    [self valueChanged:attachments forProperty:@"Attachments"];
+}
+
+ 
+- (void)setCalendar:(MSGraphCalendar *)  calendar;
+{
+    _calendar =  calendar;
+    [self valueChanged:calendar forProperty:@"Calendar"];
+}
+
+ 
+- (void)setInstances:(NSMutableArray<MSGraphEvent> *)  instances;
+{
+    _instances =  instances;
+    [self valueChanged:instances forProperty:@"Instances"];
+}
+
 @end

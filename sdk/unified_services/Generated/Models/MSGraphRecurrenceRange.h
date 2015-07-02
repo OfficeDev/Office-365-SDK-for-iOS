@@ -15,15 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
 #import "MSGraphRecurrenceRangeType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type RecurrenceRange.
 */
 
-@interface MSGraphRecurrenceRange : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphRecurrenceRange : MSOrcBaseEntity
 @property  (nonatomic, getter=type, setter=setType:) MSGraphRecurrenceRangeType Type;
 - (void)setTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=startDate, setter=setStartDate:) NSDate *StartDate;

@@ -22,5 +22,4 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @interface MSGraphReferenceAttachment : MSGraphAttachment
 
-
 @end

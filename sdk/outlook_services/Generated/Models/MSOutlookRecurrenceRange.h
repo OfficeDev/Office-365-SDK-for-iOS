@@ -15,15 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
 #import "MSOutlookRecurrenceRangeType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type RecurrenceRange.
 */
 
-@interface MSOutlookRecurrenceRange : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOutlookRecurrenceRange : MSOrcBaseEntity
 @property  (nonatomic, getter=type, setter=setType:) MSOutlookRecurrenceRangeType Type;
 - (void)setTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=startDate, setter=setStartDate:) NSDate *StartDate;

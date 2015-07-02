@@ -26,7 +26,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphTenantDetail : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=assignedPlans, setter=setAssignedPlans:) NSMutableArray<MSGraphAssignedPlan> *assignedPlans;
 @property (retain, nonatomic, readwrite, getter=city, setter=setCity:) NSString *city;
 @property (retain, nonatomic, readwrite, getter=companyLastDirSyncTime, setter=setCompanyLastDirSyncTime:) NSDate *companyLastDirSyncTime;

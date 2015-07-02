@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setResourceAppId:(NSString *)  resourceAppId;
+{
+    _resourceAppId =  resourceAppId;
+    [self valueChanged:resourceAppId forProperty:@"resourceAppId"];
+}
+
+ 
+- (void)setResourceAccess:(NSMutableArray<MSGraphResourceAccess> *)  resourceAccess;
+{
+    _resourceAccess =  resourceAccess;
+    [self valueChanged:resourceAccess forProperty:@"resourceAccess"];
+}
+
 
 @end

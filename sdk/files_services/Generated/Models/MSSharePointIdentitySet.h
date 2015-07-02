@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type IdentitySet.
 */
 
-@interface MSSharePointIdentitySet : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSSharePointIdentitySet : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=application, setter=setApplication:) MSSharePointIdentity *application;
 @property (retain, nonatomic, readwrite, getter=user, setter=setUser:) MSSharePointIdentity *user;
 

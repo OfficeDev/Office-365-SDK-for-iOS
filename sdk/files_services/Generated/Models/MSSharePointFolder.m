@@ -34,4 +34,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setChildCount:(int )  childCount;
+{
+    _childCount =  childCount;
+    [self valueChangedForInt:childCount forProperty:@"childCount"];
+}
+
+ 
+- (void)setChildren:(NSMutableArray<MSSharePointItem> *)  children;
+{
+    _children =  children;
+    [self valueChanged:children forProperty:@"children"];
+}
+
 @end

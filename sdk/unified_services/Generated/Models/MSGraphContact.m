@@ -57,4 +57,179 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCity:(NSString *)  city;
+{
+    _city =  city;
+    [self valueChanged:city forProperty:@"city"];
+}
+
+ 
+- (void)setCountry:(NSString *)  country;
+{
+    _country =  country;
+    [self valueChanged:country forProperty:@"country"];
+}
+
+ 
+- (void)setDepartment:(NSString *)  department;
+{
+    _department =  department;
+    [self valueChanged:department forProperty:@"department"];
+}
+
+ 
+- (void)setDirSyncEnabled:(BOOL )  dirSyncEnabled;
+{
+    _dirSyncEnabled =  dirSyncEnabled;
+    [self valueChangedForBool:dirSyncEnabled forProperty:@"dirSyncEnabled"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setFacsimileTelephoneNumber:(NSString *)  facsimileTelephoneNumber;
+{
+    _facsimileTelephoneNumber =  facsimileTelephoneNumber;
+    [self valueChanged:facsimileTelephoneNumber forProperty:@"facsimileTelephoneNumber"];
+}
+
+ 
+- (void)setGivenName:(NSString *)  givenName;
+{
+    _givenName =  givenName;
+    [self valueChanged:givenName forProperty:@"givenName"];
+}
+
+ 
+- (void)setJobTitle:(NSString *)  jobTitle;
+{
+    _jobTitle =  jobTitle;
+    [self valueChanged:jobTitle forProperty:@"jobTitle"];
+}
+
+ 
+- (void)setLastDirSyncTime:(NSDate *)  lastDirSyncTime;
+{
+    _lastDirSyncTime =  lastDirSyncTime;
+    [self valueChanged:lastDirSyncTime forProperty:@"lastDirSyncTime"];
+}
+
+ 
+- (void)setMail:(NSString *)  mail;
+{
+    _mail =  mail;
+    [self valueChanged:mail forProperty:@"mail"];
+}
+
+ 
+- (void)setMailNickname:(NSString *)  mailNickname;
+{
+    _mailNickname =  mailNickname;
+    [self valueChanged:mailNickname forProperty:@"mailNickname"];
+}
+
+ 
+- (void)setMobile:(NSString *)  mobile;
+{
+    _mobile =  mobile;
+    [self valueChanged:mobile forProperty:@"mobile"];
+}
+
+ 
+- (void)setPhysicalDeliveryOfficeName:(NSString *)  physicalDeliveryOfficeName;
+{
+    _physicalDeliveryOfficeName =  physicalDeliveryOfficeName;
+    [self valueChanged:physicalDeliveryOfficeName forProperty:@"physicalDeliveryOfficeName"];
+}
+
+ 
+- (void)setPostalCode:(NSString *)  postalCode;
+{
+    _postalCode =  postalCode;
+    [self valueChanged:postalCode forProperty:@"postalCode"];
+}
+
+ 
+- (void)setProvisioningErrors:(NSMutableArray<MSGraphProvisioningError> *)  provisioningErrors;
+{
+    _provisioningErrors =  provisioningErrors;
+    [self valueChanged:provisioningErrors forProperty:@"provisioningErrors"];
+}
+
+ 
+- (void)setProxyAddresses:(NSMutableArray *)  proxyAddresses;
+{
+    _proxyAddresses =  proxyAddresses;
+    [self valueChanged:proxyAddresses forProperty:@"proxyAddresses"];
+}
+
+ 
+- (void)setSipProxyAddress:(NSString *)  sipProxyAddress;
+{
+    _sipProxyAddress =  sipProxyAddress;
+    [self valueChanged:sipProxyAddress forProperty:@"sipProxyAddress"];
+}
+
+ 
+- (void)setState:(NSString *)  state;
+{
+    _state =  state;
+    [self valueChanged:state forProperty:@"state"];
+}
+
+ 
+- (void)setStreetAddress:(NSString *)  streetAddress;
+{
+    _streetAddress =  streetAddress;
+    [self valueChanged:streetAddress forProperty:@"streetAddress"];
+}
+
+ 
+- (void)setSurname:(NSString *)  surname;
+{
+    _surname =  surname;
+    [self valueChanged:surname forProperty:@"surname"];
+}
+
+ 
+- (void)setTelephoneNumber:(NSString *)  telephoneNumber;
+{
+    _telephoneNumber =  telephoneNumber;
+    [self valueChanged:telephoneNumber forProperty:@"telephoneNumber"];
+}
+
+ 
+- (void)setThumbnailPhoto:(NSStream *)  thumbnailPhoto;
+{
+    _thumbnailPhoto =  thumbnailPhoto;
+    [self valueChanged:thumbnailPhoto forProperty:@"thumbnailPhoto"];
+}
+
+ 
+- (void)setManager:(MSGraphDirectoryObject *)  manager;
+{
+    _manager =  manager;
+    [self valueChanged:manager forProperty:@"manager"];
+}
+
+ 
+- (void)setDirectReports:(NSMutableArray<MSGraphDirectoryObject> *)  directReports;
+{
+    _directReports =  directReports;
+    [self valueChanged:directReports forProperty:@"directReports"];
+}
+
+ 
+- (void)setMemberOf:(NSMutableArray<MSGraphDirectoryObject> *)  memberOf;
+{
+    _memberOf =  memberOf;
+    [self valueChanged:memberOf forProperty:@"memberOf"];
+}
+
 @end

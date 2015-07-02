@@ -19,15 +19,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
 #import "MSOneNoteUserRole.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Notebook.
 */
 
-@interface MSOneNoteNotebook : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteNotebook : MSOrcBaseEntity
 @property (nonatomic, getter=isDefault, setter=setIsDefault:) BOOL isDefault;
 @property  (nonatomic, getter=userRole, setter=setUserRole:) MSOneNoteUserRole userRole;
 - (void)setuserRoleString:(NSString *)value;
@@ -40,7 +38,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=lastModifiedBy, setter=setLastModifiedBy:) NSString *lastModifiedBy;
 @property (retain, nonatomic, readwrite, getter=lastModifiedTime, setter=setLastModifiedTime:) NSDate *lastModifiedTime;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
-@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *self;
+@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *$$__self;
 @property (retain, nonatomic, readwrite, getter=createdTime, setter=setCreatedTime:) NSDate *createdTime;
 @property (retain, nonatomic, readwrite, getter=sections, setter=setSections:) NSMutableArray<MSOneNoteSection> *sections;
 @property (retain, nonatomic, readwrite, getter=sectionGroups, setter=setSectionGroups:) NSMutableArray<MSOneNoteSectionGroup> *sectionGroups;

@@ -32,7 +32,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize lastModifiedBy = _lastModifiedBy;
 @synthesize lastModifiedTime = _lastModifiedTime;
 @synthesize id = _id;
-@synthesize self = _self;
+@synthesize $$__self = _$$__self;
 @synthesize createdTime = _createdTime;
 
 - (instancetype)init {
@@ -45,27 +45,116 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setIsDefault:(BOOL )  isDefault;
+{
+    _isDefault =  isDefault;
+    [self valueChangedForBool:isDefault forProperty:@"isDefault"];
+}
+
+
 - (void)setuserRoleString:(NSString *)value {
 
 	if ([value isEqualToString:@"Owner"]) {
 
 		self.userRole = MSOneNote_UserRole_Owner;
+        [self valueChanged:value forProperty:@"userRole"];
 	}
 
 	if ([value isEqualToString:@"Contributor"]) {
 
 		self.userRole = MSOneNote_UserRole_Contributor;
+        [self valueChanged:value forProperty:@"userRole"];
 	}
 
 	if ([value isEqualToString:@"Reader"]) {
 
 		self.userRole = MSOneNote_UserRole_Reader;
+        [self valueChanged:value forProperty:@"userRole"];
 	}
 
 	if ([value isEqualToString:@"None"]) {
 
 		self.userRole = MSOneNote_UserRole_None;
+        [self valueChanged:value forProperty:@"userRole"];
 	}
 }
+ 
+- (void)setIsShared:(BOOL )  isShared;
+{
+    _isShared =  isShared;
+    [self valueChangedForBool:isShared forProperty:@"isShared"];
+}
+
+ 
+- (void)setSectionsUrl:(NSString *)  sectionsUrl;
+{
+    _sectionsUrl =  sectionsUrl;
+    [self valueChanged:sectionsUrl forProperty:@"sectionsUrl"];
+}
+
+ 
+- (void)setSectionGroupsUrl:(NSString *)  sectionGroupsUrl;
+{
+    _sectionGroupsUrl =  sectionGroupsUrl;
+    [self valueChanged:sectionGroupsUrl forProperty:@"sectionGroupsUrl"];
+}
+
+ 
+- (void)setLinks:(MSOneNoteNotebookLinks *)  links;
+{
+    _links =  links;
+    [self valueChanged:links forProperty:@"links"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"name"];
+}
+
+ 
+- (void)setCreatedBy:(NSString *)  createdBy;
+{
+    _createdBy =  createdBy;
+    [self valueChanged:createdBy forProperty:@"createdBy"];
+}
+
+ 
+- (void)setLastModifiedBy:(NSString *)  lastModifiedBy;
+{
+    _lastModifiedBy =  lastModifiedBy;
+    [self valueChanged:lastModifiedBy forProperty:@"lastModifiedBy"];
+}
+
+ 
+- (void)setLastModifiedTime:(NSDate *)  lastModifiedTime;
+{
+    _lastModifiedTime =  lastModifiedTime;
+    [self valueChanged:lastModifiedTime forProperty:@"lastModifiedTime"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSelf:(NSString *)  $$__self;
+{
+    _$$__self =  $$__self;
+    [self valueChanged:$$__self forProperty:@"$$__self"];
+}
+
+ 
+- (void)setCreatedTime:(NSDate *)  createdTime;
+{
+    _createdTime =  createdTime;
+    [self valueChanged:createdTime forProperty:@"createdTime"];
+}
+
 
 @end

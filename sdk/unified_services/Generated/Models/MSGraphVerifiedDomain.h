@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type VerifiedDomain.
 */
 
-@interface MSGraphVerifiedDomain : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphVerifiedDomain : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=capabilities, setter=setCapabilities:) NSString *capabilities;
 @property (nonatomic, getter=default, setter=setDefault:) BOOL $$__default;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;

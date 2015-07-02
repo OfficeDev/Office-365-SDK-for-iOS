@@ -35,5 +35,26 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setEnabled:(int )  enabled;
+{
+    _enabled =  enabled;
+    [self valueChangedForInt:enabled forProperty:@"enabled"];
+}
+
+ 
+- (void)setSuspended:(int )  suspended;
+{
+    _suspended =  suspended;
+    [self valueChangedForInt:suspended forProperty:@"suspended"];
+}
+
+ 
+- (void)setWarning:(int )  warning;
+{
+    _warning =  warning;
+    [self valueChangedForInt:warning forProperty:@"warning"];
+}
+
 
 @end

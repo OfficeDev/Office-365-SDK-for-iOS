@@ -21,36 +21,36 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookContact	
 
 @synthesize odataType = _odataType;
-@synthesize ParentFolderId = _ParentFolderId;
-@synthesize Birthday = _Birthday;
-@synthesize FileAs = _FileAs;
-@synthesize DisplayName = _DisplayName;
-@synthesize GivenName = _GivenName;
-@synthesize Initials = _Initials;
-@synthesize MiddleName = _MiddleName;
-@synthesize NickName = _NickName;
-@synthesize Surname = _Surname;
-@synthesize Title = _Title;
-@synthesize Generation = _Generation;
-@synthesize EmailAddresses = _EmailAddresses;
-@synthesize ImAddresses = _ImAddresses;
-@synthesize JobTitle = _JobTitle;
-@synthesize CompanyName = _CompanyName;
-@synthesize Department = _Department;
-@synthesize OfficeLocation = _OfficeLocation;
-@synthesize Profession = _Profession;
-@synthesize BusinessHomePage = _BusinessHomePage;
-@synthesize AssistantName = _AssistantName;
-@synthesize Manager = _Manager;
-@synthesize HomePhones = _HomePhones;
-@synthesize BusinessPhones = _BusinessPhones;
-@synthesize MobilePhone1 = _MobilePhone1;
-@synthesize HomeAddress = _HomeAddress;
-@synthesize BusinessAddress = _BusinessAddress;
-@synthesize OtherAddress = _OtherAddress;
-@synthesize YomiCompanyName = _YomiCompanyName;
-@synthesize YomiGivenName = _YomiGivenName;
-@synthesize YomiSurname = _YomiSurname;
+@synthesize ParentFolderId = _parentFolderId;
+@synthesize Birthday = _birthday;
+@synthesize FileAs = _fileAs;
+@synthesize DisplayName = _displayName;
+@synthesize GivenName = _givenName;
+@synthesize Initials = _initials;
+@synthesize MiddleName = _middleName;
+@synthesize NickName = _nickName;
+@synthesize Surname = _surname;
+@synthesize Title = _title;
+@synthesize Generation = _generation;
+@synthesize EmailAddresses = _emailAddresses;
+@synthesize ImAddresses = _imAddresses;
+@synthesize JobTitle = _jobTitle;
+@synthesize CompanyName = _companyName;
+@synthesize Department = _department;
+@synthesize OfficeLocation = _officeLocation;
+@synthesize Profession = _profession;
+@synthesize BusinessHomePage = _businessHomePage;
+@synthesize AssistantName = _assistantName;
+@synthesize Manager = _manager;
+@synthesize HomePhones = _homePhones;
+@synthesize BusinessPhones = _businessPhones;
+@synthesize MobilePhone1 = _mobilePhone1;
+@synthesize HomeAddress = _homeAddress;
+@synthesize BusinessAddress = _businessAddress;
+@synthesize OtherAddress = _otherAddress;
+@synthesize YomiCompanyName = _yomiCompanyName;
+@synthesize YomiGivenName = _yomiGivenName;
+@synthesize YomiSurname = _yomiSurname;
 
 - (instancetype)init {
 
@@ -60,6 +60,216 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setParentFolderId:(NSString *)  parentFolderId;
+{
+    _parentFolderId =  parentFolderId;
+    [self valueChanged:parentFolderId forProperty:@"ParentFolderId"];
+}
+
+ 
+- (void)setBirthday:(NSDate *)  birthday;
+{
+    _birthday =  birthday;
+    [self valueChanged:birthday forProperty:@"Birthday"];
+}
+
+ 
+- (void)setFileAs:(NSString *)  fileAs;
+{
+    _fileAs =  fileAs;
+    [self valueChanged:fileAs forProperty:@"FileAs"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
+}
+
+ 
+- (void)setGivenName:(NSString *)  givenName;
+{
+    _givenName =  givenName;
+    [self valueChanged:givenName forProperty:@"GivenName"];
+}
+
+ 
+- (void)setInitials:(NSString *)  initials;
+{
+    _initials =  initials;
+    [self valueChanged:initials forProperty:@"Initials"];
+}
+
+ 
+- (void)setMiddleName:(NSString *)  middleName;
+{
+    _middleName =  middleName;
+    [self valueChanged:middleName forProperty:@"MiddleName"];
+}
+
+ 
+- (void)setNickName:(NSString *)  nickName;
+{
+    _nickName =  nickName;
+    [self valueChanged:nickName forProperty:@"NickName"];
+}
+
+ 
+- (void)setSurname:(NSString *)  surname;
+{
+    _surname =  surname;
+    [self valueChanged:surname forProperty:@"Surname"];
+}
+
+ 
+- (void)setTitle:(NSString *)  title;
+{
+    _title =  title;
+    [self valueChanged:title forProperty:@"Title"];
+}
+
+ 
+- (void)setGeneration:(NSString *)  generation;
+{
+    _generation =  generation;
+    [self valueChanged:generation forProperty:@"Generation"];
+}
+
+ 
+- (void)setEmailAddresses:(NSMutableArray<MSOutlookEmailAddress> *)  emailAddresses;
+{
+    _emailAddresses =  emailAddresses;
+    [self valueChanged:emailAddresses forProperty:@"EmailAddresses"];
+}
+
+ 
+- (void)setImAddresses:(NSMutableArray *)  imAddresses;
+{
+    _imAddresses =  imAddresses;
+    [self valueChanged:imAddresses forProperty:@"ImAddresses"];
+}
+
+ 
+- (void)setJobTitle:(NSString *)  jobTitle;
+{
+    _jobTitle =  jobTitle;
+    [self valueChanged:jobTitle forProperty:@"JobTitle"];
+}
+
+ 
+- (void)setCompanyName:(NSString *)  companyName;
+{
+    _companyName =  companyName;
+    [self valueChanged:companyName forProperty:@"CompanyName"];
+}
+
+ 
+- (void)setDepartment:(NSString *)  department;
+{
+    _department =  department;
+    [self valueChanged:department forProperty:@"Department"];
+}
+
+ 
+- (void)setOfficeLocation:(NSString *)  officeLocation;
+{
+    _officeLocation =  officeLocation;
+    [self valueChanged:officeLocation forProperty:@"OfficeLocation"];
+}
+
+ 
+- (void)setProfession:(NSString *)  profession;
+{
+    _profession =  profession;
+    [self valueChanged:profession forProperty:@"Profession"];
+}
+
+ 
+- (void)setBusinessHomePage:(NSString *)  businessHomePage;
+{
+    _businessHomePage =  businessHomePage;
+    [self valueChanged:businessHomePage forProperty:@"BusinessHomePage"];
+}
+
+ 
+- (void)setAssistantName:(NSString *)  assistantName;
+{
+    _assistantName =  assistantName;
+    [self valueChanged:assistantName forProperty:@"AssistantName"];
+}
+
+ 
+- (void)setManager:(NSString *)  manager;
+{
+    _manager =  manager;
+    [self valueChanged:manager forProperty:@"Manager"];
+}
+
+ 
+- (void)setHomePhones:(NSMutableArray *)  homePhones;
+{
+    _homePhones =  homePhones;
+    [self valueChanged:homePhones forProperty:@"HomePhones"];
+}
+
+ 
+- (void)setBusinessPhones:(NSMutableArray *)  businessPhones;
+{
+    _businessPhones =  businessPhones;
+    [self valueChanged:businessPhones forProperty:@"BusinessPhones"];
+}
+
+ 
+- (void)setMobilePhone1:(NSString *)  mobilePhone1;
+{
+    _mobilePhone1 =  mobilePhone1;
+    [self valueChanged:mobilePhone1 forProperty:@"MobilePhone1"];
+}
+
+ 
+- (void)setHomeAddress:(MSOutlookPhysicalAddress *)  homeAddress;
+{
+    _homeAddress =  homeAddress;
+    [self valueChanged:homeAddress forProperty:@"HomeAddress"];
+}
+
+ 
+- (void)setBusinessAddress:(MSOutlookPhysicalAddress *)  businessAddress;
+{
+    _businessAddress =  businessAddress;
+    [self valueChanged:businessAddress forProperty:@"BusinessAddress"];
+}
+
+ 
+- (void)setOtherAddress:(MSOutlookPhysicalAddress *)  otherAddress;
+{
+    _otherAddress =  otherAddress;
+    [self valueChanged:otherAddress forProperty:@"OtherAddress"];
+}
+
+ 
+- (void)setYomiCompanyName:(NSString *)  yomiCompanyName;
+{
+    _yomiCompanyName =  yomiCompanyName;
+    [self valueChanged:yomiCompanyName forProperty:@"YomiCompanyName"];
+}
+
+ 
+- (void)setYomiGivenName:(NSString *)  yomiGivenName;
+{
+    _yomiGivenName =  yomiGivenName;
+    [self valueChanged:yomiGivenName forProperty:@"YomiGivenName"];
+}
+
+ 
+- (void)setYomiSurname:(NSString *)  yomiSurname;
+{
+    _yomiSurname =  yomiSurname;
+    [self valueChanged:yomiSurname forProperty:@"YomiSurname"];
 }
 
 @end

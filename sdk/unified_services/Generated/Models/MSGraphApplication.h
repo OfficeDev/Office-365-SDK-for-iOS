@@ -30,7 +30,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphApplication : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=appId, setter=setAppId:) NSString *appId;
 @property (retain, nonatomic, readwrite, getter=appRoles, setter=setAppRoles:) NSMutableArray<MSGraphAppRole> *appRoles;
 @property (nonatomic, getter=availableToOtherTenants, setter=setAvailableToOtherTenants:) BOOL availableToOtherTenants;

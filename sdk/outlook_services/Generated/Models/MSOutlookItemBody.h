@@ -15,15 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSOutlookProtocols.h"
 #import "MSOutlookBodyType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ItemBody.
 */
 
-@interface MSOutlookItemBody : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOutlookItemBody : MSOrcBaseEntity
 @property  (nonatomic, getter=contentType, setter=setContentType:) MSOutlookBodyType ContentType;
 - (void)setContentTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=content, setter=setContent:) NSString *Content;

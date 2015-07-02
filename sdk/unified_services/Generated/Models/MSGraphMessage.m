@@ -21,28 +21,28 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphMessage	
 
 @synthesize odataType = _odataType;
-@synthesize Subject = _Subject;
-@synthesize Body = _Body;
-@synthesize BodyPreview = _BodyPreview;
-@synthesize Importance = _Importance;
-@synthesize HasAttachments = _HasAttachments;
-@synthesize ParentFolderId = _ParentFolderId;
-@synthesize From = _From;
-@synthesize Sender = _Sender;
-@synthesize ToRecipients = _ToRecipients;
-@synthesize CcRecipients = _CcRecipients;
-@synthesize BccRecipients = _BccRecipients;
-@synthesize ReplyTo = _ReplyTo;
-@synthesize ConversationId = _ConversationId;
-@synthesize UniqueBody = _UniqueBody;
-@synthesize DateTimeReceived = _DateTimeReceived;
-@synthesize DateTimeSent = _DateTimeSent;
-@synthesize IsDeliveryReceiptRequested = _IsDeliveryReceiptRequested;
-@synthesize IsReadReceiptRequested = _IsReadReceiptRequested;
-@synthesize IsDraft = _IsDraft;
-@synthesize IsRead = _IsRead;
-@synthesize WebLink = _WebLink;
-@synthesize Attachments = _Attachments;
+@synthesize Subject = _subject;
+@synthesize Body = _body;
+@synthesize BodyPreview = _bodyPreview;
+@synthesize Importance = _importance;
+@synthesize HasAttachments = _hasAttachments;
+@synthesize ParentFolderId = _parentFolderId;
+@synthesize From = _from;
+@synthesize Sender = _sender;
+@synthesize ToRecipients = _toRecipients;
+@synthesize CcRecipients = _ccRecipients;
+@synthesize BccRecipients = _bccRecipients;
+@synthesize ReplyTo = _replyTo;
+@synthesize ConversationId = _conversationId;
+@synthesize UniqueBody = _uniqueBody;
+@synthesize DateTimeReceived = _dateTimeReceived;
+@synthesize DateTimeSent = _dateTimeSent;
+@synthesize IsDeliveryReceiptRequested = _isDeliveryReceiptRequested;
+@synthesize IsReadReceiptRequested = _isReadReceiptRequested;
+@synthesize IsDraft = _isDraft;
+@synthesize IsRead = _isRead;
+@synthesize WebLink = _webLink;
+@synthesize Attachments = _attachments;
 
 - (instancetype)init {
 
@@ -54,21 +54,172 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setSubject:(NSString *)  subject;
+{
+    _subject =  subject;
+    [self valueChanged:subject forProperty:@"Subject"];
+}
+
+ 
+- (void)setBody:(MSGraphItemBody *)  body;
+{
+    _body =  body;
+    [self valueChanged:body forProperty:@"Body"];
+}
+
+ 
+- (void)setBodyPreview:(NSString *)  bodyPreview;
+{
+    _bodyPreview =  bodyPreview;
+    [self valueChanged:bodyPreview forProperty:@"BodyPreview"];
+}
+
+
 - (void)setImportanceString:(NSString *)value {
 
 	if ([value isEqualToString:@"Low"]) {
 		
-		_Importance = MSGraph_Importance_Low;
+		_importance = MSGraph_Importance_Low;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"Normal"]) {
 		
-		_Importance = MSGraph_Importance_Normal;
+		_importance = MSGraph_Importance_Normal;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"High"]) {
 		
-		_Importance = MSGraph_Importance_High;
+		_importance = MSGraph_Importance_High;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 }
+ 
+- (void)setHasAttachments:(BOOL )  hasAttachments;
+{
+    _hasAttachments =  hasAttachments;
+    [self valueChangedForBool:hasAttachments forProperty:@"HasAttachments"];
+}
+
+ 
+- (void)setParentFolderId:(NSString *)  parentFolderId;
+{
+    _parentFolderId =  parentFolderId;
+    [self valueChanged:parentFolderId forProperty:@"ParentFolderId"];
+}
+
+ 
+- (void)setFrom:(MSGraphRecipient *)  from;
+{
+    _from =  from;
+    [self valueChanged:from forProperty:@"From"];
+}
+
+ 
+- (void)setSender:(MSGraphRecipient *)  sender;
+{
+    _sender =  sender;
+    [self valueChanged:sender forProperty:@"Sender"];
+}
+
+ 
+- (void)setToRecipients:(NSMutableArray<MSGraphRecipient> *)  toRecipients;
+{
+    _toRecipients =  toRecipients;
+    [self valueChanged:toRecipients forProperty:@"ToRecipients"];
+}
+
+ 
+- (void)setCcRecipients:(NSMutableArray<MSGraphRecipient> *)  ccRecipients;
+{
+    _ccRecipients =  ccRecipients;
+    [self valueChanged:ccRecipients forProperty:@"CcRecipients"];
+}
+
+ 
+- (void)setBccRecipients:(NSMutableArray<MSGraphRecipient> *)  bccRecipients;
+{
+    _bccRecipients =  bccRecipients;
+    [self valueChanged:bccRecipients forProperty:@"BccRecipients"];
+}
+
+ 
+- (void)setReplyTo:(NSMutableArray<MSGraphRecipient> *)  replyTo;
+{
+    _replyTo =  replyTo;
+    [self valueChanged:replyTo forProperty:@"ReplyTo"];
+}
+
+ 
+- (void)setConversationId:(NSString *)  conversationId;
+{
+    _conversationId =  conversationId;
+    [self valueChanged:conversationId forProperty:@"ConversationId"];
+}
+
+ 
+- (void)setUniqueBody:(MSGraphItemBody *)  uniqueBody;
+{
+    _uniqueBody =  uniqueBody;
+    [self valueChanged:uniqueBody forProperty:@"UniqueBody"];
+}
+
+ 
+- (void)setDateTimeReceived:(NSDate *)  dateTimeReceived;
+{
+    _dateTimeReceived =  dateTimeReceived;
+    [self valueChanged:dateTimeReceived forProperty:@"DateTimeReceived"];
+}
+
+ 
+- (void)setDateTimeSent:(NSDate *)  dateTimeSent;
+{
+    _dateTimeSent =  dateTimeSent;
+    [self valueChanged:dateTimeSent forProperty:@"DateTimeSent"];
+}
+
+ 
+- (void)setIsDeliveryReceiptRequested:(BOOL )  isDeliveryReceiptRequested;
+{
+    _isDeliveryReceiptRequested =  isDeliveryReceiptRequested;
+    [self valueChangedForBool:isDeliveryReceiptRequested forProperty:@"IsDeliveryReceiptRequested"];
+}
+
+ 
+- (void)setIsReadReceiptRequested:(BOOL )  isReadReceiptRequested;
+{
+    _isReadReceiptRequested =  isReadReceiptRequested;
+    [self valueChangedForBool:isReadReceiptRequested forProperty:@"IsReadReceiptRequested"];
+}
+
+ 
+- (void)setIsDraft:(BOOL )  isDraft;
+{
+    _isDraft =  isDraft;
+    [self valueChangedForBool:isDraft forProperty:@"IsDraft"];
+}
+
+ 
+- (void)setIsRead:(BOOL )  isRead;
+{
+    _isRead =  isRead;
+    [self valueChangedForBool:isRead forProperty:@"IsRead"];
+}
+
+ 
+- (void)setWebLink:(NSString *)  webLink;
+{
+    _webLink =  webLink;
+    [self valueChanged:webLink forProperty:@"WebLink"];
+}
+
+ 
+- (void)setAttachments:(NSMutableArray<MSGraphAttachment> *)  attachments;
+{
+    _attachments =  attachments;
+    [self valueChanged:attachments forProperty:@"Attachments"];
+}
+
 @end

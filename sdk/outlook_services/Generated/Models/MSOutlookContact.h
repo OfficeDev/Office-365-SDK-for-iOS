@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookContact : MSOutlookItem
-
 @property (retain, nonatomic, readwrite, getter=parentFolderId, setter=setParentFolderId:) NSString *ParentFolderId;
 @property (retain, nonatomic, readwrite, getter=birthday, setter=setBirthday:) NSDate *Birthday;
 @property (retain, nonatomic, readwrite, getter=fileAs, setter=setFileAs:) NSString *FileAs;

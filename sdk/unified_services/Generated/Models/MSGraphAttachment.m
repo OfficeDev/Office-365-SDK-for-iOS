@@ -21,12 +21,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphAttachment	
 
 @synthesize odataType = _odataType;
-@synthesize Id = _Id;
-@synthesize Name = _Name;
-@synthesize ContentType = _ContentType;
-@synthesize Size = _Size;
-@synthesize IsInline = _IsInline;
-@synthesize DateTimeLastModified = _DateTimeLastModified;
+@synthesize Id = _id;
+@synthesize Name = _name;
+@synthesize ContentType = _contentType;
+@synthesize Size = _size;
+@synthesize IsInline = _isInline;
+@synthesize DateTimeLastModified = _dateTimeLastModified;
 
 - (instancetype)init {
 
@@ -36,6 +36,48 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"Id"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"Name"];
+}
+
+ 
+- (void)setContentType:(NSString *)  contentType;
+{
+    _contentType =  contentType;
+    [self valueChanged:contentType forProperty:@"ContentType"];
+}
+
+ 
+- (void)setSize:(int )  size;
+{
+    _size =  size;
+    [self valueChangedForInt:size forProperty:@"Size"];
+}
+
+ 
+- (void)setIsInline:(BOOL )  isInline;
+{
+    _isInline =  isInline;
+    [self valueChangedForBool:isInline forProperty:@"IsInline"];
+}
+
+ 
+- (void)setDateTimeLastModified:(NSDate *)  dateTimeLastModified;
+{
+    _dateTimeLastModified =  dateTimeLastModified;
+    [self valueChanged:dateTimeLastModified forProperty:@"DateTimeLastModified"];
 }
 
 @end

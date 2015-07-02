@@ -22,7 +22,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @synthesize odataType = _odataType;
 @synthesize id = _id;
-@synthesize self = _self;
+@synthesize $$__self = _$$__self;
 @synthesize content = _content;
 @synthesize contentUrl = _contentUrl;
 
@@ -34,6 +34,34 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSelf:(NSString *)  $$__self;
+{
+    _$$__self =  $$__self;
+    [self valueChanged:$$__self forProperty:@"$$__self"];
+}
+
+ 
+- (void)setContent:(NSStream *)  content;
+{
+    _content =  content;
+    [self valueChanged:content forProperty:@"content"];
+}
+
+ 
+- (void)setContentUrl:(NSString *)  contentUrl;
+{
+    _contentUrl =  contentUrl;
+    [self valueChanged:contentUrl forProperty:@"contentUrl"];
 }
 
 @end

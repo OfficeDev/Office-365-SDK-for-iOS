@@ -34,7 +34,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookEvent : MSOutlookItem
-
 @property (retain, nonatomic, readwrite, getter=subject, setter=setSubject:) NSString *Subject;
 @property (retain, nonatomic, readwrite, getter=body, setter=setBody:) MSOutlookItemBody *Body;
 @property (retain, nonatomic, readwrite, getter=bodyPreview, setter=setBodyPreview:) NSString *BodyPreview;

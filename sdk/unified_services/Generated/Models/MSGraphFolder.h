@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphFolder : MSGraphItem
-
 @property (nonatomic, getter=childCount, setter=setChildCount:) int childCount;
 
 @end

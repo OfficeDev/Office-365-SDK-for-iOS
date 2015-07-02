@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookPhysicalAddress	
 
 @synthesize odataType = _odataType;
-@synthesize Street = _Street;
-@synthesize City = _City;
-@synthesize State = _State;
-@synthesize CountryOrRegion = _CountryOrRegion;
-@synthesize PostalCode = _PostalCode;
+@synthesize Street = _street;
+@synthesize City = _city;
+@synthesize State = _state;
+@synthesize CountryOrRegion = _countryOrRegion;
+@synthesize PostalCode = _postalCode;
 
 - (instancetype)init {
 
@@ -35,6 +35,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setStreet:(NSString *)  street;
+{
+    _street =  street;
+    [self valueChanged:street forProperty:@"Street"];
+}
+
+ 
+- (void)setCity:(NSString *)  city;
+{
+    _city =  city;
+    [self valueChanged:city forProperty:@"City"];
+}
+
+ 
+- (void)setState:(NSString *)  state;
+{
+    _state =  state;
+    [self valueChanged:state forProperty:@"State"];
+}
+
+ 
+- (void)setCountryOrRegion:(NSString *)  countryOrRegion;
+{
+    _countryOrRegion =  countryOrRegion;
+    [self valueChanged:countryOrRegion forProperty:@"CountryOrRegion"];
+}
+
+ 
+- (void)setPostalCode:(NSString *)  postalCode;
+{
+    _postalCode =  postalCode;
+    [self valueChanged:postalCode forProperty:@"PostalCode"];
 }
 
 

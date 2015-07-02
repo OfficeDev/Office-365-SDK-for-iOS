@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookAttendee : MSOutlookRecipient
-
 @property (retain, nonatomic, readwrite, getter=status, setter=setStatus:) MSOutlookResponseStatus *Status;
 @property  (nonatomic, getter=type, setter=setType:) MSOutlookAttendeeType Type;
 - (void)setTypeString:(NSString *)value;

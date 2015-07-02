@@ -21,33 +21,33 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSOutlookEvent	
 
 @synthesize odataType = _odataType;
-@synthesize Subject = _Subject;
-@synthesize Body = _Body;
-@synthesize BodyPreview = _BodyPreview;
-@synthesize Importance = _Importance;
-@synthesize HasAttachments = _HasAttachments;
-@synthesize Start = _Start;
-@synthesize StartTimeZone = _StartTimeZone;
-@synthesize End = _End;
-@synthesize EndTimeZone = _EndTimeZone;
-@synthesize Reminder = _Reminder;
-@synthesize Location = _Location;
-@synthesize ShowAs = _ShowAs;
-@synthesize ResponseStatus = _ResponseStatus;
-@synthesize IsAllDay = _IsAllDay;
-@synthesize IsCancelled = _IsCancelled;
-@synthesize IsOrganizer = _IsOrganizer;
-@synthesize ResponseRequested = _ResponseRequested;
-@synthesize Type = _Type;
-@synthesize SeriesMasterId = _SeriesMasterId;
-@synthesize Attendees = _Attendees;
-@synthesize Recurrence = _Recurrence;
-@synthesize Organizer = _Organizer;
+@synthesize Subject = _subject;
+@synthesize Body = _body;
+@synthesize BodyPreview = _bodyPreview;
+@synthesize Importance = _importance;
+@synthesize HasAttachments = _hasAttachments;
+@synthesize Start = _start;
+@synthesize StartTimeZone = _startTimeZone;
+@synthesize End = _end;
+@synthesize EndTimeZone = _endTimeZone;
+@synthesize Reminder = _reminder;
+@synthesize Location = _location;
+@synthesize ShowAs = _showAs;
+@synthesize ResponseStatus = _responseStatus;
+@synthesize IsAllDay = _isAllDay;
+@synthesize IsCancelled = _isCancelled;
+@synthesize IsOrganizer = _isOrganizer;
+@synthesize ResponseRequested = _responseRequested;
+@synthesize Type = _type;
+@synthesize SeriesMasterId = _seriesMasterId;
+@synthesize Attendees = _attendees;
+@synthesize Recurrence = _recurrence;
+@synthesize Organizer = _organizer;
 @synthesize iCalUId = _iCalUId;
-@synthesize WebLink = _WebLink;
-@synthesize Attachments = _Attachments;
-@synthesize Calendar = _Calendar;
-@synthesize Instances = _Instances;
+@synthesize WebLink = _webLink;
+@synthesize Attachments = _attachments;
+@synthesize Calendar = _calendar;
+@synthesize Instances = _instances;
 
 - (instancetype)init {
 
@@ -59,75 +59,259 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setSubject:(NSString *)  subject;
+{
+    _subject =  subject;
+    [self valueChanged:subject forProperty:@"Subject"];
+}
+
+ 
+- (void)setBody:(MSOutlookItemBody *)  body;
+{
+    _body =  body;
+    [self valueChanged:body forProperty:@"Body"];
+}
+
+ 
+- (void)setBodyPreview:(NSString *)  bodyPreview;
+{
+    _bodyPreview =  bodyPreview;
+    [self valueChanged:bodyPreview forProperty:@"BodyPreview"];
+}
+
+
 - (void)setImportanceString:(NSString *)value {
 
 	if ([value isEqualToString:@"Low"]) {
 		
-		_Importance = MSOutlook_Importance_Low;
+		_importance = MSOutlook_Importance_Low;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"Normal"]) {
 		
-		_Importance = MSOutlook_Importance_Normal;
+		_importance = MSOutlook_Importance_Normal;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 
 	if ([value isEqualToString:@"High"]) {
 		
-		_Importance = MSOutlook_Importance_High;
+		_importance = MSOutlook_Importance_High;
+        [self valueChanged:value forProperty:@"Importance"];
 	}
 }
+ 
+- (void)setHasAttachments:(BOOL )  hasAttachments;
+{
+    _hasAttachments =  hasAttachments;
+    [self valueChangedForBool:hasAttachments forProperty:@"HasAttachments"];
+}
+
+ 
+- (void)setStart:(NSDate *)  start;
+{
+    _start =  start;
+    [self valueChanged:start forProperty:@"Start"];
+}
+
+ 
+- (void)setStartTimeZone:(NSString *)  startTimeZone;
+{
+    _startTimeZone =  startTimeZone;
+    [self valueChanged:startTimeZone forProperty:@"StartTimeZone"];
+}
+
+ 
+- (void)setEnd:(NSDate *)  end;
+{
+    _end =  end;
+    [self valueChanged:end forProperty:@"End"];
+}
+
+ 
+- (void)setEndTimeZone:(NSString *)  endTimeZone;
+{
+    _endTimeZone =  endTimeZone;
+    [self valueChanged:endTimeZone forProperty:@"EndTimeZone"];
+}
+
+ 
+- (void)setReminder:(int )  reminder;
+{
+    _reminder =  reminder;
+    [self valueChangedForInt:reminder forProperty:@"Reminder"];
+}
+
+ 
+- (void)setLocation:(MSOutlookLocation *)  location;
+{
+    _location =  location;
+    [self valueChanged:location forProperty:@"Location"];
+}
+
+
 - (void)setShowAsString:(NSString *)value {
 
 	if ([value isEqualToString:@"Free"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_Free;
+		_showAs = MSOutlook_FreeBusyStatus_Free;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Tentative"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_Tentative;
+		_showAs = MSOutlook_FreeBusyStatus_Tentative;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Busy"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_Busy;
+		_showAs = MSOutlook_FreeBusyStatus_Busy;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Oof"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_Oof;
+		_showAs = MSOutlook_FreeBusyStatus_Oof;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"WorkingElsewhere"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_WorkingElsewhere;
+		_showAs = MSOutlook_FreeBusyStatus_WorkingElsewhere;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 
 	if ([value isEqualToString:@"Unknown"]) {
 		
-		_ShowAs = MSOutlook_FreeBusyStatus_Unknown;
+		_showAs = MSOutlook_FreeBusyStatus_Unknown;
+        [self valueChanged:value forProperty:@"ShowAs"];
 	}
 }
+ 
+- (void)setResponseStatus:(MSOutlookResponseStatus *)  responseStatus;
+{
+    _responseStatus =  responseStatus;
+    [self valueChanged:responseStatus forProperty:@"ResponseStatus"];
+}
+
+ 
+- (void)setIsAllDay:(BOOL )  isAllDay;
+{
+    _isAllDay =  isAllDay;
+    [self valueChangedForBool:isAllDay forProperty:@"IsAllDay"];
+}
+
+ 
+- (void)setIsCancelled:(BOOL )  isCancelled;
+{
+    _isCancelled =  isCancelled;
+    [self valueChangedForBool:isCancelled forProperty:@"IsCancelled"];
+}
+
+ 
+- (void)setIsOrganizer:(BOOL )  isOrganizer;
+{
+    _isOrganizer =  isOrganizer;
+    [self valueChangedForBool:isOrganizer forProperty:@"IsOrganizer"];
+}
+
+ 
+- (void)setResponseRequested:(BOOL )  responseRequested;
+{
+    _responseRequested =  responseRequested;
+    [self valueChangedForBool:responseRequested forProperty:@"ResponseRequested"];
+}
+
+
 - (void)setTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"SingleInstance"]) {
 		
-		_Type = MSOutlook_EventType_SingleInstance;
+		_type = MSOutlook_EventType_SingleInstance;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Occurrence"]) {
 		
-		_Type = MSOutlook_EventType_Occurrence;
+		_type = MSOutlook_EventType_Occurrence;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Exception"]) {
 		
-		_Type = MSOutlook_EventType_Exception;
+		_type = MSOutlook_EventType_Exception;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"SeriesMaster"]) {
 		
-		_Type = MSOutlook_EventType_SeriesMaster;
+		_type = MSOutlook_EventType_SeriesMaster;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 }
+ 
+- (void)setSeriesMasterId:(NSString *)  seriesMasterId;
+{
+    _seriesMasterId =  seriesMasterId;
+    [self valueChanged:seriesMasterId forProperty:@"SeriesMasterId"];
+}
+
+ 
+- (void)setAttendees:(NSMutableArray<MSOutlookAttendee> *)  attendees;
+{
+    _attendees =  attendees;
+    [self valueChanged:attendees forProperty:@"Attendees"];
+}
+
+ 
+- (void)setRecurrence:(MSOutlookPatternedRecurrence *)  recurrence;
+{
+    _recurrence =  recurrence;
+    [self valueChanged:recurrence forProperty:@"Recurrence"];
+}
+
+ 
+- (void)setOrganizer:(MSOutlookRecipient *)  organizer;
+{
+    _organizer =  organizer;
+    [self valueChanged:organizer forProperty:@"Organizer"];
+}
+
+ 
+- (void)setICalUId:(NSString *)  iCalUId;
+{
+    _iCalUId =  iCalUId;
+    [self valueChanged:iCalUId forProperty:@"iCalUId"];
+}
+
+ 
+- (void)setWebLink:(NSString *)  webLink;
+{
+    _webLink =  webLink;
+    [self valueChanged:webLink forProperty:@"WebLink"];
+}
+
+ 
+- (void)setAttachments:(NSMutableArray<MSOutlookAttachment> *)  attachments;
+{
+    _attachments =  attachments;
+    [self valueChanged:attachments forProperty:@"Attachments"];
+}
+
+ 
+- (void)setCalendar:(MSOutlookCalendar *)  calendar;
+{
+    _calendar =  calendar;
+    [self valueChanged:calendar forProperty:@"Calendar"];
+}
+
+ 
+- (void)setInstances:(NSMutableArray<MSOutlookEvent> *)  instances;
+{
+    _instances =  instances;
+    [self valueChanged:instances forProperty:@"Instances"];
+}
+
 @end

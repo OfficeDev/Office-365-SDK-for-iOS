@@ -38,7 +38,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphUser : MSGraphDirectoryObject
-
 @property (nonatomic, getter=accountEnabled, setter=setAccountEnabled:) BOOL accountEnabled;
 @property (retain, nonatomic, readwrite, getter=assignedLicenses, setter=setAssignedLicenses:) NSMutableArray<MSGraphAssignedLicense> *assignedLicenses;
 @property (retain, nonatomic, readwrite, getter=assignedPlans, setter=setAssignedPlans:) NSMutableArray<MSGraphAssignedPlan> *assignedPlans;

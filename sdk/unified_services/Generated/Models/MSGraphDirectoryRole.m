@@ -41,4 +41,67 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDescription:(NSString *)  $$__description;
+{
+    _$$__description =  $$__description;
+    [self valueChanged:$$__description forProperty:@"$$__description"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setIsSystem:(BOOL )  isSystem;
+{
+    _isSystem =  isSystem;
+    [self valueChangedForBool:isSystem forProperty:@"isSystem"];
+}
+
+ 
+- (void)setRoleDisabled:(BOOL )  roleDisabled;
+{
+    _roleDisabled =  roleDisabled;
+    [self valueChangedForBool:roleDisabled forProperty:@"roleDisabled"];
+}
+
+ 
+- (void)setRoleTemplateId:(NSString *)  roleTemplateId;
+{
+    _roleTemplateId =  roleTemplateId;
+    [self valueChanged:roleTemplateId forProperty:@"roleTemplateId"];
+}
+
+ 
+- (void)setMembers:(NSMutableArray<MSGraphDirectoryObject> *)  members;
+{
+    _members =  members;
+    [self valueChanged:members forProperty:@"members"];
+}
+
+ 
+- (void)setMemberOf:(NSMutableArray<MSGraphDirectoryObject> *)  memberOf;
+{
+    _memberOf =  memberOf;
+    [self valueChanged:memberOf forProperty:@"memberOf"];
+}
+
+ 
+- (void)setOwners:(NSMutableArray<MSGraphDirectoryObject> *)  owners;
+{
+    _owners =  owners;
+    [self valueChanged:owners forProperty:@"owners"];
+}
+
+ 
+- (void)setOwnedObjects:(NSMutableArray<MSGraphDirectoryObject> *)  ownedObjects;
+{
+    _ownedObjects =  ownedObjects;
+    [self valueChanged:ownedObjects forProperty:@"ownedObjects"];
+}
+
 @end

@@ -34,4 +34,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDescription:(NSString *)  $$__description;
+{
+    _$$__description =  $$__description;
+    [self valueChanged:$$__description forProperty:@"$$__description"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
 @end

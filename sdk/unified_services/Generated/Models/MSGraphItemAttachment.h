@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphItemAttachment : MSGraphAttachment
-
 @property (retain, nonatomic, readwrite, getter=item, setter=setItem:) MSGraphOutlookItem *Item;
 
 @end
