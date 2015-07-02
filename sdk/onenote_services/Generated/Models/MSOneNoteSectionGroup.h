@@ -35,7 +35,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *$$__self;
 @property (retain, nonatomic, readwrite, getter=createdTime, setter=setCreatedTime:) NSDate *createdTime;
 @property (retain, nonatomic, readwrite, getter=parentNotebook, setter=setParentNotebook:) MSOneNoteNotebook *parentNotebook;
-@property (retain, nonatomic, readwrite, getter=parentSectionGroup, setter=setParentSectionGroup:) MSOneNoteSectionGroup *parentSectionGroup;
+//@property (retain, nonatomic, readwrite, getter=parentSectionGroup, setter=setParentSectionGroup:) MSOneNoteSectionGroup *parentSectionGroup;
 @property (retain, nonatomic, readwrite, getter=sections, setter=setSections:) NSMutableArray<MSOneNoteSection> *sections;
 @property (retain, nonatomic, readwrite, getter=sectionGroups, setter=setSectionGroups:) NSMutableArray<MSOneNoteSectionGroup> *sectionGroups;
 

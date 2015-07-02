@@ -70,7 +70,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 - (MSOneNotePageCollectionFetcher *)pages {
 
-    return [[MSOneNotePageCollectionFetcher alloc] initWithUrl:@"pages" parent:self asClass:[MSOneNotePage class]];
+    return [[MSOrcMultipartCollectionFetcher alloc] initWithUrl:@"pages" parent:self asClass:[MSOneNotePage class]];
 }
 
 - (MSOneNotePageFetcher *)getPagesById:(NSString *)id {

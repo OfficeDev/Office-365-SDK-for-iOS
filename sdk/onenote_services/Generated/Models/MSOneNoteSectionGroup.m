@@ -31,7 +31,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize $$__self = _$$__self;
 @synthesize createdTime = _createdTime;
 @synthesize parentNotebook = _parentNotebook;
-@synthesize parentSectionGroup = _parentSectionGroup;
+//@synthesize parentSectionGroup = _parentSectionGroup;
 @synthesize sections = _sections;
 @synthesize sectionGroups = _sectionGroups;
 
@@ -116,11 +116,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 }
 
  
-- (void)setParentSectionGroup:(MSOneNoteSectionGroup *)  parentSectionGroup;
+/*- (void)setParentSectionGroup:(MSOneNoteSectionGroup *)  parentSectionGroup;
 {
     _parentSectionGroup =  parentSectionGroup;
     [self valueChanged:parentSectionGroup forProperty:@"parentSectionGroup"];
-}
+}*/
 
  
 - (void)setSections:(NSMutableArray<MSOneNoteSection> *)  sections;
