@@ -32,7 +32,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize lastModifiedBy = _lastModifiedBy;
 @synthesize lastModifiedTime = _lastModifiedTime;
 @synthesize id = _id;
-@synthesize self = _self;
+@synthesize $$__self = _$$__self;
 @synthesize createdTime = _createdTime;
 @synthesize sections = _sections;
 @synthesize sectionGroups = _sectionGroups;
@@ -145,10 +145,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 }
 
  
-- (void)setSelf:(NSString *)  self;
+- (void)setSelf:(NSString *)  $$__self;
 {
-    _self =  self;
-    [self valueChanged:self forProperty:@"self"];
+    _$$__self =  $$__self;
+    [self valueChanged:$$__self forProperty:@"$$__self"];
 }
 
  

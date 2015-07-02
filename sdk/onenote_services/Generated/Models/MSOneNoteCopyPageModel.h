@@ -33,7 +33,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @property (retain, nonatomic, readwrite, getter=contentUrl, setter=setContentUrl:) NSString *contentUrl;
 @property (retain, nonatomic, readwrite, getter=lastModifiedTime, setter=setLastModifiedTime:) NSDate *lastModifiedTime;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
-@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *self;
+@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *$$__self;
 @property (retain, nonatomic, readwrite, getter=createdTime, setter=setCreatedTime:) NSDate *createdTime;
 
 @end

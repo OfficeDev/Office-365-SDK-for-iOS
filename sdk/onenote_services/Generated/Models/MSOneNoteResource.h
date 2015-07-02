@@ -24,7 +24,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 @interface MSOneNoteResource : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
-@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *self;
+@property (retain, nonatomic, readwrite, getter=self, setter=setSelf:) NSString *$$__self;
 @property (retain, nonatomic, readwrite, getter=content, setter=setContent:) NSStream *content;
 @property (retain, nonatomic, readwrite, getter=contentUrl, setter=setContentUrl:) NSString *contentUrl;
 
