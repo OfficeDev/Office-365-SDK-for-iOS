@@ -553,10 +553,10 @@
             
             NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.subject];
             
-            [[[[_weakSelf.client.me.folders getById: @"Drafts"].messages filter:filter] expand:@"Attachments"] readWithCallback:^(NSArray<MSOutlookMessage> *expandedMessages, MSOrcError *error) {
+            [[[_weakSelf.client.me.messages filter:filter] expand:@"Attachments"] readWithCallback:^(NSArray<MSOutlookMessage> *expandedMessages, MSOrcError *error) {
                 //Get message without expand
                 
-                [[[_weakSelf.client.me.folders getById: @"Drafts" ].messages filter:filter] readWithCallback:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSOrcError *error) {
+                [[_weakSelf.client.me.messages filter:filter] readWithCallback:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSOrcError *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -1078,7 +1078,7 @@
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
         NSString *updatedSubject = @"My Updated Subject";
-        newMessage.Subject = updatedSubject;
+        addedMessage.Subject = updatedSubject;
         
         //Update message
         [[_weakSelf.client.me.messages getById:addedMessage.id] update:newMessage callback:^(MSOutlookMessage *updatedMessage, MSOrcError *error) {
