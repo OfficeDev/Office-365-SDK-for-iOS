@@ -39,4 +39,53 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCreationTimestamp:(NSDate *)  creationTimestamp;
+{
+    _creationTimestamp =  creationTimestamp;
+    [self valueChanged:creationTimestamp forProperty:@"creationTimestamp"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setPrincipalDisplayName:(NSString *)  principalDisplayName;
+{
+    _principalDisplayName =  principalDisplayName;
+    [self valueChanged:principalDisplayName forProperty:@"principalDisplayName"];
+}
+
+ 
+- (void)setPrincipalId:(NSString *)  principalId;
+{
+    _principalId =  principalId;
+    [self valueChanged:principalId forProperty:@"principalId"];
+}
+
+ 
+- (void)setPrincipalType:(NSString *)  principalType;
+{
+    _principalType =  principalType;
+    [self valueChanged:principalType forProperty:@"principalType"];
+}
+
+ 
+- (void)setResourceDisplayName:(NSString *)  resourceDisplayName;
+{
+    _resourceDisplayName =  resourceDisplayName;
+    [self valueChanged:resourceDisplayName forProperty:@"resourceDisplayName"];
+}
+
+ 
+- (void)setResourceId:(NSString *)  resourceId;
+{
+    _resourceId =  resourceId;
+    [self valueChanged:resourceId forProperty:@"resourceId"];
+}
+
 @end

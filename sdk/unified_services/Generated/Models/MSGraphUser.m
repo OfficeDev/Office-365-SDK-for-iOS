@@ -56,20 +56,20 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize usageLocation = _usageLocation;
 @synthesize userPrincipalName = _userPrincipalName;
 @synthesize userType = _userType;
-@synthesize MailboxGuid = _MailboxGuid;
-@synthesize AboutMe = _AboutMe;
-@synthesize Alias = _Alias;
-@synthesize Birthday = _Birthday;
-@synthesize HireDate = _HireDate;
-@synthesize Interests = _Interests;
-@synthesize MySite = _MySite;
-@synthesize PastProjects = _PastProjects;
-@synthesize PreferredName = _PreferredName;
-@synthesize PrincipalName = _PrincipalName;
-@synthesize Responsibilities = _Responsibilities;
-@synthesize Schools = _Schools;
-@synthesize Skills = _Skills;
-@synthesize Tags = _Tags;
+@synthesize MailboxGuid = _mailboxGuid;
+@synthesize AboutMe = _aboutMe;
+@synthesize Alias = _alias;
+@synthesize Birthday = _birthday;
+@synthesize HireDate = _hireDate;
+@synthesize Interests = _interests;
+@synthesize MySite = _mySite;
+@synthesize PastProjects = _pastProjects;
+@synthesize PreferredName = _preferredName;
+@synthesize PrincipalName = _principalName;
+@synthesize Responsibilities = _responsibilities;
+@synthesize Schools = _schools;
+@synthesize Skills = _skills;
+@synthesize Tags = _tags;
 @synthesize appRoleAssignments = _appRoleAssignments;
 @synthesize oauth2PermissionGrants = _oauth2PermissionGrants;
 @synthesize ownedDevices = _ownedDevices;
@@ -79,14 +79,14 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize memberOf = _memberOf;
 @synthesize createdObjects = _createdObjects;
 @synthesize ownedObjects = _ownedObjects;
-@synthesize Messages = _Messages;
-@synthesize Calendars = _Calendars;
-@synthesize Calendar = _Calendar;
-@synthesize CalendarGroups = _CalendarGroups;
-@synthesize Events = _Events;
-@synthesize CalendarView = _CalendarView;
-@synthesize UserPhoto = _UserPhoto;
-@synthesize UserPhotos = _UserPhotos;
+@synthesize Messages = _messages;
+@synthesize Calendars = _calendars;
+@synthesize Calendar = _calendar;
+@synthesize CalendarGroups = _calendarGroups;
+@synthesize Events = _events;
+@synthesize CalendarView = _calendarView;
+@synthesize UserPhoto = _userPhoto;
+@synthesize UserPhotos = _userPhotos;
 @synthesize drive = _drive;
 @synthesize files = _files;
 
@@ -98,6 +98,482 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setAccountEnabled:(BOOL )  accountEnabled;
+{
+    _accountEnabled =  accountEnabled;
+    [self valueChangedForBool:accountEnabled forProperty:@"accountEnabled"];
+}
+
+ 
+- (void)setAssignedLicenses:(NSMutableArray<MSGraphAssignedLicense> *)  assignedLicenses;
+{
+    _assignedLicenses =  assignedLicenses;
+    [self valueChanged:assignedLicenses forProperty:@"assignedLicenses"];
+}
+
+ 
+- (void)setAssignedPlans:(NSMutableArray<MSGraphAssignedPlan> *)  assignedPlans;
+{
+    _assignedPlans =  assignedPlans;
+    [self valueChanged:assignedPlans forProperty:@"assignedPlans"];
+}
+
+ 
+- (void)setCity:(NSString *)  city;
+{
+    _city =  city;
+    [self valueChanged:city forProperty:@"city"];
+}
+
+ 
+- (void)setCountry:(NSString *)  country;
+{
+    _country =  country;
+    [self valueChanged:country forProperty:@"country"];
+}
+
+ 
+- (void)setDepartment:(NSString *)  department;
+{
+    _department =  department;
+    [self valueChanged:department forProperty:@"department"];
+}
+
+ 
+- (void)setDirSyncEnabled:(BOOL )  dirSyncEnabled;
+{
+    _dirSyncEnabled =  dirSyncEnabled;
+    [self valueChangedForBool:dirSyncEnabled forProperty:@"dirSyncEnabled"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setFacsimileTelephoneNumber:(NSString *)  facsimileTelephoneNumber;
+{
+    _facsimileTelephoneNumber =  facsimileTelephoneNumber;
+    [self valueChanged:facsimileTelephoneNumber forProperty:@"facsimileTelephoneNumber"];
+}
+
+ 
+- (void)setGivenName:(NSString *)  givenName;
+{
+    _givenName =  givenName;
+    [self valueChanged:givenName forProperty:@"givenName"];
+}
+
+ 
+- (void)setImmutableId:(NSString *)  immutableId;
+{
+    _immutableId =  immutableId;
+    [self valueChanged:immutableId forProperty:@"immutableId"];
+}
+
+ 
+- (void)setJobTitle:(NSString *)  jobTitle;
+{
+    _jobTitle =  jobTitle;
+    [self valueChanged:jobTitle forProperty:@"jobTitle"];
+}
+
+ 
+- (void)setLastDirSyncTime:(NSDate *)  lastDirSyncTime;
+{
+    _lastDirSyncTime =  lastDirSyncTime;
+    [self valueChanged:lastDirSyncTime forProperty:@"lastDirSyncTime"];
+}
+
+ 
+- (void)setMail:(NSString *)  mail;
+{
+    _mail =  mail;
+    [self valueChanged:mail forProperty:@"mail"];
+}
+
+ 
+- (void)setMailNickname:(NSString *)  mailNickname;
+{
+    _mailNickname =  mailNickname;
+    [self valueChanged:mailNickname forProperty:@"mailNickname"];
+}
+
+ 
+- (void)setMobile:(NSString *)  mobile;
+{
+    _mobile =  mobile;
+    [self valueChanged:mobile forProperty:@"mobile"];
+}
+
+ 
+- (void)setOnPremisesSecurityIdentifier:(NSString *)  onPremisesSecurityIdentifier;
+{
+    _onPremisesSecurityIdentifier =  onPremisesSecurityIdentifier;
+    [self valueChanged:onPremisesSecurityIdentifier forProperty:@"onPremisesSecurityIdentifier"];
+}
+
+ 
+- (void)setOtherMails:(NSMutableArray *)  otherMails;
+{
+    _otherMails =  otherMails;
+    [self valueChanged:otherMails forProperty:@"otherMails"];
+}
+
+ 
+- (void)setPasswordPolicies:(NSString *)  passwordPolicies;
+{
+    _passwordPolicies =  passwordPolicies;
+    [self valueChanged:passwordPolicies forProperty:@"passwordPolicies"];
+}
+
+ 
+- (void)setPasswordProfile:(MSGraphPasswordProfile *)  passwordProfile;
+{
+    _passwordProfile =  passwordProfile;
+    [self valueChanged:passwordProfile forProperty:@"passwordProfile"];
+}
+
+ 
+- (void)setPhysicalDeliveryOfficeName:(NSString *)  physicalDeliveryOfficeName;
+{
+    _physicalDeliveryOfficeName =  physicalDeliveryOfficeName;
+    [self valueChanged:physicalDeliveryOfficeName forProperty:@"physicalDeliveryOfficeName"];
+}
+
+ 
+- (void)setPostalCode:(NSString *)  postalCode;
+{
+    _postalCode =  postalCode;
+    [self valueChanged:postalCode forProperty:@"postalCode"];
+}
+
+ 
+- (void)setPreferredLanguage:(NSString *)  preferredLanguage;
+{
+    _preferredLanguage =  preferredLanguage;
+    [self valueChanged:preferredLanguage forProperty:@"preferredLanguage"];
+}
+
+ 
+- (void)setProvisionedPlans:(NSMutableArray<MSGraphProvisionedPlan> *)  provisionedPlans;
+{
+    _provisionedPlans =  provisionedPlans;
+    [self valueChanged:provisionedPlans forProperty:@"provisionedPlans"];
+}
+
+ 
+- (void)setProvisioningErrors:(NSMutableArray<MSGraphProvisioningError> *)  provisioningErrors;
+{
+    _provisioningErrors =  provisioningErrors;
+    [self valueChanged:provisioningErrors forProperty:@"provisioningErrors"];
+}
+
+ 
+- (void)setProxyAddresses:(NSMutableArray *)  proxyAddresses;
+{
+    _proxyAddresses =  proxyAddresses;
+    [self valueChanged:proxyAddresses forProperty:@"proxyAddresses"];
+}
+
+ 
+- (void)setSipProxyAddress:(NSString *)  sipProxyAddress;
+{
+    _sipProxyAddress =  sipProxyAddress;
+    [self valueChanged:sipProxyAddress forProperty:@"sipProxyAddress"];
+}
+
+ 
+- (void)setState:(NSString *)  state;
+{
+    _state =  state;
+    [self valueChanged:state forProperty:@"state"];
+}
+
+ 
+- (void)setStreetAddress:(NSString *)  streetAddress;
+{
+    _streetAddress =  streetAddress;
+    [self valueChanged:streetAddress forProperty:@"streetAddress"];
+}
+
+ 
+- (void)setSurname:(NSString *)  surname;
+{
+    _surname =  surname;
+    [self valueChanged:surname forProperty:@"surname"];
+}
+
+ 
+- (void)setTelephoneNumber:(NSString *)  telephoneNumber;
+{
+    _telephoneNumber =  telephoneNumber;
+    [self valueChanged:telephoneNumber forProperty:@"telephoneNumber"];
+}
+
+ 
+- (void)setThumbnailPhoto:(NSStream *)  thumbnailPhoto;
+{
+    _thumbnailPhoto =  thumbnailPhoto;
+    [self valueChanged:thumbnailPhoto forProperty:@"thumbnailPhoto"];
+}
+
+ 
+- (void)setUsageLocation:(NSString *)  usageLocation;
+{
+    _usageLocation =  usageLocation;
+    [self valueChanged:usageLocation forProperty:@"usageLocation"];
+}
+
+ 
+- (void)setUserPrincipalName:(NSString *)  userPrincipalName;
+{
+    _userPrincipalName =  userPrincipalName;
+    [self valueChanged:userPrincipalName forProperty:@"userPrincipalName"];
+}
+
+ 
+- (void)setUserType:(NSString *)  userType;
+{
+    _userType =  userType;
+    [self valueChanged:userType forProperty:@"userType"];
+}
+
+ 
+- (void)setMailboxGuid:(NSString *)  mailboxGuid;
+{
+    _mailboxGuid =  mailboxGuid;
+    [self valueChanged:mailboxGuid forProperty:@"MailboxGuid"];
+}
+
+ 
+- (void)setAboutMe:(NSString *)  aboutMe;
+{
+    _aboutMe =  aboutMe;
+    [self valueChanged:aboutMe forProperty:@"AboutMe"];
+}
+
+ 
+- (void)setAlias:(NSString *)  alias;
+{
+    _alias =  alias;
+    [self valueChanged:alias forProperty:@"Alias"];
+}
+
+ 
+- (void)setBirthday:(NSDate *)  birthday;
+{
+    _birthday =  birthday;
+    [self valueChanged:birthday forProperty:@"Birthday"];
+}
+
+ 
+- (void)setHireDate:(NSDate *)  hireDate;
+{
+    _hireDate =  hireDate;
+    [self valueChanged:hireDate forProperty:@"HireDate"];
+}
+
+ 
+- (void)setInterests:(NSMutableArray *)  interests;
+{
+    _interests =  interests;
+    [self valueChanged:interests forProperty:@"Interests"];
+}
+
+ 
+- (void)setMySite:(NSString *)  mySite;
+{
+    _mySite =  mySite;
+    [self valueChanged:mySite forProperty:@"MySite"];
+}
+
+ 
+- (void)setPastProjects:(NSMutableArray *)  pastProjects;
+{
+    _pastProjects =  pastProjects;
+    [self valueChanged:pastProjects forProperty:@"PastProjects"];
+}
+
+ 
+- (void)setPreferredName:(NSString *)  preferredName;
+{
+    _preferredName =  preferredName;
+    [self valueChanged:preferredName forProperty:@"PreferredName"];
+}
+
+ 
+- (void)setPrincipalName:(NSString *)  principalName;
+{
+    _principalName =  principalName;
+    [self valueChanged:principalName forProperty:@"PrincipalName"];
+}
+
+ 
+- (void)setResponsibilities:(NSMutableArray *)  responsibilities;
+{
+    _responsibilities =  responsibilities;
+    [self valueChanged:responsibilities forProperty:@"Responsibilities"];
+}
+
+ 
+- (void)setSchools:(NSMutableArray *)  schools;
+{
+    _schools =  schools;
+    [self valueChanged:schools forProperty:@"Schools"];
+}
+
+ 
+- (void)setSkills:(NSMutableArray *)  skills;
+{
+    _skills =  skills;
+    [self valueChanged:skills forProperty:@"Skills"];
+}
+
+ 
+- (void)setTags:(NSMutableArray *)  tags;
+{
+    _tags =  tags;
+    [self valueChanged:tags forProperty:@"Tags"];
+}
+
+ 
+- (void)setAppRoleAssignments:(NSMutableArray<MSGraphAppRoleAssignment> *)  appRoleAssignments;
+{
+    _appRoleAssignments =  appRoleAssignments;
+    [self valueChanged:appRoleAssignments forProperty:@"appRoleAssignments"];
+}
+
+ 
+- (void)setOauth2PermissionGrants:(NSMutableArray<MSGraphOAuth2PermissionGrant> *)  oauth2PermissionGrants;
+{
+    _oauth2PermissionGrants =  oauth2PermissionGrants;
+    [self valueChanged:oauth2PermissionGrants forProperty:@"oauth2PermissionGrants"];
+}
+
+ 
+- (void)setOwnedDevices:(NSMutableArray<MSGraphDirectoryObject> *)  ownedDevices;
+{
+    _ownedDevices =  ownedDevices;
+    [self valueChanged:ownedDevices forProperty:@"ownedDevices"];
+}
+
+ 
+- (void)setRegisteredDevices:(NSMutableArray<MSGraphDirectoryObject> *)  registeredDevices;
+{
+    _registeredDevices =  registeredDevices;
+    [self valueChanged:registeredDevices forProperty:@"registeredDevices"];
+}
+
+ 
+- (void)setManager:(MSGraphDirectoryObject *)  manager;
+{
+    _manager =  manager;
+    [self valueChanged:manager forProperty:@"manager"];
+}
+
+ 
+- (void)setDirectReports:(NSMutableArray<MSGraphDirectoryObject> *)  directReports;
+{
+    _directReports =  directReports;
+    [self valueChanged:directReports forProperty:@"directReports"];
+}
+
+ 
+- (void)setMemberOf:(NSMutableArray<MSGraphDirectoryObject> *)  memberOf;
+{
+    _memberOf =  memberOf;
+    [self valueChanged:memberOf forProperty:@"memberOf"];
+}
+
+ 
+- (void)setCreatedObjects:(NSMutableArray<MSGraphDirectoryObject> *)  createdObjects;
+{
+    _createdObjects =  createdObjects;
+    [self valueChanged:createdObjects forProperty:@"createdObjects"];
+}
+
+ 
+- (void)setOwnedObjects:(NSMutableArray<MSGraphDirectoryObject> *)  ownedObjects;
+{
+    _ownedObjects =  ownedObjects;
+    [self valueChanged:ownedObjects forProperty:@"ownedObjects"];
+}
+
+ 
+- (void)setMessages:(NSMutableArray<MSGraphMessage> *)  messages;
+{
+    _messages =  messages;
+    [self valueChanged:messages forProperty:@"Messages"];
+}
+
+ 
+- (void)setCalendars:(NSMutableArray<MSGraphCalendar> *)  calendars;
+{
+    _calendars =  calendars;
+    [self valueChanged:calendars forProperty:@"Calendars"];
+}
+
+ 
+- (void)setCalendar:(MSGraphCalendar *)  calendar;
+{
+    _calendar =  calendar;
+    [self valueChanged:calendar forProperty:@"Calendar"];
+}
+
+ 
+- (void)setCalendarGroups:(NSMutableArray<MSGraphCalendarGroup> *)  calendarGroups;
+{
+    _calendarGroups =  calendarGroups;
+    [self valueChanged:calendarGroups forProperty:@"CalendarGroups"];
+}
+
+ 
+- (void)setEvents:(NSMutableArray<MSGraphEvent> *)  events;
+{
+    _events =  events;
+    [self valueChanged:events forProperty:@"Events"];
+}
+
+ 
+- (void)setCalendarView:(NSMutableArray<MSGraphEvent> *)  calendarView;
+{
+    _calendarView =  calendarView;
+    [self valueChanged:calendarView forProperty:@"CalendarView"];
+}
+
+ 
+- (void)setUserPhoto:(MSGraphPhoto *)  userPhoto;
+{
+    _userPhoto =  userPhoto;
+    [self valueChanged:userPhoto forProperty:@"UserPhoto"];
+}
+
+ 
+- (void)setUserPhotos:(NSMutableArray<MSGraphPhoto> *)  userPhotos;
+{
+    _userPhotos =  userPhotos;
+    [self valueChanged:userPhotos forProperty:@"UserPhotos"];
+}
+
+ 
+- (void)setDrive:(MSGraphDrive *)  drive;
+{
+    _drive =  drive;
+    [self valueChanged:drive forProperty:@"drive"];
+}
+
+ 
+- (void)setFiles:(NSMutableArray<MSGraphItem> *)  files;
+{
+    _files =  files;
+    [self valueChanged:files forProperty:@"files"];
 }
 
 @end

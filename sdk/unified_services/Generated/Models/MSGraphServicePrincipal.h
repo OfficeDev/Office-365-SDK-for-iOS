@@ -29,7 +29,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphServicePrincipal : MSGraphDirectoryObject
-
 @property (nonatomic, getter=accountEnabled, setter=setAccountEnabled:) BOOL accountEnabled;
 @property (retain, nonatomic, readwrite, getter=appDisplayName, setter=setAppDisplayName:) NSString *appDisplayName;
 @property (retain, nonatomic, readwrite, getter=appId, setter=setAppId:) NSString *appId;

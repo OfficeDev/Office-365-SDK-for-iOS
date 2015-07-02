@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Photo.
 */
 
-@interface MSGraphPhoto : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphPhoto : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *Id;
 @property (nonatomic, getter=width, setter=setWidth:) int Width;
 @property (nonatomic, getter=height, setter=setHeight:) int Height;

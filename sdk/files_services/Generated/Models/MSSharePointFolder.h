@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSSharePointFolder : MSSharePointItem
-
 @property (nonatomic, getter=childCount, setter=setChildCount:) int childCount;
 @property (retain, nonatomic, readwrite, getter=children, setter=setChildren:) NSMutableArray<MSSharePointItem> *children;
 

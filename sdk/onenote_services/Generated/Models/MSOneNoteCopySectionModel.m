@@ -41,5 +41,68 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setIsDefault:(BOOL )  isDefault;
+{
+    _isDefault =  isDefault;
+    [self valueChangedForBool:isDefault forProperty:@"isDefault"];
+}
+
+ 
+- (void)setPagesUrl:(NSString *)  pagesUrl;
+{
+    _pagesUrl =  pagesUrl;
+    [self valueChanged:pagesUrl forProperty:@"pagesUrl"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"name"];
+}
+
+ 
+- (void)setCreatedBy:(NSString *)  createdBy;
+{
+    _createdBy =  createdBy;
+    [self valueChanged:createdBy forProperty:@"createdBy"];
+}
+
+ 
+- (void)setLastModifiedBy:(NSString *)  lastModifiedBy;
+{
+    _lastModifiedBy =  lastModifiedBy;
+    [self valueChanged:lastModifiedBy forProperty:@"lastModifiedBy"];
+}
+
+ 
+- (void)setLastModifiedTime:(NSDate *)  lastModifiedTime;
+{
+    _lastModifiedTime =  lastModifiedTime;
+    [self valueChanged:lastModifiedTime forProperty:@"lastModifiedTime"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSelf:(NSString *)  self;
+{
+    _self =  self;
+    [self valueChanged:self forProperty:@"self"];
+}
+
+ 
+- (void)setCreatedTime:(NSDate *)  createdTime;
+{
+    _createdTime =  createdTime;
+    [self valueChanged:createdTime forProperty:@"createdTime"];
+}
+
 
 @end

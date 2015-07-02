@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type MyOrganization.
 */
 
-@interface MSOneNoteMyOrganization : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteMyOrganization : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
 @property (retain, nonatomic, readwrite, getter=siteCollections, setter=setSiteCollections:) NSMutableArray<MSOneNoteSiteCollection> *siteCollections;
 

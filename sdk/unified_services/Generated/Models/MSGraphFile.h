@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphFile : MSGraphItem
-
 @property (retain, nonatomic, readwrite, getter=contentUrl, setter=setContentUrl:) NSString *contentUrl;
 @property (retain, nonatomic, readwrite, getter=image, setter=setImage:) MSGraphImageFacet *image;
 

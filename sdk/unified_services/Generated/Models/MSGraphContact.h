@@ -25,7 +25,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphContact : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=city, setter=setCity:) NSString *city;
 @property (retain, nonatomic, readwrite, getter=country, setter=setCountry:) NSString *country;
 @property (retain, nonatomic, readwrite, getter=department, setter=setDepartment:) NSString *department;

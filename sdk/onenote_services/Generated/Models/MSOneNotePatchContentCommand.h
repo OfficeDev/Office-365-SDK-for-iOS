@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSOneNoteProtocols.h"
 #import "MSOneNotePatchActionType.h"
 #import "MSOneNotePatchInsertPosition.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type PatchContentCommand.
 */
 
-@interface MSOneNotePatchContentCommand : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNotePatchContentCommand : MSOrcBaseEntity
 @property  (nonatomic, getter=action, setter=setAction:) MSOneNotePatchActionType action;
 - (void)setactionString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=target, setter=setTarget:) NSString *target;

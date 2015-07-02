@@ -19,15 +19,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
 #import "MSOneNoteUserRole.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Notebook.
 */
 
-@interface MSOneNoteNotebook : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteNotebook : MSOrcBaseEntity
 @property (nonatomic, getter=isDefault, setter=setIsDefault:) BOOL isDefault;
 @property  (nonatomic, getter=userRole, setter=setUserRole:) MSOneNoteUserRole userRole;
 - (void)setuserRoleString:(NSString *)value;

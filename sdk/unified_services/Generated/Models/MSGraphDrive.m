@@ -35,4 +35,25 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setOwner:(MSGraphIdentity *)  owner;
+{
+    _owner =  owner;
+    [self valueChanged:owner forProperty:@"owner"];
+}
+
+ 
+- (void)setQuota:(MSGraphDriveQuota *)  quota;
+{
+    _quota =  quota;
+    [self valueChanged:quota forProperty:@"quota"];
+}
+
 @end

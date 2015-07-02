@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphEventMessage : MSGraphMessage
-
 @property  (nonatomic, getter=meetingMessageType, setter=setMeetingMessageType:) MSGraphMeetingMessageType MeetingMessageType;
 - (void)setMeetingMessageTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=event, setter=setEvent:) MSGraphEvent *Event;

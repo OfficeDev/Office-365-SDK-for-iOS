@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setApplication:(MSGraphIdentity *)  application;
+{
+    _application =  application;
+    [self valueChanged:application forProperty:@"application"];
+}
+
+ 
+- (void)setUser:(MSGraphIdentity *)  user;
+{
+    _user =  user;
+    [self valueChanged:user forProperty:@"user"];
+}
+
 
 @end

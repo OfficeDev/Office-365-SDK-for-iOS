@@ -47,4 +47,109 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAccountEnabled:(BOOL )  accountEnabled;
+{
+    _accountEnabled =  accountEnabled;
+    [self valueChangedForBool:accountEnabled forProperty:@"accountEnabled"];
+}
+
+ 
+- (void)setAlternativeSecurityIds:(NSMutableArray<MSGraphAlternativeSecurityId> *)  alternativeSecurityIds;
+{
+    _alternativeSecurityIds =  alternativeSecurityIds;
+    [self valueChanged:alternativeSecurityIds forProperty:@"alternativeSecurityIds"];
+}
+
+ 
+- (void)setApproximateLastLogonTimestamp:(NSDate *)  approximateLastLogonTimestamp;
+{
+    _approximateLastLogonTimestamp =  approximateLastLogonTimestamp;
+    [self valueChanged:approximateLastLogonTimestamp forProperty:@"approximateLastLogonTimestamp"];
+}
+
+ 
+- (void)setDeviceId:(NSString *)  deviceId;
+{
+    _deviceId =  deviceId;
+    [self valueChanged:deviceId forProperty:@"deviceId"];
+}
+
+ 
+- (void)setDeviceMetadata:(NSString *)  deviceMetadata;
+{
+    _deviceMetadata =  deviceMetadata;
+    [self valueChanged:deviceMetadata forProperty:@"deviceMetadata"];
+}
+
+ 
+- (void)setDeviceObjectVersion:(int )  deviceObjectVersion;
+{
+    _deviceObjectVersion =  deviceObjectVersion;
+    [self valueChangedForInt:deviceObjectVersion forProperty:@"deviceObjectVersion"];
+}
+
+ 
+- (void)setDeviceOSType:(NSString *)  deviceOSType;
+{
+    _deviceOSType =  deviceOSType;
+    [self valueChanged:deviceOSType forProperty:@"deviceOSType"];
+}
+
+ 
+- (void)setDeviceOSVersion:(NSString *)  deviceOSVersion;
+{
+    _deviceOSVersion =  deviceOSVersion;
+    [self valueChanged:deviceOSVersion forProperty:@"deviceOSVersion"];
+}
+
+ 
+- (void)setDevicePhysicalIds:(NSMutableArray *)  devicePhysicalIds;
+{
+    _devicePhysicalIds =  devicePhysicalIds;
+    [self valueChanged:devicePhysicalIds forProperty:@"devicePhysicalIds"];
+}
+
+ 
+- (void)setDeviceTrustType:(NSString *)  deviceTrustType;
+{
+    _deviceTrustType =  deviceTrustType;
+    [self valueChanged:deviceTrustType forProperty:@"deviceTrustType"];
+}
+
+ 
+- (void)setDirSyncEnabled:(BOOL )  dirSyncEnabled;
+{
+    _dirSyncEnabled =  dirSyncEnabled;
+    [self valueChangedForBool:dirSyncEnabled forProperty:@"dirSyncEnabled"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setLastDirSyncTime:(NSDate *)  lastDirSyncTime;
+{
+    _lastDirSyncTime =  lastDirSyncTime;
+    [self valueChanged:lastDirSyncTime forProperty:@"lastDirSyncTime"];
+}
+
+ 
+- (void)setRegisteredOwners:(NSMutableArray<MSGraphDirectoryObject> *)  registeredOwners;
+{
+    _registeredOwners =  registeredOwners;
+    [self valueChanged:registeredOwners forProperty:@"registeredOwners"];
+}
+
+ 
+- (void)setRegisteredUsers:(NSMutableArray<MSGraphDirectoryObject> *)  registeredUsers;
+{
+    _registeredUsers =  registeredUsers;
+    [self valueChanged:registeredUsers forProperty:@"registeredUsers"];
+}
+
 @end

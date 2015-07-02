@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type OutlookItem.
 */
 
-@interface MSGraphOutlookItem : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphOutlookItem : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *Id;
 @property (retain, nonatomic, readwrite, getter=changeKey, setter=setChangeKey:) NSString *ChangeKey;
 @property (retain, nonatomic, readwrite, getter=categories, setter=setCategories:) NSMutableArray *Categories;

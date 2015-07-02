@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphRecipient	
 
 @synthesize odataType = _odataType;
-@synthesize EmailAddress = _EmailAddress;
+@synthesize EmailAddress = _emailAddress;
 
 - (instancetype)init {
 
@@ -31,6 +31,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setEmailAddress:(MSGraphEmailAddress *)  emailAddress;
+{
+    _emailAddress =  emailAddress;
+    [self valueChanged:emailAddress forProperty:@"EmailAddress"];
 }
 
 

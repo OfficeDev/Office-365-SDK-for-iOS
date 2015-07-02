@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ServicePlanInfo.
 */
 
-@interface MSGraphServicePlanInfo : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphServicePlanInfo : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=servicePlanId, setter=setServicePlanId:) NSString *servicePlanId;
 @property (retain, nonatomic, readwrite, getter=servicePlanName, setter=setServicePlanName:) NSString *servicePlanName;
 

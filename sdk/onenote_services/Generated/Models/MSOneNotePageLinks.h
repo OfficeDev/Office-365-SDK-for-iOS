@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type PageLinks.
 */
 
-@interface MSOneNotePageLinks : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNotePageLinks : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=oneNoteClientUrl, setter=setOneNoteClientUrl:) MSOneNoteExternalLink *oneNoteClientUrl;
 @property (retain, nonatomic, readwrite, getter=oneNoteWebUrl, setter=setOneNoteWebUrl:) MSOneNoteExternalLink *oneNoteWebUrl;
 

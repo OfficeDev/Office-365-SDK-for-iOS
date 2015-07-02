@@ -35,5 +35,26 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDriveId:(NSString *)  driveId;
+{
+    _driveId =  driveId;
+    [self valueChanged:driveId forProperty:@"driveId"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setPath:(NSString *)  path;
+{
+    _path =  path;
+    [self valueChanged:path forProperty:@"path"];
+}
+
 
 @end

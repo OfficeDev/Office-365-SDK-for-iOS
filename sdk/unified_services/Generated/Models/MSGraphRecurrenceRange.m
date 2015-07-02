@@ -21,10 +21,10 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphRecurrenceRange	
 
 @synthesize odataType = _odataType;
-@synthesize Type = _Type;
-@synthesize StartDate = _StartDate;
-@synthesize EndDate = _EndDate;
-@synthesize NumberOfOccurrences = _NumberOfOccurrences;
+@synthesize Type = _type;
+@synthesize StartDate = _startDate;
+@synthesize EndDate = _endDate;
+@synthesize NumberOfOccurrences = _numberOfOccurrences;
 
 - (instancetype)init {
 
@@ -36,22 +36,47 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"EndDate"]) {
 
 		self.Type = MSGraph_RecurrenceRangeType_EndDate;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"NoEnd"]) {
 
 		self.Type = MSGraph_RecurrenceRangeType_NoEnd;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Numbered"]) {
 
 		self.Type = MSGraph_RecurrenceRangeType_Numbered;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 }
+ 
+- (void)setStartDate:(NSDate *)  startDate;
+{
+    _startDate =  startDate;
+    [self valueChanged:startDate forProperty:@"StartDate"];
+}
+
+ 
+- (void)setEndDate:(NSDate *)  endDate;
+{
+    _endDate =  endDate;
+    [self valueChanged:endDate forProperty:@"EndDate"];
+}
+
+ 
+- (void)setNumberOfOccurrences:(int )  numberOfOccurrences;
+{
+    _numberOfOccurrences =  numberOfOccurrences;
+    [self valueChangedForInt:numberOfOccurrences forProperty:@"NumberOfOccurrences"];
+}
+
 
 @end

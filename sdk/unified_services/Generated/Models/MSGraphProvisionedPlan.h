@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ProvisionedPlan.
 */
 
-@interface MSGraphProvisionedPlan : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphProvisionedPlan : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=capabilityStatus, setter=setCapabilityStatus:) NSString *capabilityStatus;
 @property (retain, nonatomic, readwrite, getter=provisioningStatus, setter=setProvisioningStatus:) NSString *provisioningStatus;
 @property (retain, nonatomic, readwrite, getter=service, setter=setService:) NSString *service;

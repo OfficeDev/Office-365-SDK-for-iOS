@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setServicePlanId:(NSString *)  servicePlanId;
+{
+    _servicePlanId =  servicePlanId;
+    [self valueChanged:servicePlanId forProperty:@"servicePlanId"];
+}
+
+ 
+- (void)setServicePlanName:(NSString *)  servicePlanName;
+{
+    _servicePlanName =  servicePlanName;
+    [self valueChanged:servicePlanName forProperty:@"servicePlanName"];
+}
+
 
 @end

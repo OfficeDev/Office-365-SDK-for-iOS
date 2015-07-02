@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Location.
 */
 
-@interface MSGraphLocation : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphLocation : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;
 
 @end

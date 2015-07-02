@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type DirectoryObject.
 */
 
-@interface MSGraphDirectoryObject : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphDirectoryObject : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=objectType, setter=setObjectType:) NSString *objectType;
 @property (retain, nonatomic, readwrite, getter=objectId, setter=setObjectId:) NSString *objectId;
 @property (retain, nonatomic, readwrite, getter=deletionTimestamp, setter=setDeletionTimestamp:) NSDate *deletionTimestamp;

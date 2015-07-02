@@ -35,5 +35,26 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCapabilityStatus:(NSString *)  capabilityStatus;
+{
+    _capabilityStatus =  capabilityStatus;
+    [self valueChanged:capabilityStatus forProperty:@"capabilityStatus"];
+}
+
+ 
+- (void)setProvisioningStatus:(NSString *)  provisioningStatus;
+{
+    _provisioningStatus =  provisioningStatus;
+    [self valueChanged:provisioningStatus forProperty:@"provisioningStatus"];
+}
+
+ 
+- (void)setService:(NSString *)  service;
+{
+    _service =  service;
+    [self valueChanged:service forProperty:@"service"];
+}
+
 
 @end

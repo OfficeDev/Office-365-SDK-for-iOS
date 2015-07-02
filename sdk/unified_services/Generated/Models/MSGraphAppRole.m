@@ -38,5 +38,47 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAllowedMemberTypes:(NSMutableArray *)  allowedMemberTypes;
+{
+    _allowedMemberTypes =  allowedMemberTypes;
+    [self valueChanged:allowedMemberTypes forProperty:@"allowedMemberTypes"];
+}
+
+ 
+- (void)setDescription:(NSString *)  $$__description;
+{
+    _$$__description =  $$__description;
+    [self valueChanged:$$__description forProperty:@"$$__description"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setIsEnabled:(BOOL )  isEnabled;
+{
+    _isEnabled =  isEnabled;
+    [self valueChangedForBool:isEnabled forProperty:@"isEnabled"];
+}
+
+ 
+- (void)setValue:(NSString *)  value;
+{
+    _value =  value;
+    [self valueChanged:value forProperty:@"value"];
+}
+
 
 @end

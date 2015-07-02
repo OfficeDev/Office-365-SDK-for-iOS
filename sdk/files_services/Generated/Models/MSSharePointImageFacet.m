@@ -33,5 +33,12 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDateTimeTaken:(NSDate *)  dateTimeTaken;
+{
+    _dateTimeTaken =  dateTimeTaken;
+    [self valueChanged:dateTimeTaken forProperty:@"dateTimeTaken"];
+}
+
 
 @end

@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setSiteCollectionId:(NSString *)  siteCollectionId;
+{
+    _siteCollectionId =  siteCollectionId;
+    [self valueChanged:siteCollectionId forProperty:@"siteCollectionId"];
+}
+
+ 
+- (void)setSiteId:(NSString *)  siteId;
+{
+    _siteId =  siteId;
+    [self valueChanged:siteId forProperty:@"siteId"];
+}
+
 
 @end

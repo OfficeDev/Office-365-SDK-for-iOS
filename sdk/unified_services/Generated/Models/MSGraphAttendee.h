@@ -18,15 +18,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
 #import "MSGraphAttendeeType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Attendee.
 */
 
-@interface MSGraphAttendee : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphAttendee : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=emailAddress, setter=setEmailAddress:) MSGraphEmailAddress *EmailAddress;
 @property (retain, nonatomic, readwrite, getter=status, setter=setStatus:) MSGraphResponseStatus *Status;
 @property  (nonatomic, getter=type, setter=setType:) MSGraphAttendeeType Type;

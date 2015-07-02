@@ -21,9 +21,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphAttendee	
 
 @synthesize odataType = _odataType;
-@synthesize EmailAddress = _EmailAddress;
-@synthesize Status = _Status;
-@synthesize Type = _Type;
+@synthesize EmailAddress = _emailAddress;
+@synthesize Status = _status;
+@synthesize Type = _type;
 
 - (instancetype)init {
 
@@ -35,21 +35,39 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setEmailAddress:(MSGraphEmailAddress *)  emailAddress;
+{
+    _emailAddress =  emailAddress;
+    [self valueChanged:emailAddress forProperty:@"EmailAddress"];
+}
+
+ 
+- (void)setStatus:(MSGraphResponseStatus *)  status;
+{
+    _status =  status;
+    [self valueChanged:status forProperty:@"Status"];
+}
+
+
 - (void)setTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"Required"]) {
 
 		self.Type = MSGraph_AttendeeType_Required;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Optional"]) {
 
 		self.Type = MSGraph_AttendeeType_Optional;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 
 	if ([value isEqualToString:@"Resource"]) {
 
 		self.Type = MSGraph_AttendeeType_Resource;
+        [self valueChanged:value forProperty:@"Type"];
 	}
 }
 

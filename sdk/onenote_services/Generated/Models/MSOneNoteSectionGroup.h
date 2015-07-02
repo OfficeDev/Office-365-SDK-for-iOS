@@ -18,15 +18,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type SectionGroup.
 */
 
-@interface MSOneNoteSectionGroup : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteSectionGroup : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=sectionsUrl, setter=setSectionsUrl:) NSString *sectionsUrl;
 @property (retain, nonatomic, readwrite, getter=sectionGroupsUrl, setter=setSectionGroupsUrl:) NSString *sectionGroupsUrl;
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *name;

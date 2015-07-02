@@ -40,4 +40,60 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setClientId:(NSString *)  clientId;
+{
+    _clientId =  clientId;
+    [self valueChanged:clientId forProperty:@"clientId"];
+}
+
+ 
+- (void)setConsentType:(NSString *)  consentType;
+{
+    _consentType =  consentType;
+    [self valueChanged:consentType forProperty:@"consentType"];
+}
+
+ 
+- (void)setExpiryTime:(NSDate *)  expiryTime;
+{
+    _expiryTime =  expiryTime;
+    [self valueChanged:expiryTime forProperty:@"expiryTime"];
+}
+
+ 
+- (void)setObjectId:(NSString *)  objectId;
+{
+    _objectId =  objectId;
+    [self valueChanged:objectId forProperty:@"objectId"];
+}
+
+ 
+- (void)setPrincipalId:(NSString *)  principalId;
+{
+    _principalId =  principalId;
+    [self valueChanged:principalId forProperty:@"principalId"];
+}
+
+ 
+- (void)setResourceId:(NSString *)  resourceId;
+{
+    _resourceId =  resourceId;
+    [self valueChanged:resourceId forProperty:@"resourceId"];
+}
+
+ 
+- (void)setScope:(NSString *)  scope;
+{
+    _scope =  scope;
+    [self valueChanged:scope forProperty:@"scope"];
+}
+
+ 
+- (void)setStartTime:(NSDate *)  startTime;
+{
+    _startTime =  startTime;
+    [self valueChanged:startTime forProperty:@"startTime"];
+}
+
 @end

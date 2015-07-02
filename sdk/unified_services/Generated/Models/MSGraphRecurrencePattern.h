@@ -17,15 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import "MSGraphRecurrencePatternType.h"
 #import "MSGraphDayOfWeek.h"
 #import "MSGraphWeekIndex.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type RecurrencePattern.
 */
 
-@interface MSGraphRecurrencePattern : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphRecurrencePattern : MSOrcBaseEntity
 @property  (nonatomic, getter=type, setter=setType:) MSGraphRecurrencePatternType Type;
 - (void)setTypeString:(NSString *)value;
 @property (nonatomic, getter=interval, setter=setInterval:) int Interval;

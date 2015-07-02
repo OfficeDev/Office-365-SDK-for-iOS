@@ -17,15 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type SubscribedSku.
 */
 
-@interface MSGraphSubscribedSku : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphSubscribedSku : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=capabilityStatus, setter=setCapabilityStatus:) NSString *capabilityStatus;
 @property (nonatomic, getter=consumedUnits, setter=setConsumedUnits:) int consumedUnits;
 @property (retain, nonatomic, readwrite, getter=objectId, setter=setObjectId:) NSString *objectId;

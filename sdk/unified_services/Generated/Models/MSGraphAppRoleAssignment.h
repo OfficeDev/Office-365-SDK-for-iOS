@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphAppRoleAssignment : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=creationTimestamp, setter=setCreationTimestamp:) NSDate *creationTimestamp;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
 @property (retain, nonatomic, readwrite, getter=principalDisplayName, setter=setPrincipalDisplayName:) NSString *principalDisplayName;

@@ -21,9 +21,9 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphPhoto	
 
 @synthesize odataType = _odataType;
-@synthesize Id = _Id;
-@synthesize Width = _Width;
-@synthesize Height = _Height;
+@synthesize Id = _id;
+@synthesize Width = _width;
+@synthesize Height = _height;
 
 - (instancetype)init {
 
@@ -33,6 +33,27 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"Id"];
+}
+
+ 
+- (void)setWidth:(int )  width;
+{
+    _width =  width;
+    [self valueChangedForInt:width forProperty:@"Width"];
+}
+
+ 
+- (void)setHeight:(int )  height;
+{
+    _height =  height;
+    [self valueChangedForInt:height forProperty:@"Height"];
 }
 
 @end

@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphResponseStatus	
 
 @synthesize odataType = _odataType;
-@synthesize Response = _Response;
-@synthesize Time = _Time;
+@synthesize Response = _response;
+@synthesize Time = _time;
 
 - (instancetype)init {
 
@@ -34,37 +34,51 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setResponseString:(NSString *)value {
 
 	if ([value isEqualToString:@"None"]) {
 
 		self.Response = MSGraph_ResponseType_None;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 
 	if ([value isEqualToString:@"Organizer"]) {
 
 		self.Response = MSGraph_ResponseType_Organizer;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 
 	if ([value isEqualToString:@"TentativelyAccepted"]) {
 
 		self.Response = MSGraph_ResponseType_TentativelyAccepted;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 
 	if ([value isEqualToString:@"Accepted"]) {
 
 		self.Response = MSGraph_ResponseType_Accepted;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 
 	if ([value isEqualToString:@"Declined"]) {
 
 		self.Response = MSGraph_ResponseType_Declined;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 
 	if ([value isEqualToString:@"NotResponded"]) {
 
 		self.Response = MSGraph_ResponseType_NotResponded;
+        [self valueChanged:value forProperty:@"Response"];
 	}
 }
+ 
+- (void)setTime:(NSDate *)  time;
+{
+    _time =  time;
+    [self valueChanged:time forProperty:@"Time"];
+}
+
 
 @end

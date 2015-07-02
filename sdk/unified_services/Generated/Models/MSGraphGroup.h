@@ -26,7 +26,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphGroup : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=description, setter=setDescription:) NSString *$$__description;
 @property (nonatomic, getter=dirSyncEnabled, setter=setDirSyncEnabled:) BOOL dirSyncEnabled;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *displayName;

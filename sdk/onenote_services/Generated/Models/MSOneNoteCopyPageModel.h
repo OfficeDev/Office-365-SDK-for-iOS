@@ -18,15 +18,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type CopyPageModel.
 */
 
-@interface MSOneNoteCopyPageModel : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteCopyPageModel : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=parentSection, setter=setParentSection:) MSOneNoteCopySectionModel *parentSection;
 @property (retain, nonatomic, readwrite, getter=parentNotebook, setter=setParentNotebook:) MSOneNoteCopyNotebookModel *parentNotebook;
 @property (retain, nonatomic, readwrite, getter=title, setter=setTitle:) NSString *title;

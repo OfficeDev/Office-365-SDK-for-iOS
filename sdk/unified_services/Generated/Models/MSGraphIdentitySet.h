@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type IdentitySet.
 */
 
-@interface MSGraphIdentitySet : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphIdentitySet : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=application, setter=setApplication:) MSGraphIdentity *application;
 @property (retain, nonatomic, readwrite, getter=user, setter=setUser:) MSGraphIdentity *user;
 

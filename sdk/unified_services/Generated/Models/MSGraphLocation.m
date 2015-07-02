@@ -21,7 +21,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphLocation	
 
 @synthesize odataType = _odataType;
-@synthesize DisplayName = _DisplayName;
+@synthesize DisplayName = _displayName;
 
 - (instancetype)init {
 
@@ -31,6 +31,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"DisplayName"];
 }
 
 

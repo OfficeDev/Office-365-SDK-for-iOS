@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDisabledPlans:(NSMutableArray *)  disabledPlans;
+{
+    _disabledPlans =  disabledPlans;
+    [self valueChanged:disabledPlans forProperty:@"disabledPlans"];
+}
+
+ 
+- (void)setSkuId:(NSString *)  skuId;
+{
+    _skuId =  skuId;
+    [self valueChanged:skuId forProperty:@"skuId"];
+}
+
 
 @end

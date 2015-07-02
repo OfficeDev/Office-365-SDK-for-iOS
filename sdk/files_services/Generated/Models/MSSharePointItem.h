@@ -17,15 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Item.
 */
 
-@interface MSSharePointItem : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSSharePointItem : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=createdBy, setter=setCreatedBy:) MSSharePointIdentitySet *createdBy;
 @property (retain, nonatomic, readwrite, getter=eTag, setter=setETag:) NSString *eTag;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
