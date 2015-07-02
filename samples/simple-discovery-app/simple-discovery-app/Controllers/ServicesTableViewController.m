@@ -65,7 +65,7 @@
     
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
-    [[[self.client getallServices] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
+    [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, NSError *error) {
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),
                            ^{
@@ -75,7 +75,7 @@
                            });
         }
         
-    }] resume];
+    }];
 }
 
 - (IBAction)unwindExchangeViews:(UIStoryboardSegue *)segue{
