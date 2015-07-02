@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ProvisioningError.
 */
 
-@interface MSGraphProvisioningError : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphProvisioningError : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=errorDetail, setter=setErrorDetail:) NSString *errorDetail;
 @property (nonatomic, getter=resolved, setter=setResolved:) BOOL resolved;
 @property (retain, nonatomic, readwrite, getter=service, setter=setService:) NSString *service;

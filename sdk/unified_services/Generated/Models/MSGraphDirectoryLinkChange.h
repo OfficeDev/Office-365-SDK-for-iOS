@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphDirectoryLinkChange : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=associationType, setter=setAssociationType:) NSString *associationType;
 @property (retain, nonatomic, readwrite, getter=sourceObjectId, setter=setSourceObjectId:) NSString *sourceObjectId;
 @property (retain, nonatomic, readwrite, getter=sourceObjectType, setter=setSourceObjectType:) NSString *sourceObjectType;

@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphDeviceConfiguration : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=publicIssuerCertificates, setter=setPublicIssuerCertificates:) NSMutableArray *publicIssuerCertificates;
 @property (retain, nonatomic, readwrite, getter=cloudPublicIssuerCertificates, setter=setCloudPublicIssuerCertificates:) NSMutableArray *cloudPublicIssuerCertificates;
 @property (nonatomic, getter=registrationQuota, setter=setRegistrationQuota:) int registrationQuota;

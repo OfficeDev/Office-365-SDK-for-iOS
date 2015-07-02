@@ -36,4 +36,32 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setOwner:(MSSharePointIdentity *)  owner;
+{
+    _owner =  owner;
+    [self valueChanged:owner forProperty:@"owner"];
+}
+
+ 
+- (void)setQuota:(MSSharePointDriveQuota *)  quota;
+{
+    _quota =  quota;
+    [self valueChanged:quota forProperty:@"quota"];
+}
+
+ 
+- (void)setFiles:(NSMutableArray<MSSharePointItem> *)  files;
+{
+    _files =  files;
+    [self valueChanged:files forProperty:@"files"];
+}
+
 @end

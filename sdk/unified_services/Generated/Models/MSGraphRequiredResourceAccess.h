@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type RequiredResourceAccess.
 */
 
-@interface MSGraphRequiredResourceAccess : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphRequiredResourceAccess : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=resourceAppId, setter=setResourceAppId:) NSString *resourceAppId;
 @property (retain, nonatomic, readwrite, getter=resourceAccess, setter=setResourceAccess:) NSMutableArray<MSGraphResourceAccess> *resourceAccess;
 

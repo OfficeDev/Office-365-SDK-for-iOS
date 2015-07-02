@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphExtensionProperty : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=appDisplayName, setter=setAppDisplayName:) NSString *appDisplayName;
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *name;
 @property (retain, nonatomic, readwrite, getter=dataType, setter=setDataType:) NSString *dataType;

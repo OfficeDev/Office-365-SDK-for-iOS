@@ -38,4 +38,46 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setNotebooks:(NSMutableArray<MSOneNoteNotebook> *)  notebooks;
+{
+    _notebooks =  notebooks;
+    [self valueChanged:notebooks forProperty:@"notebooks"];
+}
+
+ 
+- (void)setSections:(NSMutableArray<MSOneNoteSection> *)  sections;
+{
+    _sections =  sections;
+    [self valueChanged:sections forProperty:@"sections"];
+}
+
+ 
+- (void)setSectionGroups:(NSMutableArray<MSOneNoteSectionGroup> *)  sectionGroups;
+{
+    _sectionGroups =  sectionGroups;
+    [self valueChanged:sectionGroups forProperty:@"sectionGroups"];
+}
+
+ 
+- (void)setPages:(NSMutableArray<MSOneNotePage> *)  pages;
+{
+    _pages =  pages;
+    [self valueChanged:pages forProperty:@"pages"];
+}
+
+ 
+- (void)setResources:(NSMutableArray<MSOneNoteResource> *)  resources;
+{
+    _resources =  resources;
+    [self valueChanged:resources forProperty:@"resources"];
+}
+
 @end

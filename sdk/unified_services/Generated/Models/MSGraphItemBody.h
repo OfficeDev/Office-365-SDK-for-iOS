@@ -15,15 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
 #import "MSGraphBodyType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ItemBody.
 */
 
-@interface MSGraphItemBody : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphItemBody : MSOrcBaseEntity
 @property  (nonatomic, getter=contentType, setter=setContentType:) MSGraphBodyType ContentType;
 - (void)setContentTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=content, setter=setContent:) NSString *Content;

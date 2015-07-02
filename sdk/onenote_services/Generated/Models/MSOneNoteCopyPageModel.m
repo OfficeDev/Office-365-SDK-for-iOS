@@ -29,7 +29,7 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @synthesize contentUrl = _contentUrl;
 @synthesize lastModifiedTime = _lastModifiedTime;
 @synthesize id = _id;
-@synthesize self = _self;
+@synthesize $$__self = _$$__self;
 @synthesize createdTime = _createdTime;
 
 - (instancetype)init {
@@ -40,6 +40,76 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	}
 
 	return self;
+}
+
+ 
+- (void)setParentSection:(MSOneNoteCopySectionModel *)  parentSection;
+{
+    _parentSection =  parentSection;
+    [self valueChanged:parentSection forProperty:@"parentSection"];
+}
+
+ 
+- (void)setParentNotebook:(MSOneNoteCopyNotebookModel *)  parentNotebook;
+{
+    _parentNotebook =  parentNotebook;
+    [self valueChanged:parentNotebook forProperty:@"parentNotebook"];
+}
+
+ 
+- (void)setTitle:(NSString *)  title;
+{
+    _title =  title;
+    [self valueChanged:title forProperty:@"title"];
+}
+
+ 
+- (void)setCreatedByAppId:(NSString *)  createdByAppId;
+{
+    _createdByAppId =  createdByAppId;
+    [self valueChanged:createdByAppId forProperty:@"createdByAppId"];
+}
+
+ 
+- (void)setLinks:(MSOneNotePageLinks *)  links;
+{
+    _links =  links;
+    [self valueChanged:links forProperty:@"links"];
+}
+
+ 
+- (void)setContentUrl:(NSString *)  contentUrl;
+{
+    _contentUrl =  contentUrl;
+    [self valueChanged:contentUrl forProperty:@"contentUrl"];
+}
+
+ 
+- (void)setLastModifiedTime:(NSDate *)  lastModifiedTime;
+{
+    _lastModifiedTime =  lastModifiedTime;
+    [self valueChanged:lastModifiedTime forProperty:@"lastModifiedTime"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setSelf:(NSString *)  $$__self;
+{
+    _$$__self =  $$__self;
+    [self valueChanged:$$__self forProperty:@"$$__self"];
+}
+
+ 
+- (void)setCreatedTime:(NSDate *)  createdTime;
+{
+    _createdTime =  createdTime;
+    [self valueChanged:createdTime forProperty:@"createdTime"];
 }
 
 

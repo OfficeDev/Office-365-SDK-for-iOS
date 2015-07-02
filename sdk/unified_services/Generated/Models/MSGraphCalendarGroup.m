@@ -21,11 +21,11 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphCalendarGroup	
 
 @synthesize odataType = _odataType;
-@synthesize Id = _Id;
-@synthesize Name = _Name;
-@synthesize ChangeKey = _ChangeKey;
-@synthesize ClassId = _ClassId;
-@synthesize Calendars = _Calendars;
+@synthesize Id = _id;
+@synthesize Name = _name;
+@synthesize ChangeKey = _changeKey;
+@synthesize ClassId = _classId;
+@synthesize Calendars = _calendars;
 
 - (instancetype)init {
 
@@ -35,6 +35,41 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
     }
 
 	return self;
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"Id"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"Name"];
+}
+
+ 
+- (void)setChangeKey:(NSString *)  changeKey;
+{
+    _changeKey =  changeKey;
+    [self valueChanged:changeKey forProperty:@"ChangeKey"];
+}
+
+ 
+- (void)setClassId:(NSString *)  classId;
+{
+    _classId =  classId;
+    [self valueChanged:classId forProperty:@"ClassId"];
+}
+
+ 
+- (void)setCalendars:(NSMutableArray<MSGraphCalendar> *)  calendars;
+{
+    _calendars =  calendars;
+    [self valueChanged:calendars forProperty:@"Calendars"];
 }
 
 @end

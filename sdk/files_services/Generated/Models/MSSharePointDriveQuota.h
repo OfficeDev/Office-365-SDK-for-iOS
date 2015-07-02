@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type DriveQuota.
 */
 
-@interface MSSharePointDriveQuota : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSSharePointDriveQuota : MSOrcBaseEntity
 @property (nonatomic, getter=deleted, setter=setDeleted:) int deleted;
 @property (nonatomic, getter=remaining, setter=setRemaining:) int remaining;
 @property (retain, nonatomic, readwrite, getter=state, setter=setState:) NSString *state;

@@ -21,8 +21,8 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 @implementation MSGraphEventMessage	
 
 @synthesize odataType = _odataType;
-@synthesize MeetingMessageType = _MeetingMessageType;
-@synthesize Event = _Event;
+@synthesize MeetingMessageType = _meetingMessageType;
+@synthesize Event = _event;
 
 - (instancetype)init {
 
@@ -34,36 +34,50 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setMeetingMessageTypeString:(NSString *)value {
 
 	if ([value isEqualToString:@"None"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_None;
+		_meetingMessageType = MSGraph_MeetingMessageType_None;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingRequest"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_MeetingRequest;
+		_meetingMessageType = MSGraph_MeetingMessageType_MeetingRequest;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingCancelled"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_MeetingCancelled;
+		_meetingMessageType = MSGraph_MeetingMessageType_MeetingCancelled;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingAccepted"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_MeetingAccepted;
+		_meetingMessageType = MSGraph_MeetingMessageType_MeetingAccepted;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingTenativelyAccepted"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_MeetingTenativelyAccepted;
+		_meetingMessageType = MSGraph_MeetingMessageType_MeetingTenativelyAccepted;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 
 	if ([value isEqualToString:@"MeetingDeclined"]) {
 		
-		_MeetingMessageType = MSGraph_MeetingMessageType_MeetingDeclined;
+		_meetingMessageType = MSGraph_MeetingMessageType_MeetingDeclined;
+        [self valueChanged:value forProperty:@"MeetingMessageType"];
 	}
 }
+ 
+- (void)setEvent:(MSGraphEvent *)  event;
+{
+    _event =  event;
+    [self valueChanged:event forProperty:@"Event"];
+}
+
 @end

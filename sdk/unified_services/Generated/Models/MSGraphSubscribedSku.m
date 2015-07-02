@@ -39,4 +39,53 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCapabilityStatus:(NSString *)  capabilityStatus;
+{
+    _capabilityStatus =  capabilityStatus;
+    [self valueChanged:capabilityStatus forProperty:@"capabilityStatus"];
+}
+
+ 
+- (void)setConsumedUnits:(int )  consumedUnits;
+{
+    _consumedUnits =  consumedUnits;
+    [self valueChangedForInt:consumedUnits forProperty:@"consumedUnits"];
+}
+
+ 
+- (void)setObjectId:(NSString *)  objectId;
+{
+    _objectId =  objectId;
+    [self valueChanged:objectId forProperty:@"objectId"];
+}
+
+ 
+- (void)setPrepaidUnits:(MSGraphLicenseUnitsDetail *)  prepaidUnits;
+{
+    _prepaidUnits =  prepaidUnits;
+    [self valueChanged:prepaidUnits forProperty:@"prepaidUnits"];
+}
+
+ 
+- (void)setServicePlans:(NSMutableArray<MSGraphServicePlanInfo> *)  servicePlans;
+{
+    _servicePlans =  servicePlans;
+    [self valueChanged:servicePlans forProperty:@"servicePlans"];
+}
+
+ 
+- (void)setSkuId:(NSString *)  skuId;
+{
+    _skuId =  skuId;
+    [self valueChanged:skuId forProperty:@"skuId"];
+}
+
+ 
+- (void)setSkuPartNumber:(NSString *)  skuPartNumber;
+{
+    _skuPartNumber =  skuPartNumber;
+    [self valueChanged:skuPartNumber forProperty:@"skuPartNumber"];
+}
+
 @end

@@ -36,5 +36,33 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setDeleted:(int )  deleted;
+{
+    _deleted =  deleted;
+    [self valueChangedForInt:deleted forProperty:@"deleted"];
+}
+
+ 
+- (void)setRemaining:(int )  remaining;
+{
+    _remaining =  remaining;
+    [self valueChangedForInt:remaining forProperty:@"remaining"];
+}
+
+ 
+- (void)setState:(NSString *)  state;
+{
+    _state =  state;
+    [self valueChanged:state forProperty:@"state"];
+}
+
+ 
+- (void)setTotal:(int )  total;
+{
+    _total =  total;
+    [self valueChangedForInt:total forProperty:@"total"];
+}
+
 
 @end

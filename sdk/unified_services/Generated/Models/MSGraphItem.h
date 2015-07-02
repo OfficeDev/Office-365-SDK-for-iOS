@@ -19,15 +19,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Item.
 */
 
-@interface MSGraphItem : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphItem : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=createdBy, setter=setCreatedBy:) MSGraphIdentitySet *createdBy;
 @property (retain, nonatomic, readwrite, getter=eTag, setter=setETag:) NSString *eTag;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;

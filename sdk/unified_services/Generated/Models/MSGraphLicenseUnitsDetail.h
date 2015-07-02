@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type LicenseUnitsDetail.
 */
 
-@interface MSGraphLicenseUnitsDetail : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphLicenseUnitsDetail : MSOrcBaseEntity
 @property (nonatomic, getter=enabled, setter=setEnabled:) int enabled;
 @property (nonatomic, getter=suspended, setter=setSuspended:) int suspended;
 @property (nonatomic, getter=warning, setter=setWarning:) int warning;

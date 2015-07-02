@@ -36,43 +36,66 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+
 - (void)setactionString:(NSString *)value {
 
 	if ([value isEqualToString:@"Replace"]) {
 
 		self.action = MSOneNote_PatchActionType_Replace;
+        [self valueChanged:value forProperty:@"action"];
 	}
 
 	if ([value isEqualToString:@"Append"]) {
 
 		self.action = MSOneNote_PatchActionType_Append;
+        [self valueChanged:value forProperty:@"action"];
 	}
 
 	if ([value isEqualToString:@"Delete"]) {
 
 		self.action = MSOneNote_PatchActionType_Delete;
+        [self valueChanged:value forProperty:@"action"];
 	}
 
 	if ([value isEqualToString:@"Insert"]) {
 
 		self.action = MSOneNote_PatchActionType_Insert;
+        [self valueChanged:value forProperty:@"action"];
 	}
 
 	if ([value isEqualToString:@"Prepend"]) {
 
 		self.action = MSOneNote_PatchActionType_Prepend;
+        [self valueChanged:value forProperty:@"action"];
 	}
 }
+ 
+- (void)setTarget:(NSString *)  target;
+{
+    _target =  target;
+    [self valueChanged:target forProperty:@"target"];
+}
+
+ 
+- (void)setContent:(NSString *)  content;
+{
+    _content =  content;
+    [self valueChanged:content forProperty:@"content"];
+}
+
+
 - (void)setpositionString:(NSString *)value {
 
 	if ([value isEqualToString:@"After"]) {
 
 		self.position = MSOneNote_PatchInsertPosition_After;
+        [self valueChanged:value forProperty:@"position"];
 	}
 
 	if ([value isEqualToString:@"Before"]) {
 
 		self.position = MSOneNote_PatchInsertPosition_Before;
+        [self valueChanged:value forProperty:@"position"];
 	}
 }
 

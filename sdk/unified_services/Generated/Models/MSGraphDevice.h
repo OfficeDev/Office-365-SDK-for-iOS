@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphDevice : MSGraphDirectoryObject
-
 @property (nonatomic, getter=accountEnabled, setter=setAccountEnabled:) BOOL accountEnabled;
 @property (retain, nonatomic, readwrite, getter=alternativeSecurityIds, setter=setAlternativeSecurityIds:) NSMutableArray<MSGraphAlternativeSecurityId> *alternativeSecurityIds;
 @property (retain, nonatomic, readwrite, getter=approximateLastLogonTimestamp, setter=setApproximateLastLogonTimestamp:) NSDate *approximateLastLogonTimestamp;

@@ -34,4 +34,18 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setContentUrl:(NSString *)  contentUrl;
+{
+    _contentUrl =  contentUrl;
+    [self valueChanged:contentUrl forProperty:@"contentUrl"];
+}
+
+ 
+- (void)setImage:(MSSharePointImageFacet *)  image;
+{
+    _image =  image;
+    [self valueChanged:image forProperty:@"image"];
+}
+
 @end

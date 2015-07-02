@@ -16,15 +16,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type PasswordCredential.
 */
 
-@interface MSGraphPasswordCredential : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphPasswordCredential : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=customKeyIdentifier, setter=setCustomKeyIdentifier:) NSData *customKeyIdentifier;
 @property (retain, nonatomic, readwrite, getter=endDate, setter=setEndDate:) NSDate *endDate;
 @property (retain, nonatomic, readwrite, getter=keyId, setter=setKeyId:) NSString *keyId;

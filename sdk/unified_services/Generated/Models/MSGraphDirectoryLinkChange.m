@@ -39,4 +39,53 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAssociationType:(NSString *)  associationType;
+{
+    _associationType =  associationType;
+    [self valueChanged:associationType forProperty:@"associationType"];
+}
+
+ 
+- (void)setSourceObjectId:(NSString *)  sourceObjectId;
+{
+    _sourceObjectId =  sourceObjectId;
+    [self valueChanged:sourceObjectId forProperty:@"sourceObjectId"];
+}
+
+ 
+- (void)setSourceObjectType:(NSString *)  sourceObjectType;
+{
+    _sourceObjectType =  sourceObjectType;
+    [self valueChanged:sourceObjectType forProperty:@"sourceObjectType"];
+}
+
+ 
+- (void)setSourceObjectUri:(NSString *)  sourceObjectUri;
+{
+    _sourceObjectUri =  sourceObjectUri;
+    [self valueChanged:sourceObjectUri forProperty:@"sourceObjectUri"];
+}
+
+ 
+- (void)setTargetObjectId:(NSString *)  targetObjectId;
+{
+    _targetObjectId =  targetObjectId;
+    [self valueChanged:targetObjectId forProperty:@"targetObjectId"];
+}
+
+ 
+- (void)setTargetObjectType:(NSString *)  targetObjectType;
+{
+    _targetObjectType =  targetObjectType;
+    [self valueChanged:targetObjectType forProperty:@"targetObjectType"];
+}
+
+ 
+- (void)setTargetObjectUri:(NSString *)  targetObjectUri;
+{
+    _targetObjectUri =  targetObjectUri;
+    [self valueChanged:targetObjectUri forProperty:@"targetObjectUri"];
+}
+
 @end

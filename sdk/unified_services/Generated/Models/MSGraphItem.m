@@ -46,4 +46,102 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCreatedBy:(MSGraphIdentitySet *)  createdBy;
+{
+    _createdBy =  createdBy;
+    [self valueChanged:createdBy forProperty:@"createdBy"];
+}
+
+ 
+- (void)setETag:(NSString *)  eTag;
+{
+    _eTag =  eTag;
+    [self valueChanged:eTag forProperty:@"eTag"];
+}
+
+ 
+- (void)setId:(NSString *)  id;
+{
+    _id =  id;
+    [self valueChanged:id forProperty:@"id"];
+}
+
+ 
+- (void)setLastModifiedBy:(MSGraphIdentitySet *)  lastModifiedBy;
+{
+    _lastModifiedBy =  lastModifiedBy;
+    [self valueChanged:lastModifiedBy forProperty:@"lastModifiedBy"];
+}
+
+ 
+- (void)setName:(NSString *)  name;
+{
+    _name =  name;
+    [self valueChanged:name forProperty:@"name"];
+}
+
+ 
+- (void)setParentReference:(MSGraphItemReference *)  parentReference;
+{
+    _parentReference =  parentReference;
+    [self valueChanged:parentReference forProperty:@"parentReference"];
+}
+
+ 
+- (void)setSize:(int )  size;
+{
+    _size =  size;
+    [self valueChangedForInt:size forProperty:@"size"];
+}
+
+ 
+- (void)setDateTimeCreated:(NSDate *)  dateTimeCreated;
+{
+    _dateTimeCreated =  dateTimeCreated;
+    [self valueChanged:dateTimeCreated forProperty:@"dateTimeCreated"];
+}
+
+ 
+- (void)setDateTimeLastModified:(NSDate *)  dateTimeLastModified;
+{
+    _dateTimeLastModified =  dateTimeLastModified;
+    [self valueChanged:dateTimeLastModified forProperty:@"dateTimeLastModified"];
+}
+
+ 
+- (void)setType:(NSString *)  type;
+{
+    _type =  type;
+    [self valueChanged:type forProperty:@"type"];
+}
+
+ 
+- (void)setWebUrl:(NSString *)  webUrl;
+{
+    _webUrl =  webUrl;
+    [self valueChanged:webUrl forProperty:@"webUrl"];
+}
+
+ 
+- (void)setCreatedByUser:(MSGraphUser *)  createdByUser;
+{
+    _createdByUser =  createdByUser;
+    [self valueChanged:createdByUser forProperty:@"createdByUser"];
+}
+
+ 
+- (void)setLastModifiedByUser:(MSGraphUser *)  lastModifiedByUser;
+{
+    _lastModifiedByUser =  lastModifiedByUser;
+    [self valueChanged:lastModifiedByUser forProperty:@"lastModifiedByUser"];
+}
+
+ 
+- (void)setChildren:(NSMutableArray<MSGraphItem> *)  children;
+{
+    _children =  children;
+    [self valueChanged:children forProperty:@"children"];
+}
+
 @end

@@ -39,5 +39,54 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setCustomKeyIdentifier:(NSData *)  customKeyIdentifier;
+{
+    _customKeyIdentifier =  customKeyIdentifier;
+    [self valueChanged:customKeyIdentifier forProperty:@"customKeyIdentifier"];
+}
+
+ 
+- (void)setEndDate:(NSDate *)  endDate;
+{
+    _endDate =  endDate;
+    [self valueChanged:endDate forProperty:@"endDate"];
+}
+
+ 
+- (void)setKeyId:(NSString *)  keyId;
+{
+    _keyId =  keyId;
+    [self valueChanged:keyId forProperty:@"keyId"];
+}
+
+ 
+- (void)setStartDate:(NSDate *)  startDate;
+{
+    _startDate =  startDate;
+    [self valueChanged:startDate forProperty:@"startDate"];
+}
+
+ 
+- (void)setType:(NSString *)  type;
+{
+    _type =  type;
+    [self valueChanged:type forProperty:@"type"];
+}
+
+ 
+- (void)setUsage:(NSString *)  usage;
+{
+    _usage =  usage;
+    [self valueChanged:usage forProperty:@"usage"];
+}
+
+ 
+- (void)setValue:(NSData *)  value;
+{
+    _value =  value;
+    [self valueChanged:value forProperty:@"value"];
+}
+
 
 @end

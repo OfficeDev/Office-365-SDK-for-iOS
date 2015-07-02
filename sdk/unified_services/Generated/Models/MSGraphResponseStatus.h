@@ -15,15 +15,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
 #import "MSGraphResponseType.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ResponseStatus.
 */
 
-@interface MSGraphResponseStatus : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphResponseStatus : MSOrcBaseEntity
 @property  (nonatomic, getter=response, setter=setResponse:) MSGraphResponseType Response;
 - (void)setResponseString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=time, setter=setTime:) NSDate *Time;

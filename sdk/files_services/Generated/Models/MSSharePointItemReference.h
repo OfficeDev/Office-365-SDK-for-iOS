@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSSharePointProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ItemReference.
 */
 
-@interface MSSharePointItemReference : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSSharePointItemReference : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=driveId, setter=setDriveId:) NSString *driveId;
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
 @property (retain, nonatomic, readwrite, getter=path, setter=setPath:) NSString *path;

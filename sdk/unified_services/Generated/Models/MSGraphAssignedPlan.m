@@ -36,5 +36,33 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAssignedTimestamp:(NSDate *)  assignedTimestamp;
+{
+    _assignedTimestamp =  assignedTimestamp;
+    [self valueChanged:assignedTimestamp forProperty:@"assignedTimestamp"];
+}
+
+ 
+- (void)setCapabilityStatus:(NSString *)  capabilityStatus;
+{
+    _capabilityStatus =  capabilityStatus;
+    [self valueChanged:capabilityStatus forProperty:@"capabilityStatus"];
+}
+
+ 
+- (void)setService:(NSString *)  service;
+{
+    _service =  service;
+    [self valueChanged:service forProperty:@"service"];
+}
+
+ 
+- (void)setServicePlanId:(NSString *)  servicePlanId;
+{
+    _servicePlanId =  servicePlanId;
+    [self valueChanged:servicePlanId forProperty:@"servicePlanId"];
+}
+
 
 @end

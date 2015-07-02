@@ -17,15 +17,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSGraphProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Drive.
 */
 
-@interface MSGraphDrive : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSGraphDrive : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=id, setter=setId:) NSString *id;
 @property (retain, nonatomic, readwrite, getter=owner, setter=setOwner:) MSGraphIdentity *owner;
 @property (retain, nonatomic, readwrite, getter=quota, setter=setQuota:) MSGraphDriveQuota *quota;

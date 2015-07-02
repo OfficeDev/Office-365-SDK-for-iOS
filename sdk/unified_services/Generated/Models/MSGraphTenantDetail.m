@@ -51,4 +51,137 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setAssignedPlans:(NSMutableArray<MSGraphAssignedPlan> *)  assignedPlans;
+{
+    _assignedPlans =  assignedPlans;
+    [self valueChanged:assignedPlans forProperty:@"assignedPlans"];
+}
+
+ 
+- (void)setCity:(NSString *)  city;
+{
+    _city =  city;
+    [self valueChanged:city forProperty:@"city"];
+}
+
+ 
+- (void)setCompanyLastDirSyncTime:(NSDate *)  companyLastDirSyncTime;
+{
+    _companyLastDirSyncTime =  companyLastDirSyncTime;
+    [self valueChanged:companyLastDirSyncTime forProperty:@"companyLastDirSyncTime"];
+}
+
+ 
+- (void)setCountry:(NSString *)  country;
+{
+    _country =  country;
+    [self valueChanged:country forProperty:@"country"];
+}
+
+ 
+- (void)setCountryLetterCode:(NSString *)  countryLetterCode;
+{
+    _countryLetterCode =  countryLetterCode;
+    [self valueChanged:countryLetterCode forProperty:@"countryLetterCode"];
+}
+
+ 
+- (void)setDirSyncEnabled:(BOOL )  dirSyncEnabled;
+{
+    _dirSyncEnabled =  dirSyncEnabled;
+    [self valueChangedForBool:dirSyncEnabled forProperty:@"dirSyncEnabled"];
+}
+
+ 
+- (void)setDisplayName:(NSString *)  displayName;
+{
+    _displayName =  displayName;
+    [self valueChanged:displayName forProperty:@"displayName"];
+}
+
+ 
+- (void)setMarketingNotificationEmails:(NSMutableArray *)  marketingNotificationEmails;
+{
+    _marketingNotificationEmails =  marketingNotificationEmails;
+    [self valueChanged:marketingNotificationEmails forProperty:@"marketingNotificationEmails"];
+}
+
+ 
+- (void)setPostalCode:(NSString *)  postalCode;
+{
+    _postalCode =  postalCode;
+    [self valueChanged:postalCode forProperty:@"postalCode"];
+}
+
+ 
+- (void)setPreferredLanguage:(NSString *)  preferredLanguage;
+{
+    _preferredLanguage =  preferredLanguage;
+    [self valueChanged:preferredLanguage forProperty:@"preferredLanguage"];
+}
+
+ 
+- (void)setProvisionedPlans:(NSMutableArray<MSGraphProvisionedPlan> *)  provisionedPlans;
+{
+    _provisionedPlans =  provisionedPlans;
+    [self valueChanged:provisionedPlans forProperty:@"provisionedPlans"];
+}
+
+ 
+- (void)setProvisioningErrors:(NSMutableArray<MSGraphProvisioningError> *)  provisioningErrors;
+{
+    _provisioningErrors =  provisioningErrors;
+    [self valueChanged:provisioningErrors forProperty:@"provisioningErrors"];
+}
+
+ 
+- (void)setSecurityComplianceNotificationMails:(NSMutableArray *)  securityComplianceNotificationMails;
+{
+    _securityComplianceNotificationMails =  securityComplianceNotificationMails;
+    [self valueChanged:securityComplianceNotificationMails forProperty:@"securityComplianceNotificationMails"];
+}
+
+ 
+- (void)setSecurityComplianceNotificationPhones:(NSMutableArray *)  securityComplianceNotificationPhones;
+{
+    _securityComplianceNotificationPhones =  securityComplianceNotificationPhones;
+    [self valueChanged:securityComplianceNotificationPhones forProperty:@"securityComplianceNotificationPhones"];
+}
+
+ 
+- (void)setState:(NSString *)  state;
+{
+    _state =  state;
+    [self valueChanged:state forProperty:@"state"];
+}
+
+ 
+- (void)setStreet:(NSString *)  street;
+{
+    _street =  street;
+    [self valueChanged:street forProperty:@"street"];
+}
+
+ 
+- (void)setTechnicalNotificationMails:(NSMutableArray *)  technicalNotificationMails;
+{
+    _technicalNotificationMails =  technicalNotificationMails;
+    [self valueChanged:technicalNotificationMails forProperty:@"technicalNotificationMails"];
+}
+
+ 
+- (void)setTelephoneNumber:(NSString *)  telephoneNumber;
+{
+    _telephoneNumber =  telephoneNumber;
+    [self valueChanged:telephoneNumber forProperty:@"telephoneNumber"];
+}
+
+ 
+- (void)setVerifiedDomains:(NSMutableArray<MSGraphVerifiedDomain> *)  verifiedDomains;
+{
+    _verifiedDomains =  verifiedDomains;
+    [self valueChanged:verifiedDomains forProperty:@"verifiedDomains"];
+}
+
 @end

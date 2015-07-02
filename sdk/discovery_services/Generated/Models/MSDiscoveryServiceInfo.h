@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSDiscoveryProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type ServiceInfo.
 */
 
-@interface MSDiscoveryServiceInfo : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSDiscoveryServiceInfo : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=capability, setter=setCapability:) NSString *capability;
 @property (retain, nonatomic, readwrite, getter=entityKey, setter=setEntityKey:) NSString *entityKey;
 @property (retain, nonatomic, readwrite, getter=providerId, setter=setProviderId:) NSString *providerId;

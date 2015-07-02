@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setOneNoteClientUrl:(MSOneNoteExternalLink *)  oneNoteClientUrl;
+{
+    _oneNoteClientUrl =  oneNoteClientUrl;
+    [self valueChanged:oneNoteClientUrl forProperty:@"oneNoteClientUrl"];
+}
+
+ 
+- (void)setOneNoteWebUrl:(MSOneNoteExternalLink *)  oneNoteWebUrl;
+{
+    _oneNoteWebUrl =  oneNoteWebUrl;
+    [self valueChanged:oneNoteWebUrl forProperty:@"oneNoteWebUrl"];
+}
+
 
 @end

@@ -35,4 +35,25 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setObjectType:(NSString *)  objectType;
+{
+    _objectType =  objectType;
+    [self valueChanged:objectType forProperty:@"objectType"];
+}
+
+ 
+- (void)setObjectId:(NSString *)  objectId;
+{
+    _objectId =  objectId;
+    [self valueChanged:objectId forProperty:@"objectId"];
+}
+
+ 
+- (void)setDeletionTimestamp:(NSDate *)  deletionTimestamp;
+{
+    _deletionTimestamp =  deletionTimestamp;
+    [self valueChanged:deletionTimestamp forProperty:@"deletionTimestamp"];
+}
+
 @end

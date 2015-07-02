@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSGraphDirectoryRoleTemplate : MSGraphDirectoryObject
-
 @property (retain, nonatomic, readwrite, getter=description, setter=setDescription:) NSString *$$__description;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *displayName;
 

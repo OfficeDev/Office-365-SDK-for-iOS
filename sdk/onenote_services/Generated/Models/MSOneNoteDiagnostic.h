@@ -14,15 +14,13 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 
 #import <Foundation/Foundation.h>
 #import "MSOneNoteProtocols.h"
-
+#import "MSOrcBaseEntity.h"
 
 /**
 * The header for type Diagnostic.
 */
 
-@interface MSOneNoteDiagnostic : NSObject
-
-@property (retain, nonatomic, readonly) NSString *odataType;
+@interface MSOneNoteDiagnostic : MSOrcBaseEntity
 @property (retain, nonatomic, readwrite, getter=message, setter=setMessage:) NSString *message;
 @property (retain, nonatomic, readwrite, getter=url, setter=setUrl:) NSString *url;
 

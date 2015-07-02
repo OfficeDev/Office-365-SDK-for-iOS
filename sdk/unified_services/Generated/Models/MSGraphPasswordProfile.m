@@ -34,5 +34,19 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 	return self;
 }
 
+ 
+- (void)setPassword:(NSString *)  password;
+{
+    _password =  password;
+    [self valueChanged:password forProperty:@"password"];
+}
+
+ 
+- (void)setForceChangePasswordNextLogin:(BOOL )  forceChangePasswordNextLogin;
+{
+    _forceChangePasswordNextLogin =  forceChangePasswordNextLogin;
+    [self valueChangedForBool:forceChangePasswordNextLogin forProperty:@"forceChangePasswordNextLogin"];
+}
+
 
 @end
