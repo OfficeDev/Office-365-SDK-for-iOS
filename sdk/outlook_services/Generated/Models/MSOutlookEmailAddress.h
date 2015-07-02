@@ -21,8 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookEmailAddress : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=address, setter=setAddress:) NSString *Address;
 

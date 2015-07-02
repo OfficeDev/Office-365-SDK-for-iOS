@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookFolder : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=parentFolderId, setter=setParentFolderId:) NSString *ParentFolderId;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;
 @property (nonatomic, getter=childFolderCount, setter=setChildFolderCount:) int ChildFolderCount;

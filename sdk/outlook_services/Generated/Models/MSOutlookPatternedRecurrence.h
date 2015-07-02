@@ -24,8 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookPatternedRecurrence : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=pattern, setter=setPattern:) MSOutlookRecurrencePattern *Pattern;
 @property (retain, nonatomic, readwrite, getter=range, setter=setRange:) MSOutlookRecurrenceRange *Range;
 

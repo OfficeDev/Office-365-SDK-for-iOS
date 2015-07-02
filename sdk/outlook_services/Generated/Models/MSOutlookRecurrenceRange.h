@@ -22,8 +22,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookRecurrenceRange : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property  (nonatomic, getter=type, setter=setType:) MSOutlookRecurrenceRangeType Type;
 - (void)setTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=startDate, setter=setStartDate:) NSDate *StartDate;

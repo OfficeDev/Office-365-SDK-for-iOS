@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookItem : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=changeKey, setter=setChangeKey:) NSString *ChangeKey;
 @property (retain, nonatomic, readwrite, getter=categories, setter=setCategories:) NSMutableArray *Categories;
 @property (retain, nonatomic, readwrite, getter=dateTimeCreated, setter=setDateTimeCreated:) NSDate *DateTimeCreated;

@@ -24,7 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookEventMessage : MSOutlookMessage
-
 @property  (nonatomic, getter=meetingMessageType, setter=setMeetingMessageType:) MSOutlookMeetingMessageType MeetingMessageType;
 - (void)setMeetingMessageTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=event, setter=setEvent:) MSOutlookEvent *Event;

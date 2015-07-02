@@ -24,8 +24,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookLocation : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;
 @property (retain, nonatomic, readwrite, getter=address, setter=setAddress:) MSOutlookPhysicalAddress *Address;
 @property (retain, nonatomic, readwrite, getter=coordinates, setter=setCoordinates:) MSOutlookGeoCoordinates *Coordinates;

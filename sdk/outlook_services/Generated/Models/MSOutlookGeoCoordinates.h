@@ -23,8 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookGeoCoordinates : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property (retain, nonatomic, readwrite, getter=altitude, setter=setAltitude:) MSOutlookDouble *Altitude;
 @property (retain, nonatomic, readwrite, getter=latitude, setter=setLatitude:) MSOutlookDouble *Latitude;
 @property (retain, nonatomic, readwrite, getter=longitude, setter=setLongitude:) MSOutlookDouble *Longitude;

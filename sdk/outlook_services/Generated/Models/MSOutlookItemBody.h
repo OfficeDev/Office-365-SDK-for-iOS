@@ -22,8 +22,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookItemBody : MSOrcBaseEntity
-
-@property (retain, nonatomic, readonly) NSString *odataType;
 @property  (nonatomic, getter=contentType, setter=setContentType:) MSOutlookBodyType ContentType;
 - (void)setContentTypeString:(NSString *)value;
 @property (retain, nonatomic, readwrite, getter=content, setter=setContent:) NSString *Content;

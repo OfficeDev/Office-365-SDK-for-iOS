@@ -21,7 +21,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookAttachment : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=name, setter=setName:) NSString *Name;
 @property (retain, nonatomic, readwrite, getter=contentType, setter=setContentType:) NSString *ContentType;
 @property (nonatomic, getter=size, setter=setSize:) int Size;

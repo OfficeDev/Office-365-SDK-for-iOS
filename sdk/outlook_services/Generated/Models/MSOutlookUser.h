@@ -29,7 +29,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookUser : MSOutlookEntity
-
 @property (retain, nonatomic, readwrite, getter=displayName, setter=setDisplayName:) NSString *DisplayName;
 @property (retain, nonatomic, readwrite, getter=alias, setter=setAlias:) NSString *Alias;
 @property (retain, nonatomic, readwrite, getter=mailboxGuid, setter=setMailboxGuid:) NSString *MailboxGuid;

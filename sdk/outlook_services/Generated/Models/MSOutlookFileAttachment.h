@@ -23,7 +23,6 @@ the T4TemplateWriter (https://github.com/msopentech/vipr-t4templatewriter).
 */
 
 @interface MSOutlookFileAttachment : MSOutlookAttachment
-
 @property (retain, nonatomic, readwrite, getter=contentId, setter=setContentId:) NSString *ContentId;
 @property (retain, nonatomic, readwrite, getter=contentLocation, setter=setContentLocation:) NSString *ContentLocation;
 @property (nonatomic, getter=isContactPhoto, setter=setIsContactPhoto:) BOOL IsContactPhoto;
