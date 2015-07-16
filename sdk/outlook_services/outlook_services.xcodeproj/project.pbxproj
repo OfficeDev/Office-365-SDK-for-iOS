@@ -58,7 +58,6 @@
 		EC7A745D1B0FA52300AFF3A8 /* MSOutlookPatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A73A91B0FA52200AFF3A8 /* MSOutlookPatternedRecurrence.m */; };
 		EC7A745E1B0FA52300AFF3A8 /* MSOutlookPhysicalAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A73AA1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A745F1B0FA52300AFF3A8 /* MSOutlookPhysicalAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A73AB1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.m */; };
-		EC7A74601B0FA52300AFF3A8 /* MSOutlookProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A73AC1B0FA52200AFF3A8 /* MSOutlookProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A74611B0FA52300AFF3A8 /* MSOutlookRecipient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A73AD1B0FA52200AFF3A8 /* MSOutlookRecipient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A74621B0FA52300AFF3A8 /* MSOutlookRecipient.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A73AE1B0FA52200AFF3A8 /* MSOutlookRecipient.m */; };
 		EC7A74631B0FA52300AFF3A8 /* MSOutlookRecurrencePattern.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A73AF1B0FA52200AFF3A8 /* MSOutlookRecurrencePattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -247,7 +246,6 @@
 		EC7A73A91B0FA52200AFF3A8 /* MSOutlookPatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookPatternedRecurrence.m; sourceTree = "<group>"; };
 		EC7A73AA1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookPhysicalAddress.h; sourceTree = "<group>"; };
 		EC7A73AB1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookPhysicalAddress.m; sourceTree = "<group>"; };
-		EC7A73AC1B0FA52200AFF3A8 /* MSOutlookProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookProtocols.h; sourceTree = "<group>"; };
 		EC7A73AD1B0FA52200AFF3A8 /* MSOutlookRecipient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookRecipient.h; sourceTree = "<group>"; };
 		EC7A73AE1B0FA52200AFF3A8 /* MSOutlookRecipient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOutlookRecipient.m; sourceTree = "<group>"; };
 		EC7A73AF1B0FA52200AFF3A8 /* MSOutlookRecurrencePattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOutlookRecurrencePattern.h; sourceTree = "<group>"; };
@@ -506,7 +504,6 @@
 				EC7A73A91B0FA52200AFF3A8 /* MSOutlookPatternedRecurrence.m */,
 				EC7A73AA1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.h */,
 				EC7A73AB1B0FA52200AFF3A8 /* MSOutlookPhysicalAddress.m */,
-				EC7A73AC1B0FA52200AFF3A8 /* MSOutlookProtocols.h */,
 				EC7A73AD1B0FA52200AFF3A8 /* MSOutlookRecipient.h */,
 				EC7A73AE1B0FA52200AFF3A8 /* MSOutlookRecipient.m */,
 				EC7A73AF1B0FA52200AFF3A8 /* MSOutlookRecurrencePattern.h */,
@@ -728,7 +725,6 @@
 				EC7A748B1B0FA52300AFF3A8 /* MSOutlookContactCollectionOperations.h in Headers */,
 				EC7A74891B0FA52300AFF3A8 /* MSOutlookContactCollectionFetcher.h in Headers */,
 				EC7A74A91B0FA52300AFF3A8 /* MSOutlookEventMessageCollectionOperations.h in Headers */,
-				EC7A74601B0FA52300AFF3A8 /* MSOutlookProtocols.h in Headers */,
 				EC7A74A51B0FA52300AFF3A8 /* MSOutlookEventFetcher.h in Headers */,
 				EC7A74991B0FA52300AFF3A8 /* MSOutlookEntityCollectionFetcher.h in Headers */,
 				EC7A746B1B0FA52300AFF3A8 /* MSOutlookResponseType.h in Headers */,
