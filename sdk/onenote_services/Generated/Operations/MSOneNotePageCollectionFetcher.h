@@ -20,7 +20,7 @@ root for authoritative license information.﻿
 * The header for type MSOneNotePageCollectionFetcher.
 */
 
-@interface MSOneNotePageCollectionFetcher : MSOrcCollectionFetcher
+@interface MSOneNotePageCollectionFetcher : MSOrcMultipartCollectionFetcher
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
