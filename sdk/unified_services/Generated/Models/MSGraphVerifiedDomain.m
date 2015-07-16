@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @synthesize odataType = _odataType;
 @synthesize capabilities = _capabilities;
-@synthesize $$__default = _$$__default;
+@synthesize $$__$$default = _$$__$$default;
 @synthesize id = _id;
 @synthesize initial = _initial;
 @synthesize name = _name;
@@ -42,9 +42,9 @@ root for authoritative license information.﻿
 	[self valueChanged:capabilities forProperty:@"capabilities"];
 }
     
-- (void)setDefault:(BOOL ) $$__default {
-    _$$__default = $$__default;
-    [self valueChangedForBool:$$__default forProperty:@"$$__default"];
+- (void)setDefault:(BOOL ) $$__$$default {
+    _$$__$$default = $$__$$default;
+    [self valueChangedForBool:$$__$$default forProperty:@"$$__$$default"];
 }
     
 - (void)setId:(NSString *) id {

@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 @implementation MSGraphDirectoryRole	
 
 @synthesize odataType = _odataType;
-@synthesize $$__description = _$$__description;
+@synthesize $$__$$description = _$$__$$description;
 @synthesize displayName = _displayName;
 @synthesize isSystem = _isSystem;
 @synthesize roleDisabled = _roleDisabled;
@@ -45,9 +45,9 @@ root for authoritative license information.﻿
 	return self;
 }
 
-- (void)setDescription:(NSString *) $$__description {
-    _$$__description = $$__description;
-	[self valueChanged:$$__description forProperty:@"$$__description"];
+- (void)setDescription:(NSString *) $$__$$description {
+    _$$__$$description = $$__$$description;
+	[self valueChanged:$$__$$description forProperty:@"$$__$$description"];
 }
     
 - (void)setDisplayName:(NSString *) displayName {

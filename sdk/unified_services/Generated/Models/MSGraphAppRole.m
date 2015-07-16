@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @synthesize odataType = _odataType;
 @synthesize allowedMemberTypes = _allowedMemberTypes;
-@synthesize $$__description = _$$__description;
+@synthesize $$__$$description = _$$__$$description;
 @synthesize displayName = _displayName;
 @synthesize id = _id;
 @synthesize isEnabled = _isEnabled;
@@ -43,9 +43,9 @@ root for authoritative license information.﻿
 	[self valueChanged:allowedMemberTypes forProperty:@"allowedMemberTypes"];
 }
     
-- (void)setDescription:(NSString *) $$__description {
-    _$$__description = $$__description;
-	[self valueChanged:$$__description forProperty:@"$$__description"];
+- (void)setDescription:(NSString *) $$__$$description {
+    _$$__$$description = $$__$$description;
+	[self valueChanged:$$__$$description forProperty:@"$$__$$description"];
 }
     
 - (void)setDisplayName:(NSString *) displayName {

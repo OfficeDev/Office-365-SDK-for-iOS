@@ -38,7 +38,6 @@
 		EC7A75A81B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A752D1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A75A91B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A752E1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.m */; };
 		EC7A75AA1B0FACD900AFF3A8 /* MSOneNotePatchInsertPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A752F1B0FACD900AFF3A8 /* MSOneNotePatchInsertPosition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC7A75AB1B0FACD900AFF3A8 /* MSOneNoteProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A75301B0FACD900AFF3A8 /* MSOneNoteProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A75AC1B0FACD900AFF3A8 /* MSOneNoteResource.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A75311B0FACD900AFF3A8 /* MSOneNoteResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC7A75AD1B0FACD900AFF3A8 /* MSOneNoteResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EC7A75321B0FACD900AFF3A8 /* MSOneNoteResource.m */; };
 		EC7A75AE1B0FACD900AFF3A8 /* MSOneNoteSection.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7A75331B0FACD900AFF3A8 /* MSOneNoteSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -169,7 +168,6 @@
 		EC7A752D1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNotePatchContentCommand.h; sourceTree = "<group>"; };
 		EC7A752E1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNotePatchContentCommand.m; sourceTree = "<group>"; };
 		EC7A752F1B0FACD900AFF3A8 /* MSOneNotePatchInsertPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNotePatchInsertPosition.h; sourceTree = "<group>"; };
-		EC7A75301B0FACD900AFF3A8 /* MSOneNoteProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteProtocols.h; sourceTree = "<group>"; };
 		EC7A75311B0FACD900AFF3A8 /* MSOneNoteResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteResource.h; sourceTree = "<group>"; };
 		EC7A75321B0FACD900AFF3A8 /* MSOneNoteResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSOneNoteResource.m; sourceTree = "<group>"; };
 		EC7A75331B0FACD900AFF3A8 /* MSOneNoteSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSOneNoteSection.h; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 				EC7A752D1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.h */,
 				EC7A752E1B0FACD900AFF3A8 /* MSOneNotePatchContentCommand.m */,
 				EC7A752F1B0FACD900AFF3A8 /* MSOneNotePatchInsertPosition.h */,
-				EC7A75301B0FACD900AFF3A8 /* MSOneNoteProtocols.h */,
 				EC7A75311B0FACD900AFF3A8 /* MSOneNoteResource.h */,
 				EC7A75321B0FACD900AFF3A8 /* MSOneNoteResource.m */,
 				EC7A75331B0FACD900AFF3A8 /* MSOneNoteSection.h */,
@@ -500,7 +497,6 @@
 				EC7A75981B0FACD900AFF3A8 /* MSOneNoteMe.h in Headers */,
 				EC7A75E21B0FACD900AFF3A8 /* MSOneNotePageOperations.h in Headers */,
 				EC7A75CA1B0FACD900AFF3A8 /* MSOneNoteMyOrganizationOperations.h in Headers */,
-				EC7A75AB1B0FACD900AFF3A8 /* MSOneNoteProtocols.h in Headers */,
 				EC7A759B1B0FACD900AFF3A8 /* MSOneNoteMyOrganization.h in Headers */,
 				EC7A75CE1B0FACD900AFF3A8 /* MSOneNoteNotebookCollectionOperations.h in Headers */,
 				EC7A75FA1B0FACD900AFF3A8 /* MSOneNoteSectionOperations.h in Headers */,
