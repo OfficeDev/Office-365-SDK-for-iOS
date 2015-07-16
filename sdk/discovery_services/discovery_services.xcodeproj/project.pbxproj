@@ -10,7 +10,6 @@
 		52383252DD32377FE8236B0B /* libPods-discovery_services.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6429418BE20687D1F6E79C /* libPods-discovery_services.a */; };
 		EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = EC3484781AAF361500530D41 /* MSDiscoveryModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC48AD821AE1AC5A0074F9A6 /* discovery_services.h in Headers */ = {isa = PBXBuildFile; fileRef = EC34848B1AAF3B6200530D41 /* discovery_services.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC78D2301A2606AD004B0B5C /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */; };
 		EC78D23B1A2606B6004B0B5C /* MSDiscoveryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EC78D2311A2606B6004B0B5C /* MSDiscoveryClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,7 +32,6 @@
 		EC2CCA2E19F8A02F00D12E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3484781AAF361500530D41 /* MSDiscoveryModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryModels.h; sourceTree = "<group>"; };
 		EC34848B1AAF3B6200530D41 /* discovery_services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discovery_services.h; sourceTree = "<group>"; };
-		EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryProtocols.h; sourceTree = "<group>"; };
 		EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryServiceInfo.h; sourceTree = "<group>"; };
 		EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDiscoveryServiceInfo.m; sourceTree = "<group>"; };
 		EC78D2311A2606B6004B0B5C /* MSDiscoveryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDiscoveryClient.h; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				EC3484781AAF361500530D41 /* MSDiscoveryModels.h */,
-				EC78D22B1A2606AD004B0B5C /* MSDiscoveryProtocols.h */,
 				EC78D22C1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h */,
 				EC78D22D1A2606AD004B0B5C /* MSDiscoveryServiceInfo.m */,
 			);
@@ -166,7 +163,6 @@
 				EC78D23B1A2606B6004B0B5C /* MSDiscoveryClient.h in Headers */,
 				EC78D23D1A2606B6004B0B5C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
 				EC3484791AAF361500530D41 /* MSDiscoveryModels.h in Headers */,
-				EC78D22E1A2606AD004B0B5C /* MSDiscoveryProtocols.h in Headers */,
 				EC7A75051B0FABBD00AFF3A8 /* MSDiscoveryFetchers.h in Headers */,
 				EC78D22F1A2606AD004B0B5C /* MSDiscoveryServiceInfo.h in Headers */,
 				EC48AD821AE1AC5A0074F9A6 /* discovery_services.h in Headers */,
