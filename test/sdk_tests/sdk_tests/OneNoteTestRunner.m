@@ -69,7 +69,7 @@
 
 - (void)testCreateNotebooks:(void(^)(Test *))result {
     
-    return [[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+    return [[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] readWithCallback:^(NSArray *notebooks, MSOrcError *error) {
         
         MSOneNoteNotebook *newNotebook = [[MSOneNoteNotebook alloc] init];
         newNotebook.name = @"Test notebook iOS";
@@ -110,7 +110,7 @@
 
 - (void)testGetNotebooks:(void(^)(Test *))result {
     
-    return [self.client.me.notes.notebooks readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+    return [self.client.me.notes.notebooks readWithCallback:^(NSArray *notebooks, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -141,7 +141,7 @@
 
 - (void)testGetNotebooksById:(void(^)(Test *))result {
     
-    return [self.client.me.notes.notebooks readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+    return [self.client.me.notes.notebooks readWithCallback:^(NSArray *notebooks, MSOrcError *error) {
         
         Test *test = [Test alloc];
         test.executionMessages = [NSMutableArray array];
@@ -190,7 +190,7 @@
 
 - (void)testGetSections:(void (^) (Test*))result{
     
-    return [self.client.me.notes.sections readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
+    return [self.client.me.notes.sections readWithCallback:^(NSArray *sections, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -221,7 +221,7 @@
 
 - (void)testCreateSections:(void(^)(Test *))result {
     
-    return [[[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray<MSOneNoteNotebook> *notebooks, MSOrcError *error) {
+    return [[[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] top:1] readWithCallback:^(NSArray *notebooks, MSOrcError *error) {
         
         Test *test = [Test alloc];
         test.executionMessages = [NSMutableArray array];
@@ -266,7 +266,7 @@
 
 - (void)testGetSectionsById:(void(^)(Test *))result {
     
-    return [[self.client.me.notes.sections top:1] readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
+    return [[self.client.me.notes.sections top:1] readWithCallback:^(NSArray *sections, MSOrcError *error) {
         
         Test *test = [Test alloc];
         test.executionMessages = [NSMutableArray array];
@@ -309,7 +309,7 @@
 
 - (void)testGetSectionGroups:(void(^)(Test *))result {
     
-    return [self.client.me.notes.sectionGroups readWithCallback:^(NSArray<MSOneNoteSectionGroup> *sectionGroups, MSOrcError *error) {
+    return [self.client.me.notes.sectionGroups readWithCallback:^(NSArray *sectionGroups, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -342,7 +342,7 @@
 
 - (void)testGetPages:(void (^) (Test*))result{
     
-    return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
+    return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray *pages, MSOrcError *error) {
         
         BOOL passed = false;
         Test *test = [Test alloc];
@@ -372,7 +372,7 @@
 
 - (void)testGetPagesFromSection:(void (^) (Test*))result{
     
-    return [self.client.me.notes.sections readWithCallback:^(NSArray<MSOneNoteSection> *sections, MSOrcError *error) {
+    return [self.client.me.notes.sections readWithCallback:^(NSArray *sections, MSOrcError *error) {
         
         Test *test = [Test alloc];
         test.executionMessages = [NSMutableArray array];
@@ -414,7 +414,7 @@
 
 - (void)testGetPageContent:(void (^) (Test*))result{
     
-    return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
+    return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray *pages, MSOrcError *error) {
         MSOneNotePage *page = [pages objectAtIndex:0];
         
         [[self.client.me.notes.pages getById:page.id] getContentWithCallback:^(NSData *content, MSOrcError *error) {
@@ -498,7 +498,7 @@
     return [weakSelf.client.me.notes.pages addParts:(NSMutableArray<MSOrcMultiPartElement> *)multiparElements
                           withCallback:^(id<MSOrcResponse> response, MSOrcError *error) {
         
-        [[weakSelf.client.me.notes.pages search:@"A simple page created with an image on it"] readWithCallback:^(NSArray<MSOneNotePage> *pages, MSOrcError *error) {
+        [[weakSelf.client.me.notes.pages search:@"A simple page created with an image on it"] readWithCallback:^(NSArray *pages, MSOrcError *error) {
             
             BOOL passed = false;
             

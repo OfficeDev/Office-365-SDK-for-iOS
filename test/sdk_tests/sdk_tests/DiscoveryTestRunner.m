@@ -46,7 +46,7 @@
 
 - (void)testGetAllServices:(void(^)(Test *))result {
     
-    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [self.client.allServices readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
      
         BOOL passed = false;
         
@@ -73,7 +73,7 @@
 
 - (void)testGetServices:(void(^)(Test *))result {
     
-    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [self.client.allServices readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -100,7 +100,7 @@
 
 - (void)testGetServiceById:(void(^)(Test *))result {
     
-    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [self.client.allServices readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
         
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         
@@ -134,14 +134,14 @@
 - (void)testFilterServices:(void(^)(Test *))result {
    
     //Get services
-    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [self.client.allServices readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
         
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         
         // Use filter to get service
         NSString *filter = [[@"entityKey eq '" stringByAppendingString:oneServiceInfo.entityKey] stringByAppendingString:@"'" ];
         
-        [[self.client.allServices filter:filter] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSOrcError *error) {
+        [[self.client.allServices filter:filter] readWithCallback:^(NSArray *filteredServiceInfos, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -173,14 +173,14 @@
 - (void)testSelectServices:(void(^)(Test *))result {
     
     //Get services
-    return [self.client.allServices readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [self.client.allServices readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
         
         MSDiscoveryServiceInfo *oneServiceInfo = serviceInfos[0];
         
         // Use filter to get service
         NSString *filter = [[@"ServiceName eq '" stringByAppendingString:oneServiceInfo.serviceName] stringByAppendingString:@"'" ];
        
-        [[[self.client.allServices filter:filter] select:@"providerName"] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *filteredServiceInfos, MSOrcError *error) {
+        [[[self.client.allServices filter:filter] select:@"providerName"] readWithCallback:^(NSArray *filteredServiceInfos, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -209,7 +209,7 @@
 
 - (void)testTopServices:(void(^)(Test *))result {
     
-    return [[self.client.allServices top:1] readWithCallback:^(NSArray<MSDiscoveryServiceInfo> *serviceInfos, MSOrcError *error) {
+    return [[self.client.allServices top:1] readWithCallback:^(NSArray *serviceInfos, MSOrcError *error) {
         
         BOOL passed = false;
         

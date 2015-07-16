@@ -118,7 +118,7 @@
 
 -(void)TestGetApplications:(void (^) (Test*))result{
     
-    [self.Client.applications readWithCallback:^(NSArray<MSGraphApplication> *applications, MSOrcError *error) {
+    [self.Client.applications readWithCallback:^(NSArray *applications, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -147,7 +147,7 @@
 
 -(void)TestGetContacts:(void (^) (Test*))result{
     
-    return [self.Client.contacts readWithCallback:^(NSArray<MSGraphContact> *contacts, MSOrcError *error) {
+    return [self.Client.contacts readWithCallback:^(NSArray *contacts, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -174,7 +174,7 @@
 
 -(void)TestGetDeviceConfiguration:(void (^) (Test*))result{
     
-    return [self.Client.deviceConfiguration readWithCallback:^(NSArray<MSGraphDeviceConfiguration> *deviceConfigurations, MSOrcError *error) {
+    return [self.Client.deviceConfiguration readWithCallback:^(NSArray *deviceConfigurations, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -201,7 +201,7 @@
 
 -(void)TestGetDevices:(void (^) (Test *))result{
     
-    return [self.Client.devices readWithCallback:^(NSArray<MSGraphDevice> *devices, MSOrcError *error) {
+    return [self.Client.devices readWithCallback:^(NSArray *devices, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -228,7 +228,7 @@
 
 - (void)TestGetGroups:(void (^) (Test *))result {
     
-    return [self.Client.groups readWithCallback:^(NSArray<MSGraphGroup> *groups, MSOrcError *error) {
+    return [self.Client.groups readWithCallback:^(NSArray *groups, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -255,7 +255,7 @@
 
 -(void)TestGetDirectoryRoles:(void (^) (Test*))result{
     
-    return [self.Client.directoryRoles readWithCallback:^(NSArray<MSGraphDirectoryRole> *directoryRoles, MSOrcError *error) {
+    return [self.Client.directoryRoles readWithCallback:^(NSArray *directoryRoles, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -282,7 +282,7 @@
 
 -(void)TestGetDirectoryRoleTemplates:(void (^) (Test*))result{
     
-    return [self.Client.directoryRoleTemplates readWithCallback:^(NSArray<MSGraphDirectoryRoleTemplate> *directoryRoleTemplates,
+    return [self.Client.directoryRoleTemplates readWithCallback:^(NSArray *directoryRoleTemplates,
                                                                   MSOrcError *error) {
         
         BOOL passed = false;
@@ -310,7 +310,7 @@
 
 -(void)TestGetServicePrincipals:(void (^) (Test*))result{
     
-    return [self.Client.servicePrincipals readWithCallback:^(NSArray<MSGraphServicePrincipal> *servicePrincipals, MSOrcError *error) {
+    return [self.Client.servicePrincipals readWithCallback:^(NSArray *servicePrincipals, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -337,7 +337,7 @@
 
 - (void)TestGetTenantDetails:(void (^) (Test*))result {
     
-    return [self.Client.tenantDetails readWithCallback:^(NSArray<MSGraphTenantDetail> *tenantDetails, MSOrcError *error) {
+    return [self.Client.tenantDetails readWithCallback:^(NSArray *tenantDetails, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -364,7 +364,7 @@
 
 - (void)TestGetUsers:(void (^) (Test *))result {
     
-    return [[self.Client.users top:1] readWithCallback:^(NSArray<MSGraphUser> *users, MSOrcError *error) {
+    return [[self.Client.users top:1] readWithCallback:^(NSArray *users, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -392,7 +392,7 @@
 
 -(void)TestGetSubscribedSkus:(void (^) (Test*))result{
     
-    return [self.Client.subscribedSkus readWithCallback:^(NSArray<MSGraphSubscribedSku> *subscribedSkus, MSOrcError *error) {
+    return [self.Client.subscribedSkus readWithCallback:^(NSArray *subscribedSkus, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -420,7 +420,7 @@
 -(void)TestGetUserAppRoleAssignments:(void (^) (Test*))result{
     
     return [[self.Client.users getById:self.TestMail].appRoleAssignments
-                      readWithCallback:^(NSArray<MSGraphAppRoleAssignment> *appRoleAssignments, MSOrcError *error) {
+                      readWithCallback:^(NSArray *appRoleAssignments, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -452,7 +452,7 @@
 - (void)TestGetOauth2PermissionGrants:(void (^) (Test *))result {
     
     return [[self.Client.users getById:self.TestMail].oauth2PermissionGrants
-                      readWithCallback:^(NSArray<MSGraphOAuth2PermissionGrant> *oAuth2PermissionGrants, MSOrcError *error) {
+                      readWithCallback:^(NSArray *oAuth2PermissionGrants, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -482,7 +482,7 @@
 
 -(void)TestGetOwnedDevices:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].ownedDevices readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].ownedDevices readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -509,7 +509,7 @@
 
 -(void)TestGetRegisteredDevices:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].registeredDevices readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].registeredDevices readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -540,7 +540,7 @@
 -(void)TestGetMemberOf:(void (^) (Test*))result{
     
     return [[self.Client.users getById:self.TestMail].memberOf
-                      readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+                      readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -567,7 +567,7 @@
 
 -(void)TestGetMemberOfById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].memberOf readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].memberOf readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -607,7 +607,7 @@
 
 -(void)TestGetCreatedObjects:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].createdObjects readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].createdObjects readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -634,7 +634,7 @@
 
 -(void)TestGetOwnedObjects:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].ownedObjects readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].ownedObjects readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -661,7 +661,7 @@
 
 -(void)TestGetOwnedObjectsById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].ownedObjects readWithCallback:^(NSArray<MSGraphDirectoryObject> *directoryObjects, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].ownedObjects readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -701,7 +701,7 @@
 
 -(void)TestGetMessages:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].messages readWithCallback:^(NSArray<MSGraphMessage> *messages, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].messages readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -728,7 +728,7 @@
 
 -(void)TestGetMessagesById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].messages readWithCallback:^(NSArray<MSGraphMessage> *messages, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].messages readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -798,7 +798,7 @@
 
 -(void)TestGetCalendars:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].calendars readWithCallback:^(NSArray<MSGraphCalendar> *calendars, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].calendars readWithCallback:^(NSArray *calendars, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -825,7 +825,7 @@
 
 - (void)TestGetCalendarById:(void (^) (Test *))result {
     
-    return [[self.Client.users getById:self.TestMail].calendars readWithCallback:^(NSArray<MSGraphCalendar> *calendars, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].calendars readWithCallback:^(NSArray *calendars, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -891,7 +891,7 @@
 
 -(void)TestGetCalendarGroups:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].calendarGroups readWithCallback:^(NSArray<MSGraphCalendarGroup> *calendarGroups, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].calendarGroups readWithCallback:^(NSArray *calendarGroups, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -918,7 +918,7 @@
 
 -(void)TestGetCalendarGroupById:(void (^) (Test*))result{
 
-    return [[self.Client.users getById:self.TestMail].calendarGroups readWithCallback:^(NSArray<MSGraphCalendarGroup> *calendarGroups, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].calendarGroups readWithCallback:^(NSArray *calendarGroups, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -958,7 +958,7 @@
 
 -(void)TestGetEvents:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].events readWithCallback:^(NSArray<MSGraphEvent> *events, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].events readWithCallback:^(NSArray *events, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -985,7 +985,7 @@
 
 -(void)TestGetEventsById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].events readWithCallback:^(NSArray<MSGraphEvent> *events, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].events readWithCallback:^(NSArray *events, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1141,7 +1141,7 @@
         
         [[[[self.Client.users getById:self.TestMail].calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.Start]
                                                                   addCustomParametersWithName:@"enddatetime" value:newEvent.End ]
-                     readWithCallback:^(NSArray<MSGraphEvent> *events, MSOrcError *error) {
+                     readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1176,7 +1176,7 @@
 
 -(void)TestGetUserPhotos:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray<MSGraphPhoto> *photos, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1203,7 +1203,7 @@
 
 -(void)TestGetUserPhotoById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray<MSGraphPhoto> *photos, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1297,7 +1297,7 @@
 
 -(void)TestGetUserFiles:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray<MSGraphItem> *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1324,7 +1324,7 @@
 
 -(void)TestGetUserFilesById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray<MSGraphItem> *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1425,7 +1425,7 @@
     
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
-    [message setToRecipients:(NSMutableArray< MSGraphRecipient>*)toRecipients];
+    [message setToRecipients:toRecipients];
     
     //Cc recipient
     if(![cc isEqualToString:@""]){
@@ -1433,7 +1433,7 @@
         MSGraphEmailAddress* emailCc = [[ MSGraphEmailAddress alloc]init];
         [emailCc setAddress:cc];
         [ccRecipient setEmailAddress:emailCc];
-        NSMutableArray< MSGraphRecipient> *ccRecipients = (NSMutableArray< MSGraphRecipient>*)[[NSMutableArray alloc]init];
+        NSMutableArray *ccRecipients = [[NSMutableArray alloc]init];
         [toRecipients addObject:ccRecipient];
         [message setToRecipients:ccRecipients];
     }
@@ -1474,7 +1474,7 @@
     NSMutableArray *attendees = [[NSMutableArray alloc] init];
     [attendees addObject:attendee1];
     
-    event.Attendees = (NSMutableArray<MSGraphAttendee>*)attendees;
+    event.Attendees = (NSMutableArray *)attendees;
     
     return event;
 }
