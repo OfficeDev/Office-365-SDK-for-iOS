@@ -3,7 +3,5 @@ platform :ios, '7.0'
 
 xcodeproj 'simple-exchange-app'
 
-pod 'LiveSDK'
-pod 'ADALIOS', '~> 1.2.2' # 1.2.2 < ver < 1.2.2
-pod 'OrcEngine/Implementation', :git => 'https://github.com/MSOpenTech/orc-for-ios.git', :branch => 'dev'
-pod 'Office365/Outlook', :git => 'https://github.com/greathansen/Office-365-SDK-for-iOS', :branch => 'orc-poc'
+pod 'orc', '=0.10.2'
+pod 'Office365/outlook', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS', :branch => 'master'
