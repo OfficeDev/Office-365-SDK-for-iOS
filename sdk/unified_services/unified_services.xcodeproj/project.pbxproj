@@ -106,7 +106,6 @@
 		EC25FDBC1B0FBFBF00E227BA /* MSGraphPatternedRecurrence.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FC3B1B0FBFBE00E227BA /* MSGraphPatternedRecurrence.m */; };
 		EC25FDBD1B0FBFBF00E227BA /* MSGraphPhoto.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FC3C1B0FBFBE00E227BA /* MSGraphPhoto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FDBE1B0FBFBF00E227BA /* MSGraphPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FC3D1B0FBFBE00E227BA /* MSGraphPhoto.m */; };
-		EC25FDBF1B0FBFBF00E227BA /* MSGraphProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FC3E1B0FBFBE00E227BA /* MSGraphProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FDC01B0FBFBF00E227BA /* MSGraphProvisionedPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FC3F1B0FBFBE00E227BA /* MSGraphProvisionedPlan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC25FDC11B0FBFBF00E227BA /* MSGraphProvisionedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = EC25FC401B0FBFBE00E227BA /* MSGraphProvisionedPlan.m */; };
 		EC25FDC21B0FBFBF00E227BA /* MSGraphProvisioningError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC25FC411B0FBFBE00E227BA /* MSGraphProvisioningError.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -497,7 +496,6 @@
 		EC25FC3B1B0FBFBE00E227BA /* MSGraphPatternedRecurrence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphPatternedRecurrence.m; sourceTree = "<group>"; };
 		EC25FC3C1B0FBFBE00E227BA /* MSGraphPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphPhoto.h; sourceTree = "<group>"; };
 		EC25FC3D1B0FBFBE00E227BA /* MSGraphPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphPhoto.m; sourceTree = "<group>"; };
-		EC25FC3E1B0FBFBE00E227BA /* MSGraphProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphProtocols.h; sourceTree = "<group>"; };
 		EC25FC3F1B0FBFBE00E227BA /* MSGraphProvisionedPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphProvisionedPlan.h; sourceTree = "<group>"; };
 		EC25FC401B0FBFBE00E227BA /* MSGraphProvisionedPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSGraphProvisionedPlan.m; sourceTree = "<group>"; };
 		EC25FC411B0FBFBE00E227BA /* MSGraphProvisioningError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSGraphProvisioningError.h; sourceTree = "<group>"; };
@@ -927,7 +925,6 @@
 				EC25FC3B1B0FBFBE00E227BA /* MSGraphPatternedRecurrence.m */,
 				EC25FC3C1B0FBFBE00E227BA /* MSGraphPhoto.h */,
 				EC25FC3D1B0FBFBE00E227BA /* MSGraphPhoto.m */,
-				EC25FC3E1B0FBFBE00E227BA /* MSGraphProtocols.h */,
 				EC25FC3F1B0FBFBE00E227BA /* MSGraphProvisionedPlan.h */,
 				EC25FC401B0FBFBE00E227BA /* MSGraphProvisionedPlan.m */,
 				EC25FC411B0FBFBE00E227BA /* MSGraphProvisioningError.h */,
@@ -1300,7 +1297,6 @@
 				EC25FE201B0FBFBF00E227BA /* MSGraphDeviceFetcher.h in Headers */,
 				EC25FDB91B0FBFBF00E227BA /* MSGraphPasswordProfile.h in Headers */,
 				EC25FD821B0FBFBF00E227BA /* MSGraphDrive.h in Headers */,
-				EC25FDBF1B0FBFBF00E227BA /* MSGraphProtocols.h in Headers */,
 				EC25FE4C1B0FBFBF00E227BA /* MSGraphEventCollectionFetcher.h in Headers */,
 				EC25FE541B0FBFBF00E227BA /* MSGraphEventMessageCollectionOperations.h in Headers */,
 				EC25FE501B0FBFBF00E227BA /* MSGraphEventFetcher.h in Headers */,

@@ -51,7 +51,6 @@
 		EC55F9171AF155D70099BB4C /* MSDirectoryPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8531AF155D60099BB4C /* MSDirectoryPasswordCredential.m */; };
 		EC55F9181AF155D70099BB4C /* MSDirectoryPasswordProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8541AF155D60099BB4C /* MSDirectoryPasswordProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F9191AF155D70099BB4C /* MSDirectoryPasswordProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8551AF155D60099BB4C /* MSDirectoryPasswordProfile.m */; };
-		EC55F91A1AF155D70099BB4C /* MSDirectoryProtocols.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8561AF155D60099BB4C /* MSDirectoryProtocols.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F91B1AF155D70099BB4C /* MSDirectoryProvisionedPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8571AF155D60099BB4C /* MSDirectoryProvisionedPlan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC55F91C1AF155D70099BB4C /* MSDirectoryProvisionedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = EC55F8581AF155D60099BB4C /* MSDirectoryProvisionedPlan.m */; };
 		EC55F91D1AF155D70099BB4C /* MSDirectoryProvisioningError.h in Headers */ = {isa = PBXBuildFile; fileRef = EC55F8591AF155D60099BB4C /* MSDirectoryProvisioningError.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -257,7 +256,6 @@
 		EC55F8531AF155D60099BB4C /* MSDirectoryPasswordCredential.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryPasswordCredential.m; sourceTree = "<group>"; };
 		EC55F8541AF155D60099BB4C /* MSDirectoryPasswordProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryPasswordProfile.h; sourceTree = "<group>"; };
 		EC55F8551AF155D60099BB4C /* MSDirectoryPasswordProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryPasswordProfile.m; sourceTree = "<group>"; };
-		EC55F8561AF155D60099BB4C /* MSDirectoryProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryProtocols.h; sourceTree = "<group>"; };
 		EC55F8571AF155D60099BB4C /* MSDirectoryProvisionedPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryProvisionedPlan.h; sourceTree = "<group>"; };
 		EC55F8581AF155D60099BB4C /* MSDirectoryProvisionedPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSDirectoryProvisionedPlan.m; sourceTree = "<group>"; };
 		EC55F8591AF155D60099BB4C /* MSDirectoryProvisioningError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSDirectoryProvisioningError.h; sourceTree = "<group>"; };
@@ -532,7 +530,6 @@
 				EC55F8531AF155D60099BB4C /* MSDirectoryPasswordCredential.m */,
 				EC55F8541AF155D60099BB4C /* MSDirectoryPasswordProfile.h */,
 				EC55F8551AF155D60099BB4C /* MSDirectoryPasswordProfile.m */,
-				EC55F8561AF155D60099BB4C /* MSDirectoryProtocols.h */,
 				EC55F8571AF155D60099BB4C /* MSDirectoryProvisionedPlan.h */,
 				EC55F8581AF155D60099BB4C /* MSDirectoryProvisionedPlan.m */,
 				EC55F8591AF155D60099BB4C /* MSDirectoryProvisioningError.h */,
@@ -799,7 +796,6 @@
 				EC55F92F1AF155D70099BB4C /* MSDirectoryApplicationCollectionFetcher.h in Headers */,
 				EC55F9671AF155D70099BB4C /* MSDirectoryDirectoryObjectOperations.h in Headers */,
 				EC55F9271AF155D70099BB4C /* MSDirectorySubscribedSku.h in Headers */,
-				EC55F91A1AF155D70099BB4C /* MSDirectoryProtocols.h in Headers */,
 				EC55F8F51AF155D70099BB4C /* MSDirectoryAppRoleAssignment.h in Headers */,
 				EC55F93F1AF155D70099BB4C /* MSDirectoryClient.h in Headers */,
 			);

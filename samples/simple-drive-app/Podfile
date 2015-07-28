@@ -2,5 +2,5 @@ source 'https://github.com/Cocoapods/Specs.git'
 platform :ios, '8.0'
 
 xcodeproj 'simple-drive-app'
-pod 'orc', '=0.10.2'
+pod 'orc', '=0.11.0'
 pod 'Office365/files', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS', :branch => 'master'

@@ -59,7 +59,7 @@
 
 -(void)TestGetFiles:(void (^) (Test *))result{
     
-    return [self.client.files readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
+    return [self.client.files readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -325,7 +325,7 @@
         [_weakSelf.client.files add:itemToAdd2 callback:^(MSSharePointItem *addedItem2, MSOrcError *e) {
             
             //Get top 1 item
-            [[_weakSelf.client.files top:1] readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
+            [[_weakSelf.client.files top:1] readWithCallback:^(NSArray *items, MSOrcError *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -378,7 +378,7 @@
     // Add new item
     return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *e) {
         //Get item
-        [[[_weakSelf.client.files select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
+        [[[_weakSelf.client.files select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray *items, MSOrcError *error) {
             
             BOOL passed = false;
             

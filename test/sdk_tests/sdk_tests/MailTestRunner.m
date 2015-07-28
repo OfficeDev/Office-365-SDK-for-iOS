@@ -221,7 +221,7 @@
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[_weakSelf.client.me getFoldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me getFoldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -308,7 +308,7 @@
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[[_weakSelf.client.me.folders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+            [[[[_weakSelf.client.me.folders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -361,7 +361,7 @@
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[_weakSelf.client.me.messages select:@"Subject"]top:1] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me.messages select:@"Subject"]top:1] readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -422,7 +422,7 @@
             //Test order by
             NSString *filter = [@"" stringByAppendingFormat:@"DisplayName eq '%@' or DisplayName eq '%@'", contact1Name, contact2Name ];
             
-            [[[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Desc"] skip:1] readWithCallback:^(NSArray<MSOutlookContact> *contacts, MSOrcError *error) {
+            [[[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Desc"] skip:1] readWithCallback:^(NSArray *contacts, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -485,10 +485,10 @@
             NSString *filter = [@"" stringByAppendingFormat:@"DisplayName eq '%@' or DisplayName eq '%@'", contact1Name, contact2Name ];
             
             // Get contacts Desc
-            [[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Desc"] readWithCallback:^(NSArray<MSOutlookContact> *contactsDesc, MSOrcError *error) {
+            [[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Desc"] readWithCallback:^(NSArray *contactsDesc, MSOrcError *error) {
                 
                 //Get contacts Asc
-                [[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Asc"] readWithCallback:^(NSArray<MSOutlookContact> *contactsAsc, NSError *error) {
+                [[[_weakSelf.client.me.contacts filter:filter] orderBy:@"DisplayName Asc"] readWithCallback:^(NSArray *contactsAsc, NSError *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -553,10 +553,10 @@
             
             NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.subject];
             
-            [[[_weakSelf.client.me.messages filter:filter] expand:@"Attachments"] readWithCallback:^(NSArray<MSOutlookMessage> *expandedMessages, MSOrcError *error) {
+            [[[_weakSelf.client.me.messages filter:filter] expand:@"Attachments"] readWithCallback:^(NSArray *expandedMessages, MSOrcError *error) {
                 //Get message without expand
                 
-                [[_weakSelf.client.me.messages filter:filter] readWithCallback:^(NSArray<MSOutlookMessage> *notExpandedMessages, MSOrcError *error) {
+                [[_weakSelf.client.me.messages filter:filter] readWithCallback:^(NSArray *notExpandedMessages, MSOrcError *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -641,7 +641,7 @@
 
 - (void)testGetFolders:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.folders readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSOrcError *error) {
+    return [_weakSelf.client.me.folders readWithCallback:^(NSArray *folders, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -941,7 +941,7 @@
 
 - (void)testGetMessages:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.messages readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+    return [_weakSelf.client.me.messages readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1279,7 +1279,7 @@
 
 - (void)testReplyMessages:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+    return [[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         if ([messages count] == 0) {
             
@@ -1332,7 +1332,7 @@
 
 - (void)testReplyAllMessages:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+    return [[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         if([messages count] == 0){
             Test *test = [Test alloc];
@@ -1381,7 +1381,7 @@
 
 - (void)testForwardMessages:(void(^)(Test *))result {
     
-    return[[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+    return[[_weakSelf.client.me.messages top:1] readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
         if([messages count] == 0){
             Test *test = [Test alloc];
@@ -1441,13 +1441,13 @@
     return[_weakSelf.client.me.operations sendMailWithMessage:message saveToSentItems:true callback:^(int returnValue, MSOrcError *error) {
         
         // Get sent mail
-        [[_weakSelf.client.me.folders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSOrcError *error) {
+        [[_weakSelf.client.me.folders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray *folders, MSOrcError *error) {
             
             MSOutlookFolder *sentItemsFolder = [folders objectAtIndex:0];
             
             NSString *filter = [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"];
             
-            [[[_weakSelf.client.me.folders getById:sentItemsFolder.id ].messages filter:filter] readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me.folders getById:sentItemsFolder.id ].messages filter:filter] readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] body] contentType] == MSOutlook_BodyType_HTML){
                     MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
@@ -1508,7 +1508,7 @@
     NSMutableArray *toRecipients = [[NSMutableArray alloc]init];
     [toRecipients addObject:toRecipient];
     
-    message.ToRecipients = (NSMutableArray<MSOutlookRecipient>*)toRecipients;
+    message.ToRecipients = (NSMutableArray *)toRecipients;
     
     //Cc recipient
     if (![cc isEqualToString:@""]) {
@@ -1518,7 +1518,7 @@
         emailCc.address = cc;
         ccRecipient.emailAddress = emailCc;
         
-        NSMutableArray<MSOutlookRecipient> *ccRecipients = (NSMutableArray<MSOutlookRecipient>*)[[NSMutableArray alloc]init];
+        NSMutableArray *ccRecipients = [[NSMutableArray alloc]init];
         
         [toRecipients addObject:ccRecipient];
         message.toRecipients = ccRecipients;
@@ -1538,7 +1538,7 @@
 
 - (void)testGetContactFolder:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me.contactFolders getById: @"Contacts"].contacts readWithCallback:^(NSArray<MSOutlookContact>*contacts, MSOrcError *error) {
+    return [[_weakSelf.client.me.contactFolders getById: @"Contacts"].contacts readWithCallback:^(NSArray *contacts, MSOrcError *error) {
         
         BOOL passed = false;
         Test *test = [Test alloc];
@@ -1569,7 +1569,7 @@
     return [_weakSelf.client.me.contacts add:newContact callback:^(MSOutlookContact *addedContact, MSOrcError *e) {
         
         //Get contacts
-        [_weakSelf.client.me.contacts readWithCallback:^(NSArray<MSOutlookContact>* contacts, MSOrcError *error) {
+        [_weakSelf.client.me.contacts readWithCallback:^(NSArray* contacts, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1716,7 +1716,7 @@
     MSOutlookEmailAddress *email = [[MSOutlookEmailAddress alloc]init];
     email.address = @"test@test.com";
     
-    NSMutableArray<MSOutlookEmailAddress> *list = (NSMutableArray<MSOutlookEmailAddress>*)[[NSMutableArray alloc] init];
+    NSMutableArray *list = [[NSMutableArray alloc] init];
     [list addObject:email];
     
     contact.emailAddresses = list;
@@ -1728,7 +1728,7 @@
 
 - (void)testGetCalendarGroups:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.calendarGroups readWithCallback:^(NSArray<MSOutlookCalendarGroup> *calendarGroups, MSOrcError *error) {
+    return [_weakSelf.client.me.calendarGroups readWithCallback:^(NSArray *calendarGroups, MSOrcError *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -1931,7 +1931,7 @@
 
 - (void)testGetCalendars:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.calendars readWithCallback:^(NSArray<MSOutlookCalendar> *calendars, MSOrcError *error) {
+    return [_weakSelf.client.me.calendars readWithCallback:^(NSArray *calendars, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -2165,7 +2165,7 @@
     
     return[_weakSelf.client.me.events add:newEvent callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         
-        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.start] addCustomParametersWithName:@"enddatetime" value:newEvent.end ] readWithCallback:^(NSArray<MSOutlookEvent> *events, MSOrcError *error) {
+        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.start] addCustomParametersWithName:@"enddatetime" value:newEvent.end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2208,7 +2208,7 @@
     //Create Event
     return [_weakSelf.client.me.events add:event callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         //Get Events
-        [_weakSelf.client.me.events readWithCallback:^(NSArray<MSOutlookEvent> *events, MSOrcError *error) {
+        [_weakSelf.client.me.events readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2477,7 +2477,7 @@
     NSMutableArray *attendees = [[NSMutableArray alloc] init];
     [attendees addObject:attendee1];
     
-    event.attendees = (NSMutableArray<MSOutlookAttendee>*)attendees;
+    event.attendees = (NSMutableArray *)attendees;
     
     return event;
 }
