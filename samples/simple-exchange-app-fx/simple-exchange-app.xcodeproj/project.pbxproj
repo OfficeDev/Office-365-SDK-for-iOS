@@ -16,7 +16,6 @@
 		EC2833AF19E6D5BA00E5FEA4 /* FolderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833AE19E6D5BA00E5FEA4 /* FolderTableViewController.m */; };
 		EC2833B219E6D5DF00E5FEA4 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B119E6D5DF00E5FEA4 /* UserViewController.m */; };
 		EC2833B519E6D82800E5FEA4 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2833B419E6D82800E5FEA4 /* BaseController.m */; };
-		ECC70A5B1B03DE1400906171 /* office365_exchange_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF394D61B03D1A1002371AA /* office365_exchange_sdk.framework */; };
 		ECD1AE9019EEFEDA00C4940F /* AuthenticationController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE8F19EEFEDA00C4940F /* AuthenticationController.m */; };
 		ECD1AE9719EF00DB00C4940F /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1AE9619EF00DB00C4940F /* UserSettingsViewController.m */; };
 		ECD2485419A65D2A00464FA0 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD2485319A65D2A00464FA0 /* MessageTableViewController.m */; };
@@ -24,16 +23,6 @@
 		ECD9F40B19784BB600ABB418 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD9F40A19784BB600ABB418 /* AppDelegate.m */; };
 		ECD9F41619784BB600ABB418 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD9F41519784BB600ABB418 /* Images.xcassets */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		ECF394D51B03D1A1002371AA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECF394D11B03D1A1002371AA /* office365_exchange_sdk.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2647EB0819F44D9D00FD9527;
-			remoteInfo = office365_exchange_sdk;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		160F5F6D9F48B29D0ECC6DB0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +53,6 @@
 		ECD9F40919784BB600ABB418 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ECD9F40A19784BB600ABB418 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		ECD9F41519784BB600ABB418 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		ECF394D11B03D1A1002371AA /* office365_exchange_sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = office365_exchange_sdk.xcodeproj; path = "../../../sdk-objectivec/office365_exchange_sdk/office365_exchange_sdk.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC70A5B1B03DE1400906171 /* office365_exchange_sdk.framework in Frameworks */,
 				368187FE543DE98271E3EE7F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,7 +116,6 @@
 		ECD9F40419784BB600ABB418 /* simple-exchange-app */ = {
 			isa = PBXGroup;
 			children = (
-				ECF394D11B03D1A1002371AA /* office365_exchange_sdk.xcodeproj */,
 				263BE93E19F46D9C009CF776 /* Main.storyboard */,
 				ECD9F4391978541200ABB418 /* Controllers */,
 				ECD9F40919784BB600ABB418 /* AppDelegate.h */,
@@ -169,14 +155,6 @@
 				EC1DCEAB19E7192800EF2176 /* SendMessageViewController.m */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		ECF394D21B03D1A1002371AA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ECF394D61B03D1A1002371AA /* office365_exchange_sdk.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,28 +207,12 @@
 			mainGroup = ECD9F3F919784BB600ABB418;
 			productRefGroup = ECD9F40319784BB600ABB418 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = ECF394D21B03D1A1002371AA /* Products */;
-					ProjectRef = ECF394D11B03D1A1002371AA /* office365_exchange_sdk.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ECD9F40119784BB600ABB418 /* simple-exchange-app */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		ECF394D61B03D1A1002371AA /* office365_exchange_sdk.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = office365_exchange_sdk.framework;
-			remoteRef = ECF394D51B03D1A1002371AA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ECD9F40019784BB600ABB418 /* Resources */ = {

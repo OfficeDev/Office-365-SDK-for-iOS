@@ -1,7 +1,7 @@
 PODS:
   - ADALiOS (1.2.4)
   - LiveSDK (5.6.1)
-  - Office365/discovery (0.10.1):
+  - Office365/discovery (0.11.0):
     - orc
   - orc (0.11.0):
     - orc/api (= 0.11.0)
@@ -26,13 +26,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Office365:
-    :commit: 5861c00ce4628b023665389762227294b05a47c0
+    :commit: 44e86dd9d00607f5b497d8aa615b195489e14531
     :git: https://github.com/OfficeDev/Office-365-SDK-for-iOS
 
 SPEC CHECKSUMS:
   ADALiOS: 8179aed8e136bf79dca5a4138a0c1a0d52701cb2
   LiveSDK: 2627cf5872b33b3d960df27082a9a17afb74835d
-  Office365: f4c90e6ff7a4ac9e0901067766834a0fc22c3fe7
+  Office365: 362c66ac8ffc71a24062096c35891e91b353e86c
   orc: ef50c7039f18f9dd3802f875959e04526df675b6
 
 COCOAPODS: 0.35.0

@@ -65,7 +65,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     
-    [self.client.files readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
+    [self.client.files readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error == nil) {
             

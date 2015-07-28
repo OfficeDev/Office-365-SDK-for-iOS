@@ -47,9 +47,9 @@
     }];
 }
 
--(NSMutableArray<MSOutlookRecipient>*)getRecipients :(NSString*)text {
+-(NSMutableArray *)getRecipients :(NSString*)text {
     
-    NSMutableArray<MSOutlookRecipient>* result = (NSMutableArray<MSOutlookRecipient> *)[NSMutableArray array];
+    NSMutableArray * result = (NSMutableArray *)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     
