@@ -4,8 +4,9 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
-#import "FilesTableViewController.h"
 #import "BaseController.h"
+#import "FilesTableViewController.h"
+
 
 @interface FilesTableViewController()
 
@@ -65,7 +66,7 @@
     UIActivityIndicatorView *spinner = [BaseController getSpinner:self.view];
     
     
-    [self.client.files readWithCallback:^(NSArray<MSSharePointItem> *items, MSOrcError *error) {
+    [self.client.files readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error == nil) {
             
