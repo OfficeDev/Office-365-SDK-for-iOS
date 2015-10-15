@@ -15,7 +15,7 @@
 
 @implementation FilesTestRunner
 
-- (id)initWithClient:(MSSharePointClient *)client {
+- (id)initWithClient:(MSFilesClient *)client {
     
     if (self = [super init]) {
      
@@ -86,13 +86,13 @@
 
 
 -(void)TestGetFileById:(void (^) (Test*))result{
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     
     // Add new item
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *e) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *e) {
         
         //Get item
-        [[_weakSelf.client.files getById:addedItem.id] readWithCallback:^(MSSharePointItem *item, MSOrcError *error) {
+        [[_weakSelf.client.files getById:addedItem._id] readWithCallback:^(MSFilesItem *item, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -101,7 +101,7 @@
             
             NSString* message = @"";
             
-            if(error == nil && item != nil && [item.id isEqualToString:addedItem.id]){
+            if(error == nil && item != nil && [item._id isEqualToString:addedItem._id]){
                 passed = TRUE;
                 message = @"Ok - ";
             }
@@ -116,7 +116,7 @@
             
             //cleanup
             if (addedItem!= nil) {
-                [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
+                [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
@@ -129,17 +129,17 @@
 
 -(void)TestCreateFileWithContent:(void (^) (Test*))result{
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *error) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *error) {
         //Put content to file
         
-        [[[_weakSelf.client.files getById:addedItem.id] asFile] putContent:content callback:^(NSInteger putContentResult, MSOrcError *error) {
+        [[[_weakSelf.client.files getById:addedItem._id] asFile] putContent:content callback:^(NSInteger putContentResult, MSOrcError *error) {
             
             //Get file content
-            [[[_weakSelf.client.files getById:addedItem.id] asFile] getContentWithCallback:^(NSData *addedContent, MSOrcError *error) {
+            [[[_weakSelf.client.files getById:addedItem._id] asFile] getContentWithCallback:^(NSData *addedContent, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -164,7 +164,7 @@
                 //Cleanup
                 if (addedItem != nil) {
                     
-                    [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"]
+                    [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"]
                       deleteWithCallback:^(int status, MSOrcError *error) {
                         
                           if(error!= nil)
@@ -181,18 +181,18 @@
 
 -(void)TestCreateFileWithStreamContent:(void (^) (Test*))result {
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *error) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *error) {
         //Put content to file
         NSInputStream *streamContent = [[NSInputStream alloc] initWithData:content];
         NSInteger size = content.length;
         
-        [[[self.client.files getById:addedItem.id]asFile] putContent:streamContent withSize:size callback:^(NSInteger response, MSOrcError *error) {
+        [[[self.client.files getById:addedItem._id]asFile] putContent:streamContent withSize:size callback:^(NSInteger response, MSOrcError *error) {
             //Get file content
-            [[[_weakSelf.client.files getById:addedItem.id] asFile ] getContentWithCallback:^(NSData *addedContent, MSOrcError *error) {
+            [[[_weakSelf.client.files getById:addedItem._id] asFile ] getContentWithCallback:^(NSData *addedContent, MSOrcError *error) {
                 BOOL passed = false;
                 
                 Test *test = [Test alloc];
@@ -216,7 +216,7 @@
                 //Cleanup
                 if (addedItem!= nil) {
                     
-                    [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
+                    [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
                         
                         if (error!= nil)
                             NSLog(@"Error: %@", error);
@@ -233,20 +233,20 @@
 
 -(void)TestUpdateFileContent:(void (^) (Test*))result {
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSData *updatedContent = [@"Updated test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     
     //Create file
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *error) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *error) {
         //Put content to file
-        [[[_weakSelf.client.files getById:addedItem.id] asFile] putContent:content callback:^(NSInteger putContentResult, MSOrcError *error) {
+        [[[_weakSelf.client.files getById:addedItem._id] asFile] putContent:content callback:^(NSInteger putContentResult, MSOrcError *error) {
             
-            [[[_weakSelf.client.files getById:addedItem.id] asFile] putContent:updatedContent
+            [[[_weakSelf.client.files getById:addedItem._id] asFile] putContent:updatedContent
                                                                      callback:^(NSInteger updatedContentResult, MSOrcError *error) {
                 
                 //Get file content
-                [[[_weakSelf.client.files getById:addedItem.id] asFile] getContentWithCallback:^(NSData *newContent, MSOrcError *error) {
+                [[[_weakSelf.client.files getById:addedItem._id] asFile] getContentWithCallback:^(NSData *newContent, MSOrcError *error) {
                     BOOL passed = false;
                     
                     Test *test = [Test alloc];
@@ -270,7 +270,7 @@
                     //Cleanup
                     if (addedItem!= nil) {
                         
-                        [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"]
+                        [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"]
                           deleteWithCallback:^(int status, MSOrcError *error) {
                               
                             if (error!= nil)
@@ -289,7 +289,7 @@
 
 -(void)TestGetDrive:(void (^) (Test*))result{
     
-    return [self.client.drive readWithCallback:^(MSSharePointDrive *drive, MSOrcError *error) {
+    return [self.client.drive readWithCallback:^(MSFilesDrive *drive, MSOrcError *error) {
         BOOL passed = false;
         
         Test *test = [Test alloc];
@@ -315,14 +315,14 @@
 
 -(void)TestTopFiles:(void (^) (Test*))result{
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
-    MSSharePointItem *itemToAdd2 = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd2 = [self GetFileItem];
     
     // Add new item
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *e) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *e) {
         
         //Add second item
-        [_weakSelf.client.files add:itemToAdd2 callback:^(MSSharePointItem *addedItem2, MSOrcError *e) {
+        [_weakSelf.client.files add:itemToAdd2 callback:^(MSFilesItem *addedItem2, MSOrcError *e) {
             
             //Get top 1 item
             [[_weakSelf.client.files top:1] readWithCallback:^(NSArray *items, MSOrcError *error) {
@@ -348,7 +348,7 @@
                 
                 //cleanup
                 if (addedItem!= nil) {
-                    [[[_weakSelf.client.files getById:addedItem.id]addCustomHeaderWithName:@"If-Match" value:@"*"]deleteWithCallback:^(int status, MSOrcError *error) {
+                    [[[_weakSelf.client.files getById:addedItem._id]addCustomHeaderWithName:@"If-Match" value:@"*"]deleteWithCallback:^(int status, MSOrcError *error) {
                         
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
@@ -357,7 +357,7 @@
                 }
                 
                 if(addedItem2!= nil)
-                    [[[_weakSelf.client.files getById:addedItem2.id] addCustomHeaderWithName:@"If-Match"
+                    [[[_weakSelf.client.files getById:addedItem2._id] addCustomHeaderWithName:@"If-Match"
                                                                                       value:@"*"]deleteWithCallback:^(int status, MSOrcError *error) {
                         
                         if (error!= nil)
@@ -373,10 +373,10 @@
 
 -(void)TestSelectFiles:(void (^) (Test*))result{
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     
     // Add new item
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *e) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *e) {
         //Get item
         [[[_weakSelf.client.files select:@"name,dateTimeCreated"] top:1] readWithCallback:^(NSArray *items, MSOrcError *error) {
             
@@ -387,10 +387,10 @@
             
             NSString* message = @"";
             
-            MSSharePointItem *selectedItem = nil;
+            MSFilesItem *selectedItem = nil;
             
             if(items.count > 0){
-                selectedItem =(MSSharePointItem *)[items objectAtIndex:0];
+                selectedItem =(MSFilesItem *)[items objectAtIndex:0];
             }
             
             if(error == nil && selectedItem != nil && ![selectedItem.name isEqualToString:@""] && selectedItem.dateTimeLastModified == nil ){
@@ -409,7 +409,7 @@
             //cleanup
             if (addedItem!= nil) {
                 
-                [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
+                [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
                    
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
@@ -425,13 +425,13 @@
 
 -(void)TestDeleteFile:(void (^) (Test*))result{
     
-    MSSharePointItem *itemToAdd = [self GetFileItem];
+    MSFilesItem *itemToAdd = [self GetFileItem];
     
     // Add new item
-    return [_weakSelf.client.files add:itemToAdd callback:^(MSSharePointItem *addedItem, MSOrcError *e) {
+    return [_weakSelf.client.files add:itemToAdd callback:^(MSFilesItem *addedItem, MSOrcError *e) {
         //Delete item
         
-        [[[_weakSelf.client.files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
+        [[[_weakSelf.client.files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"] deleteWithCallback:^(int status, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -458,10 +458,10 @@
     }];
 }
 
-- (MSSharePointItem *)GetFileItem {
+- (MSFilesItem *)GetFileItem {
     
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
-    MSSharePointItem *item = [[MSSharePointItem alloc] init];
+    MSFilesItem *item = [[MSFilesItem alloc] init];
 
     [item setType:@"File"];
     [item setName:fileName];

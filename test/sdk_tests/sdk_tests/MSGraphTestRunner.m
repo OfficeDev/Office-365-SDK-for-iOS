@@ -578,7 +578,7 @@
         
         NSString *memberOfId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
-        [[[self.Client.users getById:self.TestMail] getMemberOfById:memberOfId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail] memberOfById:memberOfId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -672,7 +672,7 @@
         
         NSString *ownedObjectId = directoryObjects == nil ? @"" : [[directoryObjects objectAtIndex:0] objectId];
         
-        [[[self.Client.users getById:self.TestMail] getOwnedObjectsById:ownedObjectId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail] ownedObjectsById:ownedObjectId] readWithCallback:^(MSGraphDirectoryObject *directoryObject, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -737,9 +737,9 @@
             return;
         }
         
-        NSString *messageId = messages == nil ? @"" : [[messages objectAtIndex:0] id];
+        NSString *messageId = messages == nil ? @"" : [[messages objectAtIndex:0] _id];
         
-        [[[self.Client.users getById:self.TestMail] getMessagesById:messageId] readWithCallback:^(MSGraphMessage *messageItem, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail] messagesById:messageId] readWithCallback:^(MSGraphMessage *messageItem, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -834,7 +834,7 @@
             return;
         }
         
-        NSString *calendarId = calendars == nil ? @"" : [[calendars objectAtIndex:0] id];
+        NSString *calendarId = calendars == nil ? @"" : [[calendars objectAtIndex:0] _id];
         
         [[[self.Client.users getById:self.TestMail].calendars getById:calendarId] readWithCallback:^(MSGraphCalendar *calendarItem, MSOrcError *error) {
             
@@ -927,7 +927,7 @@
             return;
         }
         
-        NSString *calendarGroupId = calendarGroups == nil ? @"" : [[calendarGroups objectAtIndex:0] id];
+        NSString *calendarGroupId = calendarGroups == nil ? @"" : [[calendarGroups objectAtIndex:0] _id];
         
         [[[self.Client.users getById:self.TestMail].calendarGroups getById:calendarGroupId] readWithCallback:^(MSGraphCalendarGroup *calendarGroup, MSOrcError *error) {
             
@@ -994,7 +994,7 @@
             return;
         }
         
-        NSString *eventId = events == nil ? @"" : [[events objectAtIndex:0] id];
+        NSString *eventId = events == nil ? @"" : [[events objectAtIndex:0] _id];
         
         [[[self.Client.users getById:self.TestMail].events getById:eventId] readWithCallback:^(MSGraphEvent *event, MSOrcError *error) {
             
@@ -1050,7 +1050,7 @@
         [test.executionMessages addObject:message];
         
         //Cleanup
-        [[[self.Client.users getById:self.TestMail].events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }];
@@ -1064,10 +1064,10 @@
     //Create Event
     return [[self.Client.users getById:self.TestMail].events add:event callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
         
-        NSString *updatedSubject = [@"Updated" stringByAppendingString:event.Subject];
+        NSString *updatedSubject = [@"Updated" stringByAppendingString:event.subject];
         event.Subject = updatedSubject;
         // Update Event
-        [[[self.Client.users getById:self.TestMail].events getById:addedEvent.Id]update:event callback:^(MSGraphEvent *updatedEvent, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].events getById:addedEvent._id]update:event callback:^(MSGraphEvent *updatedEvent, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1075,7 +1075,7 @@
             test.executionMessages = [NSMutableArray array];
             
             NSString* message =  @"";
-            if(error == nil && updatedEvent != nil && [updatedEvent.Subject isEqualToString:updatedSubject]){
+            if(error == nil && updatedEvent != nil && [updatedEvent.subject isEqualToString:updatedSubject]){
                 message =  @"Ok - ";
                 passed = true;
             }
@@ -1089,7 +1089,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[[self.Client.users getById:self.TestMail].events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+            [[[self.Client.users getById:self.TestMail].events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
                 
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
@@ -1106,7 +1106,7 @@
     return [[self.Client.users getById:self.TestMail].events add:event callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
         
         //Delete event
-        [[[self.Client.users getById:self.TestMail].events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1139,8 +1139,8 @@
     
     return [[self.Client.users getById:self.TestMail].events add:newEvent callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
         
-        [[[[self.Client.users getById:self.TestMail].calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.Start]
-                                                                  addCustomParametersWithName:@"enddatetime" value:newEvent.End ]
+        [[[[self.Client.users getById:self.TestMail].calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.start]
+                                                                  addCustomParametersWithName:@"enddatetime" value:newEvent.end ]
                      readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
@@ -1164,7 +1164,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[[self.Client.users getById:self.TestMail].events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+            [[[self.Client.users getById:self.TestMail].events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -1212,7 +1212,7 @@
             return;
         }
         
-        NSString *photoId = photos == nil ? @"" : [[photos objectAtIndex:0] id];
+        NSString *photoId = photos == nil ? @"" : [[photos objectAtIndex:0] _id];
         
         [[[self.Client.users getById:self.TestMail].userPhotos getById:photoId] readWithCallback:^(MSGraphPhoto *photo, MSOrcError *error) {
             
@@ -1333,7 +1333,7 @@
             return;
         }
         
-        NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] id];
+        NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] _id];
         
         [[[self.Client.users getById:self.TestMail].files getById:itemId] readWithCallback:^(MSGraphItem *item, MSOrcError *error) {
             
@@ -1371,10 +1371,10 @@
     return [[self.Client.users getById:self.TestMail].files add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
         //Put content to file
        
-        [[[[self.Client.users getById:self.TestMail].files getById:addedItem.id] asFile].operations uploadContentWithContentStream:contentStream callback:^(int returnValue, MSOrcError *error) {
+        [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] asFile].operations uploadContentWithContentStream:contentStream callback:^(int returnValue, MSOrcError *error) {
             
             //Get file content
-            [[[[self.Client.users getById:self.TestMail].files getById:addedItem.id] asFile].operations contentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
+            [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] asFile].operations contentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1399,7 +1399,7 @@
                 //Cleanup
                 if (addedItem != nil) {
                     
-                    [[[[self.Client.users getById:self.TestMail].files getById:addedItem.id] addCustomHeaderWithName:@"If-Match" value:@"*"]
+                    [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] addCustomHeaderWithName:@"If-Match" value:@"*"]
                       deleteWithCallback:^(int status, MSOrcError *error) {
                           
                           if(error!= nil)
@@ -1453,14 +1453,14 @@
     event.Subject = @"Today's appointment";
     event.Start = [NSDate date];
     event.End = [[NSDate date] dateByAddingTimeInterval: 3600];
-    MSGraphImportance importance = MSGraph_Importance_High;
+    MSGraphImportance importance = MSGraphImportanceHigh;
     event.Importance = importance;
     
     //Event Body
     MSGraphItemBody *itemBody = [[MSGraphItemBody alloc] init];
     itemBody.Content = @"This is the appointment info";
     
-    MSGraphBodyType bt = MSGraph_BodyType_Text;
+    MSGraphBodyType bt = MSGraphBodyTypeText;
     itemBody.ContentType = bt;
     event.Body = itemBody;
     

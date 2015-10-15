@@ -6,16 +6,17 @@
 
 #import <Foundation/Foundation.h>
 
-#import "files_services.h"
-#import "outlook_services.h"
-#import "discovery_services.h"
-#import "onenote_services.h"
-#import "unified_services.h"
+#import "MSFiles.h"
+#import "MSOutlook.h"
+#import "MSDirectoryServices.h"
+#import "MSOneNote.h"
+#import "MSGraph.h"
+#import "MSDiscovery.h"
 
 @interface BaseController : NSObject
 
 - (void)getMailClient:(void(^)(MSOutlookClient *c))callback;
-- (void)getSharePointClient:(void (^)(MSSharePointClient *c))callback;
+- (void)getFilesClient:(void (^)(MSFilesClient *c))callback;
 - (void)getDiscoveryClient:(void (^)(MSDiscoveryClient *c))callback;
 - (void)getMSGraphClient:(void (^) (MSGraphClient* c))callback;
 - (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteClient *c))callback;

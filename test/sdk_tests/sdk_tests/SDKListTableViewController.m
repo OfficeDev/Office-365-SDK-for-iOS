@@ -61,7 +61,7 @@
     
     if ([name isEqualToString:@"Files"]) {
         
-        [[[BaseController alloc]init]getSharePointClient:^(MSSharePointClient *c) {
+        [[[BaseController alloc]init]getFilesClient:^(MSFilesClient *c) {
             FilesTestRunner *runner = [[FilesTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];

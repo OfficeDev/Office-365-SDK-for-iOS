@@ -1,6 +1,8 @@
+
+
 Pod::Spec.new do |s|
   s.name         = "Office365"
-  s.version      = "0.10.0"
+  s.version      = "0.12.0"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
   s.description  = <<-DESC
 		   Client libraries for calling Office 365 service APIs from iOS apps.
@@ -12,55 +14,58 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/OpenAtMicrosoft"
 
   s.platform     = :ios
-  s.ios.deployment_target = "7.0"
+  s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/OfficeDev/Office-365-SDK-for-iOS.git",
 		             :tag => "v#{s.version}"
 		           }
   s.exclude_files = "**/Build/**/*"
   s.requires_arc = true
   s.dependency "orc"
+  
+  s.source_files = "sdk/**/*.{h,m}"
 
   # --- Subspecs ------------------------------------------------------------------#
 
-  s.subspec 'outlook' do |subspec|
-     subspec.source_files = "sdk/outlook_services/**/*.{h,m}"
-     subspec.public_header_files = "sdk/outlook_services/**/*.h"
-     subspec.header_dir = "outlook_services"
+
+  s.subspec "DirectoryServices" do |subspec|
+    subspec.source_files = "sdk/DirectoryServices/**/*.{h,m}"
+    subspec.public_header_files = "sdk/DirectoryServices/**/*.h"
+    subspec.header_dir = "DirectoryServices"
   end
 
-  s.subspec 'files' do |subspec|
-     subspec.source_files = "sdk/files_services/**/*.{h,m}"
-     subspec.public_header_files = "sdk/files_services/**/*.h"
-     subspec.header_dir = "files_services"
+
+  s.subspec "Discovery" do |subspec|
+    subspec.source_files = "sdk/Discovery/**/*.{h,m}"
+    subspec.public_header_files = "sdk/Discovery/**/*.h"
+    subspec.header_dir = "Discovery"
   end
 
-  s.subspec 'directory' do |subspec|
-     subspec.source_files = "sdk/directory_services/**/*.{h,m}"
-     subspec.public_header_files = "sdk-objectivc/directory_services/**/*.{h,m}"
-     subspec.header_dir = "directory_services"
+
+  s.subspec "Files" do |subspec|
+    subspec.source_files = "sdk/Files/**/*.{h,m}"
+    subspec.public_header_files = "sdk/Files/**/*.h"
+    subspec.header_dir = "Files"
   end
 
-  s.subspec 'discovery' do |subspec|
-     subspec.source_files = "sdk/discovery_services/**/*.{h,m}"
-     subspec.public_header_files = "sdk/discovery_services/**/*.h"
-     subspec.header_dir = "discovery_services"
+
+  s.subspec "Graph" do |subspec|
+    subspec.source_files = "sdk/Graph/**/*.{h,m}"
+    subspec.public_header_files = "sdk/Graph/**/*.h"
+    subspec.header_dir = "Graph"
   end
 
-  s.subspec 'lists' do |subspec|
-     subspec.source_files = "sdk/list_services/**/*.{h,m}"
-     subspec.public_header_files = "sdk/list_services/**/*.h"
-     subspec.header_dir = "list_services"
+
+  s.subspec "OneNote" do |subspec|
+    subspec.source_files = "sdk/OneNote/**/*.{h,m}"
+    subspec.public_header_files = "sdk/OneNote/**/*.h"
+    subspec.header_dir = "OneNote"
   end
 
-  s.subspec 'onenote' do |subspec|
-   subspec.source_files = "sdk/onenote_services/**/*.{h,m}"
-   subspec.public_header_files = "sdk/onenote_services/**/*.h"
-   subspec.header_dir = "onenote_services"
+
+  s.subspec "Outlook" do |subspec|
+    subspec.source_files = "sdk/Outlook/**/*.{h,m}"
+    subspec.public_header_files = "sdk/Outlook/**/*.h"
+    subspec.header_dir = "Outlook"
   end
 
-  s.subspec 'unified' do |subspec|
-   subspec.source_files = "sdk/unified_services/**/*.{h,m}"
-   subspec.public_header_files = "sdk/unified_services/**/*.h"
-   subspec.header_dir = "unified_services"
-  end
 end

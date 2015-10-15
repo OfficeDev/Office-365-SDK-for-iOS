@@ -1,0 +1,1041 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01AEDBBBB416EB9C9F80B677 /* MSDirectoryServicesDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E0EF5C110352368D53506E /* MSDirectoryServicesDevice.m */; };
+		0214E502B7D10EB7976D3F7E /* MSDirectoryServicesOAuth2PermissionGrant.h in Headers */ = {isa = PBXBuildFile; fileRef = A3CAF868CF90EAC8F75E6E45 /* MSDirectoryServicesOAuth2PermissionGrant.h */; };
+		0372CDDF0939F5CE293FEECA /* MSDirectoryServicesPasswordCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 4605CA7D479BC9F4CCD035D0 /* MSDirectoryServicesPasswordCredential.m */; };
+		06403DE3A16BC71309E633DD /* MSDirectoryServicesGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EB4932029DA7026117CAA4E /* MSDirectoryServicesGroupCollectionOperations.h */; };
+		06B14602DB57905282372364 /* MSDirectoryServicesVerifiedDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4637901530D91C89C0F1B1 /* MSDirectoryServicesVerifiedDomain.m */; };
+		0703CDB09F38AFFD72820A33 /* MSDirectoryServicesAppRoleAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D6DE14501D0F0CF6217057 /* MSDirectoryServicesAppRoleAssignment.m */; };
+		07ACFDF193127BF63770930D /* MSDirectoryServicesContactCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 355F31D9423CCD611ED94136 /* MSDirectoryServicesContactCollectionFetcher.m */; };
+		07EBD2C299FF1EE9E147B537 /* MSDirectoryServicesDirectoryRoleOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 91E193ED54D1F32824F8597F /* MSDirectoryServicesDirectoryRoleOperations.h */; };
+		0843B60A9BA0F279D2B2367A /* MSDirectoryServicesServicePlanInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 77596F2C246144CE71123F30 /* MSDirectoryServicesServicePlanInfo.h */; };
+		08D5C91D4FAE67AB469607AE /* MSDirectoryServicesOAuth2PermissionGrantFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC2B090B4D01D1386DE423B2 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.m */; };
+		0C76DF81C56E845B8F1974E0 /* MSDirectoryServicesDirectoryLinkChange.h in Headers */ = {isa = PBXBuildFile; fileRef = A1AFE8DA36263D26283F2996 /* MSDirectoryServicesDirectoryLinkChange.h */; };
+		0D8CDAE7F52AAC92CE74A36D /* MSDirectoryServicesApplicationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E22CDEEA4B98FDF456F10376 /* MSDirectoryServicesApplicationCollectionOperations.h */; };
+		11D5FD0260C653856B34EC1F /* MSDirectoryServicesExtensionPropertyOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 890033D78B8C2823051ED1D4 /* MSDirectoryServicesExtensionPropertyOperations.h */; };
+		15F2EEC7A2C45CA7310CC328 /* MSDirectoryServicesKeyCredential.m in Sources */ = {isa = PBXBuildFile; fileRef = 44592F9527C4BE85FF2045EA /* MSDirectoryServicesKeyCredential.m */; };
+		17009717EE208405C6E768D5 /* MSDirectoryServicesDeviceFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 2374E471A829155D6449F4B1 /* MSDirectoryServicesDeviceFetcher.h */; };
+		1A5A0E8500128C2CF3C810C7 /* MSDirectoryServicesAppRoleAssignment.h in Headers */ = {isa = PBXBuildFile; fileRef = 425ACC098C730C58BAC0C33D /* MSDirectoryServicesAppRoleAssignment.h */; };
+		1A5C9EFA1222EF591C219BB8 /* MSDirectoryServicesLicenseUnitsDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 347ACDC14AFB2287A5C45BB4 /* MSDirectoryServicesLicenseUnitsDetail.m */; };
+		1B755D2E1AE8402D30B82650 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = DDFFA0902CBF7CA6F643D959 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h */; };
+		1F673D77AC4F6FD30B545BE2 /* MSDirectoryServicesServicePrincipalCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = BCBEF7088941BB28ED8BEAE4 /* MSDirectoryServicesServicePrincipalCollectionOperations.m */; };
+		225DC5AEC591ED1E7DB4ADE2 /* MSDirectoryServicesAlternativeSecurityId.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D2A194B1B8F15DDBF621BE /* MSDirectoryServicesAlternativeSecurityId.m */; };
+		234A8BD61B99082F8DB2DA07 /* MSDirectoryServicesVerifiedDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = D6BEBA952A93C987F11EFB34 /* MSDirectoryServicesVerifiedDomain.h */; };
+		252F2AFDDE1FAA76D7285167 /* MSDirectoryServicesDeviceCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 63B253432B3B7C61520FADCC /* MSDirectoryServicesDeviceCollectionOperations.h */; };
+		2747E302AA4F9459A790E641 /* MSDirectoryServicesKeyCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = 248F3224FE9E321F1C22E579 /* MSDirectoryServicesKeyCredential.h */; };
+		27C8FA9C76389F2B0AF17040 /* MSDirectoryServicesDirectoryRoleOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA59637F0005E2680D3340B /* MSDirectoryServicesDirectoryRoleOperations.m */; };
+		2800D4FC542987BB2981F0C5 /* MSDirectoryServicesDirectoryObjectFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 92282ED8E777373964A0797C /* MSDirectoryServicesDirectoryObjectFetcher.h */; };
+		2AE26476272F1ECEECF74A59 /* MSDirectoryServicesGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8162440956ED1C264DBD2793 /* MSDirectoryServicesGroupFetcher.m */; };
+		2FE46845A07B5DF69621F867 /* MSDirectoryServicesServicePrincipalOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EE59686F8E99CD71999A00B /* MSDirectoryServicesServicePrincipalOperations.h */; };
+		3136A3B800302DF513874E51 /* MSDirectoryServicesDirectoryObjectCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A570715AA3AFCE86E0ADA3B /* MSDirectoryServicesDirectoryObjectCollectionFetcher.m */; };
+		318F4E337D1D69479104F9B0 /* MSDirectoryServicesSubscribedSku.m in Sources */ = {isa = PBXBuildFile; fileRef = E70B2D2B671D4B88ADA3B86E /* MSDirectoryServicesSubscribedSku.m */; };
+		321459CC7939F7D8C03F4195 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 226AE4D811F4F2265F73A233 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.m */; };
+		355F8B51D3CFAC5AEF18C186 /* MSDirectoryServicesTenantDetailCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B53F3EB8B186F5150994732C /* MSDirectoryServicesTenantDetailCollectionFetcher.m */; };
+		36DB2B838F9BDE89E692E267 /* MSDirectoryServicesSubscribedSkuFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 96E40D13A5D15B4D62A8D6EB /* MSDirectoryServicesSubscribedSkuFetcher.h */; };
+		36FCABD0B031BCC68072E44C /* MSDirectoryServices.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B636C015EEFEB49268D1C8A /* MSDirectoryServices.h */; };
+		3A53C5B4BC0D5E0DF6977B5C /* MSDirectoryServicesDirectoryLinkChange.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEAA8631CEC19ED9AD92CA6 /* MSDirectoryServicesDirectoryLinkChange.m */; };
+		3CFC3D3887171C6B244D429D /* MSDirectoryServicesDirectoryLinkChangeOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AE1614912CBFA157FDF2C1 /* MSDirectoryServicesDirectoryLinkChangeOperations.m */; };
+		3D09CA39C800489E8ED8CFF6 /* MSDirectoryServicesDirectoryRoleTemplateOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = B70BC4B3B411AA53C0605447 /* MSDirectoryServicesDirectoryRoleTemplateOperations.m */; };
+		3D880F7F10F0ADDCA434C080 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B81402F60EC80396D8111B2 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m */; };
+		3D9D9F9FC904F0433C7F7EEE /* MSDirectoryServicesAppRoleAssignmentOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E3F4E63C6F98EF3DC2252FCE /* MSDirectoryServicesAppRoleAssignmentOperations.h */; };
+		4023DA29F2580F0A1384A157 /* MSDirectoryServicesDirectoryRoleTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = B73D379B93CB48525A659E1E /* MSDirectoryServicesDirectoryRoleTemplate.m */; };
+		40D772D13AA80ABDBCC0BF57 /* MSDirectoryServicesDirectoryRoleFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 347259E719D781D2D39C069D /* MSDirectoryServicesDirectoryRoleFetcher.m */; };
+		423380706196F5D2B91736E8 /* MSDirectoryServicesContactFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = AAB47CAD0DAC4D1C1737BDC8 /* MSDirectoryServicesContactFetcher.h */; };
+		44070784A83AEC5290458648 /* MSDirectoryServicesApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 971CB41DAACE46DF6843E336 /* MSDirectoryServicesApplication.m */; };
+		45DABB4C0A91080056019EE8 /* MSDirectoryServicesUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B73123D4B00F7C362BE21CC6 /* MSDirectoryServicesUserFetcher.m */; };
+		45EBDD26FFA714EA3587816A /* MSDirectoryServicesDirectoryObjectCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C047DAFFA2E213BB7639FA6 /* MSDirectoryServicesDirectoryObjectCollectionFetcher.h */; };
+		461C292032C95A2BB4CFB2CD /* MSDirectoryServicesDirectoryLinkChangeOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E699238FC0236F7BBB033524 /* MSDirectoryServicesDirectoryLinkChangeOperations.h */; };
+		465944972C16F5F6A8282D29 /* MSDirectoryServicesDeviceOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 616B0AB4E234E1527DCB1A00 /* MSDirectoryServicesDeviceOperations.m */; };
+		465B257ABFF6AD3B3B935D48 /* MSDirectoryServicesGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = E771D8A7BD471D5990B08D2A /* MSDirectoryServicesGroupCollectionOperations.m */; };
+		466873740B94BDBADC1F144B /* MSDirectoryServicesServicePrincipal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5BBC0B0C54263C976D63F7 /* MSDirectoryServicesServicePrincipal.m */; };
+		4AC964F98B6A173C095F3851 /* MSDirectoryServicesOAuth2Permission.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FC21716997966AF598B967 /* MSDirectoryServicesOAuth2Permission.m */; };
+		4B10A7D731183DEAB19BCB56 /* MSDirectoryServicesContactFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7EAE70DABF99D9779A7AB /* MSDirectoryServicesContactFetcher.m */; };
+		4D5C5D4A4DF44EC1120A5B6F /* MSDirectoryServicesResourceAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 91811B8EA2A4911E00ECC012 /* MSDirectoryServicesResourceAccess.m */; };
+		4EC8F458C3218C364499B2B1 /* MSDirectoryServicesContactOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EE05E3EA18E44C2CB23B4F0F /* MSDirectoryServicesContactOperations.h */; };
+		51BF2F2FBB2F3F19E4F754FF /* MSDirectoryServicesOAuth2Permission.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DF47406C0D709017B0ECC77 /* MSDirectoryServicesOAuth2Permission.h */; };
+		51FEBF604E85D5EABD1887E4 /* MSDirectoryServicesAppRoleAssignmentFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A315B61C686F7158F20EAF94 /* MSDirectoryServicesAppRoleAssignmentFetcher.h */; };
+		52E536A41F1AFF164DC23B83 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9405549CFF8A81D766CAF926 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m */; };
+		55C14112711434F788D14565 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 413EB7770F234F0CFA24DCCC /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m */; };
+		57266990B33E2CA5D0D0913C /* MSDirectoryServicesGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5826BAFE95904B362700E7EC /* MSDirectoryServicesGroupOperations.m */; };
+		57A8A4E0DCED61D8275943C9 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E9636132FD8347FBEF39852 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.h */; };
+		57C7F6902ACA682211C3B7A1 /* MSDirectoryServicesDirectoryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E91410453B5D50EF8C1CE7E /* MSDirectoryServicesDirectoryObject.m */; };
+		5942744B78EEEA0812EF951E /* MSDirectoryServicesAssignedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 9054545E05898F0BB1104E6B /* MSDirectoryServicesAssignedPlan.m */; };
+		59C96BE5FBF78CA83AF02C3F /* MSDirectoryServicesExtensionPropertyOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9F4FBAF8F3A3251F583BE9 /* MSDirectoryServicesExtensionPropertyOperations.m */; };
+		59DF94EAF4ABC10D607236A2 /* MSDirectoryServicesLicenseUnitsDetail.h in Headers */ = {isa = PBXBuildFile; fileRef = 96EB4A8DA2FC515C420D2900 /* MSDirectoryServicesLicenseUnitsDetail.h */; };
+		5AC8E51F62A5D494ECF650F6 /* MSDirectoryServicesDeviceCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD7ECE9BF1AB559DD6EFCCF /* MSDirectoryServicesDeviceCollectionFetcher.m */; };
+		5D2CAA3BCA270866E01F283A /* MSDirectoryServicesDeviceConfigurationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 55FFB77A3E671C109DC7807C /* MSDirectoryServicesDeviceConfigurationFetcher.m */; };
+		5D79D11C427F66A2DF45C48B /* MSDirectoryServicesProvisionedPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = 3443FE6683E3017045535CBB /* MSDirectoryServicesProvisionedPlan.h */; };
+		5DD5DEF7E55C761F6E9F8326 /* MSDirectoryServicesServicePrincipalCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ED564E898340D305888D8009 /* MSDirectoryServicesServicePrincipalCollectionFetcher.m */; };
+		5E7C720DACC088F49E300391 /* MSDirectoryServicesResourceAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D9D01D74C84B76F75720044 /* MSDirectoryServicesResourceAccess.h */; };
+		5EA739B4CD2A40EDA3A9A3CE /* MSDirectoryServicesPasswordCredential.h in Headers */ = {isa = PBXBuildFile; fileRef = 73DD7F997C10CEB7F46D9F11 /* MSDirectoryServicesPasswordCredential.h */; };
+		6016DDE47524EEF1E6E88223 /* MSDirectoryServicesAssignedLicense.h in Headers */ = {isa = PBXBuildFile; fileRef = 38E0BF053E1C8B163AEE253A /* MSDirectoryServicesAssignedLicense.h */; };
+		6213FA2D06F6E67122732659 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E71F5E6E27A040E92C9853 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.h */; };
+		63947D817D93602D2D286822 /* MSDirectoryServicesDirectoryObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F02B056CD985D776EA0539A /* MSDirectoryServicesDirectoryObject.h */; };
+		6607F854ABFE9BCE284C5F16 /* MSDirectoryServicesApplicationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AA70752BD17FC02537313F /* MSDirectoryServicesApplicationOperations.h */; };
+		68B48FA905FD7175E06196FB /* MSDirectoryServicesApplicationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CB4FFB4B265D42301A7B0D /* MSDirectoryServicesApplicationFetcher.m */; };
+		69EA884079E07270661F1628 /* MSDirectoryServicesRequiredResourceAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 459FE1B984D6701B537339D0 /* MSDirectoryServicesRequiredResourceAccess.m */; };
+		6B77B50500ADF2FE288D4CC8 /* MSDirectoryServicesGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D167AFA8018591E73F7F335 /* MSDirectoryServicesGroupFetcher.h */; };
+		6CA90F00C365A3698ED7CBCA /* MSDirectoryServicesServicePrincipalFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D43B12F4579D31E32D8B929 /* MSDirectoryServicesServicePrincipalFetcher.h */; };
+		6DB04D35A5D10BA7FADCA6A7 /* MSDirectoryServicesContact.h in Headers */ = {isa = PBXBuildFile; fileRef = B30862C8A0BED85972B1F05C /* MSDirectoryServicesContact.h */; };
+		6E36CC3B5628C0E550A7B8B1 /* MSDirectoryServicesDirectoryLinkChangeFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 080CCA61965B29EFE680D005 /* MSDirectoryServicesDirectoryLinkChangeFetcher.h */; };
+		6E532EB398CEEF3C5EE0607F /* MSDirectoryServicesServicePrincipalCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A184CD23D3C3407620557D /* MSDirectoryServicesServicePrincipalCollectionFetcher.h */; };
+		70F16AA650CB696C3F94C632 /* MSDirectoryServicesSubscribedSkuCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C67CD6DC82B9A939CD567D /* MSDirectoryServicesSubscribedSkuCollectionFetcher.m */; };
+		710FD3458E9CE7099B919D46 /* MSDirectoryServicesRequiredResourceAccess.h in Headers */ = {isa = PBXBuildFile; fileRef = BFBACA564056944C250EDC67 /* MSDirectoryServicesRequiredResourceAccess.h */; };
+		71FEBF48C4D9B6599201D1EB /* MSDirectoryServicesExtensionProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 237C4ED256031A75C0A8DEA3 /* MSDirectoryServicesExtensionProperty.h */; };
+		7533CF32EA9065680A56DFEE /* MSDirectoryServicesProvisionedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C66F58FAAA83F62E2CFDF5C /* MSDirectoryServicesProvisionedPlan.m */; };
+		779215BCAC245AA47660E926 /* MSDirectoryServicesOAuth2PermissionGrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 278651485369F5648176C020 /* MSDirectoryServicesOAuth2PermissionGrant.m */; };
+		787DE4000041A202F740A751 /* MSDirectoryServicesUserFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 5999EF0A0BCCC2AD0B5C757D /* MSDirectoryServicesUserFetcher.h */; };
+		794441EBDABC1FDC3A6FFD1B /* MSDirectoryServicesContact.m in Sources */ = {isa = PBXBuildFile; fileRef = BC2A2ADC319682C06C946EA2 /* MSDirectoryServicesContact.m */; };
+		7A09A06D8FEC07A34CBF2BA9 /* MSDirectoryServicesProvisioningError.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DDB58F39C9A8B899B1E4318 /* MSDirectoryServicesProvisioningError.h */; };
+		7A0B97E45A5D5269C1C823CD /* MSDirectoryServicesTenantDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0E67926D4C23EE3ED33C2C /* MSDirectoryServicesTenantDetail.m */; };
+		7ADBB3C50758840136CC0277 /* MSDirectoryServicesApplicationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE76F09D876F6E3D7741AC0 /* MSDirectoryServicesApplicationCollectionOperations.m */; };
+		7B184BE76A03E74CD3544972 /* MSDirectoryServicesDeviceCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8611C68A43F2852BF4864E4E /* MSDirectoryServicesDeviceCollectionOperations.m */; };
+		7B1E41438D2193A77359CA9B /* MSDirectoryServicesDeviceFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD49E34C87C77783E34877E /* MSDirectoryServicesDeviceFetcher.m */; };
+		7BB682F67A7ED8197DD2B0BA /* MSDirectoryServicesAppRole.m in Sources */ = {isa = PBXBuildFile; fileRef = F53C6294D0BA04F333D086EA /* MSDirectoryServicesAppRole.m */; };
+		7D683E468B2C51C9CEE2B019 /* MSDirectoryServicesModels.h in Headers */ = {isa = PBXBuildFile; fileRef = CB729563D00308B2E53F7DA7 /* MSDirectoryServicesModels.h */; };
+		7DC2A4CA3237209377A2CA3B /* MSDirectoryServicesUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A92117B6E1AA4B2BF67A99A /* MSDirectoryServicesUser.h */; };
+		7EC10B6F9971AF1E2D7C7DBE /* MSDirectoryServicesContactCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A690A31494B0FE1A1B819F3 /* MSDirectoryServicesContactCollectionOperations.m */; };
+		80EA4B02C25A16A63DA8AB0E /* MSDirectoryServicesTenantDetailCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = A8CA567927B6F60C177811BB /* MSDirectoryServicesTenantDetailCollectionOperations.m */; };
+		80F01811FAE97DA7F440E619 /* MSDirectoryServicesAssignedLicense.m in Sources */ = {isa = PBXBuildFile; fileRef = 332894224DC9CCA078AA3F7B /* MSDirectoryServicesAssignedLicense.m */; };
+		824DCD50A66ABF3A521830C0 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1BDAC3A74B87BC33B89C7B /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m */; };
+		82E14449AB421B7B25F501B5 /* MSDirectoryServicesAssignedPlan.h in Headers */ = {isa = PBXBuildFile; fileRef = DABE5DDC9C67830DE59C34F2 /* MSDirectoryServicesAssignedPlan.h */; };
+		830CD6CEE981926328638E4E /* MSDirectoryServicesServicePrincipalFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 725F45CFA89D85AA639A3188 /* MSDirectoryServicesServicePrincipalFetcher.m */; };
+		86B02BE88A1D8A62F82F3FB6 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BDB48F9C19FAF7AF3AC2264 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.h */; };
+		86C7E1B32F4D0C60BC52214E /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D8203011586D72F8C0CA954C /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.h */; };
+		870FC75C7586F7D6DC6B47FB /* MSDirectoryServicesTenantDetailCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 587C9F1E1D3A9C17C75A8165 /* MSDirectoryServicesTenantDetailCollectionFetcher.h */; };
+		8866515AC2453E406C4ED34A /* MSDirectoryServicesDirectoryRoleCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ED9043991A8E97A30300AE57 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.h */; };
+		8A564DCD3B24604C0FFC7DF5 /* MSDirectoryServicesDirectoryObjectOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 777DDD01D566C16A36E2CFA1 /* MSDirectoryServicesDirectoryObjectOperations.m */; };
+		8B64BCF4B9E5BE727A6A5C25 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CB6535A624F35BEAA4DDE06 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h */; };
+		8EA041C561AF8FCC31561AAF /* MSDirectoryServicesContactCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 13A024325E776AF0CE1A0211 /* MSDirectoryServicesContactCollectionOperations.h */; };
+		8F1F880536B41A7A4148BD46 /* MSDirectoryServicesGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CB85513FF3053416602A046E /* MSDirectoryServicesGroup.m */; };
+		8F7C2A7317CFD2F7C5E3CF6D /* MSDirectoryServicesContactCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1280A22AACAD3AEAC81C7E42 /* MSDirectoryServicesContactCollectionFetcher.h */; };
+		91B6176B1AFDE1C8775AC2AD /* MSDirectoryServicesExtensionPropertyCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ED3B88FB23B03031FB3B324 /* MSDirectoryServicesExtensionPropertyCollectionOperations.h */; };
+		93EECAE4F57BB6B2391FB758 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 942B8924BCAC67D6F97BBD19 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.h */; };
+		961E8FB1B1776EAD761B466B /* MSDirectoryServicesApplicationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CB9C257C8D11E1B400E180 /* MSDirectoryServicesApplicationFetcher.h */; };
+		964F67841E6B3EBD8BC7ED7F /* MSDirectoryServicesFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = BC4CF9F7F9EE080F6EEE1AC5 /* MSDirectoryServicesFetchers.h */; };
+		971D400E013111FDB752BDC8 /* MSDirectoryServicesUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFBF22A93DCBA57388F22B4 /* MSDirectoryServicesUserOperations.m */; };
+		972F974FEB51922897B54B47 /* MSDirectoryServicesApplicationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DB18C99C4279B4F252C0DCC9 /* MSDirectoryServicesApplicationCollectionFetcher.m */; };
+		97711C2DF88CD8D4DEFBB58A /* MSDirectoryServicesProvisioningError.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A782974645CFB9E27D1B58 /* MSDirectoryServicesProvisioningError.m */; };
+		977E36AAB695EA5F1B2B210C /* MSDirectoryServicesPasswordProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DB89DF9C3AFAE73ADDC52 /* MSDirectoryServicesPasswordProfile.m */; };
+		97F478049FC91DF40C959298 /* MSDirectoryServicesDirectoryObjectFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADAC2D0C2C7B7A7977DFF9E /* MSDirectoryServicesDirectoryObjectFetcher.m */; };
+		98912376FA2DA2C34483EC29 /* MSDirectoryServicesApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A34BAC509F0D8637E69957B /* MSDirectoryServicesApplication.h */; };
+		99BB18080DD20B71AB6C3EB6 /* MSDirectoryServicesDirectoryObjectCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 161B7BD8F49CB183756F677C /* MSDirectoryServicesDirectoryObjectCollectionOperations.h */; };
+		99BC257BEFBBF6EB8061C782 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 070C4016152769337435CB27 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.m */; };
+		9B909D5A77DD94F1DE20EF1A /* MSDirectoryServicesPasswordProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = A023D8EC123EA5737B6FE645 /* MSDirectoryServicesPasswordProfile.h */; };
+		9D98A25E4F6798C087697003 /* MSDirectoryServicesAppRoleAssignmentOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F361BA681C1FD8DE5AD907 /* MSDirectoryServicesAppRoleAssignmentOperations.m */; };
+		9F5EABDC71608E574872907D /* MSDirectoryServicesDirectoryRoleTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = 90920282EEB6643BDA8B9D8B /* MSDirectoryServicesDirectoryRoleTemplate.h */; };
+		9FED86E82FE1066E60A517FD /* MSDirectoryServicesDeviceConfigurationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = A08B77691FFF838B454AD404 /* MSDirectoryServicesDeviceConfigurationOperations.m */; };
+		A02F6A18BA9FBE5A2C23989B /* MSDirectoryServicesTenantDetail.h in Headers */ = {isa = PBXBuildFile; fileRef = 630CD2A5B18212C5A9264DBE /* MSDirectoryServicesTenantDetail.h */; };
+		A14E2EFBFD41F0653B7112E8 /* MSDirectoryServicesClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 979B1CF8ED111BA16A106AF6 /* MSDirectoryServicesClient.h */; };
+		A219F5BC015356147335237D /* MSDirectoryServicesTenantDetailOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 0916602C2FDB55ED7F0ED621 /* MSDirectoryServicesTenantDetailOperations.h */; };
+		A424EAACDF1F765128EA42F3 /* MSDirectoryServicesTenantDetailOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B12DC50DE830830D29AF15 /* MSDirectoryServicesTenantDetailOperations.m */; };
+		A6266EA326327C0CC71D16F6 /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8390475E73A0510FDF81DC19 /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.m */; };
+		A670D861A0C67892013B3774 /* MSDirectoryServicesUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = CA5E692F6EA9BE5F6BC885A7 /* MSDirectoryServicesUserCollectionOperations.h */; };
+		A75034445C516A07360580FF /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 354833EB55E36312EEAE46AA /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m */; };
+		A789DF73C0B36CA509135382 /* MSDirectoryServicesServicePrincipalOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F77E61D150A5A47D25D207F /* MSDirectoryServicesServicePrincipalOperations.m */; };
+		AC7D8D44342A6B718EF0DFF7 /* MSDirectoryServicesUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6ED6B4D7F10771EDDF4E10 /* MSDirectoryServicesUserCollectionOperations.m */; };
+		AC8C3172031B16AD0A30FA04 /* MSDirectoryServicesSubscribedSkuCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 703ABB50D64CE85A245B5CEC /* MSDirectoryServicesSubscribedSkuCollectionOperations.h */; };
+		AE11975AECF18904F08BCB59 /* MSDirectoryServicesDeviceCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A5ED67D424B75F7C82D212F4 /* MSDirectoryServicesDeviceCollectionFetcher.h */; };
+		AF08FEB8EEC67E3823A4A19D /* MSDirectoryServicesUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F7D381D791496011FE5613 /* MSDirectoryServicesUserCollectionFetcher.m */; };
+		AFEA302A96F99B0DDF1FD1BF /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7775033DA03D7F1C040E90D0 /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h */; };
+		B04DD9E37C8490A884517F42 /* MSDirectoryServicesDirectoryRole.h in Headers */ = {isa = PBXBuildFile; fileRef = CE39ADDA540A43EC82DB2859 /* MSDirectoryServicesDirectoryRole.h */; };
+		B2A250E718F68D87F9C29E98 /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EA41F6E5D47CAC10925C0EE /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h */; };
+		B34C91BB43C48F96EAAE2733 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CF7450D8046661FA9FEF3E /* MSDirectoryServicesDirectoryRoleTemplateFetcher.m */; };
+		B6182502251E4763F2293016 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A24AED8EF8CA3ADB80F23BB /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h */; };
+		B6954FD0620F805A8B85C58C /* MSDirectoryServicesDirectoryRoleFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 589B1ECAA17D6004691A62FC /* MSDirectoryServicesDirectoryRoleFetcher.h */; };
+		B6ADC7CBEEE31AB4EEE1DC96 /* MSDirectoryServicesSubscribedSkuOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7770A1AC619B477B3DCD97 /* MSDirectoryServicesSubscribedSkuOperations.m */; };
+		B7B74F3DC1D721451C29E7F5 /* MSDirectoryServicesApplicationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C4456DF9DC1C6EC7BB8963 /* MSDirectoryServicesApplicationOperations.m */; };
+		B86D69C6B1D5109F8A4B9AE0 /* MSDirectoryServicesOAuth2PermissionGrantOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C8A8DE9E16B472CAA31768E /* MSDirectoryServicesOAuth2PermissionGrantOperations.h */; };
+		B8947DD6BBB6FF51A5B0906A /* MSDirectoryServicesServicePlanInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E90E0C060BC4247E8B428941 /* MSDirectoryServicesServicePlanInfo.m */; };
+		B9B6F5464C9DA43BD5EAB552 /* MSDirectoryServicesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E7859DBE4FE48F73437FCE /* MSDirectoryServicesClient.m */; };
+		BD69AFFF756FB198ED2C5F44 /* MSDirectoryServicesExtensionPropertyFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ECCD6BD4CAF7DEF7510AED5C /* MSDirectoryServicesExtensionPropertyFetcher.h */; };
+		BE8D5A0FBFA8BAD6BC384AB3 /* MSDirectoryServicesUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 936CD26A138F30415F29139A /* MSDirectoryServicesUser.m */; };
+		BFCCA2593CA18FDC1EA31A51 /* MSDirectoryServicesTenantDetailFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C14C1F8D141C4B01D4D130B /* MSDirectoryServicesTenantDetailFetcher.m */; };
+		C00871A99A292F08D1E245AF /* MSDirectoryServicesExtensionPropertyCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CF5DBF1777F4DB56212DFD6 /* MSDirectoryServicesExtensionPropertyCollectionOperations.m */; };
+		C31FCFE56FE601100D182ED9 /* MSDirectoryServicesDeviceOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 9845DE8BEC7296E558F12715 /* MSDirectoryServicesDeviceOperations.h */; };
+		C55B2D5A784C813899CD1288 /* MSDirectoryServicesSubscribedSkuFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9FD32FC095D4ACCA60F000 /* MSDirectoryServicesSubscribedSkuFetcher.m */; };
+		C58C4765C8AFD5E36D3D8107 /* MSDirectoryServicesContactOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE97BA167BC84395B472702 /* MSDirectoryServicesContactOperations.m */; };
+		C5E250CAD7705A00D6A49A6A /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 512ED3A09BCF16B6380ADD72 /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m */; };
+		C6B23D2E83A6100E95A2CDA8 /* MSDirectoryServicesServicePrincipalCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = FA32AA0DD48E98D9A6B96073 /* MSDirectoryServicesServicePrincipalCollectionOperations.h */; };
+		C70D9FEB6AACBBCE018DDFFC /* MSDirectoryServicesServicePrincipal.h in Headers */ = {isa = PBXBuildFile; fileRef = 46CE688815C9258D11EB0E20 /* MSDirectoryServicesServicePrincipal.h */; };
+		CA290B4B52DD3F39E18F4E14 /* MSDirectoryServicesApplicationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B51818836B666B933973E67 /* MSDirectoryServicesApplicationCollectionFetcher.h */; };
+		CAD5E8E5DA3E8219E70D3B74 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 97E1EBF7A25E031CB3248900 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h */; };
+		CAD75C672092E3FABFDFC8FF /* MSDirectoryServicesSubscribedSkuCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D4B26D343BEA959666820E4 /* MSDirectoryServicesSubscribedSkuCollectionFetcher.h */; };
+		CBF63346FA8761AE71D6E46D /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E11093EB981A12BA920875 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.m */; };
+		CDDCE1422EEA5008625E082D /* MSDirectoryServicesExtensionPropertyFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E45E631624C8412D08389719 /* MSDirectoryServicesExtensionPropertyFetcher.m */; };
+		CF5A0AC9FF3064D575B1DDB1 /* MSDirectoryServicesSubscribedSku.h in Headers */ = {isa = PBXBuildFile; fileRef = 5109012E5998CF8AA1A0F0FA /* MSDirectoryServicesSubscribedSku.h */; };
+		D0486AAFEFAB37891EF70AC1 /* MSDirectoryServicesUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DC934CFBC477BD33967354 /* MSDirectoryServicesUserOperations.h */; };
+		D09D74DA8AF496DC61483245 /* MSDirectoryServicesDeviceConfigurationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 8167D5F414F3153EBC96DFD6 /* MSDirectoryServicesDeviceConfigurationOperations.h */; };
+		D2A6369388CBCD05A4CCC6EE /* MSDirectoryServicesGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D55D4211B8A9A66A7C45CD /* MSDirectoryServicesGroupCollectionFetcher.h */; };
+		D5D3200EDBF3BDC94DAC9B5D /* MSDirectoryServicesAppRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 944D06BCF1CB55CC4D5E9348 /* MSDirectoryServicesAppRole.h */; };
+		D615A767D58F55366CE7A854 /* MSDirectoryServicesDeviceConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B9DE27E4D0EB9692E646478E /* MSDirectoryServicesDeviceConfiguration.h */; };
+		D6179BBA01872BE01363AB83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFB933037469CAA55B6484A /* Foundation.framework */; };
+		D74511611E826DA67C2F8CD4 /* MSDirectoryServicesSubscribedSkuOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B53C3B70AADF1FDC2331E063 /* MSDirectoryServicesSubscribedSkuOperations.h */; };
+		D9787B97C10A426AF1F0E74B /* MSDirectoryServicesExtensionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F69E7562969240DA6F175 /* MSDirectoryServicesExtensionProperty.m */; };
+		DB00FACA1B5EAD1664E3493F /* MSDirectoryServicesAppRoleAssignmentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B666163FB37210E187B2ABB /* MSDirectoryServicesAppRoleAssignmentFetcher.m */; };
+		DB07AA707C6AD9DD3CF64BB5 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B905A9B2AF28F7C14D739D23 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.h */; };
+		DB7B41011FD74473FE6A20B8 /* MSDirectoryServicesTenantDetailCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 63E1B48DF0356B177DF52FF3 /* MSDirectoryServicesTenantDetailCollectionOperations.h */; };
+		DBDF8340B614E865AAFBB69B /* MSDirectoryServicesDeviceConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 513CD3E974E2DF583191F88B /* MSDirectoryServicesDeviceConfiguration.m */; };
+		DD76231E842806A3C615E4CA /* MSDirectoryServicesGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ACD7A1E7FC4C246A5D5B244 /* MSDirectoryServicesGroupOperations.h */; };
+		DE07029FA36BF952226D4B10 /* MSDirectoryServicesTenantDetailFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = AE6D2D70CE4E560CDE7FC385 /* MSDirectoryServicesTenantDetailFetcher.h */; };
+		DE61FE41A1B54AD8C6AC535A /* MSDirectoryServicesGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC1661ABBC7C0C5F62AF24C /* MSDirectoryServicesGroup.h */; };
+		E0AD0933268D6D3A4F56F5F8 /* MSDirectoryServicesOAuth2PermissionGrantOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C2D5D339D5D91ED9FAADF3 /* MSDirectoryServicesOAuth2PermissionGrantOperations.m */; };
+		E1DED5AE8C923FFCFA3FB1E1 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0B18530E8759A97E0EE798 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m */; };
+		E26389CD0A991BDE4117504F /* MSDirectoryServicesUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A8858C1BD42992B6F31F0BBE /* MSDirectoryServicesUserCollectionFetcher.h */; };
+		E2749D0BCE9116E59D93F25F /* MSDirectoryServicesDirectoryRoleCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5961513BBBF9498CBA7D1BCA /* MSDirectoryServicesDirectoryRoleCollectionOperations.h */; };
+		E985B9BC994F158C03D835B3 /* MSDirectoryServicesDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = C16E47E5E666B01ECE885538 /* MSDirectoryServicesDevice.h */; };
+		EAA47B8A95A0CDFCB31F23EA /* MSDirectoryServicesDirectoryObjectOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 692BC0102C8239486F3E1A11 /* MSDirectoryServicesDirectoryObjectOperations.h */; };
+		EB7F3929FB0C35D1E0617FE5 /* MSDirectoryServicesDirectoryRoleCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9721F481BCD56243F5E30E0C /* MSDirectoryServicesDirectoryRoleCollectionOperations.m */; };
+		EB8A2656B610C6992CE4C6E4 /* MSDirectoryServicesGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D01F219396B3DAFA8B329CA8 /* MSDirectoryServicesGroupCollectionFetcher.m */; };
+		ECE8A3E73592828790D06A96 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E0C085EB4213A44915699F92 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.m */; };
+		ED2B3BADA95896809B84E368 /* MSDirectoryServicesDirectoryLinkChangeFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A672C1DA7001F5477EA16075 /* MSDirectoryServicesDirectoryLinkChangeFetcher.m */; };
+		EE8B981329DA84FA4DDA7B6A /* MSDirectoryServicesAlternativeSecurityId.h in Headers */ = {isa = PBXBuildFile; fileRef = 1164E9A47C39873D2D4AD551 /* MSDirectoryServicesAlternativeSecurityId.h */; };
+		F0BA0EF3EB551069B3E5B7A1 /* MSDirectoryServicesDirectoryRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 253935BBBAA86775ED1D88CF /* MSDirectoryServicesDirectoryRole.m */; };
+		F127E9C672218841C8173C6B /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = ED6D285167FA27E5240AC7B1 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h */; };
+		F16AC1741ED326225AAB5AA2 /* MSDirectoryServicesDirectoryRoleTemplateOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = A7FC3DFEA1BBF4AA4A0EF29C /* MSDirectoryServicesDirectoryRoleTemplateOperations.h */; };
+		F4FB3F8161F828125B47D436 /* MSDirectoryServicesSubscribedSkuCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = C67FDF8790F631758D8621B6 /* MSDirectoryServicesSubscribedSkuCollectionOperations.m */; };
+		F8C6CB32F61D491304237A2F /* MSDirectoryServicesDirectoryObjectCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DC1AEAB59E97DDA722840F /* MSDirectoryServicesDirectoryObjectCollectionOperations.m */; };
+		FFF9F070178E091347734C3D /* MSDirectoryServicesDeviceConfigurationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A078A924AB255E8EDF0DF975 /* MSDirectoryServicesDeviceConfigurationFetcher.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		03F361BA681C1FD8DE5AD907 /* MSDirectoryServicesAppRoleAssignmentOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRoleAssignmentOperations.m; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentOperations.m; sourceTree = "<group>"; };
+		03F7EAE70DABF99D9779A7AB /* MSDirectoryServicesContactFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesContactFetcher.m; path = ./Fetchers/MSDirectoryServicesContactFetcher.m; sourceTree = "<group>"; };
+		070C4016152769337435CB27 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceConfigurationCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationCollectionOperations.m; sourceTree = "<group>"; };
+		080CCA61965B29EFE680D005 /* MSDirectoryServicesDirectoryLinkChangeFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryLinkChangeFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeFetcher.h; sourceTree = "<group>"; };
+		0916602C2FDB55ED7F0ED621 /* MSDirectoryServicesTenantDetailOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesTenantDetailOperations.h; path = ./Fetchers/MSDirectoryServicesTenantDetailOperations.h; sourceTree = "<group>"; };
+		0C1BDAC3A74B87BC33B89C7B /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m; sourceTree = "<group>"; };
+		1164E9A47C39873D2D4AD551 /* MSDirectoryServicesAlternativeSecurityId.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAlternativeSecurityId.h; path = ./Model/MSDirectoryServicesAlternativeSecurityId.h; sourceTree = "<group>"; };
+		11DC934CFBC477BD33967354 /* MSDirectoryServicesUserOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesUserOperations.h; path = ./Fetchers/MSDirectoryServicesUserOperations.h; sourceTree = "<group>"; };
+		1280A22AACAD3AEAC81C7E42 /* MSDirectoryServicesContactCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesContactCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesContactCollectionFetcher.h; sourceTree = "<group>"; };
+		13A024325E776AF0CE1A0211 /* MSDirectoryServicesContactCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesContactCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesContactCollectionOperations.h; sourceTree = "<group>"; };
+		161B7BD8F49CB183756F677C /* MSDirectoryServicesDirectoryObjectCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryObjectCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryObjectCollectionOperations.h; sourceTree = "<group>"; };
+		1A5BBC0B0C54263C976D63F7 /* MSDirectoryServicesServicePrincipal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePrincipal.m; path = ./Model/MSDirectoryServicesServicePrincipal.m; sourceTree = "<group>"; };
+		1B81402F60EC80396D8111B2 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m; sourceTree = "<group>"; };
+		1E9636132FD8347FBEF39852 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleTemplateFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateFetcher.h; sourceTree = "<group>"; };
+		1E9FD32FC095D4ACCA60F000 /* MSDirectoryServicesSubscribedSkuFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesSubscribedSkuFetcher.m; path = ./Fetchers/MSDirectoryServicesSubscribedSkuFetcher.m; sourceTree = "<group>"; };
+		1EA41F6E5D47CAC10925C0EE /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h; sourceTree = "<group>"; };
+		226AE4D811F4F2265F73A233 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesExtensionPropertyCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesExtensionPropertyCollectionFetcher.m; sourceTree = "<group>"; };
+		2374E471A829155D6449F4B1 /* MSDirectoryServicesDeviceFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceFetcher.h; path = ./Fetchers/MSDirectoryServicesDeviceFetcher.h; sourceTree = "<group>"; };
+		237C4ED256031A75C0A8DEA3 /* MSDirectoryServicesExtensionProperty.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesExtensionProperty.h; path = ./Model/MSDirectoryServicesExtensionProperty.h; sourceTree = "<group>"; };
+		248F3224FE9E321F1C22E579 /* MSDirectoryServicesKeyCredential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesKeyCredential.h; path = ./Model/MSDirectoryServicesKeyCredential.h; sourceTree = "<group>"; };
+		253935BBBAA86775ED1D88CF /* MSDirectoryServicesDirectoryRole.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRole.m; path = ./Model/MSDirectoryServicesDirectoryRole.m; sourceTree = "<group>"; };
+		278651485369F5648176C020 /* MSDirectoryServicesOAuth2PermissionGrant.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2PermissionGrant.m; path = ./Model/MSDirectoryServicesOAuth2PermissionGrant.m; sourceTree = "<group>"; };
+		2C6ED6B4D7F10771EDDF4E10 /* MSDirectoryServicesUserCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesUserCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesUserCollectionOperations.m; sourceTree = "<group>"; };
+		2D9D01D74C84B76F75720044 /* MSDirectoryServicesResourceAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesResourceAccess.h; path = ./Model/MSDirectoryServicesResourceAccess.h; sourceTree = "<group>"; };
+		2E91410453B5D50EF8C1CE7E /* MSDirectoryServicesDirectoryObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryObject.m; path = ./Model/MSDirectoryServicesDirectoryObject.m; sourceTree = "<group>"; };
+		332894224DC9CCA078AA3F7B /* MSDirectoryServicesAssignedLicense.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAssignedLicense.m; path = ./Model/MSDirectoryServicesAssignedLicense.m; sourceTree = "<group>"; };
+		3443FE6683E3017045535CBB /* MSDirectoryServicesProvisionedPlan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesProvisionedPlan.h; path = ./Model/MSDirectoryServicesProvisionedPlan.h; sourceTree = "<group>"; };
+		347259E719D781D2D39C069D /* MSDirectoryServicesDirectoryRoleFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleFetcher.m; sourceTree = "<group>"; };
+		347ACDC14AFB2287A5C45BB4 /* MSDirectoryServicesLicenseUnitsDetail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesLicenseUnitsDetail.m; path = ./Model/MSDirectoryServicesLicenseUnitsDetail.m; sourceTree = "<group>"; };
+		34D2A194B1B8F15DDBF621BE /* MSDirectoryServicesAlternativeSecurityId.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAlternativeSecurityId.m; path = ./Model/MSDirectoryServicesAlternativeSecurityId.m; sourceTree = "<group>"; };
+		354833EB55E36312EEAE46AA /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m; sourceTree = "<group>"; };
+		355F31D9423CCD611ED94136 /* MSDirectoryServicesContactCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesContactCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesContactCollectionFetcher.m; sourceTree = "<group>"; };
+		38E0BF053E1C8B163AEE253A /* MSDirectoryServicesAssignedLicense.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAssignedLicense.h; path = ./Model/MSDirectoryServicesAssignedLicense.h; sourceTree = "<group>"; };
+		3A690A31494B0FE1A1B819F3 /* MSDirectoryServicesContactCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesContactCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesContactCollectionOperations.m; sourceTree = "<group>"; };
+		3BDB48F9C19FAF7AF3AC2264 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2PermissionGrantFetcher.h; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantFetcher.h; sourceTree = "<group>"; };
+		3C047DAFFA2E213BB7639FA6 /* MSDirectoryServicesDirectoryObjectCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryObjectCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryObjectCollectionFetcher.h; sourceTree = "<group>"; };
+		3CF5DBF1777F4DB56212DFD6 /* MSDirectoryServicesExtensionPropertyCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesExtensionPropertyCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesExtensionPropertyCollectionOperations.m; sourceTree = "<group>"; };
+		3D43B12F4579D31E32D8B929 /* MSDirectoryServicesServicePrincipalFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePrincipalFetcher.h; path = ./Fetchers/MSDirectoryServicesServicePrincipalFetcher.h; sourceTree = "<group>"; };
+		3ED3B88FB23B03031FB3B324 /* MSDirectoryServicesExtensionPropertyCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesExtensionPropertyCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesExtensionPropertyCollectionOperations.h; sourceTree = "<group>"; };
+		413EB7770F234F0CFA24DCCC /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m; sourceTree = "<group>"; };
+		425ACC098C730C58BAC0C33D /* MSDirectoryServicesAppRoleAssignment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRoleAssignment.h; path = ./Model/MSDirectoryServicesAppRoleAssignment.h; sourceTree = "<group>"; };
+		44592F9527C4BE85FF2045EA /* MSDirectoryServicesKeyCredential.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesKeyCredential.m; path = ./Model/MSDirectoryServicesKeyCredential.m; sourceTree = "<group>"; };
+		459FE1B984D6701B537339D0 /* MSDirectoryServicesRequiredResourceAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesRequiredResourceAccess.m; path = ./Model/MSDirectoryServicesRequiredResourceAccess.m; sourceTree = "<group>"; };
+		4605CA7D479BC9F4CCD035D0 /* MSDirectoryServicesPasswordCredential.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesPasswordCredential.m; path = ./Model/MSDirectoryServicesPasswordCredential.m; sourceTree = "<group>"; };
+		46CE688815C9258D11EB0E20 /* MSDirectoryServicesServicePrincipal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePrincipal.h; path = ./Model/MSDirectoryServicesServicePrincipal.h; sourceTree = "<group>"; };
+		4A570715AA3AFCE86E0ADA3B /* MSDirectoryServicesDirectoryObjectCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryObjectCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryObjectCollectionFetcher.m; sourceTree = "<group>"; };
+		4A5DB89DF9C3AFAE73ADDC52 /* MSDirectoryServicesPasswordProfile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesPasswordProfile.m; path = ./Model/MSDirectoryServicesPasswordProfile.m; sourceTree = "<group>"; };
+		4ACD7A1E7FC4C246A5D5B244 /* MSDirectoryServicesGroupOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesGroupOperations.h; path = ./Fetchers/MSDirectoryServicesGroupOperations.h; sourceTree = "<group>"; };
+		4C66F58FAAA83F62E2CFDF5C /* MSDirectoryServicesProvisionedPlan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesProvisionedPlan.m; path = ./Model/MSDirectoryServicesProvisionedPlan.m; sourceTree = "<group>"; };
+		4F02B056CD985D776EA0539A /* MSDirectoryServicesDirectoryObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryObject.h; path = ./Model/MSDirectoryServicesDirectoryObject.h; sourceTree = "<group>"; };
+		50C2D5D339D5D91ED9FAADF3 /* MSDirectoryServicesOAuth2PermissionGrantOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2PermissionGrantOperations.m; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantOperations.m; sourceTree = "<group>"; };
+		5109012E5998CF8AA1A0F0FA /* MSDirectoryServicesSubscribedSku.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesSubscribedSku.h; path = ./Model/MSDirectoryServicesSubscribedSku.h; sourceTree = "<group>"; };
+		512ED3A09BCF16B6380ADD72 /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m; sourceTree = "<group>"; };
+		513CD3E974E2DF583191F88B /* MSDirectoryServicesDeviceConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceConfiguration.m; path = ./Model/MSDirectoryServicesDeviceConfiguration.m; sourceTree = "<group>"; };
+		52FC21716997966AF598B967 /* MSDirectoryServicesOAuth2Permission.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2Permission.m; path = ./Model/MSDirectoryServicesOAuth2Permission.m; sourceTree = "<group>"; };
+		55FFB77A3E671C109DC7807C /* MSDirectoryServicesDeviceConfigurationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceConfigurationFetcher.m; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationFetcher.m; sourceTree = "<group>"; };
+		5826BAFE95904B362700E7EC /* MSDirectoryServicesGroupOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesGroupOperations.m; path = ./Fetchers/MSDirectoryServicesGroupOperations.m; sourceTree = "<group>"; };
+		587C9F1E1D3A9C17C75A8165 /* MSDirectoryServicesTenantDetailCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesTenantDetailCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesTenantDetailCollectionFetcher.h; sourceTree = "<group>"; };
+		589B1ECAA17D6004691A62FC /* MSDirectoryServicesDirectoryRoleFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleFetcher.h; sourceTree = "<group>"; };
+		5961513BBBF9498CBA7D1BCA /* MSDirectoryServicesDirectoryRoleCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleCollectionOperations.h; sourceTree = "<group>"; };
+		5999EF0A0BCCC2AD0B5C757D /* MSDirectoryServicesUserFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesUserFetcher.h; path = ./Fetchers/MSDirectoryServicesUserFetcher.h; sourceTree = "<group>"; };
+		5B51818836B666B933973E67 /* MSDirectoryServicesApplicationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesApplicationCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesApplicationCollectionFetcher.h; sourceTree = "<group>"; };
+		5B7770A1AC619B477B3DCD97 /* MSDirectoryServicesSubscribedSkuOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesSubscribedSkuOperations.m; path = ./Fetchers/MSDirectoryServicesSubscribedSkuOperations.m; sourceTree = "<group>"; };
+		5DDB58F39C9A8B899B1E4318 /* MSDirectoryServicesProvisioningError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesProvisioningError.h; path = ./Model/MSDirectoryServicesProvisioningError.h; sourceTree = "<group>"; };
+		5F77E61D150A5A47D25D207F /* MSDirectoryServicesServicePrincipalOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePrincipalOperations.m; path = ./Fetchers/MSDirectoryServicesServicePrincipalOperations.m; sourceTree = "<group>"; };
+		616B0AB4E234E1527DCB1A00 /* MSDirectoryServicesDeviceOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceOperations.m; path = ./Fetchers/MSDirectoryServicesDeviceOperations.m; sourceTree = "<group>"; };
+		61CB4FFB4B265D42301A7B0D /* MSDirectoryServicesApplicationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesApplicationFetcher.m; path = ./Fetchers/MSDirectoryServicesApplicationFetcher.m; sourceTree = "<group>"; };
+		62E71F5E6E27A040E92C9853 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesExtensionPropertyCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesExtensionPropertyCollectionFetcher.h; sourceTree = "<group>"; };
+		630CD2A5B18212C5A9264DBE /* MSDirectoryServicesTenantDetail.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesTenantDetail.h; path = ./Model/MSDirectoryServicesTenantDetail.h; sourceTree = "<group>"; };
+		63B253432B3B7C61520FADCC /* MSDirectoryServicesDeviceCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDeviceCollectionOperations.h; sourceTree = "<group>"; };
+		63E1B48DF0356B177DF52FF3 /* MSDirectoryServicesTenantDetailCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesTenantDetailCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesTenantDetailCollectionOperations.h; sourceTree = "<group>"; };
+		64DC1AEAB59E97DDA722840F /* MSDirectoryServicesDirectoryObjectCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryObjectCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryObjectCollectionOperations.m; sourceTree = "<group>"; };
+		67A184CD23D3C3407620557D /* MSDirectoryServicesServicePrincipalCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePrincipalCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesServicePrincipalCollectionFetcher.h; sourceTree = "<group>"; };
+		692BC0102C8239486F3E1A11 /* MSDirectoryServicesDirectoryObjectOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryObjectOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryObjectOperations.h; sourceTree = "<group>"; };
+		6A24AED8EF8CA3ADB80F23BB /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h; sourceTree = "<group>"; };
+		6A34BAC509F0D8637E69957B /* MSDirectoryServicesApplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesApplication.h; path = ./Model/MSDirectoryServicesApplication.h; sourceTree = "<group>"; };
+		6A92117B6E1AA4B2BF67A99A /* MSDirectoryServicesUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesUser.h; path = ./Model/MSDirectoryServicesUser.h; sourceTree = "<group>"; };
+		6C8A8DE9E16B472CAA31768E /* MSDirectoryServicesOAuth2PermissionGrantOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2PermissionGrantOperations.h; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantOperations.h; sourceTree = "<group>"; };
+		6CE76F09D876F6E3D7741AC0 /* MSDirectoryServicesApplicationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesApplicationCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesApplicationCollectionOperations.m; sourceTree = "<group>"; };
+		703ABB50D64CE85A245B5CEC /* MSDirectoryServicesSubscribedSkuCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesSubscribedSkuCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesSubscribedSkuCollectionOperations.h; sourceTree = "<group>"; };
+		71E0EF5C110352368D53506E /* MSDirectoryServicesDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDevice.m; path = ./Model/MSDirectoryServicesDevice.m; sourceTree = "<group>"; };
+		725F45CFA89D85AA639A3188 /* MSDirectoryServicesServicePrincipalFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePrincipalFetcher.m; path = ./Fetchers/MSDirectoryServicesServicePrincipalFetcher.m; sourceTree = "<group>"; };
+		73DD7F997C10CEB7F46D9F11 /* MSDirectoryServicesPasswordCredential.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesPasswordCredential.h; path = ./Model/MSDirectoryServicesPasswordCredential.h; sourceTree = "<group>"; };
+		77596F2C246144CE71123F30 /* MSDirectoryServicesServicePlanInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePlanInfo.h; path = ./Model/MSDirectoryServicesServicePlanInfo.h; sourceTree = "<group>"; };
+		7775033DA03D7F1C040E90D0 /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h; sourceTree = "<group>"; };
+		777DDD01D566C16A36E2CFA1 /* MSDirectoryServicesDirectoryObjectOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryObjectOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryObjectOperations.m; sourceTree = "<group>"; };
+		7CB6535A624F35BEAA4DDE06 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h; sourceTree = "<group>"; };
+		7DE97BA167BC84395B472702 /* MSDirectoryServicesContactOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesContactOperations.m; path = ./Fetchers/MSDirectoryServicesContactOperations.m; sourceTree = "<group>"; };
+		7EE59686F8E99CD71999A00B /* MSDirectoryServicesServicePrincipalOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePrincipalOperations.h; path = ./Fetchers/MSDirectoryServicesServicePrincipalOperations.h; sourceTree = "<group>"; };
+		7FD7ECE9BF1AB559DD6EFCCF /* MSDirectoryServicesDeviceCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDeviceCollectionFetcher.m; sourceTree = "<group>"; };
+		80E7859DBE4FE48F73437FCE /* MSDirectoryServicesClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesClient.m; path = ./Fetchers/MSDirectoryServicesClient.m; sourceTree = "<group>"; };
+		8162440956ED1C264DBD2793 /* MSDirectoryServicesGroupFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesGroupFetcher.m; path = ./Fetchers/MSDirectoryServicesGroupFetcher.m; sourceTree = "<group>"; };
+		8167D5F414F3153EBC96DFD6 /* MSDirectoryServicesDeviceConfigurationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceConfigurationOperations.h; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationOperations.h; sourceTree = "<group>"; };
+		8390475E73A0510FDF81DC19 /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceConfigurationCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationCollectionFetcher.m; sourceTree = "<group>"; };
+		8611C68A43F2852BF4864E4E /* MSDirectoryServicesDeviceCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDeviceCollectionOperations.m; sourceTree = "<group>"; };
+		88CB9C257C8D11E1B400E180 /* MSDirectoryServicesApplicationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesApplicationFetcher.h; path = ./Fetchers/MSDirectoryServicesApplicationFetcher.h; sourceTree = "<group>"; };
+		88D55D4211B8A9A66A7C45CD /* MSDirectoryServicesGroupCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesGroupCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesGroupCollectionFetcher.h; sourceTree = "<group>"; };
+		890033D78B8C2823051ED1D4 /* MSDirectoryServicesExtensionPropertyOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesExtensionPropertyOperations.h; path = ./Fetchers/MSDirectoryServicesExtensionPropertyOperations.h; sourceTree = "<group>"; };
+		8ADAC2D0C2C7B7A7977DFF9E /* MSDirectoryServicesDirectoryObjectFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryObjectFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryObjectFetcher.m; sourceTree = "<group>"; };
+		8B636C015EEFEB49268D1C8A /* MSDirectoryServices.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServices.h; path = ./MSDirectoryServices.h; sourceTree = "<group>"; };
+		8B666163FB37210E187B2ABB /* MSDirectoryServicesAppRoleAssignmentFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRoleAssignmentFetcher.m; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentFetcher.m; sourceTree = "<group>"; };
+		8C14C1F8D141C4B01D4D130B /* MSDirectoryServicesTenantDetailFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesTenantDetailFetcher.m; path = ./Fetchers/MSDirectoryServicesTenantDetailFetcher.m; sourceTree = "<group>"; };
+		8D167AFA8018591E73F7F335 /* MSDirectoryServicesGroupFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesGroupFetcher.h; path = ./Fetchers/MSDirectoryServicesGroupFetcher.h; sourceTree = "<group>"; };
+		8DF47406C0D709017B0ECC77 /* MSDirectoryServicesOAuth2Permission.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2Permission.h; path = ./Model/MSDirectoryServicesOAuth2Permission.h; sourceTree = "<group>"; };
+		9054545E05898F0BB1104E6B /* MSDirectoryServicesAssignedPlan.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAssignedPlan.m; path = ./Model/MSDirectoryServicesAssignedPlan.m; sourceTree = "<group>"; };
+		90920282EEB6643BDA8B9D8B /* MSDirectoryServicesDirectoryRoleTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleTemplate.h; path = ./Model/MSDirectoryServicesDirectoryRoleTemplate.h; sourceTree = "<group>"; };
+		91811B8EA2A4911E00ECC012 /* MSDirectoryServicesResourceAccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesResourceAccess.m; path = ./Model/MSDirectoryServicesResourceAccess.m; sourceTree = "<group>"; };
+		91E193ED54D1F32824F8597F /* MSDirectoryServicesDirectoryRoleOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleOperations.h; sourceTree = "<group>"; };
+		92282ED8E777373964A0797C /* MSDirectoryServicesDirectoryObjectFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryObjectFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryObjectFetcher.h; sourceTree = "<group>"; };
+		936CD26A138F30415F29139A /* MSDirectoryServicesUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesUser.m; path = ./Model/MSDirectoryServicesUser.m; sourceTree = "<group>"; };
+		9405549CFF8A81D766CAF926 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m; sourceTree = "<group>"; };
+		942B8924BCAC67D6F97BBD19 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceConfigurationCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationCollectionOperations.h; sourceTree = "<group>"; };
+		944D06BCF1CB55CC4D5E9348 /* MSDirectoryServicesAppRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRole.h; path = ./Model/MSDirectoryServicesAppRole.h; sourceTree = "<group>"; };
+		96E40D13A5D15B4D62A8D6EB /* MSDirectoryServicesSubscribedSkuFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesSubscribedSkuFetcher.h; path = ./Fetchers/MSDirectoryServicesSubscribedSkuFetcher.h; sourceTree = "<group>"; };
+		96EB4A8DA2FC515C420D2900 /* MSDirectoryServicesLicenseUnitsDetail.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesLicenseUnitsDetail.h; path = ./Model/MSDirectoryServicesLicenseUnitsDetail.h; sourceTree = "<group>"; };
+		971CB41DAACE46DF6843E336 /* MSDirectoryServicesApplication.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesApplication.m; path = ./Model/MSDirectoryServicesApplication.m; sourceTree = "<group>"; };
+		9721F481BCD56243F5E30E0C /* MSDirectoryServicesDirectoryRoleCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleCollectionOperations.m; sourceTree = "<group>"; };
+		979B1CF8ED111BA16A106AF6 /* MSDirectoryServicesClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesClient.h; path = ./Fetchers/MSDirectoryServicesClient.h; sourceTree = "<group>"; };
+		97E1EBF7A25E031CB3248900 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h; sourceTree = "<group>"; };
+		9845DE8BEC7296E558F12715 /* MSDirectoryServicesDeviceOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceOperations.h; path = ./Fetchers/MSDirectoryServicesDeviceOperations.h; sourceTree = "<group>"; };
+		9D4B26D343BEA959666820E4 /* MSDirectoryServicesSubscribedSkuCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesSubscribedSkuCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesSubscribedSkuCollectionFetcher.h; sourceTree = "<group>"; };
+		9DC1661ABBC7C0C5F62AF24C /* MSDirectoryServicesGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesGroup.h; path = ./Model/MSDirectoryServicesGroup.h; sourceTree = "<group>"; };
+		9E4F69E7562969240DA6F175 /* MSDirectoryServicesExtensionProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesExtensionProperty.m; path = ./Model/MSDirectoryServicesExtensionProperty.m; sourceTree = "<group>"; };
+		9EB4932029DA7026117CAA4E /* MSDirectoryServicesGroupCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesGroupCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesGroupCollectionOperations.h; sourceTree = "<group>"; };
+		A023D8EC123EA5737B6FE645 /* MSDirectoryServicesPasswordProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesPasswordProfile.h; path = ./Model/MSDirectoryServicesPasswordProfile.h; sourceTree = "<group>"; };
+		A078A924AB255E8EDF0DF975 /* MSDirectoryServicesDeviceConfigurationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceConfigurationFetcher.h; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationFetcher.h; sourceTree = "<group>"; };
+		A08B77691FFF838B454AD404 /* MSDirectoryServicesDeviceConfigurationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceConfigurationOperations.m; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationOperations.m; sourceTree = "<group>"; };
+		A1AFE8DA36263D26283F2996 /* MSDirectoryServicesDirectoryLinkChange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryLinkChange.h; path = ./Model/MSDirectoryServicesDirectoryLinkChange.h; sourceTree = "<group>"; };
+		A315B61C686F7158F20EAF94 /* MSDirectoryServicesAppRoleAssignmentFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRoleAssignmentFetcher.h; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentFetcher.h; sourceTree = "<group>"; };
+		A3CAF868CF90EAC8F75E6E45 /* MSDirectoryServicesOAuth2PermissionGrant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesOAuth2PermissionGrant.h; path = ./Model/MSDirectoryServicesOAuth2PermissionGrant.h; sourceTree = "<group>"; };
+		A5ED67D424B75F7C82D212F4 /* MSDirectoryServicesDeviceCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDeviceCollectionFetcher.h; sourceTree = "<group>"; };
+		A672C1DA7001F5477EA16075 /* MSDirectoryServicesDirectoryLinkChangeFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryLinkChangeFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeFetcher.m; sourceTree = "<group>"; };
+		A7FC3DFEA1BBF4AA4A0EF29C /* MSDirectoryServicesDirectoryRoleTemplateOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleTemplateOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateOperations.h; sourceTree = "<group>"; };
+		A8858C1BD42992B6F31F0BBE /* MSDirectoryServicesUserCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesUserCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesUserCollectionFetcher.h; sourceTree = "<group>"; };
+		A8CA567927B6F60C177811BB /* MSDirectoryServicesTenantDetailCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesTenantDetailCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesTenantDetailCollectionOperations.m; sourceTree = "<group>"; };
+		AAA59637F0005E2680D3340B /* MSDirectoryServicesDirectoryRoleOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleOperations.m; sourceTree = "<group>"; };
+		AAB47CAD0DAC4D1C1737BDC8 /* MSDirectoryServicesContactFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesContactFetcher.h; path = ./Fetchers/MSDirectoryServicesContactFetcher.h; sourceTree = "<group>"; };
+		AD0B18530E8759A97E0EE798 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m; sourceTree = "<group>"; };
+		AE6D2D70CE4E560CDE7FC385 /* MSDirectoryServicesTenantDetailFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesTenantDetailFetcher.h; path = ./Fetchers/MSDirectoryServicesTenantDetailFetcher.h; sourceTree = "<group>"; };
+		B30862C8A0BED85972B1F05C /* MSDirectoryServicesContact.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesContact.h; path = ./Model/MSDirectoryServicesContact.h; sourceTree = "<group>"; };
+		B53C3B70AADF1FDC2331E063 /* MSDirectoryServicesSubscribedSkuOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesSubscribedSkuOperations.h; path = ./Fetchers/MSDirectoryServicesSubscribedSkuOperations.h; sourceTree = "<group>"; };
+		B53F3EB8B186F5150994732C /* MSDirectoryServicesTenantDetailCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesTenantDetailCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesTenantDetailCollectionFetcher.m; sourceTree = "<group>"; };
+		B70BC4B3B411AA53C0605447 /* MSDirectoryServicesDirectoryRoleTemplateOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleTemplateOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateOperations.m; sourceTree = "<group>"; };
+		B73123D4B00F7C362BE21CC6 /* MSDirectoryServicesUserFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesUserFetcher.m; path = ./Fetchers/MSDirectoryServicesUserFetcher.m; sourceTree = "<group>"; };
+		B73D379B93CB48525A659E1E /* MSDirectoryServicesDirectoryRoleTemplate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleTemplate.m; path = ./Model/MSDirectoryServicesDirectoryRoleTemplate.m; sourceTree = "<group>"; };
+		B8AE1614912CBFA157FDF2C1 /* MSDirectoryServicesDirectoryLinkChangeOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryLinkChangeOperations.m; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeOperations.m; sourceTree = "<group>"; };
+		B8CF7450D8046661FA9FEF3E /* MSDirectoryServicesDirectoryRoleTemplateFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleTemplateFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateFetcher.m; sourceTree = "<group>"; };
+		B905A9B2AF28F7C14D739D23 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRoleAssignmentCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentCollectionOperations.h; sourceTree = "<group>"; };
+		B9DE27E4D0EB9692E646478E /* MSDirectoryServicesDeviceConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceConfiguration.h; path = ./Model/MSDirectoryServicesDeviceConfiguration.h; sourceTree = "<group>"; };
+		BC2A2ADC319682C06C946EA2 /* MSDirectoryServicesContact.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesContact.m; path = ./Model/MSDirectoryServicesContact.m; sourceTree = "<group>"; };
+		BC4CF9F7F9EE080F6EEE1AC5 /* MSDirectoryServicesFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesFetchers.h; path = ./Fetchers/MSDirectoryServicesFetchers.h; sourceTree = "<group>"; };
+		BCBEF7088941BB28ED8BEAE4 /* MSDirectoryServicesServicePrincipalCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePrincipalCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesServicePrincipalCollectionOperations.m; sourceTree = "<group>"; };
+		BDFBF22A93DCBA57388F22B4 /* MSDirectoryServicesUserOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesUserOperations.m; path = ./Fetchers/MSDirectoryServicesUserOperations.m; sourceTree = "<group>"; };
+		BFBACA564056944C250EDC67 /* MSDirectoryServicesRequiredResourceAccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesRequiredResourceAccess.h; path = ./Model/MSDirectoryServicesRequiredResourceAccess.h; sourceTree = "<group>"; };
+		C16E47E5E666B01ECE885538 /* MSDirectoryServicesDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDevice.h; path = ./Model/MSDirectoryServicesDevice.h; sourceTree = "<group>"; };
+		C4D6DE14501D0F0CF6217057 /* MSDirectoryServicesAppRoleAssignment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRoleAssignment.m; path = ./Model/MSDirectoryServicesAppRoleAssignment.m; sourceTree = "<group>"; };
+		C67FDF8790F631758D8621B6 /* MSDirectoryServicesSubscribedSkuCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesSubscribedSkuCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesSubscribedSkuCollectionOperations.m; sourceTree = "<group>"; };
+		CA5E692F6EA9BE5F6BC885A7 /* MSDirectoryServicesUserCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesUserCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesUserCollectionOperations.h; sourceTree = "<group>"; };
+		CB729563D00308B2E53F7DA7 /* MSDirectoryServicesModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesModels.h; path = ./Model/MSDirectoryServicesModels.h; sourceTree = "<group>"; };
+		CB85513FF3053416602A046E /* MSDirectoryServicesGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesGroup.m; path = ./Model/MSDirectoryServicesGroup.m; sourceTree = "<group>"; };
+		CCFB933037469CAA55B6484A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		CD0E67926D4C23EE3ED33C2C /* MSDirectoryServicesTenantDetail.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesTenantDetail.m; path = ./Model/MSDirectoryServicesTenantDetail.m; sourceTree = "<group>"; };
+		CDEAA8631CEC19ED9AD92CA6 /* MSDirectoryServicesDirectoryLinkChange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryLinkChange.m; path = ./Model/MSDirectoryServicesDirectoryLinkChange.m; sourceTree = "<group>"; };
+		CE39ADDA540A43EC82DB2859 /* MSDirectoryServicesDirectoryRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRole.h; path = ./Model/MSDirectoryServicesDirectoryRole.h; sourceTree = "<group>"; };
+		D01F219396B3DAFA8B329CA8 /* MSDirectoryServicesGroupCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesGroupCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesGroupCollectionFetcher.m; sourceTree = "<group>"; };
+		D0E11093EB981A12BA920875 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRoleAssignmentCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentCollectionOperations.m; sourceTree = "<group>"; };
+		D2AA70752BD17FC02537313F /* MSDirectoryServicesApplicationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesApplicationOperations.h; path = ./Fetchers/MSDirectoryServicesApplicationOperations.h; sourceTree = "<group>"; };
+		D3F7D381D791496011FE5613 /* MSDirectoryServicesUserCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesUserCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesUserCollectionFetcher.m; sourceTree = "<group>"; };
+		D6BEBA952A93C987F11EFB34 /* MSDirectoryServicesVerifiedDomain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesVerifiedDomain.h; path = ./Model/MSDirectoryServicesVerifiedDomain.h; sourceTree = "<group>"; };
+		D8203011586D72F8C0CA954C /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDeviceConfigurationCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDeviceConfigurationCollectionFetcher.h; sourceTree = "<group>"; };
+		DABE5DDC9C67830DE59C34F2 /* MSDirectoryServicesAssignedPlan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAssignedPlan.h; path = ./Model/MSDirectoryServicesAssignedPlan.h; sourceTree = "<group>"; };
+		DB18C99C4279B4F252C0DCC9 /* MSDirectoryServicesApplicationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesApplicationCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesApplicationCollectionFetcher.m; sourceTree = "<group>"; };
+		DBD49E34C87C77783E34877E /* MSDirectoryServicesDeviceFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDeviceFetcher.m; path = ./Fetchers/MSDirectoryServicesDeviceFetcher.m; sourceTree = "<group>"; };
+		DDFFA0902CBF7CA6F643D959 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h; sourceTree = "<group>"; };
+		E0C085EB4213A44915699F92 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesDirectoryRoleCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesDirectoryRoleCollectionFetcher.m; sourceTree = "<group>"; };
+		E22CDEEA4B98FDF456F10376 /* MSDirectoryServicesApplicationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesApplicationCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesApplicationCollectionOperations.h; sourceTree = "<group>"; };
+		E2C4456DF9DC1C6EC7BB8963 /* MSDirectoryServicesApplicationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesApplicationOperations.m; path = ./Fetchers/MSDirectoryServicesApplicationOperations.m; sourceTree = "<group>"; };
+		E3F4E63C6F98EF3DC2252FCE /* MSDirectoryServicesAppRoleAssignmentOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesAppRoleAssignmentOperations.h; path = ./Fetchers/MSDirectoryServicesAppRoleAssignmentOperations.h; sourceTree = "<group>"; };
+		E45E631624C8412D08389719 /* MSDirectoryServicesExtensionPropertyFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesExtensionPropertyFetcher.m; path = ./Fetchers/MSDirectoryServicesExtensionPropertyFetcher.m; sourceTree = "<group>"; };
+		E699238FC0236F7BBB033524 /* MSDirectoryServicesDirectoryLinkChangeOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryLinkChangeOperations.h; path = ./Fetchers/MSDirectoryServicesDirectoryLinkChangeOperations.h; sourceTree = "<group>"; };
+		E6C67CD6DC82B9A939CD567D /* MSDirectoryServicesSubscribedSkuCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesSubscribedSkuCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesSubscribedSkuCollectionFetcher.m; sourceTree = "<group>"; };
+		E70B2D2B671D4B88ADA3B86E /* MSDirectoryServicesSubscribedSku.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesSubscribedSku.m; path = ./Model/MSDirectoryServicesSubscribedSku.m; sourceTree = "<group>"; };
+		E771D8A7BD471D5990B08D2A /* MSDirectoryServicesGroupCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesGroupCollectionOperations.m; path = ./Fetchers/MSDirectoryServicesGroupCollectionOperations.m; sourceTree = "<group>"; };
+		E8A782974645CFB9E27D1B58 /* MSDirectoryServicesProvisioningError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesProvisioningError.m; path = ./Model/MSDirectoryServicesProvisioningError.m; sourceTree = "<group>"; };
+		E90E0C060BC4247E8B428941 /* MSDirectoryServicesServicePlanInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePlanInfo.m; path = ./Model/MSDirectoryServicesServicePlanInfo.m; sourceTree = "<group>"; };
+		EB9F4FBAF8F3A3251F583BE9 /* MSDirectoryServicesExtensionPropertyOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesExtensionPropertyOperations.m; path = ./Fetchers/MSDirectoryServicesExtensionPropertyOperations.m; sourceTree = "<group>"; };
+		EC2B090B4D01D1386DE423B2 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesOAuth2PermissionGrantFetcher.m; path = ./Fetchers/MSDirectoryServicesOAuth2PermissionGrantFetcher.m; sourceTree = "<group>"; };
+		ECCD6BD4CAF7DEF7510AED5C /* MSDirectoryServicesExtensionPropertyFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesExtensionPropertyFetcher.h; path = ./Fetchers/MSDirectoryServicesExtensionPropertyFetcher.h; sourceTree = "<group>"; };
+		ED564E898340D305888D8009 /* MSDirectoryServicesServicePrincipalCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesServicePrincipalCollectionFetcher.m; path = ./Fetchers/MSDirectoryServicesServicePrincipalCollectionFetcher.m; sourceTree = "<group>"; };
+		ED6D285167FA27E5240AC7B1 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h; sourceTree = "<group>"; };
+		ED9043991A8E97A30300AE57 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesDirectoryRoleCollectionFetcher.h; path = ./Fetchers/MSDirectoryServicesDirectoryRoleCollectionFetcher.h; sourceTree = "<group>"; };
+		EE05E3EA18E44C2CB23B4F0F /* MSDirectoryServicesContactOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesContactOperations.h; path = ./Fetchers/MSDirectoryServicesContactOperations.h; sourceTree = "<group>"; };
+		EE0719815728F45BAC637C5D /* libDirectoryServices.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDirectoryServices.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4637901530D91C89C0F1B1 /* MSDirectoryServicesVerifiedDomain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesVerifiedDomain.m; path = ./Model/MSDirectoryServicesVerifiedDomain.m; sourceTree = "<group>"; };
+		F53C6294D0BA04F333D086EA /* MSDirectoryServicesAppRole.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesAppRole.m; path = ./Model/MSDirectoryServicesAppRole.m; sourceTree = "<group>"; };
+		F5B12DC50DE830830D29AF15 /* MSDirectoryServicesTenantDetailOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDirectoryServicesTenantDetailOperations.m; path = ./Fetchers/MSDirectoryServicesTenantDetailOperations.m; sourceTree = "<group>"; };
+		FA32AA0DD48E98D9A6B96073 /* MSDirectoryServicesServicePrincipalCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDirectoryServicesServicePrincipalCollectionOperations.h; path = ./Fetchers/MSDirectoryServicesServicePrincipalCollectionOperations.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7544AD0B6EEE8F265876D663 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6179BBA01872BE01363AB83 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A112A312F29D5143585E133 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CCFB933037469CAA55B6484A /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4699D0C60DC06905786DF3F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A112A312F29D5143585E133 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4850713F86FA28CDE6F1859D = {
+			isa = PBXGroup;
+			children = (
+				F8F3BA6126CB5F9D4AC703AD /* Products */,
+				4699D0C60DC06905786DF3F6 /* Frameworks */,
+				5C7247639225C4450DA1B17E /* Fetchers */,
+				C7C80F6CACAC043D4338E2B2 /* Model */,
+				8B636C015EEFEB49268D1C8A /* MSDirectoryServices.h */,
+			);
+			sourceTree = "<group>";
+		};
+		5C7247639225C4450DA1B17E /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				5B51818836B666B933973E67 /* MSDirectoryServicesApplicationCollectionFetcher.h */,
+				DB18C99C4279B4F252C0DCC9 /* MSDirectoryServicesApplicationCollectionFetcher.m */,
+				E22CDEEA4B98FDF456F10376 /* MSDirectoryServicesApplicationCollectionOperations.h */,
+				6CE76F09D876F6E3D7741AC0 /* MSDirectoryServicesApplicationCollectionOperations.m */,
+				88CB9C257C8D11E1B400E180 /* MSDirectoryServicesApplicationFetcher.h */,
+				61CB4FFB4B265D42301A7B0D /* MSDirectoryServicesApplicationFetcher.m */,
+				D2AA70752BD17FC02537313F /* MSDirectoryServicesApplicationOperations.h */,
+				E2C4456DF9DC1C6EC7BB8963 /* MSDirectoryServicesApplicationOperations.m */,
+				DDFFA0902CBF7CA6F643D959 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h */,
+				9405549CFF8A81D766CAF926 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m */,
+				B905A9B2AF28F7C14D739D23 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.h */,
+				D0E11093EB981A12BA920875 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.m */,
+				A315B61C686F7158F20EAF94 /* MSDirectoryServicesAppRoleAssignmentFetcher.h */,
+				8B666163FB37210E187B2ABB /* MSDirectoryServicesAppRoleAssignmentFetcher.m */,
+				E3F4E63C6F98EF3DC2252FCE /* MSDirectoryServicesAppRoleAssignmentOperations.h */,
+				03F361BA681C1FD8DE5AD907 /* MSDirectoryServicesAppRoleAssignmentOperations.m */,
+				979B1CF8ED111BA16A106AF6 /* MSDirectoryServicesClient.h */,
+				80E7859DBE4FE48F73437FCE /* MSDirectoryServicesClient.m */,
+				1280A22AACAD3AEAC81C7E42 /* MSDirectoryServicesContactCollectionFetcher.h */,
+				355F31D9423CCD611ED94136 /* MSDirectoryServicesContactCollectionFetcher.m */,
+				13A024325E776AF0CE1A0211 /* MSDirectoryServicesContactCollectionOperations.h */,
+				3A690A31494B0FE1A1B819F3 /* MSDirectoryServicesContactCollectionOperations.m */,
+				AAB47CAD0DAC4D1C1737BDC8 /* MSDirectoryServicesContactFetcher.h */,
+				03F7EAE70DABF99D9779A7AB /* MSDirectoryServicesContactFetcher.m */,
+				EE05E3EA18E44C2CB23B4F0F /* MSDirectoryServicesContactOperations.h */,
+				7DE97BA167BC84395B472702 /* MSDirectoryServicesContactOperations.m */,
+				A5ED67D424B75F7C82D212F4 /* MSDirectoryServicesDeviceCollectionFetcher.h */,
+				7FD7ECE9BF1AB559DD6EFCCF /* MSDirectoryServicesDeviceCollectionFetcher.m */,
+				63B253432B3B7C61520FADCC /* MSDirectoryServicesDeviceCollectionOperations.h */,
+				8611C68A43F2852BF4864E4E /* MSDirectoryServicesDeviceCollectionOperations.m */,
+				D8203011586D72F8C0CA954C /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.h */,
+				8390475E73A0510FDF81DC19 /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.m */,
+				942B8924BCAC67D6F97BBD19 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.h */,
+				070C4016152769337435CB27 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.m */,
+				A078A924AB255E8EDF0DF975 /* MSDirectoryServicesDeviceConfigurationFetcher.h */,
+				55FFB77A3E671C109DC7807C /* MSDirectoryServicesDeviceConfigurationFetcher.m */,
+				8167D5F414F3153EBC96DFD6 /* MSDirectoryServicesDeviceConfigurationOperations.h */,
+				A08B77691FFF838B454AD404 /* MSDirectoryServicesDeviceConfigurationOperations.m */,
+				2374E471A829155D6449F4B1 /* MSDirectoryServicesDeviceFetcher.h */,
+				DBD49E34C87C77783E34877E /* MSDirectoryServicesDeviceFetcher.m */,
+				9845DE8BEC7296E558F12715 /* MSDirectoryServicesDeviceOperations.h */,
+				616B0AB4E234E1527DCB1A00 /* MSDirectoryServicesDeviceOperations.m */,
+				7775033DA03D7F1C040E90D0 /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h */,
+				354833EB55E36312EEAE46AA /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m */,
+				6A24AED8EF8CA3ADB80F23BB /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h */,
+				1B81402F60EC80396D8111B2 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m */,
+				080CCA61965B29EFE680D005 /* MSDirectoryServicesDirectoryLinkChangeFetcher.h */,
+				A672C1DA7001F5477EA16075 /* MSDirectoryServicesDirectoryLinkChangeFetcher.m */,
+				E699238FC0236F7BBB033524 /* MSDirectoryServicesDirectoryLinkChangeOperations.h */,
+				B8AE1614912CBFA157FDF2C1 /* MSDirectoryServicesDirectoryLinkChangeOperations.m */,
+				3C047DAFFA2E213BB7639FA6 /* MSDirectoryServicesDirectoryObjectCollectionFetcher.h */,
+				4A570715AA3AFCE86E0ADA3B /* MSDirectoryServicesDirectoryObjectCollectionFetcher.m */,
+				161B7BD8F49CB183756F677C /* MSDirectoryServicesDirectoryObjectCollectionOperations.h */,
+				64DC1AEAB59E97DDA722840F /* MSDirectoryServicesDirectoryObjectCollectionOperations.m */,
+				92282ED8E777373964A0797C /* MSDirectoryServicesDirectoryObjectFetcher.h */,
+				8ADAC2D0C2C7B7A7977DFF9E /* MSDirectoryServicesDirectoryObjectFetcher.m */,
+				692BC0102C8239486F3E1A11 /* MSDirectoryServicesDirectoryObjectOperations.h */,
+				777DDD01D566C16A36E2CFA1 /* MSDirectoryServicesDirectoryObjectOperations.m */,
+				ED9043991A8E97A30300AE57 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.h */,
+				E0C085EB4213A44915699F92 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.m */,
+				5961513BBBF9498CBA7D1BCA /* MSDirectoryServicesDirectoryRoleCollectionOperations.h */,
+				9721F481BCD56243F5E30E0C /* MSDirectoryServicesDirectoryRoleCollectionOperations.m */,
+				589B1ECAA17D6004691A62FC /* MSDirectoryServicesDirectoryRoleFetcher.h */,
+				347259E719D781D2D39C069D /* MSDirectoryServicesDirectoryRoleFetcher.m */,
+				91E193ED54D1F32824F8597F /* MSDirectoryServicesDirectoryRoleOperations.h */,
+				AAA59637F0005E2680D3340B /* MSDirectoryServicesDirectoryRoleOperations.m */,
+				ED6D285167FA27E5240AC7B1 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h */,
+				AD0B18530E8759A97E0EE798 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m */,
+				97E1EBF7A25E031CB3248900 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h */,
+				0C1BDAC3A74B87BC33B89C7B /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m */,
+				1E9636132FD8347FBEF39852 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.h */,
+				B8CF7450D8046661FA9FEF3E /* MSDirectoryServicesDirectoryRoleTemplateFetcher.m */,
+				A7FC3DFEA1BBF4AA4A0EF29C /* MSDirectoryServicesDirectoryRoleTemplateOperations.h */,
+				B70BC4B3B411AA53C0605447 /* MSDirectoryServicesDirectoryRoleTemplateOperations.m */,
+				62E71F5E6E27A040E92C9853 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.h */,
+				226AE4D811F4F2265F73A233 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.m */,
+				3ED3B88FB23B03031FB3B324 /* MSDirectoryServicesExtensionPropertyCollectionOperations.h */,
+				3CF5DBF1777F4DB56212DFD6 /* MSDirectoryServicesExtensionPropertyCollectionOperations.m */,
+				ECCD6BD4CAF7DEF7510AED5C /* MSDirectoryServicesExtensionPropertyFetcher.h */,
+				E45E631624C8412D08389719 /* MSDirectoryServicesExtensionPropertyFetcher.m */,
+				890033D78B8C2823051ED1D4 /* MSDirectoryServicesExtensionPropertyOperations.h */,
+				EB9F4FBAF8F3A3251F583BE9 /* MSDirectoryServicesExtensionPropertyOperations.m */,
+				BC4CF9F7F9EE080F6EEE1AC5 /* MSDirectoryServicesFetchers.h */,
+				88D55D4211B8A9A66A7C45CD /* MSDirectoryServicesGroupCollectionFetcher.h */,
+				D01F219396B3DAFA8B329CA8 /* MSDirectoryServicesGroupCollectionFetcher.m */,
+				9EB4932029DA7026117CAA4E /* MSDirectoryServicesGroupCollectionOperations.h */,
+				E771D8A7BD471D5990B08D2A /* MSDirectoryServicesGroupCollectionOperations.m */,
+				8D167AFA8018591E73F7F335 /* MSDirectoryServicesGroupFetcher.h */,
+				8162440956ED1C264DBD2793 /* MSDirectoryServicesGroupFetcher.m */,
+				4ACD7A1E7FC4C246A5D5B244 /* MSDirectoryServicesGroupOperations.h */,
+				5826BAFE95904B362700E7EC /* MSDirectoryServicesGroupOperations.m */,
+				7CB6535A624F35BEAA4DDE06 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h */,
+				413EB7770F234F0CFA24DCCC /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m */,
+				1EA41F6E5D47CAC10925C0EE /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h */,
+				512ED3A09BCF16B6380ADD72 /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m */,
+				3BDB48F9C19FAF7AF3AC2264 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.h */,
+				EC2B090B4D01D1386DE423B2 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.m */,
+				6C8A8DE9E16B472CAA31768E /* MSDirectoryServicesOAuth2PermissionGrantOperations.h */,
+				50C2D5D339D5D91ED9FAADF3 /* MSDirectoryServicesOAuth2PermissionGrantOperations.m */,
+				67A184CD23D3C3407620557D /* MSDirectoryServicesServicePrincipalCollectionFetcher.h */,
+				ED564E898340D305888D8009 /* MSDirectoryServicesServicePrincipalCollectionFetcher.m */,
+				FA32AA0DD48E98D9A6B96073 /* MSDirectoryServicesServicePrincipalCollectionOperations.h */,
+				BCBEF7088941BB28ED8BEAE4 /* MSDirectoryServicesServicePrincipalCollectionOperations.m */,
+				3D43B12F4579D31E32D8B929 /* MSDirectoryServicesServicePrincipalFetcher.h */,
+				725F45CFA89D85AA639A3188 /* MSDirectoryServicesServicePrincipalFetcher.m */,
+				7EE59686F8E99CD71999A00B /* MSDirectoryServicesServicePrincipalOperations.h */,
+				5F77E61D150A5A47D25D207F /* MSDirectoryServicesServicePrincipalOperations.m */,
+				9D4B26D343BEA959666820E4 /* MSDirectoryServicesSubscribedSkuCollectionFetcher.h */,
+				E6C67CD6DC82B9A939CD567D /* MSDirectoryServicesSubscribedSkuCollectionFetcher.m */,
+				703ABB50D64CE85A245B5CEC /* MSDirectoryServicesSubscribedSkuCollectionOperations.h */,
+				C67FDF8790F631758D8621B6 /* MSDirectoryServicesSubscribedSkuCollectionOperations.m */,
+				96E40D13A5D15B4D62A8D6EB /* MSDirectoryServicesSubscribedSkuFetcher.h */,
+				1E9FD32FC095D4ACCA60F000 /* MSDirectoryServicesSubscribedSkuFetcher.m */,
+				B53C3B70AADF1FDC2331E063 /* MSDirectoryServicesSubscribedSkuOperations.h */,
+				5B7770A1AC619B477B3DCD97 /* MSDirectoryServicesSubscribedSkuOperations.m */,
+				587C9F1E1D3A9C17C75A8165 /* MSDirectoryServicesTenantDetailCollectionFetcher.h */,
+				B53F3EB8B186F5150994732C /* MSDirectoryServicesTenantDetailCollectionFetcher.m */,
+				63E1B48DF0356B177DF52FF3 /* MSDirectoryServicesTenantDetailCollectionOperations.h */,
+				A8CA567927B6F60C177811BB /* MSDirectoryServicesTenantDetailCollectionOperations.m */,
+				AE6D2D70CE4E560CDE7FC385 /* MSDirectoryServicesTenantDetailFetcher.h */,
+				8C14C1F8D141C4B01D4D130B /* MSDirectoryServicesTenantDetailFetcher.m */,
+				0916602C2FDB55ED7F0ED621 /* MSDirectoryServicesTenantDetailOperations.h */,
+				F5B12DC50DE830830D29AF15 /* MSDirectoryServicesTenantDetailOperations.m */,
+				A8858C1BD42992B6F31F0BBE /* MSDirectoryServicesUserCollectionFetcher.h */,
+				D3F7D381D791496011FE5613 /* MSDirectoryServicesUserCollectionFetcher.m */,
+				CA5E692F6EA9BE5F6BC885A7 /* MSDirectoryServicesUserCollectionOperations.h */,
+				2C6ED6B4D7F10771EDDF4E10 /* MSDirectoryServicesUserCollectionOperations.m */,
+				5999EF0A0BCCC2AD0B5C757D /* MSDirectoryServicesUserFetcher.h */,
+				B73123D4B00F7C362BE21CC6 /* MSDirectoryServicesUserFetcher.m */,
+				11DC934CFBC477BD33967354 /* MSDirectoryServicesUserOperations.h */,
+				BDFBF22A93DCBA57388F22B4 /* MSDirectoryServicesUserOperations.m */,
+			);
+			name = Fetchers;
+			sourceTree = "<group>";
+		};
+		C7C80F6CACAC043D4338E2B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1164E9A47C39873D2D4AD551 /* MSDirectoryServicesAlternativeSecurityId.h */,
+				34D2A194B1B8F15DDBF621BE /* MSDirectoryServicesAlternativeSecurityId.m */,
+				6A34BAC509F0D8637E69957B /* MSDirectoryServicesApplication.h */,
+				971CB41DAACE46DF6843E336 /* MSDirectoryServicesApplication.m */,
+				944D06BCF1CB55CC4D5E9348 /* MSDirectoryServicesAppRole.h */,
+				F53C6294D0BA04F333D086EA /* MSDirectoryServicesAppRole.m */,
+				425ACC098C730C58BAC0C33D /* MSDirectoryServicesAppRoleAssignment.h */,
+				C4D6DE14501D0F0CF6217057 /* MSDirectoryServicesAppRoleAssignment.m */,
+				38E0BF053E1C8B163AEE253A /* MSDirectoryServicesAssignedLicense.h */,
+				332894224DC9CCA078AA3F7B /* MSDirectoryServicesAssignedLicense.m */,
+				DABE5DDC9C67830DE59C34F2 /* MSDirectoryServicesAssignedPlan.h */,
+				9054545E05898F0BB1104E6B /* MSDirectoryServicesAssignedPlan.m */,
+				B30862C8A0BED85972B1F05C /* MSDirectoryServicesContact.h */,
+				BC2A2ADC319682C06C946EA2 /* MSDirectoryServicesContact.m */,
+				C16E47E5E666B01ECE885538 /* MSDirectoryServicesDevice.h */,
+				71E0EF5C110352368D53506E /* MSDirectoryServicesDevice.m */,
+				B9DE27E4D0EB9692E646478E /* MSDirectoryServicesDeviceConfiguration.h */,
+				513CD3E974E2DF583191F88B /* MSDirectoryServicesDeviceConfiguration.m */,
+				A1AFE8DA36263D26283F2996 /* MSDirectoryServicesDirectoryLinkChange.h */,
+				CDEAA8631CEC19ED9AD92CA6 /* MSDirectoryServicesDirectoryLinkChange.m */,
+				4F02B056CD985D776EA0539A /* MSDirectoryServicesDirectoryObject.h */,
+				2E91410453B5D50EF8C1CE7E /* MSDirectoryServicesDirectoryObject.m */,
+				CE39ADDA540A43EC82DB2859 /* MSDirectoryServicesDirectoryRole.h */,
+				253935BBBAA86775ED1D88CF /* MSDirectoryServicesDirectoryRole.m */,
+				90920282EEB6643BDA8B9D8B /* MSDirectoryServicesDirectoryRoleTemplate.h */,
+				B73D379B93CB48525A659E1E /* MSDirectoryServicesDirectoryRoleTemplate.m */,
+				237C4ED256031A75C0A8DEA3 /* MSDirectoryServicesExtensionProperty.h */,
+				9E4F69E7562969240DA6F175 /* MSDirectoryServicesExtensionProperty.m */,
+				9DC1661ABBC7C0C5F62AF24C /* MSDirectoryServicesGroup.h */,
+				CB85513FF3053416602A046E /* MSDirectoryServicesGroup.m */,
+				248F3224FE9E321F1C22E579 /* MSDirectoryServicesKeyCredential.h */,
+				44592F9527C4BE85FF2045EA /* MSDirectoryServicesKeyCredential.m */,
+				96EB4A8DA2FC515C420D2900 /* MSDirectoryServicesLicenseUnitsDetail.h */,
+				347ACDC14AFB2287A5C45BB4 /* MSDirectoryServicesLicenseUnitsDetail.m */,
+				CB729563D00308B2E53F7DA7 /* MSDirectoryServicesModels.h */,
+				8DF47406C0D709017B0ECC77 /* MSDirectoryServicesOAuth2Permission.h */,
+				52FC21716997966AF598B967 /* MSDirectoryServicesOAuth2Permission.m */,
+				A3CAF868CF90EAC8F75E6E45 /* MSDirectoryServicesOAuth2PermissionGrant.h */,
+				278651485369F5648176C020 /* MSDirectoryServicesOAuth2PermissionGrant.m */,
+				73DD7F997C10CEB7F46D9F11 /* MSDirectoryServicesPasswordCredential.h */,
+				4605CA7D479BC9F4CCD035D0 /* MSDirectoryServicesPasswordCredential.m */,
+				A023D8EC123EA5737B6FE645 /* MSDirectoryServicesPasswordProfile.h */,
+				4A5DB89DF9C3AFAE73ADDC52 /* MSDirectoryServicesPasswordProfile.m */,
+				3443FE6683E3017045535CBB /* MSDirectoryServicesProvisionedPlan.h */,
+				4C66F58FAAA83F62E2CFDF5C /* MSDirectoryServicesProvisionedPlan.m */,
+				5DDB58F39C9A8B899B1E4318 /* MSDirectoryServicesProvisioningError.h */,
+				E8A782974645CFB9E27D1B58 /* MSDirectoryServicesProvisioningError.m */,
+				BFBACA564056944C250EDC67 /* MSDirectoryServicesRequiredResourceAccess.h */,
+				459FE1B984D6701B537339D0 /* MSDirectoryServicesRequiredResourceAccess.m */,
+				2D9D01D74C84B76F75720044 /* MSDirectoryServicesResourceAccess.h */,
+				91811B8EA2A4911E00ECC012 /* MSDirectoryServicesResourceAccess.m */,
+				77596F2C246144CE71123F30 /* MSDirectoryServicesServicePlanInfo.h */,
+				E90E0C060BC4247E8B428941 /* MSDirectoryServicesServicePlanInfo.m */,
+				46CE688815C9258D11EB0E20 /* MSDirectoryServicesServicePrincipal.h */,
+				1A5BBC0B0C54263C976D63F7 /* MSDirectoryServicesServicePrincipal.m */,
+				5109012E5998CF8AA1A0F0FA /* MSDirectoryServicesSubscribedSku.h */,
+				E70B2D2B671D4B88ADA3B86E /* MSDirectoryServicesSubscribedSku.m */,
+				630CD2A5B18212C5A9264DBE /* MSDirectoryServicesTenantDetail.h */,
+				CD0E67926D4C23EE3ED33C2C /* MSDirectoryServicesTenantDetail.m */,
+				6A92117B6E1AA4B2BF67A99A /* MSDirectoryServicesUser.h */,
+				936CD26A138F30415F29139A /* MSDirectoryServicesUser.m */,
+				D6BEBA952A93C987F11EFB34 /* MSDirectoryServicesVerifiedDomain.h */,
+				EF4637901530D91C89C0F1B1 /* MSDirectoryServicesVerifiedDomain.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F8F3BA6126CB5F9D4AC703AD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE0719815728F45BAC637C5D /* libDirectoryServices.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4478F33A1017A8C2F84EF452 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA290B4B52DD3F39E18F4E14 /* MSDirectoryServicesApplicationCollectionFetcher.h in Headers */,
+				0D8CDAE7F52AAC92CE74A36D /* MSDirectoryServicesApplicationCollectionOperations.h in Headers */,
+				961E8FB1B1776EAD761B466B /* MSDirectoryServicesApplicationFetcher.h in Headers */,
+				6607F854ABFE9BCE284C5F16 /* MSDirectoryServicesApplicationOperations.h in Headers */,
+				1B755D2E1AE8402D30B82650 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.h in Headers */,
+				DB07AA707C6AD9DD3CF64BB5 /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.h in Headers */,
+				51FEBF604E85D5EABD1887E4 /* MSDirectoryServicesAppRoleAssignmentFetcher.h in Headers */,
+				3D9D9F9FC904F0433C7F7EEE /* MSDirectoryServicesAppRoleAssignmentOperations.h in Headers */,
+				A14E2EFBFD41F0653B7112E8 /* MSDirectoryServicesClient.h in Headers */,
+				8F7C2A7317CFD2F7C5E3CF6D /* MSDirectoryServicesContactCollectionFetcher.h in Headers */,
+				8EA041C561AF8FCC31561AAF /* MSDirectoryServicesContactCollectionOperations.h in Headers */,
+				423380706196F5D2B91736E8 /* MSDirectoryServicesContactFetcher.h in Headers */,
+				4EC8F458C3218C364499B2B1 /* MSDirectoryServicesContactOperations.h in Headers */,
+				AE11975AECF18904F08BCB59 /* MSDirectoryServicesDeviceCollectionFetcher.h in Headers */,
+				252F2AFDDE1FAA76D7285167 /* MSDirectoryServicesDeviceCollectionOperations.h in Headers */,
+				86C7E1B32F4D0C60BC52214E /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.h in Headers */,
+				93EECAE4F57BB6B2391FB758 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.h in Headers */,
+				FFF9F070178E091347734C3D /* MSDirectoryServicesDeviceConfigurationFetcher.h in Headers */,
+				D09D74DA8AF496DC61483245 /* MSDirectoryServicesDeviceConfigurationOperations.h in Headers */,
+				17009717EE208405C6E768D5 /* MSDirectoryServicesDeviceFetcher.h in Headers */,
+				C31FCFE56FE601100D182ED9 /* MSDirectoryServicesDeviceOperations.h in Headers */,
+				AFEA302A96F99B0DDF1FD1BF /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.h in Headers */,
+				B6182502251E4763F2293016 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.h in Headers */,
+				6E36CC3B5628C0E550A7B8B1 /* MSDirectoryServicesDirectoryLinkChangeFetcher.h in Headers */,
+				461C292032C95A2BB4CFB2CD /* MSDirectoryServicesDirectoryLinkChangeOperations.h in Headers */,
+				45EBDD26FFA714EA3587816A /* MSDirectoryServicesDirectoryObjectCollectionFetcher.h in Headers */,
+				99BB18080DD20B71AB6C3EB6 /* MSDirectoryServicesDirectoryObjectCollectionOperations.h in Headers */,
+				2800D4FC542987BB2981F0C5 /* MSDirectoryServicesDirectoryObjectFetcher.h in Headers */,
+				EAA47B8A95A0CDFCB31F23EA /* MSDirectoryServicesDirectoryObjectOperations.h in Headers */,
+				8866515AC2453E406C4ED34A /* MSDirectoryServicesDirectoryRoleCollectionFetcher.h in Headers */,
+				E2749D0BCE9116E59D93F25F /* MSDirectoryServicesDirectoryRoleCollectionOperations.h in Headers */,
+				B6954FD0620F805A8B85C58C /* MSDirectoryServicesDirectoryRoleFetcher.h in Headers */,
+				07EBD2C299FF1EE9E147B537 /* MSDirectoryServicesDirectoryRoleOperations.h in Headers */,
+				F127E9C672218841C8173C6B /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.h in Headers */,
+				CAD5E8E5DA3E8219E70D3B74 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.h in Headers */,
+				57A8A4E0DCED61D8275943C9 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.h in Headers */,
+				F16AC1741ED326225AAB5AA2 /* MSDirectoryServicesDirectoryRoleTemplateOperations.h in Headers */,
+				6213FA2D06F6E67122732659 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.h in Headers */,
+				91B6176B1AFDE1C8775AC2AD /* MSDirectoryServicesExtensionPropertyCollectionOperations.h in Headers */,
+				BD69AFFF756FB198ED2C5F44 /* MSDirectoryServicesExtensionPropertyFetcher.h in Headers */,
+				11D5FD0260C653856B34EC1F /* MSDirectoryServicesExtensionPropertyOperations.h in Headers */,
+				964F67841E6B3EBD8BC7ED7F /* MSDirectoryServicesFetchers.h in Headers */,
+				D2A6369388CBCD05A4CCC6EE /* MSDirectoryServicesGroupCollectionFetcher.h in Headers */,
+				06403DE3A16BC71309E633DD /* MSDirectoryServicesGroupCollectionOperations.h in Headers */,
+				6B77B50500ADF2FE288D4CC8 /* MSDirectoryServicesGroupFetcher.h in Headers */,
+				DD76231E842806A3C615E4CA /* MSDirectoryServicesGroupOperations.h in Headers */,
+				8B64BCF4B9E5BE727A6A5C25 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.h in Headers */,
+				B2A250E718F68D87F9C29E98 /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.h in Headers */,
+				86B02BE88A1D8A62F82F3FB6 /* MSDirectoryServicesOAuth2PermissionGrantFetcher.h in Headers */,
+				B86D69C6B1D5109F8A4B9AE0 /* MSDirectoryServicesOAuth2PermissionGrantOperations.h in Headers */,
+				6E532EB398CEEF3C5EE0607F /* MSDirectoryServicesServicePrincipalCollectionFetcher.h in Headers */,
+				C6B23D2E83A6100E95A2CDA8 /* MSDirectoryServicesServicePrincipalCollectionOperations.h in Headers */,
+				6CA90F00C365A3698ED7CBCA /* MSDirectoryServicesServicePrincipalFetcher.h in Headers */,
+				2FE46845A07B5DF69621F867 /* MSDirectoryServicesServicePrincipalOperations.h in Headers */,
+				CAD75C672092E3FABFDFC8FF /* MSDirectoryServicesSubscribedSkuCollectionFetcher.h in Headers */,
+				AC8C3172031B16AD0A30FA04 /* MSDirectoryServicesSubscribedSkuCollectionOperations.h in Headers */,
+				36DB2B838F9BDE89E692E267 /* MSDirectoryServicesSubscribedSkuFetcher.h in Headers */,
+				D74511611E826DA67C2F8CD4 /* MSDirectoryServicesSubscribedSkuOperations.h in Headers */,
+				870FC75C7586F7D6DC6B47FB /* MSDirectoryServicesTenantDetailCollectionFetcher.h in Headers */,
+				DB7B41011FD74473FE6A20B8 /* MSDirectoryServicesTenantDetailCollectionOperations.h in Headers */,
+				DE07029FA36BF952226D4B10 /* MSDirectoryServicesTenantDetailFetcher.h in Headers */,
+				A219F5BC015356147335237D /* MSDirectoryServicesTenantDetailOperations.h in Headers */,
+				E26389CD0A991BDE4117504F /* MSDirectoryServicesUserCollectionFetcher.h in Headers */,
+				A670D861A0C67892013B3774 /* MSDirectoryServicesUserCollectionOperations.h in Headers */,
+				787DE4000041A202F740A751 /* MSDirectoryServicesUserFetcher.h in Headers */,
+				D0486AAFEFAB37891EF70AC1 /* MSDirectoryServicesUserOperations.h in Headers */,
+				EE8B981329DA84FA4DDA7B6A /* MSDirectoryServicesAlternativeSecurityId.h in Headers */,
+				98912376FA2DA2C34483EC29 /* MSDirectoryServicesApplication.h in Headers */,
+				D5D3200EDBF3BDC94DAC9B5D /* MSDirectoryServicesAppRole.h in Headers */,
+				1A5A0E8500128C2CF3C810C7 /* MSDirectoryServicesAppRoleAssignment.h in Headers */,
+				6016DDE47524EEF1E6E88223 /* MSDirectoryServicesAssignedLicense.h in Headers */,
+				82E14449AB421B7B25F501B5 /* MSDirectoryServicesAssignedPlan.h in Headers */,
+				6DB04D35A5D10BA7FADCA6A7 /* MSDirectoryServicesContact.h in Headers */,
+				E985B9BC994F158C03D835B3 /* MSDirectoryServicesDevice.h in Headers */,
+				D615A767D58F55366CE7A854 /* MSDirectoryServicesDeviceConfiguration.h in Headers */,
+				0C76DF81C56E845B8F1974E0 /* MSDirectoryServicesDirectoryLinkChange.h in Headers */,
+				63947D817D93602D2D286822 /* MSDirectoryServicesDirectoryObject.h in Headers */,
+				B04DD9E37C8490A884517F42 /* MSDirectoryServicesDirectoryRole.h in Headers */,
+				9F5EABDC71608E574872907D /* MSDirectoryServicesDirectoryRoleTemplate.h in Headers */,
+				71FEBF48C4D9B6599201D1EB /* MSDirectoryServicesExtensionProperty.h in Headers */,
+				DE61FE41A1B54AD8C6AC535A /* MSDirectoryServicesGroup.h in Headers */,
+				2747E302AA4F9459A790E641 /* MSDirectoryServicesKeyCredential.h in Headers */,
+				59DF94EAF4ABC10D607236A2 /* MSDirectoryServicesLicenseUnitsDetail.h in Headers */,
+				7D683E468B2C51C9CEE2B019 /* MSDirectoryServicesModels.h in Headers */,
+				51BF2F2FBB2F3F19E4F754FF /* MSDirectoryServicesOAuth2Permission.h in Headers */,
+				0214E502B7D10EB7976D3F7E /* MSDirectoryServicesOAuth2PermissionGrant.h in Headers */,
+				5EA739B4CD2A40EDA3A9A3CE /* MSDirectoryServicesPasswordCredential.h in Headers */,
+				9B909D5A77DD94F1DE20EF1A /* MSDirectoryServicesPasswordProfile.h in Headers */,
+				5D79D11C427F66A2DF45C48B /* MSDirectoryServicesProvisionedPlan.h in Headers */,
+				7A09A06D8FEC07A34CBF2BA9 /* MSDirectoryServicesProvisioningError.h in Headers */,
+				710FD3458E9CE7099B919D46 /* MSDirectoryServicesRequiredResourceAccess.h in Headers */,
+				5E7C720DACC088F49E300391 /* MSDirectoryServicesResourceAccess.h in Headers */,
+				0843B60A9BA0F279D2B2367A /* MSDirectoryServicesServicePlanInfo.h in Headers */,
+				C70D9FEB6AACBBCE018DDFFC /* MSDirectoryServicesServicePrincipal.h in Headers */,
+				CF5A0AC9FF3064D575B1DDB1 /* MSDirectoryServicesSubscribedSku.h in Headers */,
+				A02F6A18BA9FBE5A2C23989B /* MSDirectoryServicesTenantDetail.h in Headers */,
+				7DC2A4CA3237209377A2CA3B /* MSDirectoryServicesUser.h in Headers */,
+				234A8BD61B99082F8DB2DA07 /* MSDirectoryServicesVerifiedDomain.h in Headers */,
+				36FCABD0B031BCC68072E44C /* MSDirectoryServices.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5280D4C91337B5D12AAD78F8 /* DirectoryServices */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C071F7533121201285E47BB /* Build configuration list for PBXNativeTarget "DirectoryServices" */;
+			buildPhases = (
+				302A1B92A00D897BDE183333 /* Sources */,
+				7544AD0B6EEE8F265876D663 /* Frameworks */,
+				4478F33A1017A8C2F84EF452 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DirectoryServices;
+			productName = DirectoryServices;
+			productReference = EE0719815728F45BAC637C5D /* libDirectoryServices.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE8723E2A5CA7AE97A059CDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = F4777B6A495CF1FC2316CC14 /* Build configuration list for PBXProject "DirectoryServices" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4850713F86FA28CDE6F1859D;
+			productRefGroup = F8F3BA6126CB5F9D4AC703AD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5280D4C91337B5D12AAD78F8 /* DirectoryServices */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		302A1B92A00D897BDE183333 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				972F974FEB51922897B54B47 /* MSDirectoryServicesApplicationCollectionFetcher.m in Sources */,
+				7ADBB3C50758840136CC0277 /* MSDirectoryServicesApplicationCollectionOperations.m in Sources */,
+				68B48FA905FD7175E06196FB /* MSDirectoryServicesApplicationFetcher.m in Sources */,
+				B7B74F3DC1D721451C29E7F5 /* MSDirectoryServicesApplicationOperations.m in Sources */,
+				52E536A41F1AFF164DC23B83 /* MSDirectoryServicesAppRoleAssignmentCollectionFetcher.m in Sources */,
+				CBF63346FA8761AE71D6E46D /* MSDirectoryServicesAppRoleAssignmentCollectionOperations.m in Sources */,
+				DB00FACA1B5EAD1664E3493F /* MSDirectoryServicesAppRoleAssignmentFetcher.m in Sources */,
+				9D98A25E4F6798C087697003 /* MSDirectoryServicesAppRoleAssignmentOperations.m in Sources */,
+				B9B6F5464C9DA43BD5EAB552 /* MSDirectoryServicesClient.m in Sources */,
+				07ACFDF193127BF63770930D /* MSDirectoryServicesContactCollectionFetcher.m in Sources */,
+				7EC10B6F9971AF1E2D7C7DBE /* MSDirectoryServicesContactCollectionOperations.m in Sources */,
+				4B10A7D731183DEAB19BCB56 /* MSDirectoryServicesContactFetcher.m in Sources */,
+				C58C4765C8AFD5E36D3D8107 /* MSDirectoryServicesContactOperations.m in Sources */,
+				5AC8E51F62A5D494ECF650F6 /* MSDirectoryServicesDeviceCollectionFetcher.m in Sources */,
+				7B184BE76A03E74CD3544972 /* MSDirectoryServicesDeviceCollectionOperations.m in Sources */,
+				A6266EA326327C0CC71D16F6 /* MSDirectoryServicesDeviceConfigurationCollectionFetcher.m in Sources */,
+				99BC257BEFBBF6EB8061C782 /* MSDirectoryServicesDeviceConfigurationCollectionOperations.m in Sources */,
+				5D2CAA3BCA270866E01F283A /* MSDirectoryServicesDeviceConfigurationFetcher.m in Sources */,
+				9FED86E82FE1066E60A517FD /* MSDirectoryServicesDeviceConfigurationOperations.m in Sources */,
+				7B1E41438D2193A77359CA9B /* MSDirectoryServicesDeviceFetcher.m in Sources */,
+				465944972C16F5F6A8282D29 /* MSDirectoryServicesDeviceOperations.m in Sources */,
+				A75034445C516A07360580FF /* MSDirectoryServicesDirectoryLinkChangeCollectionFetcher.m in Sources */,
+				3D880F7F10F0ADDCA434C080 /* MSDirectoryServicesDirectoryLinkChangeCollectionOperations.m in Sources */,
+				ED2B3BADA95896809B84E368 /* MSDirectoryServicesDirectoryLinkChangeFetcher.m in Sources */,
+				3CFC3D3887171C6B244D429D /* MSDirectoryServicesDirectoryLinkChangeOperations.m in Sources */,
+				3136A3B800302DF513874E51 /* MSDirectoryServicesDirectoryObjectCollectionFetcher.m in Sources */,
+				F8C6CB32F61D491304237A2F /* MSDirectoryServicesDirectoryObjectCollectionOperations.m in Sources */,
+				97F478049FC91DF40C959298 /* MSDirectoryServicesDirectoryObjectFetcher.m in Sources */,
+				8A564DCD3B24604C0FFC7DF5 /* MSDirectoryServicesDirectoryObjectOperations.m in Sources */,
+				ECE8A3E73592828790D06A96 /* MSDirectoryServicesDirectoryRoleCollectionFetcher.m in Sources */,
+				EB7F3929FB0C35D1E0617FE5 /* MSDirectoryServicesDirectoryRoleCollectionOperations.m in Sources */,
+				40D772D13AA80ABDBCC0BF57 /* MSDirectoryServicesDirectoryRoleFetcher.m in Sources */,
+				27C8FA9C76389F2B0AF17040 /* MSDirectoryServicesDirectoryRoleOperations.m in Sources */,
+				E1DED5AE8C923FFCFA3FB1E1 /* MSDirectoryServicesDirectoryRoleTemplateCollectionFetcher.m in Sources */,
+				824DCD50A66ABF3A521830C0 /* MSDirectoryServicesDirectoryRoleTemplateCollectionOperations.m in Sources */,
+				B34C91BB43C48F96EAAE2733 /* MSDirectoryServicesDirectoryRoleTemplateFetcher.m in Sources */,
+				3D09CA39C800489E8ED8CFF6 /* MSDirectoryServicesDirectoryRoleTemplateOperations.m in Sources */,
+				321459CC7939F7D8C03F4195 /* MSDirectoryServicesExtensionPropertyCollectionFetcher.m in Sources */,
+				C00871A99A292F08D1E245AF /* MSDirectoryServicesExtensionPropertyCollectionOperations.m in Sources */,
+				CDDCE1422EEA5008625E082D /* MSDirectoryServicesExtensionPropertyFetcher.m in Sources */,
+				59C96BE5FBF78CA83AF02C3F /* MSDirectoryServicesExtensionPropertyOperations.m in Sources */,
+				EB8A2656B610C6992CE4C6E4 /* MSDirectoryServicesGroupCollectionFetcher.m in Sources */,
+				465B257ABFF6AD3B3B935D48 /* MSDirectoryServicesGroupCollectionOperations.m in Sources */,
+				2AE26476272F1ECEECF74A59 /* MSDirectoryServicesGroupFetcher.m in Sources */,
+				57266990B33E2CA5D0D0913C /* MSDirectoryServicesGroupOperations.m in Sources */,
+				55C14112711434F788D14565 /* MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher.m in Sources */,
+				C5E250CAD7705A00D6A49A6A /* MSDirectoryServicesOAuth2PermissionGrantCollectionOperations.m in Sources */,
+				08D5C91D4FAE67AB469607AE /* MSDirectoryServicesOAuth2PermissionGrantFetcher.m in Sources */,
+				E0AD0933268D6D3A4F56F5F8 /* MSDirectoryServicesOAuth2PermissionGrantOperations.m in Sources */,
+				5DD5DEF7E55C761F6E9F8326 /* MSDirectoryServicesServicePrincipalCollectionFetcher.m in Sources */,
+				1F673D77AC4F6FD30B545BE2 /* MSDirectoryServicesServicePrincipalCollectionOperations.m in Sources */,
+				830CD6CEE981926328638E4E /* MSDirectoryServicesServicePrincipalFetcher.m in Sources */,
+				A789DF73C0B36CA509135382 /* MSDirectoryServicesServicePrincipalOperations.m in Sources */,
+				70F16AA650CB696C3F94C632 /* MSDirectoryServicesSubscribedSkuCollectionFetcher.m in Sources */,
+				F4FB3F8161F828125B47D436 /* MSDirectoryServicesSubscribedSkuCollectionOperations.m in Sources */,
+				C55B2D5A784C813899CD1288 /* MSDirectoryServicesSubscribedSkuFetcher.m in Sources */,
+				B6ADC7CBEEE31AB4EEE1DC96 /* MSDirectoryServicesSubscribedSkuOperations.m in Sources */,
+				355F8B51D3CFAC5AEF18C186 /* MSDirectoryServicesTenantDetailCollectionFetcher.m in Sources */,
+				80EA4B02C25A16A63DA8AB0E /* MSDirectoryServicesTenantDetailCollectionOperations.m in Sources */,
+				BFCCA2593CA18FDC1EA31A51 /* MSDirectoryServicesTenantDetailFetcher.m in Sources */,
+				A424EAACDF1F765128EA42F3 /* MSDirectoryServicesTenantDetailOperations.m in Sources */,
+				AF08FEB8EEC67E3823A4A19D /* MSDirectoryServicesUserCollectionFetcher.m in Sources */,
+				AC7D8D44342A6B718EF0DFF7 /* MSDirectoryServicesUserCollectionOperations.m in Sources */,
+				45DABB4C0A91080056019EE8 /* MSDirectoryServicesUserFetcher.m in Sources */,
+				971D400E013111FDB752BDC8 /* MSDirectoryServicesUserOperations.m in Sources */,
+				225DC5AEC591ED1E7DB4ADE2 /* MSDirectoryServicesAlternativeSecurityId.m in Sources */,
+				44070784A83AEC5290458648 /* MSDirectoryServicesApplication.m in Sources */,
+				7BB682F67A7ED8197DD2B0BA /* MSDirectoryServicesAppRole.m in Sources */,
+				0703CDB09F38AFFD72820A33 /* MSDirectoryServicesAppRoleAssignment.m in Sources */,
+				80F01811FAE97DA7F440E619 /* MSDirectoryServicesAssignedLicense.m in Sources */,
+				5942744B78EEEA0812EF951E /* MSDirectoryServicesAssignedPlan.m in Sources */,
+				794441EBDABC1FDC3A6FFD1B /* MSDirectoryServicesContact.m in Sources */,
+				01AEDBBBB416EB9C9F80B677 /* MSDirectoryServicesDevice.m in Sources */,
+				DBDF8340B614E865AAFBB69B /* MSDirectoryServicesDeviceConfiguration.m in Sources */,
+				3A53C5B4BC0D5E0DF6977B5C /* MSDirectoryServicesDirectoryLinkChange.m in Sources */,
+				57C7F6902ACA682211C3B7A1 /* MSDirectoryServicesDirectoryObject.m in Sources */,
+				F0BA0EF3EB551069B3E5B7A1 /* MSDirectoryServicesDirectoryRole.m in Sources */,
+				4023DA29F2580F0A1384A157 /* MSDirectoryServicesDirectoryRoleTemplate.m in Sources */,
+				D9787B97C10A426AF1F0E74B /* MSDirectoryServicesExtensionProperty.m in Sources */,
+				8F1F880536B41A7A4148BD46 /* MSDirectoryServicesGroup.m in Sources */,
+				15F2EEC7A2C45CA7310CC328 /* MSDirectoryServicesKeyCredential.m in Sources */,
+				1A5C9EFA1222EF591C219BB8 /* MSDirectoryServicesLicenseUnitsDetail.m in Sources */,
+				4AC964F98B6A173C095F3851 /* MSDirectoryServicesOAuth2Permission.m in Sources */,
+				779215BCAC245AA47660E926 /* MSDirectoryServicesOAuth2PermissionGrant.m in Sources */,
+				0372CDDF0939F5CE293FEECA /* MSDirectoryServicesPasswordCredential.m in Sources */,
+				977E36AAB695EA5F1B2B210C /* MSDirectoryServicesPasswordProfile.m in Sources */,
+				7533CF32EA9065680A56DFEE /* MSDirectoryServicesProvisionedPlan.m in Sources */,
+				97711C2DF88CD8D4DEFBB58A /* MSDirectoryServicesProvisioningError.m in Sources */,
+				69EA884079E07270661F1628 /* MSDirectoryServicesRequiredResourceAccess.m in Sources */,
+				4D5C5D4A4DF44EC1120A5B6F /* MSDirectoryServicesResourceAccess.m in Sources */,
+				B8947DD6BBB6FF51A5B0906A /* MSDirectoryServicesServicePlanInfo.m in Sources */,
+				466873740B94BDBADC1F144B /* MSDirectoryServicesServicePrincipal.m in Sources */,
+				318F4E337D1D69479104F9B0 /* MSDirectoryServicesSubscribedSku.m in Sources */,
+				7A0B97E45A5D5269C1C823CD /* MSDirectoryServicesTenantDetail.m in Sources */,
+				BE8D5A0FBFA8BAD6BC384AB3 /* MSDirectoryServicesUser.m in Sources */,
+				06B14602DB57905282372364 /* MSDirectoryServicesVerifiedDomain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		14E6A3E7B708214BEEEAD816 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		68E03710FB95859ED954223E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8CA7A23F97F7987A48BA545E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		9F3B5301283A14AE2C9589E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C071F7533121201285E47BB /* Build configuration list for PBXNativeTarget "DirectoryServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F3B5301283A14AE2C9589E3 /* Release */,
+				68E03710FB95859ED954223E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4777B6A495CF1FC2316CC14 /* Build configuration list for PBXProject "DirectoryServices" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8CA7A23F97F7987A48BA545E /* Debug */,
+				14E6A3E7B708214BEEEAD816 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE8723E2A5CA7AE97A059CDC /* Project object */;
+}

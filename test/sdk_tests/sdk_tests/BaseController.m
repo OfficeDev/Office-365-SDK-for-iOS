@@ -25,7 +25,7 @@
     }];
 }
 
--(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
+-(void) getFilesClient:(void (^)(MSFilesClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://msopentechtest01-my.sharepoint.com";
@@ -33,7 +33,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSFilesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");

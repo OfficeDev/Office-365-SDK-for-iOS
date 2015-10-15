@@ -150,7 +150,7 @@
             
             MSOneNoteNotebook *singleNotebook = [notebooks objectAtIndex:0];
             
-            [[self.client.me.notes.notebooks getById:singleNotebook.id] readWithCallback:^(MSOneNoteNotebook *notebook, MSOrcError *error2) {
+            [[self.client.me.notes.notebooks getById:singleNotebook._id] readWithCallback:^(MSOneNoteNotebook *notebook, MSOrcError *error2) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -231,7 +231,7 @@
             MSOneNoteSection *newSection = [[MSOneNoteSection alloc]init];
             newSection.name = [@"Section-" stringByAppendingString:[[NSUUID UUID] UUIDString]];
             
-            [[self.client.me.notes.notebooks getById:[[notebooks objectAtIndex:0] id]].sections add:newSection callback:^(MSOneNoteSection *addedSection, MSOrcError *e) {
+            [[self.client.me.notes.notebooks getById:[[notebooks objectAtIndex:0] _id]].sections add:newSection callback:^(MSOneNoteSection *addedSection, MSOrcError *e) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -275,7 +275,7 @@
             
             MSOneNoteSection *s =[sections objectAtIndex:0];
             
-            [[self.client.me.notes.sections getById: s.id] readWithCallback:^(MSOneNoteSection *section, MSOrcError *error) {
+            [[self.client.me.notes.sections getById: s._id] readWithCallback:^(MSOneNoteSection *section, MSOrcError *error) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -417,7 +417,7 @@
     return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray *pages, MSOrcError *error) {
         MSOneNotePage *page = [pages objectAtIndex:0];
         
-        [[self.client.me.notes.pages getById:page.id] getContentWithCallback:^(NSData *content, MSOrcError *error) {
+        [[self.client.me.notes.pages getById:page._id] getContentWithCallback:^(NSData *content, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
