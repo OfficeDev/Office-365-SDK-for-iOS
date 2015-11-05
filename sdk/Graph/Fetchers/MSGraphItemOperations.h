@@ -29,11 +29,20 @@ root for authoritative license information.﻿
 
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
-- (void)copyRawWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int, MSOrcError*))callback ;
-- (void)uploadContentRawWithContentStream:(NSString *)contentStream callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)contentWithCallback:(void (^)(NSStream *, MSOrcError*))callback ;
+- (void)inviteWithRecipients:(MSGraphRecipients *)recipients message:(NSString *)message requireSignIn:(bool)requireSignIn sendInvitation:(bool)sendInvitation roles:(NSString *)roles callback:(void (^)(MSGraphPermission *, MSOrcError*))callback ;
+- (void)inviteRawWithRecipients:(NSString *)recipients message:(NSString *)message requireSignIn:(NSString *)requireSignIn sendInvitation:(NSString *)sendInvitation roles:(NSString *)roles callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)copyWithParentReference:(MSGraphItemReference *)parentReference name:(NSString *)name callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)copyRawWithParentReference:(NSString *)parentReference name:(NSString *)name callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)createLinkWithType:(NSString *)type callback:(void (^)(MSGraphPermission *, MSOrcError*))callback ;
+- (void)createLinkRawWithType:(NSString *)type callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)createSessionWithItem:(MSGraphChunkedUploadSessionDescriptor *)item callback:(void (^)(MSGraphUploadSession *, MSOrcError*))callback ;
+- (void)createSessionRawWithItem:(NSString *)item callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)deltaWithToken:(NSString *)token callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)deltaRawWithToken:(NSString *)token callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)searchWithQ:(NSString *)q callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)searchRawWithQ:(NSString *)q callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookLocation
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+		_address = [dic objectForKey: @"Address"] != nil ? [[MSOutlookPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]] : _address;
+		_coordinates = [dic objectForKey: @"Coordinates"] != nil ? [[MSOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]] : _coordinates;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_displayName copy], @"DisplayName",
+		 [_address toDictionary], @"Address",
+		 [_coordinates toDictionary], @"Coordinates",
+            nil];
+}
+
+
 /** Setter implementation for property displayName
  *
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"DisplayName"];
+    [self valueChangedFor:@"DisplayName"];
 }
        
 /** Setter implementation for property address
@@ -62,7 +86,7 @@ root for authoritative license information.﻿
  */
 - (void) setAddress: (MSOutlookPhysicalAddress *) value {
     _address = value;
-    [self valueChanged:_address forProperty:@"Address"];
+    [self valueChangedFor:@"Address"];
 }
        
 /** Setter implementation for property coordinates
@@ -70,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setCoordinates: (MSOutlookGeoCoordinates *) value {
     _coordinates = value;
-    [self valueChanged:_coordinates forProperty:@"Coordinates"];
+    [self valueChangedFor:@"Coordinates"];
 }
        
 

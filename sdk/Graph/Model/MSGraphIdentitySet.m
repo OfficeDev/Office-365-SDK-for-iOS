@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphIdentitySet
@@ -30,18 +31,19 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"user", @"user", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"device", @"device", @"user", @"user", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.IdentitySet";
+		_odataType = @"#Microsoft.Graph.identitySet";
 
         
     }
@@ -49,12 +51,42 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_application = [dic objectForKey: @"application"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
+		_device = [dic objectForKey: @"device"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"device"]] : _device;
+		_user = [dic objectForKey: @"user"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_application toDictionary], @"application",
+		 [_device toDictionary], @"device",
+		 [_user toDictionary], @"user",
+            nil];
+}
+
+
 /** Setter implementation for property application
  *
  */
 - (void) setApplication: (MSGraphIdentity *) value {
     _application = value;
-    [self valueChanged:_application forProperty:@"application"];
+    [self valueChangedFor:@"application"];
+}
+       
+/** Setter implementation for property device
+ *
+ */
+- (void) setDevice: (MSGraphIdentity *) value {
+    _device = value;
+    [self valueChangedFor:@"device"];
 }
        
 /** Setter implementation for property user
@@ -62,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setUser: (MSGraphIdentity *) value {
     _user = value;
-    [self valueChanged:_user forProperty:@"user"];
+    [self valueChangedFor:@"user"];
 }
        
 

@@ -51,12 +51,35 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : _objectType;
+		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
+		_deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : _deletionTimestamp;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_objectType copy], @"objectType",
+		 [_objectId copy], @"objectId",
+		 [MSOrcObjectizer stringFromDate:_deletionTimestamp], @"deletionTimestamp",
+            nil];
+}
+
+
 /** Setter implementation for property objectType
  *
  */
 - (void) setObjectType: (NSString *) value {
     _objectType = value;
-    [self valueChanged:_objectType forProperty:@"objectType"];
+    [self valueChangedFor:@"objectType"];
 }
        
 /** Setter implementation for property objectId
@@ -64,7 +87,7 @@ root for authoritative license information.﻿
  */
 - (void) setObjectId: (NSString *) value {
     _objectId = value;
-    [self valueChanged:_objectId forProperty:@"objectId"];
+    [self valueChangedFor:@"objectId"];
 }
        
 /** Setter implementation for property deletionTimestamp
@@ -72,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeletionTimestamp: (NSDate *) value {
     _deletionTimestamp = value;
-    [self valueChanged:_deletionTimestamp forProperty:@"deletionTimestamp"];
+    [self valueChangedFor:@"deletionTimestamp"];
 }
        
 

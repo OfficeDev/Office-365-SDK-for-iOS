@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSOUTLOOKENTITY_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookEntity
  *
  */
-@interface MSOutlookEntity : MSOrcBaseEntity
+@interface MSOutlookEntity : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *

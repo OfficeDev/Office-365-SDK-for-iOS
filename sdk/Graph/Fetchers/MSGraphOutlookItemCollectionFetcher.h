@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSGraphOutlookItemFetcher *)getById:(NSString *)Id;
+- (MSGraphOutlookItemFetcher *)getById: (id) identifier;
 - (void)add:(MSGraphOutlookItem *)entity callback:(void (^)(MSGraphOutlookItem *, MSOrcError *))callback;
 
 - (MSGraphOutlookItemCollectionFetcher *)select:(NSString *)params;

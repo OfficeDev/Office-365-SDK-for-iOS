@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSDirectoryServicesResourceAccess;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesRequiredResourceAccess
  *
  */
-@interface MSDirectoryServicesRequiredResourceAccess : MSOrcBaseEntity
+@interface MSDirectoryServicesRequiredResourceAccess : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property resourceAppId
  *

@@ -20,11 +20,12 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphServicePlanInfo
  *
  */
-@interface MSGraphServicePlanInfo : MSOrcBaseEntity
+@interface MSGraphServicePlanInfo : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property servicePlanId
  *

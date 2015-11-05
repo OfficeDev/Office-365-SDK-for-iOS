@@ -17,6 +17,7 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESUSER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesAssignedLicense;
 @class MSDirectoryServicesAssignedPlan;
@@ -27,11 +28,12 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesOAuth2PermissionGrant;
 @class MSDirectoryServicesDirectoryObject;
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesUser
  *
  */
-@interface MSDirectoryServicesUser : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesUser : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property accountEnabled
  *

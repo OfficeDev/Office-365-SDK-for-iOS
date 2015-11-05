@@ -24,9 +24,12 @@ root for authoritative license information.﻿
 @class MSGraphItemBodyFetcher;
 @class MSGraphRecipientFetcher;
 @class MSGraphRecipientCollectionFetcher;
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
 @class MSGraphEventMessageFetcher;	
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
+@class MSGraphExtensionFetcher;
 @class MSGraphAttachmentFetcher;
 @class MSGraphMessageOperations;
 
@@ -46,9 +49,13 @@ root for authoritative license information.﻿
 - (MSGraphMessageFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphMessageFetcher *)select:(NSString *)params;
 - (MSGraphMessageFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
+
+- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
+
 @property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
 
-- (MSGraphAttachmentFetcher *)attachmentsById:(NSString*)identifier;
+- (MSGraphAttachmentFetcher *)attachmentsById:(id)identifier;
 
 - (MSGraphEventMessageFetcher *)asEventMessage;	
 

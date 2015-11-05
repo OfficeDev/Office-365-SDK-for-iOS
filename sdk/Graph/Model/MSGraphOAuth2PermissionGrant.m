@@ -51,12 +51,45 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_clientId = [dic objectForKey: @"clientId"] != nil ? [[dic objectForKey: @"clientId"] copy] : _clientId;
+		_consentType = [dic objectForKey: @"consentType"] != nil ? [[dic objectForKey: @"consentType"] copy] : _consentType;
+		_expiryTime = [dic objectForKey: @"expiryTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"expiryTime"]] : _expiryTime;
+		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
+		_principalId = [dic objectForKey: @"principalId"] != nil ? [[dic objectForKey: @"principalId"] copy] : _principalId;
+		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
+		_scope = [dic objectForKey: @"scope"] != nil ? [[dic objectForKey: @"scope"] copy] : _scope;
+		_startTime = [dic objectForKey: @"startTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startTime"]] : _startTime;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_clientId copy], @"clientId",
+		 [_consentType copy], @"consentType",
+		 [MSOrcObjectizer stringFromDate:_expiryTime], @"expiryTime",
+		 [_objectId copy], @"objectId",
+		 [_principalId copy], @"principalId",
+		 [_resourceId copy], @"resourceId",
+		 [_scope copy], @"scope",
+		 [MSOrcObjectizer stringFromDate:_startTime], @"startTime",
+            nil];
+}
+
+
 /** Setter implementation for property clientId
  *
  */
 - (void) setClientId: (NSString *) value {
     _clientId = value;
-    [self valueChanged:_clientId forProperty:@"clientId"];
+    [self valueChangedFor:@"clientId"];
 }
        
 /** Setter implementation for property consentType
@@ -64,7 +97,7 @@ root for authoritative license information.﻿
  */
 - (void) setConsentType: (NSString *) value {
     _consentType = value;
-    [self valueChanged:_consentType forProperty:@"consentType"];
+    [self valueChangedFor:@"consentType"];
 }
        
 /** Setter implementation for property expiryTime
@@ -72,7 +105,7 @@ root for authoritative license information.﻿
  */
 - (void) setExpiryTime: (NSDate *) value {
     _expiryTime = value;
-    [self valueChanged:_expiryTime forProperty:@"expiryTime"];
+    [self valueChangedFor:@"expiryTime"];
 }
        
 /** Setter implementation for property objectId
@@ -80,7 +113,7 @@ root for authoritative license information.﻿
  */
 - (void) setObjectId: (NSString *) value {
     _objectId = value;
-    [self valueChanged:_objectId forProperty:@"objectId"];
+    [self valueChangedFor:@"objectId"];
 }
        
 /** Setter implementation for property principalId
@@ -88,7 +121,7 @@ root for authoritative license information.﻿
  */
 - (void) setPrincipalId: (NSString *) value {
     _principalId = value;
-    [self valueChanged:_principalId forProperty:@"principalId"];
+    [self valueChangedFor:@"principalId"];
 }
        
 /** Setter implementation for property resourceId
@@ -96,7 +129,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceId: (NSString *) value {
     _resourceId = value;
-    [self valueChanged:_resourceId forProperty:@"resourceId"];
+    [self valueChangedFor:@"resourceId"];
 }
        
 /** Setter implementation for property scope
@@ -104,7 +137,7 @@ root for authoritative license information.﻿
  */
 - (void) setScope: (NSString *) value {
     _scope = value;
-    [self valueChanged:_scope forProperty:@"scope"];
+    [self valueChangedFor:@"scope"];
 }
        
 /** Setter implementation for property startTime
@@ -112,7 +145,7 @@ root for authoritative license information.﻿
  */
 - (void) setStartTime: (NSDate *) value {
     _startTime = value;
-    [self valueChanged:_startTime forProperty:@"startTime"];
+    [self valueChangedFor:@"startTime"];
 }
        
 

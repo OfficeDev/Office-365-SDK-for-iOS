@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesServicePlanInfo
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_servicePlanId = [dic objectForKey: @"servicePlanId"] != nil ? [[dic objectForKey: @"servicePlanId"] copy] : _servicePlanId;
+		_servicePlanName = [dic objectForKey: @"servicePlanName"] != nil ? [[dic objectForKey: @"servicePlanName"] copy] : _servicePlanName;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_servicePlanId copy], @"servicePlanId",
+		 [_servicePlanName copy], @"servicePlanName",
+            nil];
+}
+
+
 /** Setter implementation for property servicePlanId
  *
  */
 - (void) setServicePlanId: (NSString *) value {
     _servicePlanId = value;
-    [self valueChanged:_servicePlanId forProperty:@"servicePlanId"];
+    [self valueChangedFor:@"servicePlanId"];
 }
        
 /** Setter implementation for property servicePlanName
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setServicePlanName: (NSString *) value {
     _servicePlanName = value;
-    [self valueChanged:_servicePlanName forProperty:@"servicePlanName"];
+    [self valueChangedFor:@"servicePlanName"];
 }
        
 

@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHDEVICECONFIGURATION_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphDeviceConfiguration
  *
  */
-@interface MSGraphDeviceConfiguration : MSGraphDirectoryObject
+@interface MSGraphDeviceConfiguration : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property publicIssuerCertificates
  *

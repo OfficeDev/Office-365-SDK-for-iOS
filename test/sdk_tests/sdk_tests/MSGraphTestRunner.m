@@ -1176,7 +1176,7 @@
 
 -(void)TestGetUserPhotos:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray *photos, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].photos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1203,7 +1203,7 @@
 
 -(void)TestGetUserPhotoById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].userPhotos readWithCallback:^(NSArray *photos, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].photos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1243,7 +1243,7 @@
 
 -(void)TestGetUserPhoto:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].userPhoto readWithCallback:^(MSGraphPhoto *photo, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].photo readWithCallback:^(MSGraphPhoto *photo, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1297,7 +1297,7 @@
 
 -(void)TestGetUserFiles:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1324,7 +1324,7 @@
 
 -(void)TestGetUserFilesById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].files readWithCallback:^(NSArray *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1368,7 +1368,7 @@
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSInputStream* contentStream = [NSInputStream inputStreamWithData:content];
     //Create file
-    return [[self.Client.users getById:self.TestMail].files add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
         //Put content to file
        
         [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] asFile].operations uploadContentWithContentStream:contentStream callback:^(int returnValue, MSOrcError *error) {

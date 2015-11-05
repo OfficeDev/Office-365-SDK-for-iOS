@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSOUTLOOKCONTACT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookEmailAddress;
 @class MSOutlookPhysicalAddress;
 #import "MSOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookContact
  *
  */
-@interface MSOutlookContact : MSOutlookItem
+@interface MSOutlookContact : MSOutlookItem <MSOrcInteroperableWithDictionary>
 
 /** Property parentFolderId
  *
@@ -76,6 +78,21 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setTitle:, getter=title) NSString * title;
+
+/** Property yomiGivenName
+ *
+ */
+@property (nonatomic,  copy, setter=setYomiGivenName:, getter=yomiGivenName) NSString * yomiGivenName;
+
+/** Property yomiSurname
+ *
+ */
+@property (nonatomic,  copy, setter=setYomiSurname:, getter=yomiSurname) NSString * yomiSurname;
+
+/** Property yomiCompanyName
+ *
+ */
+@property (nonatomic,  copy, setter=setYomiCompanyName:, getter=yomiCompanyName) NSString * yomiCompanyName;
 
 /** Property generation
  *
@@ -137,15 +154,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setHomePhones:, getter=homePhones) NSMutableArray * homePhones;
 
-/** Property businessPhones
- *
- */
-@property (nonatomic,  copy, setter=setBusinessPhones:, getter=businessPhones) NSMutableArray * businessPhones;
-
 /** Property mobilePhone1
  *
  */
 @property (nonatomic,  copy, setter=setMobilePhone1:, getter=mobilePhone1) NSString * mobilePhone1;
+
+/** Property businessPhones
+ *
+ */
+@property (nonatomic,  copy, setter=setBusinessPhones:, getter=businessPhones) NSMutableArray * businessPhones;
 
 /** Property homeAddress
  *
@@ -162,20 +179,20 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setOtherAddress:, getter=otherAddress) MSOutlookPhysicalAddress * otherAddress;
 
-/** Property yomiCompanyName
+/** Property spouseName
  *
  */
-@property (nonatomic,  copy, setter=setYomiCompanyName:, getter=yomiCompanyName) NSString * yomiCompanyName;
+@property (nonatomic,  copy, setter=setSpouseName:, getter=spouseName) NSString * spouseName;
 
-/** Property yomiGivenName
+/** Property personalNotes
  *
  */
-@property (nonatomic,  copy, setter=setYomiGivenName:, getter=yomiGivenName) NSString * yomiGivenName;
+@property (nonatomic,  copy, setter=setPersonalNotes:, getter=personalNotes) NSString * personalNotes;
 
-/** Property yomiSurname
+/** Property children
  *
  */
-@property (nonatomic,  copy, setter=setYomiSurname:, getter=yomiSurname) NSString * yomiSurname;
+@property (nonatomic,  copy, setter=setChildren:, getter=children) NSMutableArray * children;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

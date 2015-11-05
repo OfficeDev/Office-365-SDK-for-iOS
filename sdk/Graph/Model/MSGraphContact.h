@@ -17,140 +17,194 @@ root for authoritative license information.﻿
 #define MSGRAPHCONTACT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-@class MSGraphProvisioningError;
-@class MSGraphDirectoryObject;
-#import "MSGraphDirectoryObject.h"
+@class MSGraphEmailAddress;
+@class MSGraphPhysicalAddress;
+@class MSGraphExtension;
+@class MSGraphPhoto;
+#import "MSGraphOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphContact
  *
  */
-@interface MSGraphContact : MSGraphDirectoryObject
+@interface MSGraphContact : MSGraphOutlookItem <MSOrcInteroperableWithDictionary>
 
-/** Property city
+/** Property parentFolderId
  *
  */
-@property (nonatomic,  copy, setter=setCity:, getter=city) NSString * city;
+@property (nonatomic,  copy, setter=setParentFolderId:, getter=parentFolderId) NSString * parentFolderId;
 
-/** Property country
+/** Property birthday
  *
  */
-@property (nonatomic,  copy, setter=setCountry:, getter=country) NSString * country;
+@property (nonatomic,  copy, setter=setBirthday:, getter=birthday) NSDate * birthday;
 
-/** Property department
+/** Property fileAs
  *
  */
-@property (nonatomic,  copy, setter=setDepartment:, getter=department) NSString * department;
-
-/** Property dirSyncEnabled
- *
- */
-@property (nonatomic,  setter=setDirSyncEnabled:, getter=dirSyncEnabled) bool dirSyncEnabled;
+@property (nonatomic,  copy, setter=setFileAs:, getter=fileAs) NSString * fileAs;
 
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
 
-/** Property facsimileTelephoneNumber
- *
- */
-@property (nonatomic,  copy, setter=setFacsimileTelephoneNumber:, getter=facsimileTelephoneNumber) NSString * facsimileTelephoneNumber;
-
 /** Property givenName
  *
  */
 @property (nonatomic,  copy, setter=setGivenName:, getter=givenName) NSString * givenName;
 
-/** Property jobTitle
+/** Property initials
  *
  */
-@property (nonatomic,  copy, setter=setJobTitle:, getter=jobTitle) NSString * jobTitle;
+@property (nonatomic,  copy, setter=setInitials:, getter=initials) NSString * initials;
 
-/** Property lastDirSyncTime
+/** Property middleName
  *
  */
-@property (nonatomic,  copy, setter=setLastDirSyncTime:, getter=lastDirSyncTime) NSDate * lastDirSyncTime;
+@property (nonatomic,  copy, setter=setMiddleName:, getter=middleName) NSString * middleName;
 
-/** Property mail
+/** Property nickName
  *
  */
-@property (nonatomic,  copy, setter=setMail:, getter=mail) NSString * mail;
-
-/** Property mailNickname
- *
- */
-@property (nonatomic,  copy, setter=setMailNickname:, getter=mailNickname) NSString * mailNickname;
-
-/** Property mobile
- *
- */
-@property (nonatomic,  copy, setter=setMobile:, getter=mobile) NSString * mobile;
-
-/** Property physicalDeliveryOfficeName
- *
- */
-@property (nonatomic,  copy, setter=setPhysicalDeliveryOfficeName:, getter=physicalDeliveryOfficeName) NSString * physicalDeliveryOfficeName;
-
-/** Property postalCode
- *
- */
-@property (nonatomic,  copy, setter=setPostalCode:, getter=postalCode) NSString * postalCode;
-
-/** Property provisioningErrors
- *
- */
-@property (nonatomic,  copy, setter=setProvisioningErrors:, getter=provisioningErrors) NSMutableArray * provisioningErrors;
-
-/** Property proxyAddresses
- *
- */
-@property (nonatomic,  copy, setter=setProxyAddresses:, getter=proxyAddresses) NSMutableArray * proxyAddresses;
-
-/** Property sipProxyAddress
- *
- */
-@property (nonatomic,  copy, setter=setSipProxyAddress:, getter=sipProxyAddress) NSString * sipProxyAddress;
-
-/** Property state
- *
- */
-@property (nonatomic,  copy, setter=setState:, getter=state) NSString * state;
-
-/** Property streetAddress
- *
- */
-@property (nonatomic,  copy, setter=setStreetAddress:, getter=streetAddress) NSString * streetAddress;
+@property (nonatomic,  copy, setter=setNickName:, getter=nickName) NSString * nickName;
 
 /** Property surname
  *
  */
 @property (nonatomic,  copy, setter=setSurname:, getter=surname) NSString * surname;
 
-/** Property telephoneNumber
+/** Property title
  *
  */
-@property (nonatomic,  copy, setter=setTelephoneNumber:, getter=telephoneNumber) NSString * telephoneNumber;
+@property (nonatomic,  copy, setter=setTitle:, getter=title) NSString * title;
 
-/** Property thumbnailPhoto
+/** Property yomiGivenName
  *
  */
-@property (nonatomic,  copy, setter=setThumbnailPhoto:, getter=thumbnailPhoto) NSStream * thumbnailPhoto;
+@property (nonatomic,  copy, setter=setYomiGivenName:, getter=yomiGivenName) NSString * yomiGivenName;
+
+/** Property yomiSurname
+ *
+ */
+@property (nonatomic,  copy, setter=setYomiSurname:, getter=yomiSurname) NSString * yomiSurname;
+
+/** Property yomiCompanyName
+ *
+ */
+@property (nonatomic,  copy, setter=setYomiCompanyName:, getter=yomiCompanyName) NSString * yomiCompanyName;
+
+/** Property generation
+ *
+ */
+@property (nonatomic,  copy, setter=setGeneration:, getter=generation) NSString * generation;
+
+/** Property emailAddresses
+ *
+ */
+@property (nonatomic,  copy, setter=setEmailAddresses:, getter=emailAddresses) NSMutableArray * emailAddresses;
+
+/** Property imAddresses
+ *
+ */
+@property (nonatomic,  copy, setter=setImAddresses:, getter=imAddresses) NSMutableArray * imAddresses;
+
+/** Property jobTitle
+ *
+ */
+@property (nonatomic,  copy, setter=setJobTitle:, getter=jobTitle) NSString * jobTitle;
+
+/** Property companyName
+ *
+ */
+@property (nonatomic,  copy, setter=setCompanyName:, getter=companyName) NSString * companyName;
+
+/** Property department
+ *
+ */
+@property (nonatomic,  copy, setter=setDepartment:, getter=department) NSString * department;
+
+/** Property officeLocation
+ *
+ */
+@property (nonatomic,  copy, setter=setOfficeLocation:, getter=officeLocation) NSString * officeLocation;
+
+/** Property profession
+ *
+ */
+@property (nonatomic,  copy, setter=setProfession:, getter=profession) NSString * profession;
+
+/** Property businessHomePage
+ *
+ */
+@property (nonatomic,  copy, setter=setBusinessHomePage:, getter=businessHomePage) NSString * businessHomePage;
+
+/** Property assistantName
+ *
+ */
+@property (nonatomic,  copy, setter=setAssistantName:, getter=assistantName) NSString * assistantName;
 
 /** Property manager
  *
  */
-@property (nonatomic,  copy, setter=setManager:, getter=manager) MSGraphDirectoryObject * manager;
+@property (nonatomic,  copy, setter=setManager:, getter=manager) NSString * manager;
 
-/** Property directReports
+/** Property homePhones
  *
  */
-@property (nonatomic,  copy, setter=setDirectReports:, getter=directReports) NSMutableArray * directReports;
+@property (nonatomic,  copy, setter=setHomePhones:, getter=homePhones) NSMutableArray * homePhones;
 
-/** Property memberOf
+/** Property mobilePhone1
  *
  */
-@property (nonatomic,  copy, setter=setMemberOf:, getter=memberOf) NSMutableArray * memberOf;
+@property (nonatomic,  copy, setter=setMobilePhone1:, getter=mobilePhone1) NSString * mobilePhone1;
+
+/** Property businessPhones
+ *
+ */
+@property (nonatomic,  copy, setter=setBusinessPhones:, getter=businessPhones) NSMutableArray * businessPhones;
+
+/** Property homeAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setHomeAddress:, getter=homeAddress) MSGraphPhysicalAddress * homeAddress;
+
+/** Property businessAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setBusinessAddress:, getter=businessAddress) MSGraphPhysicalAddress * businessAddress;
+
+/** Property otherAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setOtherAddress:, getter=otherAddress) MSGraphPhysicalAddress * otherAddress;
+
+/** Property spouseName
+ *
+ */
+@property (nonatomic,  copy, setter=setSpouseName:, getter=spouseName) NSString * spouseName;
+
+/** Property personalNotes
+ *
+ */
+@property (nonatomic,  copy, setter=setPersonalNotes:, getter=personalNotes) NSString * personalNotes;
+
+/** Property children
+ *
+ */
+@property (nonatomic,  copy, setter=setChildren:, getter=children) NSMutableArray * children;
+
+/** Property extensions
+ *
+ */
+@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
+
+/** Property photo
+ *
+ */
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

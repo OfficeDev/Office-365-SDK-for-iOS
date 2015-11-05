@@ -48,7 +48,7 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=drive) MSFilesDriveFetcher *drive;
 @property (strong, nonatomic, readonly, getter=files) MSFilesItemCollectionFetcher *files;
 
-- (MSFilesItemFetcher *)filesById:(NSString*)identifier;
+- (MSFilesItemFetcher *)filesById:(id)identifier;
 
 
 @end

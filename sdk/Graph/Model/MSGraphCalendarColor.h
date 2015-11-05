@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphCalendarColor
+/** Enum MSGraphCalendarColorEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphCalendarColor) {
@@ -57,5 +57,11 @@ typedef NS_ENUM(NSInteger, MSGraphCalendarColor) {
      * */
     MSGraphCalendarColorAuto
 };
+
+
+@interface MSGraphCalendarColorSerializer : NSObject
++(MSGraphCalendarColor) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphCalendarColor) value;
+@end
 
 #endif

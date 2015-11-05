@@ -23,18 +23,19 @@ root for authoritative license information.﻿
 #import "MSOutlookDayOfWeek.h"
 #import "MSOutlookWeekIndex.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookRecurrencePattern
  *
  */
-@interface MSOutlookRecurrencePattern : MSOrcBaseEntity
+@interface MSOutlookRecurrencePattern : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property type
  *
  */
 @property (nonatomic,  setter=setType:, getter=type) MSOutlookRecurrencePatternType type;
 
-- (void)setTypeString:(NSString *)value;
+- (void)setTypeString:(NSString *)string;
 
 /** Property interval
  *
@@ -61,14 +62,14 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setFirstDayOfWeek:, getter=firstDayOfWeek) MSOutlookDayOfWeek firstDayOfWeek;
 
-- (void)setFirstDayOfWeekString:(NSString *)value;
+- (void)setFirstDayOfWeekString:(NSString *)string;
 
 /** Property index
  *
  */
 @property (nonatomic,  setter=setIndex:, getter=index) MSOutlookWeekIndex index;
 
-- (void)setIndexString:(NSString *)value;
+- (void)setIndexString:(NSString *)string;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

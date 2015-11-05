@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"IsContactPhoto", @"isContactPhoto", @"ContentBytes", @"contentBytes", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"DateTimeLastModified", @"dateTimeLastModified", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"ContentBytes", @"contentBytes", @"IsContactPhoto", @"isContactPhoto", @"DateTimeLastModified", @"dateTimeLastModified", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
     
     }
     
@@ -51,12 +51,37 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_contentId = [dic objectForKey: @"ContentId"] != nil ? [[dic objectForKey: @"ContentId"] copy] : _contentId;
+		_contentLocation = [dic objectForKey: @"ContentLocation"] != nil ? [[dic objectForKey: @"ContentLocation"] copy] : _contentLocation;
+		_contentBytes = [dic objectForKey: @"ContentBytes"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"ContentBytes"]] : _contentBytes;
+		_isContactPhoto = [dic objectForKey: @"IsContactPhoto"] != nil ? [[dic objectForKey: @"IsContactPhoto"] boolValue] : _isContactPhoto;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_contentId copy], @"ContentId",
+		 [_contentLocation copy], @"ContentLocation",
+		 [MSOrcObjectizer stringFromData:_contentBytes], @"ContentBytes",
+		 (_isContactPhoto?@"true":@"false"), @"IsContactPhoto",
+            nil];
+}
+
+
 /** Setter implementation for property contentId
  *
  */
 - (void) setContentId: (NSString *) value {
     _contentId = value;
-    [self valueChanged:_contentId forProperty:@"ContentId"];
+    [self valueChangedFor:@"ContentId"];
 }
        
 /** Setter implementation for property contentLocation
@@ -64,15 +89,7 @@ root for authoritative license information.﻿
  */
 - (void) setContentLocation: (NSString *) value {
     _contentLocation = value;
-    [self valueChanged:_contentLocation forProperty:@"ContentLocation"];
-}
-       
-/** Setter implementation for property isContactPhoto
- *
- */
-- (void) setIsContactPhoto: (bool) value {
-    _isContactPhoto = value;
-    [self valueChangedForBool:_isContactPhoto forProperty:@"IsContactPhoto"];
+    [self valueChangedFor:@"ContentLocation"];
 }
        
 /** Setter implementation for property contentBytes
@@ -80,7 +97,15 @@ root for authoritative license information.﻿
  */
 - (void) setContentBytes: (NSData *) value {
     _contentBytes = value;
-    [self valueChanged:_contentBytes forProperty:@"ContentBytes"];
+    [self valueChangedFor:@"ContentBytes"];
+}
+       
+/** Setter implementation for property isContactPhoto
+ *
+ */
+- (void) setIsContactPhoto: (bool) value {
+    _isContactPhoto = value;
+    [self valueChangedFor:@"IsContactPhoto"];
 }
        
 

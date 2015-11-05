@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesKeyCredential
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,42 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_customKeyIdentifier = [dic objectForKey: @"customKeyIdentifier"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"customKeyIdentifier"]] : _customKeyIdentifier;
+		_endDate = [dic objectForKey: @"endDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"endDate"]] : _endDate;
+		_keyId = [dic objectForKey: @"keyId"] != nil ? [[dic objectForKey: @"keyId"] copy] : _keyId;
+		_startDate = [dic objectForKey: @"startDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startDate"]] : _startDate;
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
+		_usage = [dic objectForKey: @"usage"] != nil ? [[dic objectForKey: @"usage"] copy] : _usage;
+		_value = [dic objectForKey: @"value"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"value"]] : _value;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromData:_customKeyIdentifier], @"customKeyIdentifier",
+		 [MSOrcObjectizer stringFromDate:_endDate], @"endDate",
+		 [_keyId copy], @"keyId",
+		 [MSOrcObjectizer stringFromDate:_startDate], @"startDate",
+		 [_type copy], @"type",
+		 [_usage copy], @"usage",
+		 [MSOrcObjectizer stringFromData:_value], @"value",
+            nil];
+}
+
+
 /** Setter implementation for property customKeyIdentifier
  *
  */
 - (void) setCustomKeyIdentifier: (NSData *) value {
     _customKeyIdentifier = value;
-    [self valueChanged:_customKeyIdentifier forProperty:@"customKeyIdentifier"];
+    [self valueChangedFor:@"customKeyIdentifier"];
 }
        
 /** Setter implementation for property endDate
@@ -62,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setEndDate: (NSDate *) value {
     _endDate = value;
-    [self valueChanged:_endDate forProperty:@"endDate"];
+    [self valueChangedFor:@"endDate"];
 }
        
 /** Setter implementation for property keyId
@@ -70,7 +102,7 @@ root for authoritative license information.﻿
  */
 - (void) setKeyId: (NSString *) value {
     _keyId = value;
-    [self valueChanged:_keyId forProperty:@"keyId"];
+    [self valueChangedFor:@"keyId"];
 }
        
 /** Setter implementation for property startDate
@@ -78,7 +110,7 @@ root for authoritative license information.﻿
  */
 - (void) setStartDate: (NSDate *) value {
     _startDate = value;
-    [self valueChanged:_startDate forProperty:@"startDate"];
+    [self valueChangedFor:@"startDate"];
 }
        
 /** Setter implementation for property type
@@ -86,7 +118,7 @@ root for authoritative license information.﻿
  */
 - (void) setType: (NSString *) value {
     _type = value;
-    [self valueChanged:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 /** Setter implementation for property usage
@@ -94,7 +126,7 @@ root for authoritative license information.﻿
  */
 - (void) setUsage: (NSString *) value {
     _usage = value;
-    [self valueChanged:_usage forProperty:@"usage"];
+    [self valueChangedFor:@"usage"];
 }
        
 /** Setter implementation for property value
@@ -102,7 +134,7 @@ root for authoritative license information.﻿
  */
 - (void) setValue: (NSData *) value {
     _value = value;
-    [self valueChanged:_value forProperty:@"value"];
+    [self valueChangedFor:@"value"];
 }
        
 

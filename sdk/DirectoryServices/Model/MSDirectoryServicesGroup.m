@@ -54,12 +54,77 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
+		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
+		_mail = [dic objectForKey: @"mail"] != nil ? [[dic objectForKey: @"mail"] copy] : _mail;
+		_mailNickname = [dic objectForKey: @"mailNickname"] != nil ? [[dic objectForKey: @"mailNickname"] copy] : _mailNickname;
+		_mailEnabled = [dic objectForKey: @"mailEnabled"] != nil ? [[dic objectForKey: @"mailEnabled"] boolValue] : _mailEnabled;
+		_onPremisesSecurityIdentifier = [dic objectForKey: @"onPremisesSecurityIdentifier"] != nil ? [[dic objectForKey: @"onPremisesSecurityIdentifier"] copy] : _onPremisesSecurityIdentifier;
+
+        if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
+            _provisioningErrors = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisioningErrors"] count]];
+            
+            for (id object in [dic objectForKey: @"provisioningErrors"]) {
+                [_provisioningErrors addObject:[[MSDirectoryServicesProvisioningError alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"proxyAddresses"] != [NSNull null]){
+            _proxyAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"proxyAddresses"] count]];
+            
+            for (id object in [dic objectForKey: @"proxyAddresses"]) {
+                [_proxyAddresses addObject:[object copy]];
+            }
+        }
+        
+		_securityEnabled = [dic objectForKey: @"securityEnabled"] != nil ? [[dic objectForKey: @"securityEnabled"] boolValue] : _securityEnabled;
+
+        if([dic objectForKey: @"appRoleAssignments"] != [NSNull null]){
+            _appRoleAssignments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"appRoleAssignments"] count]];
+            
+            for (id object in [dic objectForKey: @"appRoleAssignments"]) {
+                [_appRoleAssignments addObject:[[MSDirectoryServicesAppRoleAssignment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__description copy], @"description",
+		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
+		 [_displayName copy], @"displayName",
+		 [MSOrcObjectizer stringFromDate:_lastDirSyncTime], @"lastDirSyncTime",
+		 [_mail copy], @"mail",
+		 [_mailNickname copy], @"mailNickname",
+		 (_mailEnabled?@"true":@"false"), @"mailEnabled",
+		 [_onPremisesSecurityIdentifier copy], @"onPremisesSecurityIdentifier",
+		 [[NSMutableArray alloc] init], @"provisioningErrors",
+		 [[NSMutableArray alloc] init], @"proxyAddresses",
+		 (_securityEnabled?@"true":@"false"), @"securityEnabled",
+		 [[NSMutableArray alloc] init], @"appRoleAssignments",
+            nil];
+}
+
+
 /** Setter implementation for property _description
  *
  */
 - (void) setDescription: (NSString *) value {
     __description = value;
-    [self valueChanged:__description forProperty:@"description"];
+    [self valueChangedFor:@"description"];
 }
        
 /** Setter implementation for property dirSyncEnabled
@@ -67,7 +132,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirSyncEnabled: (bool) value {
     _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+    [self valueChangedFor:@"dirSyncEnabled"];
 }
        
 /** Setter implementation for property displayName
@@ -75,7 +140,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property lastDirSyncTime
@@ -83,7 +148,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastDirSyncTime: (NSDate *) value {
     _lastDirSyncTime = value;
-    [self valueChanged:_lastDirSyncTime forProperty:@"lastDirSyncTime"];
+    [self valueChangedFor:@"lastDirSyncTime"];
 }
        
 /** Setter implementation for property mail
@@ -91,7 +156,7 @@ root for authoritative license information.﻿
  */
 - (void) setMail: (NSString *) value {
     _mail = value;
-    [self valueChanged:_mail forProperty:@"mail"];
+    [self valueChangedFor:@"mail"];
 }
        
 /** Setter implementation for property mailNickname
@@ -99,7 +164,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailNickname: (NSString *) value {
     _mailNickname = value;
-    [self valueChanged:_mailNickname forProperty:@"mailNickname"];
+    [self valueChangedFor:@"mailNickname"];
 }
        
 /** Setter implementation for property mailEnabled
@@ -107,7 +172,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailEnabled: (bool) value {
     _mailEnabled = value;
-    [self valueChangedForBool:_mailEnabled forProperty:@"mailEnabled"];
+    [self valueChangedFor:@"mailEnabled"];
 }
        
 /** Setter implementation for property onPremisesSecurityIdentifier
@@ -115,7 +180,7 @@ root for authoritative license information.﻿
  */
 - (void) setOnPremisesSecurityIdentifier: (NSString *) value {
     _onPremisesSecurityIdentifier = value;
-    [self valueChanged:_onPremisesSecurityIdentifier forProperty:@"onPremisesSecurityIdentifier"];
+    [self valueChangedFor:@"onPremisesSecurityIdentifier"];
 }
        
 /** Setter implementation for property provisioningErrors
@@ -123,7 +188,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisioningErrors: (NSMutableArray *) value {
     _provisioningErrors = value;
-    [self valueChanged:_provisioningErrors forProperty:@"provisioningErrors"];
+    [self valueChangedFor:@"provisioningErrors"];
 }
        
 /** Setter implementation for property proxyAddresses
@@ -131,7 +196,7 @@ root for authoritative license information.﻿
  */
 - (void) setProxyAddresses: (NSMutableArray *) value {
     _proxyAddresses = value;
-    [self valueChanged:_proxyAddresses forProperty:@"proxyAddresses"];
+    [self valueChangedFor:@"proxyAddresses"];
 }
        
 /** Setter implementation for property securityEnabled
@@ -139,7 +204,7 @@ root for authoritative license information.﻿
  */
 - (void) setSecurityEnabled: (bool) value {
     _securityEnabled = value;
-    [self valueChangedForBool:_securityEnabled forProperty:@"securityEnabled"];
+    [self valueChangedFor:@"securityEnabled"];
 }
        
 /** Setter implementation for property appRoleAssignments
@@ -147,7 +212,7 @@ root for authoritative license information.﻿
  */
 - (void) setAppRoleAssignments: (NSMutableArray *) value {
     _appRoleAssignments = value;
-    [self valueChanged:_appRoleAssignments forProperty:@"appRoleAssignments"];
+    [self valueChangedFor:@"appRoleAssignments"];
 }
        
 

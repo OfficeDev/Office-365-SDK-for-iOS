@@ -53,12 +53,53 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+        if([dic objectForKey: @"publicIssuerCertificates"] != [NSNull null]){
+            _publicIssuerCertificates = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"publicIssuerCertificates"] count]];
+            
+            for (id object in [dic objectForKey: @"publicIssuerCertificates"]) {
+                [_publicIssuerCertificates addObject:[MSOrcObjectizer dataFromString:object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"cloudPublicIssuerCertificates"] != [NSNull null]){
+            _cloudPublicIssuerCertificates = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"cloudPublicIssuerCertificates"] count]];
+            
+            for (id object in [dic objectForKey: @"cloudPublicIssuerCertificates"]) {
+                [_cloudPublicIssuerCertificates addObject:[MSOrcObjectizer dataFromString:object]];
+            }
+        }
+        
+		_registrationQuota = [dic objectForKey: @"registrationQuota"] != nil ? [[dic objectForKey: @"registrationQuota"] intValue] : _registrationQuota;
+		_maximumRegistrationInactivityPeriod = [dic objectForKey: @"maximumRegistrationInactivityPeriod"] != nil ? [[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue] : _maximumRegistrationInactivityPeriod;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [[NSMutableArray alloc] init], @"publicIssuerCertificates",
+		 [[NSMutableArray alloc] init], @"cloudPublicIssuerCertificates",
+		 [NSNumber numberWithInt: _registrationQuota], @"registrationQuota",
+		 [NSNumber numberWithInt: _maximumRegistrationInactivityPeriod], @"maximumRegistrationInactivityPeriod",
+            nil];
+}
+
+
 /** Setter implementation for property publicIssuerCertificates
  *
  */
 - (void) setPublicIssuerCertificates: (NSMutableArray *) value {
     _publicIssuerCertificates = value;
-    [self valueChanged:_publicIssuerCertificates forProperty:@"publicIssuerCertificates"];
+    [self valueChangedFor:@"publicIssuerCertificates"];
 }
        
 /** Setter implementation for property cloudPublicIssuerCertificates
@@ -66,7 +107,7 @@ root for authoritative license information.﻿
  */
 - (void) setCloudPublicIssuerCertificates: (NSMutableArray *) value {
     _cloudPublicIssuerCertificates = value;
-    [self valueChanged:_cloudPublicIssuerCertificates forProperty:@"cloudPublicIssuerCertificates"];
+    [self valueChangedFor:@"cloudPublicIssuerCertificates"];
 }
        
 /** Setter implementation for property registrationQuota
@@ -74,7 +115,7 @@ root for authoritative license information.﻿
  */
 - (void) setRegistrationQuota: (int) value {
     _registrationQuota = value;
-    [self valueChangedForInt:_registrationQuota forProperty:@"registrationQuota"];
+    [self valueChangedFor:@"registrationQuota"];
 }
        
 /** Setter implementation for property maximumRegistrationInactivityPeriod
@@ -82,7 +123,7 @@ root for authoritative license information.﻿
  */
 - (void) setMaximumRegistrationInactivityPeriod: (int) value {
     _maximumRegistrationInactivityPeriod = value;
-    [self valueChangedForInt:_maximumRegistrationInactivityPeriod forProperty:@"maximumRegistrationInactivityPeriod"];
+    [self valueChangedFor:@"maximumRegistrationInactivityPeriod"];
 }
        
 

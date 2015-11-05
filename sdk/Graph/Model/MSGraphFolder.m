@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphFolder
@@ -26,37 +26,55 @@ root for authoritative license information.﻿
 
 @synthesize odataType = _odataType;
 
-
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", @"createdBy", @"createdBy", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"dateTimeCreated", @"dateTimeCreated", @"dateTimeLastModified", @"dateTimeLastModified", @"type", @"type", @"webUrl", @"webUrl", @"createdByUser", @"createdByUser", @"lastModifiedByUser", @"lastModifiedByUser", @"children", @"children", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Folder";
-        
+		_odataType = @"#Microsoft.Graph.folder";
+
         
     }
 
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_childCount = [dic objectForKey: @"childCount"] != nil ? [[dic objectForKey: @"childCount"] intValue] : _childCount;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithInt: _childCount], @"childCount",
+            nil];
+}
+
+
 /** Setter implementation for property childCount
  *
  */
 - (void) setChildCount: (int) value {
     _childCount = value;
-    [self valueChangedForInt:_childCount forProperty:@"childCount"];
+    [self valueChangedFor:@"childCount"];
 }
        
 

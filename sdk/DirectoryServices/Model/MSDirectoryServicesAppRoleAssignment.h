@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESAPPROLEASSIGNMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesAppRoleAssignment
  *
  */
-@interface MSDirectoryServicesAppRoleAssignment : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesAppRoleAssignment : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property creationTimestamp
  *

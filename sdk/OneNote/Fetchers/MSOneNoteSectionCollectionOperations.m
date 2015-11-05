@@ -26,15 +26,20 @@ root for authoritative license information.﻿
 - (void)copyToNotebookWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-    NSString *_idString = [self.resolver.jsonSerializer serialize:_id property:@"id"];
-NSString *siteCollectionIdString = [self.resolver.jsonSerializer serialize:siteCollectionId property:@"siteCollectionId"];
-NSString *siteIdString = [self.resolver.jsonSerializer serialize:siteId property:@"siteId"];
-NSString *groupIdString = [self.resolver.jsonSerializer serialize:groupId property:@"groupId"];
-NSString *renameAsString = [self.resolver.jsonSerializer serialize:renameAs property:@"renameAs"];
+      NSString *_idString = [MSOrcObjectizer deobjectizeToString: _id ];
+
+  NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+
+  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+
+  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+
+  NSString *renameAsString = [MSOrcObjectizer deobjectizeToString: renameAs ];
+
     return [self copyToNotebookRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
             callback(result, e);
         } 
         else {
@@ -74,15 +79,20 @@ NSString *renameAsString = [self.resolver.jsonSerializer serialize:renameAs prop
 - (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-    NSString *_idString = [self.resolver.jsonSerializer serialize:_id property:@"id"];
-NSString *siteCollectionIdString = [self.resolver.jsonSerializer serialize:siteCollectionId property:@"siteCollectionId"];
-NSString *siteIdString = [self.resolver.jsonSerializer serialize:siteId property:@"siteId"];
-NSString *groupIdString = [self.resolver.jsonSerializer serialize:groupId property:@"groupId"];
-NSString *renameAsString = [self.resolver.jsonSerializer serialize:renameAs property:@"renameAs"];
+      NSString *_idString = [MSOrcObjectizer deobjectizeToString: _id ];
+
+  NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+
+  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+
+  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+
+  NSString *renameAsString = [MSOrcObjectizer deobjectizeToString: renameAs ];
+
     return [self copyToSectionGroupRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
             callback(result, e);
         } 
         else {
@@ -125,7 +135,7 @@ NSString *renameAsString = [self.resolver.jsonSerializer serialize:renameAs prop
         return [self thumbnailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSStream * result = (NSStream *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[NSStream class]];
+            NSStream * result = (NSStream *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSStream class]];
             callback(result, e);
         } 
         else {

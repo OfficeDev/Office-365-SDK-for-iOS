@@ -55,12 +55,91 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_accountEnabled = [dic objectForKey: @"accountEnabled"] != nil ? [[dic objectForKey: @"accountEnabled"] boolValue] : _accountEnabled;
+
+        if([dic objectForKey: @"alternativeSecurityIds"] != [NSNull null]){
+            _alternativeSecurityIds = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"alternativeSecurityIds"] count]];
+            
+            for (id object in [dic objectForKey: @"alternativeSecurityIds"]) {
+                [_alternativeSecurityIds addObject:[[MSDirectoryServicesAlternativeSecurityId alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_approximateLastLogonTimestamp = [dic objectForKey: @"approximateLastLogonTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"approximateLastLogonTimestamp"]] : _approximateLastLogonTimestamp;
+		_deviceId = [dic objectForKey: @"deviceId"] != nil ? [[dic objectForKey: @"deviceId"] copy] : _deviceId;
+		_deviceMetadata = [dic objectForKey: @"deviceMetadata"] != nil ? [[dic objectForKey: @"deviceMetadata"] copy] : _deviceMetadata;
+		_deviceObjectVersion = [dic objectForKey: @"deviceObjectVersion"] != nil ? [[dic objectForKey: @"deviceObjectVersion"] intValue] : _deviceObjectVersion;
+		_deviceOSType = [dic objectForKey: @"deviceOSType"] != nil ? [[dic objectForKey: @"deviceOSType"] copy] : _deviceOSType;
+		_deviceOSVersion = [dic objectForKey: @"deviceOSVersion"] != nil ? [[dic objectForKey: @"deviceOSVersion"] copy] : _deviceOSVersion;
+
+        if([dic objectForKey: @"devicePhysicalIds"] != [NSNull null]){
+            _devicePhysicalIds = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"devicePhysicalIds"] count]];
+            
+            for (id object in [dic objectForKey: @"devicePhysicalIds"]) {
+                [_devicePhysicalIds addObject:[object copy]];
+            }
+        }
+        
+		_deviceTrustType = [dic objectForKey: @"deviceTrustType"] != nil ? [[dic objectForKey: @"deviceTrustType"] copy] : _deviceTrustType;
+		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
+
+        if([dic objectForKey: @"registeredOwners"] != [NSNull null]){
+            _registeredOwners = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"registeredOwners"] count]];
+            
+            for (id object in [dic objectForKey: @"registeredOwners"]) {
+                [_registeredOwners addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"registeredUsers"] != [NSNull null]){
+            _registeredUsers = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"registeredUsers"] count]];
+            
+            for (id object in [dic objectForKey: @"registeredUsers"]) {
+                [_registeredUsers addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 (_accountEnabled?@"true":@"false"), @"accountEnabled",
+		 [[NSMutableArray alloc] init], @"alternativeSecurityIds",
+		 [MSOrcObjectizer stringFromDate:_approximateLastLogonTimestamp], @"approximateLastLogonTimestamp",
+		 [_deviceId copy], @"deviceId",
+		 [_deviceMetadata copy], @"deviceMetadata",
+		 [NSNumber numberWithInt: _deviceObjectVersion], @"deviceObjectVersion",
+		 [_deviceOSType copy], @"deviceOSType",
+		 [_deviceOSVersion copy], @"deviceOSVersion",
+		 [[NSMutableArray alloc] init], @"devicePhysicalIds",
+		 [_deviceTrustType copy], @"deviceTrustType",
+		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
+		 [_displayName copy], @"displayName",
+		 [MSOrcObjectizer stringFromDate:_lastDirSyncTime], @"lastDirSyncTime",
+		 [[NSMutableArray alloc] init], @"registeredOwners",
+		 [[NSMutableArray alloc] init], @"registeredUsers",
+            nil];
+}
+
+
 /** Setter implementation for property accountEnabled
  *
  */
 - (void) setAccountEnabled: (bool) value {
     _accountEnabled = value;
-    [self valueChangedForBool:_accountEnabled forProperty:@"accountEnabled"];
+    [self valueChangedFor:@"accountEnabled"];
 }
        
 /** Setter implementation for property alternativeSecurityIds
@@ -68,7 +147,7 @@ root for authoritative license information.﻿
  */
 - (void) setAlternativeSecurityIds: (NSMutableArray *) value {
     _alternativeSecurityIds = value;
-    [self valueChanged:_alternativeSecurityIds forProperty:@"alternativeSecurityIds"];
+    [self valueChangedFor:@"alternativeSecurityIds"];
 }
        
 /** Setter implementation for property approximateLastLogonTimestamp
@@ -76,7 +155,7 @@ root for authoritative license information.﻿
  */
 - (void) setApproximateLastLogonTimestamp: (NSDate *) value {
     _approximateLastLogonTimestamp = value;
-    [self valueChanged:_approximateLastLogonTimestamp forProperty:@"approximateLastLogonTimestamp"];
+    [self valueChangedFor:@"approximateLastLogonTimestamp"];
 }
        
 /** Setter implementation for property deviceId
@@ -84,7 +163,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceId: (NSString *) value {
     _deviceId = value;
-    [self valueChanged:_deviceId forProperty:@"deviceId"];
+    [self valueChangedFor:@"deviceId"];
 }
        
 /** Setter implementation for property deviceMetadata
@@ -92,7 +171,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceMetadata: (NSString *) value {
     _deviceMetadata = value;
-    [self valueChanged:_deviceMetadata forProperty:@"deviceMetadata"];
+    [self valueChangedFor:@"deviceMetadata"];
 }
        
 /** Setter implementation for property deviceObjectVersion
@@ -100,7 +179,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceObjectVersion: (int) value {
     _deviceObjectVersion = value;
-    [self valueChangedForInt:_deviceObjectVersion forProperty:@"deviceObjectVersion"];
+    [self valueChangedFor:@"deviceObjectVersion"];
 }
        
 /** Setter implementation for property deviceOSType
@@ -108,7 +187,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceOSType: (NSString *) value {
     _deviceOSType = value;
-    [self valueChanged:_deviceOSType forProperty:@"deviceOSType"];
+    [self valueChangedFor:@"deviceOSType"];
 }
        
 /** Setter implementation for property deviceOSVersion
@@ -116,7 +195,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceOSVersion: (NSString *) value {
     _deviceOSVersion = value;
-    [self valueChanged:_deviceOSVersion forProperty:@"deviceOSVersion"];
+    [self valueChangedFor:@"deviceOSVersion"];
 }
        
 /** Setter implementation for property devicePhysicalIds
@@ -124,7 +203,7 @@ root for authoritative license information.﻿
  */
 - (void) setDevicePhysicalIds: (NSMutableArray *) value {
     _devicePhysicalIds = value;
-    [self valueChanged:_devicePhysicalIds forProperty:@"devicePhysicalIds"];
+    [self valueChangedFor:@"devicePhysicalIds"];
 }
        
 /** Setter implementation for property deviceTrustType
@@ -132,7 +211,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeviceTrustType: (NSString *) value {
     _deviceTrustType = value;
-    [self valueChanged:_deviceTrustType forProperty:@"deviceTrustType"];
+    [self valueChangedFor:@"deviceTrustType"];
 }
        
 /** Setter implementation for property dirSyncEnabled
@@ -140,7 +219,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirSyncEnabled: (bool) value {
     _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+    [self valueChangedFor:@"dirSyncEnabled"];
 }
        
 /** Setter implementation for property displayName
@@ -148,7 +227,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property lastDirSyncTime
@@ -156,7 +235,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastDirSyncTime: (NSDate *) value {
     _lastDirSyncTime = value;
-    [self valueChanged:_lastDirSyncTime forProperty:@"lastDirSyncTime"];
+    [self valueChangedFor:@"lastDirSyncTime"];
 }
        
 /** Setter implementation for property registeredOwners
@@ -164,7 +243,7 @@ root for authoritative license information.﻿
  */
 - (void) setRegisteredOwners: (NSMutableArray *) value {
     _registeredOwners = value;
-    [self valueChanged:_registeredOwners forProperty:@"registeredOwners"];
+    [self valueChangedFor:@"registeredOwners"];
 }
        
 /** Setter implementation for property registeredUsers
@@ -172,7 +251,7 @@ root for authoritative license information.﻿
  */
 - (void) setRegisteredUsers: (NSMutableArray *) value {
     _registeredUsers = value;
-    [self valueChanged:_registeredUsers forProperty:@"registeredUsers"];
+    [self valueChangedFor:@"registeredUsers"];
 }
        
 

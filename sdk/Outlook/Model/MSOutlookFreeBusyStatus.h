@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookFreeBusyStatus
+/** Enum MSOutlookFreeBusyStatusEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookFreeBusyStatus) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSOutlookFreeBusyStatus) {
      * */
     MSOutlookFreeBusyStatusUnknown
 };
+
+
+@interface MSOutlookFreeBusyStatusSerializer : NSObject
++(MSOutlookFreeBusyStatus) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookFreeBusyStatus) value;
+@end
 
 #endif

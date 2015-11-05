@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesImageFacet
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,30 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_dateTimeTaken = [dic objectForKey: @"dateTimeTaken"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeTaken"]] : _dateTimeTaken;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_dateTimeTaken], @"dateTimeTaken",
+            nil];
+}
+
+
 /** Setter implementation for property dateTimeTaken
  *
  */
 - (void) setDateTimeTaken: (NSDate *) value {
     _dateTimeTaken = value;
-    [self valueChanged:_dateTimeTaken forProperty:@"dateTimeTaken"];
+    [self valueChangedFor:@"dateTimeTaken"];
 }
        
 

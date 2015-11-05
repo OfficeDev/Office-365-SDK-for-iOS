@@ -51,12 +51,51 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdBy"]] : _createdBy;
+		_eTag = [dic objectForKey: @"eTag"] != nil ? [[dic objectForKey: @"eTag"] copy] : _eTag;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedBy"]] : _lastModifiedBy;
+		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
+		_parentReference = [dic objectForKey: @"parentReference"] != nil ? [[MSFilesItemReference alloc] initWithDictionary: [dic objectForKey: @"parentReference"]] : _parentReference;
+		_size = [dic objectForKey: @"size"] != nil ? [[dic objectForKey: @"size"] longLongValue] : _size;
+		_dateTimeCreated = [dic objectForKey: @"dateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeCreated"]] : _dateTimeCreated;
+		_dateTimeLastModified = [dic objectForKey: @"dateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeLastModified"]] : _dateTimeLastModified;
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
+		_webUrl = [dic objectForKey: @"webUrl"] != nil ? [[dic objectForKey: @"webUrl"] copy] : _webUrl;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_createdBy toDictionary], @"createdBy",
+		 [_eTag copy], @"eTag",
+		 [__id copy], @"id",
+		 [_lastModifiedBy toDictionary], @"lastModifiedBy",
+		 [_name copy], @"name",
+		 [_parentReference toDictionary], @"parentReference",
+		 [NSNumber numberWithLongLong: _size], @"size",
+		 [MSOrcObjectizer stringFromDate:_dateTimeCreated], @"dateTimeCreated",
+		 [MSOrcObjectizer stringFromDate:_dateTimeLastModified], @"dateTimeLastModified",
+		 [_type copy], @"type",
+		 [_webUrl copy], @"webUrl",
+            nil];
+}
+
+
 /** Setter implementation for property createdBy
  *
  */
 - (void) setCreatedBy: (MSFilesIdentitySet *) value {
     _createdBy = value;
-    [self valueChanged:_createdBy forProperty:@"createdBy"];
+    [self valueChangedFor:@"createdBy"];
 }
        
 /** Setter implementation for property eTag
@@ -64,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setETag: (NSString *) value {
     _eTag = value;
-    [self valueChanged:_eTag forProperty:@"eTag"];
+    [self valueChangedFor:@"eTag"];
 }
        
 /** Setter implementation for property _id
@@ -72,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property lastModifiedBy
@@ -80,7 +119,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastModifiedBy: (MSFilesIdentitySet *) value {
     _lastModifiedBy = value;
-    [self valueChanged:_lastModifiedBy forProperty:@"lastModifiedBy"];
+    [self valueChangedFor:@"lastModifiedBy"];
 }
        
 /** Setter implementation for property name
@@ -88,7 +127,7 @@ root for authoritative license information.﻿
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"name"];
+    [self valueChangedFor:@"name"];
 }
        
 /** Setter implementation for property parentReference
@@ -96,15 +135,15 @@ root for authoritative license information.﻿
  */
 - (void) setParentReference: (MSFilesItemReference *) value {
     _parentReference = value;
-    [self valueChanged:_parentReference forProperty:@"parentReference"];
+    [self valueChangedFor:@"parentReference"];
 }
        
 /** Setter implementation for property size
  *
  */
-- (void) setSize: (int) value {
+- (void) setSize: (long long) value {
     _size = value;
-    [self valueChangedForInt:_size forProperty:@"size"];
+    [self valueChangedFor:@"size"];
 }
        
 /** Setter implementation for property dateTimeCreated
@@ -112,7 +151,7 @@ root for authoritative license information.﻿
  */
 - (void) setDateTimeCreated: (NSDate *) value {
     _dateTimeCreated = value;
-    [self valueChanged:_dateTimeCreated forProperty:@"dateTimeCreated"];
+    [self valueChangedFor:@"dateTimeCreated"];
 }
        
 /** Setter implementation for property dateTimeLastModified
@@ -120,7 +159,7 @@ root for authoritative license information.﻿
  */
 - (void) setDateTimeLastModified: (NSDate *) value {
     _dateTimeLastModified = value;
-    [self valueChanged:_dateTimeLastModified forProperty:@"dateTimeLastModified"];
+    [self valueChangedFor:@"dateTimeLastModified"];
 }
        
 /** Setter implementation for property type
@@ -128,7 +167,7 @@ root for authoritative license information.﻿
  */
 - (void) setType: (NSString *) value {
     _type = value;
-    [self valueChanged:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 /** Setter implementation for property webUrl
@@ -136,7 +175,7 @@ root for authoritative license information.﻿
  */
 - (void) setWebUrl: (NSString *) value {
     _webUrl = value;
-    [self valueChanged:_webUrl forProperty:@"webUrl"];
+    [self valueChangedFor:@"webUrl"];
 }
        
 

@@ -17,26 +17,29 @@ root for authoritative license information.﻿
 #define MSGRAPHPOST_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphItemBody;
 @class MSGraphRecipient;
+@class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphPost
  *
  */
-@interface MSGraphPost : MSGraphOutlookItem
+@interface MSGraphPost : MSGraphOutlookItem <MSOrcInteroperableWithDictionary>
 
 /** Property body
  *
  */
 @property (nonatomic,  copy, setter=setBody:, getter=body) MSGraphItemBody * body;
 
-/** Property dateTimeReceived
+/** Property receivedDateTime
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeReceived:, getter=dateTimeReceived) NSDate * dateTimeReceived;
+@property (nonatomic,  copy, setter=setReceivedDateTime:, getter=receivedDateTime) NSDate * receivedDateTime;
 
 /** Property hasAttachments
  *
@@ -58,25 +61,30 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setConversationThreadId:, getter=conversationThreadId) NSString * conversationThreadId;
 
-/** Property conversationId
- *
- */
-@property (nonatomic,  copy, setter=setConversationId:, getter=conversationId) NSString * conversationId;
-
 /** Property newParticipants
  *
  */
 @property (nonatomic,  copy, setter=setNewParticipants:, getter=getNewParticipants) NSMutableArray * newParticipants;
 
-/** Property attachments
+/** Property conversationId
  *
  */
-@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
+@property (nonatomic,  copy, setter=setConversationId:, getter=conversationId) NSString * conversationId;
+
+/** Property extensions
+ *
+ */
+@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property inReplyTo
  *
  */
 @property (nonatomic,  copy, setter=setInReplyTo:, getter=inReplyTo) MSGraphPost * inReplyTo;
+
+/** Property attachments
+ *
+ */
+@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

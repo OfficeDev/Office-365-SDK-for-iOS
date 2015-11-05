@@ -45,7 +45,7 @@ root for authoritative license information.﻿
 - (MSGraphConversationThreadFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=posts) MSGraphPostCollectionFetcher *posts;
 
-- (MSGraphPostFetcher *)postsById:(NSString*)identifier;
+- (MSGraphPostFetcher *)postsById:(id)identifier;
 
 
 @end

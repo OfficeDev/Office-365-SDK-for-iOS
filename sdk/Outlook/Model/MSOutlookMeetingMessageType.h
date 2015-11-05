@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookMeetingMessageType
+/** Enum MSOutlookMeetingMessageTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookMeetingMessageType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSOutlookMeetingMessageType) {
      * */
     MSOutlookMeetingMessageTypeMeetingDeclined
 };
+
+
+@interface MSOutlookMeetingMessageTypeSerializer : NSObject
++(MSOutlookMeetingMessageType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookMeetingMessageType) value;
+@end
 
 #endif

@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookRecurrenceRangeType
+/** Enum MSOutlookRecurrenceRangeTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookRecurrenceRangeType) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSOutlookRecurrenceRangeType) {
      * */
     MSOutlookRecurrenceRangeTypeNumbered
 };
+
+
+@interface MSOutlookRecurrenceRangeTypeSerializer : NSObject
++(MSOutlookRecurrenceRangeType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookRecurrenceRangeType) value;
+@end
 
 #endif

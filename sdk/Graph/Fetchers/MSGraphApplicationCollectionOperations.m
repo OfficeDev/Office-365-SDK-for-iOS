@@ -26,11 +26,12 @@ root for authoritative license information.﻿
 - (void)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSGraphApplication *, MSOrcError*))callback {
 
 
-    NSString *identifierUrisString = [self.resolver.jsonSerializer serialize:identifierUris property:@"identifierUris"];
+      NSString *identifierUrisString = [MSOrcObjectizer deobjectizeToString: identifierUris ];
+
     return [self restoreRawWithIdentifierUris:identifierUrisString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphApplication * result = (MSGraphApplication *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSGraphApplication class]];
+            MSGraphApplication * result = (MSGraphApplication *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphApplication class]];
             callback(result, e);
         } 
         else {

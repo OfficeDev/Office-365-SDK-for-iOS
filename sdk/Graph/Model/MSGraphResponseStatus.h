@@ -21,18 +21,19 @@ root for authoritative license information.﻿
 
 #import "MSGraphResponseType.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphResponseStatus
  *
  */
-@interface MSGraphResponseStatus : MSOrcBaseEntity
+@interface MSGraphResponseStatus : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property response
  *
  */
 @property (nonatomic,  setter=setResponse:, getter=response) MSGraphResponseType response;
 
-- (void)setResponseString:(NSString *)value;
+- (void)setResponseString:(NSString *)string;
 
 /** Property time
  *

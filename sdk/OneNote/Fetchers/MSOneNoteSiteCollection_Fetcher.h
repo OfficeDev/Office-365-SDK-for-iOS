@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 - (MSOneNoteSiteCollection_Fetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=sites) MSOneNoteSiteCollectionFetcher *sites;
 
-- (MSOneNoteSiteFetcher *)sitesById:(NSString*)identifier;
+- (MSOneNoteSiteFetcher *)sitesById:(id)identifier;
 
 
 @end

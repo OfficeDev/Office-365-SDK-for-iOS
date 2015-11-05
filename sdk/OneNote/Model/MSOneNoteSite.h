@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSONENOTESITE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOneNoteNotes;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNoteSite
  *
  */
-@interface MSOneNoteSite : MSOrcBaseEntity
+@interface MSOneNoteSite : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *

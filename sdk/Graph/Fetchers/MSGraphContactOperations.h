@@ -19,13 +19,13 @@ root for authoritative license information.﻿
 
 #import <orc.h>
 #import "MSGraphModels.h"
-#import "MSGraphDirectoryObjectOperations.h"
+#import "MSGraphOutlookItemOperations.h"
 
 
 /** MSGraphContactOperations
  *
  */
-@interface MSGraphContactOperations : MSGraphDirectoryObjectOperations
+@interface MSGraphContactOperations : MSGraphOutlookItemOperations
 
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 

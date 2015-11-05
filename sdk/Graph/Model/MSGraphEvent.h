@@ -17,24 +17,64 @@ root for authoritative license information.﻿
 #define MSGRAPHEVENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-@class MSGraphItemBody;
-@class MSGraphLocation;
 @class MSGraphResponseStatus;
-@class MSGraphAttendee;
+@class MSGraphItemBody;
+@class MSGraphDateTimeTimeZone;
+@class MSGraphLocation;
 @class MSGraphPatternedRecurrence;
+@class MSGraphAttendee;
 @class MSGraphRecipient;
-@class MSGraphAttachment;
 @class MSGraphCalendar;
+@class MSGraphExtension;
+@class MSGraphAttachment;
 #import "MSGraphImportance.h"
+#import "MSGraphSensitivity.h"
 #import "MSGraphFreeBusyStatus.h"
 #import "MSGraphEventType.h"
 #import "MSGraphOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphEvent
  *
  */
-@interface MSGraphEvent : MSGraphOutlookItem
+@interface MSGraphEvent : MSGraphOutlookItem <MSOrcInteroperableWithDictionary>
+
+/** Property originalStartTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setOriginalStartTimeZone:, getter=originalStartTimeZone) NSString * originalStartTimeZone;
+
+/** Property originalEndTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setOriginalEndTimeZone:, getter=originalEndTimeZone) NSString * originalEndTimeZone;
+
+/** Property responseStatus
+ *
+ */
+@property (nonatomic,  copy, setter=setResponseStatus:, getter=responseStatus) MSGraphResponseStatus * responseStatus;
+
+/** Property iCalUId
+ *
+ */
+@property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
+
+/** Property reminderMinutesBeforeStart
+ *
+ */
+@property (nonatomic,  setter=setReminderMinutesBeforeStart:, getter=reminderMinutesBeforeStart) int reminderMinutesBeforeStart;
+
+/** Property isReminderOn
+ *
+ */
+@property (nonatomic,  setter=setIsReminderOn:, getter=isReminderOn) bool isReminderOn;
+
+/** Property hasAttachments
+ *
+ */
+@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
 
 /** Property subject
  *
@@ -56,54 +96,34 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setImportance:, getter=importance) MSGraphImportance importance;
 
-- (void)setImportanceString:(NSString *)value;
+- (void)setImportanceString:(NSString *)string;
 
-/** Property hasAttachments
+/** Property sensitivity
  *
  */
-@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
+@property (nonatomic,  setter=setSensitivity:, getter=sensitivity) MSGraphSensitivity sensitivity;
+
+- (void)setSensitivityString:(NSString *)string;
 
 /** Property start
  *
  */
-@property (nonatomic,  copy, setter=setStart:, getter=start) NSDate * start;
+@property (nonatomic,  copy, setter=setStart:, getter=start) MSGraphDateTimeTimeZone * start;
 
-/** Property startTimeZone
+/** Property originalStart
  *
  */
-@property (nonatomic,  copy, setter=setStartTimeZone:, getter=startTimeZone) NSString * startTimeZone;
+@property (nonatomic,  copy, setter=setOriginalStart:, getter=originalStart) NSDate * originalStart;
 
 /** Property end
  *
  */
-@property (nonatomic,  copy, setter=setEnd:, getter=end) NSDate * end;
-
-/** Property endTimeZone
- *
- */
-@property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
-
-/** Property reminder
- *
- */
-@property (nonatomic,  setter=setReminder:, getter=reminder) int reminder;
+@property (nonatomic,  copy, setter=setEnd:, getter=end) MSGraphDateTimeTimeZone * end;
 
 /** Property location
  *
  */
 @property (nonatomic,  copy, setter=setLocation:, getter=location) MSGraphLocation * location;
-
-/** Property showAs
- *
- */
-@property (nonatomic,  setter=setShowAs:, getter=showAs) MSGraphFreeBusyStatus showAs;
-
-- (void)setShowAsString:(NSString *)value;
-
-/** Property responseStatus
- *
- */
-@property (nonatomic,  copy, setter=setResponseStatus:, getter=responseStatus) MSGraphResponseStatus * responseStatus;
 
 /** Property isAllDay
  *
@@ -120,52 +140,49 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setIsOrganizer:, getter=isOrganizer) bool isOrganizer;
 
+/** Property recurrence
+ *
+ */
+@property (nonatomic,  copy, setter=setRecurrence:, getter=recurrence) MSGraphPatternedRecurrence * recurrence;
+
 /** Property responseRequested
  *
  */
 @property (nonatomic,  setter=setResponseRequested:, getter=responseRequested) bool responseRequested;
-
-/** Property type
- *
- */
-@property (nonatomic,  setter=setType:, getter=type) MSGraphEventType type;
-
-- (void)setTypeString:(NSString *)value;
 
 /** Property seriesMasterId
  *
  */
 @property (nonatomic,  copy, setter=setSeriesMasterId:, getter=seriesMasterId) NSString * seriesMasterId;
 
+/** Property showAs
+ *
+ */
+@property (nonatomic,  setter=setShowAs:, getter=showAs) MSGraphFreeBusyStatus showAs;
+
+- (void)setShowAsString:(NSString *)string;
+
+/** Property type
+ *
+ */
+@property (nonatomic,  setter=setType:, getter=type) MSGraphEventType type;
+
+- (void)setTypeString:(NSString *)string;
+
 /** Property attendees
  *
  */
 @property (nonatomic,  copy, setter=setAttendees:, getter=attendees) NSMutableArray * attendees;
-
-/** Property recurrence
- *
- */
-@property (nonatomic,  copy, setter=setRecurrence:, getter=recurrence) MSGraphPatternedRecurrence * recurrence;
 
 /** Property organizer
  *
  */
 @property (nonatomic,  copy, setter=setOrganizer:, getter=organizer) MSGraphRecipient * organizer;
 
-/** Property iCalUId
- *
- */
-@property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
-
 /** Property webLink
  *
  */
 @property (nonatomic,  copy, setter=setWebLink:, getter=webLink) NSString * webLink;
-
-/** Property attachments
- *
- */
-@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
 
 /** Property calendar
  *
@@ -176,6 +193,16 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setInstances:, getter=instances) NSMutableArray * instances;
+
+/** Property extensions
+ *
+ */
+@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
+
+/** Property attachments
+ *
+ */
+@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

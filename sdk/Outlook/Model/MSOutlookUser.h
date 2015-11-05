@@ -17,20 +17,22 @@ root for authoritative license information.﻿
 #define MSOUTLOOKUSER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
+@class MSOutlookMessage;
 @class MSOutlookFolder;
 @class MSOutlookCalendar;
 @class MSOutlookCalendarGroup;
 @class MSOutlookEvent;
-@class MSOutlookMessage;
 @class MSOutlookContact;
 @class MSOutlookContactFolder;
 #import "MSOutlookDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookUser
  *
  */
-@interface MSOutlookUser : MSOutlookDirectoryObject
+@interface MSOutlookUser : MSOutlookDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property displayName
  *
@@ -47,45 +49,40 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setMailboxGuid:, getter=mailboxGuid) NSString * mailboxGuid;
 
-/** Property rootFolder
+/** Property messages
  *
  */
-@property (nonatomic,  copy, setter=setRootFolder:, getter=rootFolder) MSOutlookFolder * rootFolder;
-
-/** Property calendars
- *
- */
-@property (nonatomic,  copy, setter=setCalendars:, getter=calendars) NSMutableArray * calendars;
-
-/** Property calendar
- *
- */
-@property (nonatomic,  copy, setter=setCalendar:, getter=calendar) MSOutlookCalendar * calendar;
-
-/** Property calendarGroups
- *
- */
-@property (nonatomic,  copy, setter=setCalendarGroups:, getter=calendarGroups) NSMutableArray * calendarGroups;
-
-/** Property events
- *
- */
-@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
-
-/** Property calendarView
- *
- */
-@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
+@property (nonatomic,  copy, setter=setMessages:, getter=messages) NSMutableArray * messages;
 
 /** Property folders
  *
  */
 @property (nonatomic,  copy, setter=setFolders:, getter=folders) NSMutableArray * folders;
 
-/** Property messages
+/** Property calendar
  *
  */
-@property (nonatomic,  copy, setter=setMessages:, getter=messages) NSMutableArray * messages;
+@property (nonatomic,  copy, setter=setCalendar:, getter=calendar) MSOutlookCalendar * calendar;
+
+/** Property calendars
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendars:, getter=calendars) NSMutableArray * calendars;
+
+/** Property calendarGroups
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendarGroups:, getter=calendarGroups) NSMutableArray * calendarGroups;
+
+/** Property calendarView
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
+
+/** Property events
+ *
+ */
+@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
 
 /** Property contacts
  *
@@ -96,6 +93,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setContactFolders:, getter=contactFolders) NSMutableArray * contactFolders;
+
+/** Property rootFolder
+ *
+ */
+@property (nonatomic,  copy, setter=setRootFolder:, getter=rootFolder) MSOutlookFolder * rootFolder;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

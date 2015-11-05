@@ -69,17 +69,6 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphEventCollectionFetcher *)calendarView {
-
-    return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSGraphEvent class]];
-}
-
-- (MSGraphEventFetcher *)calendarViewById:(NSString *)identifier {
-
-    return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSGraphEvent class]] getById:identifier];
-
-}
-
 - (MSGraphEventCollectionFetcher *)events {
 
     return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]];
@@ -88,6 +77,17 @@ root for authoritative license information.﻿
 - (MSGraphEventFetcher *)eventsById:(NSString *)identifier {
 
     return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]] getById:identifier];
+
+}
+
+- (MSGraphEventCollectionFetcher *)calendarView {
+
+    return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSGraphEvent class]];
+}
+
+- (MSGraphEventFetcher *)calendarViewById:(NSString *)identifier {
+
+    return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSGraphEvent class]] getById:identifier];
 
 }
 

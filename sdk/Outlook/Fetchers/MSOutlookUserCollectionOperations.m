@@ -26,12 +26,14 @@ root for authoritative license information.﻿
 - (void)sendMailWithMessage:(MSOutlookMessage *)message saveToSentItems:(bool)saveToSentItems callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *messageString = [self.resolver.jsonSerializer serialize:message property:@"Message"];
-NSString *saveToSentItemsString = [self.resolver.jsonSerializer serialize:(saveToSentItems?@"true":@"false") property:@"SaveToSentItems"];
+      NSString *messageString = [MSOrcObjectizer deobjectizeToString: message ];
+
+  NSString *saveToSentItemsString = [MSOrcObjectizer deobjectizeToString: @(saveToSentItems) ];
+
     return [self sendMailRawWithMessage:messageString saveToSentItems:saveToSentItemsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookRecurrenceRange
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,28 +51,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+		_startDate = [dic objectForKey: @"StartDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"StartDate"]] : _startDate;
+		_endDate = [dic objectForKey: @"EndDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]] : _endDate;
+		_numberOfOccurrences = [dic objectForKey: @"NumberOfOccurrences"] != nil ? [[dic objectForKey: @"NumberOfOccurrences"] intValue] : _numberOfOccurrences;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOutlookRecurrenceRangeTypeSerializer toString:_type], @"Type",
+		 [MSOrcObjectizer stringFromDate:_startDate], @"StartDate",
+		 [MSOrcObjectizer stringFromDate:_endDate], @"EndDate",
+		 [NSNumber numberWithInt: _numberOfOccurrences], @"NumberOfOccurrences",
+            nil];
+}
+
+
 /** Setter implementation for property type
  *
  */
 - (void) setType: (MSOutlookRecurrenceRangeType) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
+    [self valueChangedFor:@"Type"];
 }
        
 
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookRecurrenceRangeTypeEndDate], @"EndDate", [NSNumber numberWithInt:MSOutlookRecurrenceRangeTypeNoEnd], @"NoEnd", [NSNumber numberWithInt:MSOutlookRecurrenceRangeTypeNumbered], @"Numbered",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSOutlookRecurrenceRangeTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
 }
 
 /** Setter implementation for property startDate
@@ -78,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setStartDate: (NSDate *) value {
     _startDate = value;
-    [self valueChanged:_startDate forProperty:@"StartDate"];
+    [self valueChangedFor:@"StartDate"];
 }
        
 /** Setter implementation for property endDate
@@ -86,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setEndDate: (NSDate *) value {
     _endDate = value;
-    [self valueChanged:_endDate forProperty:@"EndDate"];
+    [self valueChangedFor:@"EndDate"];
 }
        
 /** Setter implementation for property numberOfOccurrences
@@ -94,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setNumberOfOccurrences: (int) value {
     _numberOfOccurrences = value;
-    [self valueChangedForInt:_numberOfOccurrences forProperty:@"NumberOfOccurrences"];
+    [self valueChangedFor:@"NumberOfOccurrences"];
 }
        
 

@@ -23,6 +23,7 @@ root for authoritative license information.﻿
 
 @class MSGraphMessageFetcher;	
 @class MSGraphEventFetcher;	
+@class MSGraphContactFetcher;	
 @class MSGraphPostFetcher;	
 @class MSGraphOutlookItemOperations;
 
@@ -44,6 +45,7 @@ root for authoritative license information.﻿
 - (MSGraphOutlookItemFetcher *)expand:(NSString *)value;
 - (MSGraphMessageFetcher *)asMessage;	
 - (MSGraphEventFetcher *)asEvent;	
+- (MSGraphContactFetcher *)asContact;	
 - (MSGraphPostFetcher *)asPost;	
 
 @end

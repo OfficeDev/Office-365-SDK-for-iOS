@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphFreeBusyStatus
+/** Enum MSGraphFreeBusyStatusEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphFreeBusyStatus) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSGraphFreeBusyStatus) {
      * */
     MSGraphFreeBusyStatusUnknown
 };
+
+
+@interface MSGraphFreeBusyStatusSerializer : NSObject
++(MSGraphFreeBusyStatus) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphFreeBusyStatus) value;
+@end
 
 #endif

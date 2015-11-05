@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNotePatchContentCommand
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,28 +51,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_action = [dic objectForKey: @"action"] != nil ? [MSOneNotePatchActionTypeSerializer fromString:[dic objectForKey: @"action"]] : _action;
+		_target = [dic objectForKey: @"target"] != nil ? [[dic objectForKey: @"target"] copy] : _target;
+		_content = [dic objectForKey: @"content"] != nil ? [[dic objectForKey: @"content"] copy] : _content;
+		_position = [dic objectForKey: @"position"] != nil ? [MSOneNotePatchInsertPositionSerializer fromString:[dic objectForKey: @"position"]] : _position;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOneNotePatchActionTypeSerializer toString:_action], @"action",
+		 [_target copy], @"target",
+		 [_content copy], @"content",
+		 [MSOneNotePatchInsertPositionSerializer toString:_position], @"position",
+            nil];
+}
+
+
 /** Setter implementation for property action
  *
  */
 - (void) setAction: (MSOneNotePatchActionType) value {
     _action = value;
-    [self valueChangedForInt:_action forProperty:@"action"];
+    [self valueChangedFor:@"action"];
 }
        
 
-- (void)setActionString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOneNotePatchActionTypeReplace], @"Replace", [NSNumber numberWithInt:MSOneNotePatchActionTypeAppend], @"Append", [NSNumber numberWithInt:MSOneNotePatchActionTypeDelete], @"Delete", [NSNumber numberWithInt:MSOneNotePatchActionTypeInsert], @"Insert", [NSNumber numberWithInt:MSOneNotePatchActionTypePrepend], @"Prepend",
-            nil        
-        ];
-    }
-    
-    self.action = [stringMappings[value] intValue]; 
+- (void)setActionString:(NSString *)string {
+        
+    _action = [MSOneNotePatchActionTypeSerializer fromString:string];
+    [self valueChangedFor:@"action"]; 
 }
 
 /** Setter implementation for property target
@@ -78,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setTarget: (NSString *) value {
     _target = value;
-    [self valueChanged:_target forProperty:@"target"];
+    [self valueChangedFor:@"target"];
 }
        
 /** Setter implementation for property content
@@ -86,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setContent: (NSString *) value {
     _content = value;
-    [self valueChanged:_content forProperty:@"content"];
+    [self valueChangedFor:@"content"];
 }
        
 /** Setter implementation for property position
@@ -94,23 +111,14 @@ root for authoritative license information.﻿
  */
 - (void) setPosition: (MSOneNotePatchInsertPosition) value {
     _position = value;
-    [self valueChangedForInt:_position forProperty:@"position"];
+    [self valueChangedFor:@"position"];
 }
        
 
-- (void)setPositionString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOneNotePatchInsertPositionAfter], @"After", [NSNumber numberWithInt:MSOneNotePatchInsertPositionBefore], @"Before",
-            nil        
-        ];
-    }
-    
-    self.position = [stringMappings[value] intValue]; 
+- (void)setPositionString:(NSString *)string {
+        
+    _position = [MSOneNotePatchInsertPositionSerializer fromString:string];
+    [self valueChangedFor:@"position"]; 
 }
 
 

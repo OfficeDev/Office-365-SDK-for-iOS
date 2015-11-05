@@ -45,7 +45,7 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesGroupFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryServicesAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
-- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString*)identifier;
+- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
 
 
 @end

@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookDayOfWeek
+/** Enum MSOutlookDayOfWeekEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookDayOfWeek) {
@@ -45,5 +45,11 @@ typedef NS_ENUM(NSInteger, MSOutlookDayOfWeek) {
      * */
     MSOutlookDayOfWeekSaturday
 };
+
+
+@interface MSOutlookDayOfWeekSerializer : NSObject
++(MSOutlookDayOfWeek) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookDayOfWeek) value;
+@end
 
 #endif

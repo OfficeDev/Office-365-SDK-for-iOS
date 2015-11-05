@@ -52,4 +52,21 @@ root for authoritative license information.﻿
 }
 
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+                nil];
+}
+
+
+
 @end

@@ -51,12 +51,37 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
+		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
+		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [__self copy], @"self",
+		 nil/*NSStream*/, @"content",
+		 [_contentUrl copy], @"contentUrl",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property _self
@@ -64,7 +89,7 @@ root for authoritative license information.﻿
  */
 - (void) setSelf: (NSString *) value {
     __self = value;
-    [self valueChanged:__self forProperty:@"self"];
+    [self valueChangedFor:@"self"];
 }
        
 /** Setter implementation for property content
@@ -72,7 +97,7 @@ root for authoritative license information.﻿
  */
 - (void) setContent: (NSStream *) value {
     _content = value;
-    [self valueChanged:_content forProperty:@"content"];
+    [self valueChangedFor:@"content"];
 }
        
 /** Setter implementation for property contentUrl
@@ -80,7 +105,7 @@ root for authoritative license information.﻿
  */
 - (void) setContentUrl: (NSString *) value {
     _contentUrl = value;
-    [self valueChanged:_contentUrl forProperty:@"contentUrl"];
+    [self valueChangedFor:@"contentUrl"];
 }
        
 

@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesOAuth2PermissionGrant
  *
  */
-@interface MSDirectoryServicesOAuth2PermissionGrant : MSOrcBaseEntity
+@interface MSDirectoryServicesOAuth2PermissionGrant : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property clientId
  *

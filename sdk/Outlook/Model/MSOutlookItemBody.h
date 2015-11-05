@@ -21,18 +21,19 @@ root for authoritative license information.﻿
 
 #import "MSOutlookBodyType.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookItemBody
  *
  */
-@interface MSOutlookItemBody : MSOrcBaseEntity
+@interface MSOutlookItemBody : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property contentType
  *
  */
 @property (nonatomic,  setter=setContentType:, getter=contentType) MSOutlookBodyType contentType;
 
-- (void)setContentTypeString:(NSString *)value;
+- (void)setContentTypeString:(NSString *)string;
 
 /** Property content
  *

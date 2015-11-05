@@ -26,12 +26,14 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSGraphRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-NSString *toRecipientsString = [self.resolver.jsonSerializer serialize:toRecipients property:@"ToRecipients"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString: toRecipients ];
+
     return [self forwardRawWithComment:commentString toRecipients:toRecipientsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -71,11 +73,12 @@ NSString *toRecipientsString = [self.resolver.jsonSerializer serialize:toRecipie
 - (void)replyWithPost:(MSGraphPost *)post callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *postString = [self.resolver.jsonSerializer serialize:post property:@"Post"];
+      NSString *postString = [MSOrcObjectizer deobjectizeToString: post ];
+
     return [self replyRawWithPost:postString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {

@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSFILESCURRENTUSERREQUESTCONTEXT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSFilesDrive;
 @class MSFilesItem;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesCurrentUserRequestContext
  *
  */
-@interface MSFilesCurrentUserRequestContext : MSOrcBaseEntity
+@interface MSFilesCurrentUserRequestContext : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *

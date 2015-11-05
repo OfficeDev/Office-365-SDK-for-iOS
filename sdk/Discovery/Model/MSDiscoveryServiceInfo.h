@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSDISCOVERYSERVICEINFO_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDiscoveryServiceInfo
  *
  */
-@interface MSDiscoveryServiceInfo : MSOrcBaseEntity
+@interface MSDiscoveryServiceInfo : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property capability
  *

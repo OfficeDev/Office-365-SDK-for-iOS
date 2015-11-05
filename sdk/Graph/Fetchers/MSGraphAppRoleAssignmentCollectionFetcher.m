@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphAppRoleAssignmentFetcher *)getById:(NSString *)_id {
+- (MSGraphAppRoleAssignmentFetcher *)getById:(id) identifier {
 
-    return [[MSGraphAppRoleAssignmentFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSGraphAppRoleAssignmentFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSGraphAppRoleAssignmentCollectionFetcher *)select:(NSString *)params {

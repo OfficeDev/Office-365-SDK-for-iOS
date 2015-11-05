@@ -53,12 +53,89 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_city = [dic objectForKey: @"city"] != nil ? [[dic objectForKey: @"city"] copy] : _city;
+		_country = [dic objectForKey: @"country"] != nil ? [[dic objectForKey: @"country"] copy] : _country;
+		_department = [dic objectForKey: @"department"] != nil ? [[dic objectForKey: @"department"] copy] : _department;
+		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_facsimileTelephoneNumber = [dic objectForKey: @"facsimileTelephoneNumber"] != nil ? [[dic objectForKey: @"facsimileTelephoneNumber"] copy] : _facsimileTelephoneNumber;
+		_givenName = [dic objectForKey: @"givenName"] != nil ? [[dic objectForKey: @"givenName"] copy] : _givenName;
+		_jobTitle = [dic objectForKey: @"jobTitle"] != nil ? [[dic objectForKey: @"jobTitle"] copy] : _jobTitle;
+		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
+		_mail = [dic objectForKey: @"mail"] != nil ? [[dic objectForKey: @"mail"] copy] : _mail;
+		_mailNickname = [dic objectForKey: @"mailNickname"] != nil ? [[dic objectForKey: @"mailNickname"] copy] : _mailNickname;
+		_mobile = [dic objectForKey: @"mobile"] != nil ? [[dic objectForKey: @"mobile"] copy] : _mobile;
+		_physicalDeliveryOfficeName = [dic objectForKey: @"physicalDeliveryOfficeName"] != nil ? [[dic objectForKey: @"physicalDeliveryOfficeName"] copy] : _physicalDeliveryOfficeName;
+		_postalCode = [dic objectForKey: @"postalCode"] != nil ? [[dic objectForKey: @"postalCode"] copy] : _postalCode;
+
+        if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
+            _provisioningErrors = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisioningErrors"] count]];
+            
+            for (id object in [dic objectForKey: @"provisioningErrors"]) {
+                [_provisioningErrors addObject:[[MSDirectoryServicesProvisioningError alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"proxyAddresses"] != [NSNull null]){
+            _proxyAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"proxyAddresses"] count]];
+            
+            for (id object in [dic objectForKey: @"proxyAddresses"]) {
+                [_proxyAddresses addObject:[object copy]];
+            }
+        }
+        
+		_sipProxyAddress = [dic objectForKey: @"sipProxyAddress"] != nil ? [[dic objectForKey: @"sipProxyAddress"] copy] : _sipProxyAddress;
+		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
+		_streetAddress = [dic objectForKey: @"streetAddress"] != nil ? [[dic objectForKey: @"streetAddress"] copy] : _streetAddress;
+		_surname = [dic objectForKey: @"surname"] != nil ? [[dic objectForKey: @"surname"] copy] : _surname;
+		_telephoneNumber = [dic objectForKey: @"telephoneNumber"] != nil ? [[dic objectForKey: @"telephoneNumber"] copy] : _telephoneNumber;
+		_thumbnailPhoto = [dic objectForKey: @"thumbnailPhoto"] != nil ? nil/*NSStream*/ : _thumbnailPhoto;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_city copy], @"city",
+		 [_country copy], @"country",
+		 [_department copy], @"department",
+		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
+		 [_displayName copy], @"displayName",
+		 [_facsimileTelephoneNumber copy], @"facsimileTelephoneNumber",
+		 [_givenName copy], @"givenName",
+		 [_jobTitle copy], @"jobTitle",
+		 [MSOrcObjectizer stringFromDate:_lastDirSyncTime], @"lastDirSyncTime",
+		 [_mail copy], @"mail",
+		 [_mailNickname copy], @"mailNickname",
+		 [_mobile copy], @"mobile",
+		 [_physicalDeliveryOfficeName copy], @"physicalDeliveryOfficeName",
+		 [_postalCode copy], @"postalCode",
+		 [[NSMutableArray alloc] init], @"provisioningErrors",
+		 [[NSMutableArray alloc] init], @"proxyAddresses",
+		 [_sipProxyAddress copy], @"sipProxyAddress",
+		 [_state copy], @"state",
+		 [_streetAddress copy], @"streetAddress",
+		 [_surname copy], @"surname",
+		 [_telephoneNumber copy], @"telephoneNumber",
+		 nil/*NSStream*/, @"thumbnailPhoto",
+            nil];
+}
+
+
 /** Setter implementation for property city
  *
  */
 - (void) setCity: (NSString *) value {
     _city = value;
-    [self valueChanged:_city forProperty:@"city"];
+    [self valueChangedFor:@"city"];
 }
        
 /** Setter implementation for property country
@@ -66,7 +143,7 @@ root for authoritative license information.﻿
  */
 - (void) setCountry: (NSString *) value {
     _country = value;
-    [self valueChanged:_country forProperty:@"country"];
+    [self valueChangedFor:@"country"];
 }
        
 /** Setter implementation for property department
@@ -74,7 +151,7 @@ root for authoritative license information.﻿
  */
 - (void) setDepartment: (NSString *) value {
     _department = value;
-    [self valueChanged:_department forProperty:@"department"];
+    [self valueChangedFor:@"department"];
 }
        
 /** Setter implementation for property dirSyncEnabled
@@ -82,7 +159,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirSyncEnabled: (bool) value {
     _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+    [self valueChangedFor:@"dirSyncEnabled"];
 }
        
 /** Setter implementation for property displayName
@@ -90,7 +167,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property facsimileTelephoneNumber
@@ -98,7 +175,7 @@ root for authoritative license information.﻿
  */
 - (void) setFacsimileTelephoneNumber: (NSString *) value {
     _facsimileTelephoneNumber = value;
-    [self valueChanged:_facsimileTelephoneNumber forProperty:@"facsimileTelephoneNumber"];
+    [self valueChangedFor:@"facsimileTelephoneNumber"];
 }
        
 /** Setter implementation for property givenName
@@ -106,7 +183,7 @@ root for authoritative license information.﻿
  */
 - (void) setGivenName: (NSString *) value {
     _givenName = value;
-    [self valueChanged:_givenName forProperty:@"givenName"];
+    [self valueChangedFor:@"givenName"];
 }
        
 /** Setter implementation for property jobTitle
@@ -114,7 +191,7 @@ root for authoritative license information.﻿
  */
 - (void) setJobTitle: (NSString *) value {
     _jobTitle = value;
-    [self valueChanged:_jobTitle forProperty:@"jobTitle"];
+    [self valueChangedFor:@"jobTitle"];
 }
        
 /** Setter implementation for property lastDirSyncTime
@@ -122,7 +199,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastDirSyncTime: (NSDate *) value {
     _lastDirSyncTime = value;
-    [self valueChanged:_lastDirSyncTime forProperty:@"lastDirSyncTime"];
+    [self valueChangedFor:@"lastDirSyncTime"];
 }
        
 /** Setter implementation for property mail
@@ -130,7 +207,7 @@ root for authoritative license information.﻿
  */
 - (void) setMail: (NSString *) value {
     _mail = value;
-    [self valueChanged:_mail forProperty:@"mail"];
+    [self valueChangedFor:@"mail"];
 }
        
 /** Setter implementation for property mailNickname
@@ -138,7 +215,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailNickname: (NSString *) value {
     _mailNickname = value;
-    [self valueChanged:_mailNickname forProperty:@"mailNickname"];
+    [self valueChangedFor:@"mailNickname"];
 }
        
 /** Setter implementation for property mobile
@@ -146,7 +223,7 @@ root for authoritative license information.﻿
  */
 - (void) setMobile: (NSString *) value {
     _mobile = value;
-    [self valueChanged:_mobile forProperty:@"mobile"];
+    [self valueChangedFor:@"mobile"];
 }
        
 /** Setter implementation for property physicalDeliveryOfficeName
@@ -154,7 +231,7 @@ root for authoritative license information.﻿
  */
 - (void) setPhysicalDeliveryOfficeName: (NSString *) value {
     _physicalDeliveryOfficeName = value;
-    [self valueChanged:_physicalDeliveryOfficeName forProperty:@"physicalDeliveryOfficeName"];
+    [self valueChangedFor:@"physicalDeliveryOfficeName"];
 }
        
 /** Setter implementation for property postalCode
@@ -162,7 +239,7 @@ root for authoritative license information.﻿
  */
 - (void) setPostalCode: (NSString *) value {
     _postalCode = value;
-    [self valueChanged:_postalCode forProperty:@"postalCode"];
+    [self valueChangedFor:@"postalCode"];
 }
        
 /** Setter implementation for property provisioningErrors
@@ -170,7 +247,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisioningErrors: (NSMutableArray *) value {
     _provisioningErrors = value;
-    [self valueChanged:_provisioningErrors forProperty:@"provisioningErrors"];
+    [self valueChangedFor:@"provisioningErrors"];
 }
        
 /** Setter implementation for property proxyAddresses
@@ -178,7 +255,7 @@ root for authoritative license information.﻿
  */
 - (void) setProxyAddresses: (NSMutableArray *) value {
     _proxyAddresses = value;
-    [self valueChanged:_proxyAddresses forProperty:@"proxyAddresses"];
+    [self valueChangedFor:@"proxyAddresses"];
 }
        
 /** Setter implementation for property sipProxyAddress
@@ -186,7 +263,7 @@ root for authoritative license information.﻿
  */
 - (void) setSipProxyAddress: (NSString *) value {
     _sipProxyAddress = value;
-    [self valueChanged:_sipProxyAddress forProperty:@"sipProxyAddress"];
+    [self valueChangedFor:@"sipProxyAddress"];
 }
        
 /** Setter implementation for property state
@@ -194,7 +271,7 @@ root for authoritative license information.﻿
  */
 - (void) setState: (NSString *) value {
     _state = value;
-    [self valueChanged:_state forProperty:@"state"];
+    [self valueChangedFor:@"state"];
 }
        
 /** Setter implementation for property streetAddress
@@ -202,7 +279,7 @@ root for authoritative license information.﻿
  */
 - (void) setStreetAddress: (NSString *) value {
     _streetAddress = value;
-    [self valueChanged:_streetAddress forProperty:@"streetAddress"];
+    [self valueChangedFor:@"streetAddress"];
 }
        
 /** Setter implementation for property surname
@@ -210,7 +287,7 @@ root for authoritative license information.﻿
  */
 - (void) setSurname: (NSString *) value {
     _surname = value;
-    [self valueChanged:_surname forProperty:@"surname"];
+    [self valueChangedFor:@"surname"];
 }
        
 /** Setter implementation for property telephoneNumber
@@ -218,7 +295,7 @@ root for authoritative license information.﻿
  */
 - (void) setTelephoneNumber: (NSString *) value {
     _telephoneNumber = value;
-    [self valueChanged:_telephoneNumber forProperty:@"telephoneNumber"];
+    [self valueChangedFor:@"telephoneNumber"];
 }
        
 /** Setter implementation for property thumbnailPhoto
@@ -226,7 +303,7 @@ root for authoritative license information.﻿
  */
 - (void) setThumbnailPhoto: (NSStream *) value {
     _thumbnailPhoto = value;
-    [self valueChanged:_thumbnailPhoto forProperty:@"thumbnailPhoto"];
+    [self valueChangedFor:@"thumbnailPhoto"];
 }
        
 

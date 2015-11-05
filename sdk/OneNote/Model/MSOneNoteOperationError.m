@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteOperationError
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_code = [dic objectForKey: @"code"] != nil ? [[dic objectForKey: @"code"] copy] : _code;
+		_message = [dic objectForKey: @"message"] != nil ? [[dic objectForKey: @"message"] copy] : _message;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_code copy], @"code",
+		 [_message copy], @"message",
+            nil];
+}
+
+
 /** Setter implementation for property code
  *
  */
 - (void) setCode: (NSString *) value {
     _code = value;
-    [self valueChanged:_code forProperty:@"code"];
+    [self valueChangedFor:@"code"];
 }
        
 /** Setter implementation for property message
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setMessage: (NSString *) value {
     _message = value;
-    [self valueChanged:_message forProperty:@"message"];
+    [self valueChangedFor:@"message"];
 }
        
 

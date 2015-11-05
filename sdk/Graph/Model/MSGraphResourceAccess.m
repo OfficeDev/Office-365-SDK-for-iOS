@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphResourceAccess
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [_type copy], @"type",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property type
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setType: (NSString *) value {
     _type = value;
-    [self valueChanged:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 

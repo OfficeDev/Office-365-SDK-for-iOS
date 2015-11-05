@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 #import "MSOrcEntityFetcher.h"
 
 @class MSOneNoteNotebookLinksFetcher;
-@class MSOneNoteComplexUserFetcher;
+@class MSOneNoteIdentitySetFetcher;
 @class MSOneNoteSectionCollectionFetcher;
 @class MSOneNoteSectionGroupCollectionFetcher;
 @class MSOneNoteSectionCollectionFetcher;
@@ -49,11 +49,11 @@ root for authoritative license information.﻿
 - (MSOneNoteNotebookFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=sections) MSOneNoteSectionCollectionFetcher *sections;
 
-- (MSOneNoteSectionFetcher *)sectionsById:(NSString*)identifier;
+- (MSOneNoteSectionFetcher *)sectionsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=sectionGroups) MSOneNoteSectionGroupCollectionFetcher *sectionGroups;
 
-- (MSOneNoteSectionGroupFetcher *)sectionGroupsById:(NSString*)identifier;
+- (MSOneNoteSectionGroupFetcher *)sectionGroupsById:(id)identifier;
 
 
 @end

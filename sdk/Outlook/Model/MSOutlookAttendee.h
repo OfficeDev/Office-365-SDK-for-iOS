@@ -22,11 +22,12 @@ root for authoritative license information.﻿
 @class MSOutlookResponseStatus;
 #import "MSOutlookAttendeeType.h"
 #import "MSOutlookRecipient.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookAttendee
  *
  */
-@interface MSOutlookAttendee : MSOutlookRecipient
+@interface MSOutlookAttendee : MSOutlookRecipient <MSOrcInteroperableWithDictionary>
 
 /** Property status
  *
@@ -38,7 +39,7 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setType:, getter=type) MSOutlookAttendeeType type;
 
-- (void)setTypeString:(NSString *)value;
+- (void)setTypeString:(NSString *)string;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

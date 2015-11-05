@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSOneNoteUserFetcher *)getById:(NSString *)Id;
+- (MSOneNoteUserFetcher *)getById: (id) identifier;
 - (void)add:(MSOneNoteUser *)entity callback:(void (^)(MSOneNoteUser *, MSOrcError *))callback;
 
 - (MSOneNoteUserCollectionFetcher *)select:(NSString *)params;

@@ -79,6 +79,11 @@ root for authoritative license information.﻿
 	return [[MSGraphEventFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphEvent class]];
 }
 
+- (MSGraphContactFetcher *)asContact {
+
+	return [[MSGraphContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphContact class]];
+}
+
 - (MSGraphPostFetcher *)asPost {
 
 	return [[MSGraphPostFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphPost class]];

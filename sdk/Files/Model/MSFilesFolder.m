@@ -52,12 +52,41 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_childCount = [dic objectForKey: @"childCount"] != nil ? [[dic objectForKey: @"childCount"] intValue] : _childCount;
+
+        if([dic objectForKey: @"children"] != [NSNull null]){
+            _children = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"children"] count]];
+            
+            for (id object in [dic objectForKey: @"children"]) {
+                [_children addObject:[[MSFilesItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithInt: _childCount], @"childCount",
+		 [[NSMutableArray alloc] init], @"children",
+            nil];
+}
+
+
 /** Setter implementation for property childCount
  *
  */
 - (void) setChildCount: (int) value {
     _childCount = value;
-    [self valueChangedForInt:_childCount forProperty:@"childCount"];
+    [self valueChangedFor:@"childCount"];
 }
        
 /** Setter implementation for property children
@@ -65,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setChildren: (NSMutableArray *) value {
     _children = value;
-    [self valueChanged:_children forProperty:@"children"];
+    [self valueChangedFor:@"children"];
 }
        
 

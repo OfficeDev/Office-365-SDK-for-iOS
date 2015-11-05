@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHDIRECTORYROLETEMPLATE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphDirectoryRoleTemplate
  *
  */
-@interface MSGraphDirectoryRoleTemplate : MSGraphDirectoryObject
+@interface MSGraphDirectoryRoleTemplate : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property _description
  *

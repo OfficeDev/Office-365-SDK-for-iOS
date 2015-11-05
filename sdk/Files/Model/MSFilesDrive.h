@@ -17,16 +17,18 @@ root for authoritative license information.﻿
 #define MSFILESDRIVE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSFilesIdentity;
 @class MSFilesDriveQuota;
 @class MSFilesItem;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesDrive
  *
  */
-@interface MSFilesDrive : MSOrcBaseEntity
+@interface MSFilesDrive : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *

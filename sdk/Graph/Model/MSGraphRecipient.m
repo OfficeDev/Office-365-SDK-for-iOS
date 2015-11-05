@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphRecipient
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,30 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : _emailAddress;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_emailAddress toDictionary], @"EmailAddress",
+            nil];
+}
+
+
 /** Setter implementation for property emailAddress
  *
  */
 - (void) setEmailAddress: (MSGraphEmailAddress *) value {
     _emailAddress = value;
-    [self valueChanged:_emailAddress forProperty:@"EmailAddress"];
+    [self valueChangedFor:@"EmailAddress"];
 }
        
 

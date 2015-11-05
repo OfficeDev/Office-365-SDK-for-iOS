@@ -21,18 +21,19 @@ root for authoritative license information.﻿
 
 #import "MSOutlookResponseType.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookResponseStatus
  *
  */
-@interface MSOutlookResponseStatus : MSOrcBaseEntity
+@interface MSOutlookResponseStatus : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property response
  *
  */
 @property (nonatomic,  setter=setResponse:, getter=response) MSOutlookResponseType response;
 
-- (void)setResponseString:(NSString *)value;
+- (void)setResponseString:(NSString *)string;
 
 /** Property time
  *

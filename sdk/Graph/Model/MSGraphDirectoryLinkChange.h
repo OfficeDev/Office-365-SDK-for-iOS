@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHDIRECTORYLINKCHANGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphDirectoryLinkChange
  *
  */
-@interface MSGraphDirectoryLinkChange : MSGraphDirectoryObject
+@interface MSGraphDirectoryLinkChange : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property associationType
  *

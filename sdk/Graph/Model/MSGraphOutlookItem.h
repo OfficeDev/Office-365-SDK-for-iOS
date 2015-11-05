@@ -17,18 +17,25 @@ root for authoritative license information.﻿
 #define MSGRAPHOUTLOOKITEM_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphOutlookItem
  *
  */
-@interface MSGraphOutlookItem : MSOrcBaseEntity
+@interface MSGraphOutlookItem : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
-/** Property _id
+/** Property createdDateTime
  *
  */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@property (nonatomic,  copy, setter=setCreatedDateTime:, getter=createdDateTime) NSDate * createdDateTime;
+
+/** Property lastModifiedDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate * lastModifiedDateTime;
 
 /** Property changeKey
  *
@@ -39,16 +46,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setCategories:, getter=categories) NSMutableArray * categories;
-
-/** Property dateTimeCreated
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeCreated:, getter=dateTimeCreated) NSDate * dateTimeCreated;
-
-/** Property dateTimeLastModified
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

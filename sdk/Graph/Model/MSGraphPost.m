@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"DateTimeReceived", @"dateTimeReceived", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"ConversationId", @"conversationId", @"NewParticipants", @"newParticipants", @"Attachments", @"attachments", @"InReplyTo", @"inReplyTo", @"Id", @"_id", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"ReceivedDateTime", @"receivedDateTime", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"NewParticipants", @"newParticipants", @"ConversationId", @"conversationId", @"Extensions", @"extensions", @"InReplyTo", @"inReplyTo", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -47,26 +47,90 @@ root for authoritative license information.﻿
         
         
 		_newParticipants = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_extensions = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_body = [dic objectForKey: @"Body"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
+		_receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : _receivedDateTime;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_from = [dic objectForKey: @"From"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : _from;
+		_sender = [dic objectForKey: @"Sender"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : _sender;
+		_conversationThreadId = [dic objectForKey: @"ConversationThreadId"] != nil ? [[dic objectForKey: @"ConversationThreadId"] copy] : _conversationThreadId;
+
+        if([dic objectForKey: @"NewParticipants"] != [NSNull null]){
+            _newParticipants = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"NewParticipants"] count]];
+            
+            for (id object in [dic objectForKey: @"NewParticipants"]) {
+                [_newParticipants addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : _conversationId;
+
+        if([dic objectForKey: @"Extensions"] != [NSNull null]){
+            _extensions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Extensions"] count]];
+            
+            for (id object in [dic objectForKey: @"Extensions"]) {
+                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_inReplyTo = [dic objectForKey: @"InReplyTo"] != nil ? [[MSGraphPost alloc] initWithDictionary: [dic objectForKey: @"InReplyTo"]] : _inReplyTo;
+
+        if([dic objectForKey: @"Attachments"] != [NSNull null]){
+            _attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            
+            for (id object in [dic objectForKey: @"Attachments"]) {
+                [_attachments addObject:[[MSGraphAttachment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_body toDictionary], @"Body",
+		 [MSOrcObjectizer stringFromDate:_receivedDateTime], @"ReceivedDateTime",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [_from toDictionary], @"From",
+		 [_sender toDictionary], @"Sender",
+		 [_conversationThreadId copy], @"ConversationThreadId",
+		 [[NSMutableArray alloc] init], @"NewParticipants",
+		 [_conversationId copy], @"ConversationId",
+		 [[NSMutableArray alloc] init], @"Extensions",
+		 [_inReplyTo toDictionary], @"InReplyTo",
+		 [[NSMutableArray alloc] init], @"Attachments",
+            nil];
+}
+
+
 /** Setter implementation for property body
  *
  */
 - (void) setBody: (MSGraphItemBody *) value {
     _body = value;
-    [self valueChanged:_body forProperty:@"Body"];
+    [self valueChangedFor:@"Body"];
 }
        
-/** Setter implementation for property dateTimeReceived
+/** Setter implementation for property receivedDateTime
  *
  */
-- (void) setDateTimeReceived: (NSDate *) value {
-    _dateTimeReceived = value;
-    [self valueChanged:_dateTimeReceived forProperty:@"DateTimeReceived"];
+- (void) setReceivedDateTime: (NSDate *) value {
+    _receivedDateTime = value;
+    [self valueChangedFor:@"ReceivedDateTime"];
 }
        
 /** Setter implementation for property hasAttachments
@@ -74,7 +138,7 @@ root for authoritative license information.﻿
  */
 - (void) setHasAttachments: (bool) value {
     _hasAttachments = value;
-    [self valueChangedForBool:_hasAttachments forProperty:@"HasAttachments"];
+    [self valueChangedFor:@"HasAttachments"];
 }
        
 /** Setter implementation for property from
@@ -82,7 +146,7 @@ root for authoritative license information.﻿
  */
 - (void) setFrom: (MSGraphRecipient *) value {
     _from = value;
-    [self valueChanged:_from forProperty:@"From"];
+    [self valueChangedFor:@"From"];
 }
        
 /** Setter implementation for property sender
@@ -90,7 +154,7 @@ root for authoritative license information.﻿
  */
 - (void) setSender: (MSGraphRecipient *) value {
     _sender = value;
-    [self valueChanged:_sender forProperty:@"Sender"];
+    [self valueChangedFor:@"Sender"];
 }
        
 /** Setter implementation for property conversationThreadId
@@ -98,15 +162,7 @@ root for authoritative license information.﻿
  */
 - (void) setConversationThreadId: (NSString *) value {
     _conversationThreadId = value;
-    [self valueChanged:_conversationThreadId forProperty:@"ConversationThreadId"];
-}
-       
-/** Setter implementation for property conversationId
- *
- */
-- (void) setConversationId: (NSString *) value {
-    _conversationId = value;
-    [self valueChanged:_conversationId forProperty:@"ConversationId"];
+    [self valueChangedFor:@"ConversationThreadId"];
 }
        
 /** Setter implementation for property newParticipants
@@ -114,15 +170,23 @@ root for authoritative license information.﻿
  */
 - (void) setNewParticipants: (NSMutableArray *) value {
     _newParticipants = value;
-    [self valueChanged:_newParticipants forProperty:@"NewParticipants"];
+    [self valueChangedFor:@"NewParticipants"];
 }
        
-/** Setter implementation for property attachments
+/** Setter implementation for property conversationId
  *
  */
-- (void) setAttachments: (NSMutableArray *) value {
-    _attachments = value;
-    [self valueChanged:_attachments forProperty:@"Attachments"];
+- (void) setConversationId: (NSString *) value {
+    _conversationId = value;
+    [self valueChangedFor:@"ConversationId"];
+}
+       
+/** Setter implementation for property extensions
+ *
+ */
+- (void) setExtensions: (NSMutableArray *) value {
+    _extensions = value;
+    [self valueChangedFor:@"Extensions"];
 }
        
 /** Setter implementation for property inReplyTo
@@ -130,7 +194,15 @@ root for authoritative license information.﻿
  */
 - (void) setInReplyTo: (MSGraphPost *) value {
     _inReplyTo = value;
-    [self valueChanged:_inReplyTo forProperty:@"InReplyTo"];
+    [self valueChangedFor:@"InReplyTo"];
+}
+       
+/** Setter implementation for property attachments
+ *
+ */
+- (void) setAttachments: (NSMutableArray *) value {
+    _attachments = value;
+    [self valueChangedFor:@"Attachments"];
 }
        
 

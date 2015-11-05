@@ -49,7 +49,7 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesApplicationFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=extensionProperties) MSDirectoryServicesExtensionPropertyCollectionFetcher *extensionProperties;
 
-- (MSDirectoryServicesExtensionPropertyFetcher *)extensionPropertiesById:(NSString*)identifier;
+- (MSDirectoryServicesExtensionPropertyFetcher *)extensionPropertiesById:(id)identifier;
 
 
 @end

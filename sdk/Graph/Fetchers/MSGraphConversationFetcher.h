@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 - (MSGraphConversationFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=threads) MSGraphConversationThreadCollectionFetcher *threads;
 
-- (MSGraphConversationThreadFetcher *)threadsById:(NSString*)identifier;
+- (MSGraphConversationThreadFetcher *)threadsById:(id)identifier;
 
 
 @end

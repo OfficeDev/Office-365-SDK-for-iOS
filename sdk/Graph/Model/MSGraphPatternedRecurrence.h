@@ -22,11 +22,12 @@ root for authoritative license information.﻿
 @class MSGraphRecurrencePattern;
 @class MSGraphRecurrenceRange;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphPatternedRecurrence
  *
  */
-@interface MSGraphPatternedRecurrence : MSOrcBaseEntity
+@interface MSGraphPatternedRecurrence : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property pattern
  *

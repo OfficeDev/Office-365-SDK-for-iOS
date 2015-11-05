@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESSUBSCRIBEDSKU_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesLicenseUnitsDetail;
 @class MSDirectoryServicesServicePlanInfo;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesSubscribedSku
  *
  */
-@interface MSDirectoryServicesSubscribedSku : MSOrcBaseEntity
+@interface MSDirectoryServicesSubscribedSku : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property capabilityStatus
  *

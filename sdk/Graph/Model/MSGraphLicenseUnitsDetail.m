@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphLicenseUnitsDetail
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_enabled = [dic objectForKey: @"enabled"] != nil ? [[dic objectForKey: @"enabled"] intValue] : _enabled;
+		_suspended = [dic objectForKey: @"suspended"] != nil ? [[dic objectForKey: @"suspended"] intValue] : _suspended;
+		_warning = [dic objectForKey: @"warning"] != nil ? [[dic objectForKey: @"warning"] intValue] : _warning;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithInt: _enabled], @"enabled",
+		 [NSNumber numberWithInt: _suspended], @"suspended",
+		 [NSNumber numberWithInt: _warning], @"warning",
+            nil];
+}
+
+
 /** Setter implementation for property enabled
  *
  */
 - (void) setEnabled: (int) value {
     _enabled = value;
-    [self valueChangedForInt:_enabled forProperty:@"enabled"];
+    [self valueChangedFor:@"enabled"];
 }
        
 /** Setter implementation for property suspended
@@ -62,7 +86,7 @@ root for authoritative license information.﻿
  */
 - (void) setSuspended: (int) value {
     _suspended = value;
-    [self valueChangedForInt:_suspended forProperty:@"suspended"];
+    [self valueChangedFor:@"suspended"];
 }
        
 /** Setter implementation for property warning
@@ -70,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setWarning: (int) value {
     _warning = value;
-    [self valueChangedForInt:_warning forProperty:@"warning"];
+    [self valueChangedFor:@"warning"];
 }
        
 

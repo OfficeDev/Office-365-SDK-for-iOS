@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOneNoteNotesFetcher *)getById:(NSString *)_id {
+- (MSOneNoteNotesFetcher *)getById:(id) identifier {
 
-    return [[MSOneNoteNotesFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSOneNoteNotesFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSOneNoteNotesCollectionFetcher *)select:(NSString *)params {

@@ -13,28 +13,30 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSGRAPHFILE_H
 #define MSGRAPHFILE_H
 
 #import <Foundation/Foundation.h>
 
-@class MSGraphImageFacet;
-#import "MSGraphItem.h"
+@class MSGraphHashes;
+#import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphFile
  *
  */
-@interface MSGraphFile : MSGraphItem
+@interface MSGraphFile : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
-/** Property contentUrl
+/** Property hashes
  *
  */
-@property (nonatomic,  copy, setter=setContentUrl:, getter=contentUrl) NSString * contentUrl;
+@property (nonatomic,  copy, setter=setHashes:, getter=hashes) MSGraphHashes * hashes;
 
-/** Property image
+/** Property mimeType
  *
  */
-@property (nonatomic,  copy, setter=setImage:, getter=image) MSGraphImageFacet * image;
+@property (nonatomic,  copy, setter=setMimeType:, getter=mimeType) NSString * mimeType;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

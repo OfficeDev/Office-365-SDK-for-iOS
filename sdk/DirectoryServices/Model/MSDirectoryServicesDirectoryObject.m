@@ -57,12 +57,99 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : _objectType;
+		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
+		_deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : _deletionTimestamp;
+		_createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : _createdOnBehalfOf;
+
+        if([dic objectForKey: @"createdObjects"] != [NSNull null]){
+            _createdObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"createdObjects"] count]];
+            
+            for (id object in [dic objectForKey: @"createdObjects"]) {
+                [_createdObjects addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : _manager;
+
+        if([dic objectForKey: @"directReports"] != [NSNull null]){
+            _directReports = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"directReports"] count]];
+            
+            for (id object in [dic objectForKey: @"directReports"]) {
+                [_directReports addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"members"] != [NSNull null]){
+            _members = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"members"] count]];
+            
+            for (id object in [dic objectForKey: @"members"]) {
+                [_members addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"memberOf"] != [NSNull null]){
+            _memberOf = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"memberOf"] count]];
+            
+            for (id object in [dic objectForKey: @"memberOf"]) {
+                [_memberOf addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"owners"] != [NSNull null]){
+            _owners = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"owners"] count]];
+            
+            for (id object in [dic objectForKey: @"owners"]) {
+                [_owners addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ownedObjects"] != [NSNull null]){
+            _ownedObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ownedObjects"] count]];
+            
+            for (id object in [dic objectForKey: @"ownedObjects"]) {
+                [_ownedObjects addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_objectType copy], @"objectType",
+		 [_objectId copy], @"objectId",
+		 [MSOrcObjectizer stringFromDate:_deletionTimestamp], @"deletionTimestamp",
+		 [_createdOnBehalfOf toDictionary], @"createdOnBehalfOf",
+		 [[NSMutableArray alloc] init], @"createdObjects",
+		 [_manager toDictionary], @"manager",
+		 [[NSMutableArray alloc] init], @"directReports",
+		 [[NSMutableArray alloc] init], @"members",
+		 [[NSMutableArray alloc] init], @"memberOf",
+		 [[NSMutableArray alloc] init], @"owners",
+		 [[NSMutableArray alloc] init], @"ownedObjects",
+            nil];
+}
+
+
 /** Setter implementation for property objectType
  *
  */
 - (void) setObjectType: (NSString *) value {
     _objectType = value;
-    [self valueChanged:_objectType forProperty:@"objectType"];
+    [self valueChangedFor:@"objectType"];
 }
        
 /** Setter implementation for property objectId
@@ -70,7 +157,7 @@ root for authoritative license information.﻿
  */
 - (void) setObjectId: (NSString *) value {
     _objectId = value;
-    [self valueChanged:_objectId forProperty:@"objectId"];
+    [self valueChangedFor:@"objectId"];
 }
        
 /** Setter implementation for property deletionTimestamp
@@ -78,7 +165,7 @@ root for authoritative license information.﻿
  */
 - (void) setDeletionTimestamp: (NSDate *) value {
     _deletionTimestamp = value;
-    [self valueChanged:_deletionTimestamp forProperty:@"deletionTimestamp"];
+    [self valueChangedFor:@"deletionTimestamp"];
 }
        
 /** Setter implementation for property createdOnBehalfOf
@@ -86,7 +173,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedOnBehalfOf: (MSDirectoryServicesDirectoryObject *) value {
     _createdOnBehalfOf = value;
-    [self valueChanged:_createdOnBehalfOf forProperty:@"createdOnBehalfOf"];
+    [self valueChangedFor:@"createdOnBehalfOf"];
 }
        
 /** Setter implementation for property createdObjects
@@ -94,7 +181,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedObjects: (NSMutableArray *) value {
     _createdObjects = value;
-    [self valueChanged:_createdObjects forProperty:@"createdObjects"];
+    [self valueChangedFor:@"createdObjects"];
 }
        
 /** Setter implementation for property manager
@@ -102,7 +189,7 @@ root for authoritative license information.﻿
  */
 - (void) setManager: (MSDirectoryServicesDirectoryObject *) value {
     _manager = value;
-    [self valueChanged:_manager forProperty:@"manager"];
+    [self valueChangedFor:@"manager"];
 }
        
 /** Setter implementation for property directReports
@@ -110,7 +197,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirectReports: (NSMutableArray *) value {
     _directReports = value;
-    [self valueChanged:_directReports forProperty:@"directReports"];
+    [self valueChangedFor:@"directReports"];
 }
        
 /** Setter implementation for property members
@@ -118,7 +205,7 @@ root for authoritative license information.﻿
  */
 - (void) setMembers: (NSMutableArray *) value {
     _members = value;
-    [self valueChanged:_members forProperty:@"members"];
+    [self valueChangedFor:@"members"];
 }
        
 /** Setter implementation for property memberOf
@@ -126,7 +213,7 @@ root for authoritative license information.﻿
  */
 - (void) setMemberOf: (NSMutableArray *) value {
     _memberOf = value;
-    [self valueChanged:_memberOf forProperty:@"memberOf"];
+    [self valueChangedFor:@"memberOf"];
 }
        
 /** Setter implementation for property owners
@@ -134,7 +221,7 @@ root for authoritative license information.﻿
  */
 - (void) setOwners: (NSMutableArray *) value {
     _owners = value;
-    [self valueChanged:_owners forProperty:@"owners"];
+    [self valueChangedFor:@"owners"];
 }
        
 /** Setter implementation for property ownedObjects
@@ -142,7 +229,7 @@ root for authoritative license information.﻿
  */
 - (void) setOwnedObjects: (NSMutableArray *) value {
     _ownedObjects = value;
-    [self valueChanged:_ownedObjects forProperty:@"ownedObjects"];
+    [self valueChangedFor:@"ownedObjects"];
 }
        
 

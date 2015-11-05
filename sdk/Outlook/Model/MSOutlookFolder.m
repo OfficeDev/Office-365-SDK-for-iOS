@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"DisplayName", @"displayName", @"ChildFolderCount", @"childFolderCount", @"UnreadItemCount", @"unreadItemCount", @"TotalItemCount", @"totalItemCount", @"Messages", @"messages", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"ParentFolderId", @"parentFolderId", @"ChildFolderCount", @"childFolderCount", @"UnreadItemCount", @"unreadItemCount", @"TotalItemCount", @"totalItemCount", @"Messages", @"messages", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
     
     }
     
@@ -53,20 +53,67 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property parentFolderId
- *
- */
-- (void) setParentFolderId: (NSString *) value {
-    _parentFolderId = value;
-    [self valueChanged:_parentFolderId forProperty:@"ParentFolderId"];
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
+		_childFolderCount = [dic objectForKey: @"ChildFolderCount"] != nil ? [[dic objectForKey: @"ChildFolderCount"] intValue] : _childFolderCount;
+		_unreadItemCount = [dic objectForKey: @"UnreadItemCount"] != nil ? [[dic objectForKey: @"UnreadItemCount"] intValue] : _unreadItemCount;
+		_totalItemCount = [dic objectForKey: @"TotalItemCount"] != nil ? [[dic objectForKey: @"TotalItemCount"] intValue] : _totalItemCount;
+
+        if([dic objectForKey: @"Messages"] != [NSNull null]){
+            _messages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Messages"] count]];
+            
+            for (id object in [dic objectForKey: @"Messages"]) {
+                [_messages addObject:[[MSOutlookMessage alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ChildFolders"] != [NSNull null]){
+            _childFolders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ChildFolders"] count]];
+            
+            for (id object in [dic objectForKey: @"ChildFolders"]) {
+                [_childFolders addObject:[[MSOutlookFolder alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
 }
-       
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_displayName copy], @"DisplayName",
+		 [_parentFolderId copy], @"ParentFolderId",
+		 [NSNumber numberWithInt: _childFolderCount], @"ChildFolderCount",
+		 [NSNumber numberWithInt: _unreadItemCount], @"UnreadItemCount",
+		 [NSNumber numberWithInt: _totalItemCount], @"TotalItemCount",
+		 [[NSMutableArray alloc] init], @"Messages",
+		 [[NSMutableArray alloc] init], @"ChildFolders",
+            nil];
+}
+
+
 /** Setter implementation for property displayName
  *
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"DisplayName"];
+    [self valueChangedFor:@"DisplayName"];
+}
+       
+/** Setter implementation for property parentFolderId
+ *
+ */
+- (void) setParentFolderId: (NSString *) value {
+    _parentFolderId = value;
+    [self valueChangedFor:@"ParentFolderId"];
 }
        
 /** Setter implementation for property childFolderCount
@@ -74,7 +121,7 @@ root for authoritative license information.﻿
  */
 - (void) setChildFolderCount: (int) value {
     _childFolderCount = value;
-    [self valueChangedForInt:_childFolderCount forProperty:@"ChildFolderCount"];
+    [self valueChangedFor:@"ChildFolderCount"];
 }
        
 /** Setter implementation for property unreadItemCount
@@ -82,7 +129,7 @@ root for authoritative license information.﻿
  */
 - (void) setUnreadItemCount: (int) value {
     _unreadItemCount = value;
-    [self valueChangedForInt:_unreadItemCount forProperty:@"UnreadItemCount"];
+    [self valueChangedFor:@"UnreadItemCount"];
 }
        
 /** Setter implementation for property totalItemCount
@@ -90,7 +137,7 @@ root for authoritative license information.﻿
  */
 - (void) setTotalItemCount: (int) value {
     _totalItemCount = value;
-    [self valueChangedForInt:_totalItemCount forProperty:@"TotalItemCount"];
+    [self valueChangedFor:@"TotalItemCount"];
 }
        
 /** Setter implementation for property messages
@@ -98,7 +145,7 @@ root for authoritative license information.﻿
  */
 - (void) setMessages: (NSMutableArray *) value {
     _messages = value;
-    [self valueChanged:_messages forProperty:@"Messages"];
+    [self valueChangedFor:@"Messages"];
 }
        
 /** Setter implementation for property childFolders
@@ -106,7 +153,7 @@ root for authoritative license information.﻿
  */
 - (void) setChildFolders: (NSMutableArray *) value {
     _childFolders = value;
-    [self valueChanged:_childFolders forProperty:@"ChildFolders"];
+    [self valueChangedFor:@"ChildFolders"];
 }
        
 

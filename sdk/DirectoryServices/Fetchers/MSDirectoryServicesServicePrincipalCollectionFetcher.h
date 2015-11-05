@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSDirectoryServicesServicePrincipalFetcher *)getById:(NSString *)Id;
+- (MSDirectoryServicesServicePrincipalFetcher *)getById: (id) identifier;
 - (void)add:(MSDirectoryServicesServicePrincipal *)entity callback:(void (^)(MSDirectoryServicesServicePrincipal *, MSOrcError *))callback;
 
 - (MSDirectoryServicesServicePrincipalCollectionFetcher *)select:(NSString *)params;

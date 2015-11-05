@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSOutlookEmailAddress;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookRecipient
  *
  */
-@interface MSOutlookRecipient : MSOrcBaseEntity
+@interface MSOutlookRecipient : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property emailAddress
  *

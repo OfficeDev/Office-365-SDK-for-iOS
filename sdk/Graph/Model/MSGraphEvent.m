@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"HasAttachments", @"hasAttachments", @"Start", @"start", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Reminder", @"reminder", @"Location", @"location", @"ShowAs", @"showAs", @"ResponseStatus", @"responseStatus", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"ResponseRequested", @"responseRequested", @"Type", @"type", @"SeriesMasterId", @"seriesMasterId", @"Attendees", @"attendees", @"Recurrence", @"recurrence", @"Organizer", @"organizer", @"iCalUId", @"iCalUId", @"WebLink", @"webLink", @"Attachments", @"attachments", @"Calendar", @"calendar", @"Instances", @"instances", @"Id", @"_id", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"OriginalStartTimeZone", @"originalStartTimeZone", @"OriginalEndTimeZone", @"originalEndTimeZone", @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"ReminderMinutesBeforeStart", @"reminderMinutesBeforeStart", @"IsReminderOn", @"isReminderOn", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"End", @"end", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -47,235 +47,147 @@ root for authoritative license information.﻿
         
         
 		_attendees = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_instances = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_extensions = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
 
-/** Setter implementation for property subject
- *
- */
-- (void) setSubject: (NSString *) value {
-    _subject = value;
-    [self valueChanged:_subject forProperty:@"Subject"];
-}
-       
-/** Setter implementation for property body
- *
- */
-- (void) setBody: (MSGraphItemBody *) value {
-    _body = value;
-    [self valueChanged:_body forProperty:@"Body"];
-}
-       
-/** Setter implementation for property bodyPreview
- *
- */
-- (void) setBodyPreview: (NSString *) value {
-    _bodyPreview = value;
-    [self valueChanged:_bodyPreview forProperty:@"BodyPreview"];
-}
-       
-/** Setter implementation for property importance
- *
- */
-- (void) setImportance: (MSGraphImportance) value {
-    _importance = value;
-    [self valueChangedForInt:_importance forProperty:@"Importance"];
-}
-       
 
-- (void)setImportanceString:(NSString *)value {
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
     
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphImportanceLow], @"Low", [NSNumber numberWithInt:MSGraphImportanceNormal], @"Normal", [NSNumber numberWithInt:MSGraphImportanceHigh], @"High",
-            nil        
-        ];
+		_originalStartTimeZone = [dic objectForKey: @"OriginalStartTimeZone"] != nil ? [[dic objectForKey: @"OriginalStartTimeZone"] copy] : _originalStartTimeZone;
+		_originalEndTimeZone = [dic objectForKey: @"OriginalEndTimeZone"] != nil ? [[dic objectForKey: @"OriginalEndTimeZone"] copy] : _originalEndTimeZone;
+		_responseStatus = [dic objectForKey: @"ResponseStatus"] != nil ? [[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]] : _responseStatus;
+		_iCalUId = [dic objectForKey: @"iCalUId"] != nil ? [[dic objectForKey: @"iCalUId"] copy] : _iCalUId;
+		_reminderMinutesBeforeStart = [dic objectForKey: @"ReminderMinutesBeforeStart"] != nil ? [[dic objectForKey: @"ReminderMinutesBeforeStart"] intValue] : _reminderMinutesBeforeStart;
+		_isReminderOn = [dic objectForKey: @"IsReminderOn"] != nil ? [[dic objectForKey: @"IsReminderOn"] boolValue] : _isReminderOn;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
+		_body = [dic objectForKey: @"Body"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
+		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
+		_importance = [dic objectForKey: @"Importance"] != nil ? [MSGraphImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
+		_sensitivity = [dic objectForKey: @"Sensitivity"] != nil ? [MSGraphSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]] : _sensitivity;
+		_start = [dic objectForKey: @"Start"] != nil ? [[MSGraphDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"Start"]] : _start;
+		_originalStart = [dic objectForKey: @"OriginalStart"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]] : _originalStart;
+		_end = [dic objectForKey: @"End"] != nil ? [[MSGraphDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"End"]] : _end;
+		_location = [dic objectForKey: @"Location"] != nil ? [[MSGraphLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]] : _location;
+		_isAllDay = [dic objectForKey: @"IsAllDay"] != nil ? [[dic objectForKey: @"IsAllDay"] boolValue] : _isAllDay;
+		_isCancelled = [dic objectForKey: @"IsCancelled"] != nil ? [[dic objectForKey: @"IsCancelled"] boolValue] : _isCancelled;
+		_isOrganizer = [dic objectForKey: @"IsOrganizer"] != nil ? [[dic objectForKey: @"IsOrganizer"] boolValue] : _isOrganizer;
+		_recurrence = [dic objectForKey: @"Recurrence"] != nil ? [[MSGraphPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]] : _recurrence;
+		_responseRequested = [dic objectForKey: @"ResponseRequested"] != nil ? [[dic objectForKey: @"ResponseRequested"] boolValue] : _responseRequested;
+		_seriesMasterId = [dic objectForKey: @"SeriesMasterId"] != nil ? [[dic objectForKey: @"SeriesMasterId"] copy] : _seriesMasterId;
+		_showAs = [dic objectForKey: @"ShowAs"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]] : _showAs;
+		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphEventTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+
+        if([dic objectForKey: @"Attendees"] != [NSNull null]){
+            _attendees = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attendees"] count]];
+            
+            for (id object in [dic objectForKey: @"Attendees"]) {
+                [_attendees addObject:[[MSGraphAttendee alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_organizer = [dic objectForKey: @"Organizer"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]] : _organizer;
+		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
+		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+
+        if([dic objectForKey: @"Instances"] != [NSNull null]){
+            _instances = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Instances"] count]];
+            
+            for (id object in [dic objectForKey: @"Instances"]) {
+                [_instances addObject:[[MSGraphEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Extensions"] != [NSNull null]){
+            _extensions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Extensions"] count]];
+            
+            for (id object in [dic objectForKey: @"Extensions"]) {
+                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Attachments"] != [NSNull null]){
+            _attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            
+            for (id object in [dic objectForKey: @"Attachments"]) {
+                [_attachments addObject:[[MSGraphAttachment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
     }
     
-    self.importance = [stringMappings[value] intValue]; 
+    return self;
 }
 
-/** Setter implementation for property hasAttachments
- *
- */
-- (void) setHasAttachments: (bool) value {
-    _hasAttachments = value;
-    [self valueChangedForBool:_hasAttachments forProperty:@"HasAttachments"];
-}
-       
-/** Setter implementation for property start
- *
- */
-- (void) setStart: (NSDate *) value {
-    _start = value;
-    [self valueChanged:_start forProperty:@"Start"];
-}
-       
-/** Setter implementation for property startTimeZone
- *
- */
-- (void) setStartTimeZone: (NSString *) value {
-    _startTimeZone = value;
-    [self valueChanged:_startTimeZone forProperty:@"StartTimeZone"];
-}
-       
-/** Setter implementation for property end
- *
- */
-- (void) setEnd: (NSDate *) value {
-    _end = value;
-    [self valueChanged:_end forProperty:@"End"];
-}
-       
-/** Setter implementation for property endTimeZone
- *
- */
-- (void) setEndTimeZone: (NSString *) value {
-    _endTimeZone = value;
-    [self valueChanged:_endTimeZone forProperty:@"EndTimeZone"];
-}
-       
-/** Setter implementation for property reminder
- *
- */
-- (void) setReminder: (int) value {
-    _reminder = value;
-    [self valueChangedForInt:_reminder forProperty:@"Reminder"];
-}
-       
-/** Setter implementation for property location
- *
- */
-- (void) setLocation: (MSGraphLocation *) value {
-    _location = value;
-    [self valueChanged:_location forProperty:@"Location"];
-}
-       
-/** Setter implementation for property showAs
- *
- */
-- (void) setShowAs: (MSGraphFreeBusyStatus) value {
-    _showAs = value;
-    [self valueChangedForInt:_showAs forProperty:@"ShowAs"];
-}
-       
-
-- (void)setShowAsString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphFreeBusyStatusFree], @"Free", [NSNumber numberWithInt:MSGraphFreeBusyStatusTentative], @"Tentative", [NSNumber numberWithInt:MSGraphFreeBusyStatusBusy], @"Busy", [NSNumber numberWithInt:MSGraphFreeBusyStatusOof], @"Oof", [NSNumber numberWithInt:MSGraphFreeBusyStatusWorkingElsewhere], @"WorkingElsewhere", [NSNumber numberWithInt:MSGraphFreeBusyStatusUnknown], @"Unknown",
-            nil        
-        ];
-    }
-    
-    self.showAs = [stringMappings[value] intValue]; 
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_originalStartTimeZone copy], @"OriginalStartTimeZone",
+		 [_originalEndTimeZone copy], @"OriginalEndTimeZone",
+		 [_responseStatus toDictionary], @"ResponseStatus",
+		 [_iCalUId copy], @"iCalUId",
+		 [NSNumber numberWithInt: _reminderMinutesBeforeStart], @"ReminderMinutesBeforeStart",
+		 (_isReminderOn?@"true":@"false"), @"IsReminderOn",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [_subject copy], @"Subject",
+		 [_body toDictionary], @"Body",
+		 [_bodyPreview copy], @"BodyPreview",
+		 [MSGraphImportanceSerializer toString:_importance], @"Importance",
+		 [MSGraphSensitivitySerializer toString:_sensitivity], @"Sensitivity",
+		 [_start toDictionary], @"Start",
+		 [MSOrcObjectizer stringFromDate:_originalStart], @"OriginalStart",
+		 [_end toDictionary], @"End",
+		 [_location toDictionary], @"Location",
+		 (_isAllDay?@"true":@"false"), @"IsAllDay",
+		 (_isCancelled?@"true":@"false"), @"IsCancelled",
+		 (_isOrganizer?@"true":@"false"), @"IsOrganizer",
+		 [_recurrence toDictionary], @"Recurrence",
+		 (_responseRequested?@"true":@"false"), @"ResponseRequested",
+		 [_seriesMasterId copy], @"SeriesMasterId",
+		 [MSGraphFreeBusyStatusSerializer toString:_showAs], @"ShowAs",
+		 [MSGraphEventTypeSerializer toString:_type], @"Type",
+		 [[NSMutableArray alloc] init], @"Attendees",
+		 [_organizer toDictionary], @"Organizer",
+		 [_webLink copy], @"WebLink",
+		 [_calendar toDictionary], @"Calendar",
+		 [[NSMutableArray alloc] init], @"Instances",
+		 [[NSMutableArray alloc] init], @"Extensions",
+		 [[NSMutableArray alloc] init], @"Attachments",
+            nil];
 }
 
+
+/** Setter implementation for property originalStartTimeZone
+ *
+ */
+- (void) setOriginalStartTimeZone: (NSString *) value {
+    _originalStartTimeZone = value;
+    [self valueChangedFor:@"OriginalStartTimeZone"];
+}
+       
+/** Setter implementation for property originalEndTimeZone
+ *
+ */
+- (void) setOriginalEndTimeZone: (NSString *) value {
+    _originalEndTimeZone = value;
+    [self valueChangedFor:@"OriginalEndTimeZone"];
+}
+       
 /** Setter implementation for property responseStatus
  *
  */
 - (void) setResponseStatus: (MSGraphResponseStatus *) value {
     _responseStatus = value;
-    [self valueChanged:_responseStatus forProperty:@"ResponseStatus"];
-}
-       
-/** Setter implementation for property isAllDay
- *
- */
-- (void) setIsAllDay: (bool) value {
-    _isAllDay = value;
-    [self valueChangedForBool:_isAllDay forProperty:@"IsAllDay"];
-}
-       
-/** Setter implementation for property isCancelled
- *
- */
-- (void) setIsCancelled: (bool) value {
-    _isCancelled = value;
-    [self valueChangedForBool:_isCancelled forProperty:@"IsCancelled"];
-}
-       
-/** Setter implementation for property isOrganizer
- *
- */
-- (void) setIsOrganizer: (bool) value {
-    _isOrganizer = value;
-    [self valueChangedForBool:_isOrganizer forProperty:@"IsOrganizer"];
-}
-       
-/** Setter implementation for property responseRequested
- *
- */
-- (void) setResponseRequested: (bool) value {
-    _responseRequested = value;
-    [self valueChangedForBool:_responseRequested forProperty:@"ResponseRequested"];
-}
-       
-/** Setter implementation for property type
- *
- */
-- (void) setType: (MSGraphEventType) value {
-    _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
-}
-       
-
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphEventTypeSingleInstance], @"SingleInstance", [NSNumber numberWithInt:MSGraphEventTypeOccurrence], @"Occurrence", [NSNumber numberWithInt:MSGraphEventTypeException], @"Exception", [NSNumber numberWithInt:MSGraphEventTypeSeriesMaster], @"SeriesMaster",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
-}
-
-/** Setter implementation for property seriesMasterId
- *
- */
-- (void) setSeriesMasterId: (NSString *) value {
-    _seriesMasterId = value;
-    [self valueChanged:_seriesMasterId forProperty:@"SeriesMasterId"];
-}
-       
-/** Setter implementation for property attendees
- *
- */
-- (void) setAttendees: (NSMutableArray *) value {
-    _attendees = value;
-    [self valueChanged:_attendees forProperty:@"Attendees"];
-}
-       
-/** Setter implementation for property recurrence
- *
- */
-- (void) setRecurrence: (MSGraphPatternedRecurrence *) value {
-    _recurrence = value;
-    [self valueChanged:_recurrence forProperty:@"Recurrence"];
-}
-       
-/** Setter implementation for property organizer
- *
- */
-- (void) setOrganizer: (MSGraphRecipient *) value {
-    _organizer = value;
-    [self valueChanged:_organizer forProperty:@"Organizer"];
+    [self valueChangedFor:@"ResponseStatus"];
 }
        
 /** Setter implementation for property iCalUId
@@ -283,7 +195,211 @@ root for authoritative license information.﻿
  */
 - (void) setICalUId: (NSString *) value {
     _iCalUId = value;
-    [self valueChanged:_iCalUId forProperty:@"iCalUId"];
+    [self valueChangedFor:@"iCalUId"];
+}
+       
+/** Setter implementation for property reminderMinutesBeforeStart
+ *
+ */
+- (void) setReminderMinutesBeforeStart: (int) value {
+    _reminderMinutesBeforeStart = value;
+    [self valueChangedFor:@"ReminderMinutesBeforeStart"];
+}
+       
+/** Setter implementation for property isReminderOn
+ *
+ */
+- (void) setIsReminderOn: (bool) value {
+    _isReminderOn = value;
+    [self valueChangedFor:@"IsReminderOn"];
+}
+       
+/** Setter implementation for property hasAttachments
+ *
+ */
+- (void) setHasAttachments: (bool) value {
+    _hasAttachments = value;
+    [self valueChangedFor:@"HasAttachments"];
+}
+       
+/** Setter implementation for property subject
+ *
+ */
+- (void) setSubject: (NSString *) value {
+    _subject = value;
+    [self valueChangedFor:@"Subject"];
+}
+       
+/** Setter implementation for property body
+ *
+ */
+- (void) setBody: (MSGraphItemBody *) value {
+    _body = value;
+    [self valueChangedFor:@"Body"];
+}
+       
+/** Setter implementation for property bodyPreview
+ *
+ */
+- (void) setBodyPreview: (NSString *) value {
+    _bodyPreview = value;
+    [self valueChangedFor:@"BodyPreview"];
+}
+       
+/** Setter implementation for property importance
+ *
+ */
+- (void) setImportance: (MSGraphImportance) value {
+    _importance = value;
+    [self valueChangedFor:@"Importance"];
+}
+       
+
+- (void)setImportanceString:(NSString *)string {
+        
+    _importance = [MSGraphImportanceSerializer fromString:string];
+    [self valueChangedFor:@"Importance"]; 
+}
+
+/** Setter implementation for property sensitivity
+ *
+ */
+- (void) setSensitivity: (MSGraphSensitivity) value {
+    _sensitivity = value;
+    [self valueChangedFor:@"Sensitivity"];
+}
+       
+
+- (void)setSensitivityString:(NSString *)string {
+        
+    _sensitivity = [MSGraphSensitivitySerializer fromString:string];
+    [self valueChangedFor:@"Sensitivity"]; 
+}
+
+/** Setter implementation for property start
+ *
+ */
+- (void) setStart: (MSGraphDateTimeTimeZone *) value {
+    _start = value;
+    [self valueChangedFor:@"Start"];
+}
+       
+/** Setter implementation for property originalStart
+ *
+ */
+- (void) setOriginalStart: (NSDate *) value {
+    _originalStart = value;
+    [self valueChangedFor:@"OriginalStart"];
+}
+       
+/** Setter implementation for property end
+ *
+ */
+- (void) setEnd: (MSGraphDateTimeTimeZone *) value {
+    _end = value;
+    [self valueChangedFor:@"End"];
+}
+       
+/** Setter implementation for property location
+ *
+ */
+- (void) setLocation: (MSGraphLocation *) value {
+    _location = value;
+    [self valueChangedFor:@"Location"];
+}
+       
+/** Setter implementation for property isAllDay
+ *
+ */
+- (void) setIsAllDay: (bool) value {
+    _isAllDay = value;
+    [self valueChangedFor:@"IsAllDay"];
+}
+       
+/** Setter implementation for property isCancelled
+ *
+ */
+- (void) setIsCancelled: (bool) value {
+    _isCancelled = value;
+    [self valueChangedFor:@"IsCancelled"];
+}
+       
+/** Setter implementation for property isOrganizer
+ *
+ */
+- (void) setIsOrganizer: (bool) value {
+    _isOrganizer = value;
+    [self valueChangedFor:@"IsOrganizer"];
+}
+       
+/** Setter implementation for property recurrence
+ *
+ */
+- (void) setRecurrence: (MSGraphPatternedRecurrence *) value {
+    _recurrence = value;
+    [self valueChangedFor:@"Recurrence"];
+}
+       
+/** Setter implementation for property responseRequested
+ *
+ */
+- (void) setResponseRequested: (bool) value {
+    _responseRequested = value;
+    [self valueChangedFor:@"ResponseRequested"];
+}
+       
+/** Setter implementation for property seriesMasterId
+ *
+ */
+- (void) setSeriesMasterId: (NSString *) value {
+    _seriesMasterId = value;
+    [self valueChangedFor:@"SeriesMasterId"];
+}
+       
+/** Setter implementation for property showAs
+ *
+ */
+- (void) setShowAs: (MSGraphFreeBusyStatus) value {
+    _showAs = value;
+    [self valueChangedFor:@"ShowAs"];
+}
+       
+
+- (void)setShowAsString:(NSString *)string {
+        
+    _showAs = [MSGraphFreeBusyStatusSerializer fromString:string];
+    [self valueChangedFor:@"ShowAs"]; 
+}
+
+/** Setter implementation for property type
+ *
+ */
+- (void) setType: (MSGraphEventType) value {
+    _type = value;
+    [self valueChangedFor:@"Type"];
+}
+       
+
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSGraphEventTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
+}
+
+/** Setter implementation for property attendees
+ *
+ */
+- (void) setAttendees: (NSMutableArray *) value {
+    _attendees = value;
+    [self valueChangedFor:@"Attendees"];
+}
+       
+/** Setter implementation for property organizer
+ *
+ */
+- (void) setOrganizer: (MSGraphRecipient *) value {
+    _organizer = value;
+    [self valueChangedFor:@"Organizer"];
 }
        
 /** Setter implementation for property webLink
@@ -291,15 +407,7 @@ root for authoritative license information.﻿
  */
 - (void) setWebLink: (NSString *) value {
     _webLink = value;
-    [self valueChanged:_webLink forProperty:@"WebLink"];
-}
-       
-/** Setter implementation for property attachments
- *
- */
-- (void) setAttachments: (NSMutableArray *) value {
-    _attachments = value;
-    [self valueChanged:_attachments forProperty:@"Attachments"];
+    [self valueChangedFor:@"WebLink"];
 }
        
 /** Setter implementation for property calendar
@@ -307,7 +415,7 @@ root for authoritative license information.﻿
  */
 - (void) setCalendar: (MSGraphCalendar *) value {
     _calendar = value;
-    [self valueChanged:_calendar forProperty:@"Calendar"];
+    [self valueChangedFor:@"Calendar"];
 }
        
 /** Setter implementation for property instances
@@ -315,7 +423,23 @@ root for authoritative license information.﻿
  */
 - (void) setInstances: (NSMutableArray *) value {
     _instances = value;
-    [self valueChanged:_instances forProperty:@"Instances"];
+    [self valueChangedFor:@"Instances"];
+}
+       
+/** Setter implementation for property extensions
+ *
+ */
+- (void) setExtensions: (NSMutableArray *) value {
+    _extensions = value;
+    [self valueChangedFor:@"Extensions"];
+}
+       
+/** Setter implementation for property attachments
+ *
+ */
+- (void) setAttachments: (NSMutableArray *) value {
+    _attachments = value;
+    [self valueChangedFor:@"Attachments"];
 }
        
 

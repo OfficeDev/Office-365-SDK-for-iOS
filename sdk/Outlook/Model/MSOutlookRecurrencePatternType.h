@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookRecurrencePatternType
+/** Enum MSOutlookRecurrencePatternTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookRecurrencePatternType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSOutlookRecurrencePatternType) {
      * */
     MSOutlookRecurrencePatternTypeRelativeYearly
 };
+
+
+@interface MSOutlookRecurrencePatternTypeSerializer : NSObject
++(MSOutlookRecurrencePatternType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookRecurrencePatternType) value;
+@end
 
 #endif

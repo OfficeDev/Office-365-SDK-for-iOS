@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"RootFolder", @"rootFolder", @"Calendars", @"calendars", @"Calendar", @"calendar", @"CalendarGroups", @"calendarGroups", @"Events", @"events", @"CalendarView", @"calendarView", @"Folders", @"folders", @"Messages", @"messages", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"Messages", @"messages", @"Folders", @"folders", @"Calendar", @"calendar", @"Calendars", @"calendars", @"CalendarGroups", @"calendarGroups", @"CalendarView", @"calendarView", @"Events", @"events", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"RootFolder", @"rootFolder", @"Id", @"_id", nil];
     
     }
     
@@ -46,12 +46,12 @@ root for authoritative license information.﻿
 		_odataType = @"#Microsoft.OutlookServices.User";
         
         
+		_messages = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_folders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_calendars = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_calendarGroups = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_folders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_messages = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_contacts = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_contactFolders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
@@ -59,12 +59,119 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+		_alias = [dic objectForKey: @"Alias"] != nil ? [[dic objectForKey: @"Alias"] copy] : _alias;
+		_mailboxGuid = [dic objectForKey: @"MailboxGuid"] != nil ? [[dic objectForKey: @"MailboxGuid"] copy] : _mailboxGuid;
+
+        if([dic objectForKey: @"Messages"] != [NSNull null]){
+            _messages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Messages"] count]];
+            
+            for (id object in [dic objectForKey: @"Messages"]) {
+                [_messages addObject:[[MSOutlookMessage alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Folders"] != [NSNull null]){
+            _folders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Folders"] count]];
+            
+            for (id object in [dic objectForKey: @"Folders"]) {
+                [_folders addObject:[[MSOutlookFolder alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+
+        if([dic objectForKey: @"Calendars"] != [NSNull null]){
+            _calendars = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Calendars"] count]];
+            
+            for (id object in [dic objectForKey: @"Calendars"]) {
+                [_calendars addObject:[[MSOutlookCalendar alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CalendarGroups"] != [NSNull null]){
+            _calendarGroups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarGroups"] count]];
+            
+            for (id object in [dic objectForKey: @"CalendarGroups"]) {
+                [_calendarGroups addObject:[[MSOutlookCalendarGroup alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CalendarView"] != [NSNull null]){
+            _calendarView = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarView"] count]];
+            
+            for (id object in [dic objectForKey: @"CalendarView"]) {
+                [_calendarView addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Events"] != [NSNull null]){
+            _events = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Events"] count]];
+            
+            for (id object in [dic objectForKey: @"Events"]) {
+                [_events addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Contacts"] != [NSNull null]){
+            _contacts = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Contacts"] count]];
+            
+            for (id object in [dic objectForKey: @"Contacts"]) {
+                [_contacts addObject:[[MSOutlookContact alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ContactFolders"] != [NSNull null]){
+            _contactFolders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ContactFolders"] count]];
+            
+            for (id object in [dic objectForKey: @"ContactFolders"]) {
+                [_contactFolders addObject:[[MSOutlookContactFolder alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_rootFolder = [dic objectForKey: @"RootFolder"] != nil ? [[MSOutlookFolder alloc] initWithDictionary: [dic objectForKey: @"RootFolder"]] : _rootFolder;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_displayName copy], @"DisplayName",
+		 [_alias copy], @"Alias",
+		 [_mailboxGuid copy], @"MailboxGuid",
+		 [[NSMutableArray alloc] init], @"Messages",
+		 [[NSMutableArray alloc] init], @"Folders",
+		 [_calendar toDictionary], @"Calendar",
+		 [[NSMutableArray alloc] init], @"Calendars",
+		 [[NSMutableArray alloc] init], @"CalendarGroups",
+		 [[NSMutableArray alloc] init], @"CalendarView",
+		 [[NSMutableArray alloc] init], @"Events",
+		 [[NSMutableArray alloc] init], @"Contacts",
+		 [[NSMutableArray alloc] init], @"ContactFolders",
+		 [_rootFolder toDictionary], @"RootFolder",
+            nil];
+}
+
+
 /** Setter implementation for property displayName
  *
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"DisplayName"];
+    [self valueChangedFor:@"DisplayName"];
 }
        
 /** Setter implementation for property alias
@@ -72,7 +179,7 @@ root for authoritative license information.﻿
  */
 - (void) setAlias: (NSString *) value {
     _alias = value;
-    [self valueChanged:_alias forProperty:@"Alias"];
+    [self valueChangedFor:@"Alias"];
 }
        
 /** Setter implementation for property mailboxGuid
@@ -80,63 +187,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailboxGuid: (NSString *) value {
     _mailboxGuid = value;
-    [self valueChanged:_mailboxGuid forProperty:@"MailboxGuid"];
-}
-       
-/** Setter implementation for property rootFolder
- *
- */
-- (void) setRootFolder: (MSOutlookFolder *) value {
-    _rootFolder = value;
-    [self valueChanged:_rootFolder forProperty:@"RootFolder"];
-}
-       
-/** Setter implementation for property calendars
- *
- */
-- (void) setCalendars: (NSMutableArray *) value {
-    _calendars = value;
-    [self valueChanged:_calendars forProperty:@"Calendars"];
-}
-       
-/** Setter implementation for property calendar
- *
- */
-- (void) setCalendar: (MSOutlookCalendar *) value {
-    _calendar = value;
-    [self valueChanged:_calendar forProperty:@"Calendar"];
-}
-       
-/** Setter implementation for property calendarGroups
- *
- */
-- (void) setCalendarGroups: (NSMutableArray *) value {
-    _calendarGroups = value;
-    [self valueChanged:_calendarGroups forProperty:@"CalendarGroups"];
-}
-       
-/** Setter implementation for property events
- *
- */
-- (void) setEvents: (NSMutableArray *) value {
-    _events = value;
-    [self valueChanged:_events forProperty:@"Events"];
-}
-       
-/** Setter implementation for property calendarView
- *
- */
-- (void) setCalendarView: (NSMutableArray *) value {
-    _calendarView = value;
-    [self valueChanged:_calendarView forProperty:@"CalendarView"];
-}
-       
-/** Setter implementation for property folders
- *
- */
-- (void) setFolders: (NSMutableArray *) value {
-    _folders = value;
-    [self valueChanged:_folders forProperty:@"Folders"];
+    [self valueChangedFor:@"MailboxGuid"];
 }
        
 /** Setter implementation for property messages
@@ -144,7 +195,55 @@ root for authoritative license information.﻿
  */
 - (void) setMessages: (NSMutableArray *) value {
     _messages = value;
-    [self valueChanged:_messages forProperty:@"Messages"];
+    [self valueChangedFor:@"Messages"];
+}
+       
+/** Setter implementation for property folders
+ *
+ */
+- (void) setFolders: (NSMutableArray *) value {
+    _folders = value;
+    [self valueChangedFor:@"Folders"];
+}
+       
+/** Setter implementation for property calendar
+ *
+ */
+- (void) setCalendar: (MSOutlookCalendar *) value {
+    _calendar = value;
+    [self valueChangedFor:@"Calendar"];
+}
+       
+/** Setter implementation for property calendars
+ *
+ */
+- (void) setCalendars: (NSMutableArray *) value {
+    _calendars = value;
+    [self valueChangedFor:@"Calendars"];
+}
+       
+/** Setter implementation for property calendarGroups
+ *
+ */
+- (void) setCalendarGroups: (NSMutableArray *) value {
+    _calendarGroups = value;
+    [self valueChangedFor:@"CalendarGroups"];
+}
+       
+/** Setter implementation for property calendarView
+ *
+ */
+- (void) setCalendarView: (NSMutableArray *) value {
+    _calendarView = value;
+    [self valueChangedFor:@"CalendarView"];
+}
+       
+/** Setter implementation for property events
+ *
+ */
+- (void) setEvents: (NSMutableArray *) value {
+    _events = value;
+    [self valueChangedFor:@"Events"];
 }
        
 /** Setter implementation for property contacts
@@ -152,7 +251,7 @@ root for authoritative license information.﻿
  */
 - (void) setContacts: (NSMutableArray *) value {
     _contacts = value;
-    [self valueChanged:_contacts forProperty:@"Contacts"];
+    [self valueChangedFor:@"Contacts"];
 }
        
 /** Setter implementation for property contactFolders
@@ -160,7 +259,15 @@ root for authoritative license information.﻿
  */
 - (void) setContactFolders: (NSMutableArray *) value {
     _contactFolders = value;
-    [self valueChanged:_contactFolders forProperty:@"ContactFolders"];
+    [self valueChangedFor:@"ContactFolders"];
+}
+       
+/** Setter implementation for property rootFolder
+ *
+ */
+- (void) setRootFolder: (MSOutlookFolder *) value {
+    _rootFolder = value;
+    [self valueChangedFor:@"RootFolder"];
 }
        
 

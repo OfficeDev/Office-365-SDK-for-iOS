@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphBodyType
+/** Enum MSGraphBodyTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphBodyType) {
@@ -30,5 +30,11 @@ typedef NS_ENUM(NSInteger, MSGraphBodyType) {
      * */
     MSGraphBodyTypeHTML
 };
+
+
+@interface MSGraphBodyTypeSerializer : NSObject
++(MSGraphBodyType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphBodyType) value;
+@end
 
 #endif

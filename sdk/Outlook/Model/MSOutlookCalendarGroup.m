@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"ChangeKey", @"changeKey", @"ClassId", @"classId", @"Calendars", @"calendars", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"ClassId", @"classId", @"ChangeKey", @"changeKey", @"Calendars", @"calendars", @"Id", @"_id", nil];
     
     }
     
@@ -52,20 +52,45 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
+		_classId = [dic objectForKey: @"ClassId"] != nil ? [[dic objectForKey: @"ClassId"] copy] : _classId;
+		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
+
+        if([dic objectForKey: @"Calendars"] != [NSNull null]){
+            _calendars = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Calendars"] count]];
+            
+            for (id object in [dic objectForKey: @"Calendars"]) {
+                [_calendars addObject:[[MSOutlookCalendar alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_name copy], @"Name",
+		 [_classId copy], @"ClassId",
+		 [_changeKey copy], @"ChangeKey",
+		 [[NSMutableArray alloc] init], @"Calendars",
+            nil];
+}
+
+
 /** Setter implementation for property name
  *
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"Name"];
-}
-       
-/** Setter implementation for property changeKey
- *
- */
-- (void) setChangeKey: (NSString *) value {
-    _changeKey = value;
-    [self valueChanged:_changeKey forProperty:@"ChangeKey"];
+    [self valueChangedFor:@"Name"];
 }
        
 /** Setter implementation for property classId
@@ -73,7 +98,15 @@ root for authoritative license information.﻿
  */
 - (void) setClassId: (NSString *) value {
     _classId = value;
-    [self valueChanged:_classId forProperty:@"ClassId"];
+    [self valueChangedFor:@"ClassId"];
+}
+       
+/** Setter implementation for property changeKey
+ *
+ */
+- (void) setChangeKey: (NSString *) value {
+    _changeKey = value;
+    [self valueChangedFor:@"ChangeKey"];
 }
        
 /** Setter implementation for property calendars
@@ -81,7 +114,7 @@ root for authoritative license information.﻿
  */
 - (void) setCalendars: (NSMutableArray *) value {
     _calendars = value;
-    [self valueChanged:_calendars forProperty:@"Calendars"];
+    [self valueChangedFor:@"Calendars"];
 }
        
 

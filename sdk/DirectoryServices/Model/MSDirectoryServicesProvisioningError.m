@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesProvisioningError
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,36 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_errorDetail = [dic objectForKey: @"errorDetail"] != nil ? [[dic objectForKey: @"errorDetail"] copy] : _errorDetail;
+		_resolved = [dic objectForKey: @"resolved"] != nil ? [[dic objectForKey: @"resolved"] boolValue] : _resolved;
+		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
+		_timestamp = [dic objectForKey: @"timestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"timestamp"]] : _timestamp;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_errorDetail copy], @"errorDetail",
+		 (_resolved?@"true":@"false"), @"resolved",
+		 [_service copy], @"service",
+		 [MSOrcObjectizer stringFromDate:_timestamp], @"timestamp",
+            nil];
+}
+
+
 /** Setter implementation for property errorDetail
  *
  */
 - (void) setErrorDetail: (NSString *) value {
     _errorDetail = value;
-    [self valueChanged:_errorDetail forProperty:@"errorDetail"];
+    [self valueChangedFor:@"errorDetail"];
 }
        
 /** Setter implementation for property resolved
@@ -62,7 +88,7 @@ root for authoritative license information.﻿
  */
 - (void) setResolved: (bool) value {
     _resolved = value;
-    [self valueChangedForBool:_resolved forProperty:@"resolved"];
+    [self valueChangedFor:@"resolved"];
 }
        
 /** Setter implementation for property service
@@ -70,7 +96,7 @@ root for authoritative license information.﻿
  */
 - (void) setService: (NSString *) value {
     _service = value;
-    [self valueChanged:_service forProperty:@"service"];
+    [self valueChangedFor:@"service"];
 }
        
 /** Setter implementation for property timestamp
@@ -78,7 +104,7 @@ root for authoritative license information.﻿
  */
 - (void) setTimestamp: (NSDate *) value {
     _timestamp = value;
-    [self valueChanged:_timestamp forProperty:@"timestamp"];
+    [self valueChangedFor:@"timestamp"];
 }
        
 

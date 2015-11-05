@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesAlternativeSecurityId
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] intValue] : _type;
+		_identityProvider = [dic objectForKey: @"identityProvider"] != nil ? [[dic objectForKey: @"identityProvider"] copy] : _identityProvider;
+		_key = [dic objectForKey: @"key"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"key"]] : _key;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithInt: _type], @"type",
+		 [_identityProvider copy], @"identityProvider",
+		 [MSOrcObjectizer stringFromData:_key], @"key",
+            nil];
+}
+
+
 /** Setter implementation for property type
  *
  */
 - (void) setType: (int) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 /** Setter implementation for property identityProvider
@@ -62,7 +86,7 @@ root for authoritative license information.﻿
  */
 - (void) setIdentityProvider: (NSString *) value {
     _identityProvider = value;
-    [self valueChanged:_identityProvider forProperty:@"identityProvider"];
+    [self valueChangedFor:@"identityProvider"];
 }
        
 /** Setter implementation for property key
@@ -70,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setKey: (NSData *) value {
     _key = value;
-    [self valueChanged:_key forProperty:@"key"];
+    [self valueChangedFor:@"key"];
 }
        
 

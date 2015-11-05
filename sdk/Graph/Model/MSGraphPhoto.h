@@ -17,28 +17,25 @@ root for authoritative license information.﻿
 #define MSGRAPHPHOTO_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphPhoto
  *
  */
-@interface MSGraphPhoto : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
-
-/** Property width
- *
- */
-@property (nonatomic,  setter=setWidth:, getter=width) int width;
+@interface MSGraphPhoto : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property height
  *
  */
 @property (nonatomic,  setter=setHeight:, getter=height) int height;
+
+/** Property width
+ *
+ */
+@property (nonatomic,  setter=setWidth:, getter=width) int width;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

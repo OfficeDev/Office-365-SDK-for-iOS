@@ -53,12 +53,75 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_sectionsUrl = [dic objectForKey: @"sectionsUrl"] != nil ? [[dic objectForKey: @"sectionsUrl"] copy] : _sectionsUrl;
+		_sectionGroupsUrl = [dic objectForKey: @"sectionGroupsUrl"] != nil ? [[dic objectForKey: @"sectionGroupsUrl"] copy] : _sectionGroupsUrl;
+		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
+		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[dic objectForKey: @"createdBy"] copy] : _createdBy;
+		_createdByUser = [dic objectForKey: @"createdByUser"] != nil ? [[MSOneNoteIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdByUser"]] : _createdByUser;
+		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
+		_lastModifiedByUser = [dic objectForKey: @"lastModifiedByUser"] != nil ? [[MSOneNoteIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedByUser"]] : _lastModifiedByUser;
+		_lastModifiedTime = [dic objectForKey: @"lastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]] : _lastModifiedTime;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
+		_createdTime = [dic objectForKey: @"createdTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]] : _createdTime;
+		_parentNotebook = [dic objectForKey: @"parentNotebook"] != nil ? [[MSOneNoteNotebook alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]] : _parentNotebook;
+		_parentSectionGroup = [dic objectForKey: @"parentSectionGroup"] != nil ? [[MSOneNoteSectionGroup alloc] initWithDictionary: [dic objectForKey: @"parentSectionGroup"]] : _parentSectionGroup;
+
+        if([dic objectForKey: @"sections"] != [NSNull null]){
+            _sections = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sections"] count]];
+            
+            for (id object in [dic objectForKey: @"sections"]) {
+                [_sections addObject:[[MSOneNoteSection alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"sectionGroups"] != [NSNull null]){
+            _sectionGroups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sectionGroups"] count]];
+            
+            for (id object in [dic objectForKey: @"sectionGroups"]) {
+                [_sectionGroups addObject:[[MSOneNoteSectionGroup alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_sectionsUrl copy], @"sectionsUrl",
+		 [_sectionGroupsUrl copy], @"sectionGroupsUrl",
+		 [_name copy], @"name",
+		 [_createdBy copy], @"createdBy",
+		 [_createdByUser toDictionary], @"createdByUser",
+		 [_lastModifiedBy copy], @"lastModifiedBy",
+		 [_lastModifiedByUser toDictionary], @"lastModifiedByUser",
+		 [MSOrcObjectizer stringFromDate:_lastModifiedTime], @"lastModifiedTime",
+		 [__id copy], @"id",
+		 [__self copy], @"self",
+		 [MSOrcObjectizer stringFromDate:_createdTime], @"createdTime",
+		 [_parentNotebook toDictionary], @"parentNotebook",
+		 [_parentSectionGroup toDictionary], @"parentSectionGroup",
+		 [[NSMutableArray alloc] init], @"sections",
+		 [[NSMutableArray alloc] init], @"sectionGroups",
+            nil];
+}
+
+
 /** Setter implementation for property sectionsUrl
  *
  */
 - (void) setSectionsUrl: (NSString *) value {
     _sectionsUrl = value;
-    [self valueChanged:_sectionsUrl forProperty:@"sectionsUrl"];
+    [self valueChangedFor:@"sectionsUrl"];
 }
        
 /** Setter implementation for property sectionGroupsUrl
@@ -66,7 +129,7 @@ root for authoritative license information.﻿
  */
 - (void) setSectionGroupsUrl: (NSString *) value {
     _sectionGroupsUrl = value;
-    [self valueChanged:_sectionGroupsUrl forProperty:@"sectionGroupsUrl"];
+    [self valueChangedFor:@"sectionGroupsUrl"];
 }
        
 /** Setter implementation for property name
@@ -74,7 +137,7 @@ root for authoritative license information.﻿
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"name"];
+    [self valueChangedFor:@"name"];
 }
        
 /** Setter implementation for property createdBy
@@ -82,15 +145,15 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedBy: (NSString *) value {
     _createdBy = value;
-    [self valueChanged:_createdBy forProperty:@"createdBy"];
+    [self valueChangedFor:@"createdBy"];
 }
        
 /** Setter implementation for property createdByUser
  *
  */
-- (void) setCreatedByUser: (MSOneNoteComplexUser *) value {
+- (void) setCreatedByUser: (MSOneNoteIdentitySet *) value {
     _createdByUser = value;
-    [self valueChanged:_createdByUser forProperty:@"createdByUser"];
+    [self valueChangedFor:@"createdByUser"];
 }
        
 /** Setter implementation for property lastModifiedBy
@@ -98,15 +161,15 @@ root for authoritative license information.﻿
  */
 - (void) setLastModifiedBy: (NSString *) value {
     _lastModifiedBy = value;
-    [self valueChanged:_lastModifiedBy forProperty:@"lastModifiedBy"];
+    [self valueChangedFor:@"lastModifiedBy"];
 }
        
 /** Setter implementation for property lastModifiedByUser
  *
  */
-- (void) setLastModifiedByUser: (MSOneNoteComplexUser *) value {
+- (void) setLastModifiedByUser: (MSOneNoteIdentitySet *) value {
     _lastModifiedByUser = value;
-    [self valueChanged:_lastModifiedByUser forProperty:@"lastModifiedByUser"];
+    [self valueChangedFor:@"lastModifiedByUser"];
 }
        
 /** Setter implementation for property lastModifiedTime
@@ -114,7 +177,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastModifiedTime: (NSDate *) value {
     _lastModifiedTime = value;
-    [self valueChanged:_lastModifiedTime forProperty:@"lastModifiedTime"];
+    [self valueChangedFor:@"lastModifiedTime"];
 }
        
 /** Setter implementation for property _id
@@ -122,7 +185,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property _self
@@ -130,7 +193,7 @@ root for authoritative license information.﻿
  */
 - (void) setSelf: (NSString *) value {
     __self = value;
-    [self valueChanged:__self forProperty:@"self"];
+    [self valueChangedFor:@"self"];
 }
        
 /** Setter implementation for property createdTime
@@ -138,7 +201,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedTime: (NSDate *) value {
     _createdTime = value;
-    [self valueChanged:_createdTime forProperty:@"createdTime"];
+    [self valueChangedFor:@"createdTime"];
 }
        
 /** Setter implementation for property parentNotebook
@@ -146,7 +209,7 @@ root for authoritative license information.﻿
  */
 - (void) setParentNotebook: (MSOneNoteNotebook *) value {
     _parentNotebook = value;
-    [self valueChanged:_parentNotebook forProperty:@"parentNotebook"];
+    [self valueChangedFor:@"parentNotebook"];
 }
        
 /** Setter implementation for property parentSectionGroup
@@ -154,7 +217,7 @@ root for authoritative license information.﻿
  */
 - (void) setParentSectionGroup: (MSOneNoteSectionGroup *) value {
     _parentSectionGroup = value;
-    [self valueChanged:_parentSectionGroup forProperty:@"parentSectionGroup"];
+    [self valueChangedFor:@"parentSectionGroup"];
 }
        
 /** Setter implementation for property sections
@@ -162,7 +225,7 @@ root for authoritative license information.﻿
  */
 - (void) setSections: (NSMutableArray *) value {
     _sections = value;
-    [self valueChanged:_sections forProperty:@"sections"];
+    [self valueChangedFor:@"sections"];
 }
        
 /** Setter implementation for property sectionGroups
@@ -170,7 +233,7 @@ root for authoritative license information.﻿
  */
 - (void) setSectionGroups: (NSMutableArray *) value {
     _sectionGroups = value;
-    [self valueChanged:_sectionGroups forProperty:@"sectionGroups"];
+    [self valueChangedFor:@"sectionGroups"];
 }
        
 

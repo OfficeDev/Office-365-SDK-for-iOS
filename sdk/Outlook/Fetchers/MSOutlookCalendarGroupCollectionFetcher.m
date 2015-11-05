@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookCalendarGroupFetcher *)getById:(NSString *)_id {
+- (MSOutlookCalendarGroupFetcher *)getById:(id) identifier {
 
-    return [[MSOutlookCalendarGroupFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSOutlookCalendarGroupFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSOutlookCalendarGroupCollectionFetcher *)select:(NSString *)params {

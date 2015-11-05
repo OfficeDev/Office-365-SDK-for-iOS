@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookWeekIndex
+/** Enum MSOutlookWeekIndexEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookWeekIndex) {
@@ -39,5 +39,11 @@ typedef NS_ENUM(NSInteger, MSOutlookWeekIndex) {
      * */
     MSOutlookWeekIndexLast
 };
+
+
+@interface MSOutlookWeekIndexSerializer : NSObject
++(MSOutlookWeekIndex) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookWeekIndex) value;
+@end
 
 #endif

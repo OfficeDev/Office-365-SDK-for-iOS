@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHAPPROLEASSIGNMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphAppRoleAssignment
  *
  */
-@interface MSGraphAppRoleAssignment : MSGraphDirectoryObject
+@interface MSGraphAppRoleAssignment : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property creationTimestamp
  *

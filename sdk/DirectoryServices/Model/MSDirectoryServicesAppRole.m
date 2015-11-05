@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesAppRole
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -50,12 +52,48 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+        if([dic objectForKey: @"allowedMemberTypes"] != [NSNull null]){
+            _allowedMemberTypes = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"allowedMemberTypes"] count]];
+            
+            for (id object in [dic objectForKey: @"allowedMemberTypes"]) {
+                [_allowedMemberTypes addObject:[object copy]];
+            }
+        }
+        
+		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_isEnabled = [dic objectForKey: @"isEnabled"] != nil ? [[dic objectForKey: @"isEnabled"] boolValue] : _isEnabled;
+		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [[NSMutableArray alloc] init], @"allowedMemberTypes",
+		 [__description copy], @"description",
+		 [_displayName copy], @"displayName",
+		 [__id copy], @"id",
+		 (_isEnabled?@"true":@"false"), @"isEnabled",
+		 [_value copy], @"value",
+            nil];
+}
+
+
 /** Setter implementation for property allowedMemberTypes
  *
  */
 - (void) setAllowedMemberTypes: (NSMutableArray *) value {
     _allowedMemberTypes = value;
-    [self valueChanged:_allowedMemberTypes forProperty:@"allowedMemberTypes"];
+    [self valueChangedFor:@"allowedMemberTypes"];
 }
        
 /** Setter implementation for property _description
@@ -63,7 +101,7 @@ root for authoritative license information.﻿
  */
 - (void) setDescription: (NSString *) value {
     __description = value;
-    [self valueChanged:__description forProperty:@"description"];
+    [self valueChangedFor:@"description"];
 }
        
 /** Setter implementation for property displayName
@@ -71,7 +109,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property _id
@@ -79,7 +117,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property isEnabled
@@ -87,7 +125,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsEnabled: (bool) value {
     _isEnabled = value;
-    [self valueChangedForBool:_isEnabled forProperty:@"isEnabled"];
+    [self valueChangedFor:@"isEnabled"];
 }
        
 /** Setter implementation for property value
@@ -95,7 +133,7 @@ root for authoritative license information.﻿
  */
 - (void) setValue: (NSString *) value {
     _value = value;
-    [self valueChanged:_value forProperty:@"value"];
+    [self valueChangedFor:@"value"];
 }
        
 

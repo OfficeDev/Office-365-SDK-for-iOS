@@ -45,11 +45,11 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesDeviceFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=registeredOwners) MSDirectoryServicesDirectoryObjectCollectionFetcher *registeredOwners;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)registeredOwnersById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)registeredOwnersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=registeredUsers) MSDirectoryServicesDirectoryObjectCollectionFetcher *registeredUsers;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)registeredUsersById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)registeredUsersById:(id)identifier;
 
 
 @end

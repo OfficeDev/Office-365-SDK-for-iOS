@@ -31,13 +31,16 @@ root for authoritative license information.﻿
 - (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSFilesFolder *, MSOrcError*))callback {
 
 
-    NSString *destFolderIdString = [self.resolver.jsonSerializer serialize:destFolderId property:@"destFolderId"];
-NSString *destFolderPathString = [self.resolver.jsonSerializer serialize:destFolderPath property:@"destFolderPath"];
-NSString *newNameString = [self.resolver.jsonSerializer serialize:newName property:@"newName"];
+      NSString *destFolderIdString = [MSOrcObjectizer deobjectizeToString: destFolderId ];
+
+  NSString *destFolderPathString = [MSOrcObjectizer deobjectizeToString: destFolderPath ];
+
+  NSString *newNameString = [MSOrcObjectizer deobjectizeToString: newName ];
+
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFolder * result = (MSFilesFolder *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSFilesFolder class]];
+            MSFilesFolder * result = (MSFilesFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSFilesFolder class]];
             callback(result, e);
         } 
         else {

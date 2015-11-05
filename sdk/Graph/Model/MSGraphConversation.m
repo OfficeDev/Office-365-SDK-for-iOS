@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveryTime", @"lastDeliveryTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", @"Id", @"_id", nil];
     
     }
     
@@ -53,20 +53,57 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"Id"];
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_topic = [dic objectForKey: @"Topic"] != nil ? [[dic objectForKey: @"Topic"] copy] : _topic;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_lastDeliveredDateTime = [dic objectForKey: @"LastDeliveredDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastDeliveredDateTime"]] : _lastDeliveredDateTime;
+
+        if([dic objectForKey: @"UniqueSenders"] != [NSNull null]){
+            _uniqueSenders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"UniqueSenders"] count]];
+            
+            for (id object in [dic objectForKey: @"UniqueSenders"]) {
+                [_uniqueSenders addObject:[object copy]];
+            }
+        }
+        
+		_preview = [dic objectForKey: @"Preview"] != nil ? [[dic objectForKey: @"Preview"] copy] : _preview;
+
+        if([dic objectForKey: @"Threads"] != [NSNull null]){
+            _threads = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Threads"] count]];
+            
+            for (id object in [dic objectForKey: @"Threads"]) {
+                [_threads addObject:[[MSGraphConversationThread alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
 }
-       
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_topic copy], @"Topic",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [MSOrcObjectizer stringFromDate:_lastDeliveredDateTime], @"LastDeliveredDateTime",
+		 [[NSMutableArray alloc] init], @"UniqueSenders",
+		 [_preview copy], @"Preview",
+		 [[NSMutableArray alloc] init], @"Threads",
+            nil];
+}
+
+
 /** Setter implementation for property topic
  *
  */
 - (void) setTopic: (NSString *) value {
     _topic = value;
-    [self valueChanged:_topic forProperty:@"Topic"];
+    [self valueChangedFor:@"Topic"];
 }
        
 /** Setter implementation for property hasAttachments
@@ -74,15 +111,15 @@ root for authoritative license information.﻿
  */
 - (void) setHasAttachments: (bool) value {
     _hasAttachments = value;
-    [self valueChangedForBool:_hasAttachments forProperty:@"HasAttachments"];
+    [self valueChangedFor:@"HasAttachments"];
 }
        
-/** Setter implementation for property lastDeliveryTime
+/** Setter implementation for property lastDeliveredDateTime
  *
  */
-- (void) setLastDeliveryTime: (NSDate *) value {
-    _lastDeliveryTime = value;
-    [self valueChanged:_lastDeliveryTime forProperty:@"LastDeliveryTime"];
+- (void) setLastDeliveredDateTime: (NSDate *) value {
+    _lastDeliveredDateTime = value;
+    [self valueChangedFor:@"LastDeliveredDateTime"];
 }
        
 /** Setter implementation for property uniqueSenders
@@ -90,7 +127,7 @@ root for authoritative license information.﻿
  */
 - (void) setUniqueSenders: (NSMutableArray *) value {
     _uniqueSenders = value;
-    [self valueChanged:_uniqueSenders forProperty:@"UniqueSenders"];
+    [self valueChangedFor:@"UniqueSenders"];
 }
        
 /** Setter implementation for property preview
@@ -98,7 +135,7 @@ root for authoritative license information.﻿
  */
 - (void) setPreview: (NSString *) value {
     _preview = value;
-    [self valueChanged:_preview forProperty:@"Preview"];
+    [self valueChangedFor:@"Preview"];
 }
        
 /** Setter implementation for property threads
@@ -106,7 +143,7 @@ root for authoritative license information.﻿
  */
 - (void) setThreads: (NSMutableArray *) value {
     _threads = value;
-    [self valueChanged:_threads forProperty:@"Threads"];
+    [self valueChangedFor:@"Threads"];
 }
        
 

@@ -17,19 +17,16 @@ root for authoritative license information.﻿
 #define MSGRAPHCONVERSATION_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphConversationThread;
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphConversation
  *
  */
-@interface MSGraphConversation : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphConversation : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property topic
  *
@@ -41,10 +38,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
 
-/** Property lastDeliveryTime
+/** Property lastDeliveredDateTime
  *
  */
-@property (nonatomic,  copy, setter=setLastDeliveryTime:, getter=lastDeliveryTime) NSDate * lastDeliveryTime;
+@property (nonatomic,  copy, setter=setLastDeliveredDateTime:, getter=lastDeliveredDateTime) NSDate * lastDeliveredDateTime;
 
 /** Property uniqueSenders
  *

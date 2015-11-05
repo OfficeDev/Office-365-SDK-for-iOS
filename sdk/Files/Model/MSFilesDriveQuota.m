@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesDriveQuota
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,20 +51,44 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_deleted = [dic objectForKey: @"deleted"] != nil ? [[dic objectForKey: @"deleted"] longLongValue] : _deleted;
+		_remaining = [dic objectForKey: @"remaining"] != nil ? [[dic objectForKey: @"remaining"] longLongValue] : _remaining;
+		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
+		_total = [dic objectForKey: @"total"] != nil ? [[dic objectForKey: @"total"] longLongValue] : _total;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithLongLong: _deleted], @"deleted",
+		 [NSNumber numberWithLongLong: _remaining], @"remaining",
+		 [_state copy], @"state",
+		 [NSNumber numberWithLongLong: _total], @"total",
+            nil];
+}
+
+
 /** Setter implementation for property deleted
  *
  */
-- (void) setDeleted: (int) value {
+- (void) setDeleted: (long long) value {
     _deleted = value;
-    [self valueChangedForInt:_deleted forProperty:@"deleted"];
+    [self valueChangedFor:@"deleted"];
 }
        
 /** Setter implementation for property remaining
  *
  */
-- (void) setRemaining: (int) value {
+- (void) setRemaining: (long long) value {
     _remaining = value;
-    [self valueChangedForInt:_remaining forProperty:@"remaining"];
+    [self valueChangedFor:@"remaining"];
 }
        
 /** Setter implementation for property state
@@ -70,15 +96,15 @@ root for authoritative license information.﻿
  */
 - (void) setState: (NSString *) value {
     _state = value;
-    [self valueChanged:_state forProperty:@"state"];
+    [self valueChangedFor:@"state"];
 }
        
 /** Setter implementation for property total
  *
  */
-- (void) setTotal: (int) value {
+- (void) setTotal: (long long) value {
     _total = value;
-    [self valueChangedForInt:_total forProperty:@"total"];
+    [self valueChangedFor:@"total"];
 }
        
 

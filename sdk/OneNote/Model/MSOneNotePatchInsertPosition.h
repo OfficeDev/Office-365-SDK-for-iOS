@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOneNotePatchInsertPosition
+/** Enum MSOneNotePatchInsertPositionEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOneNotePatchInsertPosition) {
@@ -30,5 +30,11 @@ typedef NS_ENUM(NSInteger, MSOneNotePatchInsertPosition) {
      * */
     MSOneNotePatchInsertPositionBefore
 };
+
+
+@interface MSOneNotePatchInsertPositionSerializer : NSObject
++(MSOneNotePatchInsertPosition) fromString:(NSString *) string;
++(NSString *) toString: (MSOneNotePatchInsertPosition) value;
+@end
 
 #endif

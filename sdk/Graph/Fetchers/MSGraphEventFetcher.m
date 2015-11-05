@@ -69,17 +69,6 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphAttachmentCollectionFetcher *)attachments {
-
-    return [[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]];
-}
-
-- (MSGraphAttachmentFetcher *)attachmentsById:(NSString *)identifier {
-
-    return [[[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]] getById:identifier];
-
-}
-
 - (MSGraphCalendarFetcher *)calendar {
 
 	 return [[MSGraphCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self asClass:[MSGraphCalendar class]];
@@ -93,6 +82,28 @@ root for authoritative license information.﻿
 - (MSGraphEventFetcher *)instancesById:(NSString *)identifier {
 
     return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self asClass:[MSGraphEvent class]] getById:identifier];
+
+}
+
+- (MSGraphExtensionCollectionFetcher *)extensions {
+
+    return [[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]];
+}
+
+- (MSGraphExtensionFetcher *)extensionsById:(NSString *)identifier {
+
+    return [[[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]] getById:identifier];
+
+}
+
+- (MSGraphAttachmentCollectionFetcher *)attachments {
+
+    return [[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]];
+}
+
+- (MSGraphAttachmentFetcher *)attachmentsById:(NSString *)identifier {
+
+    return [[[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]] getById:identifier];
 
 }
 

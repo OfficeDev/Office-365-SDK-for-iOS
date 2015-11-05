@@ -21,29 +21,29 @@ root for authoritative license information.﻿
 #import "MSOutlookModels.h"
 #import "MSOrcEntityFetcher.h"
 
-@class MSOutlookFolderFetcher;
-@class MSOutlookCalendarCollectionFetcher;
+@class MSOutlookMessageCollectionFetcher;
+@class MSOutlookFolderCollectionFetcher;
 @class MSOutlookCalendarFetcher;
+@class MSOutlookCalendarCollectionFetcher;
 @class MSOutlookCalendarGroupCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
-@class MSOutlookFolderCollectionFetcher;
-@class MSOutlookMessageCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
 @class MSOutlookFolderFetcher;
-@class MSOutlookCalendarCollectionFetcher;
+@class MSOutlookMessageCollectionFetcher;
+@class MSOutlookFolderCollectionFetcher;
 @class MSOutlookCalendarFetcher;
+@class MSOutlookCalendarCollectionFetcher;
 @class MSOutlookCalendarGroupCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
-@class MSOutlookFolderCollectionFetcher;
-@class MSOutlookMessageCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
+@class MSOutlookFolderFetcher;
+@class MSOutlookMessageFetcher;
+@class MSOutlookFolderFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookCalendarGroupFetcher;
 @class MSOutlookEventFetcher;
-@class MSOutlookFolderFetcher;
-@class MSOutlookMessageFetcher;
 @class MSOutlookContactFetcher;
 @class MSOutlookContactFolderFetcher;
 @class MSOutlookUserOperations;
@@ -64,42 +64,42 @@ root for authoritative license information.﻿
 - (MSOutlookUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOutlookUserFetcher *)select:(NSString *)params;
 - (MSOutlookUserFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=messages) MSOutlookMessageCollectionFetcher *messages;
 
-@property (strong, nonatomic, readonly, getter=rootFolder) MSOutlookFolderFetcher *rootFolder;
-@property (strong, nonatomic, readonly, getter=calendars) MSOutlookCalendarCollectionFetcher *calendars;
-
-- (MSOutlookCalendarFetcher *)calendarsById:(NSString*)identifier;
-
-
-@property (strong, nonatomic, readonly, getter=calendar) MSOutlookCalendarFetcher *calendar;
-@property (strong, nonatomic, readonly, getter=calendarGroups) MSOutlookCalendarGroupCollectionFetcher *calendarGroups;
-
-- (MSOutlookCalendarGroupFetcher *)calendarGroupsById:(NSString*)identifier;
-
-@property (strong, nonatomic, readonly, getter=events) MSOutlookEventCollectionFetcher *events;
-
-- (MSOutlookEventFetcher *)eventsById:(NSString*)identifier;
-
-@property (strong, nonatomic, readonly, getter=calendarView) MSOutlookEventCollectionFetcher *calendarView;
-
-- (MSOutlookEventFetcher *)calendarViewById:(NSString*)identifier;
+- (MSOutlookMessageFetcher *)messagesById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=folders) MSOutlookFolderCollectionFetcher *folders;
 
-- (MSOutlookFolderFetcher *)foldersById:(NSString*)identifier;
+- (MSOutlookFolderFetcher *)foldersById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=messages) MSOutlookMessageCollectionFetcher *messages;
 
-- (MSOutlookMessageFetcher *)messagesById:(NSString*)identifier;
+@property (strong, nonatomic, readonly, getter=calendar) MSOutlookCalendarFetcher *calendar;
+@property (strong, nonatomic, readonly, getter=calendars) MSOutlookCalendarCollectionFetcher *calendars;
+
+- (MSOutlookCalendarFetcher *)calendarsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=calendarGroups) MSOutlookCalendarGroupCollectionFetcher *calendarGroups;
+
+- (MSOutlookCalendarGroupFetcher *)calendarGroupsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=calendarView) MSOutlookEventCollectionFetcher *calendarView;
+
+- (MSOutlookEventFetcher *)calendarViewById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=events) MSOutlookEventCollectionFetcher *events;
+
+- (MSOutlookEventFetcher *)eventsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=contacts) MSOutlookContactCollectionFetcher *contacts;
 
-- (MSOutlookContactFetcher *)contactsById:(NSString*)identifier;
+- (MSOutlookContactFetcher *)contactsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=contactFolders) MSOutlookContactFolderCollectionFetcher *contactFolders;
 
-- (MSOutlookContactFolderFetcher *)contactFoldersById:(NSString*)identifier;
+- (MSOutlookContactFolderFetcher *)contactFoldersById:(id)identifier;
 
+
+@property (strong, nonatomic, readonly, getter=rootFolder) MSOutlookFolderFetcher *rootFolder;
 
 @end
 

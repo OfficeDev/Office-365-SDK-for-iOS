@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphOutlookItemFetcher *)getById:(NSString *)_id {
+- (MSGraphOutlookItemFetcher *)getById:(id) identifier {
 
-    return [[MSGraphOutlookItemFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSGraphOutlookItemFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSGraphOutlookItemCollectionFetcher *)select:(NSString *)params {

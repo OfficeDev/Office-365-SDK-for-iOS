@@ -47,11 +47,11 @@ root for authoritative license information.﻿
 - (MSOneNoteMyOrganizationFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=siteCollections) MSOneNoteSiteCollection_CollectionFetcher *siteCollections;
 
-- (MSOneNoteSiteCollection_Fetcher *)siteCollectionsById:(NSString*)identifier;
+- (MSOneNoteSiteCollection_Fetcher *)siteCollectionsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=groups) MSOneNoteGroupCollectionFetcher *groups;
 
-- (MSOneNoteGroupFetcher *)groupsById:(NSString*)identifier;
+- (MSOneNoteGroupFetcher *)groupsById:(id)identifier;
 
 
 @end

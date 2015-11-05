@@ -21,16 +21,22 @@ root for authoritative license information.﻿
 
 @class MSGraphIdentity;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphIdentitySet
  *
  */
-@interface MSGraphIdentitySet : MSOrcBaseEntity
+@interface MSGraphIdentitySet : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property application
  *
  */
 @property (nonatomic,  copy, setter=setApplication:, getter=application) MSGraphIdentity * application;
+
+/** Property device
+ *
+ */
+@property (nonatomic,  copy, setter=setDevice:, getter=device) MSGraphIdentity * device;
 
 /** Property user
  *

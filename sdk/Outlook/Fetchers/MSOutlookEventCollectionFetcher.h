@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSOutlookEventFetcher *)getById:(NSString *)Id;
+- (MSOutlookEventFetcher *)getById: (id) identifier;
 - (void)add:(MSOutlookEvent *)entity callback:(void (^)(MSOutlookEvent *, MSOrcError *))callback;
 
 - (MSOutlookEventCollectionFetcher *)select:(NSString *)params;

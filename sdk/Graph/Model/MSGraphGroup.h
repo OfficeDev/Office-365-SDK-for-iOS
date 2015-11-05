@@ -17,23 +17,26 @@ root for authoritative license information.﻿
 #define MSGRAPHGROUP_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphProvisioningError;
 @class MSGraphAppRoleAssignment;
 @class MSGraphDirectoryObject;
-@class MSGraphPhoto;
-@class MSGraphConversation;
 @class MSGraphConversationThread;
 @class MSGraphCalendar;
 @class MSGraphEvent;
-@class MSGraphItem;
+@class MSGraphConversation;
+@class MSGraphPhoto;
+@class MSGraphDrive;
+@class MSGraphPlan;
 #import "MSGraphGroupAccessType.h"
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphGroup
  *
  */
-@interface MSGraphGroup : MSGraphDirectoryObject
+@interface MSGraphGroup : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property _description
  *
@@ -110,12 +113,7 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setAccessType:, getter=accessType) MSGraphGroupAccessType accessType;
 
-- (void)setAccessTypeString:(NSString *)value;
-
-/** Property emailAddress
- *
- */
-@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
+- (void)setAccessTypeString:(NSString *)string;
 
 /** Property allowExternalSenders
  *
@@ -127,15 +125,20 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setAutoSubscribeNewMembers:, getter=autoSubscribeNewMembers) bool autoSubscribeNewMembers;
 
-/** Property isSubscribedByMail
+/** Property emailAddress
  *
  */
-@property (nonatomic,  setter=setIsSubscribedByMail:, getter=isSubscribedByMail) bool isSubscribedByMail;
+@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
 
 /** Property isFavorite
  *
  */
 @property (nonatomic,  setter=setIsFavorite:, getter=isFavorite) bool isFavorite;
+
+/** Property isSubscribedByMail
+ *
+ */
+@property (nonatomic,  setter=setIsSubscribedByMail:, getter=isSubscribedByMail) bool isSubscribedByMail;
 
 /** Property unseenCount
  *
@@ -167,21 +170,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setOwners:, getter=owners) NSMutableArray * owners;
 
-/** Property groupPhoto
- *
- */
-@property (nonatomic,  copy, setter=setGroupPhoto:, getter=groupPhoto) MSGraphPhoto * groupPhoto;
-
-/** Property groupPhotos
- *
- */
-@property (nonatomic,  copy, setter=setGroupPhotos:, getter=groupPhotos) NSMutableArray * groupPhotos;
-
-/** Property conversations
- *
- */
-@property (nonatomic,  copy, setter=setConversations:, getter=conversations) NSMutableArray * conversations;
-
 /** Property threads
  *
  */
@@ -192,20 +180,50 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setCalendar:, getter=calendar) MSGraphCalendar * calendar;
 
-/** Property events
- *
- */
-@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
-
 /** Property calendarView
  *
  */
 @property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
 
-/** Property files
+/** Property events
  *
  */
-@property (nonatomic,  copy, setter=setFiles:, getter=files) NSMutableArray * files;
+@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
+
+/** Property conversations
+ *
+ */
+@property (nonatomic,  copy, setter=setConversations:, getter=conversations) NSMutableArray * conversations;
+
+/** Property photo
+ *
+ */
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+
+/** Property photos
+ *
+ */
+@property (nonatomic,  copy, setter=setPhotos:, getter=photos) NSMutableArray * photos;
+
+/** Property acceptedSenders
+ *
+ */
+@property (nonatomic,  copy, setter=setAcceptedSenders:, getter=acceptedSenders) NSMutableArray * acceptedSenders;
+
+/** Property rejectedSenders
+ *
+ */
+@property (nonatomic,  copy, setter=setRejectedSenders:, getter=rejectedSenders) NSMutableArray * rejectedSenders;
+
+/** Property drive
+ *
+ */
+@property (nonatomic,  copy, setter=setDrive:, getter=drive) MSGraphDrive * drive;
+
+/** Property plans
+ *
+ */
+@property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

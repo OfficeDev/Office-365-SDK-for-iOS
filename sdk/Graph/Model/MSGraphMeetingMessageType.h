@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphMeetingMessageType
+/** Enum MSGraphMeetingMessageTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphMeetingMessageType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSGraphMeetingMessageType) {
      * */
     MSGraphMeetingMessageTypeMeetingDeclined
 };
+
+
+@interface MSGraphMeetingMessageTypeSerializer : NSObject
++(MSGraphMeetingMessageType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphMeetingMessageType) value;
+@end
 
 #endif

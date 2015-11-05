@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSOUTLOOKITEMATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookItem;
 #import "MSOutlookAttachment.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookItemAttachment
  *
  */
-@interface MSOutlookItemAttachment : MSOutlookAttachment
+@interface MSOutlookItemAttachment : MSOutlookAttachment <MSOrcInteroperableWithDictionary>
 
 /** Property item
  *

@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSOutlookCalendarFetcher *)getById:(NSString *)Id;
+- (MSOutlookCalendarFetcher *)getById: (id) identifier;
 - (void)add:(MSOutlookCalendar *)entity callback:(void (^)(MSOutlookCalendar *, MSOrcError *))callback;
 
 - (MSOutlookCalendarCollectionFetcher *)select:(NSString *)params;

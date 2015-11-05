@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"HasAttachments", @"hasAttachments", @"ParentFolderId", @"parentFolderId", @"From", @"from", @"Sender", @"sender", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsDraft", @"isDraft", @"IsRead", @"isRead", @"WebLink", @"webLink", @"Attachments", @"attachments", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -51,28 +51,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_meetingMessageType = [dic objectForKey: @"MeetingMessageType"] != nil ? [MSOutlookMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]] : _meetingMessageType;
+		_event = [dic objectForKey: @"Event"] != nil ? [[MSOutlookEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]] : _event;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOutlookMeetingMessageTypeSerializer toString:_meetingMessageType], @"MeetingMessageType",
+		 [_event toDictionary], @"Event",
+            nil];
+}
+
+
 /** Setter implementation for property meetingMessageType
  *
  */
 - (void) setMeetingMessageType: (MSOutlookMeetingMessageType) value {
     _meetingMessageType = value;
-    [self valueChangedForInt:_meetingMessageType forProperty:@"MeetingMessageType"];
+    [self valueChangedFor:@"MeetingMessageType"];
 }
        
 
-- (void)setMeetingMessageTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookMeetingMessageTypeNone], @"None", [NSNumber numberWithInt:MSOutlookMeetingMessageTypeMeetingRequest], @"MeetingRequest", [NSNumber numberWithInt:MSOutlookMeetingMessageTypeMeetingCancelled], @"MeetingCancelled", [NSNumber numberWithInt:MSOutlookMeetingMessageTypeMeetingAccepted], @"MeetingAccepted", [NSNumber numberWithInt:MSOutlookMeetingMessageTypeMeetingTenativelyAccepted], @"MeetingTenativelyAccepted", [NSNumber numberWithInt:MSOutlookMeetingMessageTypeMeetingDeclined], @"MeetingDeclined",
-            nil        
-        ];
-    }
-    
-    self.meetingMessageType = [stringMappings[value] intValue]; 
+- (void)setMeetingMessageTypeString:(NSString *)string {
+        
+    _meetingMessageType = [MSOutlookMeetingMessageTypeSerializer fromString:string];
+    [self valueChangedFor:@"MeetingMessageType"]; 
 }
 
 /** Setter implementation for property event
@@ -80,7 +92,7 @@ root for authoritative license information.﻿
  */
 - (void) setEvent: (MSOutlookEvent *) value {
     _event = value;
-    [self valueChanged:_event forProperty:@"Event"];
+    [self valueChangedFor:@"Event"];
 }
        
 

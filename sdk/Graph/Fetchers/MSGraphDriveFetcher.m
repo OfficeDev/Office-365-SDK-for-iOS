@@ -29,7 +29,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphDrive *Drive, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphDrive *drive, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,21 +63,48 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphDrive *Drive, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphDrive *drive, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
 }
 
-- (MSGraphItemCollectionFetcher *)files {
+- (MSGraphItemCollectionFetcher *)items {
 
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"files" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]];
 }
 
-- (MSGraphItemFetcher *)filesById:(NSString *)identifier {
+- (MSGraphItemFetcher *)itemsById:(NSString *)identifier {
 
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"files" parent:self asClass:[MSGraphItem class]] getById:identifier];
+    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]] getById:identifier];
 
+}
+
+- (MSGraphItemCollectionFetcher *)shared {
+
+    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphItem class]];
+}
+
+- (MSGraphItemFetcher *)sharedById:(NSString *)identifier {
+
+    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphItem class]] getById:identifier];
+
+}
+
+- (MSGraphItemCollectionFetcher *)special {
+
+    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphItem class]];
+}
+
+- (MSGraphItemFetcher *)specialById:(NSString *)identifier {
+
+    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphItem class]] getById:identifier];
+
+}
+
+- (MSGraphItemFetcher *)root {
+
+	 return [[MSGraphItemFetcher alloc] initWithUrl:@"root" parent:self asClass:[MSGraphItem class]];
 }
 
 @end

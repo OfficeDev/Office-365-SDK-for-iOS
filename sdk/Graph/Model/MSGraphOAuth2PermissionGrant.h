@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHOAUTH2PERMISSIONGRANT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphOAuth2PermissionGrant
  *
  */
-@interface MSGraphOAuth2PermissionGrant : MSOrcBaseEntity
+@interface MSGraphOAuth2PermissionGrant : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property clientId
  *

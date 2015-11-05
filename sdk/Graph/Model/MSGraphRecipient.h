@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSGraphEmailAddress;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphRecipient
  *
  */
-@interface MSGraphRecipient : MSOrcBaseEntity
+@interface MSGraphRecipient : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property emailAddress
  *

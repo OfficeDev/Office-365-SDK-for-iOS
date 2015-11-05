@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"content", @"content", @"thumbnailUrl", @"thumbnailUrl", @"lastModifiedTime", @"lastModifiedTime", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"content", @"content", @"thumbnailUrl", @"thumbnailUrl", @"lastModifiedTime", @"lastModifiedTime", @"level", @"level", @"order", @"order", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", nil];
     
     }
     
@@ -51,12 +51,57 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
+		_createdByAppId = [dic objectForKey: @"createdByAppId"] != nil ? [[dic objectForKey: @"createdByAppId"] copy] : _createdByAppId;
+		_links = [dic objectForKey: @"links"] != nil ? [[MSOneNotePageLinks alloc] initWithDictionary: [dic objectForKey: @"links"]] : _links;
+		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
+		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
+		_thumbnailUrl = [dic objectForKey: @"thumbnailUrl"] != nil ? [[dic objectForKey: @"thumbnailUrl"] copy] : _thumbnailUrl;
+		_lastModifiedTime = [dic objectForKey: @"lastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]] : _lastModifiedTime;
+		_level = [dic objectForKey: @"level"] != nil ? [[dic objectForKey: @"level"] intValue] : _level;
+		_order = [dic objectForKey: @"order"] != nil ? [[dic objectForKey: @"order"] intValue] : _order;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
+		_createdTime = [dic objectForKey: @"createdTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]] : _createdTime;
+		_parentSection = [dic objectForKey: @"parentSection"] != nil ? [[MSOneNoteSection alloc] initWithDictionary: [dic objectForKey: @"parentSection"]] : _parentSection;
+		_parentNotebook = [dic objectForKey: @"parentNotebook"] != nil ? [[MSOneNoteNotebook alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]] : _parentNotebook;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_title copy], @"title",
+		 [_createdByAppId copy], @"createdByAppId",
+		 [_links toDictionary], @"links",
+		 [_contentUrl copy], @"contentUrl",
+		 nil/*NSStream*/, @"content",
+		 [_thumbnailUrl copy], @"thumbnailUrl",
+		 [MSOrcObjectizer stringFromDate:_lastModifiedTime], @"lastModifiedTime",
+		 [NSNumber numberWithInt: _level], @"level",
+		 [NSNumber numberWithInt: _order], @"order",
+		 [__id copy], @"id",
+		 [__self copy], @"self",
+		 [MSOrcObjectizer stringFromDate:_createdTime], @"createdTime",
+		 [_parentSection toDictionary], @"parentSection",
+		 [_parentNotebook toDictionary], @"parentNotebook",
+            nil];
+}
+
+
 /** Setter implementation for property title
  *
  */
 - (void) setTitle: (NSString *) value {
     _title = value;
-    [self valueChanged:_title forProperty:@"title"];
+    [self valueChangedFor:@"title"];
 }
        
 /** Setter implementation for property createdByAppId
@@ -64,7 +109,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedByAppId: (NSString *) value {
     _createdByAppId = value;
-    [self valueChanged:_createdByAppId forProperty:@"createdByAppId"];
+    [self valueChangedFor:@"createdByAppId"];
 }
        
 /** Setter implementation for property links
@@ -72,7 +117,7 @@ root for authoritative license information.﻿
  */
 - (void) setLinks: (MSOneNotePageLinks *) value {
     _links = value;
-    [self valueChanged:_links forProperty:@"links"];
+    [self valueChangedFor:@"links"];
 }
        
 /** Setter implementation for property contentUrl
@@ -80,7 +125,7 @@ root for authoritative license information.﻿
  */
 - (void) setContentUrl: (NSString *) value {
     _contentUrl = value;
-    [self valueChanged:_contentUrl forProperty:@"contentUrl"];
+    [self valueChangedFor:@"contentUrl"];
 }
        
 /** Setter implementation for property content
@@ -88,7 +133,7 @@ root for authoritative license information.﻿
  */
 - (void) setContent: (NSStream *) value {
     _content = value;
-    [self valueChanged:_content forProperty:@"content"];
+    [self valueChangedFor:@"content"];
 }
        
 /** Setter implementation for property thumbnailUrl
@@ -96,7 +141,7 @@ root for authoritative license information.﻿
  */
 - (void) setThumbnailUrl: (NSString *) value {
     _thumbnailUrl = value;
-    [self valueChanged:_thumbnailUrl forProperty:@"thumbnailUrl"];
+    [self valueChangedFor:@"thumbnailUrl"];
 }
        
 /** Setter implementation for property lastModifiedTime
@@ -104,7 +149,23 @@ root for authoritative license information.﻿
  */
 - (void) setLastModifiedTime: (NSDate *) value {
     _lastModifiedTime = value;
-    [self valueChanged:_lastModifiedTime forProperty:@"lastModifiedTime"];
+    [self valueChangedFor:@"lastModifiedTime"];
+}
+       
+/** Setter implementation for property level
+ *
+ */
+- (void) setLevel: (int) value {
+    _level = value;
+    [self valueChangedFor:@"level"];
+}
+       
+/** Setter implementation for property order
+ *
+ */
+- (void) setOrder: (int) value {
+    _order = value;
+    [self valueChangedFor:@"order"];
 }
        
 /** Setter implementation for property _id
@@ -112,7 +173,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property _self
@@ -120,7 +181,7 @@ root for authoritative license information.﻿
  */
 - (void) setSelf: (NSString *) value {
     __self = value;
-    [self valueChanged:__self forProperty:@"self"];
+    [self valueChangedFor:@"self"];
 }
        
 /** Setter implementation for property createdTime
@@ -128,7 +189,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedTime: (NSDate *) value {
     _createdTime = value;
-    [self valueChanged:_createdTime forProperty:@"createdTime"];
+    [self valueChangedFor:@"createdTime"];
 }
        
 /** Setter implementation for property parentSection
@@ -136,7 +197,7 @@ root for authoritative license information.﻿
  */
 - (void) setParentSection: (MSOneNoteSection *) value {
     _parentSection = value;
-    [self valueChanged:_parentSection forProperty:@"parentSection"];
+    [self valueChangedFor:@"parentSection"];
 }
        
 /** Setter implementation for property parentNotebook
@@ -144,7 +205,7 @@ root for authoritative license information.﻿
  */
 - (void) setParentNotebook: (MSOneNoteNotebook *) value {
     _parentNotebook = value;
-    [self valueChanged:_parentNotebook forProperty:@"parentNotebook"];
+    [self valueChangedFor:@"parentNotebook"];
 }
        
 

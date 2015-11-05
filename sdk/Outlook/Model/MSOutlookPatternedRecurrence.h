@@ -22,11 +22,12 @@ root for authoritative license information.﻿
 @class MSOutlookRecurrencePattern;
 @class MSOutlookRecurrenceRange;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookPatternedRecurrence
  *
  */
-@interface MSOutlookPatternedRecurrence : MSOrcBaseEntity
+@interface MSOutlookPatternedRecurrence : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property pattern
  *

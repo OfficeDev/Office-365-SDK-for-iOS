@@ -17,23 +17,15 @@ root for authoritative license information.﻿
 #define MSOUTLOOKITEM_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookItem
  *
  */
-@interface MSOutlookItem : MSOutlookEntity
-
-/** Property changeKey
- *
- */
-@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
-
-/** Property categories
- *
- */
-@property (nonatomic,  copy, setter=setCategories:, getter=categories) NSMutableArray * categories;
+@interface MSOutlookItem : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 /** Property dateTimeCreated
  *
@@ -44,6 +36,16 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
+
+/** Property changeKey
+ *
+ */
+@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
+
+/** Property categories
+ *
+ */
+@property (nonatomic,  copy, setter=setCategories:, getter=categories) NSMutableArray * categories;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

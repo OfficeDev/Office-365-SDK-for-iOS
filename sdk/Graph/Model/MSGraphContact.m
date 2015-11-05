@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"city", @"city", @"country", @"country", @"department", @"department", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"facsimileTelephoneNumber", @"facsimileTelephoneNumber", @"givenName", @"givenName", @"jobTitle", @"jobTitle", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mobile", @"mobile", @"physicalDeliveryOfficeName", @"physicalDeliveryOfficeName", @"postalCode", @"postalCode", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"sipProxyAddress", @"sipProxyAddress", @"state", @"state", @"streetAddress", @"streetAddress", @"surname", @"surname", @"telephoneNumber", @"telephoneNumber", @"thumbnailPhoto", @"thumbnailPhoto", @"manager", @"manager", @"directReports", @"directReports", @"memberOf", @"memberOf", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"Birthday", @"birthday", @"FileAs", @"fileAs", @"DisplayName", @"displayName", @"GivenName", @"givenName", @"Initials", @"initials", @"MiddleName", @"middleName", @"NickName", @"nickName", @"Surname", @"surname", @"Title", @"title", @"YomiGivenName", @"yomiGivenName", @"YomiSurname", @"yomiSurname", @"YomiCompanyName", @"yomiCompanyName", @"Generation", @"generation", @"EmailAddresses", @"emailAddresses", @"ImAddresses", @"imAddresses", @"JobTitle", @"jobTitle", @"CompanyName", @"companyName", @"Department", @"department", @"OfficeLocation", @"officeLocation", @"Profession", @"profession", @"BusinessHomePage", @"businessHomePage", @"AssistantName", @"assistantName", @"Manager", @"manager", @"HomePhones", @"homePhones", @"MobilePhone1", @"mobilePhone1", @"BusinessPhones", @"businessPhones", @"HomeAddress", @"homeAddress", @"BusinessAddress", @"businessAddress", @"OtherAddress", @"otherAddress", @"SpouseName", @"spouseName", @"PersonalNotes", @"personalNotes", @"Children", @"children", @"Extensions", @"extensions", @"Photo", @"photo", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -46,45 +46,174 @@ root for authoritative license information.﻿
 		_odataType = @"#Microsoft.Graph.Contact";
         
         
-		_provisioningErrors = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_proxyAddresses = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_directReports = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_memberOf = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_emailAddresses = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_imAddresses = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_homePhones = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_businessPhones = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_children = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_extensions = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
 
-/** Setter implementation for property city
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
+		_birthday = [dic objectForKey: @"Birthday"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Birthday"]] : _birthday;
+		_fileAs = [dic objectForKey: @"FileAs"] != nil ? [[dic objectForKey: @"FileAs"] copy] : _fileAs;
+		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+		_givenName = [dic objectForKey: @"GivenName"] != nil ? [[dic objectForKey: @"GivenName"] copy] : _givenName;
+		_initials = [dic objectForKey: @"Initials"] != nil ? [[dic objectForKey: @"Initials"] copy] : _initials;
+		_middleName = [dic objectForKey: @"MiddleName"] != nil ? [[dic objectForKey: @"MiddleName"] copy] : _middleName;
+		_nickName = [dic objectForKey: @"NickName"] != nil ? [[dic objectForKey: @"NickName"] copy] : _nickName;
+		_surname = [dic objectForKey: @"Surname"] != nil ? [[dic objectForKey: @"Surname"] copy] : _surname;
+		_title = [dic objectForKey: @"Title"] != nil ? [[dic objectForKey: @"Title"] copy] : _title;
+		_yomiGivenName = [dic objectForKey: @"YomiGivenName"] != nil ? [[dic objectForKey: @"YomiGivenName"] copy] : _yomiGivenName;
+		_yomiSurname = [dic objectForKey: @"YomiSurname"] != nil ? [[dic objectForKey: @"YomiSurname"] copy] : _yomiSurname;
+		_yomiCompanyName = [dic objectForKey: @"YomiCompanyName"] != nil ? [[dic objectForKey: @"YomiCompanyName"] copy] : _yomiCompanyName;
+		_generation = [dic objectForKey: @"Generation"] != nil ? [[dic objectForKey: @"Generation"] copy] : _generation;
+
+        if([dic objectForKey: @"EmailAddresses"] != [NSNull null]){
+            _emailAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"EmailAddresses"] count]];
+            
+            for (id object in [dic objectForKey: @"EmailAddresses"]) {
+                [_emailAddresses addObject:[[MSGraphEmailAddress alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ImAddresses"] != [NSNull null]){
+            _imAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ImAddresses"] count]];
+            
+            for (id object in [dic objectForKey: @"ImAddresses"]) {
+                [_imAddresses addObject:[object copy]];
+            }
+        }
+        
+		_jobTitle = [dic objectForKey: @"JobTitle"] != nil ? [[dic objectForKey: @"JobTitle"] copy] : _jobTitle;
+		_companyName = [dic objectForKey: @"CompanyName"] != nil ? [[dic objectForKey: @"CompanyName"] copy] : _companyName;
+		_department = [dic objectForKey: @"Department"] != nil ? [[dic objectForKey: @"Department"] copy] : _department;
+		_officeLocation = [dic objectForKey: @"OfficeLocation"] != nil ? [[dic objectForKey: @"OfficeLocation"] copy] : _officeLocation;
+		_profession = [dic objectForKey: @"Profession"] != nil ? [[dic objectForKey: @"Profession"] copy] : _profession;
+		_businessHomePage = [dic objectForKey: @"BusinessHomePage"] != nil ? [[dic objectForKey: @"BusinessHomePage"] copy] : _businessHomePage;
+		_assistantName = [dic objectForKey: @"AssistantName"] != nil ? [[dic objectForKey: @"AssistantName"] copy] : _assistantName;
+		_manager = [dic objectForKey: @"Manager"] != nil ? [[dic objectForKey: @"Manager"] copy] : _manager;
+
+        if([dic objectForKey: @"HomePhones"] != [NSNull null]){
+            _homePhones = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"HomePhones"] count]];
+            
+            for (id object in [dic objectForKey: @"HomePhones"]) {
+                [_homePhones addObject:[object copy]];
+            }
+        }
+        
+		_mobilePhone1 = [dic objectForKey: @"MobilePhone1"] != nil ? [[dic objectForKey: @"MobilePhone1"] copy] : _mobilePhone1;
+
+        if([dic objectForKey: @"BusinessPhones"] != [NSNull null]){
+            _businessPhones = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"BusinessPhones"] count]];
+            
+            for (id object in [dic objectForKey: @"BusinessPhones"]) {
+                [_businessPhones addObject:[object copy]];
+            }
+        }
+        
+		_homeAddress = [dic objectForKey: @"HomeAddress"] != nil ? [[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"HomeAddress"]] : _homeAddress;
+		_businessAddress = [dic objectForKey: @"BusinessAddress"] != nil ? [[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"BusinessAddress"]] : _businessAddress;
+		_otherAddress = [dic objectForKey: @"OtherAddress"] != nil ? [[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"OtherAddress"]] : _otherAddress;
+		_spouseName = [dic objectForKey: @"SpouseName"] != nil ? [[dic objectForKey: @"SpouseName"] copy] : _spouseName;
+		_personalNotes = [dic objectForKey: @"PersonalNotes"] != nil ? [[dic objectForKey: @"PersonalNotes"] copy] : _personalNotes;
+
+        if([dic objectForKey: @"Children"] != [NSNull null]){
+            _children = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Children"] count]];
+            
+            for (id object in [dic objectForKey: @"Children"]) {
+                [_children addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Extensions"] != [NSNull null]){
+            _extensions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Extensions"] count]];
+            
+            for (id object in [dic objectForKey: @"Extensions"]) {
+                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_parentFolderId copy], @"ParentFolderId",
+		 [MSOrcObjectizer stringFromDate:_birthday], @"Birthday",
+		 [_fileAs copy], @"FileAs",
+		 [_displayName copy], @"DisplayName",
+		 [_givenName copy], @"GivenName",
+		 [_initials copy], @"Initials",
+		 [_middleName copy], @"MiddleName",
+		 [_nickName copy], @"NickName",
+		 [_surname copy], @"Surname",
+		 [_title copy], @"Title",
+		 [_yomiGivenName copy], @"YomiGivenName",
+		 [_yomiSurname copy], @"YomiSurname",
+		 [_yomiCompanyName copy], @"YomiCompanyName",
+		 [_generation copy], @"Generation",
+		 [[NSMutableArray alloc] init], @"EmailAddresses",
+		 [[NSMutableArray alloc] init], @"ImAddresses",
+		 [_jobTitle copy], @"JobTitle",
+		 [_companyName copy], @"CompanyName",
+		 [_department copy], @"Department",
+		 [_officeLocation copy], @"OfficeLocation",
+		 [_profession copy], @"Profession",
+		 [_businessHomePage copy], @"BusinessHomePage",
+		 [_assistantName copy], @"AssistantName",
+		 [_manager copy], @"Manager",
+		 [[NSMutableArray alloc] init], @"HomePhones",
+		 [_mobilePhone1 copy], @"MobilePhone1",
+		 [[NSMutableArray alloc] init], @"BusinessPhones",
+		 [_homeAddress toDictionary], @"HomeAddress",
+		 [_businessAddress toDictionary], @"BusinessAddress",
+		 [_otherAddress toDictionary], @"OtherAddress",
+		 [_spouseName copy], @"SpouseName",
+		 [_personalNotes copy], @"PersonalNotes",
+		 [[NSMutableArray alloc] init], @"Children",
+		 [[NSMutableArray alloc] init], @"Extensions",
+		 [_photo toDictionary], @"Photo",
+            nil];
+}
+
+
+/** Setter implementation for property parentFolderId
  *
  */
-- (void) setCity: (NSString *) value {
-    _city = value;
-    [self valueChanged:_city forProperty:@"city"];
+- (void) setParentFolderId: (NSString *) value {
+    _parentFolderId = value;
+    [self valueChangedFor:@"ParentFolderId"];
 }
        
-/** Setter implementation for property country
+/** Setter implementation for property birthday
  *
  */
-- (void) setCountry: (NSString *) value {
-    _country = value;
-    [self valueChanged:_country forProperty:@"country"];
+- (void) setBirthday: (NSDate *) value {
+    _birthday = value;
+    [self valueChangedFor:@"Birthday"];
 }
        
-/** Setter implementation for property department
+/** Setter implementation for property fileAs
  *
  */
-- (void) setDepartment: (NSString *) value {
-    _department = value;
-    [self valueChanged:_department forProperty:@"department"];
-}
-       
-/** Setter implementation for property dirSyncEnabled
- *
- */
-- (void) setDirSyncEnabled: (bool) value {
-    _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+- (void) setFileAs: (NSString *) value {
+    _fileAs = value;
+    [self valueChangedFor:@"FileAs"];
 }
        
 /** Setter implementation for property displayName
@@ -92,15 +221,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
-}
-       
-/** Setter implementation for property facsimileTelephoneNumber
- *
- */
-- (void) setFacsimileTelephoneNumber: (NSString *) value {
-    _facsimileTelephoneNumber = value;
-    [self valueChanged:_facsimileTelephoneNumber forProperty:@"facsimileTelephoneNumber"];
+    [self valueChangedFor:@"DisplayName"];
 }
        
 /** Setter implementation for property givenName
@@ -108,103 +229,31 @@ root for authoritative license information.﻿
  */
 - (void) setGivenName: (NSString *) value {
     _givenName = value;
-    [self valueChanged:_givenName forProperty:@"givenName"];
+    [self valueChangedFor:@"GivenName"];
 }
        
-/** Setter implementation for property jobTitle
+/** Setter implementation for property initials
  *
  */
-- (void) setJobTitle: (NSString *) value {
-    _jobTitle = value;
-    [self valueChanged:_jobTitle forProperty:@"jobTitle"];
+- (void) setInitials: (NSString *) value {
+    _initials = value;
+    [self valueChangedFor:@"Initials"];
 }
        
-/** Setter implementation for property lastDirSyncTime
+/** Setter implementation for property middleName
  *
  */
-- (void) setLastDirSyncTime: (NSDate *) value {
-    _lastDirSyncTime = value;
-    [self valueChanged:_lastDirSyncTime forProperty:@"lastDirSyncTime"];
+- (void) setMiddleName: (NSString *) value {
+    _middleName = value;
+    [self valueChangedFor:@"MiddleName"];
 }
        
-/** Setter implementation for property mail
+/** Setter implementation for property nickName
  *
  */
-- (void) setMail: (NSString *) value {
-    _mail = value;
-    [self valueChanged:_mail forProperty:@"mail"];
-}
-       
-/** Setter implementation for property mailNickname
- *
- */
-- (void) setMailNickname: (NSString *) value {
-    _mailNickname = value;
-    [self valueChanged:_mailNickname forProperty:@"mailNickname"];
-}
-       
-/** Setter implementation for property mobile
- *
- */
-- (void) setMobile: (NSString *) value {
-    _mobile = value;
-    [self valueChanged:_mobile forProperty:@"mobile"];
-}
-       
-/** Setter implementation for property physicalDeliveryOfficeName
- *
- */
-- (void) setPhysicalDeliveryOfficeName: (NSString *) value {
-    _physicalDeliveryOfficeName = value;
-    [self valueChanged:_physicalDeliveryOfficeName forProperty:@"physicalDeliveryOfficeName"];
-}
-       
-/** Setter implementation for property postalCode
- *
- */
-- (void) setPostalCode: (NSString *) value {
-    _postalCode = value;
-    [self valueChanged:_postalCode forProperty:@"postalCode"];
-}
-       
-/** Setter implementation for property provisioningErrors
- *
- */
-- (void) setProvisioningErrors: (NSMutableArray *) value {
-    _provisioningErrors = value;
-    [self valueChanged:_provisioningErrors forProperty:@"provisioningErrors"];
-}
-       
-/** Setter implementation for property proxyAddresses
- *
- */
-- (void) setProxyAddresses: (NSMutableArray *) value {
-    _proxyAddresses = value;
-    [self valueChanged:_proxyAddresses forProperty:@"proxyAddresses"];
-}
-       
-/** Setter implementation for property sipProxyAddress
- *
- */
-- (void) setSipProxyAddress: (NSString *) value {
-    _sipProxyAddress = value;
-    [self valueChanged:_sipProxyAddress forProperty:@"sipProxyAddress"];
-}
-       
-/** Setter implementation for property state
- *
- */
-- (void) setState: (NSString *) value {
-    _state = value;
-    [self valueChanged:_state forProperty:@"state"];
-}
-       
-/** Setter implementation for property streetAddress
- *
- */
-- (void) setStreetAddress: (NSString *) value {
-    _streetAddress = value;
-    [self valueChanged:_streetAddress forProperty:@"streetAddress"];
+- (void) setNickName: (NSString *) value {
+    _nickName = value;
+    [self valueChangedFor:@"NickName"];
 }
        
 /** Setter implementation for property surname
@@ -212,47 +261,215 @@ root for authoritative license information.﻿
  */
 - (void) setSurname: (NSString *) value {
     _surname = value;
-    [self valueChanged:_surname forProperty:@"surname"];
+    [self valueChangedFor:@"Surname"];
 }
        
-/** Setter implementation for property telephoneNumber
+/** Setter implementation for property title
  *
  */
-- (void) setTelephoneNumber: (NSString *) value {
-    _telephoneNumber = value;
-    [self valueChanged:_telephoneNumber forProperty:@"telephoneNumber"];
+- (void) setTitle: (NSString *) value {
+    _title = value;
+    [self valueChangedFor:@"Title"];
 }
        
-/** Setter implementation for property thumbnailPhoto
+/** Setter implementation for property yomiGivenName
  *
  */
-- (void) setThumbnailPhoto: (NSStream *) value {
-    _thumbnailPhoto = value;
-    [self valueChanged:_thumbnailPhoto forProperty:@"thumbnailPhoto"];
+- (void) setYomiGivenName: (NSString *) value {
+    _yomiGivenName = value;
+    [self valueChangedFor:@"YomiGivenName"];
+}
+       
+/** Setter implementation for property yomiSurname
+ *
+ */
+- (void) setYomiSurname: (NSString *) value {
+    _yomiSurname = value;
+    [self valueChangedFor:@"YomiSurname"];
+}
+       
+/** Setter implementation for property yomiCompanyName
+ *
+ */
+- (void) setYomiCompanyName: (NSString *) value {
+    _yomiCompanyName = value;
+    [self valueChangedFor:@"YomiCompanyName"];
+}
+       
+/** Setter implementation for property generation
+ *
+ */
+- (void) setGeneration: (NSString *) value {
+    _generation = value;
+    [self valueChangedFor:@"Generation"];
+}
+       
+/** Setter implementation for property emailAddresses
+ *
+ */
+- (void) setEmailAddresses: (NSMutableArray *) value {
+    _emailAddresses = value;
+    [self valueChangedFor:@"EmailAddresses"];
+}
+       
+/** Setter implementation for property imAddresses
+ *
+ */
+- (void) setImAddresses: (NSMutableArray *) value {
+    _imAddresses = value;
+    [self valueChangedFor:@"ImAddresses"];
+}
+       
+/** Setter implementation for property jobTitle
+ *
+ */
+- (void) setJobTitle: (NSString *) value {
+    _jobTitle = value;
+    [self valueChangedFor:@"JobTitle"];
+}
+       
+/** Setter implementation for property companyName
+ *
+ */
+- (void) setCompanyName: (NSString *) value {
+    _companyName = value;
+    [self valueChangedFor:@"CompanyName"];
+}
+       
+/** Setter implementation for property department
+ *
+ */
+- (void) setDepartment: (NSString *) value {
+    _department = value;
+    [self valueChangedFor:@"Department"];
+}
+       
+/** Setter implementation for property officeLocation
+ *
+ */
+- (void) setOfficeLocation: (NSString *) value {
+    _officeLocation = value;
+    [self valueChangedFor:@"OfficeLocation"];
+}
+       
+/** Setter implementation for property profession
+ *
+ */
+- (void) setProfession: (NSString *) value {
+    _profession = value;
+    [self valueChangedFor:@"Profession"];
+}
+       
+/** Setter implementation for property businessHomePage
+ *
+ */
+- (void) setBusinessHomePage: (NSString *) value {
+    _businessHomePage = value;
+    [self valueChangedFor:@"BusinessHomePage"];
+}
+       
+/** Setter implementation for property assistantName
+ *
+ */
+- (void) setAssistantName: (NSString *) value {
+    _assistantName = value;
+    [self valueChangedFor:@"AssistantName"];
 }
        
 /** Setter implementation for property manager
  *
  */
-- (void) setManager: (MSGraphDirectoryObject *) value {
+- (void) setManager: (NSString *) value {
     _manager = value;
-    [self valueChanged:_manager forProperty:@"manager"];
+    [self valueChangedFor:@"Manager"];
 }
        
-/** Setter implementation for property directReports
+/** Setter implementation for property homePhones
  *
  */
-- (void) setDirectReports: (NSMutableArray *) value {
-    _directReports = value;
-    [self valueChanged:_directReports forProperty:@"directReports"];
+- (void) setHomePhones: (NSMutableArray *) value {
+    _homePhones = value;
+    [self valueChangedFor:@"HomePhones"];
 }
        
-/** Setter implementation for property memberOf
+/** Setter implementation for property mobilePhone1
  *
  */
-- (void) setMemberOf: (NSMutableArray *) value {
-    _memberOf = value;
-    [self valueChanged:_memberOf forProperty:@"memberOf"];
+- (void) setMobilePhone1: (NSString *) value {
+    _mobilePhone1 = value;
+    [self valueChangedFor:@"MobilePhone1"];
+}
+       
+/** Setter implementation for property businessPhones
+ *
+ */
+- (void) setBusinessPhones: (NSMutableArray *) value {
+    _businessPhones = value;
+    [self valueChangedFor:@"BusinessPhones"];
+}
+       
+/** Setter implementation for property homeAddress
+ *
+ */
+- (void) setHomeAddress: (MSGraphPhysicalAddress *) value {
+    _homeAddress = value;
+    [self valueChangedFor:@"HomeAddress"];
+}
+       
+/** Setter implementation for property businessAddress
+ *
+ */
+- (void) setBusinessAddress: (MSGraphPhysicalAddress *) value {
+    _businessAddress = value;
+    [self valueChangedFor:@"BusinessAddress"];
+}
+       
+/** Setter implementation for property otherAddress
+ *
+ */
+- (void) setOtherAddress: (MSGraphPhysicalAddress *) value {
+    _otherAddress = value;
+    [self valueChangedFor:@"OtherAddress"];
+}
+       
+/** Setter implementation for property spouseName
+ *
+ */
+- (void) setSpouseName: (NSString *) value {
+    _spouseName = value;
+    [self valueChangedFor:@"SpouseName"];
+}
+       
+/** Setter implementation for property personalNotes
+ *
+ */
+- (void) setPersonalNotes: (NSString *) value {
+    _personalNotes = value;
+    [self valueChangedFor:@"PersonalNotes"];
+}
+       
+/** Setter implementation for property children
+ *
+ */
+- (void) setChildren: (NSMutableArray *) value {
+    _children = value;
+    [self valueChangedFor:@"Children"];
+}
+       
+/** Setter implementation for property extensions
+ *
+ */
+- (void) setExtensions: (NSMutableArray *) value {
+    _extensions = value;
+    [self valueChangedFor:@"Extensions"];
+}
+       
+/** Setter implementation for property photo
+ *
+ */
+- (void) setPhoto: (MSGraphPhoto *) value {
+    _photo = value;
+    [self valueChangedFor:@"Photo"];
 }
        
 

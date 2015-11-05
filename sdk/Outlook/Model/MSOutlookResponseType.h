@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookResponseType
+/** Enum MSOutlookResponseTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookResponseType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSOutlookResponseType) {
      * */
     MSOutlookResponseTypeNotResponded
 };
+
+
+@interface MSOutlookResponseTypeSerializer : NSObject
++(MSOutlookResponseType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookResponseType) value;
+@end
 
 #endif

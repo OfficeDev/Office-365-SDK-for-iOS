@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"ChangeKey", @"changeKey", @"Color", @"color", @"CalendarView", @"calendarView", @"Events", @"events", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"Color", @"color", @"ChangeKey", @"changeKey", @"Events", @"events", @"CalendarView", @"calendarView", @"Id", @"_id", nil];
     
     }
     
@@ -46,27 +46,62 @@ root for authoritative license information.﻿
 		_odataType = @"#Microsoft.OutlookServices.Calendar";
         
         
-		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
+
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
+		_color = [dic objectForKey: @"Color"] != nil ? [MSOutlookCalendarColorSerializer fromString:[dic objectForKey: @"Color"]] : _color;
+		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
+
+        if([dic objectForKey: @"Events"] != [NSNull null]){
+            _events = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Events"] count]];
+            
+            for (id object in [dic objectForKey: @"Events"]) {
+                [_events addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CalendarView"] != [NSNull null]){
+            _calendarView = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarView"] count]];
+            
+            for (id object in [dic objectForKey: @"CalendarView"]) {
+                [_calendarView addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_name copy], @"Name",
+		 [MSOutlookCalendarColorSerializer toString:_color], @"Color",
+		 [_changeKey copy], @"ChangeKey",
+		 [[NSMutableArray alloc] init], @"Events",
+		 [[NSMutableArray alloc] init], @"CalendarView",
+            nil];
+}
+
 
 /** Setter implementation for property name
  *
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"Name"];
-}
-       
-/** Setter implementation for property changeKey
- *
- */
-- (void) setChangeKey: (NSString *) value {
-    _changeKey = value;
-    [self valueChanged:_changeKey forProperty:@"ChangeKey"];
+    [self valueChangedFor:@"Name"];
 }
        
 /** Setter implementation for property color
@@ -74,31 +109,22 @@ root for authoritative license information.﻿
  */
 - (void) setColor: (MSOutlookCalendarColor) value {
     _color = value;
-    [self valueChangedForInt:_color forProperty:@"Color"];
+    [self valueChangedFor:@"Color"];
 }
        
 
-- (void)setColorString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookCalendarColorLightBlue], @"LightBlue", [NSNumber numberWithInt:MSOutlookCalendarColorLightGreen], @"LightGreen", [NSNumber numberWithInt:MSOutlookCalendarColorLightOrange], @"LightOrange", [NSNumber numberWithInt:MSOutlookCalendarColorLightGray], @"LightGray", [NSNumber numberWithInt:MSOutlookCalendarColorLightYellow], @"LightYellow", [NSNumber numberWithInt:MSOutlookCalendarColorLightTeal], @"LightTeal", [NSNumber numberWithInt:MSOutlookCalendarColorLightPink], @"LightPink", [NSNumber numberWithInt:MSOutlookCalendarColorLightBrown], @"LightBrown", [NSNumber numberWithInt:MSOutlookCalendarColorLightRed], @"LightRed", [NSNumber numberWithInt:MSOutlookCalendarColorMaxColor], @"MaxColor", [NSNumber numberWithInt:MSOutlookCalendarColorAuto], @"Auto",
-            nil        
-        ];
-    }
-    
-    self.color = [stringMappings[value] intValue]; 
+- (void)setColorString:(NSString *)string {
+        
+    _color = [MSOutlookCalendarColorSerializer fromString:string];
+    [self valueChangedFor:@"Color"]; 
 }
 
-/** Setter implementation for property calendarView
+/** Setter implementation for property changeKey
  *
  */
-- (void) setCalendarView: (NSMutableArray *) value {
-    _calendarView = value;
-    [self valueChanged:_calendarView forProperty:@"CalendarView"];
+- (void) setChangeKey: (NSString *) value {
+    _changeKey = value;
+    [self valueChangedFor:@"ChangeKey"];
 }
        
 /** Setter implementation for property events
@@ -106,7 +132,15 @@ root for authoritative license information.﻿
  */
 - (void) setEvents: (NSMutableArray *) value {
     _events = value;
-    [self valueChanged:_events forProperty:@"Events"];
+    [self valueChangedFor:@"Events"];
+}
+       
+/** Setter implementation for property calendarView
+ *
+ */
+- (void) setCalendarView: (NSMutableArray *) value {
+    _calendarView = value;
+    [self valueChangedFor:@"CalendarView"];
 }
        
 

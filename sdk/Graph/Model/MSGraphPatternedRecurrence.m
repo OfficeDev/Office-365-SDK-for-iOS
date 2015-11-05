@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPatternedRecurrence
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_pattern = [dic objectForKey: @"Pattern"] != nil ? [[MSGraphRecurrencePattern alloc] initWithDictionary: [dic objectForKey: @"Pattern"]] : _pattern;
+		_range = [dic objectForKey: @"Range"] != nil ? [[MSGraphRecurrenceRange alloc] initWithDictionary: [dic objectForKey: @"Range"]] : _range;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_pattern toDictionary], @"Pattern",
+		 [_range toDictionary], @"Range",
+            nil];
+}
+
+
 /** Setter implementation for property pattern
  *
  */
 - (void) setPattern: (MSGraphRecurrencePattern *) value {
     _pattern = value;
-    [self valueChanged:_pattern forProperty:@"Pattern"];
+    [self valueChangedFor:@"Pattern"];
 }
        
 /** Setter implementation for property range
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setRange: (MSGraphRecurrenceRange *) value {
     _range = value;
-    [self valueChanged:_range forProperty:@"Range"];
+    [self valueChangedFor:@"Range"];
 }
        
 

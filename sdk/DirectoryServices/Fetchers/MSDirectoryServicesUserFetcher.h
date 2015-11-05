@@ -55,19 +55,19 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesUserFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryServicesAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
-- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString*)identifier;
+- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
 
-- (MSDirectoryServicesOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(NSString*)identifier;
+- (MSDirectoryServicesOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=ownedDevices) MSDirectoryServicesDirectoryObjectCollectionFetcher *ownedDevices;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)ownedDevicesById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)ownedDevicesById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=registeredDevices) MSDirectoryServicesDirectoryObjectCollectionFetcher *registeredDevices;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)registeredDevicesById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)registeredDevicesById:(id)identifier;
 
 
 @end

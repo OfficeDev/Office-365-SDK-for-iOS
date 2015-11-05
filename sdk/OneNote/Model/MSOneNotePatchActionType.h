@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOneNotePatchActionType
+/** Enum MSOneNotePatchActionTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOneNotePatchActionType) {
@@ -39,5 +39,11 @@ typedef NS_ENUM(NSInteger, MSOneNotePatchActionType) {
      * */
     MSOneNotePatchActionTypePrepend
 };
+
+
+@interface MSOneNotePatchActionTypeSerializer : NSObject
++(MSOneNotePatchActionType) fromString:(NSString *) string;
++(NSString *) toString: (MSOneNotePatchActionType) value;
+@end
 
 #endif

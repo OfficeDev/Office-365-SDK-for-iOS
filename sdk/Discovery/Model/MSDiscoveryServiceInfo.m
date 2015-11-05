@@ -51,12 +51,49 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_capability = [dic objectForKey: @"capability"] != nil ? [[dic objectForKey: @"capability"] copy] : _capability;
+		_entityKey = [dic objectForKey: @"entityKey"] != nil ? [[dic objectForKey: @"entityKey"] copy] : _entityKey;
+		_providerId = [dic objectForKey: @"providerId"] != nil ? [[dic objectForKey: @"providerId"] copy] : _providerId;
+		_providerName = [dic objectForKey: @"providerName"] != nil ? [[dic objectForKey: @"providerName"] copy] : _providerName;
+		_serviceAccountType = [dic objectForKey: @"serviceAccountType"] != nil ? [[dic objectForKey: @"serviceAccountType"] intValue] : _serviceAccountType;
+		_serviceApiVersion = [dic objectForKey: @"serviceApiVersion"] != nil ? [[dic objectForKey: @"serviceApiVersion"] copy] : _serviceApiVersion;
+		_serviceEndpointUri = [dic objectForKey: @"serviceEndpointUri"] != nil ? [[dic objectForKey: @"serviceEndpointUri"] copy] : _serviceEndpointUri;
+		_serviceId = [dic objectForKey: @"serviceId"] != nil ? [[dic objectForKey: @"serviceId"] copy] : _serviceId;
+		_serviceName = [dic objectForKey: @"serviceName"] != nil ? [[dic objectForKey: @"serviceName"] copy] : _serviceName;
+		_serviceResourceId = [dic objectForKey: @"serviceResourceId"] != nil ? [[dic objectForKey: @"serviceResourceId"] copy] : _serviceResourceId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_capability copy], @"capability",
+		 [_entityKey copy], @"entityKey",
+		 [_providerId copy], @"providerId",
+		 [_providerName copy], @"providerName",
+		 [NSNumber numberWithInt: _serviceAccountType], @"serviceAccountType",
+		 [_serviceApiVersion copy], @"serviceApiVersion",
+		 [_serviceEndpointUri copy], @"serviceEndpointUri",
+		 [_serviceId copy], @"serviceId",
+		 [_serviceName copy], @"serviceName",
+		 [_serviceResourceId copy], @"serviceResourceId",
+            nil];
+}
+
+
 /** Setter implementation for property capability
  *
  */
 - (void) setCapability: (NSString *) value {
     _capability = value;
-    [self valueChanged:_capability forProperty:@"capability"];
+    [self valueChangedFor:@"capability"];
 }
        
 /** Setter implementation for property entityKey
@@ -64,7 +101,7 @@ root for authoritative license information.﻿
  */
 - (void) setEntityKey: (NSString *) value {
     _entityKey = value;
-    [self valueChanged:_entityKey forProperty:@"entityKey"];
+    [self valueChangedFor:@"entityKey"];
 }
        
 /** Setter implementation for property providerId
@@ -72,7 +109,7 @@ root for authoritative license information.﻿
  */
 - (void) setProviderId: (NSString *) value {
     _providerId = value;
-    [self valueChanged:_providerId forProperty:@"providerId"];
+    [self valueChangedFor:@"providerId"];
 }
        
 /** Setter implementation for property providerName
@@ -80,7 +117,7 @@ root for authoritative license information.﻿
  */
 - (void) setProviderName: (NSString *) value {
     _providerName = value;
-    [self valueChanged:_providerName forProperty:@"providerName"];
+    [self valueChangedFor:@"providerName"];
 }
        
 /** Setter implementation for property serviceAccountType
@@ -88,7 +125,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceAccountType: (int) value {
     _serviceAccountType = value;
-    [self valueChangedForInt:_serviceAccountType forProperty:@"serviceAccountType"];
+    [self valueChangedFor:@"serviceAccountType"];
 }
        
 /** Setter implementation for property serviceApiVersion
@@ -96,7 +133,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceApiVersion: (NSString *) value {
     _serviceApiVersion = value;
-    [self valueChanged:_serviceApiVersion forProperty:@"serviceApiVersion"];
+    [self valueChangedFor:@"serviceApiVersion"];
 }
        
 /** Setter implementation for property serviceEndpointUri
@@ -104,7 +141,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceEndpointUri: (NSString *) value {
     _serviceEndpointUri = value;
-    [self valueChanged:_serviceEndpointUri forProperty:@"serviceEndpointUri"];
+    [self valueChangedFor:@"serviceEndpointUri"];
 }
        
 /** Setter implementation for property serviceId
@@ -112,7 +149,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceId: (NSString *) value {
     _serviceId = value;
-    [self valueChanged:_serviceId forProperty:@"serviceId"];
+    [self valueChangedFor:@"serviceId"];
 }
        
 /** Setter implementation for property serviceName
@@ -120,7 +157,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceName: (NSString *) value {
     _serviceName = value;
-    [self valueChanged:_serviceName forProperty:@"serviceName"];
+    [self valueChangedFor:@"serviceName"];
 }
        
 /** Setter implementation for property serviceResourceId
@@ -128,7 +165,7 @@ root for authoritative license information.﻿
  */
 - (void) setServiceResourceId: (NSString *) value {
     _serviceResourceId = value;
-    [self valueChanged:_serviceResourceId forProperty:@"serviceResourceId"];
+    [self valueChangedFor:@"serviceResourceId"];
 }
        
 

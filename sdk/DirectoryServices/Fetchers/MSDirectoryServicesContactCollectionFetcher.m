@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSDirectoryServicesContactFetcher *)getById:(NSString *)_id {
+- (MSDirectoryServicesContactFetcher *)getById:(id) identifier {
 
-    return [[MSDirectoryServicesContactFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSDirectoryServicesContactFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSDirectoryServicesContactCollectionFetcher *)select:(NSString *)params {

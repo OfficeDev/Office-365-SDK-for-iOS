@@ -17,17 +17,19 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESTENANTDETAIL_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesAssignedPlan;
 @class MSDirectoryServicesProvisionedPlan;
 @class MSDirectoryServicesProvisioningError;
 @class MSDirectoryServicesVerifiedDomain;
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesTenantDetail
  *
  */
-@interface MSDirectoryServicesTenantDetail : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesTenantDetail : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property assignedPlans
  *

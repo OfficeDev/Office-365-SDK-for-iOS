@@ -51,12 +51,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_status = [dic objectForKey: @"status"] != nil ? [[dic objectForKey: @"status"] copy] : _status;
+		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
+		_lastActionDateTime = [dic objectForKey: @"lastActionDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastActionDateTime"]] : _lastActionDateTime;
+		_resourceLocation = [dic objectForKey: @"resourceLocation"] != nil ? [[dic objectForKey: @"resourceLocation"] copy] : _resourceLocation;
+		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
+		_error = [dic objectForKey: @"error"] != nil ? [[MSOneNoteOperationError alloc] initWithDictionary: [dic objectForKey: @"error"]] : _error;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [_status copy], @"status",
+		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"createdDateTime",
+		 [MSOrcObjectizer stringFromDate:_lastActionDateTime], @"lastActionDateTime",
+		 [_resourceLocation copy], @"resourceLocation",
+		 [_resourceId copy], @"resourceId",
+		 [_error toDictionary], @"error",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property status
@@ -64,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setStatus: (NSString *) value {
     _status = value;
-    [self valueChanged:_status forProperty:@"status"];
+    [self valueChangedFor:@"status"];
 }
        
 /** Setter implementation for property createdDateTime
@@ -72,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedDateTime: (NSDate *) value {
     _createdDateTime = value;
-    [self valueChanged:_createdDateTime forProperty:@"createdDateTime"];
+    [self valueChangedFor:@"createdDateTime"];
 }
        
 /** Setter implementation for property lastActionDateTime
@@ -80,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastActionDateTime: (NSDate *) value {
     _lastActionDateTime = value;
-    [self valueChanged:_lastActionDateTime forProperty:@"lastActionDateTime"];
+    [self valueChangedFor:@"lastActionDateTime"];
 }
        
 /** Setter implementation for property resourceLocation
@@ -88,7 +119,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceLocation: (NSString *) value {
     _resourceLocation = value;
-    [self valueChanged:_resourceLocation forProperty:@"resourceLocation"];
+    [self valueChangedFor:@"resourceLocation"];
 }
        
 /** Setter implementation for property resourceId
@@ -96,7 +127,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceId: (NSString *) value {
     _resourceId = value;
-    [self valueChanged:_resourceId forProperty:@"resourceId"];
+    [self valueChangedFor:@"resourceId"];
 }
        
 /** Setter implementation for property error
@@ -104,7 +135,7 @@ root for authoritative license information.﻿
  */
 - (void) setError: (MSOneNoteOperationError *) value {
     _error = value;
-    [self valueChanged:_error forProperty:@"error"];
+    [self valueChangedFor:@"error"];
 }
        
 

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookItemBody
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,28 +51,39 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_contentType = [dic objectForKey: @"ContentType"] != nil ? [MSOutlookBodyTypeSerializer fromString:[dic objectForKey: @"ContentType"]] : _contentType;
+		_content = [dic objectForKey: @"Content"] != nil ? [[dic objectForKey: @"Content"] copy] : _content;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOutlookBodyTypeSerializer toString:_contentType], @"ContentType",
+		 [_content copy], @"Content",
+            nil];
+}
+
+
 /** Setter implementation for property contentType
  *
  */
 - (void) setContentType: (MSOutlookBodyType) value {
     _contentType = value;
-    [self valueChangedForInt:_contentType forProperty:@"ContentType"];
+    [self valueChangedFor:@"ContentType"];
 }
        
 
-- (void)setContentTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookBodyTypeText], @"Text", [NSNumber numberWithInt:MSOutlookBodyTypeHTML], @"HTML",
-            nil        
-        ];
-    }
-    
-    self.contentType = [stringMappings[value] intValue]; 
+- (void)setContentTypeString:(NSString *)string {
+        
+    _contentType = [MSOutlookBodyTypeSerializer fromString:string];
+    [self valueChangedFor:@"ContentType"]; 
 }
 
 /** Setter implementation for property content
@@ -78,7 +91,7 @@ root for authoritative license information.﻿
  */
 - (void) setContent: (NSString *) value {
     _content = value;
-    [self valueChanged:_content forProperty:@"Content"];
+    [self valueChangedFor:@"Content"];
 }
        
 

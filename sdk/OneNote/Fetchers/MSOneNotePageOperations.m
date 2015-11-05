@@ -31,11 +31,12 @@ root for authoritative license information.﻿
 - (void)patchContentWithCommands:(MSOneNotePatchContentCommand *)commands callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commandsString = [self.resolver.jsonSerializer serialize:commands property:@"commands"];
+      NSString *commandsString = [MSOrcObjectizer deobjectizeToString: commands ];
+
     return [self patchContentRawWithCommands:commandsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -75,14 +76,18 @@ root for authoritative license information.﻿
 - (void)copyToSectionWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-    NSString *_idString = [self.resolver.jsonSerializer serialize:_id property:@"id"];
-NSString *siteCollectionIdString = [self.resolver.jsonSerializer serialize:siteCollectionId property:@"siteCollectionId"];
-NSString *siteIdString = [self.resolver.jsonSerializer serialize:siteId property:@"siteId"];
-NSString *groupIdString = [self.resolver.jsonSerializer serialize:groupId property:@"groupId"];
+      NSString *_idString = [MSOrcObjectizer deobjectizeToString: _id ];
+
+  NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+
+  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+
+  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+
     return [self copyToSectionRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
             callback(result, e);
         } 
         else {
@@ -125,7 +130,7 @@ NSString *groupIdString = [self.resolver.jsonSerializer serialize:groupId proper
         return [self thumbnailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSStream * result = (NSStream *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[NSStream class]];
+            NSStream * result = (NSStream *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSStream class]];
             callback(result, e);
         } 
         else {

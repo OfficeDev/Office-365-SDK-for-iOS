@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphFile
@@ -26,45 +26,65 @@ root for authoritative license information.﻿
 
 @synthesize odataType = _odataType;
 
-
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"contentUrl", @"contentUrl", @"image", @"image", @"createdBy", @"createdBy", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"dateTimeCreated", @"dateTimeCreated", @"dateTimeLastModified", @"dateTimeLastModified", @"type", @"type", @"webUrl", @"webUrl", @"createdByUser", @"createdByUser", @"lastModifiedByUser", @"lastModifiedByUser", @"children", @"children", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"hashes", @"hashes", @"mimeType", @"mimeType", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.File";
-        
+		_odataType = @"#Microsoft.Graph.file";
+
         
     }
 
 	return self;
 }
 
-/** Setter implementation for property contentUrl
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_hashes = [dic objectForKey: @"hashes"] != nil ? [[MSGraphHashes alloc] initWithDictionary: [dic objectForKey: @"hashes"]] : _hashes;
+		_mimeType = [dic objectForKey: @"mimeType"] != nil ? [[dic objectForKey: @"mimeType"] copy] : _mimeType;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_hashes toDictionary], @"hashes",
+		 [_mimeType copy], @"mimeType",
+            nil];
+}
+
+
+/** Setter implementation for property hashes
  *
  */
-- (void) setContentUrl: (NSString *) value {
-    _contentUrl = value;
-    [self valueChanged:_contentUrl forProperty:@"contentUrl"];
+- (void) setHashes: (MSGraphHashes *) value {
+    _hashes = value;
+    [self valueChangedFor:@"hashes"];
 }
        
-/** Setter implementation for property image
+/** Setter implementation for property mimeType
  *
  */
-- (void) setImage: (MSGraphImageFacet *) value {
-    _image = value;
-    [self valueChanged:_image forProperty:@"image"];
+- (void) setMimeType: (NSString *) value {
+    _mimeType = value;
+    [self valueChangedFor:@"mimeType"];
 }
        
 

@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 @class MSGraphUserFetcher;	
 @class MSGraphAppRoleAssignmentFetcher;	
 @class MSGraphGroupFetcher;	
-@class MSGraphContactFetcher;	
+@class MSGraphOrgContactFetcher;	
 @class MSGraphDeviceFetcher;	
 @class MSGraphDeviceConfigurationFetcher;	
 @class MSGraphDirectoryLinkChangeFetcher;	
@@ -57,7 +57,7 @@ root for authoritative license information.﻿
 - (MSGraphUserFetcher *)asUser;	
 - (MSGraphAppRoleAssignmentFetcher *)asAppRoleAssignment;	
 - (MSGraphGroupFetcher *)asGroup;	
-- (MSGraphContactFetcher *)asContact;	
+- (MSGraphOrgContactFetcher *)asOrgContact;	
 - (MSGraphDeviceFetcher *)asDevice;	
 - (MSGraphDeviceConfigurationFetcher *)asDeviceConfiguration;	
 - (MSGraphDirectoryLinkChangeFetcher *)asDirectoryLinkChange;	

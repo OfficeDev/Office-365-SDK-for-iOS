@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphRecurrencePatternType
+/** Enum MSGraphRecurrencePatternTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphRecurrencePatternType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSGraphRecurrencePatternType) {
      * */
     MSGraphRecurrencePatternTypeRelativeYearly
 };
+
+
+@interface MSGraphRecurrencePatternTypeSerializer : NSObject
++(MSGraphRecurrencePatternType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphRecurrencePatternType) value;
+@end
 
 #endif

@@ -4,7 +4,7 @@ platform :ios, '8.0'
 workspace 'sdk_tests'
 xcodeproj 'sdk_tests'
 
-pod 'orc', :git => 'https://github.com/MSOpenTech/orc-for-ios.git', :branch => 'dev'
+pod 'orc', :path => '../../../orc-for-ios'
 pod 'Office365', :path => '../..'
 
 

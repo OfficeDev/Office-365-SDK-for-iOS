@@ -20,11 +20,12 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNoteCopyStatusModel
  *
  */
-@interface MSOneNoteCopyStatusModel : MSOrcBaseEntity
+@interface MSOneNoteCopyStatusModel : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *

@@ -18,12 +18,12 @@ root for authoritative license information.﻿
 
 #import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcOperations.h"
+#import "MSGraphEntityCollectionOperations.h"
 
 /** MSGraphCalendarGroupCollectionOperations
  *
  */
-@interface MSGraphCalendarGroupCollectionOperations : MSOrcOperations
+@interface MSGraphCalendarGroupCollectionOperations : MSGraphEntityCollectionOperations
 
 
 @end

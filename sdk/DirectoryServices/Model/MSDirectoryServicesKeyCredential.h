@@ -20,11 +20,12 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesKeyCredential
  *
  */
-@interface MSDirectoryServicesKeyCredential : MSOrcBaseEntity
+@interface MSDirectoryServicesKeyCredential : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property customKeyIdentifier
  *

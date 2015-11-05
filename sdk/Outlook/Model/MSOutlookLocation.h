@@ -22,11 +22,12 @@ root for authoritative license information.﻿
 @class MSOutlookPhysicalAddress;
 @class MSOutlookGeoCoordinates;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookLocation
  *
  */
-@interface MSOutlookLocation : MSOrcBaseEntity
+@interface MSOutlookLocation : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property displayName
  *

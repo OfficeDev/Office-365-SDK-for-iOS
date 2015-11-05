@@ -52,12 +52,47 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_appDisplayName = [dic objectForKey: @"appDisplayName"] != nil ? [[dic objectForKey: @"appDisplayName"] copy] : _appDisplayName;
+		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
+		_dataType = [dic objectForKey: @"dataType"] != nil ? [[dic objectForKey: @"dataType"] copy] : _dataType;
+		_isSyncedFromOnPremises = [dic objectForKey: @"isSyncedFromOnPremises"] != nil ? [[dic objectForKey: @"isSyncedFromOnPremises"] boolValue] : _isSyncedFromOnPremises;
+
+        if([dic objectForKey: @"targetObjects"] != [NSNull null]){
+            _targetObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"targetObjects"] count]];
+            
+            for (id object in [dic objectForKey: @"targetObjects"]) {
+                [_targetObjects addObject:[object copy]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_appDisplayName copy], @"appDisplayName",
+		 [_name copy], @"name",
+		 [_dataType copy], @"dataType",
+		 (_isSyncedFromOnPremises?@"true":@"false"), @"isSyncedFromOnPremises",
+		 [[NSMutableArray alloc] init], @"targetObjects",
+            nil];
+}
+
+
 /** Setter implementation for property appDisplayName
  *
  */
 - (void) setAppDisplayName: (NSString *) value {
     _appDisplayName = value;
-    [self valueChanged:_appDisplayName forProperty:@"appDisplayName"];
+    [self valueChangedFor:@"appDisplayName"];
 }
        
 /** Setter implementation for property name
@@ -65,7 +100,7 @@ root for authoritative license information.﻿
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"name"];
+    [self valueChangedFor:@"name"];
 }
        
 /** Setter implementation for property dataType
@@ -73,7 +108,7 @@ root for authoritative license information.﻿
  */
 - (void) setDataType: (NSString *) value {
     _dataType = value;
-    [self valueChanged:_dataType forProperty:@"dataType"];
+    [self valueChangedFor:@"dataType"];
 }
        
 /** Setter implementation for property isSyncedFromOnPremises
@@ -81,7 +116,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsSyncedFromOnPremises: (bool) value {
     _isSyncedFromOnPremises = value;
-    [self valueChangedForBool:_isSyncedFromOnPremises forProperty:@"isSyncedFromOnPremises"];
+    [self valueChangedFor:@"isSyncedFromOnPremises"];
 }
        
 /** Setter implementation for property targetObjects
@@ -89,7 +124,7 @@ root for authoritative license information.﻿
  */
 - (void) setTargetObjects: (NSMutableArray *) value {
     _targetObjects = value;
-    [self valueChanged:_targetObjects forProperty:@"targetObjects"];
+    [self valueChangedFor:@"targetObjects"];
 }
        
 

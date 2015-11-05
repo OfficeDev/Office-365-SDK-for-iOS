@@ -17,34 +17,31 @@ root for authoritative license information.﻿
 #define MSGRAPHCALENDARGROUP_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphCalendar;
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphCalendarGroup
  *
  */
-@interface MSGraphCalendarGroup : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphCalendarGroup : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property name
  *
  */
 @property (nonatomic,  copy, setter=setName:, getter=name) NSString * name;
 
-/** Property changeKey
- *
- */
-@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
-
 /** Property classId
  *
  */
 @property (nonatomic,  copy, setter=setClassId:, getter=classId) NSString * classId;
+
+/** Property changeKey
+ *
+ */
+@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
 
 /** Property calendars
  *

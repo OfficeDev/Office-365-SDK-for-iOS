@@ -42,13 +42,13 @@ root for authoritative license information.﻿
 - (MSGraphCalendarFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphCalendarFetcher *)select:(NSString *)params;
 - (MSGraphCalendarFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=calendarView) MSGraphEventCollectionFetcher *calendarView;
-
-- (MSGraphEventFetcher *)calendarViewById:(NSString*)identifier;
-
 @property (strong, nonatomic, readonly, getter=events) MSGraphEventCollectionFetcher *events;
 
-- (MSGraphEventFetcher *)eventsById:(NSString*)identifier;
+- (MSGraphEventFetcher *)eventsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=calendarView) MSGraphEventCollectionFetcher *calendarView;
+
+- (MSGraphEventFetcher *)calendarViewById:(id)identifier;
 
 
 @end

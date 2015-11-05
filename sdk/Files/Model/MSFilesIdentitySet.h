@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSFilesIdentity;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesIdentitySet
  *
  */
-@interface MSFilesIdentitySet : MSOrcBaseEntity
+@interface MSFilesIdentitySet : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property application
  *

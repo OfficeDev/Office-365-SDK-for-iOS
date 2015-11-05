@@ -18,12 +18,12 @@ root for authoritative license information.﻿
 
 #import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcOperations.h"
+#import "MSGraphEntityCollectionOperations.h"
 
 /** MSGraphConversationThreadCollectionOperations
  *
  */
-@interface MSGraphConversationThreadCollectionOperations : MSOrcOperations
+@interface MSGraphConversationThreadCollectionOperations : MSGraphEntityCollectionOperations
 
 - (void)replyWithPost:(MSGraphPost *)post callback:(void (^)(int, MSOrcError*))callback ;
 - (void)replyRawWithPost:(NSString *)post callback:(void (^)(NSString *, MSOrcError*))callback ;

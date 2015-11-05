@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphAssignedLicense
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -50,12 +52,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+        if([dic objectForKey: @"disabledPlans"] != [NSNull null]){
+            _disabledPlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"disabledPlans"] count]];
+            
+            for (id object in [dic objectForKey: @"disabledPlans"]) {
+                [_disabledPlans addObject:[object copy]];
+            }
+        }
+        
+		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [[NSMutableArray alloc] init], @"disabledPlans",
+		 [_skuId copy], @"skuId",
+            nil];
+}
+
+
 /** Setter implementation for property disabledPlans
  *
  */
 - (void) setDisabledPlans: (NSMutableArray *) value {
     _disabledPlans = value;
-    [self valueChanged:_disabledPlans forProperty:@"disabledPlans"];
+    [self valueChangedFor:@"disabledPlans"];
 }
        
 /** Setter implementation for property skuId
@@ -63,7 +93,7 @@ root for authoritative license information.﻿
  */
 - (void) setSkuId: (NSString *) value {
     _skuId = value;
-    [self valueChanged:_skuId forProperty:@"skuId"];
+    [self valueChangedFor:@"skuId"];
 }
        
 

@@ -52,12 +52,41 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+
+        if([dic objectForKey: @"sites"] != [NSNull null]){
+            _sites = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sites"] count]];
+            
+            for (id object in [dic objectForKey: @"sites"]) {
+                [_sites addObject:[[MSOneNoteSite alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [[NSMutableArray alloc] init], @"sites",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property sites
@@ -65,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setSites: (NSMutableArray *) value {
     _sites = value;
-    [self valueChanged:_sites forProperty:@"sites"];
+    [self valueChangedFor:@"sites"];
 }
        
 

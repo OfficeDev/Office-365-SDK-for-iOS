@@ -29,6 +29,8 @@ root for authoritative license information.﻿
 
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
+- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

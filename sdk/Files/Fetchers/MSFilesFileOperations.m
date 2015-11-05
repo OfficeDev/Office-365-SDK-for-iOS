@@ -31,13 +31,16 @@ root for authoritative license information.﻿
 - (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSFilesFile *, MSOrcError*))callback {
 
 
-    NSString *destFolderIdString = [self.resolver.jsonSerializer serialize:destFolderId property:@"destFolderId"];
-NSString *destFolderPathString = [self.resolver.jsonSerializer serialize:destFolderPath property:@"destFolderPath"];
-NSString *newNameString = [self.resolver.jsonSerializer serialize:newName property:@"newName"];
+      NSString *destFolderIdString = [MSOrcObjectizer deobjectizeToString: destFolderId ];
+
+  NSString *destFolderPathString = [MSOrcObjectizer deobjectizeToString: destFolderPath ];
+
+  NSString *newNameString = [MSOrcObjectizer deobjectizeToString: newName ];
+
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFile * result = (MSFilesFile *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSFilesFile class]];
+            MSFilesFile * result = (MSFilesFile *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSFilesFile class]];
             callback(result, e);
         } 
         else {
@@ -77,11 +80,12 @@ NSString *newNameString = [self.resolver.jsonSerializer serialize:newName proper
 - (void)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *contentStreamString = [self.resolver.jsonSerializer serialize:contentStream property:@"contentStream"];
+      NSString *contentStreamString = [MSOrcObjectizer deobjectizeToString: contentStream ];
+
     return [self uploadContentRawWithContentStream:contentStreamString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -133,7 +137,7 @@ NSString *newNameString = [self.resolver.jsonSerializer serialize:newName proper
        
         if (e == nil) {
 
-            NSStream * result = (NSStream *)[super.resolver.jsonSerializer deserialize:response.data asClass:[NSStream class]];
+            NSStream * result = (NSStream *)[MSOrcObjectizer objectizeFromString: [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType:[NSStream class]];
             callback(result, e);
         }
         else {

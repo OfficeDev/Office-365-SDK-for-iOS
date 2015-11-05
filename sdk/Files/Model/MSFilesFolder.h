@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSFILESFOLDER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSFilesItem;
 #import "MSFilesItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesFolder
  *
  */
-@interface MSFilesFolder : MSFilesItem
+@interface MSFilesFolder : MSFilesItem <MSOrcInteroperableWithDictionary>
 
 /** Property childCount
  *

@@ -45,11 +45,11 @@ root for authoritative license information.﻿
 - (MSOutlookContactFolderFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=contacts) MSOutlookContactCollectionFetcher *contacts;
 
-- (MSOutlookContactFetcher *)contactsById:(NSString*)identifier;
+- (MSOutlookContactFetcher *)contactsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=childFolders) MSOutlookContactFolderCollectionFetcher *childFolders;
 
-- (MSOutlookContactFolderFetcher *)childFoldersById:(NSString*)identifier;
+- (MSOutlookContactFolderFetcher *)childFoldersById:(id)identifier;
 
 
 @end

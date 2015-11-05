@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookUserFetcher *)getById:(NSString *)_id {
+- (MSOutlookUserFetcher *)getById:(id) identifier {
 
-    return [[MSOutlookUserFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSOutlookUserFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSOutlookUserCollectionFetcher *)select:(NSString *)params {

@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"Preview", @"preview", @"Posts", @"posts", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ToRecipients", @"toRecipients", @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"CcRecipients", @"ccRecipients", @"Preview", @"preview", @"IsLocked", @"isLocked", @"Posts", @"posts", @"Id", @"_id", nil];
     
     }
     
@@ -47,6 +47,7 @@ root for authoritative license information.﻿
         
         
 		_toRecipients = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_uniqueSenders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_ccRecipients = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_posts = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
@@ -54,20 +55,111 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"Id"];
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+        if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
+            _toRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ToRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"ToRecipients"]) {
+                [_toRecipients addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_topic = [dic objectForKey: @"Topic"] != nil ? [[dic objectForKey: @"Topic"] copy] : _topic;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_lastDeliveredDateTime = [dic objectForKey: @"LastDeliveredDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastDeliveredDateTime"]] : _lastDeliveredDateTime;
+
+        if([dic objectForKey: @"UniqueSenders"] != [NSNull null]){
+            _uniqueSenders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"UniqueSenders"] count]];
+            
+            for (id object in [dic objectForKey: @"UniqueSenders"]) {
+                [_uniqueSenders addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CcRecipients"] != [NSNull null]){
+            _ccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CcRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"CcRecipients"]) {
+                [_ccRecipients addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_preview = [dic objectForKey: @"Preview"] != nil ? [[dic objectForKey: @"Preview"] copy] : _preview;
+		_isLocked = [dic objectForKey: @"IsLocked"] != nil ? [[dic objectForKey: @"IsLocked"] boolValue] : _isLocked;
+
+        if([dic objectForKey: @"Posts"] != [NSNull null]){
+            _posts = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Posts"] count]];
+            
+            for (id object in [dic objectForKey: @"Posts"]) {
+                [_posts addObject:[[MSGraphPost alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
 }
-       
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [[NSMutableArray alloc] init], @"ToRecipients",
+		 [_topic copy], @"Topic",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [MSOrcObjectizer stringFromDate:_lastDeliveredDateTime], @"LastDeliveredDateTime",
+		 [[NSMutableArray alloc] init], @"UniqueSenders",
+		 [[NSMutableArray alloc] init], @"CcRecipients",
+		 [_preview copy], @"Preview",
+		 (_isLocked?@"true":@"false"), @"IsLocked",
+		 [[NSMutableArray alloc] init], @"Posts",
+            nil];
+}
+
+
 /** Setter implementation for property toRecipients
  *
  */
 - (void) setToRecipients: (NSMutableArray *) value {
     _toRecipients = value;
-    [self valueChanged:_toRecipients forProperty:@"ToRecipients"];
+    [self valueChangedFor:@"ToRecipients"];
+}
+       
+/** Setter implementation for property topic
+ *
+ */
+- (void) setTopic: (NSString *) value {
+    _topic = value;
+    [self valueChangedFor:@"Topic"];
+}
+       
+/** Setter implementation for property hasAttachments
+ *
+ */
+- (void) setHasAttachments: (bool) value {
+    _hasAttachments = value;
+    [self valueChangedFor:@"HasAttachments"];
+}
+       
+/** Setter implementation for property lastDeliveredDateTime
+ *
+ */
+- (void) setLastDeliveredDateTime: (NSDate *) value {
+    _lastDeliveredDateTime = value;
+    [self valueChangedFor:@"LastDeliveredDateTime"];
+}
+       
+/** Setter implementation for property uniqueSenders
+ *
+ */
+- (void) setUniqueSenders: (NSMutableArray *) value {
+    _uniqueSenders = value;
+    [self valueChangedFor:@"UniqueSenders"];
 }
        
 /** Setter implementation for property ccRecipients
@@ -75,7 +167,7 @@ root for authoritative license information.﻿
  */
 - (void) setCcRecipients: (NSMutableArray *) value {
     _ccRecipients = value;
-    [self valueChanged:_ccRecipients forProperty:@"CcRecipients"];
+    [self valueChangedFor:@"CcRecipients"];
 }
        
 /** Setter implementation for property preview
@@ -83,7 +175,15 @@ root for authoritative license information.﻿
  */
 - (void) setPreview: (NSString *) value {
     _preview = value;
-    [self valueChanged:_preview forProperty:@"Preview"];
+    [self valueChangedFor:@"Preview"];
+}
+       
+/** Setter implementation for property isLocked
+ *
+ */
+- (void) setIsLocked: (bool) value {
+    _isLocked = value;
+    [self valueChangedFor:@"IsLocked"];
 }
        
 /** Setter implementation for property posts
@@ -91,7 +191,7 @@ root for authoritative license information.﻿
  */
 - (void) setPosts: (NSMutableArray *) value {
     _posts = value;
-    [self valueChanged:_posts forProperty:@"Posts"];
+    [self valueChangedFor:@"Posts"];
 }
        
 

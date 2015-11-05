@@ -21,12 +21,13 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "MSOrcEntityFetcher.h"
 
-@class MSGraphProvisioningErrorCollectionFetcher;
-@class MSGraphDirectoryObjectFetcher;
-@class MSGraphDirectoryObjectCollectionFetcher;
-@class MSGraphDirectoryObjectFetcher;
-@class MSGraphDirectoryObjectCollectionFetcher;
-@class MSGraphDirectoryObjectFetcher;
+@class MSGraphEmailAddressCollectionFetcher;
+@class MSGraphPhysicalAddressFetcher;
+@class MSGraphExtensionCollectionFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphExtensionCollectionFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphExtensionFetcher;
 @class MSGraphContactOperations;
 
 
@@ -45,16 +46,12 @@ root for authoritative license information.﻿
 - (MSGraphContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphContactFetcher *)select:(NSString *)params;
 - (MSGraphContactFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
 
-@property (strong, nonatomic, readonly, getter=manager) MSGraphDirectoryObjectFetcher *manager;
-@property (strong, nonatomic, readonly, getter=directReports) MSGraphDirectoryObjectCollectionFetcher *directReports;
+- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
 
-- (MSGraphDirectoryObjectFetcher *)directReportsById:(NSString*)identifier;
 
-@property (strong, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
-
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString*)identifier;
-
+@property (strong, nonatomic, readonly, getter=photo) MSGraphPhotoFetcher *photo;
 
 @end
 

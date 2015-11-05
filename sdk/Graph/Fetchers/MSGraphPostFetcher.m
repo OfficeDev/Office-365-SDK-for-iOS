@@ -69,6 +69,22 @@ root for authoritative license information.﻿
     }];
 }
 
+- (MSGraphExtensionCollectionFetcher *)extensions {
+
+    return [[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]];
+}
+
+- (MSGraphExtensionFetcher *)extensionsById:(NSString *)identifier {
+
+    return [[[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]] getById:identifier];
+
+}
+
+- (MSGraphPostFetcher *)inReplyTo {
+
+	 return [[MSGraphPostFetcher alloc] initWithUrl:@"InReplyTo" parent:self asClass:[MSGraphPost class]];
+}
+
 - (MSGraphAttachmentCollectionFetcher *)attachments {
 
     return [[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]];
@@ -78,11 +94,6 @@ root for authoritative license information.﻿
 
     return [[[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]] getById:identifier];
 
-}
-
-- (MSGraphPostFetcher *)inReplyTo {
-
-	 return [[MSGraphPostFetcher alloc] initWithUrl:@"InReplyTo" parent:self asClass:[MSGraphPost class]];
 }
 
 @end

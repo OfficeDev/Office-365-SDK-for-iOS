@@ -51,12 +51,33 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
+		_image = [dic objectForKey: @"image"] != nil ? [[MSFilesImageFacet alloc] initWithDictionary: [dic objectForKey: @"image"]] : _image;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_contentUrl copy], @"contentUrl",
+		 [_image toDictionary], @"image",
+            nil];
+}
+
+
 /** Setter implementation for property contentUrl
  *
  */
 - (void) setContentUrl: (NSString *) value {
     _contentUrl = value;
-    [self valueChanged:_contentUrl forProperty:@"contentUrl"];
+    [self valueChangedFor:@"contentUrl"];
 }
        
 /** Setter implementation for property image
@@ -64,7 +85,7 @@ root for authoritative license information.﻿
  */
 - (void) setImage: (MSFilesImageFacet *) value {
     _image = value;
-    [self valueChanged:_image forProperty:@"image"];
+    [self valueChangedFor:@"image"];
 }
        
 

@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphAttendeeType
+/** Enum MSGraphAttendeeTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphAttendeeType) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSGraphAttendeeType) {
      * */
     MSGraphAttendeeTypeResource
 };
+
+
+@interface MSGraphAttendeeTypeSerializer : NSObject
++(MSGraphAttendeeType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphAttendeeType) value;
+@end
 
 #endif

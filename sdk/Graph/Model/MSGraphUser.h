@@ -17,6 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHUSER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphAssignedLicense;
 @class MSGraphAssignedPlan;
@@ -27,20 +28,27 @@ root for authoritative license information.﻿
 @class MSGraphOAuth2PermissionGrant;
 @class MSGraphDirectoryObject;
 @class MSGraphMessage;
+@class MSGraphGroup;
+@class MSGraphMailFolder;
 @class MSGraphCalendar;
 @class MSGraphCalendarGroup;
 @class MSGraphEvent;
+@class MSGraphPerson;
+@class MSGraphContact;
+@class MSGraphContactFolder;
+@class MSGraphInferenceClassification;
 @class MSGraphPhoto;
-@class MSGraphFile;
-@class MSGraphGroup;
 @class MSGraphDrive;
 @class MSGraphItem;
+@class MSGraphTask;
+@class MSGraphPlan;
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphUser
  *
  */
-@interface MSGraphUser : MSGraphDirectoryObject
+@interface MSGraphUser : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property accountEnabled
  *
@@ -217,6 +225,11 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setUserType:, getter=userType) NSString * userType;
 
+/** Property emailAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
+
 /** Property mailboxGuid
  *
  */
@@ -337,40 +350,75 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setMessages:, getter=messages) NSMutableArray * messages;
 
-/** Property calendars
+/** Property joinedGroups
  *
  */
-@property (nonatomic,  copy, setter=setCalendars:, getter=calendars) NSMutableArray * calendars;
+@property (nonatomic,  copy, setter=setJoinedGroups:, getter=joinedGroups) NSMutableArray * joinedGroups;
+
+/** Property mailFolders
+ *
+ */
+@property (nonatomic,  copy, setter=setMailFolders:, getter=mailFolders) NSMutableArray * mailFolders;
 
 /** Property calendar
  *
  */
 @property (nonatomic,  copy, setter=setCalendar:, getter=calendar) MSGraphCalendar * calendar;
 
+/** Property calendars
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendars:, getter=calendars) NSMutableArray * calendars;
+
 /** Property calendarGroups
  *
  */
 @property (nonatomic,  copy, setter=setCalendarGroups:, getter=calendarGroups) NSMutableArray * calendarGroups;
-
-/** Property events
- *
- */
-@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
 
 /** Property calendarView
  *
  */
 @property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
 
-/** Property userPhoto
+/** Property events
  *
  */
-@property (nonatomic,  copy, setter=setUserPhoto:, getter=userPhoto) MSGraphPhoto * userPhoto;
+@property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
 
-/** Property userPhotos
+/** Property people
  *
  */
-@property (nonatomic,  copy, setter=setUserPhotos:, getter=userPhotos) NSMutableArray * userPhotos;
+@property (nonatomic,  copy, setter=setPeople:, getter=people) NSMutableArray * people;
+
+/** Property contacts
+ *
+ */
+@property (nonatomic,  copy, setter=setContacts:, getter=contacts) NSMutableArray * contacts;
+
+/** Property contactFolders
+ *
+ */
+@property (nonatomic,  copy, setter=setContactFolders:, getter=contactFolders) NSMutableArray * contactFolders;
+
+/** Property inferenceClassification
+ *
+ */
+@property (nonatomic,  copy, setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassification * inferenceClassification;
+
+/** Property photo
+ *
+ */
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+
+/** Property photos
+ *
+ */
+@property (nonatomic,  copy, setter=setPhotos:, getter=photos) NSMutableArray * photos;
+
+/** Property drive
+ *
+ */
+@property (nonatomic,  copy, setter=setDrive:, getter=drive) MSGraphDrive * drive;
 
 /** Property trendingAround
  *
@@ -382,20 +430,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setWorkingWith:, getter=workingWith) NSMutableArray * workingWith;
 
-/** Property joinedGroups
+/** Property tasks
  *
  */
-@property (nonatomic,  copy, setter=setJoinedGroups:, getter=joinedGroups) NSMutableArray * joinedGroups;
+@property (nonatomic,  copy, setter=setTasks:, getter=tasks) NSMutableArray * tasks;
 
-/** Property drive
+/** Property plans
  *
  */
-@property (nonatomic,  copy, setter=setDrive:, getter=drive) MSGraphDrive * drive;
-
-/** Property files
- *
- */
-@property (nonatomic,  copy, setter=setFiles:, getter=files) NSMutableArray * files;
+@property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

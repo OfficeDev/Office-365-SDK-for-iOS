@@ -17,6 +17,7 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESAPPLICATION_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesAppRole;
 @class MSDirectoryServicesKeyCredential;
@@ -25,11 +26,12 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesRequiredResourceAccess;
 @class MSDirectoryServicesExtensionProperty;
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesApplication
  *
  */
-@interface MSDirectoryServicesApplication : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesApplication : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property appId
  *

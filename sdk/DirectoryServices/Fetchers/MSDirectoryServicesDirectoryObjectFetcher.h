@@ -57,29 +57,29 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=createdOnBehalfOf) MSDirectoryServicesDirectoryObjectFetcher *createdOnBehalfOf;
 @property (strong, nonatomic, readonly, getter=createdObjects) MSDirectoryServicesDirectoryObjectCollectionFetcher *createdObjects;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)createdObjectsById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)createdObjectsById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=manager) MSDirectoryServicesDirectoryObjectFetcher *manager;
 @property (strong, nonatomic, readonly, getter=directReports) MSDirectoryServicesDirectoryObjectCollectionFetcher *directReports;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)directReportsById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)directReportsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=members) MSDirectoryServicesDirectoryObjectCollectionFetcher *members;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)membersById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)membersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=memberOf) MSDirectoryServicesDirectoryObjectCollectionFetcher *memberOf;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)memberOfById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)memberOfById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=owners) MSDirectoryServicesDirectoryObjectCollectionFetcher *owners;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)ownersById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)ownersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=ownedObjects) MSDirectoryServicesDirectoryObjectCollectionFetcher *ownedObjects;
 
-- (MSDirectoryServicesDirectoryObjectFetcher *)ownedObjectsById:(NSString*)identifier;
+- (MSDirectoryServicesDirectoryObjectFetcher *)ownedObjectsById:(id)identifier;
 
 - (MSDirectoryServicesApplicationFetcher *)asApplication;	
 - (MSDirectoryServicesUserFetcher *)asUser;	

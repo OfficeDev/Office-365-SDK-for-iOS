@@ -26,11 +26,12 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookMessage *, MSOrcError*))callback {
 
 
-    NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
+      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookMessage * result = (MSOutlookMessage *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookMessage class]];
+            MSOutlookMessage * result = (MSOutlookMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookMessage class]];
             callback(result, e);
         } 
         else {
@@ -70,11 +71,12 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookMessage *, MSOrcError*))callback {
 
 
-    NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
+      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookMessage * result = (MSOutlookMessage *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookMessage class]];
+            MSOutlookMessage * result = (MSOutlookMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookMessage class]];
             callback(result, e);
         } 
         else {
@@ -117,7 +119,7 @@ root for authoritative license information.﻿
         return [self createReplyRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookMessage * result = (MSOutlookMessage *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookMessage class]];
+            MSOutlookMessage * result = (MSOutlookMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookMessage class]];
             callback(result, e);
         } 
         else {
@@ -157,7 +159,7 @@ root for authoritative license information.﻿
         return [self createReplyAllRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookMessage * result = (MSOutlookMessage *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookMessage class]];
+            MSOutlookMessage * result = (MSOutlookMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookMessage class]];
             callback(result, e);
         } 
         else {
@@ -197,7 +199,7 @@ root for authoritative license information.﻿
         return [self createForwardRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookMessage * result = (MSOutlookMessage *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookMessage class]];
+            MSOutlookMessage * result = (MSOutlookMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookMessage class]];
             callback(result, e);
         } 
         else {
@@ -234,11 +236,12 @@ root for authoritative license information.﻿
 - (void)replyWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
     return [self replyRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -278,11 +281,12 @@ root for authoritative license information.﻿
 - (void)replyAllWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
     return [self replyAllRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -322,12 +326,14 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSOutlookRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-NSString *toRecipientsString = [self.resolver.jsonSerializer serialize:toRecipients property:@"ToRecipients"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString: toRecipients ];
+
     return [self forwardRawWithComment:commentString toRecipients:toRecipientsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -370,7 +376,7 @@ NSString *toRecipientsString = [self.resolver.jsonSerializer serialize:toRecipie
         return [self sendRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {

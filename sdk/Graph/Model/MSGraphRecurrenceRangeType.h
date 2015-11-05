@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphRecurrenceRangeType
+/** Enum MSGraphRecurrenceRangeTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphRecurrenceRangeType) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSGraphRecurrenceRangeType) {
      * */
     MSGraphRecurrenceRangeTypeNumbered
 };
+
+
+@interface MSGraphRecurrenceRangeTypeSerializer : NSObject
++(MSGraphRecurrenceRangeType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphRecurrenceRangeType) value;
+@end
 
 #endif

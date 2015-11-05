@@ -7,323 +7,323 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0907B845D26C8D13865078A9 /* MSFilesDriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5EB309985BD1B35AD6BFE5 /* MSFilesDriveQuota.m */; };
-		0D1871A320C8DB98444C8DE6 /* MSFilesFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C4B764515F2D8E61571E06 /* MSFilesFolderCollectionOperations.m */; };
-		0E9A093829B696A0BE42F514 /* MSFilesDriveFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 81E96B73C815D49F77897150 /* MSFilesDriveFetcher.h */; };
-		192467752FBDBA5BA12F9D2D /* MSFilesFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = A2852F29FFD5350B71BDEF59 /* MSFilesFolder.h */; };
-		1E2475E39168CB737C4D1A69 /* MSFilesFileCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 24E73B4C7772682530CBF945 /* MSFilesFileCollectionFetcher.h */; };
-		1EFEBF38ECD70C5535DFD763 /* MSFilesCurrentUserRequestContextOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 957138D0B0B134AB0FC52A81 /* MSFilesCurrentUserRequestContextOperations.h */; };
-		22FCC48140FE17D51C312970 /* MSFilesCurrentUserRequestContextCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 01340DA31C42CD22BC829F85 /* MSFilesCurrentUserRequestContextCollectionFetcher.h */; };
-		24D7E5350945508FB360CBBC /* MSFilesCurrentUserRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 30619C51AF1F75860C6E0A3D /* MSFilesCurrentUserRequestContext.m */; };
-		24FC5BD6E77ECD8203C3AE3D /* MSFilesCurrentUserRequestContextCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E96180401B002737AE32BD35 /* MSFilesCurrentUserRequestContextCollectionOperations.h */; };
-		2DBDEC657339AAE7195003E9 /* MSFilesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B9F766963EB1B2C16CD65C2 /* MSFilesClient.m */; };
-		2F006D9CF3B69087946792CF /* MSFilesItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC471AE31F55DDC622024C5 /* MSFilesItemCollectionFetcher.m */; };
-		309574056E1ED8B10946554F /* MSFilesFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D670EEC249C1D36C7EB0E42 /* MSFilesFolderCollectionFetcher.m */; };
-		3121190344C70A761EF2773B /* MSFilesFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C0893BD5FFD735457031760 /* MSFilesFolderFetcher.h */; };
-		33DAFD45FFE09D9C97FD008C /* MSFilesItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EEF2BA9592390DCB45595C /* MSFilesItemOperations.m */; };
-		396F9B751DEF354AF082D0BF /* MSFilesDriveFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B1055B481EDC758ED1C41 /* MSFilesDriveFetcher.m */; };
-		41139C4A2922C9995EA6D906 /* MSFilesDriveCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4A95D78409C92A26A4CFA1 /* MSFilesDriveCollectionOperations.m */; };
-		493733AF2608BA357110BA30 /* MSFilesItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D59FC0CC04D3801816B43B66 /* MSFilesItemFetcher.h */; };
-		4996C0B65DD2A293301BC9BE /* MSFilesFileCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 22FD6CC1671831159D9D658D /* MSFilesFileCollectionFetcher.m */; };
-		51D658D34E76E818D99C4536 /* MSFilesDriveOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = CD95335FC6EE9D71F60EE41B /* MSFilesDriveOperations.h */; };
-		5295F83CE3B19C8E8EA64AD8 /* MSFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 86A0F4C541C5F041463E8456 /* MSFiles.h */; };
-		61E0838C942884880B7DB103 /* MSFilesFileCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70BB660699E9AEE8B1101868 /* MSFilesFileCollectionOperations.m */; };
-		62AEDFD5A97F59930D1B9986 /* MSFilesCurrentUserRequestContextFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 37827869820EE05CB0CD0B73 /* MSFilesCurrentUserRequestContextFetcher.h */; };
-		65C09EC014878D9863510857 /* MSFilesIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = C377A6B91D106742ECBC00C9 /* MSFilesIdentity.m */; };
-		72F015942E3CCB5F7B098FA2 /* MSFilesClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 37444D40532D63DB31C9A515 /* MSFilesClient.h */; };
-		734ECB13841B15490C459312 /* MSFilesIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 06894F8034D50024857BFD62 /* MSFilesIdentitySet.m */; };
-		77307E2678FFA36D26CC0AAE /* MSFilesItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E46B49E9C0868F904D8E2525 /* MSFilesItemOperations.h */; };
-		7785AA680A7B96896CA468CA /* MSFilesItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFA5ED8F7BA8EF55D73DAF3 /* MSFilesItemReference.m */; };
-		789417E4D2ED7F260E61B556 /* MSFilesImageFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = A6404DA836A99D59D83A412C /* MSFilesImageFacet.m */; };
-		8894F55E2C950097AAA8AA8C /* MSFilesImageFacet.h in Headers */ = {isa = PBXBuildFile; fileRef = 882EF239E018C129979FECF7 /* MSFilesImageFacet.h */; };
-		891BBC781247F3C873EE29D2 /* MSFilesFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E23BF83395888360D20D45 /* MSFilesFolder.m */; };
-		893B1231FA6A490E013425D5 /* MSFilesDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = E4828AD7BBDB9D5FF7D86B73 /* MSFilesDrive.m */; };
-		93B9C7CC5A0FC8CAF223A910 /* MSFilesFileFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B56DDE777C32C7F610B2F59E /* MSFilesFileFetcher.m */; };
-		95140C99FB53C65C29B74C2C /* MSFilesFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CCD04B7438B6296BB16F83 /* MSFilesFolderFetcher.m */; };
-		989A89F14FB9ED3EC91814B6 /* MSFilesCurrentUserRequestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = A6AADDA09E468B8C7D6481E0 /* MSFilesCurrentUserRequestContext.h */; };
-		A197D288A0A46849A24D65AE /* MSFilesFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FC9EC8CF10563B39B987D3 /* MSFilesFolderOperations.m */; };
-		A2A2E663BB7370D033C54262 /* MSFilesFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E5B6CDDA5FEA71EDCF98978 /* MSFilesFetchers.h */; };
-		A49D3A06FC6DAD89E381EC99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D2FB41DEEC6F7C3D717169 /* Foundation.framework */; };
-		A981789D033A5A8A405637C7 /* MSFilesItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 0115340C0D97B6298FF05094 /* MSFilesItemCollectionOperations.h */; };
-		AB4C4565791C11E9EB003619 /* MSFilesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C11421437FD47CF885355D /* MSFilesItem.m */; };
-		AB99AF00C1E094A5D2E26D6B /* MSFilesItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 511E3A6B820034326C2C9BA4 /* MSFilesItemCollectionFetcher.h */; };
-		ACB93364350AF4C7A49741B2 /* MSFilesItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E4A381D23AA46A9FA96E78 /* MSFilesItemCollectionOperations.m */; };
-		AD7693583CD761169F0D2093 /* MSFilesIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C9E2EB9EFD5F96D6743B3BE /* MSFilesIdentitySet.h */; };
-		AEFCB2CCB4B714B62FA773C8 /* MSFilesCurrentUserRequestContextFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D3E4DAA414FA7E75F3598B /* MSFilesCurrentUserRequestContextFetcher.m */; };
-		B06FB07A42B59F9455D54617 /* MSFilesIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = EB141C11DE99D18967C24D42 /* MSFilesIdentity.h */; };
-		B074CD8D8EE0CADE31F422A8 /* MSFilesDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E29112448739E023A461D1C /* MSFilesDriveQuota.h */; };
-		B58FA8165A2F4E22FFE855F0 /* MSFilesDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = 877C95717B797A27B3066E07 /* MSFilesDrive.h */; };
-		BA81B5F7B8C308ED0754F858 /* MSFilesFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = A911F4D5593E0BBB457C6BF0 /* MSFilesFolderCollectionOperations.h */; };
-		C886C194A1CB751016310483 /* MSFilesFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BDE59882225DA2A01BD9F98 /* MSFilesFile.h */; };
-		CBA0F87692BFC7CDB6898427 /* MSFilesDriveOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = E40A99E720CC75E1D8C6AC7C /* MSFilesDriveOperations.m */; };
-		CCF53086E37B1867E6071D79 /* MSFilesCurrentUserRequestContextOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B4582EBF0C027EF521B75E /* MSFilesCurrentUserRequestContextOperations.m */; };
-		CF171B53CD180CF0DAFC51A7 /* MSFilesFileFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FB3939E3BD15F6E5266EE1 /* MSFilesFileFetcher.h */; };
-		CF1E1A2D1B5ECEA765D4724A /* MSFilesDriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E48A159956CA95FBE9CE2A /* MSFilesDriveCollectionFetcher.m */; };
-		D06B44847D630A612D226B0C /* MSFilesFileOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A6A0AEA4D174C253AE5A0ED /* MSFilesFileOperations.h */; };
-		D165E37F8AEE5A3FD6D5B901 /* MSFilesCurrentUserRequestContextCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4C15C89249381AE54C65FA /* MSFilesCurrentUserRequestContextCollectionOperations.m */; };
-		D1C7AE783F45A45C93915295 /* MSFilesFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B07FFBE59996F862EE21FE39 /* MSFilesFile.m */; };
-		D36676F54FD8D2B0A556970C /* MSFilesItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E416D7C1CF95997BDF48A5C /* MSFilesItemFetcher.m */; };
-		DF482094D4687E524E47314C /* MSFilesFileCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B6ED31BCD8414ACF5001D87B /* MSFilesFileCollectionOperations.h */; };
-		E648E996BC2E485DB6739069 /* MSFilesDriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E056FF8BE39DBD39F4F18C0 /* MSFilesDriveCollectionFetcher.h */; };
-		E76CA428301A17DC4F460D13 /* MSFilesItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E4C133E11CCFE8DBCACEC11 /* MSFilesItemReference.h */; };
-		EBCE8EF819082111329B69DF /* MSFilesDriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DF4F9CEA58D577E98CC675B /* MSFilesDriveCollectionOperations.h */; };
-		F106396AF6915ABED8B5C38E /* MSFilesItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E07CA5A088D5415993C963 /* MSFilesItem.h */; };
-		FA1AD8FE7B4F36E39AB99119 /* MSFilesFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D341DAA7E950FE40F30FF2B /* MSFilesFolderCollectionFetcher.h */; };
-		FD50EBA1C650CB8E2C2C8966 /* MSFilesModels.h in Headers */ = {isa = PBXBuildFile; fileRef = FE317D51B477D14EF2ED873A /* MSFilesModels.h */; };
-		FE0EC66DD95C86D6FA2823FC /* MSFilesCurrentUserRequestContextCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8433FE38BABDA9773CD133 /* MSFilesCurrentUserRequestContextCollectionFetcher.m */; };
-		FE39056039EDA7FC4A35749E /* MSFilesFileOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = DEF10094FE52BE2D0F6BD7E6 /* MSFilesFileOperations.m */; };
-		FF89A3E530E7302E82B8FF98 /* MSFilesFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A8F769BC7DEAE8D51429095 /* MSFilesFolderOperations.h */; };
+		012148CB491E9AB306E11876 /* MSFilesDriveOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C73949EBE6C4FAC01BC1E0 /* MSFilesDriveOperations.h */; };
+		031667294837D5914B92D701 /* MSFilesDrive.h in Headers */ = {isa = PBXBuildFile; fileRef = 8127357D90177A718B04F039 /* MSFilesDrive.h */; };
+		09BA0A2D5E811C890E437E8D /* MSFilesItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D345A2D211C342DA301B1B9 /* MSFilesItemCollectionOperations.h */; };
+		0A4ACB0E6474C9E2E79D4B27 /* MSFilesFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBEF34CB9E6463915AE37BB /* MSFilesFolder.m */; };
+		0BB698D3E947C5912BFA7AB9 /* MSFilesDriveFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D451C4F741966D59216FC37 /* MSFilesDriveFetcher.h */; };
+		0C66E499FBC7A99143372B75 /* MSFilesModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 40248D99A4E32D725BF54BA9 /* MSFilesModels.h */; };
+		0EF000D6B7DDB35B2EADFF8C /* MSFilesDriveOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 95716CA79DD4E50C2BA5EAF4 /* MSFilesDriveOperations.m */; };
+		130A772536957E46E3217769 /* MSFilesFolderCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBF6B5264F24E35EEE879F4 /* MSFilesFolderCollectionFetcher.m */; };
+		14C17F4E2599FCDD00C6BB18 /* MSFilesItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6EF30864020FFE373DF912 /* MSFilesItemFetcher.h */; };
+		172152A03F767468F880A086 /* MSFilesCurrentUserRequestContextOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 02CBB2738CE948F1CDD98C18 /* MSFilesCurrentUserRequestContextOperations.h */; };
+		19A7E7254FED53C231306A1B /* MSFilesFileCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 99474E7EF46DCE7B3E5C0222 /* MSFilesFileCollectionOperations.m */; };
+		265273A0DD5DA3ADE14F9155 /* MSFilesFileOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 17A043832FBF713EA6AD81E2 /* MSFilesFileOperations.h */; };
+		32A30B68775A5BB932D255DA /* MSFilesDriveQuota.m in Sources */ = {isa = PBXBuildFile; fileRef = EB4F6BFE3FF9248CF72F898A /* MSFilesDriveQuota.m */; };
+		3526A9FF6F840DEB70A6343B /* MSFilesIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 22936E85552747B79EF4E951 /* MSFilesIdentity.m */; };
+		3BFC50B2ABDD7EBE6C74C98B /* MSFilesFolderOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = BF243D9A78F76F9A4CB2B9A2 /* MSFilesFolderOperations.h */; };
+		3F63B32C1383CF5B55F22409 /* MSFilesFileOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = EED558E8B2899765811BC964 /* MSFilesFileOperations.m */; };
+		44FC13A9B038DC8CD777A5F0 /* MSFilesItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E846960E78F0431AC9A31C8 /* MSFilesItemCollectionOperations.m */; };
+		46C1BE92F72CE29CAA2A8260 /* MSFilesCurrentUserRequestContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CC91FC69488CE1945E97C4FF /* MSFilesCurrentUserRequestContext.h */; };
+		4A864C77F201AE5980C4065A /* MSFilesCurrentUserRequestContextFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7984CFE7845B47431BEB2F63 /* MSFilesCurrentUserRequestContextFetcher.m */; };
+		4ABE7FEE4727DD8A8E2E0131 /* MSFilesItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4872986FAF18CD0F05C66 /* MSFilesItemOperations.m */; };
+		4E7E344B8C58FA81F2270BEF /* MSFilesItemReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 43ABE55F818C53AE441F020F /* MSFilesItemReference.h */; };
+		52601734E03216F768C59BB3 /* MSFilesCurrentUserRequestContextFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E2430C6E9D447BE2C383165 /* MSFilesCurrentUserRequestContextFetcher.h */; };
+		5519BAE1C3385E77F91F3CF4 /* MSFilesClient.h in Headers */ = {isa = PBXBuildFile; fileRef = DE96346DC7D2972F89B44ECA /* MSFilesClient.h */; };
+		58CCDDB32AA040039FEFE420 /* MSFilesIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 2114E3EDC190C83E8467D19E /* MSFilesIdentity.h */; };
+		5B090FC6ECA4A1F2F1284404 /* MSFilesCurrentUserRequestContextOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB6BFAB83365FC0621E427A /* MSFilesCurrentUserRequestContextOperations.m */; };
+		5DD5ADD906CA37B6665F9DB7 /* MSFilesFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FB10A07E780C19058F8EA5F8 /* MSFilesFile.m */; };
+		62866878388E65B4D0CD107F /* MSFilesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4330FA866B8CA326A09E13 /* MSFilesClient.m */; };
+		68C57EAB921E11B8C1828132 /* MSFilesItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = AF74492D090BC113789753D3 /* MSFilesItemCollectionFetcher.h */; };
+		6EAA2C14C39F70D84CC73F9F /* MSFilesFileCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 060E8279EEA15DBAC0F4A426 /* MSFilesFileCollectionFetcher.m */; };
+		70222E624D7BA5DD828FBF97 /* MSFilesItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8F49D1A09F7AFFF942A227 /* MSFilesItemFetcher.m */; };
+		71105AE0B875B15FCA16E5D9 /* MSFilesDriveCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 790A778A368C431127509B6D /* MSFilesDriveCollectionFetcher.m */; };
+		74C8B2A2A98B3C44DD6EC7BA /* MSFilesFolderCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EFB10641F68B462AC065D158 /* MSFilesFolderCollectionFetcher.h */; };
+		7D412B06A7A5808A3B001FFF /* MSFilesFolderCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = AD336A9DC374D8A4606D8735 /* MSFilesFolderCollectionOperations.h */; };
+		7FC94CFC142C85C8E75AC496 /* MSFilesDriveQuota.h in Headers */ = {isa = PBXBuildFile; fileRef = 369546F6740D537476E2CE8F /* MSFilesDriveQuota.h */; };
+		7FCC8F6301A539D66B7C1579 /* MSFilesFolderFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 914AAC74C9FA137FA2B8F09C /* MSFilesFolderFetcher.h */; };
+		8079AA7990C5BE1FC15225FE /* MSFilesFileCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 45D798EA5ADEC431765850DE /* MSFilesFileCollectionOperations.h */; };
+		8707F90081ED454D3DE096D5 /* MSFilesDriveFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2B525C749843C42D102B50E /* MSFilesDriveFetcher.m */; };
+		89052EE071D0CE741AB798BA /* MSFilesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B3ED734A1D8C9546F3ADF4 /* MSFilesItem.m */; };
+		893AF5A10965FC98D3DC7930 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7432533324EE313C2F34327D /* Foundation.framework */; };
+		8A700199E941928901CBC44C /* MSFilesItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 660D984E6C1F73DF03B5CB51 /* MSFilesItemOperations.h */; };
+		8ACD5C55ABF97BED18D195AB /* MSFilesFolder.h in Headers */ = {isa = PBXBuildFile; fileRef = B09AB3F70CFD558D09246669 /* MSFilesFolder.h */; };
+		8F940C29109BB8706B2A994C /* MSFilesFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = 141941DCA3DD1FB74B594637 /* MSFilesFetchers.h */; };
+		97FB1D5F12BE88958821D083 /* MSFilesItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E23EF106D06BBDD141DA9C9 /* MSFilesItem.h */; };
+		9DA196E9033C43F0BFED9910 /* MSFilesCurrentUserRequestContextCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D3D7CD8A7BE9ECF6ACBF8F /* MSFilesCurrentUserRequestContextCollectionFetcher.m */; };
+		A3F540E6BAC428B9B16BEB36 /* MSFilesItemReference.m in Sources */ = {isa = PBXBuildFile; fileRef = B28BCFA09E8290F932194FF0 /* MSFilesItemReference.m */; };
+		B07CBE13733FEABBE0C6BF08 /* MSFilesFileFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7EB4638AF4133BC4B8F489 /* MSFilesFileFetcher.m */; };
+		B2597FA86834D9620DB3FE17 /* MSFilesCurrentUserRequestContextCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF0632FE5D786E1D2297787 /* MSFilesCurrentUserRequestContextCollectionOperations.h */; };
+		B42701DAF77F552DB3A9ECE2 /* MSFilesIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = E51863DFEC02735A7C79D5D9 /* MSFilesIdentitySet.h */; };
+		B586DE8B20FE7DBAA86B44E9 /* MSFilesFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 7839D54F41CB1E87B52F816F /* MSFilesFile.h */; };
+		B8D51960073F1672E1A50A46 /* MSFilesDriveCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D23DD9FD0C5722EB1EA3A68B /* MSFilesDriveCollectionFetcher.h */; };
+		B9B0553A0DBE0CDBB2811FC3 /* MSFilesFileCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B8687F0991EBEC84D5269F3 /* MSFilesFileCollectionFetcher.h */; };
+		CA34E491140E603D79AFA7AC /* MSFilesCurrentUserRequestContextCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F879B8B4014A523D04BB3CC0 /* MSFilesCurrentUserRequestContextCollectionOperations.m */; };
+		CE8069D98761D4DF9E217FA6 /* MSFilesFolderOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EF4BE2DAF2247E2EDC85EC /* MSFilesFolderOperations.m */; };
+		CF8BB3E78F5A52F244D531F7 /* MSFilesDriveCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 746AB0A09A225E40FF9F2B20 /* MSFilesDriveCollectionOperations.h */; };
+		D22E170E3DCAE6BB4213137C /* MSFilesCurrentUserRequestContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC26E6A53F0A6C9AAC71FD9 /* MSFilesCurrentUserRequestContext.m */; };
+		D2FC939D208E5AB23CDAC408 /* MSFilesFileFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3331CE7FB4F9FFDE9EA71DFC /* MSFilesFileFetcher.h */; };
+		D53A52D8BBE213AC0213874B /* MSFilesCurrentUserRequestContextCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 693C00B4957FFEB4630C0E7C /* MSFilesCurrentUserRequestContextCollectionFetcher.h */; };
+		DDA9C23BDB418262FEAF3FB1 /* MSFilesImageFacet.m in Sources */ = {isa = PBXBuildFile; fileRef = 097F5002DE97EEBA5EF6D3DC /* MSFilesImageFacet.m */; };
+		E46ACA0A1D3D668F504445EE /* MSFilesFolderFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0948070E1C66C183D65432BE /* MSFilesFolderFetcher.m */; };
+		E7B6D5FEE5E657023EB24DB9 /* MSFilesDriveCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2F22538B82B227019B900 /* MSFilesDriveCollectionOperations.m */; };
+		EC7B4DFBA3FAD10361989E7B /* MSFiles.h in Headers */ = {isa = PBXBuildFile; fileRef = 7040D1DB562A6E0D3296C85C /* MSFiles.h */; };
+		ED3D39A76A0F79255AB084ED /* MSFilesImageFacet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C87814B43C608F204C2BB9E /* MSFilesImageFacet.h */; };
+		EEC06E6582062105D89F1301 /* MSFilesIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = E6583E47744B3575BBBC5126 /* MSFilesIdentitySet.m */; };
+		EFBBFB014510CB417CF626E0 /* MSFilesDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 104AE5C9AB7D31077CD4ED40 /* MSFilesDrive.m */; };
+		F05C733A03E055BCFA3FC27A /* MSFilesFolderCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6486C5A7E2DAE8AF47911A /* MSFilesFolderCollectionOperations.m */; };
+		F7BB4E5417F57B049DB5C98E /* MSFilesItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 45367E8B7DF88230CED37AE3 /* MSFilesItemCollectionFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00E07CA5A088D5415993C963 /* MSFilesItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItem.h; path = ./Model/MSFilesItem.h; sourceTree = "<group>"; };
-		0115340C0D97B6298FF05094 /* MSFilesItemCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemCollectionOperations.h; path = ./Fetchers/MSFilesItemCollectionOperations.h; sourceTree = "<group>"; };
-		01340DA31C42CD22BC829F85 /* MSFilesCurrentUserRequestContextCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextCollectionFetcher.h; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionFetcher.h; sourceTree = "<group>"; };
-		06894F8034D50024857BFD62 /* MSFilesIdentitySet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesIdentitySet.m; path = ./Model/MSFilesIdentitySet.m; sourceTree = "<group>"; };
-		0CFA5ED8F7BA8EF55D73DAF3 /* MSFilesItemReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemReference.m; path = ./Model/MSFilesItemReference.m; sourceTree = "<group>"; };
-		0E29112448739E023A461D1C /* MSFilesDriveQuota.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveQuota.h; path = ./Model/MSFilesDriveQuota.h; sourceTree = "<group>"; };
-		1A4B1055B481EDC758ED1C41 /* MSFilesDriveFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveFetcher.m; path = ./Fetchers/MSFilesDriveFetcher.m; sourceTree = "<group>"; };
-		1E4C15C89249381AE54C65FA /* MSFilesCurrentUserRequestContextCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextCollectionOperations.m; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionOperations.m; sourceTree = "<group>"; };
-		22FD6CC1671831159D9D658D /* MSFilesFileCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileCollectionFetcher.m; path = ./Fetchers/MSFilesFileCollectionFetcher.m; sourceTree = "<group>"; };
-		24E73B4C7772682530CBF945 /* MSFilesFileCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileCollectionFetcher.h; path = ./Fetchers/MSFilesFileCollectionFetcher.h; sourceTree = "<group>"; };
-		2D670EEC249C1D36C7EB0E42 /* MSFilesFolderCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderCollectionFetcher.m; path = ./Fetchers/MSFilesFolderCollectionFetcher.m; sourceTree = "<group>"; };
-		30619C51AF1F75860C6E0A3D /* MSFilesCurrentUserRequestContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContext.m; path = ./Model/MSFilesCurrentUserRequestContext.m; sourceTree = "<group>"; };
-		37444D40532D63DB31C9A515 /* MSFilesClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesClient.h; path = ./Fetchers/MSFilesClient.h; sourceTree = "<group>"; };
-		37827869820EE05CB0CD0B73 /* MSFilesCurrentUserRequestContextFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextFetcher.h; path = ./Fetchers/MSFilesCurrentUserRequestContextFetcher.h; sourceTree = "<group>"; };
-		4A8F769BC7DEAE8D51429095 /* MSFilesFolderOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderOperations.h; path = ./Fetchers/MSFilesFolderOperations.h; sourceTree = "<group>"; };
-		4B9F766963EB1B2C16CD65C2 /* MSFilesClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesClient.m; path = ./Fetchers/MSFilesClient.m; sourceTree = "<group>"; };
-		4BDE59882225DA2A01BD9F98 /* MSFilesFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFile.h; path = ./Model/MSFilesFile.h; sourceTree = "<group>"; };
-		4DF4F9CEA58D577E98CC675B /* MSFilesDriveCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveCollectionOperations.h; path = ./Fetchers/MSFilesDriveCollectionOperations.h; sourceTree = "<group>"; };
-		4F5EB309985BD1B35AD6BFE5 /* MSFilesDriveQuota.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveQuota.m; path = ./Model/MSFilesDriveQuota.m; sourceTree = "<group>"; };
-		511E3A6B820034326C2C9BA4 /* MSFilesItemCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemCollectionFetcher.h; path = ./Fetchers/MSFilesItemCollectionFetcher.h; sourceTree = "<group>"; };
-		59D3E4DAA414FA7E75F3598B /* MSFilesCurrentUserRequestContextFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextFetcher.m; path = ./Fetchers/MSFilesCurrentUserRequestContextFetcher.m; sourceTree = "<group>"; };
-		5A6A0AEA4D174C253AE5A0ED /* MSFilesFileOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileOperations.h; path = ./Fetchers/MSFilesFileOperations.h; sourceTree = "<group>"; };
-		5E4C133E11CCFE8DBCACEC11 /* MSFilesItemReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemReference.h; path = ./Model/MSFilesItemReference.h; sourceTree = "<group>"; };
-		60E23BF83395888360D20D45 /* MSFilesFolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolder.m; path = ./Model/MSFilesFolder.m; sourceTree = "<group>"; };
-		60EEF2BA9592390DCB45595C /* MSFilesItemOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemOperations.m; path = ./Fetchers/MSFilesItemOperations.m; sourceTree = "<group>"; };
-		6D341DAA7E950FE40F30FF2B /* MSFilesFolderCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderCollectionFetcher.h; path = ./Fetchers/MSFilesFolderCollectionFetcher.h; sourceTree = "<group>"; };
-		6E056FF8BE39DBD39F4F18C0 /* MSFilesDriveCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveCollectionFetcher.h; path = ./Fetchers/MSFilesDriveCollectionFetcher.h; sourceTree = "<group>"; };
-		70BB660699E9AEE8B1101868 /* MSFilesFileCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileCollectionOperations.m; path = ./Fetchers/MSFilesFileCollectionOperations.m; sourceTree = "<group>"; };
-		73D2FB41DEEC6F7C3D717169 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7E416D7C1CF95997BDF48A5C /* MSFilesItemFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemFetcher.m; path = ./Fetchers/MSFilesItemFetcher.m; sourceTree = "<group>"; };
-		81E96B73C815D49F77897150 /* MSFilesDriveFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveFetcher.h; path = ./Fetchers/MSFilesDriveFetcher.h; sourceTree = "<group>"; };
-		86A0F4C541C5F041463E8456 /* MSFiles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFiles.h; path = ./MSFiles.h; sourceTree = "<group>"; };
-		877C95717B797A27B3066E07 /* MSFilesDrive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDrive.h; path = ./Model/MSFilesDrive.h; sourceTree = "<group>"; };
-		882EF239E018C129979FECF7 /* MSFilesImageFacet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesImageFacet.h; path = ./Model/MSFilesImageFacet.h; sourceTree = "<group>"; };
-		8C9E2EB9EFD5F96D6743B3BE /* MSFilesIdentitySet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesIdentitySet.h; path = ./Model/MSFilesIdentitySet.h; sourceTree = "<group>"; };
-		8E5B6CDDA5FEA71EDCF98978 /* MSFilesFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFetchers.h; path = ./Fetchers/MSFilesFetchers.h; sourceTree = "<group>"; };
-		957138D0B0B134AB0FC52A81 /* MSFilesCurrentUserRequestContextOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextOperations.h; path = ./Fetchers/MSFilesCurrentUserRequestContextOperations.h; sourceTree = "<group>"; };
-		96EFEC49A0DF179015E55CD0 /* libFiles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFiles.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C0893BD5FFD735457031760 /* MSFilesFolderFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderFetcher.h; path = ./Fetchers/MSFilesFolderFetcher.h; sourceTree = "<group>"; };
-		A1C11421437FD47CF885355D /* MSFilesItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItem.m; path = ./Model/MSFilesItem.m; sourceTree = "<group>"; };
-		A2852F29FFD5350B71BDEF59 /* MSFilesFolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolder.h; path = ./Model/MSFilesFolder.h; sourceTree = "<group>"; };
-		A6404DA836A99D59D83A412C /* MSFilesImageFacet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesImageFacet.m; path = ./Model/MSFilesImageFacet.m; sourceTree = "<group>"; };
-		A6AADDA09E468B8C7D6481E0 /* MSFilesCurrentUserRequestContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContext.h; path = ./Model/MSFilesCurrentUserRequestContext.h; sourceTree = "<group>"; };
-		A911F4D5593E0BBB457C6BF0 /* MSFilesFolderCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderCollectionOperations.h; path = ./Fetchers/MSFilesFolderCollectionOperations.h; sourceTree = "<group>"; };
-		AB4A95D78409C92A26A4CFA1 /* MSFilesDriveCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveCollectionOperations.m; path = ./Fetchers/MSFilesDriveCollectionOperations.m; sourceTree = "<group>"; };
-		ABC471AE31F55DDC622024C5 /* MSFilesItemCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemCollectionFetcher.m; path = ./Fetchers/MSFilesItemCollectionFetcher.m; sourceTree = "<group>"; };
-		B07FFBE59996F862EE21FE39 /* MSFilesFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFile.m; path = ./Model/MSFilesFile.m; sourceTree = "<group>"; };
-		B0E48A159956CA95FBE9CE2A /* MSFilesDriveCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveCollectionFetcher.m; path = ./Fetchers/MSFilesDriveCollectionFetcher.m; sourceTree = "<group>"; };
-		B56DDE777C32C7F610B2F59E /* MSFilesFileFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileFetcher.m; path = ./Fetchers/MSFilesFileFetcher.m; sourceTree = "<group>"; };
-		B6ED31BCD8414ACF5001D87B /* MSFilesFileCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileCollectionOperations.h; path = ./Fetchers/MSFilesFileCollectionOperations.h; sourceTree = "<group>"; };
-		C377A6B91D106742ECBC00C9 /* MSFilesIdentity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesIdentity.m; path = ./Model/MSFilesIdentity.m; sourceTree = "<group>"; };
-		C7B4582EBF0C027EF521B75E /* MSFilesCurrentUserRequestContextOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextOperations.m; path = ./Fetchers/MSFilesCurrentUserRequestContextOperations.m; sourceTree = "<group>"; };
-		C8CCD04B7438B6296BB16F83 /* MSFilesFolderFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderFetcher.m; path = ./Fetchers/MSFilesFolderFetcher.m; sourceTree = "<group>"; };
-		CD95335FC6EE9D71F60EE41B /* MSFilesDriveOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveOperations.h; path = ./Fetchers/MSFilesDriveOperations.h; sourceTree = "<group>"; };
-		D59FC0CC04D3801816B43B66 /* MSFilesItemFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemFetcher.h; path = ./Fetchers/MSFilesItemFetcher.h; sourceTree = "<group>"; };
-		D5E4A381D23AA46A9FA96E78 /* MSFilesItemCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemCollectionOperations.m; path = ./Fetchers/MSFilesItemCollectionOperations.m; sourceTree = "<group>"; };
-		DEF10094FE52BE2D0F6BD7E6 /* MSFilesFileOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileOperations.m; path = ./Fetchers/MSFilesFileOperations.m; sourceTree = "<group>"; };
-		E40A99E720CC75E1D8C6AC7C /* MSFilesDriveOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveOperations.m; path = ./Fetchers/MSFilesDriveOperations.m; sourceTree = "<group>"; };
-		E46B49E9C0868F904D8E2525 /* MSFilesItemOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemOperations.h; path = ./Fetchers/MSFilesItemOperations.h; sourceTree = "<group>"; };
-		E4828AD7BBDB9D5FF7D86B73 /* MSFilesDrive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDrive.m; path = ./Model/MSFilesDrive.m; sourceTree = "<group>"; };
-		E5C4B764515F2D8E61571E06 /* MSFilesFolderCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderCollectionOperations.m; path = ./Fetchers/MSFilesFolderCollectionOperations.m; sourceTree = "<group>"; };
-		E96180401B002737AE32BD35 /* MSFilesCurrentUserRequestContextCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextCollectionOperations.h; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionOperations.h; sourceTree = "<group>"; };
-		EB141C11DE99D18967C24D42 /* MSFilesIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesIdentity.h; path = ./Model/MSFilesIdentity.h; sourceTree = "<group>"; };
-		EC8433FE38BABDA9773CD133 /* MSFilesCurrentUserRequestContextCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextCollectionFetcher.m; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionFetcher.m; sourceTree = "<group>"; };
-		F2FB3939E3BD15F6E5266EE1 /* MSFilesFileFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileFetcher.h; path = ./Fetchers/MSFilesFileFetcher.h; sourceTree = "<group>"; };
-		F9FC9EC8CF10563B39B987D3 /* MSFilesFolderOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderOperations.m; path = ./Fetchers/MSFilesFolderOperations.m; sourceTree = "<group>"; };
-		FE317D51B477D14EF2ED873A /* MSFilesModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesModels.h; path = ./Model/MSFilesModels.h; sourceTree = "<group>"; };
+		02CBB2738CE948F1CDD98C18 /* MSFilesCurrentUserRequestContextOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextOperations.h; path = ./Fetchers/MSFilesCurrentUserRequestContextOperations.h; sourceTree = "<group>"; };
+		060E8279EEA15DBAC0F4A426 /* MSFilesFileCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileCollectionFetcher.m; path = ./Fetchers/MSFilesFileCollectionFetcher.m; sourceTree = "<group>"; };
+		0948070E1C66C183D65432BE /* MSFilesFolderFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderFetcher.m; path = ./Fetchers/MSFilesFolderFetcher.m; sourceTree = "<group>"; };
+		097F5002DE97EEBA5EF6D3DC /* MSFilesImageFacet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesImageFacet.m; path = ./Model/MSFilesImageFacet.m; sourceTree = "<group>"; };
+		104AE5C9AB7D31077CD4ED40 /* MSFilesDrive.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDrive.m; path = ./Model/MSFilesDrive.m; sourceTree = "<group>"; };
+		141941DCA3DD1FB74B594637 /* MSFilesFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFetchers.h; path = ./Fetchers/MSFilesFetchers.h; sourceTree = "<group>"; };
+		17A043832FBF713EA6AD81E2 /* MSFilesFileOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileOperations.h; path = ./Fetchers/MSFilesFileOperations.h; sourceTree = "<group>"; };
+		1E846960E78F0431AC9A31C8 /* MSFilesItemCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemCollectionOperations.m; path = ./Fetchers/MSFilesItemCollectionOperations.m; sourceTree = "<group>"; };
+		2114E3EDC190C83E8467D19E /* MSFilesIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesIdentity.h; path = ./Model/MSFilesIdentity.h; sourceTree = "<group>"; };
+		22936E85552747B79EF4E951 /* MSFilesIdentity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesIdentity.m; path = ./Model/MSFilesIdentity.m; sourceTree = "<group>"; };
+		2DC26E6A53F0A6C9AAC71FD9 /* MSFilesCurrentUserRequestContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContext.m; path = ./Model/MSFilesCurrentUserRequestContext.m; sourceTree = "<group>"; };
+		3331CE7FB4F9FFDE9EA71DFC /* MSFilesFileFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileFetcher.h; path = ./Fetchers/MSFilesFileFetcher.h; sourceTree = "<group>"; };
+		369546F6740D537476E2CE8F /* MSFilesDriveQuota.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveQuota.h; path = ./Model/MSFilesDriveQuota.h; sourceTree = "<group>"; };
+		3BA2F22538B82B227019B900 /* MSFilesDriveCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveCollectionOperations.m; path = ./Fetchers/MSFilesDriveCollectionOperations.m; sourceTree = "<group>"; };
+		40248D99A4E32D725BF54BA9 /* MSFilesModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesModels.h; path = ./Model/MSFilesModels.h; sourceTree = "<group>"; };
+		43ABE55F818C53AE441F020F /* MSFilesItemReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemReference.h; path = ./Model/MSFilesItemReference.h; sourceTree = "<group>"; };
+		45367E8B7DF88230CED37AE3 /* MSFilesItemCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemCollectionFetcher.m; path = ./Fetchers/MSFilesItemCollectionFetcher.m; sourceTree = "<group>"; };
+		45D798EA5ADEC431765850DE /* MSFilesFileCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileCollectionOperations.h; path = ./Fetchers/MSFilesFileCollectionOperations.h; sourceTree = "<group>"; };
+		4B8687F0991EBEC84D5269F3 /* MSFilesFileCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFileCollectionFetcher.h; path = ./Fetchers/MSFilesFileCollectionFetcher.h; sourceTree = "<group>"; };
+		4E2430C6E9D447BE2C383165 /* MSFilesCurrentUserRequestContextFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextFetcher.h; path = ./Fetchers/MSFilesCurrentUserRequestContextFetcher.h; sourceTree = "<group>"; };
+		4FF0632FE5D786E1D2297787 /* MSFilesCurrentUserRequestContextCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextCollectionOperations.h; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionOperations.h; sourceTree = "<group>"; };
+		50EF4BE2DAF2247E2EDC85EC /* MSFilesFolderOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderOperations.m; path = ./Fetchers/MSFilesFolderOperations.m; sourceTree = "<group>"; };
+		5D6486C5A7E2DAE8AF47911A /* MSFilesFolderCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderCollectionOperations.m; path = ./Fetchers/MSFilesFolderCollectionOperations.m; sourceTree = "<group>"; };
+		660D984E6C1F73DF03B5CB51 /* MSFilesItemOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemOperations.h; path = ./Fetchers/MSFilesItemOperations.h; sourceTree = "<group>"; };
+		693C00B4957FFEB4630C0E7C /* MSFilesCurrentUserRequestContextCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContextCollectionFetcher.h; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionFetcher.h; sourceTree = "<group>"; };
+		6CFB4BA14578B2C6F1307348 /* libFiles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFiles.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D4330FA866B8CA326A09E13 /* MSFilesClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesClient.m; path = ./Fetchers/MSFilesClient.m; sourceTree = "<group>"; };
+		6D451C4F741966D59216FC37 /* MSFilesDriveFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveFetcher.h; path = ./Fetchers/MSFilesDriveFetcher.h; sourceTree = "<group>"; };
+		7040D1DB562A6E0D3296C85C /* MSFiles.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFiles.h; path = ./MSFiles.h; sourceTree = "<group>"; };
+		7432533324EE313C2F34327D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		746AB0A09A225E40FF9F2B20 /* MSFilesDriveCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveCollectionOperations.h; path = ./Fetchers/MSFilesDriveCollectionOperations.h; sourceTree = "<group>"; };
+		77D3D7CD8A7BE9ECF6ACBF8F /* MSFilesCurrentUserRequestContextCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextCollectionFetcher.m; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionFetcher.m; sourceTree = "<group>"; };
+		7839D54F41CB1E87B52F816F /* MSFilesFile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFile.h; path = ./Model/MSFilesFile.h; sourceTree = "<group>"; };
+		790A778A368C431127509B6D /* MSFilesDriveCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveCollectionFetcher.m; path = ./Fetchers/MSFilesDriveCollectionFetcher.m; sourceTree = "<group>"; };
+		7984CFE7845B47431BEB2F63 /* MSFilesCurrentUserRequestContextFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextFetcher.m; path = ./Fetchers/MSFilesCurrentUserRequestContextFetcher.m; sourceTree = "<group>"; };
+		7D345A2D211C342DA301B1B9 /* MSFilesItemCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemCollectionOperations.h; path = ./Fetchers/MSFilesItemCollectionOperations.h; sourceTree = "<group>"; };
+		8127357D90177A718B04F039 /* MSFilesDrive.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDrive.h; path = ./Model/MSFilesDrive.h; sourceTree = "<group>"; };
+		8C87814B43C608F204C2BB9E /* MSFilesImageFacet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesImageFacet.h; path = ./Model/MSFilesImageFacet.h; sourceTree = "<group>"; };
+		8E23EF106D06BBDD141DA9C9 /* MSFilesItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItem.h; path = ./Model/MSFilesItem.h; sourceTree = "<group>"; };
+		914AAC74C9FA137FA2B8F09C /* MSFilesFolderFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderFetcher.h; path = ./Fetchers/MSFilesFolderFetcher.h; sourceTree = "<group>"; };
+		95716CA79DD4E50C2BA5EAF4 /* MSFilesDriveOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveOperations.m; path = ./Fetchers/MSFilesDriveOperations.m; sourceTree = "<group>"; };
+		99474E7EF46DCE7B3E5C0222 /* MSFilesFileCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileCollectionOperations.m; path = ./Fetchers/MSFilesFileCollectionOperations.m; sourceTree = "<group>"; };
+		9C7EB4638AF4133BC4B8F489 /* MSFilesFileFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileFetcher.m; path = ./Fetchers/MSFilesFileFetcher.m; sourceTree = "<group>"; };
+		9DF4872986FAF18CD0F05C66 /* MSFilesItemOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemOperations.m; path = ./Fetchers/MSFilesItemOperations.m; sourceTree = "<group>"; };
+		A2B525C749843C42D102B50E /* MSFilesDriveFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveFetcher.m; path = ./Fetchers/MSFilesDriveFetcher.m; sourceTree = "<group>"; };
+		A3B3ED734A1D8C9546F3ADF4 /* MSFilesItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItem.m; path = ./Model/MSFilesItem.m; sourceTree = "<group>"; };
+		AD336A9DC374D8A4606D8735 /* MSFilesFolderCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderCollectionOperations.h; path = ./Fetchers/MSFilesFolderCollectionOperations.h; sourceTree = "<group>"; };
+		AEBEF34CB9E6463915AE37BB /* MSFilesFolder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolder.m; path = ./Model/MSFilesFolder.m; sourceTree = "<group>"; };
+		AF74492D090BC113789753D3 /* MSFilesItemCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemCollectionFetcher.h; path = ./Fetchers/MSFilesItemCollectionFetcher.h; sourceTree = "<group>"; };
+		B09AB3F70CFD558D09246669 /* MSFilesFolder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolder.h; path = ./Model/MSFilesFolder.h; sourceTree = "<group>"; };
+		B1C73949EBE6C4FAC01BC1E0 /* MSFilesDriveOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveOperations.h; path = ./Fetchers/MSFilesDriveOperations.h; sourceTree = "<group>"; };
+		B28BCFA09E8290F932194FF0 /* MSFilesItemReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemReference.m; path = ./Model/MSFilesItemReference.m; sourceTree = "<group>"; };
+		BF243D9A78F76F9A4CB2B9A2 /* MSFilesFolderOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderOperations.h; path = ./Fetchers/MSFilesFolderOperations.h; sourceTree = "<group>"; };
+		CC91FC69488CE1945E97C4FF /* MSFilesCurrentUserRequestContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesCurrentUserRequestContext.h; path = ./Model/MSFilesCurrentUserRequestContext.h; sourceTree = "<group>"; };
+		CCBF6B5264F24E35EEE879F4 /* MSFilesFolderCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFolderCollectionFetcher.m; path = ./Fetchers/MSFilesFolderCollectionFetcher.m; sourceTree = "<group>"; };
+		D23DD9FD0C5722EB1EA3A68B /* MSFilesDriveCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesDriveCollectionFetcher.h; path = ./Fetchers/MSFilesDriveCollectionFetcher.h; sourceTree = "<group>"; };
+		DC8F49D1A09F7AFFF942A227 /* MSFilesItemFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesItemFetcher.m; path = ./Fetchers/MSFilesItemFetcher.m; sourceTree = "<group>"; };
+		DE96346DC7D2972F89B44ECA /* MSFilesClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesClient.h; path = ./Fetchers/MSFilesClient.h; sourceTree = "<group>"; };
+		DFB6BFAB83365FC0621E427A /* MSFilesCurrentUserRequestContextOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextOperations.m; path = ./Fetchers/MSFilesCurrentUserRequestContextOperations.m; sourceTree = "<group>"; };
+		E51863DFEC02735A7C79D5D9 /* MSFilesIdentitySet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesIdentitySet.h; path = ./Model/MSFilesIdentitySet.h; sourceTree = "<group>"; };
+		E6583E47744B3575BBBC5126 /* MSFilesIdentitySet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesIdentitySet.m; path = ./Model/MSFilesIdentitySet.m; sourceTree = "<group>"; };
+		EB4F6BFE3FF9248CF72F898A /* MSFilesDriveQuota.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesDriveQuota.m; path = ./Model/MSFilesDriveQuota.m; sourceTree = "<group>"; };
+		EED558E8B2899765811BC964 /* MSFilesFileOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFileOperations.m; path = ./Fetchers/MSFilesFileOperations.m; sourceTree = "<group>"; };
+		EFB10641F68B462AC065D158 /* MSFilesFolderCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesFolderCollectionFetcher.h; path = ./Fetchers/MSFilesFolderCollectionFetcher.h; sourceTree = "<group>"; };
+		F879B8B4014A523D04BB3CC0 /* MSFilesCurrentUserRequestContextCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesCurrentUserRequestContextCollectionOperations.m; path = ./Fetchers/MSFilesCurrentUserRequestContextCollectionOperations.m; sourceTree = "<group>"; };
+		FB10A07E780C19058F8EA5F8 /* MSFilesFile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSFilesFile.m; path = ./Model/MSFilesFile.m; sourceTree = "<group>"; };
+		FC6EF30864020FFE373DF912 /* MSFilesItemFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSFilesItemFetcher.h; path = ./Fetchers/MSFilesItemFetcher.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AEE877614C80F72F1A256CB4 /* Frameworks */ = {
+		3348642CE6086A299F41622D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A49D3A06FC6DAD89E381EC99 /* Foundation.framework in Frameworks */,
+				893AF5A10965FC98D3DC7930 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05D50494511644209D1FD545 /* iOS */ = {
+		275E07B41535D2FC6D90C877 /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
-				73D2FB41DEEC6F7C3D717169 /* Foundation.framework */,
+				DE96346DC7D2972F89B44ECA /* MSFilesClient.h */,
+				6D4330FA866B8CA326A09E13 /* MSFilesClient.m */,
+				693C00B4957FFEB4630C0E7C /* MSFilesCurrentUserRequestContextCollectionFetcher.h */,
+				77D3D7CD8A7BE9ECF6ACBF8F /* MSFilesCurrentUserRequestContextCollectionFetcher.m */,
+				4FF0632FE5D786E1D2297787 /* MSFilesCurrentUserRequestContextCollectionOperations.h */,
+				F879B8B4014A523D04BB3CC0 /* MSFilesCurrentUserRequestContextCollectionOperations.m */,
+				4E2430C6E9D447BE2C383165 /* MSFilesCurrentUserRequestContextFetcher.h */,
+				7984CFE7845B47431BEB2F63 /* MSFilesCurrentUserRequestContextFetcher.m */,
+				02CBB2738CE948F1CDD98C18 /* MSFilesCurrentUserRequestContextOperations.h */,
+				DFB6BFAB83365FC0621E427A /* MSFilesCurrentUserRequestContextOperations.m */,
+				D23DD9FD0C5722EB1EA3A68B /* MSFilesDriveCollectionFetcher.h */,
+				790A778A368C431127509B6D /* MSFilesDriveCollectionFetcher.m */,
+				746AB0A09A225E40FF9F2B20 /* MSFilesDriveCollectionOperations.h */,
+				3BA2F22538B82B227019B900 /* MSFilesDriveCollectionOperations.m */,
+				6D451C4F741966D59216FC37 /* MSFilesDriveFetcher.h */,
+				A2B525C749843C42D102B50E /* MSFilesDriveFetcher.m */,
+				B1C73949EBE6C4FAC01BC1E0 /* MSFilesDriveOperations.h */,
+				95716CA79DD4E50C2BA5EAF4 /* MSFilesDriveOperations.m */,
+				141941DCA3DD1FB74B594637 /* MSFilesFetchers.h */,
+				4B8687F0991EBEC84D5269F3 /* MSFilesFileCollectionFetcher.h */,
+				060E8279EEA15DBAC0F4A426 /* MSFilesFileCollectionFetcher.m */,
+				45D798EA5ADEC431765850DE /* MSFilesFileCollectionOperations.h */,
+				99474E7EF46DCE7B3E5C0222 /* MSFilesFileCollectionOperations.m */,
+				3331CE7FB4F9FFDE9EA71DFC /* MSFilesFileFetcher.h */,
+				9C7EB4638AF4133BC4B8F489 /* MSFilesFileFetcher.m */,
+				17A043832FBF713EA6AD81E2 /* MSFilesFileOperations.h */,
+				EED558E8B2899765811BC964 /* MSFilesFileOperations.m */,
+				EFB10641F68B462AC065D158 /* MSFilesFolderCollectionFetcher.h */,
+				CCBF6B5264F24E35EEE879F4 /* MSFilesFolderCollectionFetcher.m */,
+				AD336A9DC374D8A4606D8735 /* MSFilesFolderCollectionOperations.h */,
+				5D6486C5A7E2DAE8AF47911A /* MSFilesFolderCollectionOperations.m */,
+				914AAC74C9FA137FA2B8F09C /* MSFilesFolderFetcher.h */,
+				0948070E1C66C183D65432BE /* MSFilesFolderFetcher.m */,
+				BF243D9A78F76F9A4CB2B9A2 /* MSFilesFolderOperations.h */,
+				50EF4BE2DAF2247E2EDC85EC /* MSFilesFolderOperations.m */,
+				AF74492D090BC113789753D3 /* MSFilesItemCollectionFetcher.h */,
+				45367E8B7DF88230CED37AE3 /* MSFilesItemCollectionFetcher.m */,
+				7D345A2D211C342DA301B1B9 /* MSFilesItemCollectionOperations.h */,
+				1E846960E78F0431AC9A31C8 /* MSFilesItemCollectionOperations.m */,
+				FC6EF30864020FFE373DF912 /* MSFilesItemFetcher.h */,
+				DC8F49D1A09F7AFFF942A227 /* MSFilesItemFetcher.m */,
+				660D984E6C1F73DF03B5CB51 /* MSFilesItemOperations.h */,
+				9DF4872986FAF18CD0F05C66 /* MSFilesItemOperations.m */,
 			);
-			name = iOS;
+			name = Fetchers;
 			sourceTree = "<group>";
 		};
-		3E2B7A6FAAF4709F90BDF20B /* Products */ = {
+		43ABF121B23658B922B90C2F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				96EFEC49A0DF179015E55CD0 /* libFiles.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		57A05C5E8B6E736888E32AB5 = {
-			isa = PBXGroup;
-			children = (
-				3E2B7A6FAAF4709F90BDF20B /* Products */,
-				7DB6831039493994521B6943 /* Frameworks */,
-				FE480FF44219DC71F0FDF3C3 /* Fetchers */,
-				F37BBC16AEBD7AED952F5B05 /* Model */,
-				86A0F4C541C5F041463E8456 /* MSFiles.h */,
-			);
-			sourceTree = "<group>";
-		};
-		7DB6831039493994521B6943 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				05D50494511644209D1FD545 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F37BBC16AEBD7AED952F5B05 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A6AADDA09E468B8C7D6481E0 /* MSFilesCurrentUserRequestContext.h */,
-				30619C51AF1F75860C6E0A3D /* MSFilesCurrentUserRequestContext.m */,
-				877C95717B797A27B3066E07 /* MSFilesDrive.h */,
-				E4828AD7BBDB9D5FF7D86B73 /* MSFilesDrive.m */,
-				0E29112448739E023A461D1C /* MSFilesDriveQuota.h */,
-				4F5EB309985BD1B35AD6BFE5 /* MSFilesDriveQuota.m */,
-				4BDE59882225DA2A01BD9F98 /* MSFilesFile.h */,
-				B07FFBE59996F862EE21FE39 /* MSFilesFile.m */,
-				A2852F29FFD5350B71BDEF59 /* MSFilesFolder.h */,
-				60E23BF83395888360D20D45 /* MSFilesFolder.m */,
-				EB141C11DE99D18967C24D42 /* MSFilesIdentity.h */,
-				C377A6B91D106742ECBC00C9 /* MSFilesIdentity.m */,
-				8C9E2EB9EFD5F96D6743B3BE /* MSFilesIdentitySet.h */,
-				06894F8034D50024857BFD62 /* MSFilesIdentitySet.m */,
-				882EF239E018C129979FECF7 /* MSFilesImageFacet.h */,
-				A6404DA836A99D59D83A412C /* MSFilesImageFacet.m */,
-				00E07CA5A088D5415993C963 /* MSFilesItem.h */,
-				A1C11421437FD47CF885355D /* MSFilesItem.m */,
-				5E4C133E11CCFE8DBCACEC11 /* MSFilesItemReference.h */,
-				0CFA5ED8F7BA8EF55D73DAF3 /* MSFilesItemReference.m */,
-				FE317D51B477D14EF2ED873A /* MSFilesModels.h */,
+				CC91FC69488CE1945E97C4FF /* MSFilesCurrentUserRequestContext.h */,
+				2DC26E6A53F0A6C9AAC71FD9 /* MSFilesCurrentUserRequestContext.m */,
+				8127357D90177A718B04F039 /* MSFilesDrive.h */,
+				104AE5C9AB7D31077CD4ED40 /* MSFilesDrive.m */,
+				369546F6740D537476E2CE8F /* MSFilesDriveQuota.h */,
+				EB4F6BFE3FF9248CF72F898A /* MSFilesDriveQuota.m */,
+				7839D54F41CB1E87B52F816F /* MSFilesFile.h */,
+				FB10A07E780C19058F8EA5F8 /* MSFilesFile.m */,
+				B09AB3F70CFD558D09246669 /* MSFilesFolder.h */,
+				AEBEF34CB9E6463915AE37BB /* MSFilesFolder.m */,
+				2114E3EDC190C83E8467D19E /* MSFilesIdentity.h */,
+				22936E85552747B79EF4E951 /* MSFilesIdentity.m */,
+				E51863DFEC02735A7C79D5D9 /* MSFilesIdentitySet.h */,
+				E6583E47744B3575BBBC5126 /* MSFilesIdentitySet.m */,
+				8C87814B43C608F204C2BB9E /* MSFilesImageFacet.h */,
+				097F5002DE97EEBA5EF6D3DC /* MSFilesImageFacet.m */,
+				8E23EF106D06BBDD141DA9C9 /* MSFilesItem.h */,
+				A3B3ED734A1D8C9546F3ADF4 /* MSFilesItem.m */,
+				43ABE55F818C53AE441F020F /* MSFilesItemReference.h */,
+				B28BCFA09E8290F932194FF0 /* MSFilesItemReference.m */,
+				40248D99A4E32D725BF54BA9 /* MSFilesModels.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		FE480FF44219DC71F0FDF3C3 /* Fetchers */ = {
+		47327BA8328881C11E0135FF = {
 			isa = PBXGroup;
 			children = (
-				37444D40532D63DB31C9A515 /* MSFilesClient.h */,
-				4B9F766963EB1B2C16CD65C2 /* MSFilesClient.m */,
-				01340DA31C42CD22BC829F85 /* MSFilesCurrentUserRequestContextCollectionFetcher.h */,
-				EC8433FE38BABDA9773CD133 /* MSFilesCurrentUserRequestContextCollectionFetcher.m */,
-				E96180401B002737AE32BD35 /* MSFilesCurrentUserRequestContextCollectionOperations.h */,
-				1E4C15C89249381AE54C65FA /* MSFilesCurrentUserRequestContextCollectionOperations.m */,
-				37827869820EE05CB0CD0B73 /* MSFilesCurrentUserRequestContextFetcher.h */,
-				59D3E4DAA414FA7E75F3598B /* MSFilesCurrentUserRequestContextFetcher.m */,
-				957138D0B0B134AB0FC52A81 /* MSFilesCurrentUserRequestContextOperations.h */,
-				C7B4582EBF0C027EF521B75E /* MSFilesCurrentUserRequestContextOperations.m */,
-				6E056FF8BE39DBD39F4F18C0 /* MSFilesDriveCollectionFetcher.h */,
-				B0E48A159956CA95FBE9CE2A /* MSFilesDriveCollectionFetcher.m */,
-				4DF4F9CEA58D577E98CC675B /* MSFilesDriveCollectionOperations.h */,
-				AB4A95D78409C92A26A4CFA1 /* MSFilesDriveCollectionOperations.m */,
-				81E96B73C815D49F77897150 /* MSFilesDriveFetcher.h */,
-				1A4B1055B481EDC758ED1C41 /* MSFilesDriveFetcher.m */,
-				CD95335FC6EE9D71F60EE41B /* MSFilesDriveOperations.h */,
-				E40A99E720CC75E1D8C6AC7C /* MSFilesDriveOperations.m */,
-				8E5B6CDDA5FEA71EDCF98978 /* MSFilesFetchers.h */,
-				24E73B4C7772682530CBF945 /* MSFilesFileCollectionFetcher.h */,
-				22FD6CC1671831159D9D658D /* MSFilesFileCollectionFetcher.m */,
-				B6ED31BCD8414ACF5001D87B /* MSFilesFileCollectionOperations.h */,
-				70BB660699E9AEE8B1101868 /* MSFilesFileCollectionOperations.m */,
-				F2FB3939E3BD15F6E5266EE1 /* MSFilesFileFetcher.h */,
-				B56DDE777C32C7F610B2F59E /* MSFilesFileFetcher.m */,
-				5A6A0AEA4D174C253AE5A0ED /* MSFilesFileOperations.h */,
-				DEF10094FE52BE2D0F6BD7E6 /* MSFilesFileOperations.m */,
-				6D341DAA7E950FE40F30FF2B /* MSFilesFolderCollectionFetcher.h */,
-				2D670EEC249C1D36C7EB0E42 /* MSFilesFolderCollectionFetcher.m */,
-				A911F4D5593E0BBB457C6BF0 /* MSFilesFolderCollectionOperations.h */,
-				E5C4B764515F2D8E61571E06 /* MSFilesFolderCollectionOperations.m */,
-				9C0893BD5FFD735457031760 /* MSFilesFolderFetcher.h */,
-				C8CCD04B7438B6296BB16F83 /* MSFilesFolderFetcher.m */,
-				4A8F769BC7DEAE8D51429095 /* MSFilesFolderOperations.h */,
-				F9FC9EC8CF10563B39B987D3 /* MSFilesFolderOperations.m */,
-				511E3A6B820034326C2C9BA4 /* MSFilesItemCollectionFetcher.h */,
-				ABC471AE31F55DDC622024C5 /* MSFilesItemCollectionFetcher.m */,
-				0115340C0D97B6298FF05094 /* MSFilesItemCollectionOperations.h */,
-				D5E4A381D23AA46A9FA96E78 /* MSFilesItemCollectionOperations.m */,
-				D59FC0CC04D3801816B43B66 /* MSFilesItemFetcher.h */,
-				7E416D7C1CF95997BDF48A5C /* MSFilesItemFetcher.m */,
-				E46B49E9C0868F904D8E2525 /* MSFilesItemOperations.h */,
-				60EEF2BA9592390DCB45595C /* MSFilesItemOperations.m */,
+				50D59C4B0E809B3E18C1E314 /* Products */,
+				654FF3BD3A0263CFB426AB5A /* Frameworks */,
+				275E07B41535D2FC6D90C877 /* Fetchers */,
+				43ABF121B23658B922B90C2F /* Model */,
+				7040D1DB562A6E0D3296C85C /* MSFiles.h */,
 			);
-			name = Fetchers;
+			sourceTree = "<group>";
+		};
+		50D59C4B0E809B3E18C1E314 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6CFB4BA14578B2C6F1307348 /* libFiles.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		654FF3BD3A0263CFB426AB5A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4586C02412CE6889E0B9625 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4586C02412CE6889E0B9625 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				7432533324EE313C2F34327D /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BCBC2D57CC0C609BFFAA9B28 /* Headers */ = {
+		1635D269AF7E4FDF4B4A4EF3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72F015942E3CCB5F7B098FA2 /* MSFilesClient.h in Headers */,
-				22FCC48140FE17D51C312970 /* MSFilesCurrentUserRequestContextCollectionFetcher.h in Headers */,
-				24FC5BD6E77ECD8203C3AE3D /* MSFilesCurrentUserRequestContextCollectionOperations.h in Headers */,
-				62AEDFD5A97F59930D1B9986 /* MSFilesCurrentUserRequestContextFetcher.h in Headers */,
-				1EFEBF38ECD70C5535DFD763 /* MSFilesCurrentUserRequestContextOperations.h in Headers */,
-				E648E996BC2E485DB6739069 /* MSFilesDriveCollectionFetcher.h in Headers */,
-				EBCE8EF819082111329B69DF /* MSFilesDriveCollectionOperations.h in Headers */,
-				0E9A093829B696A0BE42F514 /* MSFilesDriveFetcher.h in Headers */,
-				51D658D34E76E818D99C4536 /* MSFilesDriveOperations.h in Headers */,
-				A2A2E663BB7370D033C54262 /* MSFilesFetchers.h in Headers */,
-				1E2475E39168CB737C4D1A69 /* MSFilesFileCollectionFetcher.h in Headers */,
-				DF482094D4687E524E47314C /* MSFilesFileCollectionOperations.h in Headers */,
-				CF171B53CD180CF0DAFC51A7 /* MSFilesFileFetcher.h in Headers */,
-				D06B44847D630A612D226B0C /* MSFilesFileOperations.h in Headers */,
-				FA1AD8FE7B4F36E39AB99119 /* MSFilesFolderCollectionFetcher.h in Headers */,
-				BA81B5F7B8C308ED0754F858 /* MSFilesFolderCollectionOperations.h in Headers */,
-				3121190344C70A761EF2773B /* MSFilesFolderFetcher.h in Headers */,
-				FF89A3E530E7302E82B8FF98 /* MSFilesFolderOperations.h in Headers */,
-				AB99AF00C1E094A5D2E26D6B /* MSFilesItemCollectionFetcher.h in Headers */,
-				A981789D033A5A8A405637C7 /* MSFilesItemCollectionOperations.h in Headers */,
-				493733AF2608BA357110BA30 /* MSFilesItemFetcher.h in Headers */,
-				77307E2678FFA36D26CC0AAE /* MSFilesItemOperations.h in Headers */,
-				989A89F14FB9ED3EC91814B6 /* MSFilesCurrentUserRequestContext.h in Headers */,
-				B58FA8165A2F4E22FFE855F0 /* MSFilesDrive.h in Headers */,
-				B074CD8D8EE0CADE31F422A8 /* MSFilesDriveQuota.h in Headers */,
-				C886C194A1CB751016310483 /* MSFilesFile.h in Headers */,
-				192467752FBDBA5BA12F9D2D /* MSFilesFolder.h in Headers */,
-				B06FB07A42B59F9455D54617 /* MSFilesIdentity.h in Headers */,
-				AD7693583CD761169F0D2093 /* MSFilesIdentitySet.h in Headers */,
-				8894F55E2C950097AAA8AA8C /* MSFilesImageFacet.h in Headers */,
-				F106396AF6915ABED8B5C38E /* MSFilesItem.h in Headers */,
-				E76CA428301A17DC4F460D13 /* MSFilesItemReference.h in Headers */,
-				FD50EBA1C650CB8E2C2C8966 /* MSFilesModels.h in Headers */,
-				5295F83CE3B19C8E8EA64AD8 /* MSFiles.h in Headers */,
+				5519BAE1C3385E77F91F3CF4 /* MSFilesClient.h in Headers */,
+				D53A52D8BBE213AC0213874B /* MSFilesCurrentUserRequestContextCollectionFetcher.h in Headers */,
+				B2597FA86834D9620DB3FE17 /* MSFilesCurrentUserRequestContextCollectionOperations.h in Headers */,
+				52601734E03216F768C59BB3 /* MSFilesCurrentUserRequestContextFetcher.h in Headers */,
+				172152A03F767468F880A086 /* MSFilesCurrentUserRequestContextOperations.h in Headers */,
+				B8D51960073F1672E1A50A46 /* MSFilesDriveCollectionFetcher.h in Headers */,
+				CF8BB3E78F5A52F244D531F7 /* MSFilesDriveCollectionOperations.h in Headers */,
+				0BB698D3E947C5912BFA7AB9 /* MSFilesDriveFetcher.h in Headers */,
+				012148CB491E9AB306E11876 /* MSFilesDriveOperations.h in Headers */,
+				8F940C29109BB8706B2A994C /* MSFilesFetchers.h in Headers */,
+				B9B0553A0DBE0CDBB2811FC3 /* MSFilesFileCollectionFetcher.h in Headers */,
+				8079AA7990C5BE1FC15225FE /* MSFilesFileCollectionOperations.h in Headers */,
+				D2FC939D208E5AB23CDAC408 /* MSFilesFileFetcher.h in Headers */,
+				265273A0DD5DA3ADE14F9155 /* MSFilesFileOperations.h in Headers */,
+				74C8B2A2A98B3C44DD6EC7BA /* MSFilesFolderCollectionFetcher.h in Headers */,
+				7D412B06A7A5808A3B001FFF /* MSFilesFolderCollectionOperations.h in Headers */,
+				7FCC8F6301A539D66B7C1579 /* MSFilesFolderFetcher.h in Headers */,
+				3BFC50B2ABDD7EBE6C74C98B /* MSFilesFolderOperations.h in Headers */,
+				68C57EAB921E11B8C1828132 /* MSFilesItemCollectionFetcher.h in Headers */,
+				09BA0A2D5E811C890E437E8D /* MSFilesItemCollectionOperations.h in Headers */,
+				14C17F4E2599FCDD00C6BB18 /* MSFilesItemFetcher.h in Headers */,
+				8A700199E941928901CBC44C /* MSFilesItemOperations.h in Headers */,
+				46C1BE92F72CE29CAA2A8260 /* MSFilesCurrentUserRequestContext.h in Headers */,
+				031667294837D5914B92D701 /* MSFilesDrive.h in Headers */,
+				7FC94CFC142C85C8E75AC496 /* MSFilesDriveQuota.h in Headers */,
+				B586DE8B20FE7DBAA86B44E9 /* MSFilesFile.h in Headers */,
+				8ACD5C55ABF97BED18D195AB /* MSFilesFolder.h in Headers */,
+				58CCDDB32AA040039FEFE420 /* MSFilesIdentity.h in Headers */,
+				B42701DAF77F552DB3A9ECE2 /* MSFilesIdentitySet.h in Headers */,
+				ED3D39A76A0F79255AB084ED /* MSFilesImageFacet.h in Headers */,
+				97FB1D5F12BE88958821D083 /* MSFilesItem.h in Headers */,
+				4E7E344B8C58FA81F2270BEF /* MSFilesItemReference.h in Headers */,
+				0C66E499FBC7A99143372B75 /* MSFilesModels.h in Headers */,
+				EC7B4DFBA3FAD10361989E7B /* MSFiles.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		107632FBA8A3CBEDF5D94336 /* Files */ = {
+		CB0D4B19881256B10B53CD84 /* Files */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0BFD6EFD23EC8A80B7F1CA54 /* Build configuration list for PBXNativeTarget "Files" */;
+			buildConfigurationList = D97338D25F23A3ADD2BF4FC6 /* Build configuration list for PBXNativeTarget "Files" */;
 			buildPhases = (
-				B276E0FDA4E4BDC33A2B72DC /* Sources */,
-				AEE877614C80F72F1A256CB4 /* Frameworks */,
-				BCBC2D57CC0C609BFFAA9B28 /* Headers */,
+				2B32EA190AE89979C805F704 /* Sources */,
+				3348642CE6086A299F41622D /* Frameworks */,
+				1635D269AF7E4FDF4B4A4EF3 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -331,91 +331,78 @@
 			);
 			name = Files;
 			productName = Files;
-			productReference = 96EFEC49A0DF179015E55CD0 /* libFiles.a */;
+			productReference = 6CFB4BA14578B2C6F1307348 /* libFiles.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5F36E42D8B58A3089716BC46 /* Project object */ = {
+		3B4BC841AE2CFAA1FCB7325A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 3D313EDD4B4570D474B0D127 /* Build configuration list for PBXProject "Files" */;
+			buildConfigurationList = 965B150FB108F2EBBB968208 /* Build configuration list for PBXProject "Files" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 57A05C5E8B6E736888E32AB5;
-			productRefGroup = 3E2B7A6FAAF4709F90BDF20B /* Products */;
+			mainGroup = 47327BA8328881C11E0135FF;
+			productRefGroup = 50D59C4B0E809B3E18C1E314 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				107632FBA8A3CBEDF5D94336 /* Files */,
+				CB0D4B19881256B10B53CD84 /* Files */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B276E0FDA4E4BDC33A2B72DC /* Sources */ = {
+		2B32EA190AE89979C805F704 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DBDEC657339AAE7195003E9 /* MSFilesClient.m in Sources */,
-				FE0EC66DD95C86D6FA2823FC /* MSFilesCurrentUserRequestContextCollectionFetcher.m in Sources */,
-				D165E37F8AEE5A3FD6D5B901 /* MSFilesCurrentUserRequestContextCollectionOperations.m in Sources */,
-				AEFCB2CCB4B714B62FA773C8 /* MSFilesCurrentUserRequestContextFetcher.m in Sources */,
-				CCF53086E37B1867E6071D79 /* MSFilesCurrentUserRequestContextOperations.m in Sources */,
-				CF1E1A2D1B5ECEA765D4724A /* MSFilesDriveCollectionFetcher.m in Sources */,
-				41139C4A2922C9995EA6D906 /* MSFilesDriveCollectionOperations.m in Sources */,
-				396F9B751DEF354AF082D0BF /* MSFilesDriveFetcher.m in Sources */,
-				CBA0F87692BFC7CDB6898427 /* MSFilesDriveOperations.m in Sources */,
-				4996C0B65DD2A293301BC9BE /* MSFilesFileCollectionFetcher.m in Sources */,
-				61E0838C942884880B7DB103 /* MSFilesFileCollectionOperations.m in Sources */,
-				93B9C7CC5A0FC8CAF223A910 /* MSFilesFileFetcher.m in Sources */,
-				FE39056039EDA7FC4A35749E /* MSFilesFileOperations.m in Sources */,
-				309574056E1ED8B10946554F /* MSFilesFolderCollectionFetcher.m in Sources */,
-				0D1871A320C8DB98444C8DE6 /* MSFilesFolderCollectionOperations.m in Sources */,
-				95140C99FB53C65C29B74C2C /* MSFilesFolderFetcher.m in Sources */,
-				A197D288A0A46849A24D65AE /* MSFilesFolderOperations.m in Sources */,
-				2F006D9CF3B69087946792CF /* MSFilesItemCollectionFetcher.m in Sources */,
-				ACB93364350AF4C7A49741B2 /* MSFilesItemCollectionOperations.m in Sources */,
-				D36676F54FD8D2B0A556970C /* MSFilesItemFetcher.m in Sources */,
-				33DAFD45FFE09D9C97FD008C /* MSFilesItemOperations.m in Sources */,
-				24D7E5350945508FB360CBBC /* MSFilesCurrentUserRequestContext.m in Sources */,
-				893B1231FA6A490E013425D5 /* MSFilesDrive.m in Sources */,
-				0907B845D26C8D13865078A9 /* MSFilesDriveQuota.m in Sources */,
-				D1C7AE783F45A45C93915295 /* MSFilesFile.m in Sources */,
-				891BBC781247F3C873EE29D2 /* MSFilesFolder.m in Sources */,
-				65C09EC014878D9863510857 /* MSFilesIdentity.m in Sources */,
-				734ECB13841B15490C459312 /* MSFilesIdentitySet.m in Sources */,
-				789417E4D2ED7F260E61B556 /* MSFilesImageFacet.m in Sources */,
-				AB4C4565791C11E9EB003619 /* MSFilesItem.m in Sources */,
-				7785AA680A7B96896CA468CA /* MSFilesItemReference.m in Sources */,
+				62866878388E65B4D0CD107F /* MSFilesClient.m in Sources */,
+				9DA196E9033C43F0BFED9910 /* MSFilesCurrentUserRequestContextCollectionFetcher.m in Sources */,
+				CA34E491140E603D79AFA7AC /* MSFilesCurrentUserRequestContextCollectionOperations.m in Sources */,
+				4A864C77F201AE5980C4065A /* MSFilesCurrentUserRequestContextFetcher.m in Sources */,
+				5B090FC6ECA4A1F2F1284404 /* MSFilesCurrentUserRequestContextOperations.m in Sources */,
+				71105AE0B875B15FCA16E5D9 /* MSFilesDriveCollectionFetcher.m in Sources */,
+				E7B6D5FEE5E657023EB24DB9 /* MSFilesDriveCollectionOperations.m in Sources */,
+				8707F90081ED454D3DE096D5 /* MSFilesDriveFetcher.m in Sources */,
+				0EF000D6B7DDB35B2EADFF8C /* MSFilesDriveOperations.m in Sources */,
+				6EAA2C14C39F70D84CC73F9F /* MSFilesFileCollectionFetcher.m in Sources */,
+				19A7E7254FED53C231306A1B /* MSFilesFileCollectionOperations.m in Sources */,
+				B07CBE13733FEABBE0C6BF08 /* MSFilesFileFetcher.m in Sources */,
+				3F63B32C1383CF5B55F22409 /* MSFilesFileOperations.m in Sources */,
+				130A772536957E46E3217769 /* MSFilesFolderCollectionFetcher.m in Sources */,
+				F05C733A03E055BCFA3FC27A /* MSFilesFolderCollectionOperations.m in Sources */,
+				E46ACA0A1D3D668F504445EE /* MSFilesFolderFetcher.m in Sources */,
+				CE8069D98761D4DF9E217FA6 /* MSFilesFolderOperations.m in Sources */,
+				F7BB4E5417F57B049DB5C98E /* MSFilesItemCollectionFetcher.m in Sources */,
+				44FC13A9B038DC8CD777A5F0 /* MSFilesItemCollectionOperations.m in Sources */,
+				70222E624D7BA5DD828FBF97 /* MSFilesItemFetcher.m in Sources */,
+				4ABE7FEE4727DD8A8E2E0131 /* MSFilesItemOperations.m in Sources */,
+				D22E170E3DCAE6BB4213137C /* MSFilesCurrentUserRequestContext.m in Sources */,
+				EFBBFB014510CB417CF626E0 /* MSFilesDrive.m in Sources */,
+				32A30B68775A5BB932D255DA /* MSFilesDriveQuota.m in Sources */,
+				5DD5ADD906CA37B6665F9DB7 /* MSFilesFile.m in Sources */,
+				0A4ACB0E6474C9E2E79D4B27 /* MSFilesFolder.m in Sources */,
+				3526A9FF6F840DEB70A6343B /* MSFilesIdentity.m in Sources */,
+				EEC06E6582062105D89F1301 /* MSFilesIdentitySet.m in Sources */,
+				DDA9C23BDB418262FEAF3FB1 /* MSFilesImageFacet.m in Sources */,
+				89052EE071D0CE741AB798BA /* MSFilesItem.m in Sources */,
+				A3F540E6BAC428B9B16BEB36 /* MSFilesItemReference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		288E9C1FB3905553EFD3F507 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		ACB06F7197720434655202B7 /* Debug */ = {
+		31CDF68744487D4457BFB781 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -451,7 +438,20 @@
 			};
 			name = Debug;
 		};
-		DFFE9C27042E3D7247F4CEA2 /* Debug */ = {
+		56D0C389EB13A086A5EB9261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5A322456CB7D030ACE69D3C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -464,7 +464,7 @@
 			};
 			name = Debug;
 		};
-		E292CB06666F27030B613C95 /* Release */ = {
+		9454D89B471766C27BFBEB6C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -497,25 +497,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0BFD6EFD23EC8A80B7F1CA54 /* Build configuration list for PBXNativeTarget "Files" */ = {
+		965B150FB108F2EBBB968208 /* Build configuration list for PBXProject "Files" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				288E9C1FB3905553EFD3F507 /* Release */,
-				DFFE9C27042E3D7247F4CEA2 /* Debug */,
+				31CDF68744487D4457BFB781 /* Debug */,
+				9454D89B471766C27BFBEB6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3D313EDD4B4570D474B0D127 /* Build configuration list for PBXProject "Files" */ = {
+		D97338D25F23A3ADD2BF4FC6 /* Build configuration list for PBXNativeTarget "Files" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				ACB06F7197720434655202B7 /* Debug */,
-				E292CB06666F27030B613C95 /* Release */,
+				56D0C389EB13A086A5EB9261 /* Release */,
+				5A322456CB7D030ACE69D3C3 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5F36E42D8B58A3089716BC46 /* Project object */;
+	rootObject = 3B4BC841AE2CFAA1FCB7325A /* Project object */;
 }

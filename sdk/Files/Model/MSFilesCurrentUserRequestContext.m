@@ -52,12 +52,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_drive = [dic objectForKey: @"drive"] != nil ? [[MSFilesDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]] : _drive;
+
+        if([dic objectForKey: @"files"] != [NSNull null]){
+            _files = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"files"] count]];
+            
+            for (id object in [dic objectForKey: @"files"]) {
+                [_files addObject:[[MSFilesItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [_drive toDictionary], @"drive",
+		 [[NSMutableArray alloc] init], @"files",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property drive
@@ -65,7 +96,7 @@ root for authoritative license information.﻿
  */
 - (void) setDrive: (MSFilesDrive *) value {
     _drive = value;
-    [self valueChanged:_drive forProperty:@"drive"];
+    [self valueChangedFor:@"drive"];
 }
        
 /** Setter implementation for property files
@@ -73,7 +104,7 @@ root for authoritative license information.﻿
  */
 - (void) setFiles: (NSMutableArray *) value {
     _files = value;
-    [self valueChanged:_files forProperty:@"files"];
+    [self valueChangedFor:@"files"];
 }
        
 

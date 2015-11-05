@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookAttendee
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_status = [dic objectForKey: @"Status"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]] : _status;
+		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_status toDictionary], @"Status",
+		 [MSOutlookAttendeeTypeSerializer toString:_type], @"Type",
+            nil];
+}
+
+
 /** Setter implementation for property status
  *
  */
 - (void) setStatus: (MSOutlookResponseStatus *) value {
     _status = value;
-    [self valueChanged:_status forProperty:@"Status"];
+    [self valueChangedFor:@"Status"];
 }
        
 /** Setter implementation for property type
@@ -62,23 +84,14 @@ root for authoritative license information.﻿
  */
 - (void) setType: (MSOutlookAttendeeType) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
+    [self valueChangedFor:@"Type"];
 }
        
 
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookAttendeeTypeRequired], @"Required", [NSNumber numberWithInt:MSOutlookAttendeeTypeOptional], @"Optional", [NSNumber numberWithInt:MSOutlookAttendeeTypeResource], @"Resource",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSOutlookAttendeeTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
 }
 
 

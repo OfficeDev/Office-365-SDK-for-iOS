@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookEmailAddress
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
+		_address = [dic objectForKey: @"Address"] != nil ? [[dic objectForKey: @"Address"] copy] : _address;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_name copy], @"Name",
+		 [_address copy], @"Address",
+            nil];
+}
+
+
 /** Setter implementation for property name
  *
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"Name"];
+    [self valueChangedFor:@"Name"];
 }
        
 /** Setter implementation for property address
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setAddress: (NSString *) value {
     _address = value;
-    [self valueChanged:_address forProperty:@"Address"];
+    [self valueChangedFor:@"Address"];
 }
        
 

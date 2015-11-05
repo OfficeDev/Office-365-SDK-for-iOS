@@ -57,12 +57,91 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+
+        if([dic objectForKey: @"notebooks"] != [NSNull null]){
+            _notebooks = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"notebooks"] count]];
+            
+            for (id object in [dic objectForKey: @"notebooks"]) {
+                [_notebooks addObject:[[MSOneNoteNotebook alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"sections"] != [NSNull null]){
+            _sections = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sections"] count]];
+            
+            for (id object in [dic objectForKey: @"sections"]) {
+                [_sections addObject:[[MSOneNoteSection alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"sectionGroups"] != [NSNull null]){
+            _sectionGroups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sectionGroups"] count]];
+            
+            for (id object in [dic objectForKey: @"sectionGroups"]) {
+                [_sectionGroups addObject:[[MSOneNoteSectionGroup alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"pages"] != [NSNull null]){
+            _pages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"pages"] count]];
+            
+            for (id object in [dic objectForKey: @"pages"]) {
+                [_pages addObject:[[MSOneNotePage alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"resources"] != [NSNull null]){
+            _resources = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"resources"] count]];
+            
+            for (id object in [dic objectForKey: @"resources"]) {
+                [_resources addObject:[[MSOneNoteResource alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"operations"] != [NSNull null]){
+            __operations = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"operations"] count]];
+            
+            for (id object in [dic objectForKey: @"operations"]) {
+                [__operations addObject:[[MSOneNoteOperation alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [[NSMutableArray alloc] init], @"notebooks",
+		 [[NSMutableArray alloc] init], @"sections",
+		 [[NSMutableArray alloc] init], @"sectionGroups",
+		 [[NSMutableArray alloc] init], @"pages",
+		 [[NSMutableArray alloc] init], @"resources",
+		 [[NSMutableArray alloc] init], @"operations",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property notebooks
@@ -70,7 +149,7 @@ root for authoritative license information.﻿
  */
 - (void) setNotebooks: (NSMutableArray *) value {
     _notebooks = value;
-    [self valueChanged:_notebooks forProperty:@"notebooks"];
+    [self valueChangedFor:@"notebooks"];
 }
        
 /** Setter implementation for property sections
@@ -78,7 +157,7 @@ root for authoritative license information.﻿
  */
 - (void) setSections: (NSMutableArray *) value {
     _sections = value;
-    [self valueChanged:_sections forProperty:@"sections"];
+    [self valueChangedFor:@"sections"];
 }
        
 /** Setter implementation for property sectionGroups
@@ -86,7 +165,7 @@ root for authoritative license information.﻿
  */
 - (void) setSectionGroups: (NSMutableArray *) value {
     _sectionGroups = value;
-    [self valueChanged:_sectionGroups forProperty:@"sectionGroups"];
+    [self valueChangedFor:@"sectionGroups"];
 }
        
 /** Setter implementation for property pages
@@ -94,7 +173,7 @@ root for authoritative license information.﻿
  */
 - (void) setPages: (NSMutableArray *) value {
     _pages = value;
-    [self valueChanged:_pages forProperty:@"pages"];
+    [self valueChangedFor:@"pages"];
 }
        
 /** Setter implementation for property resources
@@ -102,7 +181,7 @@ root for authoritative license information.﻿
  */
 - (void) setResources: (NSMutableArray *) value {
     _resources = value;
-    [self valueChanged:_resources forProperty:@"resources"];
+    [self valueChangedFor:@"resources"];
 }
        
 /** Setter implementation for property _operations
@@ -110,7 +189,7 @@ root for authoritative license information.﻿
  */
 - (void) setOperations: (NSMutableArray *) value {
     __operations = value;
-    [self valueChanged:__operations forProperty:@"operations"];
+    [self valueChangedFor:@"operations"];
 }
        
 

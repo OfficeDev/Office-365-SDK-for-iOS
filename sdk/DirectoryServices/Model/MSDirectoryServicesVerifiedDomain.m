@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesVerifiedDomain
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_capabilities = [dic objectForKey: @"capabilities"] != nil ? [[dic objectForKey: @"capabilities"] copy] : _capabilities;
+		__default = [dic objectForKey: @"default"] != nil ? [[dic objectForKey: @"default"] boolValue] : __default;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_initial = [dic objectForKey: @"initial"] != nil ? [[dic objectForKey: @"initial"] boolValue] : _initial;
+		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_capabilities copy], @"capabilities",
+		 (__default?@"true":@"false"), @"default",
+		 [__id copy], @"id",
+		 (_initial?@"true":@"false"), @"initial",
+		 [_name copy], @"name",
+		 [_type copy], @"type",
+            nil];
+}
+
+
 /** Setter implementation for property capabilities
  *
  */
 - (void) setCapabilities: (NSString *) value {
     _capabilities = value;
-    [self valueChanged:_capabilities forProperty:@"capabilities"];
+    [self valueChangedFor:@"capabilities"];
 }
        
 /** Setter implementation for property _default
@@ -62,7 +92,7 @@ root for authoritative license information.﻿
  */
 - (void) setDefault: (bool) value {
     __default = value;
-    [self valueChangedForBool:__default forProperty:@"default"];
+    [self valueChangedFor:@"default"];
 }
        
 /** Setter implementation for property _id
@@ -70,7 +100,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property initial
@@ -78,7 +108,7 @@ root for authoritative license information.﻿
  */
 - (void) setInitial: (bool) value {
     _initial = value;
-    [self valueChangedForBool:_initial forProperty:@"initial"];
+    [self valueChangedFor:@"initial"];
 }
        
 /** Setter implementation for property name
@@ -86,7 +116,7 @@ root for authoritative license information.﻿
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"name"];
+    [self valueChangedFor:@"name"];
 }
        
 /** Setter implementation for property type
@@ -94,7 +124,7 @@ root for authoritative license information.﻿
  */
 - (void) setType: (NSString *) value {
     _type = value;
-    [self valueChanged:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 

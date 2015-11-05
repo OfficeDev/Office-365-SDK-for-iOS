@@ -22,18 +22,19 @@ root for authoritative license information.﻿
 #import "MSOneNotePatchActionType.h"
 #import "MSOneNotePatchInsertPosition.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNotePatchContentCommand
  *
  */
-@interface MSOneNotePatchContentCommand : MSOrcBaseEntity
+@interface MSOneNotePatchContentCommand : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property action
  *
  */
 @property (nonatomic,  setter=setAction:, getter=action) MSOneNotePatchActionType action;
 
-- (void)setActionString:(NSString *)value;
+- (void)setActionString:(NSString *)string;
 
 /** Property target
  *
@@ -50,7 +51,7 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setPosition:, getter=position) MSOneNotePatchInsertPosition position;
 
-- (void)setPositionString:(NSString *)value;
+- (void)setPositionString:(NSString *)string;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

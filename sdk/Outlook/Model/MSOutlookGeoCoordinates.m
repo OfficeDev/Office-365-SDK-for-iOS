@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookGeoCoordinates
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,38 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_altitude = [dic objectForKey: @"Altitude"] != nil ? [[dic objectForKey: @"Altitude"] doubleValue] : _altitude;
+		_latitude = [dic objectForKey: @"Latitude"] != nil ? [[dic objectForKey: @"Latitude"] doubleValue] : _latitude;
+		_longitude = [dic objectForKey: @"Longitude"] != nil ? [[dic objectForKey: @"Longitude"] doubleValue] : _longitude;
+		_accuracy = [dic objectForKey: @"Accuracy"] != nil ? [[dic objectForKey: @"Accuracy"] doubleValue] : _accuracy;
+		_altitudeAccuracy = [dic objectForKey: @"AltitudeAccuracy"] != nil ? [[dic objectForKey: @"AltitudeAccuracy"] doubleValue] : _altitudeAccuracy;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithDouble: _altitude], @"Altitude",
+		 [NSNumber numberWithDouble: _latitude], @"Latitude",
+		 [NSNumber numberWithDouble: _longitude], @"Longitude",
+		 [NSNumber numberWithDouble: _accuracy], @"Accuracy",
+		 [NSNumber numberWithDouble: _altitudeAccuracy], @"AltitudeAccuracy",
+            nil];
+}
+
+
 /** Setter implementation for property altitude
  *
  */
 - (void) setAltitude: (double) value {
     _altitude = value;
-    [self valueChangedForDouble:_altitude forProperty:@"Altitude"];
+    [self valueChangedFor:@"Altitude"];
 }
        
 /** Setter implementation for property latitude
@@ -62,7 +90,7 @@ root for authoritative license information.﻿
  */
 - (void) setLatitude: (double) value {
     _latitude = value;
-    [self valueChangedForDouble:_latitude forProperty:@"Latitude"];
+    [self valueChangedFor:@"Latitude"];
 }
        
 /** Setter implementation for property longitude
@@ -70,7 +98,7 @@ root for authoritative license information.﻿
  */
 - (void) setLongitude: (double) value {
     _longitude = value;
-    [self valueChangedForDouble:_longitude forProperty:@"Longitude"];
+    [self valueChangedFor:@"Longitude"];
 }
        
 /** Setter implementation for property accuracy
@@ -78,7 +106,7 @@ root for authoritative license information.﻿
  */
 - (void) setAccuracy: (double) value {
     _accuracy = value;
-    [self valueChangedForDouble:_accuracy forProperty:@"Accuracy"];
+    [self valueChangedFor:@"Accuracy"];
 }
        
 /** Setter implementation for property altitudeAccuracy
@@ -86,7 +114,7 @@ root for authoritative license information.﻿
  */
 - (void) setAltitudeAccuracy: (double) value {
     _altitudeAccuracy = value;
-    [self valueChangedForDouble:_altitudeAccuracy forProperty:@"AltitudeAccuracy"];
+    [self valueChangedFor:@"AltitudeAccuracy"];
 }
        
 

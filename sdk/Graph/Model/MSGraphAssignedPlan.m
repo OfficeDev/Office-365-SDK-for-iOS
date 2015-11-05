@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphAssignedPlan
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,36 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_assignedTimestamp = [dic objectForKey: @"assignedTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"assignedTimestamp"]] : _assignedTimestamp;
+		_capabilityStatus = [dic objectForKey: @"capabilityStatus"] != nil ? [[dic objectForKey: @"capabilityStatus"] copy] : _capabilityStatus;
+		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
+		_servicePlanId = [dic objectForKey: @"servicePlanId"] != nil ? [[dic objectForKey: @"servicePlanId"] copy] : _servicePlanId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_assignedTimestamp], @"assignedTimestamp",
+		 [_capabilityStatus copy], @"capabilityStatus",
+		 [_service copy], @"service",
+		 [_servicePlanId copy], @"servicePlanId",
+            nil];
+}
+
+
 /** Setter implementation for property assignedTimestamp
  *
  */
 - (void) setAssignedTimestamp: (NSDate *) value {
     _assignedTimestamp = value;
-    [self valueChanged:_assignedTimestamp forProperty:@"assignedTimestamp"];
+    [self valueChangedFor:@"assignedTimestamp"];
 }
        
 /** Setter implementation for property capabilityStatus
@@ -62,7 +88,7 @@ root for authoritative license information.﻿
  */
 - (void) setCapabilityStatus: (NSString *) value {
     _capabilityStatus = value;
-    [self valueChanged:_capabilityStatus forProperty:@"capabilityStatus"];
+    [self valueChangedFor:@"capabilityStatus"];
 }
        
 /** Setter implementation for property service
@@ -70,7 +96,7 @@ root for authoritative license information.﻿
  */
 - (void) setService: (NSString *) value {
     _service = value;
-    [self valueChanged:_service forProperty:@"service"];
+    [self valueChangedFor:@"service"];
 }
        
 /** Setter implementation for property servicePlanId
@@ -78,7 +104,7 @@ root for authoritative license information.﻿
  */
 - (void) setServicePlanId: (NSString *) value {
     _servicePlanId = value;
-    [self valueChanged:_servicePlanId forProperty:@"servicePlanId"];
+    [self valueChangedFor:@"servicePlanId"];
 }
        
 

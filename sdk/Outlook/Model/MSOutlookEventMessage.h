@@ -17,22 +17,24 @@ root for authoritative license information.﻿
 #define MSOUTLOOKEVENTMESSAGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookEvent;
 #import "MSOutlookMeetingMessageType.h"
 #import "MSOutlookMessage.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookEventMessage
  *
  */
-@interface MSOutlookEventMessage : MSOutlookMessage
+@interface MSOutlookEventMessage : MSOutlookMessage <MSOrcInteroperableWithDictionary>
 
 /** Property meetingMessageType
  *
  */
 @property (nonatomic,  setter=setMeetingMessageType:, getter=meetingMessageType) MSOutlookMeetingMessageType meetingMessageType;
 
-- (void)setMeetingMessageTypeString:(NSString *)value;
+- (void)setMeetingMessageTypeString:(NSString *)string;
 
 /** Property event
  *

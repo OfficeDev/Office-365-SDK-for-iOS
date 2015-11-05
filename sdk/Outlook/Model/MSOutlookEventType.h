@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookEventType
+/** Enum MSOutlookEventTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookEventType) {
@@ -36,5 +36,11 @@ typedef NS_ENUM(NSInteger, MSOutlookEventType) {
      * */
     MSOutlookEventTypeSeriesMaster
 };
+
+
+@interface MSOutlookEventTypeSerializer : NSObject
++(MSOutlookEventType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookEventType) value;
+@end
 
 #endif

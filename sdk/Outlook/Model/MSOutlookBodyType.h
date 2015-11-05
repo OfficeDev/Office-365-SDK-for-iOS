@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookBodyType
+/** Enum MSOutlookBodyTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookBodyType) {
@@ -30,5 +30,11 @@ typedef NS_ENUM(NSInteger, MSOutlookBodyType) {
      * */
     MSOutlookBodyTypeHTML
 };
+
+
+@interface MSOutlookBodyTypeSerializer : NSObject
++(MSOutlookBodyType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookBodyType) value;
+@end
 
 #endif

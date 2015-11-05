@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSFilesDriveFetcher *)getById:(NSString *)Id;
+- (MSFilesDriveFetcher *)getById: (id) identifier;
 - (void)add:(MSFilesDrive *)entity callback:(void (^)(MSFilesDrive *, MSOrcError *))callback;
 
 - (MSFilesDriveCollectionFetcher *)select:(NSString *)params;

@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 #import "MSOneNoteModels.h"
 #import "MSOrcEntityFetcher.h"
 
-@class MSOneNoteComplexUserFetcher;
+@class MSOneNoteIdentitySetFetcher;
 @class MSOneNoteNotebookFetcher;
 @class MSOneNoteSectionGroupFetcher;
 @class MSOneNotePageCollectionFetcher;
@@ -53,7 +53,7 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=parentSectionGroup) MSOneNoteSectionGroupFetcher *parentSectionGroup;
 @property (strong, nonatomic, readonly, getter=pages) MSOneNotePageCollectionFetcher *pages;
 
-- (MSOneNotePageFetcher *)pagesById:(NSString*)identifier;
+- (MSOneNotePageFetcher *)pagesById:(id)identifier;
 
 
 @end

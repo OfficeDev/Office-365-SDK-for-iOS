@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSOUTLOOKDIRECTORYOBJECT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookDirectoryObject
  *
  */
-@interface MSOutlookDirectoryObject : MSOutlookEntity
+@interface MSOutlookDirectoryObject : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

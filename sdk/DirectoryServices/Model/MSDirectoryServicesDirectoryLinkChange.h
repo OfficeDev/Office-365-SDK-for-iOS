@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESDIRECTORYLINKCHANGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesDirectoryLinkChange
  *
  */
-@interface MSDirectoryServicesDirectoryLinkChange : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesDirectoryLinkChange : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property associationType
  *

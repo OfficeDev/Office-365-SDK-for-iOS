@@ -17,16 +17,18 @@ root for authoritative license information.﻿
 #define MSONENOTEPAGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOneNotePageLinks;
 @class MSOneNoteSection;
 @class MSOneNoteNotebook;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNotePage
  *
  */
-@interface MSOneNotePage : MSOrcBaseEntity
+@interface MSOneNotePage : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property title
  *
@@ -62,6 +64,16 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setLastModifiedTime:, getter=lastModifiedTime) NSDate * lastModifiedTime;
+
+/** Property level
+ *
+ */
+@property (nonatomic,  setter=setLevel:, getter=level) int level;
+
+/** Property order
+ *
+ */
+@property (nonatomic,  setter=setOrder:, getter=order) int order;
 
 /** Property _id
  *

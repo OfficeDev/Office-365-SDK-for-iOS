@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphPhotoFetcher *)getById:(NSString *)_id {
+- (MSGraphPhotoFetcher *)getById:(id) identifier {
 
-    return [[MSGraphPhotoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSGraphPhotoFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSGraphPhotoCollectionFetcher *)select:(NSString *)params {

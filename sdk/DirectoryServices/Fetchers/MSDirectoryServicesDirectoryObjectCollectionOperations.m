@@ -26,11 +26,12 @@ root for authoritative license information.﻿
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-    NSString *groupIdsString = [self.resolver.jsonSerializer serialize:groupIds property:@"groupIds"];
+      NSString *groupIdsString = [MSOrcObjectizer deobjectizeToString: groupIds ];
+
     return [self checkMemberGroupsRawWithGroupIds:groupIdsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[NSString class]];
+            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
             callback(result, e);
         } 
         else {
@@ -70,11 +71,12 @@ root for authoritative license information.﻿
 - (void)getMemberGroupsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-    NSString *securityEnabledOnlyString = [self.resolver.jsonSerializer serialize:(securityEnabledOnly?@"true":@"false") property:@"securityEnabledOnly"];
+      NSString *securityEnabledOnlyString = [MSOrcObjectizer deobjectizeToString: @(securityEnabledOnly) ];
+
     return [self getMemberGroupsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[NSString class]];
+            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
             callback(result, e);
         } 
         else {
@@ -114,11 +116,12 @@ root for authoritative license information.﻿
 - (void)getMemberObjectsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-    NSString *securityEnabledOnlyString = [self.resolver.jsonSerializer serialize:(securityEnabledOnly?@"true":@"false") property:@"securityEnabledOnly"];
+      NSString *securityEnabledOnlyString = [MSOrcObjectizer deobjectizeToString: @(securityEnabledOnly) ];
+
     return [self getMemberObjectsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[NSString class]];
+            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
             callback(result, e);
         } 
         else {

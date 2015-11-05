@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphOAuth2Permission
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,44 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_adminConsentDescription = [dic objectForKey: @"adminConsentDescription"] != nil ? [[dic objectForKey: @"adminConsentDescription"] copy] : _adminConsentDescription;
+		_adminConsentDisplayName = [dic objectForKey: @"adminConsentDisplayName"] != nil ? [[dic objectForKey: @"adminConsentDisplayName"] copy] : _adminConsentDisplayName;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_isEnabled = [dic objectForKey: @"isEnabled"] != nil ? [[dic objectForKey: @"isEnabled"] boolValue] : _isEnabled;
+		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
+		_userConsentDescription = [dic objectForKey: @"userConsentDescription"] != nil ? [[dic objectForKey: @"userConsentDescription"] copy] : _userConsentDescription;
+		_userConsentDisplayName = [dic objectForKey: @"userConsentDisplayName"] != nil ? [[dic objectForKey: @"userConsentDisplayName"] copy] : _userConsentDisplayName;
+		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_adminConsentDescription copy], @"adminConsentDescription",
+		 [_adminConsentDisplayName copy], @"adminConsentDisplayName",
+		 [__id copy], @"id",
+		 (_isEnabled?@"true":@"false"), @"isEnabled",
+		 [_type copy], @"type",
+		 [_userConsentDescription copy], @"userConsentDescription",
+		 [_userConsentDisplayName copy], @"userConsentDisplayName",
+		 [_value copy], @"value",
+            nil];
+}
+
+
 /** Setter implementation for property adminConsentDescription
  *
  */
 - (void) setAdminConsentDescription: (NSString *) value {
     _adminConsentDescription = value;
-    [self valueChanged:_adminConsentDescription forProperty:@"adminConsentDescription"];
+    [self valueChangedFor:@"adminConsentDescription"];
 }
        
 /** Setter implementation for property adminConsentDisplayName
@@ -62,7 +96,7 @@ root for authoritative license information.﻿
  */
 - (void) setAdminConsentDisplayName: (NSString *) value {
     _adminConsentDisplayName = value;
-    [self valueChanged:_adminConsentDisplayName forProperty:@"adminConsentDisplayName"];
+    [self valueChangedFor:@"adminConsentDisplayName"];
 }
        
 /** Setter implementation for property _id
@@ -70,7 +104,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property isEnabled
@@ -78,7 +112,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsEnabled: (bool) value {
     _isEnabled = value;
-    [self valueChangedForBool:_isEnabled forProperty:@"isEnabled"];
+    [self valueChangedFor:@"isEnabled"];
 }
        
 /** Setter implementation for property type
@@ -86,7 +120,7 @@ root for authoritative license information.﻿
  */
 - (void) setType: (NSString *) value {
     _type = value;
-    [self valueChanged:_type forProperty:@"type"];
+    [self valueChangedFor:@"type"];
 }
        
 /** Setter implementation for property userConsentDescription
@@ -94,7 +128,7 @@ root for authoritative license information.﻿
  */
 - (void) setUserConsentDescription: (NSString *) value {
     _userConsentDescription = value;
-    [self valueChanged:_userConsentDescription forProperty:@"userConsentDescription"];
+    [self valueChangedFor:@"userConsentDescription"];
 }
        
 /** Setter implementation for property userConsentDisplayName
@@ -102,7 +136,7 @@ root for authoritative license information.﻿
  */
 - (void) setUserConsentDisplayName: (NSString *) value {
     _userConsentDisplayName = value;
-    [self valueChanged:_userConsentDisplayName forProperty:@"userConsentDisplayName"];
+    [self valueChangedFor:@"userConsentDisplayName"];
 }
        
 /** Setter implementation for property value
@@ -110,7 +144,7 @@ root for authoritative license information.﻿
  */
 - (void) setValue: (NSString *) value {
     _value = value;
-    [self valueChanged:_value forProperty:@"value"];
+    [self valueChangedFor:@"value"];
 }
        
 

@@ -31,12 +31,14 @@ root for authoritative license information.﻿
 - (void)assignLicenseWithAddLicenses:(MSGraphAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSGraphUser *, MSOrcError*))callback {
 
 
-    NSString *addLicensesString = [self.resolver.jsonSerializer serialize:addLicenses property:@"addLicenses"];
-NSString *removeLicensesString = [self.resolver.jsonSerializer serialize:removeLicenses property:@"removeLicenses"];
+      NSString *addLicensesString = [MSOrcObjectizer deobjectizeToString: addLicenses ];
+
+  NSString *removeLicensesString = [MSOrcObjectizer deobjectizeToString: removeLicenses ];
+
     return [self assignLicenseRawWithAddLicenses:addLicensesString removeLicenses:removeLicensesString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphUser * result = (MSGraphUser *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSGraphUser class]];
+            MSGraphUser * result = (MSGraphUser *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphUser class]];
             callback(result, e);
         } 
         else {
@@ -76,12 +78,14 @@ NSString *removeLicensesString = [self.resolver.jsonSerializer serialize:removeL
 - (void)sendMailWithMessage:(MSGraphMessage *)message saveToSentItems:(bool)saveToSentItems callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *messageString = [self.resolver.jsonSerializer serialize:message property:@"Message"];
-NSString *saveToSentItemsString = [self.resolver.jsonSerializer serialize:(saveToSentItems?@"true":@"false") property:@"SaveToSentItems"];
+      NSString *messageString = [MSOrcObjectizer deobjectizeToString: message ];
+
+  NSString *saveToSentItemsString = [MSOrcObjectizer deobjectizeToString: @(saveToSentItems) ];
+
     return [self sendMailRawWithMessage:messageString saveToSentItems:saveToSentItemsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -104,6 +108,108 @@ NSString *saveToSentItemsString = [self.resolver.jsonSerializer serialize:(saveT
     [request setVerb:HTTP_VERB_POST];
 	     
 	[request.url appendPathComponent:@"SendMail"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
+- (void)findMeetingTimesWithAttendees:(MSGraphAttendeeBase *)attendees locationConstraint:(MSGraphLocationConstraint *)locationConstraint timeConstraint:(MSGraphTimeConstraint *)timeConstraint meetingDuration:(NSTimeInterval)meetingDuration maxCandidates:(int)maxCandidates isOrganizerOptional:(bool)isOrganizerOptional callback:(void (^)(MSGraphMeetingTimeCandidate *, MSOrcError*))callback {
+
+
+      NSString *attendeesString = [MSOrcObjectizer deobjectizeToString: attendees ];
+
+  NSString *locationConstraintString = [MSOrcObjectizer deobjectizeToString: locationConstraint ];
+
+  NSString *timeConstraintString = [MSOrcObjectizer deobjectizeToString: timeConstraint ];
+
+  NSString *meetingDurationString = [MSOrcObjectizer deobjectizeToString: @(meetingDuration) ];
+
+  NSString *maxCandidatesString = [MSOrcObjectizer deobjectizeToString: @(maxCandidates) ];
+
+  NSString *isOrganizerOptionalString = [MSOrcObjectizer deobjectizeToString: @(isOrganizerOptional) ];
+
+    return [self findMeetingTimesRawWithAttendees:attendeesString locationConstraint:locationConstraintString timeConstraint:timeConstraintString meetingDuration:meetingDurationString maxCandidates:maxCandidatesString isOrganizerOptional:isOrganizerOptionalString callback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            MSGraphMeetingTimeCandidate * result = (MSGraphMeetingTimeCandidate *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMeetingTimeCandidate class]];
+            callback(result, e);
+        } 
+        else {
+
+            callback(nil, e);
+        }
+    }];    
+    
+        
+}
+
+- (void)findMeetingTimesRawWithAttendees:(NSString *)attendees locationConstraint:(NSString *)locationConstraint timeConstraint:(NSString *)timeConstraint meetingDuration:(NSString *)meetingDuration maxCandidates:(NSString *)maxCandidates isOrganizerOptional:(NSString *)isOrganizerOptional callback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  attendees, @"Attendees", locationConstraint, @"LocationConstraint", timeConstraint, @"TimeConstraint", meetingDuration, @"MeetingDuration", [[NSString alloc] initWithFormat:@"%d", maxCandidates], @"MaxCandidates", isOrganizerOptional?@"true":@"false", @"IsOrganizerOptional", nil ] , nil];
+    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
+    [request setContent:payload];
+    
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"FindMeetingTimes"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
+- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSGraphReminder *, MSOrcError*))callback {
+
+
+      NSString *startDateTimeString = [MSOrcObjectizer deobjectizeToString: startDateTime ];
+
+  NSString *endDateTimeString = [MSOrcObjectizer deobjectizeToString: endDateTime ];
+
+    return [self reminderViewRawWithStartDateTime:startDateTimeString endDateTime:endDateTimeString callback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            MSGraphReminder * result = (MSGraphReminder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphReminder class]];
+            callback(result, e);
+        } 
+        else {
+
+            callback(nil, e);
+        }
+    }];    
+    
+        
+}
+
+- (void)reminderViewRawWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  startDateTime, @"StartDateTime", endDateTime, @"EndDateTime", nil ] , nil];
+    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
+    [request setContent:payload];
+    
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"ReminderView"];
         	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         

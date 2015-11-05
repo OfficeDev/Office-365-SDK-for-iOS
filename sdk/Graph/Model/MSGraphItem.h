@@ -17,21 +17,58 @@ root for authoritative license information.﻿
 #define MSGRAPHITEM_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphIdentitySet;
 @class MSGraphItemReference;
+@class MSGraphAudio;
+@class MSGraphDeleted;
+@class MSGraphFile;
+@class MSGraphFileSystemInfo;
+@class MSGraphFolder;
+@class MSGraphImage;
+@class MSGraphLocation;
+@class MSGraphOpenWithSet;
+@class MSGraphPhoto;
+@class MSGraphSearchResult;
+@class MSGraphShared;
+@class MSGraphSpecialFolder;
+@class MSGraphVideo;
 @class MSGraphUser;
+@class MSGraphPermission;
+@class MSGraphThumbnailSet;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphItem
  *
  */
-@interface MSGraphItem : MSOrcBaseEntity
+@interface MSGraphItem : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
+
+/** Property content
+ *
+ */
+@property (nonatomic,  copy, setter=setContent:, getter=content) NSStream * content;
 
 /** Property createdBy
  *
  */
 @property (nonatomic,  copy, setter=setCreatedBy:, getter=createdBy) MSGraphIdentitySet * createdBy;
+
+/** Property createdDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setCreatedDateTime:, getter=createdDateTime) NSDate * createdDateTime;
+
+/** Property cTag
+ *
+ */
+@property (nonatomic,  copy, setter=setCTag:, getter=cTag) NSString * cTag;
+
+/** Property _description
+ *
+ */
+@property (nonatomic,  copy, setter=setDescription:, getter=_description) NSString * _description;
 
 /** Property eTag
  *
@@ -48,6 +85,11 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setLastModifiedBy:, getter=lastModifiedBy) MSGraphIdentitySet * lastModifiedBy;
 
+/** Property lastModifiedDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate * lastModifiedDateTime;
+
 /** Property name
  *
  */
@@ -61,27 +103,82 @@ root for authoritative license information.﻿
 /** Property size
  *
  */
-@property (nonatomic,  setter=setSize:, getter=size) int size;
+@property (nonatomic,  setter=setSize:, getter=size) long long size;
 
-/** Property dateTimeCreated
+/** Property webDavUrl
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeCreated:, getter=dateTimeCreated) NSDate * dateTimeCreated;
-
-/** Property dateTimeLastModified
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
-
-/** Property type
- *
- */
-@property (nonatomic,  copy, setter=setType:, getter=type) NSString * type;
+@property (nonatomic,  copy, setter=setWebDavUrl:, getter=webDavUrl) NSString * webDavUrl;
 
 /** Property webUrl
  *
  */
 @property (nonatomic,  copy, setter=setWebUrl:, getter=webUrl) NSString * webUrl;
+
+/** Property audio
+ *
+ */
+@property (nonatomic,  copy, setter=setAudio:, getter=audio) MSGraphAudio * audio;
+
+/** Property deleted
+ *
+ */
+@property (nonatomic,  copy, setter=setDeleted:, getter=deleted) MSGraphDeleted * deleted;
+
+/** Property file
+ *
+ */
+@property (nonatomic,  copy, setter=setFile:, getter=file) MSGraphFile * file;
+
+/** Property fileSystemInfo
+ *
+ */
+@property (nonatomic,  copy, setter=setFileSystemInfo:, getter=fileSystemInfo) MSGraphFileSystemInfo * fileSystemInfo;
+
+/** Property folder
+ *
+ */
+@property (nonatomic,  copy, setter=setFolder:, getter=folder) MSGraphFolder * folder;
+
+/** Property image
+ *
+ */
+@property (nonatomic,  copy, setter=setImage:, getter=image) MSGraphImage * image;
+
+/** Property location
+ *
+ */
+@property (nonatomic,  copy, setter=setLocation:, getter=location) MSGraphLocation * location;
+
+/** Property openWith
+ *
+ */
+@property (nonatomic,  copy, setter=setOpenWith:, getter=openWith) MSGraphOpenWithSet * openWith;
+
+/** Property photo
+ *
+ */
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+
+/** Property searchResult
+ *
+ */
+@property (nonatomic,  copy, setter=setSearchResult:, getter=searchResult) MSGraphSearchResult * searchResult;
+
+/** Property shared
+ *
+ */
+@property (nonatomic,  copy, setter=setShared:, getter=shared) MSGraphShared * shared;
+
+/** Property specialFolder
+ *
+ */
+@property (nonatomic,  copy, setter=setSpecialFolder:, getter=specialFolder) MSGraphSpecialFolder * specialFolder;
+
+/** Property video
+ *
+ */
+@property (nonatomic,  copy, setter=setVideo:, getter=video) MSGraphVideo * video;
 
 /** Property createdByUser
  *
@@ -93,10 +190,25 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setLastModifiedByUser:, getter=lastModifiedByUser) MSGraphUser * lastModifiedByUser;
 
+/** Property permissions
+ *
+ */
+@property (nonatomic,  copy, setter=setPermissions:, getter=permissions) NSMutableArray * permissions;
+
+/** Property versions
+ *
+ */
+@property (nonatomic,  copy, setter=setVersions:, getter=versions) NSMutableArray * versions;
+
 /** Property children
  *
  */
 @property (nonatomic,  copy, setter=setChildren:, getter=children) NSMutableArray * children;
+
+/** Property thumbnails
+ *
+ */
+@property (nonatomic,  copy, setter=setThumbnails:, getter=thumbnails) NSMutableArray * thumbnails;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

@@ -51,12 +51,39 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_isSystem = [dic objectForKey: @"isSystem"] != nil ? [[dic objectForKey: @"isSystem"] boolValue] : _isSystem;
+		_roleDisabled = [dic objectForKey: @"roleDisabled"] != nil ? [[dic objectForKey: @"roleDisabled"] boolValue] : _roleDisabled;
+		_roleTemplateId = [dic objectForKey: @"roleTemplateId"] != nil ? [[dic objectForKey: @"roleTemplateId"] copy] : _roleTemplateId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__description copy], @"description",
+		 [_displayName copy], @"displayName",
+		 (_isSystem?@"true":@"false"), @"isSystem",
+		 (_roleDisabled?@"true":@"false"), @"roleDisabled",
+		 [_roleTemplateId copy], @"roleTemplateId",
+            nil];
+}
+
+
 /** Setter implementation for property _description
  *
  */
 - (void) setDescription: (NSString *) value {
     __description = value;
-    [self valueChanged:__description forProperty:@"description"];
+    [self valueChangedFor:@"description"];
 }
        
 /** Setter implementation for property displayName
@@ -64,7 +91,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property isSystem
@@ -72,7 +99,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsSystem: (bool) value {
     _isSystem = value;
-    [self valueChangedForBool:_isSystem forProperty:@"isSystem"];
+    [self valueChangedFor:@"isSystem"];
 }
        
 /** Setter implementation for property roleDisabled
@@ -80,7 +107,7 @@ root for authoritative license information.﻿
  */
 - (void) setRoleDisabled: (bool) value {
     _roleDisabled = value;
-    [self valueChangedForBool:_roleDisabled forProperty:@"roleDisabled"];
+    [self valueChangedFor:@"roleDisabled"];
 }
        
 /** Setter implementation for property roleTemplateId
@@ -88,7 +115,7 @@ root for authoritative license information.﻿
  */
 - (void) setRoleTemplateId: (NSString *) value {
     _roleTemplateId = value;
-    [self valueChanged:_roleTemplateId forProperty:@"roleTemplateId"];
+    [self valueChangedFor:@"roleTemplateId"];
 }
        
 

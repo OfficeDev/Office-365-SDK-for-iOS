@@ -48,7 +48,7 @@ root for authoritative license information.﻿
 - (MSOutlookMessageFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=attachments) MSOutlookAttachmentCollectionFetcher *attachments;
 
-- (MSOutlookAttachmentFetcher *)attachmentsById:(NSString*)identifier;
+- (MSOutlookAttachmentFetcher *)attachmentsById:(id)identifier;
 
 - (MSOutlookEventMessageFetcher *)asEventMessage;	
 

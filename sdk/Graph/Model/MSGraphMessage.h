@@ -17,17 +17,36 @@ root for authoritative license information.﻿
 #define MSGRAPHMESSAGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphItemBody;
 @class MSGraphRecipient;
+@class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphImportance.h"
+#import "MSGraphInferenceClassificationType.h"
 #import "MSGraphOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphMessage
  *
  */
-@interface MSGraphMessage : MSGraphOutlookItem
+@interface MSGraphMessage : MSGraphOutlookItem <MSOrcInteroperableWithDictionary>
+
+/** Property receivedDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setReceivedDateTime:, getter=receivedDateTime) NSDate * receivedDateTime;
+
+/** Property sentDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setSentDateTime:, getter=sentDateTime) NSDate * sentDateTime;
+
+/** Property hasAttachments
+ *
+ */
+@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
 
 /** Property subject
  *
@@ -49,27 +68,22 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setImportance:, getter=importance) MSGraphImportance importance;
 
-- (void)setImportanceString:(NSString *)value;
-
-/** Property hasAttachments
- *
- */
-@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
+- (void)setImportanceString:(NSString *)string;
 
 /** Property parentFolderId
  *
  */
 @property (nonatomic,  copy, setter=setParentFolderId:, getter=parentFolderId) NSString * parentFolderId;
 
-/** Property from
- *
- */
-@property (nonatomic,  copy, setter=setFrom:, getter=from) MSGraphRecipient * from;
-
 /** Property sender
  *
  */
 @property (nonatomic,  copy, setter=setSender:, getter=sender) MSGraphRecipient * sender;
+
+/** Property from
+ *
+ */
+@property (nonatomic,  copy, setter=setFrom:, getter=from) MSGraphRecipient * from;
 
 /** Property toRecipients
  *
@@ -101,16 +115,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setUniqueBody:, getter=uniqueBody) MSGraphItemBody * uniqueBody;
 
-/** Property dateTimeReceived
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeReceived:, getter=dateTimeReceived) NSDate * dateTimeReceived;
-
-/** Property dateTimeSent
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeSent:, getter=dateTimeSent) NSDate * dateTimeSent;
-
 /** Property isDeliveryReceiptRequested
  *
  */
@@ -121,20 +125,32 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setIsReadReceiptRequested:, getter=isReadReceiptRequested) bool isReadReceiptRequested;
 
-/** Property isDraft
- *
- */
-@property (nonatomic,  setter=setIsDraft:, getter=isDraft) bool isDraft;
-
 /** Property isRead
  *
  */
 @property (nonatomic,  setter=setIsRead:, getter=isRead) bool isRead;
 
+/** Property isDraft
+ *
+ */
+@property (nonatomic,  setter=setIsDraft:, getter=isDraft) bool isDraft;
+
 /** Property webLink
  *
  */
 @property (nonatomic,  copy, setter=setWebLink:, getter=webLink) NSString * webLink;
+
+/** Property inferenceClassification
+ *
+ */
+@property (nonatomic,  setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassificationType inferenceClassification;
+
+- (void)setInferenceClassificationString:(NSString *)string;
+
+/** Property extensions
+ *
+ */
+@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property attachments
  *

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPhysicalAddress
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,38 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_street = [dic objectForKey: @"Street"] != nil ? [[dic objectForKey: @"Street"] copy] : _street;
+		_city = [dic objectForKey: @"City"] != nil ? [[dic objectForKey: @"City"] copy] : _city;
+		_state = [dic objectForKey: @"State"] != nil ? [[dic objectForKey: @"State"] copy] : _state;
+		_countryOrRegion = [dic objectForKey: @"CountryOrRegion"] != nil ? [[dic objectForKey: @"CountryOrRegion"] copy] : _countryOrRegion;
+		_postalCode = [dic objectForKey: @"PostalCode"] != nil ? [[dic objectForKey: @"PostalCode"] copy] : _postalCode;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_street copy], @"Street",
+		 [_city copy], @"City",
+		 [_state copy], @"State",
+		 [_countryOrRegion copy], @"CountryOrRegion",
+		 [_postalCode copy], @"PostalCode",
+            nil];
+}
+
+
 /** Setter implementation for property street
  *
  */
 - (void) setStreet: (NSString *) value {
     _street = value;
-    [self valueChanged:_street forProperty:@"Street"];
+    [self valueChangedFor:@"Street"];
 }
        
 /** Setter implementation for property city
@@ -62,7 +90,7 @@ root for authoritative license information.﻿
  */
 - (void) setCity: (NSString *) value {
     _city = value;
-    [self valueChanged:_city forProperty:@"City"];
+    [self valueChangedFor:@"City"];
 }
        
 /** Setter implementation for property state
@@ -70,7 +98,7 @@ root for authoritative license information.﻿
  */
 - (void) setState: (NSString *) value {
     _state = value;
-    [self valueChanged:_state forProperty:@"State"];
+    [self valueChangedFor:@"State"];
 }
        
 /** Setter implementation for property countryOrRegion
@@ -78,7 +106,7 @@ root for authoritative license information.﻿
  */
 - (void) setCountryOrRegion: (NSString *) value {
     _countryOrRegion = value;
-    [self valueChanged:_countryOrRegion forProperty:@"CountryOrRegion"];
+    [self valueChangedFor:@"CountryOrRegion"];
 }
        
 /** Setter implementation for property postalCode
@@ -86,7 +114,7 @@ root for authoritative license information.﻿
  */
 - (void) setPostalCode: (NSString *) value {
     _postalCode = value;
-    [self valueChanged:_postalCode forProperty:@"PostalCode"];
+    [self valueChangedFor:@"PostalCode"];
 }
        
 

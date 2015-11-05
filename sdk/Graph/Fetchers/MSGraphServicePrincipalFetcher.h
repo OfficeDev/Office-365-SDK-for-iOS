@@ -60,29 +60,29 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=appRoleAssignedTo) MSGraphAppRoleAssignmentFetcher *appRoleAssignedTo;
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString*)identifier;
+- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
 
-- (MSGraphOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(NSString*)identifier;
+- (MSGraphOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
 
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)memberOfById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=createdOnBehalfOf) MSGraphDirectoryObjectFetcher *createdOnBehalfOf;
 @property (strong, nonatomic, readonly, getter=createdObjects) MSGraphDirectoryObjectCollectionFetcher *createdObjects;
 
-- (MSGraphDirectoryObjectFetcher *)createdObjectsById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)createdObjectsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
 
-- (MSGraphDirectoryObjectFetcher *)ownersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=ownedObjects) MSGraphDirectoryObjectCollectionFetcher *ownedObjects;
 
-- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(id)identifier;
 
 
 @end

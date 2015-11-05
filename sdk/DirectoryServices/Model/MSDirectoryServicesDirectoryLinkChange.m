@@ -51,12 +51,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_associationType = [dic objectForKey: @"associationType"] != nil ? [[dic objectForKey: @"associationType"] copy] : _associationType;
+		_sourceObjectId = [dic objectForKey: @"sourceObjectId"] != nil ? [[dic objectForKey: @"sourceObjectId"] copy] : _sourceObjectId;
+		_sourceObjectType = [dic objectForKey: @"sourceObjectType"] != nil ? [[dic objectForKey: @"sourceObjectType"] copy] : _sourceObjectType;
+		_sourceObjectUri = [dic objectForKey: @"sourceObjectUri"] != nil ? [[dic objectForKey: @"sourceObjectUri"] copy] : _sourceObjectUri;
+		_targetObjectId = [dic objectForKey: @"targetObjectId"] != nil ? [[dic objectForKey: @"targetObjectId"] copy] : _targetObjectId;
+		_targetObjectType = [dic objectForKey: @"targetObjectType"] != nil ? [[dic objectForKey: @"targetObjectType"] copy] : _targetObjectType;
+		_targetObjectUri = [dic objectForKey: @"targetObjectUri"] != nil ? [[dic objectForKey: @"targetObjectUri"] copy] : _targetObjectUri;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_associationType copy], @"associationType",
+		 [_sourceObjectId copy], @"sourceObjectId",
+		 [_sourceObjectType copy], @"sourceObjectType",
+		 [_sourceObjectUri copy], @"sourceObjectUri",
+		 [_targetObjectId copy], @"targetObjectId",
+		 [_targetObjectType copy], @"targetObjectType",
+		 [_targetObjectUri copy], @"targetObjectUri",
+            nil];
+}
+
+
 /** Setter implementation for property associationType
  *
  */
 - (void) setAssociationType: (NSString *) value {
     _associationType = value;
-    [self valueChanged:_associationType forProperty:@"associationType"];
+    [self valueChangedFor:@"associationType"];
 }
        
 /** Setter implementation for property sourceObjectId
@@ -64,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setSourceObjectId: (NSString *) value {
     _sourceObjectId = value;
-    [self valueChanged:_sourceObjectId forProperty:@"sourceObjectId"];
+    [self valueChangedFor:@"sourceObjectId"];
 }
        
 /** Setter implementation for property sourceObjectType
@@ -72,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setSourceObjectType: (NSString *) value {
     _sourceObjectType = value;
-    [self valueChanged:_sourceObjectType forProperty:@"sourceObjectType"];
+    [self valueChangedFor:@"sourceObjectType"];
 }
        
 /** Setter implementation for property sourceObjectUri
@@ -80,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setSourceObjectUri: (NSString *) value {
     _sourceObjectUri = value;
-    [self valueChanged:_sourceObjectUri forProperty:@"sourceObjectUri"];
+    [self valueChangedFor:@"sourceObjectUri"];
 }
        
 /** Setter implementation for property targetObjectId
@@ -88,7 +119,7 @@ root for authoritative license information.﻿
  */
 - (void) setTargetObjectId: (NSString *) value {
     _targetObjectId = value;
-    [self valueChanged:_targetObjectId forProperty:@"targetObjectId"];
+    [self valueChangedFor:@"targetObjectId"];
 }
        
 /** Setter implementation for property targetObjectType
@@ -96,7 +127,7 @@ root for authoritative license information.﻿
  */
 - (void) setTargetObjectType: (NSString *) value {
     _targetObjectType = value;
-    [self valueChanged:_targetObjectType forProperty:@"targetObjectType"];
+    [self valueChangedFor:@"targetObjectType"];
 }
        
 /** Setter implementation for property targetObjectUri
@@ -104,7 +135,7 @@ root for authoritative license information.﻿
  */
 - (void) setTargetObjectUri: (NSString *) value {
     _targetObjectUri = value;
-    [self valueChanged:_targetObjectUri forProperty:@"targetObjectUri"];
+    [self valueChangedFor:@"targetObjectUri"];
 }
        
 

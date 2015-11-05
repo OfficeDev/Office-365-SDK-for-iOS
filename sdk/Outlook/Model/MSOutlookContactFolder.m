@@ -53,12 +53,53 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
+		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+
+        if([dic objectForKey: @"Contacts"] != [NSNull null]){
+            _contacts = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Contacts"] count]];
+            
+            for (id object in [dic objectForKey: @"Contacts"]) {
+                [_contacts addObject:[[MSOutlookContact alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ChildFolders"] != [NSNull null]){
+            _childFolders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ChildFolders"] count]];
+            
+            for (id object in [dic objectForKey: @"ChildFolders"]) {
+                [_childFolders addObject:[[MSOutlookContactFolder alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_parentFolderId copy], @"ParentFolderId",
+		 [_displayName copy], @"DisplayName",
+		 [[NSMutableArray alloc] init], @"Contacts",
+		 [[NSMutableArray alloc] init], @"ChildFolders",
+            nil];
+}
+
+
 /** Setter implementation for property parentFolderId
  *
  */
 - (void) setParentFolderId: (NSString *) value {
     _parentFolderId = value;
-    [self valueChanged:_parentFolderId forProperty:@"ParentFolderId"];
+    [self valueChangedFor:@"ParentFolderId"];
 }
        
 /** Setter implementation for property displayName
@@ -66,7 +107,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"DisplayName"];
+    [self valueChangedFor:@"DisplayName"];
 }
        
 /** Setter implementation for property contacts
@@ -74,7 +115,7 @@ root for authoritative license information.﻿
  */
 - (void) setContacts: (NSMutableArray *) value {
     _contacts = value;
-    [self valueChanged:_contacts forProperty:@"Contacts"];
+    [self valueChangedFor:@"Contacts"];
 }
        
 /** Setter implementation for property childFolders
@@ -82,7 +123,7 @@ root for authoritative license information.﻿
  */
 - (void) setChildFolders: (NSMutableArray *) value {
     _childFolders = value;
-    [self valueChanged:_childFolders forProperty:@"ChildFolders"];
+    [self valueChangedFor:@"ChildFolders"];
 }
        
 

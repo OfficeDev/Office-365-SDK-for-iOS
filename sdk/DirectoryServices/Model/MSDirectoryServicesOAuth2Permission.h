@@ -20,11 +20,12 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesOAuth2Permission
  *
  */
-@interface MSDirectoryServicesOAuth2Permission : MSOrcBaseEntity
+@interface MSDirectoryServicesOAuth2Permission : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property adminConsentDescription
  *

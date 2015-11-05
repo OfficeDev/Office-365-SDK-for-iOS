@@ -45,11 +45,11 @@ root for authoritative license information.﻿
 - (MSGraphDeviceFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=registeredOwners) MSGraphDirectoryObjectCollectionFetcher *registeredOwners;
 
-- (MSGraphDirectoryObjectFetcher *)registeredOwnersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)registeredOwnersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=registeredUsers) MSGraphDirectoryObjectCollectionFetcher *registeredUsers;
 
-- (MSGraphDirectoryObjectFetcher *)registeredUsersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)registeredUsersById:(id)identifier;
 
 
 @end

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphProvisionedPlan
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_capabilityStatus = [dic objectForKey: @"capabilityStatus"] != nil ? [[dic objectForKey: @"capabilityStatus"] copy] : _capabilityStatus;
+		_provisioningStatus = [dic objectForKey: @"provisioningStatus"] != nil ? [[dic objectForKey: @"provisioningStatus"] copy] : _provisioningStatus;
+		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_capabilityStatus copy], @"capabilityStatus",
+		 [_provisioningStatus copy], @"provisioningStatus",
+		 [_service copy], @"service",
+            nil];
+}
+
+
 /** Setter implementation for property capabilityStatus
  *
  */
 - (void) setCapabilityStatus: (NSString *) value {
     _capabilityStatus = value;
-    [self valueChanged:_capabilityStatus forProperty:@"capabilityStatus"];
+    [self valueChangedFor:@"capabilityStatus"];
 }
        
 /** Setter implementation for property provisioningStatus
@@ -62,7 +86,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisioningStatus: (NSString *) value {
     _provisioningStatus = value;
-    [self valueChanged:_provisioningStatus forProperty:@"provisioningStatus"];
+    [self valueChangedFor:@"provisioningStatus"];
 }
        
 /** Setter implementation for property service
@@ -70,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setService: (NSString *) value {
     _service = value;
-    [self valueChanged:_service forProperty:@"service"];
+    [self valueChangedFor:@"service"];
 }
        
 

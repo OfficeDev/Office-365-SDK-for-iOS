@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSGraphCalendarGroupFetcher *)getById:(NSString *)Id;
+- (MSGraphCalendarGroupFetcher *)getById: (id) identifier;
 - (void)add:(MSGraphCalendarGroup *)entity callback:(void (^)(MSGraphCalendarGroup *, MSOrcError *))callback;
 
 - (MSGraphCalendarGroupCollectionFetcher *)select:(NSString *)params;

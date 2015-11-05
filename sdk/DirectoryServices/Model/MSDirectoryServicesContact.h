@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESCONTACT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesProvisioningError;
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesContact
  *
  */
-@interface MSDirectoryServicesContact : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesContact : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property city
  *

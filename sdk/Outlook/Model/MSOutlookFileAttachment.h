@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSOUTLOOKFILEATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOutlookAttachment.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookFileAttachment
  *
  */
-@interface MSOutlookFileAttachment : MSOutlookAttachment
+@interface MSOutlookFileAttachment : MSOutlookAttachment <MSOrcInteroperableWithDictionary>
 
 /** Property contentId
  *
@@ -35,15 +37,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setContentLocation:, getter=contentLocation) NSString * contentLocation;
 
-/** Property isContactPhoto
- *
- */
-@property (nonatomic,  setter=setIsContactPhoto:, getter=isContactPhoto) bool isContactPhoto;
-
 /** Property contentBytes
  *
  */
 @property (nonatomic,  copy, setter=setContentBytes:, getter=contentBytes) NSData * contentBytes;
+
+/** Property isContactPhoto
+ *
+ */
+@property (nonatomic,  setter=setIsContactPhoto:, getter=isContactPhoto) bool isContactPhoto;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

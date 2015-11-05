@@ -17,25 +17,42 @@ root for authoritative license information.﻿
 #define MSGRAPHCONVERSATIONTHREAD_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphRecipient;
 @class MSGraphPost;
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphConversationThread
  *
  */
-@interface MSGraphConversationThread : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphConversationThread : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property toRecipients
  *
  */
 @property (nonatomic,  copy, setter=setToRecipients:, getter=toRecipients) NSMutableArray * toRecipients;
+
+/** Property topic
+ *
+ */
+@property (nonatomic,  copy, setter=setTopic:, getter=topic) NSString * topic;
+
+/** Property hasAttachments
+ *
+ */
+@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
+
+/** Property lastDeliveredDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setLastDeliveredDateTime:, getter=lastDeliveredDateTime) NSDate * lastDeliveredDateTime;
+
+/** Property uniqueSenders
+ *
+ */
+@property (nonatomic,  copy, setter=setUniqueSenders:, getter=uniqueSenders) NSMutableArray * uniqueSenders;
 
 /** Property ccRecipients
  *
@@ -46,6 +63,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setPreview:, getter=preview) NSString * preview;
+
+/** Property isLocked
+ *
+ */
+@property (nonatomic,  setter=setIsLocked:, getter=isLocked) bool isLocked;
 
 /** Property posts
  *

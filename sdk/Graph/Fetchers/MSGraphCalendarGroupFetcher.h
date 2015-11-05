@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 - (MSGraphCalendarGroupFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=calendars) MSGraphCalendarCollectionFetcher *calendars;
 
-- (MSGraphCalendarFetcher *)calendarsById:(NSString*)identifier;
+- (MSGraphCalendarFetcher *)calendarsById:(id)identifier;
 
 
 @end

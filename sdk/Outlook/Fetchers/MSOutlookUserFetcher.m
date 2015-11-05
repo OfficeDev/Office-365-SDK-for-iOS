@@ -69,57 +69,14 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookFolderFetcher *)rootFolder {
+- (MSOutlookMessageCollectionFetcher *)messages {
 
-	 return [[MSOutlookFolderFetcher alloc] initWithUrl:@"RootFolder" parent:self asClass:[MSOutlookFolder class]];
+    return [[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self asClass:[MSOutlookMessage class]];
 }
 
-- (MSOutlookCalendarCollectionFetcher *)calendars {
+- (MSOutlookMessageFetcher *)messagesById:(NSString *)identifier {
 
-    return [[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self asClass:[MSOutlookCalendar class]];
-}
-
-- (MSOutlookCalendarFetcher *)calendarsById:(NSString *)identifier {
-
-    return [[[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self asClass:[MSOutlookCalendar class]] getById:identifier];
-
-}
-
-- (MSOutlookCalendarFetcher *)calendar {
-
-	 return [[MSOutlookCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self asClass:[MSOutlookCalendar class]];
-}
-
-- (MSOutlookCalendarGroupCollectionFetcher *)calendarGroups {
-
-    return [[MSOutlookCalendarGroupCollectionFetcher alloc] initWithUrl:@"CalendarGroups" parent:self asClass:[MSOutlookCalendarGroup class]];
-}
-
-- (MSOutlookCalendarGroupFetcher *)calendarGroupsById:(NSString *)identifier {
-
-    return [[[MSOutlookCalendarGroupCollectionFetcher alloc] initWithUrl:@"CalendarGroups" parent:self asClass:[MSOutlookCalendarGroup class]] getById:identifier];
-
-}
-
-- (MSOutlookEventCollectionFetcher *)events {
-
-    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]];
-}
-
-- (MSOutlookEventFetcher *)eventsById:(NSString *)identifier {
-
-    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
-
-}
-
-- (MSOutlookEventCollectionFetcher *)calendarView {
-
-    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]];
-}
-
-- (MSOutlookEventFetcher *)calendarViewById:(NSString *)identifier {
-
-    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
+    return [[[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self asClass:[MSOutlookMessage class]] getById:identifier];
 
 }
 
@@ -134,14 +91,52 @@ root for authoritative license information.﻿
 
 }
 
-- (MSOutlookMessageCollectionFetcher *)messages {
+- (MSOutlookCalendarFetcher *)calendar {
 
-    return [[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self asClass:[MSOutlookMessage class]];
+	 return [[MSOutlookCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self asClass:[MSOutlookCalendar class]];
 }
 
-- (MSOutlookMessageFetcher *)messagesById:(NSString *)identifier {
+- (MSOutlookCalendarCollectionFetcher *)calendars {
 
-    return [[[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self asClass:[MSOutlookMessage class]] getById:identifier];
+    return [[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self asClass:[MSOutlookCalendar class]];
+}
+
+- (MSOutlookCalendarFetcher *)calendarsById:(NSString *)identifier {
+
+    return [[[MSOutlookCalendarCollectionFetcher alloc] initWithUrl:@"Calendars" parent:self asClass:[MSOutlookCalendar class]] getById:identifier];
+
+}
+
+- (MSOutlookCalendarGroupCollectionFetcher *)calendarGroups {
+
+    return [[MSOutlookCalendarGroupCollectionFetcher alloc] initWithUrl:@"CalendarGroups" parent:self asClass:[MSOutlookCalendarGroup class]];
+}
+
+- (MSOutlookCalendarGroupFetcher *)calendarGroupsById:(NSString *)identifier {
+
+    return [[[MSOutlookCalendarGroupCollectionFetcher alloc] initWithUrl:@"CalendarGroups" parent:self asClass:[MSOutlookCalendarGroup class]] getById:identifier];
+
+}
+
+- (MSOutlookEventCollectionFetcher *)calendarView {
+
+    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]];
+}
+
+- (MSOutlookEventFetcher *)calendarViewById:(NSString *)identifier {
+
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
+
+}
+
+- (MSOutlookEventCollectionFetcher *)events {
+
+    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]];
+}
+
+- (MSOutlookEventFetcher *)eventsById:(NSString *)identifier {
+
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
 
 }
 
@@ -165,6 +160,11 @@ root for authoritative license information.﻿
 
     return [[[MSOutlookContactFolderCollectionFetcher alloc] initWithUrl:@"ContactFolders" parent:self asClass:[MSOutlookContactFolder class]] getById:identifier];
 
+}
+
+- (MSOutlookFolderFetcher *)rootFolder {
+
+	 return [[MSOutlookFolderFetcher alloc] initWithUrl:@"RootFolder" parent:self asClass:[MSOutlookFolder class]];
 }
 
 @end

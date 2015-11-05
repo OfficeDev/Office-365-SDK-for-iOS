@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphEventType
+/** Enum MSGraphEventTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphEventType) {
@@ -36,5 +36,11 @@ typedef NS_ENUM(NSInteger, MSGraphEventType) {
      * */
     MSGraphEventTypeSeriesMaster
 };
+
+
+@interface MSGraphEventTypeSerializer : NSObject
++(MSGraphEventType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphEventType) value;
+@end
 
 #endif

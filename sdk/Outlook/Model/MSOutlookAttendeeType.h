@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookAttendeeType
+/** Enum MSOutlookAttendeeTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookAttendeeType) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSOutlookAttendeeType) {
      * */
     MSOutlookAttendeeTypeResource
 };
+
+
+@interface MSOutlookAttendeeTypeSerializer : NSObject
++(MSOutlookAttendeeType) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookAttendeeType) value;
+@end
 
 #endif

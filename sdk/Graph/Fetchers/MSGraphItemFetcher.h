@@ -23,11 +23,28 @@ root for authoritative license information.﻿
 
 @class MSGraphIdentitySetFetcher;
 @class MSGraphItemReferenceFetcher;
+@class MSGraphAudioFetcher;
+@class MSGraphDeletedFetcher;
+@class MSGraphFileFetcher;
+@class MSGraphFileSystemInfoFetcher;
+@class MSGraphFolderFetcher;
+@class MSGraphImageFetcher;
+@class MSGraphLocationFetcher;
+@class MSGraphOpenWithSetFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphSearchResultFetcher;
+@class MSGraphSharedFetcher;
+@class MSGraphSpecialFolderFetcher;
+@class MSGraphVideoFetcher;
 @class MSGraphUserFetcher;
-@class MSGraphFileFetcher;	
-@class MSGraphFolderFetcher;	
+@class MSGraphPermissionCollectionFetcher;
+@class MSGraphThumbnailSetCollectionFetcher;
 @class MSGraphUserFetcher;
+@class MSGraphPermissionCollectionFetcher;
+@class MSGraphThumbnailSetCollectionFetcher;
+@class MSGraphPermissionFetcher;
 @class MSGraphItemFetcher;
+@class MSGraphThumbnailSetFetcher;
 @class MSGraphItemOperations;
 
 
@@ -40,7 +57,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphItem *, MSOrcError *))callback;
-- (void)update:(MSGraphItem *)Item callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)update:(MSGraphItem *)item callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
@@ -50,12 +67,22 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=createdByUser) MSGraphUserFetcher *createdByUser;
 
 @property (strong, nonatomic, readonly, getter=lastModifiedByUser) MSGraphUserFetcher *lastModifiedByUser;
+@property (strong, nonatomic, readonly, getter=permissions) MSGraphPermissionCollectionFetcher *permissions;
+
+- (MSGraphPermissionFetcher *)permissionsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=versions) MSGraphItemCollectionFetcher *versions;
+
+- (MSGraphItemFetcher *)versionsById:(id)identifier;
+
 @property (strong, nonatomic, readonly, getter=children) MSGraphItemCollectionFetcher *children;
 
-- (MSGraphItemFetcher *)childrenById:(NSString*)identifier;
+- (MSGraphItemFetcher *)childrenById:(id)identifier;
 
-- (MSGraphFileFetcher *)asFile;	
-- (MSGraphFolderFetcher *)asFolder;	
+@property (strong, nonatomic, readonly, getter=thumbnails) MSGraphThumbnailSetCollectionFetcher *thumbnails;
+
+- (MSGraphThumbnailSetFetcher *)thumbnailsById:(id)identifier;
+
 
 @end
 

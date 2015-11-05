@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphGroupAccessType
+/** Enum MSGraphGroupAccessTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphGroupAccessType) {
@@ -36,5 +36,11 @@ typedef NS_ENUM(NSInteger, MSGraphGroupAccessType) {
      * */
     MSGraphGroupAccessTypePublic
 };
+
+
+@interface MSGraphGroupAccessTypeSerializer : NSObject
++(MSGraphGroupAccessType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphGroupAccessType) value;
+@end
 
 #endif

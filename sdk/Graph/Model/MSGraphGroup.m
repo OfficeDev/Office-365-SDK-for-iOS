@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"EmailAddress", @"emailAddress", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"IsSubscribedByMail", @"isSubscribedByMail", @"IsFavorite", @"isFavorite", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"GroupPhoto", @"groupPhoto", @"GroupPhotos", @"groupPhotos", @"Conversations", @"conversations", @"Threads", @"threads", @"Calendar", @"calendar", @"Events", @"events", @"CalendarView", @"calendarView", @"files", @"files", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Photo", @"photo", @"Photos", @"photos", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"drive", @"drive", @"plans", @"plans", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
     
     }
     
@@ -54,23 +54,244 @@ root for authoritative license information.﻿
 		_members = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_memberOf = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_owners = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_groupPhotos = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_conversations = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_threads = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_files = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_conversations = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_photos = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_acceptedSenders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_rejectedSenders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_plans = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
+
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
+		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+
+        if([dic objectForKey: @"creationOptions"] != [NSNull null]){
+            _creationOptions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"creationOptions"] count]];
+            
+            for (id object in [dic objectForKey: @"creationOptions"]) {
+                [_creationOptions addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"groupTypes"] != [NSNull null]){
+            _groupTypes = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"groupTypes"] count]];
+            
+            for (id object in [dic objectForKey: @"groupTypes"]) {
+                [_groupTypes addObject:[object copy]];
+            }
+        }
+        
+		_isPublic = [dic objectForKey: @"isPublic"] != nil ? [[dic objectForKey: @"isPublic"] boolValue] : _isPublic;
+		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
+		_mail = [dic objectForKey: @"mail"] != nil ? [[dic objectForKey: @"mail"] copy] : _mail;
+		_mailNickname = [dic objectForKey: @"mailNickname"] != nil ? [[dic objectForKey: @"mailNickname"] copy] : _mailNickname;
+		_mailEnabled = [dic objectForKey: @"mailEnabled"] != nil ? [[dic objectForKey: @"mailEnabled"] boolValue] : _mailEnabled;
+		_onPremisesSecurityIdentifier = [dic objectForKey: @"onPremisesSecurityIdentifier"] != nil ? [[dic objectForKey: @"onPremisesSecurityIdentifier"] copy] : _onPremisesSecurityIdentifier;
+
+        if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
+            _provisioningErrors = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisioningErrors"] count]];
+            
+            for (id object in [dic objectForKey: @"provisioningErrors"]) {
+                [_provisioningErrors addObject:[[MSGraphProvisioningError alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"proxyAddresses"] != [NSNull null]){
+            _proxyAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"proxyAddresses"] count]];
+            
+            for (id object in [dic objectForKey: @"proxyAddresses"]) {
+                [_proxyAddresses addObject:[object copy]];
+            }
+        }
+        
+		_securityEnabled = [dic objectForKey: @"securityEnabled"] != nil ? [[dic objectForKey: @"securityEnabled"] boolValue] : _securityEnabled;
+		_accessType = [dic objectForKey: @"AccessType"] != nil ? [MSGraphGroupAccessTypeSerializer fromString:[dic objectForKey: @"AccessType"]] : _accessType;
+		_allowExternalSenders = [dic objectForKey: @"AllowExternalSenders"] != nil ? [[dic objectForKey: @"AllowExternalSenders"] boolValue] : _allowExternalSenders;
+		_autoSubscribeNewMembers = [dic objectForKey: @"AutoSubscribeNewMembers"] != nil ? [[dic objectForKey: @"AutoSubscribeNewMembers"] boolValue] : _autoSubscribeNewMembers;
+		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[dic objectForKey: @"EmailAddress"] copy] : _emailAddress;
+		_isFavorite = [dic objectForKey: @"IsFavorite"] != nil ? [[dic objectForKey: @"IsFavorite"] boolValue] : _isFavorite;
+		_isSubscribedByMail = [dic objectForKey: @"IsSubscribedByMail"] != nil ? [[dic objectForKey: @"IsSubscribedByMail"] boolValue] : _isSubscribedByMail;
+		_unseenCount = [dic objectForKey: @"UnseenCount"] != nil ? [[dic objectForKey: @"UnseenCount"] intValue] : _unseenCount;
+
+        if([dic objectForKey: @"appRoleAssignments"] != [NSNull null]){
+            _appRoleAssignments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"appRoleAssignments"] count]];
+            
+            for (id object in [dic objectForKey: @"appRoleAssignments"]) {
+                [_appRoleAssignments addObject:[[MSGraphAppRoleAssignment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"members"] != [NSNull null]){
+            _members = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"members"] count]];
+            
+            for (id object in [dic objectForKey: @"members"]) {
+                [_members addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"memberOf"] != [NSNull null]){
+            _memberOf = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"memberOf"] count]];
+            
+            for (id object in [dic objectForKey: @"memberOf"]) {
+                [_memberOf addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSGraphDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : _createdOnBehalfOf;
+
+        if([dic objectForKey: @"owners"] != [NSNull null]){
+            _owners = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"owners"] count]];
+            
+            for (id object in [dic objectForKey: @"owners"]) {
+                [_owners addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Threads"] != [NSNull null]){
+            _threads = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Threads"] count]];
+            
+            for (id object in [dic objectForKey: @"Threads"]) {
+                [_threads addObject:[[MSGraphConversationThread alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+
+        if([dic objectForKey: @"CalendarView"] != [NSNull null]){
+            _calendarView = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarView"] count]];
+            
+            for (id object in [dic objectForKey: @"CalendarView"]) {
+                [_calendarView addObject:[[MSGraphEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Events"] != [NSNull null]){
+            _events = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Events"] count]];
+            
+            for (id object in [dic objectForKey: @"Events"]) {
+                [_events addObject:[[MSGraphEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Conversations"] != [NSNull null]){
+            _conversations = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Conversations"] count]];
+            
+            for (id object in [dic objectForKey: @"Conversations"]) {
+                [_conversations addObject:[[MSGraphConversation alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+
+        if([dic objectForKey: @"Photos"] != [NSNull null]){
+            _photos = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Photos"] count]];
+            
+            for (id object in [dic objectForKey: @"Photos"]) {
+                [_photos addObject:[[MSGraphPhoto alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"AcceptedSenders"] != [NSNull null]){
+            _acceptedSenders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"AcceptedSenders"] count]];
+            
+            for (id object in [dic objectForKey: @"AcceptedSenders"]) {
+                [_acceptedSenders addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"RejectedSenders"] != [NSNull null]){
+            _rejectedSenders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"RejectedSenders"] count]];
+            
+            for (id object in [dic objectForKey: @"RejectedSenders"]) {
+                [_rejectedSenders addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_drive = [dic objectForKey: @"drive"] != nil ? [[MSGraphDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]] : _drive;
+
+        if([dic objectForKey: @"plans"] != [NSNull null]){
+            _plans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"plans"] count]];
+            
+            for (id object in [dic objectForKey: @"plans"]) {
+                [_plans addObject:[[MSGraphPlan alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__description copy], @"description",
+		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
+		 [_displayName copy], @"displayName",
+		 [[NSMutableArray alloc] init], @"creationOptions",
+		 [[NSMutableArray alloc] init], @"groupTypes",
+		 (_isPublic?@"true":@"false"), @"isPublic",
+		 [MSOrcObjectizer stringFromDate:_lastDirSyncTime], @"lastDirSyncTime",
+		 [_mail copy], @"mail",
+		 [_mailNickname copy], @"mailNickname",
+		 (_mailEnabled?@"true":@"false"), @"mailEnabled",
+		 [_onPremisesSecurityIdentifier copy], @"onPremisesSecurityIdentifier",
+		 [[NSMutableArray alloc] init], @"provisioningErrors",
+		 [[NSMutableArray alloc] init], @"proxyAddresses",
+		 (_securityEnabled?@"true":@"false"), @"securityEnabled",
+		 [MSGraphGroupAccessTypeSerializer toString:_accessType], @"AccessType",
+		 (_allowExternalSenders?@"true":@"false"), @"AllowExternalSenders",
+		 (_autoSubscribeNewMembers?@"true":@"false"), @"AutoSubscribeNewMembers",
+		 [_emailAddress copy], @"EmailAddress",
+		 (_isFavorite?@"true":@"false"), @"IsFavorite",
+		 (_isSubscribedByMail?@"true":@"false"), @"IsSubscribedByMail",
+		 [NSNumber numberWithInt: _unseenCount], @"UnseenCount",
+		 [[NSMutableArray alloc] init], @"appRoleAssignments",
+		 [[NSMutableArray alloc] init], @"members",
+		 [[NSMutableArray alloc] init], @"memberOf",
+		 [_createdOnBehalfOf toDictionary], @"createdOnBehalfOf",
+		 [[NSMutableArray alloc] init], @"owners",
+		 [[NSMutableArray alloc] init], @"Threads",
+		 [_calendar toDictionary], @"Calendar",
+		 [[NSMutableArray alloc] init], @"CalendarView",
+		 [[NSMutableArray alloc] init], @"Events",
+		 [[NSMutableArray alloc] init], @"Conversations",
+		 [_photo toDictionary], @"Photo",
+		 [[NSMutableArray alloc] init], @"Photos",
+		 [[NSMutableArray alloc] init], @"AcceptedSenders",
+		 [[NSMutableArray alloc] init], @"RejectedSenders",
+		 [_drive toDictionary], @"drive",
+		 [[NSMutableArray alloc] init], @"plans",
+            nil];
+}
+
 
 /** Setter implementation for property _description
  *
  */
 - (void) setDescription: (NSString *) value {
     __description = value;
-    [self valueChanged:__description forProperty:@"description"];
+    [self valueChangedFor:@"description"];
 }
        
 /** Setter implementation for property dirSyncEnabled
@@ -78,7 +299,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirSyncEnabled: (bool) value {
     _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+    [self valueChangedFor:@"dirSyncEnabled"];
 }
        
 /** Setter implementation for property displayName
@@ -86,7 +307,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property creationOptions
@@ -94,7 +315,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreationOptions: (NSMutableArray *) value {
     _creationOptions = value;
-    [self valueChanged:_creationOptions forProperty:@"creationOptions"];
+    [self valueChangedFor:@"creationOptions"];
 }
        
 /** Setter implementation for property groupTypes
@@ -102,7 +323,7 @@ root for authoritative license information.﻿
  */
 - (void) setGroupTypes: (NSMutableArray *) value {
     _groupTypes = value;
-    [self valueChanged:_groupTypes forProperty:@"groupTypes"];
+    [self valueChangedFor:@"groupTypes"];
 }
        
 /** Setter implementation for property isPublic
@@ -110,7 +331,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsPublic: (bool) value {
     _isPublic = value;
-    [self valueChangedForBool:_isPublic forProperty:@"isPublic"];
+    [self valueChangedFor:@"isPublic"];
 }
        
 /** Setter implementation for property lastDirSyncTime
@@ -118,7 +339,7 @@ root for authoritative license information.﻿
  */
 - (void) setLastDirSyncTime: (NSDate *) value {
     _lastDirSyncTime = value;
-    [self valueChanged:_lastDirSyncTime forProperty:@"lastDirSyncTime"];
+    [self valueChangedFor:@"lastDirSyncTime"];
 }
        
 /** Setter implementation for property mail
@@ -126,7 +347,7 @@ root for authoritative license information.﻿
  */
 - (void) setMail: (NSString *) value {
     _mail = value;
-    [self valueChanged:_mail forProperty:@"mail"];
+    [self valueChangedFor:@"mail"];
 }
        
 /** Setter implementation for property mailNickname
@@ -134,7 +355,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailNickname: (NSString *) value {
     _mailNickname = value;
-    [self valueChanged:_mailNickname forProperty:@"mailNickname"];
+    [self valueChangedFor:@"mailNickname"];
 }
        
 /** Setter implementation for property mailEnabled
@@ -142,7 +363,7 @@ root for authoritative license information.﻿
  */
 - (void) setMailEnabled: (bool) value {
     _mailEnabled = value;
-    [self valueChangedForBool:_mailEnabled forProperty:@"mailEnabled"];
+    [self valueChangedFor:@"mailEnabled"];
 }
        
 /** Setter implementation for property onPremisesSecurityIdentifier
@@ -150,7 +371,7 @@ root for authoritative license information.﻿
  */
 - (void) setOnPremisesSecurityIdentifier: (NSString *) value {
     _onPremisesSecurityIdentifier = value;
-    [self valueChanged:_onPremisesSecurityIdentifier forProperty:@"onPremisesSecurityIdentifier"];
+    [self valueChangedFor:@"onPremisesSecurityIdentifier"];
 }
        
 /** Setter implementation for property provisioningErrors
@@ -158,7 +379,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisioningErrors: (NSMutableArray *) value {
     _provisioningErrors = value;
-    [self valueChanged:_provisioningErrors forProperty:@"provisioningErrors"];
+    [self valueChangedFor:@"provisioningErrors"];
 }
        
 /** Setter implementation for property proxyAddresses
@@ -166,7 +387,7 @@ root for authoritative license information.﻿
  */
 - (void) setProxyAddresses: (NSMutableArray *) value {
     _proxyAddresses = value;
-    [self valueChanged:_proxyAddresses forProperty:@"proxyAddresses"];
+    [self valueChangedFor:@"proxyAddresses"];
 }
        
 /** Setter implementation for property securityEnabled
@@ -174,7 +395,7 @@ root for authoritative license information.﻿
  */
 - (void) setSecurityEnabled: (bool) value {
     _securityEnabled = value;
-    [self valueChangedForBool:_securityEnabled forProperty:@"securityEnabled"];
+    [self valueChangedFor:@"securityEnabled"];
 }
        
 /** Setter implementation for property accessType
@@ -182,39 +403,22 @@ root for authoritative license information.﻿
  */
 - (void) setAccessType: (MSGraphGroupAccessType) value {
     _accessType = value;
-    [self valueChangedForInt:_accessType forProperty:@"AccessType"];
+    [self valueChangedFor:@"AccessType"];
 }
        
 
-- (void)setAccessTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphGroupAccessTypeNone], @"None", [NSNumber numberWithInt:MSGraphGroupAccessTypePrivate], @"Private", [NSNumber numberWithInt:MSGraphGroupAccessTypeSecret], @"Secret", [NSNumber numberWithInt:MSGraphGroupAccessTypePublic], @"Public",
-            nil        
-        ];
-    }
-    
-    self.accessType = [stringMappings[value] intValue]; 
+- (void)setAccessTypeString:(NSString *)string {
+        
+    _accessType = [MSGraphGroupAccessTypeSerializer fromString:string];
+    [self valueChangedFor:@"AccessType"]; 
 }
 
-/** Setter implementation for property emailAddress
- *
- */
-- (void) setEmailAddress: (NSString *) value {
-    _emailAddress = value;
-    [self valueChanged:_emailAddress forProperty:@"EmailAddress"];
-}
-       
 /** Setter implementation for property allowExternalSenders
  *
  */
 - (void) setAllowExternalSenders: (bool) value {
     _allowExternalSenders = value;
-    [self valueChangedForBool:_allowExternalSenders forProperty:@"AllowExternalSenders"];
+    [self valueChangedFor:@"AllowExternalSenders"];
 }
        
 /** Setter implementation for property autoSubscribeNewMembers
@@ -222,15 +426,15 @@ root for authoritative license information.﻿
  */
 - (void) setAutoSubscribeNewMembers: (bool) value {
     _autoSubscribeNewMembers = value;
-    [self valueChangedForBool:_autoSubscribeNewMembers forProperty:@"AutoSubscribeNewMembers"];
+    [self valueChangedFor:@"AutoSubscribeNewMembers"];
 }
        
-/** Setter implementation for property isSubscribedByMail
+/** Setter implementation for property emailAddress
  *
  */
-- (void) setIsSubscribedByMail: (bool) value {
-    _isSubscribedByMail = value;
-    [self valueChangedForBool:_isSubscribedByMail forProperty:@"IsSubscribedByMail"];
+- (void) setEmailAddress: (NSString *) value {
+    _emailAddress = value;
+    [self valueChangedFor:@"EmailAddress"];
 }
        
 /** Setter implementation for property isFavorite
@@ -238,7 +442,15 @@ root for authoritative license information.﻿
  */
 - (void) setIsFavorite: (bool) value {
     _isFavorite = value;
-    [self valueChangedForBool:_isFavorite forProperty:@"IsFavorite"];
+    [self valueChangedFor:@"IsFavorite"];
+}
+       
+/** Setter implementation for property isSubscribedByMail
+ *
+ */
+- (void) setIsSubscribedByMail: (bool) value {
+    _isSubscribedByMail = value;
+    [self valueChangedFor:@"IsSubscribedByMail"];
 }
        
 /** Setter implementation for property unseenCount
@@ -246,7 +458,7 @@ root for authoritative license information.﻿
  */
 - (void) setUnseenCount: (int) value {
     _unseenCount = value;
-    [self valueChangedForInt:_unseenCount forProperty:@"UnseenCount"];
+    [self valueChangedFor:@"UnseenCount"];
 }
        
 /** Setter implementation for property appRoleAssignments
@@ -254,7 +466,7 @@ root for authoritative license information.﻿
  */
 - (void) setAppRoleAssignments: (NSMutableArray *) value {
     _appRoleAssignments = value;
-    [self valueChanged:_appRoleAssignments forProperty:@"appRoleAssignments"];
+    [self valueChangedFor:@"appRoleAssignments"];
 }
        
 /** Setter implementation for property members
@@ -262,7 +474,7 @@ root for authoritative license information.﻿
  */
 - (void) setMembers: (NSMutableArray *) value {
     _members = value;
-    [self valueChanged:_members forProperty:@"members"];
+    [self valueChangedFor:@"members"];
 }
        
 /** Setter implementation for property memberOf
@@ -270,7 +482,7 @@ root for authoritative license information.﻿
  */
 - (void) setMemberOf: (NSMutableArray *) value {
     _memberOf = value;
-    [self valueChanged:_memberOf forProperty:@"memberOf"];
+    [self valueChangedFor:@"memberOf"];
 }
        
 /** Setter implementation for property createdOnBehalfOf
@@ -278,7 +490,7 @@ root for authoritative license information.﻿
  */
 - (void) setCreatedOnBehalfOf: (MSGraphDirectoryObject *) value {
     _createdOnBehalfOf = value;
-    [self valueChanged:_createdOnBehalfOf forProperty:@"createdOnBehalfOf"];
+    [self valueChangedFor:@"createdOnBehalfOf"];
 }
        
 /** Setter implementation for property owners
@@ -286,31 +498,7 @@ root for authoritative license information.﻿
  */
 - (void) setOwners: (NSMutableArray *) value {
     _owners = value;
-    [self valueChanged:_owners forProperty:@"owners"];
-}
-       
-/** Setter implementation for property groupPhoto
- *
- */
-- (void) setGroupPhoto: (MSGraphPhoto *) value {
-    _groupPhoto = value;
-    [self valueChanged:_groupPhoto forProperty:@"GroupPhoto"];
-}
-       
-/** Setter implementation for property groupPhotos
- *
- */
-- (void) setGroupPhotos: (NSMutableArray *) value {
-    _groupPhotos = value;
-    [self valueChanged:_groupPhotos forProperty:@"GroupPhotos"];
-}
-       
-/** Setter implementation for property conversations
- *
- */
-- (void) setConversations: (NSMutableArray *) value {
-    _conversations = value;
-    [self valueChanged:_conversations forProperty:@"Conversations"];
+    [self valueChangedFor:@"owners"];
 }
        
 /** Setter implementation for property threads
@@ -318,7 +506,7 @@ root for authoritative license information.﻿
  */
 - (void) setThreads: (NSMutableArray *) value {
     _threads = value;
-    [self valueChanged:_threads forProperty:@"Threads"];
+    [self valueChangedFor:@"Threads"];
 }
        
 /** Setter implementation for property calendar
@@ -326,15 +514,7 @@ root for authoritative license information.﻿
  */
 - (void) setCalendar: (MSGraphCalendar *) value {
     _calendar = value;
-    [self valueChanged:_calendar forProperty:@"Calendar"];
-}
-       
-/** Setter implementation for property events
- *
- */
-- (void) setEvents: (NSMutableArray *) value {
-    _events = value;
-    [self valueChanged:_events forProperty:@"Events"];
+    [self valueChangedFor:@"Calendar"];
 }
        
 /** Setter implementation for property calendarView
@@ -342,15 +522,71 @@ root for authoritative license information.﻿
  */
 - (void) setCalendarView: (NSMutableArray *) value {
     _calendarView = value;
-    [self valueChanged:_calendarView forProperty:@"CalendarView"];
+    [self valueChangedFor:@"CalendarView"];
 }
        
-/** Setter implementation for property files
+/** Setter implementation for property events
  *
  */
-- (void) setFiles: (NSMutableArray *) value {
-    _files = value;
-    [self valueChanged:_files forProperty:@"files"];
+- (void) setEvents: (NSMutableArray *) value {
+    _events = value;
+    [self valueChangedFor:@"Events"];
+}
+       
+/** Setter implementation for property conversations
+ *
+ */
+- (void) setConversations: (NSMutableArray *) value {
+    _conversations = value;
+    [self valueChangedFor:@"Conversations"];
+}
+       
+/** Setter implementation for property photo
+ *
+ */
+- (void) setPhoto: (MSGraphPhoto *) value {
+    _photo = value;
+    [self valueChangedFor:@"Photo"];
+}
+       
+/** Setter implementation for property photos
+ *
+ */
+- (void) setPhotos: (NSMutableArray *) value {
+    _photos = value;
+    [self valueChangedFor:@"Photos"];
+}
+       
+/** Setter implementation for property acceptedSenders
+ *
+ */
+- (void) setAcceptedSenders: (NSMutableArray *) value {
+    _acceptedSenders = value;
+    [self valueChangedFor:@"AcceptedSenders"];
+}
+       
+/** Setter implementation for property rejectedSenders
+ *
+ */
+- (void) setRejectedSenders: (NSMutableArray *) value {
+    _rejectedSenders = value;
+    [self valueChangedFor:@"RejectedSenders"];
+}
+       
+/** Setter implementation for property drive
+ *
+ */
+- (void) setDrive: (MSGraphDrive *) value {
+    _drive = value;
+    [self valueChangedFor:@"drive"];
+}
+       
+/** Setter implementation for property plans
+ *
+ */
+- (void) setPlans: (NSMutableArray *) value {
+    _plans = value;
+    [self valueChangedFor:@"plans"];
 }
        
 

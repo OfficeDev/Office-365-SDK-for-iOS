@@ -44,19 +44,19 @@ root for authoritative license information.﻿
 - (MSGraphDirectoryRoleFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
 
-- (MSGraphDirectoryObjectFetcher *)membersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)membersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
 
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)memberOfById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
 
-- (MSGraphDirectoryObjectFetcher *)ownersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=ownedObjects) MSGraphDirectoryObjectCollectionFetcher *ownedObjects;
 
-- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(id)identifier;
 
 
 @end

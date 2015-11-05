@@ -52,12 +52,51 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_capabilityStatus = [dic objectForKey: @"capabilityStatus"] != nil ? [[dic objectForKey: @"capabilityStatus"] copy] : _capabilityStatus;
+		_consumedUnits = [dic objectForKey: @"consumedUnits"] != nil ? [[dic objectForKey: @"consumedUnits"] intValue] : _consumedUnits;
+		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
+		_prepaidUnits = [dic objectForKey: @"prepaidUnits"] != nil ? [[MSDirectoryServicesLicenseUnitsDetail alloc] initWithDictionary: [dic objectForKey: @"prepaidUnits"]] : _prepaidUnits;
+
+        if([dic objectForKey: @"servicePlans"] != [NSNull null]){
+            _servicePlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"servicePlans"] count]];
+            
+            for (id object in [dic objectForKey: @"servicePlans"]) {
+                [_servicePlans addObject:[[MSDirectoryServicesServicePlanInfo alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
+		_skuPartNumber = [dic objectForKey: @"skuPartNumber"] != nil ? [[dic objectForKey: @"skuPartNumber"] copy] : _skuPartNumber;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_capabilityStatus copy], @"capabilityStatus",
+		 [NSNumber numberWithInt: _consumedUnits], @"consumedUnits",
+		 [_objectId copy], @"objectId",
+		 [_prepaidUnits toDictionary], @"prepaidUnits",
+		 [[NSMutableArray alloc] init], @"servicePlans",
+		 [_skuId copy], @"skuId",
+		 [_skuPartNumber copy], @"skuPartNumber",
+            nil];
+}
+
+
 /** Setter implementation for property capabilityStatus
  *
  */
 - (void) setCapabilityStatus: (NSString *) value {
     _capabilityStatus = value;
-    [self valueChanged:_capabilityStatus forProperty:@"capabilityStatus"];
+    [self valueChangedFor:@"capabilityStatus"];
 }
        
 /** Setter implementation for property consumedUnits
@@ -65,7 +104,7 @@ root for authoritative license information.﻿
  */
 - (void) setConsumedUnits: (int) value {
     _consumedUnits = value;
-    [self valueChangedForInt:_consumedUnits forProperty:@"consumedUnits"];
+    [self valueChangedFor:@"consumedUnits"];
 }
        
 /** Setter implementation for property objectId
@@ -73,7 +112,7 @@ root for authoritative license information.﻿
  */
 - (void) setObjectId: (NSString *) value {
     _objectId = value;
-    [self valueChanged:_objectId forProperty:@"objectId"];
+    [self valueChangedFor:@"objectId"];
 }
        
 /** Setter implementation for property prepaidUnits
@@ -81,7 +120,7 @@ root for authoritative license information.﻿
  */
 - (void) setPrepaidUnits: (MSDirectoryServicesLicenseUnitsDetail *) value {
     _prepaidUnits = value;
-    [self valueChanged:_prepaidUnits forProperty:@"prepaidUnits"];
+    [self valueChangedFor:@"prepaidUnits"];
 }
        
 /** Setter implementation for property servicePlans
@@ -89,7 +128,7 @@ root for authoritative license information.﻿
  */
 - (void) setServicePlans: (NSMutableArray *) value {
     _servicePlans = value;
-    [self valueChanged:_servicePlans forProperty:@"servicePlans"];
+    [self valueChangedFor:@"servicePlans"];
 }
        
 /** Setter implementation for property skuId
@@ -97,7 +136,7 @@ root for authoritative license information.﻿
  */
 - (void) setSkuId: (NSString *) value {
     _skuId = value;
-    [self valueChanged:_skuId forProperty:@"skuId"];
+    [self valueChangedFor:@"skuId"];
 }
        
 /** Setter implementation for property skuPartNumber
@@ -105,7 +144,7 @@ root for authoritative license information.﻿
  */
 - (void) setSkuPartNumber: (NSString *) value {
     _skuPartNumber = value;
-    [self valueChanged:_skuPartNumber forProperty:@"skuPartNumber"];
+    [self valueChangedFor:@"skuPartNumber"];
 }
        
 

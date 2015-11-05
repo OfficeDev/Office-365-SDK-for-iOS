@@ -69,31 +69,20 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphDirectoryObjectFetcher *)manager {
+- (MSGraphExtensionCollectionFetcher *)extensions {
 
-	 return [[MSGraphDirectoryObjectFetcher alloc] initWithUrl:@"manager" parent:self asClass:[MSGraphDirectoryObject class]];
+    return [[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]];
 }
 
-- (MSGraphDirectoryObjectCollectionFetcher *)directReports {
+- (MSGraphExtensionFetcher *)extensionsById:(NSString *)identifier {
 
-    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"directReports" parent:self asClass:[MSGraphDirectoryObject class]];
-}
-
-- (MSGraphDirectoryObjectFetcher *)directReportsById:(NSString *)identifier {
-
-    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"directReports" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
+    return [[[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]] getById:identifier];
 
 }
 
-- (MSGraphDirectoryObjectCollectionFetcher *)memberOf {
+- (MSGraphPhotoFetcher *)photo {
 
-    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self asClass:[MSGraphDirectoryObject class]];
-}
-
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString *)identifier {
-
-    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
-
+	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphPhoto class]];
 }
 
 @end

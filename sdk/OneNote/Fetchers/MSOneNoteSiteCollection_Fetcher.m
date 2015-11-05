@@ -39,25 +39,25 @@ root for authoritative license information.﻿
 	return [super deleteWithCallback:callback];
 }
 
-- (MSOneNoteSiteCollectionFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value {
+- (MSOneNoteSiteCollection_Fetcher *)addCustomParametersWithName:(NSString *)name value:(id)value {
     [super addCustomParametersWithName:name value:value];
     
     return self;
 }
 
-- (MSOneNoteSiteCollectionFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value {
+- (MSOneNoteSiteCollection_Fetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value {
     [super addCustomHeaderWithName:name value:value];
     
     return self;
 }
 
-- (MSOneNoteSiteCollectionFetcher *)select:(NSString *)params {
+- (MSOneNoteSiteCollection_Fetcher *)select:(NSString *)params {
     [super select:params];
     
     return self;
 }
 
-- (MSOneNoteSiteCollectionFetcher *)expand:(NSString *)value {
+- (MSOneNoteSiteCollection_Fetcher *)expand:(NSString *)value {
     [super expand:value];
     
     return self;

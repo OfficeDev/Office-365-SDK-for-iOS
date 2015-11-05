@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphWeekIndex
+/** Enum MSGraphWeekIndexEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphWeekIndex) {
@@ -39,5 +39,11 @@ typedef NS_ENUM(NSInteger, MSGraphWeekIndex) {
      * */
     MSGraphWeekIndexLast
 };
+
+
+@interface MSGraphWeekIndexSerializer : NSObject
++(MSGraphWeekIndex) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphWeekIndex) value;
+@end
 
 #endif

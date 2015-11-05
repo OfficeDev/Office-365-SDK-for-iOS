@@ -17,29 +17,31 @@ root for authoritative license information.﻿
 #define MSOUTLOOKCALENDARGROUP_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookCalendar;
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookCalendarGroup
  *
  */
-@interface MSOutlookCalendarGroup : MSOutlookEntity
+@interface MSOutlookCalendarGroup : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 /** Property name
  *
  */
 @property (nonatomic,  copy, setter=setName:, getter=name) NSString * name;
 
-/** Property changeKey
- *
- */
-@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
-
 /** Property classId
  *
  */
 @property (nonatomic,  copy, setter=setClassId:, getter=classId) NSString * classId;
+
+/** Property changeKey
+ *
+ */
+@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
 
 /** Property calendars
  *

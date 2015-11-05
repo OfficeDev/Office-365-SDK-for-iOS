@@ -17,17 +17,34 @@ root for authoritative license information.﻿
 #define MSOUTLOOKMESSAGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookItemBody;
 @class MSOutlookRecipient;
 @class MSOutlookAttachment;
 #import "MSOutlookImportance.h"
 #import "MSOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookMessage
  *
  */
-@interface MSOutlookMessage : MSOutlookItem
+@interface MSOutlookMessage : MSOutlookItem <MSOrcInteroperableWithDictionary>
+
+/** Property dateTimeReceived
+ *
+ */
+@property (nonatomic,  copy, setter=setDateTimeReceived:, getter=dateTimeReceived) NSDate * dateTimeReceived;
+
+/** Property dateTimeSent
+ *
+ */
+@property (nonatomic,  copy, setter=setDateTimeSent:, getter=dateTimeSent) NSDate * dateTimeSent;
+
+/** Property hasAttachments
+ *
+ */
+@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
 
 /** Property subject
  *
@@ -49,27 +66,22 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setImportance:, getter=importance) MSOutlookImportance importance;
 
-- (void)setImportanceString:(NSString *)value;
-
-/** Property hasAttachments
- *
- */
-@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
+- (void)setImportanceString:(NSString *)string;
 
 /** Property parentFolderId
  *
  */
 @property (nonatomic,  copy, setter=setParentFolderId:, getter=parentFolderId) NSString * parentFolderId;
 
-/** Property from
- *
- */
-@property (nonatomic,  copy, setter=setFrom:, getter=from) MSOutlookRecipient * from;
-
 /** Property sender
  *
  */
 @property (nonatomic,  copy, setter=setSender:, getter=sender) MSOutlookRecipient * sender;
+
+/** Property from
+ *
+ */
+@property (nonatomic,  copy, setter=setFrom:, getter=from) MSOutlookRecipient * from;
 
 /** Property toRecipients
  *
@@ -101,16 +113,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setUniqueBody:, getter=uniqueBody) MSOutlookItemBody * uniqueBody;
 
-/** Property dateTimeReceived
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeReceived:, getter=dateTimeReceived) NSDate * dateTimeReceived;
-
-/** Property dateTimeSent
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeSent:, getter=dateTimeSent) NSDate * dateTimeSent;
-
 /** Property isDeliveryReceiptRequested
  *
  */
@@ -121,15 +123,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setIsReadReceiptRequested:, getter=isReadReceiptRequested) bool isReadReceiptRequested;
 
-/** Property isDraft
- *
- */
-@property (nonatomic,  setter=setIsDraft:, getter=isDraft) bool isDraft;
-
 /** Property isRead
  *
  */
 @property (nonatomic,  setter=setIsRead:, getter=isRead) bool isRead;
+
+/** Property isDraft
+ *
+ */
+@property (nonatomic,  setter=setIsDraft:, getter=isDraft) bool isDraft;
 
 /** Property webLink
  *

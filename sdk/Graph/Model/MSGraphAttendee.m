@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphAttendee
@@ -30,12 +31,13 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", @"Status", @"status", @"Type", @"type", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Status", @"status", @"Type", @"type", @"EmailAddress", @"emailAddress", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
+
 
 - (instancetype)init {
 
@@ -49,20 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property emailAddress
- *
- */
-- (void) setEmailAddress: (MSGraphEmailAddress *) value {
-    _emailAddress = value;
-    [self valueChanged:_emailAddress forProperty:@"EmailAddress"];
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_status = [dic objectForKey: @"Status"] != nil ? [[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]] : _status;
+		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : _emailAddress;
+
+    }
+    
+    return self;
 }
-       
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_status toDictionary], @"Status",
+		 [MSGraphAttendeeTypeSerializer toString:_type], @"Type",
+		 [_emailAddress toDictionary], @"EmailAddress",
+            nil];
+}
+
+
 /** Setter implementation for property status
  *
  */
 - (void) setStatus: (MSGraphResponseStatus *) value {
     _status = value;
-    [self valueChanged:_status forProperty:@"Status"];
+    [self valueChangedFor:@"Status"];
 }
        
 /** Setter implementation for property type
@@ -70,24 +86,23 @@ root for authoritative license information.﻿
  */
 - (void) setType: (MSGraphAttendeeType) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
+    [self valueChangedFor:@"Type"];
 }
        
 
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphAttendeeTypeRequired], @"Required", [NSNumber numberWithInt:MSGraphAttendeeTypeOptional], @"Optional", [NSNumber numberWithInt:MSGraphAttendeeTypeResource], @"Resource",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSGraphAttendeeTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
 }
 
+/** Setter implementation for property emailAddress
+ *
+ */
+- (void) setEmailAddress: (MSGraphEmailAddress *) value {
+    _emailAddress = value;
+    [self valueChangedFor:@"EmailAddress"];
+}
+       
 
 @end

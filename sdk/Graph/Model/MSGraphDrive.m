@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"owner", @"owner", @"quota", @"quota", @"files", @"files", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"driveType", @"driveType", @"owner", @"owner", @"quota", @"quota", @"items", @"items", @"shared", @"shared", @"special", @"special", @"root", @"root", nil];
     
     }
     
@@ -43,45 +43,136 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Drive";
+		_odataType = @"#Microsoft.Graph.drive";
         
         
-		_files = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_items = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_shared = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_special = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
+
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_driveType = [dic objectForKey: @"driveType"] != nil ? [[dic objectForKey: @"driveType"] copy] : _driveType;
+		_owner = [dic objectForKey: @"owner"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
+		_quota = [dic objectForKey: @"quota"] != nil ? [[MSGraphQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]] : _quota;
+
+        if([dic objectForKey: @"items"] != [NSNull null]){
+            _items = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"items"] count]];
+            
+            for (id object in [dic objectForKey: @"items"]) {
+                [_items addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"shared"] != [NSNull null]){
+            _shared = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"shared"] count]];
+            
+            for (id object in [dic objectForKey: @"shared"]) {
+                [_shared addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"special"] != [NSNull null]){
+            _special = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"special"] count]];
+            
+            for (id object in [dic objectForKey: @"special"]) {
+                [_special addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_root = [dic objectForKey: @"root"] != nil ? [[MSGraphItem alloc] initWithDictionary: [dic objectForKey: @"root"]] : _root;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [_driveType copy], @"driveType",
+		 [_owner toDictionary], @"owner",
+		 [_quota toDictionary], @"quota",
+		 [[NSMutableArray alloc] init], @"items",
+		 [[NSMutableArray alloc] init], @"shared",
+		 [[NSMutableArray alloc] init], @"special",
+		 [_root toDictionary], @"root",
+            nil];
+}
+
 
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
+}
+       
+/** Setter implementation for property driveType
+ *
+ */
+- (void) setDriveType: (NSString *) value {
+    _driveType = value;
+    [self valueChangedFor:@"driveType"];
 }
        
 /** Setter implementation for property owner
  *
  */
-- (void) setOwner: (MSGraphIdentity *) value {
+- (void) setOwner: (MSGraphIdentitySet *) value {
     _owner = value;
-    [self valueChanged:_owner forProperty:@"owner"];
+    [self valueChangedFor:@"owner"];
 }
        
 /** Setter implementation for property quota
  *
  */
-- (void) setQuota: (MSGraphDriveQuota *) value {
+- (void) setQuota: (MSGraphQuota *) value {
     _quota = value;
-    [self valueChanged:_quota forProperty:@"quota"];
+    [self valueChangedFor:@"quota"];
 }
        
-/** Setter implementation for property files
+/** Setter implementation for property items
  *
  */
-- (void) setFiles: (NSMutableArray *) value {
-    _files = value;
-    [self valueChanged:_files forProperty:@"files"];
+- (void) setItems: (NSMutableArray *) value {
+    _items = value;
+    [self valueChangedFor:@"items"];
+}
+       
+/** Setter implementation for property shared
+ *
+ */
+- (void) setShared: (NSMutableArray *) value {
+    _shared = value;
+    [self valueChangedFor:@"shared"];
+}
+       
+/** Setter implementation for property special
+ *
+ */
+- (void) setSpecial: (NSMutableArray *) value {
+    _special = value;
+    [self valueChangedFor:@"special"];
+}
+       
+/** Setter implementation for property root
+ *
+ */
+- (void) setRoot: (MSGraphItem *) value {
+    _root = value;
+    [self valueChangedFor:@"root"];
 }
        
 

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesRequiredResourceAccess
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -50,12 +52,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_resourceAppId = [dic objectForKey: @"resourceAppId"] != nil ? [[dic objectForKey: @"resourceAppId"] copy] : _resourceAppId;
+
+        if([dic objectForKey: @"resourceAccess"] != [NSNull null]){
+            _resourceAccess = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"resourceAccess"] count]];
+            
+            for (id object in [dic objectForKey: @"resourceAccess"]) {
+                [_resourceAccess addObject:[[MSDirectoryServicesResourceAccess alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_resourceAppId copy], @"resourceAppId",
+		 [[NSMutableArray alloc] init], @"resourceAccess",
+            nil];
+}
+
+
 /** Setter implementation for property resourceAppId
  *
  */
 - (void) setResourceAppId: (NSString *) value {
     _resourceAppId = value;
-    [self valueChanged:_resourceAppId forProperty:@"resourceAppId"];
+    [self valueChangedFor:@"resourceAppId"];
 }
        
 /** Setter implementation for property resourceAccess
@@ -63,7 +93,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceAccess: (NSMutableArray *) value {
     _resourceAccess = value;
-    [self valueChanged:_resourceAccess forProperty:@"resourceAccess"];
+    [self valueChangedFor:@"resourceAccess"];
 }
        
 

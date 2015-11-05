@@ -17,6 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHSERVICEPRINCIPAL_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphAppRole;
 @class MSGraphKeyCredential;
@@ -26,11 +27,12 @@ root for authoritative license information.﻿
 @class MSGraphOAuth2PermissionGrant;
 @class MSGraphDirectoryObject;
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphServicePrincipal
  *
  */
-@interface MSGraphServicePrincipal : MSGraphDirectoryObject
+@interface MSGraphServicePrincipal : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property accountEnabled
  *

@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"DateTimeLastModified", @"dateTimeLastModified", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
     
     }
     
@@ -51,12 +51,39 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : _lastModifiedDateTime;
+		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
+		_contentType = [dic objectForKey: @"ContentType"] != nil ? [[dic objectForKey: @"ContentType"] copy] : _contentType;
+		_size = [dic objectForKey: @"Size"] != nil ? [[dic objectForKey: @"Size"] intValue] : _size;
+		_isInline = [dic objectForKey: @"IsInline"] != nil ? [[dic objectForKey: @"IsInline"] boolValue] : _isInline;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"LastModifiedDateTime",
+		 [_name copy], @"Name",
+		 [_contentType copy], @"ContentType",
+		 [NSNumber numberWithInt: _size], @"Size",
+		 (_isInline?@"true":@"false"), @"IsInline",
+            nil];
+}
+
+
+/** Setter implementation for property lastModifiedDateTime
  *
  */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"Id"];
+- (void) setLastModifiedDateTime: (NSDate *) value {
+    _lastModifiedDateTime = value;
+    [self valueChangedFor:@"LastModifiedDateTime"];
 }
        
 /** Setter implementation for property name
@@ -64,7 +91,7 @@ root for authoritative license information.﻿
  */
 - (void) setName: (NSString *) value {
     _name = value;
-    [self valueChanged:_name forProperty:@"Name"];
+    [self valueChangedFor:@"Name"];
 }
        
 /** Setter implementation for property contentType
@@ -72,7 +99,7 @@ root for authoritative license information.﻿
  */
 - (void) setContentType: (NSString *) value {
     _contentType = value;
-    [self valueChanged:_contentType forProperty:@"ContentType"];
+    [self valueChangedFor:@"ContentType"];
 }
        
 /** Setter implementation for property size
@@ -80,7 +107,7 @@ root for authoritative license information.﻿
  */
 - (void) setSize: (int) value {
     _size = value;
-    [self valueChangedForInt:_size forProperty:@"Size"];
+    [self valueChangedFor:@"Size"];
 }
        
 /** Setter implementation for property isInline
@@ -88,15 +115,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsInline: (bool) value {
     _isInline = value;
-    [self valueChangedForBool:_isInline forProperty:@"IsInline"];
-}
-       
-/** Setter implementation for property dateTimeLastModified
- *
- */
-- (void) setDateTimeLastModified: (NSDate *) value {
-    _dateTimeLastModified = value;
-    [self valueChanged:_dateTimeLastModified forProperty:@"DateTimeLastModified"];
+    [self valueChangedFor:@"IsInline"];
 }
        
 

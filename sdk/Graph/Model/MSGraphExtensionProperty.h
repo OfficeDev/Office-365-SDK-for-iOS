@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHEXTENSIONPROPERTY_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphExtensionProperty
  *
  */
-@interface MSGraphExtensionProperty : MSGraphDirectoryObject
+@interface MSGraphExtensionProperty : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property appDisplayName
  *

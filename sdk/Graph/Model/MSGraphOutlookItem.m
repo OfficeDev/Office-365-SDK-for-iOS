@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -52,12 +52,53 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : _createdDateTime;
+		_lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : _lastModifiedDateTime;
+		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
+
+        if([dic objectForKey: @"Categories"] != [NSNull null]){
+            _categories = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Categories"] count]];
+            
+            for (id object in [dic objectForKey: @"Categories"]) {
+                [_categories addObject:[object copy]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"CreatedDateTime",
+		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"LastModifiedDateTime",
+		 [_changeKey copy], @"ChangeKey",
+		 [[NSMutableArray alloc] init], @"Categories",
+            nil];
+}
+
+
+/** Setter implementation for property createdDateTime
  *
  */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"Id"];
+- (void) setCreatedDateTime: (NSDate *) value {
+    _createdDateTime = value;
+    [self valueChangedFor:@"CreatedDateTime"];
+}
+       
+/** Setter implementation for property lastModifiedDateTime
+ *
+ */
+- (void) setLastModifiedDateTime: (NSDate *) value {
+    _lastModifiedDateTime = value;
+    [self valueChangedFor:@"LastModifiedDateTime"];
 }
        
 /** Setter implementation for property changeKey
@@ -65,7 +106,7 @@ root for authoritative license information.﻿
  */
 - (void) setChangeKey: (NSString *) value {
     _changeKey = value;
-    [self valueChanged:_changeKey forProperty:@"ChangeKey"];
+    [self valueChangedFor:@"ChangeKey"];
 }
        
 /** Setter implementation for property categories
@@ -73,23 +114,7 @@ root for authoritative license information.﻿
  */
 - (void) setCategories: (NSMutableArray *) value {
     _categories = value;
-    [self valueChanged:_categories forProperty:@"Categories"];
-}
-       
-/** Setter implementation for property dateTimeCreated
- *
- */
-- (void) setDateTimeCreated: (NSDate *) value {
-    _dateTimeCreated = value;
-    [self valueChanged:_dateTimeCreated forProperty:@"DateTimeCreated"];
-}
-       
-/** Setter implementation for property dateTimeLastModified
- *
- */
-- (void) setDateTimeLastModified: (NSDate *) value {
-    _dateTimeLastModified = value;
-    [self valueChanged:_dateTimeLastModified forProperty:@"DateTimeLastModified"];
+    [self valueChangedFor:@"Categories"];
 }
        
 

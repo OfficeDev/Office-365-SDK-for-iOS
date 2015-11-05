@@ -25,12 +25,16 @@ root for authoritative license information.﻿
  */
 @interface MSGraphEventCollectionOperations : MSGraphOutlookItemCollectionOperations
 
-- (void)acceptWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback ;
-- (void)acceptRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)declineWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback ;
-- (void)declineRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)tentativelyAcceptWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback ;
-- (void)tentativelyAcceptRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)acceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback ;
+- (void)acceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)declineWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback ;
+- (void)declineRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback ;
+- (void)tentativelyAcceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)snoozeReminderWithNewReminderTime:(MSGraphDateTimeTimeZone *)newReminderTime callback:(void (^)(int, MSOrcError*))callback ;
+- (void)snoozeReminderRawWithNewReminderTime:(NSString *)newReminderTime callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)dismissReminderWithCallback:(void (^)(int, MSOrcError*))callback ;
+- (void)dismissReminderRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

@@ -69,6 +69,17 @@ root for authoritative license information.﻿
     }];
 }
 
+- (MSGraphExtensionCollectionFetcher *)extensions {
+
+    return [[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]];
+}
+
+- (MSGraphExtensionFetcher *)extensionsById:(NSString *)identifier {
+
+    return [[[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]] getById:identifier];
+
+}
+
 - (MSGraphAttachmentCollectionFetcher *)attachments {
 
     return [[MSGraphAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSGraphAttachment class]];

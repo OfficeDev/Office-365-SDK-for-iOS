@@ -21,18 +21,18 @@ root for authoritative license information.﻿
 #import "MSOutlookModels.h"
 #import "MSOrcEntityFetcher.h"
 
+@class MSOutlookResponseStatusFetcher;
 @class MSOutlookItemBodyFetcher;
 @class MSOutlookLocationFetcher;
-@class MSOutlookResponseStatusFetcher;
-@class MSOutlookAttendeeCollectionFetcher;
 @class MSOutlookPatternedRecurrenceFetcher;
+@class MSOutlookAttendeeCollectionFetcher;
 @class MSOutlookRecipientFetcher;
-@class MSOutlookAttachmentCollectionFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookAttachmentCollectionFetcher;
 @class MSOutlookCalendarFetcher;
-@class MSOutlookAttachmentFetcher;
+@class MSOutlookAttachmentCollectionFetcher;
 @class MSOutlookEventFetcher;
+@class MSOutlookAttachmentFetcher;
 @class MSOutlookEventOperations;
 
 
@@ -51,15 +51,15 @@ root for authoritative license information.﻿
 - (MSOutlookEventFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOutlookEventFetcher *)select:(NSString *)params;
 - (MSOutlookEventFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=attachments) MSOutlookAttachmentCollectionFetcher *attachments;
-
-- (MSOutlookAttachmentFetcher *)attachmentsById:(NSString*)identifier;
-
 
 @property (strong, nonatomic, readonly, getter=calendar) MSOutlookCalendarFetcher *calendar;
 @property (strong, nonatomic, readonly, getter=instances) MSOutlookEventCollectionFetcher *instances;
 
-- (MSOutlookEventFetcher *)instancesById:(NSString*)identifier;
+- (MSOutlookEventFetcher *)instancesById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=attachments) MSOutlookAttachmentCollectionFetcher *attachments;
+
+- (MSOutlookAttachmentFetcher *)attachmentsById:(id)identifier;
 
 
 @end

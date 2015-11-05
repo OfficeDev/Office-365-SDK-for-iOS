@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphConversationThreadFetcher *)getById:(NSString *)_id {
+- (MSGraphConversationThreadFetcher *)getById:(id) identifier {
 
-    return [[MSGraphConversationThreadFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSGraphConversationThreadFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSGraphConversationThreadCollectionFetcher *)select:(NSString *)params {

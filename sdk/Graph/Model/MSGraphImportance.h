@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphImportance
+/** Enum MSGraphImportanceEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphImportance) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSGraphImportance) {
      * */
     MSGraphImportanceHigh
 };
+
+
+@interface MSGraphImportanceSerializer : NSObject
++(MSGraphImportance) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphImportance) value;
+@end
 
 #endif

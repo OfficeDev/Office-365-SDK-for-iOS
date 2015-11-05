@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteNotebookLinks
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_oneNoteClientUrl = [dic objectForKey: @"oneNoteClientUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]] : _oneNoteClientUrl;
+		_oneNoteWebUrl = [dic objectForKey: @"oneNoteWebUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]] : _oneNoteWebUrl;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_oneNoteClientUrl toDictionary], @"oneNoteClientUrl",
+		 [_oneNoteWebUrl toDictionary], @"oneNoteWebUrl",
+            nil];
+}
+
+
 /** Setter implementation for property oneNoteClientUrl
  *
  */
 - (void) setOneNoteClientUrl: (MSOneNoteExternalLink *) value {
     _oneNoteClientUrl = value;
-    [self valueChanged:_oneNoteClientUrl forProperty:@"oneNoteClientUrl"];
+    [self valueChangedFor:@"oneNoteClientUrl"];
 }
        
 /** Setter implementation for property oneNoteWebUrl
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setOneNoteWebUrl: (MSOneNoteExternalLink *) value {
     _oneNoteWebUrl = value;
-    [self valueChanged:_oneNoteWebUrl forProperty:@"oneNoteWebUrl"];
+    [self valueChangedFor:@"oneNoteWebUrl"];
 }
        
 

@@ -28,14 +28,17 @@ root for authoritative license information.﻿
     return [super initOperationWithUrl:urlComponent parent:parent];
 }
 
-- (void)acceptWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
+- (void)acceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-    return [self acceptRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
+    return [self acceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -47,11 +50,11 @@ root for authoritative license information.﻿
         
 }
 
-- (void)acceptRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback {
+- (void)acceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback {
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -72,14 +75,17 @@ root for authoritative license information.﻿
     }];
     
     }
-- (void)declineWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
+- (void)declineWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-    return [self declineRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
+    return [self declineRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -91,11 +97,11 @@ root for authoritative license information.﻿
         
 }
 
-- (void)declineRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback {
+- (void)declineRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback {
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -116,14 +122,17 @@ root for authoritative license information.﻿
     }];
     
     }
-- (void)tentativelyAcceptWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
+- (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-    return [self tentativelyAcceptRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
+    return [self tentativelyAcceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -135,17 +144,102 @@ root for authoritative license information.﻿
         
 }
 
-- (void)tentativelyAcceptRawWithComment:(NSString *)comment callback:(void (^)(NSString *, MSOrcError*))callback {
+- (void)tentativelyAcceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback {
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
 	     
 	[request.url appendPathComponent:@"TentativelyAccept"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
+- (void)snoozeReminderWithNewReminderTime:(MSGraphDateTimeTimeZone *)newReminderTime callback:(void (^)(int, MSOrcError*))callback {
+
+
+      NSString *newReminderTimeString = [MSOrcObjectizer deobjectizeToString: newReminderTime ];
+
+    return [self snoozeReminderRawWithNewReminderTime:newReminderTimeString callback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            callback(result, e);
+        } 
+        else {
+
+            callback((int)[returnValue integerValue], e);
+        }
+    }];    
+    
+        
+}
+
+- (void)snoozeReminderRawWithNewReminderTime:(NSString *)newReminderTime callback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  newReminderTime, @"NewReminderTime", nil ] , nil];
+    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
+    [request setContent:payload];
+    
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"SnoozeReminder"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
+- (void)dismissReminderWithCallback:(void (^)(int, MSOrcError*))callback {
+
+
+        return [self dismissReminderRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            callback(result, e);
+        } 
+        else {
+
+            callback((int)[returnValue integerValue], e);
+        }
+    }];    
+    
+        
+}
+
+- (void)dismissReminderRawWithCallback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+        
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"DismissReminder"];
         	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         

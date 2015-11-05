@@ -51,15 +51,15 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesServicePrincipalFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=appRoleAssignedTo) MSDirectoryServicesAppRoleAssignmentCollectionFetcher *appRoleAssignedTo;
 
-- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignedToById:(NSString*)identifier;
+- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignedToById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryServicesAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
-- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString*)identifier;
+- (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSDirectoryServicesOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
 
-- (MSDirectoryServicesOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(NSString*)identifier;
+- (MSDirectoryServicesOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(id)identifier;
 
 
 @end

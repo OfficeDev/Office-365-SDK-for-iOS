@@ -94,9 +94,9 @@ root for authoritative license information.﻿
 	return [[MSGraphGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphGroup class]];
 }
 
-- (MSGraphContactFetcher *)asContact {
+- (MSGraphOrgContactFetcher *)asOrgContact {
 
-	return [[MSGraphContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphContact class]];
+	return [[MSGraphOrgContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphOrgContact class]];
 }
 
 - (MSGraphDeviceFetcher *)asDevice {

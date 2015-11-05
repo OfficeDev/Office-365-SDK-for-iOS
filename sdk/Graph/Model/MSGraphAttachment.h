@@ -17,18 +17,20 @@ root for authoritative license information.﻿
 #define MSGRAPHATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphAttachment
  *
  */
-@interface MSGraphAttachment : MSOrcBaseEntity
+@interface MSGraphAttachment : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
-/** Property _id
+/** Property lastModifiedDateTime
  *
  */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@property (nonatomic,  copy, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate * lastModifiedDateTime;
 
 /** Property name
  *
@@ -49,11 +51,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setIsInline:, getter=isInline) bool isInline;
-
-/** Property dateTimeLastModified
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

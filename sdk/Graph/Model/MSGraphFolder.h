@@ -13,17 +13,19 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSGRAPHFOLDER_H
 #define MSGRAPHFOLDER_H
 
 #import <Foundation/Foundation.h>
 
-#import "MSGraphItem.h"
+#import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphFolder
  *
  */
-@interface MSGraphFolder : MSGraphItem
+@interface MSGraphFolder : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property childCount
  *

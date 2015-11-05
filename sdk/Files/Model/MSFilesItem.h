@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSFILESITEM_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSFilesIdentitySet;
 @class MSFilesItemReference;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesItem
  *
  */
-@interface MSFilesItem : MSOrcBaseEntity
+@interface MSFilesItem : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property createdBy
  *
@@ -60,7 +62,7 @@ root for authoritative license information.﻿
 /** Property size
  *
  */
-@property (nonatomic,  setter=setSize:, getter=size) int size;
+@property (nonatomic,  setter=setSize:, getter=size) long long size;
 
 /** Property dateTimeCreated
  *

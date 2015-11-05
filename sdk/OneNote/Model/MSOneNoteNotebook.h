@@ -17,18 +17,20 @@ root for authoritative license information.﻿
 #define MSONENOTENOTEBOOK_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOneNoteNotebookLinks;
-@class MSOneNoteComplexUser;
+@class MSOneNoteIdentitySet;
 @class MSOneNoteSection;
 @class MSOneNoteSectionGroup;
 #import "MSOneNoteUserRole.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNoteNotebook
  *
  */
-@interface MSOneNoteNotebook : MSOrcBaseEntity
+@interface MSOneNoteNotebook : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property isDefault
  *
@@ -40,7 +42,7 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setUserRole:, getter=userRole) MSOneNoteUserRole userRole;
 
-- (void)setUserRoleString:(NSString *)value;
+- (void)setUserRoleString:(NSString *)string;
 
 /** Property isShared
  *
@@ -75,7 +77,7 @@ root for authoritative license information.﻿
 /** Property createdByUser
  *
  */
-@property (nonatomic,  copy, setter=setCreatedByUser:, getter=createdByUser) MSOneNoteComplexUser * createdByUser;
+@property (nonatomic,  copy, setter=setCreatedByUser:, getter=createdByUser) MSOneNoteIdentitySet * createdByUser;
 
 /** Property lastModifiedBy
  *
@@ -85,7 +87,7 @@ root for authoritative license information.﻿
 /** Property lastModifiedByUser
  *
  */
-@property (nonatomic,  copy, setter=setLastModifiedByUser:, getter=lastModifiedByUser) MSOneNoteComplexUser * lastModifiedByUser;
+@property (nonatomic,  copy, setter=setLastModifiedByUser:, getter=lastModifiedByUser) MSOneNoteIdentitySet * lastModifiedByUser;
 
 /** Property lastModifiedTime
  *

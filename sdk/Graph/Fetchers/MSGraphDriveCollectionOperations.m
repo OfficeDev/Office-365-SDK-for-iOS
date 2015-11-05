@@ -23,5 +23,45 @@ root for authoritative license information.﻿
  */
 @implementation MSGraphDriveCollectionOperations
 
+- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback {
+
+
+        return [self allPhotosRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            callback(result, e);
+        } 
+        else {
+
+            callback(nil, e);
+        }
+    }];    
+    
+        
+}
+
+- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+        
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"allPhotos"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
 
 @end

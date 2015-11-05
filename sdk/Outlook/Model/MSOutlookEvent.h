@@ -17,24 +17,47 @@ root for authoritative license information.﻿
 #define MSOUTLOOKEVENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
+@class MSOutlookResponseStatus;
 @class MSOutlookItemBody;
 @class MSOutlookLocation;
-@class MSOutlookResponseStatus;
-@class MSOutlookAttendee;
 @class MSOutlookPatternedRecurrence;
+@class MSOutlookAttendee;
 @class MSOutlookRecipient;
-@class MSOutlookAttachment;
 @class MSOutlookCalendar;
+@class MSOutlookAttachment;
 #import "MSOutlookImportance.h"
+#import "MSOutlookSensitivity.h"
 #import "MSOutlookFreeBusyStatus.h"
 #import "MSOutlookEventType.h"
 #import "MSOutlookItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookEvent
  *
  */
-@interface MSOutlookEvent : MSOutlookItem
+@interface MSOutlookEvent : MSOutlookItem <MSOrcInteroperableWithDictionary>
+
+/** Property responseStatus
+ *
+ */
+@property (nonatomic,  copy, setter=setResponseStatus:, getter=responseStatus) MSOutlookResponseStatus * responseStatus;
+
+/** Property iCalUId
+ *
+ */
+@property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
+
+/** Property reminder
+ *
+ */
+@property (nonatomic,  setter=setReminder:, getter=reminder) int reminder;
+
+/** Property hasAttachments
+ *
+ */
+@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
 
 /** Property subject
  *
@@ -56,12 +79,14 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setImportance:, getter=importance) MSOutlookImportance importance;
 
-- (void)setImportanceString:(NSString *)value;
+- (void)setImportanceString:(NSString *)string;
 
-/** Property hasAttachments
+/** Property sensitivity
  *
  */
-@property (nonatomic,  setter=setHasAttachments:, getter=hasAttachments) bool hasAttachments;
+@property (nonatomic,  setter=setSensitivity:, getter=sensitivity) MSOutlookSensitivity sensitivity;
+
+- (void)setSensitivityString:(NSString *)string;
 
 /** Property start
  *
@@ -88,27 +113,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
 
-/** Property reminder
- *
- */
-@property (nonatomic,  setter=setReminder:, getter=reminder) int reminder;
-
 /** Property location
  *
  */
 @property (nonatomic,  copy, setter=setLocation:, getter=location) MSOutlookLocation * location;
-
-/** Property showAs
- *
- */
-@property (nonatomic,  setter=setShowAs:, getter=showAs) MSOutlookFreeBusyStatus showAs;
-
-- (void)setShowAsString:(NSString *)value;
-
-/** Property responseStatus
- *
- */
-@property (nonatomic,  copy, setter=setResponseStatus:, getter=responseStatus) MSOutlookResponseStatus * responseStatus;
 
 /** Property isAllDay
  *
@@ -125,52 +133,49 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setIsOrganizer:, getter=isOrganizer) bool isOrganizer;
 
+/** Property recurrence
+ *
+ */
+@property (nonatomic,  copy, setter=setRecurrence:, getter=recurrence) MSOutlookPatternedRecurrence * recurrence;
+
 /** Property responseRequested
  *
  */
 @property (nonatomic,  setter=setResponseRequested:, getter=responseRequested) bool responseRequested;
-
-/** Property type
- *
- */
-@property (nonatomic,  setter=setType:, getter=type) MSOutlookEventType type;
-
-- (void)setTypeString:(NSString *)value;
 
 /** Property seriesMasterId
  *
  */
 @property (nonatomic,  copy, setter=setSeriesMasterId:, getter=seriesMasterId) NSString * seriesMasterId;
 
+/** Property showAs
+ *
+ */
+@property (nonatomic,  setter=setShowAs:, getter=showAs) MSOutlookFreeBusyStatus showAs;
+
+- (void)setShowAsString:(NSString *)string;
+
+/** Property type
+ *
+ */
+@property (nonatomic,  setter=setType:, getter=type) MSOutlookEventType type;
+
+- (void)setTypeString:(NSString *)string;
+
 /** Property attendees
  *
  */
 @property (nonatomic,  copy, setter=setAttendees:, getter=attendees) NSMutableArray * attendees;
-
-/** Property recurrence
- *
- */
-@property (nonatomic,  copy, setter=setRecurrence:, getter=recurrence) MSOutlookPatternedRecurrence * recurrence;
 
 /** Property organizer
  *
  */
 @property (nonatomic,  copy, setter=setOrganizer:, getter=organizer) MSOutlookRecipient * organizer;
 
-/** Property iCalUId
- *
- */
-@property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
-
 /** Property webLink
  *
  */
 @property (nonatomic,  copy, setter=setWebLink:, getter=webLink) NSString * webLink;
-
-/** Property attachments
- *
- */
-@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
 
 /** Property calendar
  *
@@ -181,6 +186,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setInstances:, getter=instances) NSMutableArray * instances;
+
+/** Property attachments
+ *
+ */
+@property (nonatomic,  copy, setter=setAttachments:, getter=attachments) NSMutableArray * attachments;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

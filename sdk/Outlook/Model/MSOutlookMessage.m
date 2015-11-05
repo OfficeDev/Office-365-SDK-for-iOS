@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"HasAttachments", @"hasAttachments", @"ParentFolderId", @"parentFolderId", @"From", @"from", @"Sender", @"sender", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsDraft", @"isDraft", @"IsRead", @"isRead", @"WebLink", @"webLink", @"Attachments", @"attachments", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -56,140 +56,113 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property subject
- *
- */
-- (void) setSubject: (NSString *) value {
-    _subject = value;
-    [self valueChanged:_subject forProperty:@"Subject"];
-}
-       
-/** Setter implementation for property body
- *
- */
-- (void) setBody: (MSOutlookItemBody *) value {
-    _body = value;
-    [self valueChanged:_body forProperty:@"Body"];
-}
-       
-/** Setter implementation for property bodyPreview
- *
- */
-- (void) setBodyPreview: (NSString *) value {
-    _bodyPreview = value;
-    [self valueChanged:_bodyPreview forProperty:@"BodyPreview"];
-}
-       
-/** Setter implementation for property importance
- *
- */
-- (void) setImportance: (MSOutlookImportance) value {
-    _importance = value;
-    [self valueChangedForInt:_importance forProperty:@"Importance"];
-}
-       
 
-- (void)setImportanceString:(NSString *)value {
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
     
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookImportanceLow], @"Low", [NSNumber numberWithInt:MSOutlookImportanceNormal], @"Normal", [NSNumber numberWithInt:MSOutlookImportanceHigh], @"High",
-            nil        
-        ];
+		_dateTimeReceived = [dic objectForKey: @"DateTimeReceived"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeReceived"]] : _dateTimeReceived;
+		_dateTimeSent = [dic objectForKey: @"DateTimeSent"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeSent"]] : _dateTimeSent;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
+		_body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
+		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
+		_importance = [dic objectForKey: @"Importance"] != nil ? [MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
+		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
+		_sender = [dic objectForKey: @"Sender"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : _sender;
+		_from = [dic objectForKey: @"From"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : _from;
+
+        if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
+            _toRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ToRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"ToRecipients"]) {
+                [_toRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CcRecipients"] != [NSNull null]){
+            _ccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CcRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"CcRecipients"]) {
+                [_ccRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"BccRecipients"] != [NSNull null]){
+            _bccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"BccRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"BccRecipients"]) {
+                [_bccRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ReplyTo"] != [NSNull null]){
+            _replyTo = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ReplyTo"] count]];
+            
+            for (id object in [dic objectForKey: @"ReplyTo"]) {
+                [_replyTo addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : _conversationId;
+		_uniqueBody = [dic objectForKey: @"UniqueBody"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]] : _uniqueBody;
+		_isDeliveryReceiptRequested = [dic objectForKey: @"IsDeliveryReceiptRequested"] != nil ? [[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue] : _isDeliveryReceiptRequested;
+		_isReadReceiptRequested = [dic objectForKey: @"IsReadReceiptRequested"] != nil ? [[dic objectForKey: @"IsReadReceiptRequested"] boolValue] : _isReadReceiptRequested;
+		_isRead = [dic objectForKey: @"IsRead"] != nil ? [[dic objectForKey: @"IsRead"] boolValue] : _isRead;
+		_isDraft = [dic objectForKey: @"IsDraft"] != nil ? [[dic objectForKey: @"IsDraft"] boolValue] : _isDraft;
+		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
+
+        if([dic objectForKey: @"Attachments"] != [NSNull null]){
+            _attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            
+            for (id object in [dic objectForKey: @"Attachments"]) {
+                [_attachments addObject:[[MSOutlookAttachment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
     }
     
-    self.importance = [stringMappings[value] intValue]; 
+    return self;
 }
 
-/** Setter implementation for property hasAttachments
- *
- */
-- (void) setHasAttachments: (bool) value {
-    _hasAttachments = value;
-    [self valueChangedForBool:_hasAttachments forProperty:@"HasAttachments"];
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_dateTimeReceived], @"DateTimeReceived",
+		 [MSOrcObjectizer stringFromDate:_dateTimeSent], @"DateTimeSent",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [_subject copy], @"Subject",
+		 [_body toDictionary], @"Body",
+		 [_bodyPreview copy], @"BodyPreview",
+		 [MSOutlookImportanceSerializer toString:_importance], @"Importance",
+		 [_parentFolderId copy], @"ParentFolderId",
+		 [_sender toDictionary], @"Sender",
+		 [_from toDictionary], @"From",
+		 [[NSMutableArray alloc] init], @"ToRecipients",
+		 [[NSMutableArray alloc] init], @"CcRecipients",
+		 [[NSMutableArray alloc] init], @"BccRecipients",
+		 [[NSMutableArray alloc] init], @"ReplyTo",
+		 [_conversationId copy], @"ConversationId",
+		 [_uniqueBody toDictionary], @"UniqueBody",
+		 (_isDeliveryReceiptRequested?@"true":@"false"), @"IsDeliveryReceiptRequested",
+		 (_isReadReceiptRequested?@"true":@"false"), @"IsReadReceiptRequested",
+		 (_isRead?@"true":@"false"), @"IsRead",
+		 (_isDraft?@"true":@"false"), @"IsDraft",
+		 [_webLink copy], @"WebLink",
+		 [[NSMutableArray alloc] init], @"Attachments",
+            nil];
 }
-       
-/** Setter implementation for property parentFolderId
- *
- */
-- (void) setParentFolderId: (NSString *) value {
-    _parentFolderId = value;
-    [self valueChanged:_parentFolderId forProperty:@"ParentFolderId"];
-}
-       
-/** Setter implementation for property from
- *
- */
-- (void) setFrom: (MSOutlookRecipient *) value {
-    _from = value;
-    [self valueChanged:_from forProperty:@"From"];
-}
-       
-/** Setter implementation for property sender
- *
- */
-- (void) setSender: (MSOutlookRecipient *) value {
-    _sender = value;
-    [self valueChanged:_sender forProperty:@"Sender"];
-}
-       
-/** Setter implementation for property toRecipients
- *
- */
-- (void) setToRecipients: (NSMutableArray *) value {
-    _toRecipients = value;
-    [self valueChanged:_toRecipients forProperty:@"ToRecipients"];
-}
-       
-/** Setter implementation for property ccRecipients
- *
- */
-- (void) setCcRecipients: (NSMutableArray *) value {
-    _ccRecipients = value;
-    [self valueChanged:_ccRecipients forProperty:@"CcRecipients"];
-}
-       
-/** Setter implementation for property bccRecipients
- *
- */
-- (void) setBccRecipients: (NSMutableArray *) value {
-    _bccRecipients = value;
-    [self valueChanged:_bccRecipients forProperty:@"BccRecipients"];
-}
-       
-/** Setter implementation for property replyTo
- *
- */
-- (void) setReplyTo: (NSMutableArray *) value {
-    _replyTo = value;
-    [self valueChanged:_replyTo forProperty:@"ReplyTo"];
-}
-       
-/** Setter implementation for property conversationId
- *
- */
-- (void) setConversationId: (NSString *) value {
-    _conversationId = value;
-    [self valueChanged:_conversationId forProperty:@"ConversationId"];
-}
-       
-/** Setter implementation for property uniqueBody
- *
- */
-- (void) setUniqueBody: (MSOutlookItemBody *) value {
-    _uniqueBody = value;
-    [self valueChanged:_uniqueBody forProperty:@"UniqueBody"];
-}
-       
+
+
 /** Setter implementation for property dateTimeReceived
  *
  */
 - (void) setDateTimeReceived: (NSDate *) value {
     _dateTimeReceived = value;
-    [self valueChanged:_dateTimeReceived forProperty:@"DateTimeReceived"];
+    [self valueChangedFor:@"DateTimeReceived"];
 }
        
 /** Setter implementation for property dateTimeSent
@@ -197,7 +170,126 @@ root for authoritative license information.﻿
  */
 - (void) setDateTimeSent: (NSDate *) value {
     _dateTimeSent = value;
-    [self valueChanged:_dateTimeSent forProperty:@"DateTimeSent"];
+    [self valueChangedFor:@"DateTimeSent"];
+}
+       
+/** Setter implementation for property hasAttachments
+ *
+ */
+- (void) setHasAttachments: (bool) value {
+    _hasAttachments = value;
+    [self valueChangedFor:@"HasAttachments"];
+}
+       
+/** Setter implementation for property subject
+ *
+ */
+- (void) setSubject: (NSString *) value {
+    _subject = value;
+    [self valueChangedFor:@"Subject"];
+}
+       
+/** Setter implementation for property body
+ *
+ */
+- (void) setBody: (MSOutlookItemBody *) value {
+    _body = value;
+    [self valueChangedFor:@"Body"];
+}
+       
+/** Setter implementation for property bodyPreview
+ *
+ */
+- (void) setBodyPreview: (NSString *) value {
+    _bodyPreview = value;
+    [self valueChangedFor:@"BodyPreview"];
+}
+       
+/** Setter implementation for property importance
+ *
+ */
+- (void) setImportance: (MSOutlookImportance) value {
+    _importance = value;
+    [self valueChangedFor:@"Importance"];
+}
+       
+
+- (void)setImportanceString:(NSString *)string {
+        
+    _importance = [MSOutlookImportanceSerializer fromString:string];
+    [self valueChangedFor:@"Importance"]; 
+}
+
+/** Setter implementation for property parentFolderId
+ *
+ */
+- (void) setParentFolderId: (NSString *) value {
+    _parentFolderId = value;
+    [self valueChangedFor:@"ParentFolderId"];
+}
+       
+/** Setter implementation for property sender
+ *
+ */
+- (void) setSender: (MSOutlookRecipient *) value {
+    _sender = value;
+    [self valueChangedFor:@"Sender"];
+}
+       
+/** Setter implementation for property from
+ *
+ */
+- (void) setFrom: (MSOutlookRecipient *) value {
+    _from = value;
+    [self valueChangedFor:@"From"];
+}
+       
+/** Setter implementation for property toRecipients
+ *
+ */
+- (void) setToRecipients: (NSMutableArray *) value {
+    _toRecipients = value;
+    [self valueChangedFor:@"ToRecipients"];
+}
+       
+/** Setter implementation for property ccRecipients
+ *
+ */
+- (void) setCcRecipients: (NSMutableArray *) value {
+    _ccRecipients = value;
+    [self valueChangedFor:@"CcRecipients"];
+}
+       
+/** Setter implementation for property bccRecipients
+ *
+ */
+- (void) setBccRecipients: (NSMutableArray *) value {
+    _bccRecipients = value;
+    [self valueChangedFor:@"BccRecipients"];
+}
+       
+/** Setter implementation for property replyTo
+ *
+ */
+- (void) setReplyTo: (NSMutableArray *) value {
+    _replyTo = value;
+    [self valueChangedFor:@"ReplyTo"];
+}
+       
+/** Setter implementation for property conversationId
+ *
+ */
+- (void) setConversationId: (NSString *) value {
+    _conversationId = value;
+    [self valueChangedFor:@"ConversationId"];
+}
+       
+/** Setter implementation for property uniqueBody
+ *
+ */
+- (void) setUniqueBody: (MSOutlookItemBody *) value {
+    _uniqueBody = value;
+    [self valueChangedFor:@"UniqueBody"];
 }
        
 /** Setter implementation for property isDeliveryReceiptRequested
@@ -205,7 +297,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsDeliveryReceiptRequested: (bool) value {
     _isDeliveryReceiptRequested = value;
-    [self valueChangedForBool:_isDeliveryReceiptRequested forProperty:@"IsDeliveryReceiptRequested"];
+    [self valueChangedFor:@"IsDeliveryReceiptRequested"];
 }
        
 /** Setter implementation for property isReadReceiptRequested
@@ -213,15 +305,7 @@ root for authoritative license information.﻿
  */
 - (void) setIsReadReceiptRequested: (bool) value {
     _isReadReceiptRequested = value;
-    [self valueChangedForBool:_isReadReceiptRequested forProperty:@"IsReadReceiptRequested"];
-}
-       
-/** Setter implementation for property isDraft
- *
- */
-- (void) setIsDraft: (bool) value {
-    _isDraft = value;
-    [self valueChangedForBool:_isDraft forProperty:@"IsDraft"];
+    [self valueChangedFor:@"IsReadReceiptRequested"];
 }
        
 /** Setter implementation for property isRead
@@ -229,7 +313,15 @@ root for authoritative license information.﻿
  */
 - (void) setIsRead: (bool) value {
     _isRead = value;
-    [self valueChangedForBool:_isRead forProperty:@"IsRead"];
+    [self valueChangedFor:@"IsRead"];
+}
+       
+/** Setter implementation for property isDraft
+ *
+ */
+- (void) setIsDraft: (bool) value {
+    _isDraft = value;
+    [self valueChangedFor:@"IsDraft"];
 }
        
 /** Setter implementation for property webLink
@@ -237,7 +329,7 @@ root for authoritative license information.﻿
  */
 - (void) setWebLink: (NSString *) value {
     _webLink = value;
-    [self valueChanged:_webLink forProperty:@"WebLink"];
+    [self valueChangedFor:@"WebLink"];
 }
        
 /** Setter implementation for property attachments
@@ -245,7 +337,7 @@ root for authoritative license information.﻿
  */
 - (void) setAttachments: (NSMutableArray *) value {
     _attachments = value;
-    [self valueChanged:_attachments forProperty:@"Attachments"];
+    [self valueChangedFor:@"Attachments"];
 }
        
 

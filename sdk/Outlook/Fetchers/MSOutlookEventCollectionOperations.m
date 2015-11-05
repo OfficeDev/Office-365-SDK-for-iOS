@@ -26,12 +26,14 @@ root for authoritative license information.﻿
 - (void)acceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-NSString *sendResponseString = [self.resolver.jsonSerializer serialize:(sendResponse?@"true":@"false") property:@"SendResponse"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
     return [self acceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -71,12 +73,14 @@ NSString *sendResponseString = [self.resolver.jsonSerializer serialize:(sendResp
 - (void)declineWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-NSString *sendResponseString = [self.resolver.jsonSerializer serialize:(sendResponse?@"true":@"false") property:@"SendResponse"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
     return [self declineRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {
@@ -116,12 +120,14 @@ NSString *sendResponseString = [self.resolver.jsonSerializer serialize:(sendResp
 - (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-    NSString *commentString = [self.resolver.jsonSerializer serialize:comment property:@"Comment"];
-NSString *sendResponseString = [self.resolver.jsonSerializer serialize:(sendResponse?@"true":@"false") property:@"SendResponse"];
+      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+
+  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+
     return [self tentativelyAcceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:nil];
+            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
             callback(result, e);
         } 
         else {

@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESDEVICE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSDirectoryServicesAlternativeSecurityId;
 @class MSDirectoryServicesDirectoryObject;
 #import "MSDirectoryServicesDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSDirectoryServicesDevice
  *
  */
-@interface MSDirectoryServicesDevice : MSDirectoryServicesDirectoryObject
+@interface MSDirectoryServicesDevice : MSDirectoryServicesDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property accountEnabled
  *

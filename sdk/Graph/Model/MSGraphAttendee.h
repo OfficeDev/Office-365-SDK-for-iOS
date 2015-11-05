@@ -19,20 +19,16 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-@class MSGraphEmailAddress;
 @class MSGraphResponseStatus;
+@class MSGraphEmailAddress;
 #import "MSGraphAttendeeType.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphAttendee
  *
  */
-@interface MSGraphAttendee : MSOrcBaseEntity
-
-/** Property emailAddress
- *
- */
-@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) MSGraphEmailAddress * emailAddress;
+@interface MSGraphAttendee : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property status
  *
@@ -44,7 +40,12 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setType:, getter=type) MSGraphAttendeeType type;
 
-- (void)setTypeString:(NSString *)value;
+- (void)setTypeString:(NSString *)string;
+
+/** Property emailAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) MSGraphEmailAddress * emailAddress;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

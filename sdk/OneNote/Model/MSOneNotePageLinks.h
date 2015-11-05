@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSOneNoteExternalLink;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNotePageLinks
  *
  */
-@interface MSOneNotePageLinks : MSOrcBaseEntity
+@interface MSOneNotePageLinks : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property oneNoteEmbedUrl
  *

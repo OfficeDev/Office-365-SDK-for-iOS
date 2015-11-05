@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphDayOfWeek
+/** Enum MSGraphDayOfWeekEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphDayOfWeek) {
@@ -45,5 +45,11 @@ typedef NS_ENUM(NSInteger, MSGraphDayOfWeek) {
      * */
     MSGraphDayOfWeekSaturday
 };
+
+
+@interface MSGraphDayOfWeekSerializer : NSObject
++(MSGraphDayOfWeek) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphDayOfWeek) value;
+@end
 
 #endif

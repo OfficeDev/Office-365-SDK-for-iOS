@@ -29,7 +29,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphItem *Item, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphItem *item, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,7 +63,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphItem *Item, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphItem *item, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
@@ -79,6 +79,28 @@ root for authoritative license information.﻿
 	 return [[MSGraphUserFetcher alloc] initWithUrl:@"lastModifiedByUser" parent:self asClass:[MSGraphUser class]];
 }
 
+- (MSGraphPermissionCollectionFetcher *)permissions {
+
+    return [[MSGraphPermissionCollectionFetcher alloc] initWithUrl:@"permissions" parent:self asClass:[MSGraphPermission class]];
+}
+
+- (MSGraphPermissionFetcher *)permissionsById:(NSString *)identifier {
+
+    return [[[MSGraphPermissionCollectionFetcher alloc] initWithUrl:@"permissions" parent:self asClass:[MSGraphPermission class]] getById:identifier];
+
+}
+
+- (MSGraphItemCollectionFetcher *)versions {
+
+    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"versions" parent:self asClass:[MSGraphItem class]];
+}
+
+- (MSGraphItemFetcher *)versionsById:(NSString *)identifier {
+
+    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"versions" parent:self asClass:[MSGraphItem class]] getById:identifier];
+
+}
+
 - (MSGraphItemCollectionFetcher *)children {
 
     return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"children" parent:self asClass:[MSGraphItem class]];
@@ -90,14 +112,15 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphFileFetcher *)asFile {
+- (MSGraphThumbnailSetCollectionFetcher *)thumbnails {
 
-	return [[MSGraphFileFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphFile class]];
+    return [[MSGraphThumbnailSetCollectionFetcher alloc] initWithUrl:@"thumbnails" parent:self asClass:[MSGraphThumbnailSet class]];
 }
 
-- (MSGraphFolderFetcher *)asFolder {
+- (MSGraphThumbnailSetFetcher *)thumbnailsById:(NSString *)identifier {
 
-	return [[MSGraphFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphFolder class]];
+    return [[[MSGraphThumbnailSetCollectionFetcher alloc] initWithUrl:@"thumbnails" parent:self asClass:[MSGraphThumbnailSet class]] getById:identifier];
+
 }
 
 @end

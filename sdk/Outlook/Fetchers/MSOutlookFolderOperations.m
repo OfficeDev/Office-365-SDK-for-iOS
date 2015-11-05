@@ -31,11 +31,12 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookFolder *, MSOrcError*))callback {
 
 
-    NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
+      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookFolder * result = (MSOutlookFolder *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookFolder class]];
+            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookFolder class]];
             callback(result, e);
         } 
         else {
@@ -75,11 +76,12 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookFolder *, MSOrcError*))callback {
 
 
-    NSString *destinationIdString = [self.resolver.jsonSerializer serialize:destinationId property:@"DestinationId"];
+      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookFolder * result = (MSOutlookFolder *)[super.resolver.jsonSerializer deserialize:[returnValue dataUsingEncoding:NSUTF8StringEncoding] asClass:[MSOutlookFolder class]];
+            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookFolder class]];
             callback(result, e);
         } 
         else {

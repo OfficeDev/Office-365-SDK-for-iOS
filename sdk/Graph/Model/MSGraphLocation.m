@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphLocation
@@ -30,18 +31,19 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Address", @"address", @"Coordinates", @"coordinates", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"altitude", @"altitude", @"latitude", @"latitude", @"longitude", @"longitude", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Location";
+		_odataType = @"#Microsoft.Graph.location";
 
         
     }
@@ -49,28 +51,50 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property displayName
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_altitude = [dic objectForKey: @"altitude"] != nil ? [[dic objectForKey: @"altitude"] doubleValue] : _altitude;
+		_latitude = [dic objectForKey: @"latitude"] != nil ? [[dic objectForKey: @"latitude"] doubleValue] : _latitude;
+		_longitude = [dic objectForKey: @"longitude"] != nil ? [[dic objectForKey: @"longitude"] doubleValue] : _longitude;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithDouble: _altitude], @"altitude",
+		 [NSNumber numberWithDouble: _latitude], @"latitude",
+		 [NSNumber numberWithDouble: _longitude], @"longitude",
+            nil];
+}
+
+
+/** Setter implementation for property altitude
  *
  */
-- (void) setDisplayName: (NSString *) value {
-    _displayName = value;
-    [self valueChanged:_displayName forProperty:@"DisplayName"];
+- (void) setAltitude: (double) value {
+    _altitude = value;
+    [self valueChangedFor:@"altitude"];
 }
        
-/** Setter implementation for property address
+/** Setter implementation for property latitude
  *
  */
-- (void) setAddress: (MSGraphPhysicalAddress *) value {
-    _address = value;
-    [self valueChanged:_address forProperty:@"Address"];
+- (void) setLatitude: (double) value {
+    _latitude = value;
+    [self valueChangedFor:@"latitude"];
 }
        
-/** Setter implementation for property coordinates
+/** Setter implementation for property longitude
  *
  */
-- (void) setCoordinates: (MSGraphGeoCoordinates *) value {
-    _coordinates = value;
-    [self valueChanged:_coordinates forProperty:@"Coordinates"];
+- (void) setLongitude: (double) value {
+    _longitude = value;
+    [self valueChangedFor:@"longitude"];
 }
        
 

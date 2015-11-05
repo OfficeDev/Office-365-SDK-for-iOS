@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesPasswordProfile
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_password = [dic objectForKey: @"password"] != nil ? [[dic objectForKey: @"password"] copy] : _password;
+		_forceChangePasswordNextLogin = [dic objectForKey: @"forceChangePasswordNextLogin"] != nil ? [[dic objectForKey: @"forceChangePasswordNextLogin"] boolValue] : _forceChangePasswordNextLogin;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_password copy], @"password",
+		 (_forceChangePasswordNextLogin?@"true":@"false"), @"forceChangePasswordNextLogin",
+            nil];
+}
+
+
 /** Setter implementation for property password
  *
  */
 - (void) setPassword: (NSString *) value {
     _password = value;
-    [self valueChanged:_password forProperty:@"password"];
+    [self valueChangedFor:@"password"];
 }
        
 /** Setter implementation for property forceChangePasswordNextLogin
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setForceChangePasswordNextLogin: (bool) value {
     _forceChangePasswordNextLogin = value;
-    [self valueChangedForBool:_forceChangePasswordNextLogin forProperty:@"forceChangePasswordNextLogin"];
+    [self valueChangedFor:@"forceChangePasswordNextLogin"];
 }
        
 

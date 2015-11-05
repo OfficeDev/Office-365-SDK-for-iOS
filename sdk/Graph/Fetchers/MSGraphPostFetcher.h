@@ -24,8 +24,11 @@ root for authoritative license information.﻿
 @class MSGraphItemBodyFetcher;
 @class MSGraphRecipientFetcher;
 @class MSGraphRecipientCollectionFetcher;
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
+@class MSGraphExtensionFetcher;
 @class MSGraphAttachmentFetcher;
 @class MSGraphPostOperations;
 
@@ -45,12 +48,16 @@ root for authoritative license information.﻿
 - (MSGraphPostFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphPostFetcher *)select:(NSString *)params;
 - (MSGraphPostFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
+@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
 
-- (MSGraphAttachmentFetcher *)attachmentsById:(NSString*)identifier;
+- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=inReplyTo) MSGraphPostFetcher *inReplyTo;
+@property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
+
+- (MSGraphAttachmentFetcher *)attachmentsById:(id)identifier;
+
 
 @end
 

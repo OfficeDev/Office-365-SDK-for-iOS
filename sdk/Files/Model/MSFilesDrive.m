@@ -52,12 +52,45 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_owner = [dic objectForKey: @"owner"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
+		_quota = [dic objectForKey: @"quota"] != nil ? [[MSFilesDriveQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]] : _quota;
+
+        if([dic objectForKey: @"files"] != [NSNull null]){
+            _files = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"files"] count]];
+            
+            for (id object in [dic objectForKey: @"files"]) {
+                [_files addObject:[[MSFilesItem alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__id copy], @"id",
+		 [_owner toDictionary], @"owner",
+		 [_quota toDictionary], @"quota",
+		 [[NSMutableArray alloc] init], @"files",
+            nil];
+}
+
+
 /** Setter implementation for property _id
  *
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property owner
@@ -65,7 +98,7 @@ root for authoritative license information.﻿
  */
 - (void) setOwner: (MSFilesIdentity *) value {
     _owner = value;
-    [self valueChanged:_owner forProperty:@"owner"];
+    [self valueChangedFor:@"owner"];
 }
        
 /** Setter implementation for property quota
@@ -73,7 +106,7 @@ root for authoritative license information.﻿
  */
 - (void) setQuota: (MSFilesDriveQuota *) value {
     _quota = value;
-    [self valueChanged:_quota forProperty:@"quota"];
+    [self valueChangedFor:@"quota"];
 }
        
 /** Setter implementation for property files
@@ -81,7 +114,7 @@ root for authoritative license information.﻿
  */
 - (void) setFiles: (NSMutableArray *) value {
     _files = value;
-    [self valueChanged:_files forProperty:@"files"];
+    [self valueChangedFor:@"files"];
 }
        
 

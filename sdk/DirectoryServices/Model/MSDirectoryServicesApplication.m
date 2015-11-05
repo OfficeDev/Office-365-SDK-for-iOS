@@ -60,12 +60,145 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_appId = [dic objectForKey: @"appId"] != nil ? [[dic objectForKey: @"appId"] copy] : _appId;
+
+        if([dic objectForKey: @"appRoles"] != [NSNull null]){
+            _appRoles = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"appRoles"] count]];
+            
+            for (id object in [dic objectForKey: @"appRoles"]) {
+                [_appRoles addObject:[[MSDirectoryServicesAppRole alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_availableToOtherTenants = [dic objectForKey: @"availableToOtherTenants"] != nil ? [[dic objectForKey: @"availableToOtherTenants"] boolValue] : _availableToOtherTenants;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_errorUrl = [dic objectForKey: @"errorUrl"] != nil ? [[dic objectForKey: @"errorUrl"] copy] : _errorUrl;
+		_groupMembershipClaims = [dic objectForKey: @"groupMembershipClaims"] != nil ? [[dic objectForKey: @"groupMembershipClaims"] copy] : _groupMembershipClaims;
+		_homepage = [dic objectForKey: @"homepage"] != nil ? [[dic objectForKey: @"homepage"] copy] : _homepage;
+
+        if([dic objectForKey: @"identifierUris"] != [NSNull null]){
+            _identifierUris = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"identifierUris"] count]];
+            
+            for (id object in [dic objectForKey: @"identifierUris"]) {
+                [_identifierUris addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"keyCredentials"] != [NSNull null]){
+            _keyCredentials = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"keyCredentials"] count]];
+            
+            for (id object in [dic objectForKey: @"keyCredentials"]) {
+                [_keyCredentials addObject:[[MSDirectoryServicesKeyCredential alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"knownClientApplications"] != [NSNull null]){
+            _knownClientApplications = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"knownClientApplications"] count]];
+            
+            for (id object in [dic objectForKey: @"knownClientApplications"]) {
+                [_knownClientApplications addObject:[object copy]];
+            }
+        }
+        
+		_mainLogo = [dic objectForKey: @"mainLogo"] != nil ? nil/*NSStream*/ : _mainLogo;
+		_logoutUrl = [dic objectForKey: @"logoutUrl"] != nil ? [[dic objectForKey: @"logoutUrl"] copy] : _logoutUrl;
+		_oauth2AllowImplicitFlow = [dic objectForKey: @"oauth2AllowImplicitFlow"] != nil ? [[dic objectForKey: @"oauth2AllowImplicitFlow"] boolValue] : _oauth2AllowImplicitFlow;
+		_oauth2AllowUrlPathMatching = [dic objectForKey: @"oauth2AllowUrlPathMatching"] != nil ? [[dic objectForKey: @"oauth2AllowUrlPathMatching"] boolValue] : _oauth2AllowUrlPathMatching;
+
+        if([dic objectForKey: @"oauth2Permissions"] != [NSNull null]){
+            _oauth2Permissions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"oauth2Permissions"] count]];
+            
+            for (id object in [dic objectForKey: @"oauth2Permissions"]) {
+                [_oauth2Permissions addObject:[[MSDirectoryServicesOAuth2Permission alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_oauth2RequirePostResponse = [dic objectForKey: @"oauth2RequirePostResponse"] != nil ? [[dic objectForKey: @"oauth2RequirePostResponse"] boolValue] : _oauth2RequirePostResponse;
+
+        if([dic objectForKey: @"passwordCredentials"] != [NSNull null]){
+            _passwordCredentials = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"passwordCredentials"] count]];
+            
+            for (id object in [dic objectForKey: @"passwordCredentials"]) {
+                [_passwordCredentials addObject:[[MSDirectoryServicesPasswordCredential alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_publicClient = [dic objectForKey: @"publicClient"] != nil ? [[dic objectForKey: @"publicClient"] boolValue] : _publicClient;
+
+        if([dic objectForKey: @"replyUrls"] != [NSNull null]){
+            _replyUrls = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"replyUrls"] count]];
+            
+            for (id object in [dic objectForKey: @"replyUrls"]) {
+                [_replyUrls addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"requiredResourceAccess"] != [NSNull null]){
+            _requiredResourceAccess = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"requiredResourceAccess"] count]];
+            
+            for (id object in [dic objectForKey: @"requiredResourceAccess"]) {
+                [_requiredResourceAccess addObject:[[MSDirectoryServicesRequiredResourceAccess alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_samlMetadataUrl = [dic objectForKey: @"samlMetadataUrl"] != nil ? [[dic objectForKey: @"samlMetadataUrl"] copy] : _samlMetadataUrl;
+
+        if([dic objectForKey: @"extensionProperties"] != [NSNull null]){
+            _extensionProperties = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"extensionProperties"] count]];
+            
+            for (id object in [dic objectForKey: @"extensionProperties"]) {
+                [_extensionProperties addObject:[[MSDirectoryServicesExtensionProperty alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_appId copy], @"appId",
+		 [[NSMutableArray alloc] init], @"appRoles",
+		 (_availableToOtherTenants?@"true":@"false"), @"availableToOtherTenants",
+		 [_displayName copy], @"displayName",
+		 [_errorUrl copy], @"errorUrl",
+		 [_groupMembershipClaims copy], @"groupMembershipClaims",
+		 [_homepage copy], @"homepage",
+		 [[NSMutableArray alloc] init], @"identifierUris",
+		 [[NSMutableArray alloc] init], @"keyCredentials",
+		 [[NSMutableArray alloc] init], @"knownClientApplications",
+		 nil/*NSStream*/, @"mainLogo",
+		 [_logoutUrl copy], @"logoutUrl",
+		 (_oauth2AllowImplicitFlow?@"true":@"false"), @"oauth2AllowImplicitFlow",
+		 (_oauth2AllowUrlPathMatching?@"true":@"false"), @"oauth2AllowUrlPathMatching",
+		 [[NSMutableArray alloc] init], @"oauth2Permissions",
+		 (_oauth2RequirePostResponse?@"true":@"false"), @"oauth2RequirePostResponse",
+		 [[NSMutableArray alloc] init], @"passwordCredentials",
+		 (_publicClient?@"true":@"false"), @"publicClient",
+		 [[NSMutableArray alloc] init], @"replyUrls",
+		 [[NSMutableArray alloc] init], @"requiredResourceAccess",
+		 [_samlMetadataUrl copy], @"samlMetadataUrl",
+		 [[NSMutableArray alloc] init], @"extensionProperties",
+            nil];
+}
+
+
 /** Setter implementation for property appId
  *
  */
 - (void) setAppId: (NSString *) value {
     _appId = value;
-    [self valueChanged:_appId forProperty:@"appId"];
+    [self valueChangedFor:@"appId"];
 }
        
 /** Setter implementation for property appRoles
@@ -73,7 +206,7 @@ root for authoritative license information.﻿
  */
 - (void) setAppRoles: (NSMutableArray *) value {
     _appRoles = value;
-    [self valueChanged:_appRoles forProperty:@"appRoles"];
+    [self valueChangedFor:@"appRoles"];
 }
        
 /** Setter implementation for property availableToOtherTenants
@@ -81,7 +214,7 @@ root for authoritative license information.﻿
  */
 - (void) setAvailableToOtherTenants: (bool) value {
     _availableToOtherTenants = value;
-    [self valueChangedForBool:_availableToOtherTenants forProperty:@"availableToOtherTenants"];
+    [self valueChangedFor:@"availableToOtherTenants"];
 }
        
 /** Setter implementation for property displayName
@@ -89,7 +222,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property errorUrl
@@ -97,7 +230,7 @@ root for authoritative license information.﻿
  */
 - (void) setErrorUrl: (NSString *) value {
     _errorUrl = value;
-    [self valueChanged:_errorUrl forProperty:@"errorUrl"];
+    [self valueChangedFor:@"errorUrl"];
 }
        
 /** Setter implementation for property groupMembershipClaims
@@ -105,7 +238,7 @@ root for authoritative license information.﻿
  */
 - (void) setGroupMembershipClaims: (NSString *) value {
     _groupMembershipClaims = value;
-    [self valueChanged:_groupMembershipClaims forProperty:@"groupMembershipClaims"];
+    [self valueChangedFor:@"groupMembershipClaims"];
 }
        
 /** Setter implementation for property homepage
@@ -113,7 +246,7 @@ root for authoritative license information.﻿
  */
 - (void) setHomepage: (NSString *) value {
     _homepage = value;
-    [self valueChanged:_homepage forProperty:@"homepage"];
+    [self valueChangedFor:@"homepage"];
 }
        
 /** Setter implementation for property identifierUris
@@ -121,7 +254,7 @@ root for authoritative license information.﻿
  */
 - (void) setIdentifierUris: (NSMutableArray *) value {
     _identifierUris = value;
-    [self valueChanged:_identifierUris forProperty:@"identifierUris"];
+    [self valueChangedFor:@"identifierUris"];
 }
        
 /** Setter implementation for property keyCredentials
@@ -129,7 +262,7 @@ root for authoritative license information.﻿
  */
 - (void) setKeyCredentials: (NSMutableArray *) value {
     _keyCredentials = value;
-    [self valueChanged:_keyCredentials forProperty:@"keyCredentials"];
+    [self valueChangedFor:@"keyCredentials"];
 }
        
 /** Setter implementation for property knownClientApplications
@@ -137,7 +270,7 @@ root for authoritative license information.﻿
  */
 - (void) setKnownClientApplications: (NSMutableArray *) value {
     _knownClientApplications = value;
-    [self valueChanged:_knownClientApplications forProperty:@"knownClientApplications"];
+    [self valueChangedFor:@"knownClientApplications"];
 }
        
 /** Setter implementation for property mainLogo
@@ -145,7 +278,7 @@ root for authoritative license information.﻿
  */
 - (void) setMainLogo: (NSStream *) value {
     _mainLogo = value;
-    [self valueChanged:_mainLogo forProperty:@"mainLogo"];
+    [self valueChangedFor:@"mainLogo"];
 }
        
 /** Setter implementation for property logoutUrl
@@ -153,7 +286,7 @@ root for authoritative license information.﻿
  */
 - (void) setLogoutUrl: (NSString *) value {
     _logoutUrl = value;
-    [self valueChanged:_logoutUrl forProperty:@"logoutUrl"];
+    [self valueChangedFor:@"logoutUrl"];
 }
        
 /** Setter implementation for property oauth2AllowImplicitFlow
@@ -161,7 +294,7 @@ root for authoritative license information.﻿
  */
 - (void) setOauth2AllowImplicitFlow: (bool) value {
     _oauth2AllowImplicitFlow = value;
-    [self valueChangedForBool:_oauth2AllowImplicitFlow forProperty:@"oauth2AllowImplicitFlow"];
+    [self valueChangedFor:@"oauth2AllowImplicitFlow"];
 }
        
 /** Setter implementation for property oauth2AllowUrlPathMatching
@@ -169,7 +302,7 @@ root for authoritative license information.﻿
  */
 - (void) setOauth2AllowUrlPathMatching: (bool) value {
     _oauth2AllowUrlPathMatching = value;
-    [self valueChangedForBool:_oauth2AllowUrlPathMatching forProperty:@"oauth2AllowUrlPathMatching"];
+    [self valueChangedFor:@"oauth2AllowUrlPathMatching"];
 }
        
 /** Setter implementation for property oauth2Permissions
@@ -177,7 +310,7 @@ root for authoritative license information.﻿
  */
 - (void) setOauth2Permissions: (NSMutableArray *) value {
     _oauth2Permissions = value;
-    [self valueChanged:_oauth2Permissions forProperty:@"oauth2Permissions"];
+    [self valueChangedFor:@"oauth2Permissions"];
 }
        
 /** Setter implementation for property oauth2RequirePostResponse
@@ -185,7 +318,7 @@ root for authoritative license information.﻿
  */
 - (void) setOauth2RequirePostResponse: (bool) value {
     _oauth2RequirePostResponse = value;
-    [self valueChangedForBool:_oauth2RequirePostResponse forProperty:@"oauth2RequirePostResponse"];
+    [self valueChangedFor:@"oauth2RequirePostResponse"];
 }
        
 /** Setter implementation for property passwordCredentials
@@ -193,7 +326,7 @@ root for authoritative license information.﻿
  */
 - (void) setPasswordCredentials: (NSMutableArray *) value {
     _passwordCredentials = value;
-    [self valueChanged:_passwordCredentials forProperty:@"passwordCredentials"];
+    [self valueChangedFor:@"passwordCredentials"];
 }
        
 /** Setter implementation for property publicClient
@@ -201,7 +334,7 @@ root for authoritative license information.﻿
  */
 - (void) setPublicClient: (bool) value {
     _publicClient = value;
-    [self valueChangedForBool:_publicClient forProperty:@"publicClient"];
+    [self valueChangedFor:@"publicClient"];
 }
        
 /** Setter implementation for property replyUrls
@@ -209,7 +342,7 @@ root for authoritative license information.﻿
  */
 - (void) setReplyUrls: (NSMutableArray *) value {
     _replyUrls = value;
-    [self valueChanged:_replyUrls forProperty:@"replyUrls"];
+    [self valueChangedFor:@"replyUrls"];
 }
        
 /** Setter implementation for property requiredResourceAccess
@@ -217,7 +350,7 @@ root for authoritative license information.﻿
  */
 - (void) setRequiredResourceAccess: (NSMutableArray *) value {
     _requiredResourceAccess = value;
-    [self valueChanged:_requiredResourceAccess forProperty:@"requiredResourceAccess"];
+    [self valueChangedFor:@"requiredResourceAccess"];
 }
        
 /** Setter implementation for property samlMetadataUrl
@@ -225,7 +358,7 @@ root for authoritative license information.﻿
  */
 - (void) setSamlMetadataUrl: (NSString *) value {
     _samlMetadataUrl = value;
-    [self valueChanged:_samlMetadataUrl forProperty:@"samlMetadataUrl"];
+    [self valueChangedFor:@"samlMetadataUrl"];
 }
        
 /** Setter implementation for property extensionProperties
@@ -233,7 +366,7 @@ root for authoritative license information.﻿
  */
 - (void) setExtensionProperties: (NSMutableArray *) value {
     _extensionProperties = value;
-    [self valueChanged:_extensionProperties forProperty:@"extensionProperties"];
+    [self valueChangedFor:@"extensionProperties"];
 }
        
 

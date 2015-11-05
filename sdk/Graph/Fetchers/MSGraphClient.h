@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphApplicationCollectionFetcher;
-@class MSGraphContactCollectionFetcher;
+@class MSGraphOrgContactCollectionFetcher;
 @class MSGraphDeviceConfigurationCollectionFetcher;
 @class MSGraphDeviceCollectionFetcher;
 @class MSGraphGroupCollectionFetcher;
@@ -33,6 +33,18 @@ root for authoritative license information.﻿
 @class MSGraphOAuth2PermissionGrantCollectionFetcher;
 @class MSGraphSubscribedSkuCollectionFetcher;
 @class MSGraphDriveCollectionFetcher;
+@class MSGraphShareCollectionFetcher;
+@class MSGraphTaskCollectionFetcher;
+@class MSGraphPlanCollectionFetcher;
+@class MSGraphBucketCollectionFetcher;
+@class MSGraphPrivilegedRoleCollectionFetcher;
+@class MSGraphPrivilegedSecurityAlertCollectionFetcher;
+@class MSGraphPrivilegedRoleAssignmentCollectionFetcher;
+@class MSGraphPrivilegedOperationEventCollectionFetcher;
+@class MSGraphPrivilegedSignupStatusCollectionFetcher;
+@class MSGraphPrivilegedOperationNotificationCollectionFetcher;
+@class MSGraphPrivilegedOperationNotificationRuleCollectionFetcher;
+@class MSGraphDriveFetcher;
 
 /** Client MSGraphClient
  *
@@ -42,7 +54,7 @@ root for authoritative license information.﻿
 - (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
 @property (strong, nonatomic, readonly, getter=directoryObjects) MSGraphDirectoryObjectCollectionFetcher *directoryObjects;
 @property (strong, nonatomic, readonly, getter=applications) MSGraphApplicationCollectionFetcher *applications;
-@property (strong, nonatomic, readonly, getter=contacts) MSGraphContactCollectionFetcher *contacts;
+@property (strong, nonatomic, readonly, getter=contacts) MSGraphOrgContactCollectionFetcher *contacts;
 @property (strong, nonatomic, readonly, getter=deviceConfiguration) MSGraphDeviceConfigurationCollectionFetcher *deviceConfiguration;
 @property (strong, nonatomic, readonly, getter=devices) MSGraphDeviceCollectionFetcher *devices;
 @property (strong, nonatomic, readonly, getter=groups) MSGraphGroupCollectionFetcher *groups;
@@ -54,6 +66,18 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
 @property (strong, nonatomic, readonly, getter=subscribedSkus) MSGraphSubscribedSkuCollectionFetcher *subscribedSkus;
 @property (strong, nonatomic, readonly, getter=drives) MSGraphDriveCollectionFetcher *drives;
+@property (strong, nonatomic, readonly, getter=shares) MSGraphShareCollectionFetcher *shares;
+@property (strong, nonatomic, readonly, getter=tasks) MSGraphTaskCollectionFetcher *tasks;
+@property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
+@property (strong, nonatomic, readonly, getter=buckets) MSGraphBucketCollectionFetcher *buckets;
+@property (strong, nonatomic, readonly, getter=privilegedRoles) MSGraphPrivilegedRoleCollectionFetcher *privilegedRoles;
+@property (strong, nonatomic, readonly, getter=privilegedSecurityAlerts) MSGraphPrivilegedSecurityAlertCollectionFetcher *privilegedSecurityAlerts;
+@property (strong, nonatomic, readonly, getter=privilegedRoleAssignments) MSGraphPrivilegedRoleAssignmentCollectionFetcher *privilegedRoleAssignments;
+@property (strong, nonatomic, readonly, getter=privilegedOperationEvents) MSGraphPrivilegedOperationEventCollectionFetcher *privilegedOperationEvents;
+@property (strong, nonatomic, readonly, getter=privilegedSignupStatus) MSGraphPrivilegedSignupStatusCollectionFetcher *privilegedSignupStatus;
+@property (strong, nonatomic, readonly, getter=privilegedOperationNotifications) MSGraphPrivilegedOperationNotificationCollectionFetcher *privilegedOperationNotifications;
+@property (strong, nonatomic, readonly, getter=privilegedOperationNotificationRules) MSGraphPrivilegedOperationNotificationRuleCollectionFetcher *privilegedOperationNotificationRules;
+@property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
 @end
 
 #endif

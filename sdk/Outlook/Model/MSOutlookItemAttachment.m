@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Item", @"item", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"DateTimeLastModified", @"dateTimeLastModified", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Item", @"item", @"DateTimeLastModified", @"dateTimeLastModified", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
     
     }
     
@@ -51,12 +51,31 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_item = [dic objectForKey: @"Item"] != nil ? [[MSOutlookItem alloc] initWithDictionary: [dic objectForKey: @"Item"]] : _item;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_item toDictionary], @"Item",
+            nil];
+}
+
+
 /** Setter implementation for property item
  *
  */
 - (void) setItem: (MSOutlookItem *) value {
     _item = value;
-    [self valueChanged:_item forProperty:@"Item"];
+    [self valueChangedFor:@"Item"];
 }
        
 

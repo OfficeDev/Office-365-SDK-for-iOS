@@ -17,24 +17,26 @@ root for authoritative license information.﻿
 #define MSOUTLOOKFOLDER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookMessage;
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookFolder
  *
  */
-@interface MSOutlookFolder : MSOutlookEntity
-
-/** Property parentFolderId
- *
- */
-@property (nonatomic,  copy, setter=setParentFolderId:, getter=parentFolderId) NSString * parentFolderId;
+@interface MSOutlookFolder : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
+
+/** Property parentFolderId
+ *
+ */
+@property (nonatomic,  copy, setter=setParentFolderId:, getter=parentFolderId) NSString * parentFolderId;
 
 /** Property childFolderCount
  *

@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphRecurrencePattern
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -50,28 +52,57 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphRecurrencePatternTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+		_interval = [dic objectForKey: @"Interval"] != nil ? [[dic objectForKey: @"Interval"] intValue] : _interval;
+		_month = [dic objectForKey: @"Month"] != nil ? [[dic objectForKey: @"Month"] intValue] : _month;
+		_dayOfMonth = [dic objectForKey: @"DayOfMonth"] != nil ? [[dic objectForKey: @"DayOfMonth"] intValue] : _dayOfMonth;
+
+        if([dic objectForKey: @"DaysOfWeek"] != [NSNull null]){
+            _daysOfWeek = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"DaysOfWeek"] count]];
+            
+            for (id object in [dic objectForKey: @"DaysOfWeek"]) {
+                [_daysOfWeek addObject:@([MSGraphDayOfWeekSerializer fromString:object])];
+            }
+        }
+        
+		_firstDayOfWeek = [dic objectForKey: @"FirstDayOfWeek"] != nil ? [MSGraphDayOfWeekSerializer fromString:[dic objectForKey: @"FirstDayOfWeek"]] : _firstDayOfWeek;
+		_index = [dic objectForKey: @"Index"] != nil ? [MSGraphWeekIndexSerializer fromString:[dic objectForKey: @"Index"]] : _index;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSGraphRecurrencePatternTypeSerializer toString:_type], @"Type",
+		 [NSNumber numberWithInt: _interval], @"Interval",
+		 [NSNumber numberWithInt: _month], @"Month",
+		 [NSNumber numberWithInt: _dayOfMonth], @"DayOfMonth",
+		 [[NSMutableArray alloc] init], @"DaysOfWeek",
+		 [MSGraphDayOfWeekSerializer toString:_firstDayOfWeek], @"FirstDayOfWeek",
+		 [MSGraphWeekIndexSerializer toString:_index], @"Index",
+            nil];
+}
+
+
 /** Setter implementation for property type
  *
  */
 - (void) setType: (MSGraphRecurrencePatternType) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
+    [self valueChangedFor:@"Type"];
 }
        
 
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphRecurrencePatternTypeDaily], @"Daily", [NSNumber numberWithInt:MSGraphRecurrencePatternTypeWeekly], @"Weekly", [NSNumber numberWithInt:MSGraphRecurrencePatternTypeAbsoluteMonthly], @"AbsoluteMonthly", [NSNumber numberWithInt:MSGraphRecurrencePatternTypeRelativeMonthly], @"RelativeMonthly", [NSNumber numberWithInt:MSGraphRecurrencePatternTypeAbsoluteYearly], @"AbsoluteYearly", [NSNumber numberWithInt:MSGraphRecurrencePatternTypeRelativeYearly], @"RelativeYearly",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSGraphRecurrencePatternTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
 }
 
 /** Setter implementation for property interval
@@ -79,7 +110,7 @@ root for authoritative license information.﻿
  */
 - (void) setInterval: (int) value {
     _interval = value;
-    [self valueChangedForInt:_interval forProperty:@"Interval"];
+    [self valueChangedFor:@"Interval"];
 }
        
 /** Setter implementation for property month
@@ -87,7 +118,7 @@ root for authoritative license information.﻿
  */
 - (void) setMonth: (int) value {
     _month = value;
-    [self valueChangedForInt:_month forProperty:@"Month"];
+    [self valueChangedFor:@"Month"];
 }
        
 /** Setter implementation for property dayOfMonth
@@ -95,7 +126,7 @@ root for authoritative license information.﻿
  */
 - (void) setDayOfMonth: (int) value {
     _dayOfMonth = value;
-    [self valueChangedForInt:_dayOfMonth forProperty:@"DayOfMonth"];
+    [self valueChangedFor:@"DayOfMonth"];
 }
        
 /** Setter implementation for property daysOfWeek
@@ -103,7 +134,7 @@ root for authoritative license information.﻿
  */
 - (void) setDaysOfWeek: (NSMutableArray *) value {
     _daysOfWeek = value;
-    [self valueChanged:_daysOfWeek forProperty:@"DaysOfWeek"];
+    [self valueChangedFor:@"DaysOfWeek"];
 }
        
 /** Setter implementation for property firstDayOfWeek
@@ -111,23 +142,14 @@ root for authoritative license information.﻿
  */
 - (void) setFirstDayOfWeek: (MSGraphDayOfWeek) value {
     _firstDayOfWeek = value;
-    [self valueChangedForInt:_firstDayOfWeek forProperty:@"FirstDayOfWeek"];
+    [self valueChangedFor:@"FirstDayOfWeek"];
 }
        
 
-- (void)setFirstDayOfWeekString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphDayOfWeekSunday], @"Sunday", [NSNumber numberWithInt:MSGraphDayOfWeekMonday], @"Monday", [NSNumber numberWithInt:MSGraphDayOfWeekTuesday], @"Tuesday", [NSNumber numberWithInt:MSGraphDayOfWeekWednesday], @"Wednesday", [NSNumber numberWithInt:MSGraphDayOfWeekThursday], @"Thursday", [NSNumber numberWithInt:MSGraphDayOfWeekFriday], @"Friday", [NSNumber numberWithInt:MSGraphDayOfWeekSaturday], @"Saturday",
-            nil        
-        ];
-    }
-    
-    self.firstDayOfWeek = [stringMappings[value] intValue]; 
+- (void)setFirstDayOfWeekString:(NSString *)string {
+        
+    _firstDayOfWeek = [MSGraphDayOfWeekSerializer fromString:string];
+    [self valueChangedFor:@"FirstDayOfWeek"]; 
 }
 
 /** Setter implementation for property index
@@ -135,23 +157,14 @@ root for authoritative license information.﻿
  */
 - (void) setIndex: (MSGraphWeekIndex) value {
     _index = value;
-    [self valueChangedForInt:_index forProperty:@"Index"];
+    [self valueChangedFor:@"Index"];
 }
        
 
-- (void)setIndexString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphWeekIndexFirst], @"First", [NSNumber numberWithInt:MSGraphWeekIndexSecond], @"Second", [NSNumber numberWithInt:MSGraphWeekIndexThird], @"Third", [NSNumber numberWithInt:MSGraphWeekIndexFourth], @"Fourth", [NSNumber numberWithInt:MSGraphWeekIndexLast], @"Last",
-            nil        
-        ];
-    }
-    
-    self.index = [stringMappings[value] intValue]; 
+- (void)setIndexString:(NSString *)string {
+        
+    _index = [MSGraphWeekIndexSerializer fromString:string];
+    [self valueChangedFor:@"Index"]; 
 }
 
 

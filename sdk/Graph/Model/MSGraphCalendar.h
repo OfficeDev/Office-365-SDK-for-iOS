@@ -17,47 +17,44 @@ root for authoritative license information.﻿
 #define MSGRAPHCALENDAR_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphEvent;
 #import "MSGraphCalendarColor.h"
-#import "MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphCalendar
  *
  */
-@interface MSGraphCalendar : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphCalendar : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property name
  *
  */
 @property (nonatomic,  copy, setter=setName:, getter=name) NSString * name;
 
-/** Property changeKey
- *
- */
-@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
-
 /** Property color
  *
  */
 @property (nonatomic,  setter=setColor:, getter=color) MSGraphCalendarColor color;
 
-- (void)setColorString:(NSString *)value;
+- (void)setColorString:(NSString *)string;
 
-/** Property calendarView
+/** Property changeKey
  *
  */
-@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
+@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
 
 /** Property events
  *
  */
 @property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
+
+/** Property calendarView
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

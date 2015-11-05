@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSGraphResponseType
+/** Enum MSGraphResponseTypeEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSGraphResponseType) {
@@ -42,5 +42,11 @@ typedef NS_ENUM(NSInteger, MSGraphResponseType) {
      * */
     MSGraphResponseTypeNotResponded
 };
+
+
+@interface MSGraphResponseTypeSerializer : NSObject
++(MSGraphResponseType) fromString:(NSString *) string;
++(NSString *) toString: (MSGraphResponseType) value;
+@end
 
 #endif

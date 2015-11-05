@@ -59,12 +59,131 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+
+        if([dic objectForKey: @"assignedPlans"] != [NSNull null]){
+            _assignedPlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"assignedPlans"] count]];
+            
+            for (id object in [dic objectForKey: @"assignedPlans"]) {
+                [_assignedPlans addObject:[[MSGraphAssignedPlan alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_city = [dic objectForKey: @"city"] != nil ? [[dic objectForKey: @"city"] copy] : _city;
+		_companyLastDirSyncTime = [dic objectForKey: @"companyLastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"companyLastDirSyncTime"]] : _companyLastDirSyncTime;
+		_country = [dic objectForKey: @"country"] != nil ? [[dic objectForKey: @"country"] copy] : _country;
+		_countryLetterCode = [dic objectForKey: @"countryLetterCode"] != nil ? [[dic objectForKey: @"countryLetterCode"] copy] : _countryLetterCode;
+		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+
+        if([dic objectForKey: @"marketingNotificationEmails"] != [NSNull null]){
+            _marketingNotificationEmails = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"marketingNotificationEmails"] count]];
+            
+            for (id object in [dic objectForKey: @"marketingNotificationEmails"]) {
+                [_marketingNotificationEmails addObject:[object copy]];
+            }
+        }
+        
+		_postalCode = [dic objectForKey: @"postalCode"] != nil ? [[dic objectForKey: @"postalCode"] copy] : _postalCode;
+		_preferredLanguage = [dic objectForKey: @"preferredLanguage"] != nil ? [[dic objectForKey: @"preferredLanguage"] copy] : _preferredLanguage;
+
+        if([dic objectForKey: @"provisionedPlans"] != [NSNull null]){
+            _provisionedPlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisionedPlans"] count]];
+            
+            for (id object in [dic objectForKey: @"provisionedPlans"]) {
+                [_provisionedPlans addObject:[[MSGraphProvisionedPlan alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
+            _provisioningErrors = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisioningErrors"] count]];
+            
+            for (id object in [dic objectForKey: @"provisioningErrors"]) {
+                [_provisioningErrors addObject:[[MSGraphProvisioningError alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"securityComplianceNotificationMails"] != [NSNull null]){
+            _securityComplianceNotificationMails = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"securityComplianceNotificationMails"] count]];
+            
+            for (id object in [dic objectForKey: @"securityComplianceNotificationMails"]) {
+                [_securityComplianceNotificationMails addObject:[object copy]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"securityComplianceNotificationPhones"] != [NSNull null]){
+            _securityComplianceNotificationPhones = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"securityComplianceNotificationPhones"] count]];
+            
+            for (id object in [dic objectForKey: @"securityComplianceNotificationPhones"]) {
+                [_securityComplianceNotificationPhones addObject:[object copy]];
+            }
+        }
+        
+		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
+		_street = [dic objectForKey: @"street"] != nil ? [[dic objectForKey: @"street"] copy] : _street;
+
+        if([dic objectForKey: @"technicalNotificationMails"] != [NSNull null]){
+            _technicalNotificationMails = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"technicalNotificationMails"] count]];
+            
+            for (id object in [dic objectForKey: @"technicalNotificationMails"]) {
+                [_technicalNotificationMails addObject:[object copy]];
+            }
+        }
+        
+		_telephoneNumber = [dic objectForKey: @"telephoneNumber"] != nil ? [[dic objectForKey: @"telephoneNumber"] copy] : _telephoneNumber;
+
+        if([dic objectForKey: @"verifiedDomains"] != [NSNull null]){
+            _verifiedDomains = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"verifiedDomains"] count]];
+            
+            for (id object in [dic objectForKey: @"verifiedDomains"]) {
+                [_verifiedDomains addObject:[[MSGraphVerifiedDomain alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [[NSMutableArray alloc] init], @"assignedPlans",
+		 [_city copy], @"city",
+		 [MSOrcObjectizer stringFromDate:_companyLastDirSyncTime], @"companyLastDirSyncTime",
+		 [_country copy], @"country",
+		 [_countryLetterCode copy], @"countryLetterCode",
+		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
+		 [_displayName copy], @"displayName",
+		 [[NSMutableArray alloc] init], @"marketingNotificationEmails",
+		 [_postalCode copy], @"postalCode",
+		 [_preferredLanguage copy], @"preferredLanguage",
+		 [[NSMutableArray alloc] init], @"provisionedPlans",
+		 [[NSMutableArray alloc] init], @"provisioningErrors",
+		 [[NSMutableArray alloc] init], @"securityComplianceNotificationMails",
+		 [[NSMutableArray alloc] init], @"securityComplianceNotificationPhones",
+		 [_state copy], @"state",
+		 [_street copy], @"street",
+		 [[NSMutableArray alloc] init], @"technicalNotificationMails",
+		 [_telephoneNumber copy], @"telephoneNumber",
+		 [[NSMutableArray alloc] init], @"verifiedDomains",
+            nil];
+}
+
+
 /** Setter implementation for property assignedPlans
  *
  */
 - (void) setAssignedPlans: (NSMutableArray *) value {
     _assignedPlans = value;
-    [self valueChanged:_assignedPlans forProperty:@"assignedPlans"];
+    [self valueChangedFor:@"assignedPlans"];
 }
        
 /** Setter implementation for property city
@@ -72,7 +191,7 @@ root for authoritative license information.﻿
  */
 - (void) setCity: (NSString *) value {
     _city = value;
-    [self valueChanged:_city forProperty:@"city"];
+    [self valueChangedFor:@"city"];
 }
        
 /** Setter implementation for property companyLastDirSyncTime
@@ -80,7 +199,7 @@ root for authoritative license information.﻿
  */
 - (void) setCompanyLastDirSyncTime: (NSDate *) value {
     _companyLastDirSyncTime = value;
-    [self valueChanged:_companyLastDirSyncTime forProperty:@"companyLastDirSyncTime"];
+    [self valueChangedFor:@"companyLastDirSyncTime"];
 }
        
 /** Setter implementation for property country
@@ -88,7 +207,7 @@ root for authoritative license information.﻿
  */
 - (void) setCountry: (NSString *) value {
     _country = value;
-    [self valueChanged:_country forProperty:@"country"];
+    [self valueChangedFor:@"country"];
 }
        
 /** Setter implementation for property countryLetterCode
@@ -96,7 +215,7 @@ root for authoritative license information.﻿
  */
 - (void) setCountryLetterCode: (NSString *) value {
     _countryLetterCode = value;
-    [self valueChanged:_countryLetterCode forProperty:@"countryLetterCode"];
+    [self valueChangedFor:@"countryLetterCode"];
 }
        
 /** Setter implementation for property dirSyncEnabled
@@ -104,7 +223,7 @@ root for authoritative license information.﻿
  */
 - (void) setDirSyncEnabled: (bool) value {
     _dirSyncEnabled = value;
-    [self valueChangedForBool:_dirSyncEnabled forProperty:@"dirSyncEnabled"];
+    [self valueChangedFor:@"dirSyncEnabled"];
 }
        
 /** Setter implementation for property displayName
@@ -112,7 +231,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 /** Setter implementation for property marketingNotificationEmails
@@ -120,7 +239,7 @@ root for authoritative license information.﻿
  */
 - (void) setMarketingNotificationEmails: (NSMutableArray *) value {
     _marketingNotificationEmails = value;
-    [self valueChanged:_marketingNotificationEmails forProperty:@"marketingNotificationEmails"];
+    [self valueChangedFor:@"marketingNotificationEmails"];
 }
        
 /** Setter implementation for property postalCode
@@ -128,7 +247,7 @@ root for authoritative license information.﻿
  */
 - (void) setPostalCode: (NSString *) value {
     _postalCode = value;
-    [self valueChanged:_postalCode forProperty:@"postalCode"];
+    [self valueChangedFor:@"postalCode"];
 }
        
 /** Setter implementation for property preferredLanguage
@@ -136,7 +255,7 @@ root for authoritative license information.﻿
  */
 - (void) setPreferredLanguage: (NSString *) value {
     _preferredLanguage = value;
-    [self valueChanged:_preferredLanguage forProperty:@"preferredLanguage"];
+    [self valueChangedFor:@"preferredLanguage"];
 }
        
 /** Setter implementation for property provisionedPlans
@@ -144,7 +263,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisionedPlans: (NSMutableArray *) value {
     _provisionedPlans = value;
-    [self valueChanged:_provisionedPlans forProperty:@"provisionedPlans"];
+    [self valueChangedFor:@"provisionedPlans"];
 }
        
 /** Setter implementation for property provisioningErrors
@@ -152,7 +271,7 @@ root for authoritative license information.﻿
  */
 - (void) setProvisioningErrors: (NSMutableArray *) value {
     _provisioningErrors = value;
-    [self valueChanged:_provisioningErrors forProperty:@"provisioningErrors"];
+    [self valueChangedFor:@"provisioningErrors"];
 }
        
 /** Setter implementation for property securityComplianceNotificationMails
@@ -160,7 +279,7 @@ root for authoritative license information.﻿
  */
 - (void) setSecurityComplianceNotificationMails: (NSMutableArray *) value {
     _securityComplianceNotificationMails = value;
-    [self valueChanged:_securityComplianceNotificationMails forProperty:@"securityComplianceNotificationMails"];
+    [self valueChangedFor:@"securityComplianceNotificationMails"];
 }
        
 /** Setter implementation for property securityComplianceNotificationPhones
@@ -168,7 +287,7 @@ root for authoritative license information.﻿
  */
 - (void) setSecurityComplianceNotificationPhones: (NSMutableArray *) value {
     _securityComplianceNotificationPhones = value;
-    [self valueChanged:_securityComplianceNotificationPhones forProperty:@"securityComplianceNotificationPhones"];
+    [self valueChangedFor:@"securityComplianceNotificationPhones"];
 }
        
 /** Setter implementation for property state
@@ -176,7 +295,7 @@ root for authoritative license information.﻿
  */
 - (void) setState: (NSString *) value {
     _state = value;
-    [self valueChanged:_state forProperty:@"state"];
+    [self valueChangedFor:@"state"];
 }
        
 /** Setter implementation for property street
@@ -184,7 +303,7 @@ root for authoritative license information.﻿
  */
 - (void) setStreet: (NSString *) value {
     _street = value;
-    [self valueChanged:_street forProperty:@"street"];
+    [self valueChangedFor:@"street"];
 }
        
 /** Setter implementation for property technicalNotificationMails
@@ -192,7 +311,7 @@ root for authoritative license information.﻿
  */
 - (void) setTechnicalNotificationMails: (NSMutableArray *) value {
     _technicalNotificationMails = value;
-    [self valueChanged:_technicalNotificationMails forProperty:@"technicalNotificationMails"];
+    [self valueChangedFor:@"technicalNotificationMails"];
 }
        
 /** Setter implementation for property telephoneNumber
@@ -200,7 +319,7 @@ root for authoritative license information.﻿
  */
 - (void) setTelephoneNumber: (NSString *) value {
     _telephoneNumber = value;
-    [self valueChanged:_telephoneNumber forProperty:@"telephoneNumber"];
+    [self valueChangedFor:@"telephoneNumber"];
 }
        
 /** Setter implementation for property verifiedDomains
@@ -208,7 +327,7 @@ root for authoritative license information.﻿
  */
 - (void) setVerifiedDomains: (NSMutableArray *) value {
     _verifiedDomains = value;
-    [self valueChanged:_verifiedDomains forProperty:@"verifiedDomains"];
+    [self valueChangedFor:@"verifiedDomains"];
 }
        
 

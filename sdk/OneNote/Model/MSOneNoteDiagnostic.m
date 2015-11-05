@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteDiagnostic
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_message = [dic objectForKey: @"message"] != nil ? [[dic objectForKey: @"message"] copy] : _message;
+		_url = [dic objectForKey: @"url"] != nil ? [[dic objectForKey: @"url"] copy] : _url;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_message copy], @"message",
+		 [_url copy], @"url",
+            nil];
+}
+
+
 /** Setter implementation for property message
  *
  */
 - (void) setMessage: (NSString *) value {
     _message = value;
-    [self valueChanged:_message forProperty:@"message"];
+    [self valueChangedFor:@"message"];
 }
        
 /** Setter implementation for property url
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setUrl: (NSString *) value {
     _url = value;
-    [self valueChanged:_url forProperty:@"url"];
+    [self valueChangedFor:@"url"];
 }
        
 

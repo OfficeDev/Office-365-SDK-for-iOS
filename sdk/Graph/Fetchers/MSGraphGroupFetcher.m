@@ -118,33 +118,6 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphPhotoFetcher *)groupPhoto {
-
-	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"GroupPhoto" parent:self asClass:[MSGraphPhoto class]];
-}
-
-- (MSGraphPhotoCollectionFetcher *)groupPhotos {
-
-    return [[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"GroupPhotos" parent:self asClass:[MSGraphPhoto class]];
-}
-
-- (MSGraphPhotoFetcher *)groupPhotosById:(NSString *)identifier {
-
-    return [[[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"GroupPhotos" parent:self asClass:[MSGraphPhoto class]] getById:identifier];
-
-}
-
-- (MSGraphConversationCollectionFetcher *)conversations {
-
-    return [[MSGraphConversationCollectionFetcher alloc] initWithUrl:@"Conversations" parent:self asClass:[MSGraphConversation class]];
-}
-
-- (MSGraphConversationFetcher *)conversationsById:(NSString *)identifier {
-
-    return [[[MSGraphConversationCollectionFetcher alloc] initWithUrl:@"Conversations" parent:self asClass:[MSGraphConversation class]] getById:identifier];
-
-}
-
 - (MSGraphConversationThreadCollectionFetcher *)threads {
 
     return [[MSGraphConversationThreadCollectionFetcher alloc] initWithUrl:@"Threads" parent:self asClass:[MSGraphConversationThread class]];
@@ -161,17 +134,6 @@ root for authoritative license information.﻿
 	 return [[MSGraphCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self asClass:[MSGraphCalendar class]];
 }
 
-- (MSGraphEventCollectionFetcher *)events {
-
-    return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]];
-}
-
-- (MSGraphEventFetcher *)eventsById:(NSString *)identifier {
-
-    return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]] getById:identifier];
-
-}
-
 - (MSGraphEventCollectionFetcher *)calendarView {
 
     return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSGraphEvent class]];
@@ -183,14 +145,79 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphItemCollectionFetcher *)files {
+- (MSGraphEventCollectionFetcher *)events {
 
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"files" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]];
 }
 
-- (MSGraphItemFetcher *)filesById:(NSString *)identifier {
+- (MSGraphEventFetcher *)eventsById:(NSString *)identifier {
 
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"files" parent:self asClass:[MSGraphItem class]] getById:identifier];
+    return [[[MSGraphEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSGraphEvent class]] getById:identifier];
+
+}
+
+- (MSGraphConversationCollectionFetcher *)conversations {
+
+    return [[MSGraphConversationCollectionFetcher alloc] initWithUrl:@"Conversations" parent:self asClass:[MSGraphConversation class]];
+}
+
+- (MSGraphConversationFetcher *)conversationsById:(NSString *)identifier {
+
+    return [[[MSGraphConversationCollectionFetcher alloc] initWithUrl:@"Conversations" parent:self asClass:[MSGraphConversation class]] getById:identifier];
+
+}
+
+- (MSGraphPhotoFetcher *)photo {
+
+	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphPhoto class]];
+}
+
+- (MSGraphPhotoCollectionFetcher *)photos {
+
+    return [[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]];
+}
+
+- (MSGraphPhotoFetcher *)photosById:(NSString *)identifier {
+
+    return [[[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]] getById:identifier];
+
+}
+
+- (MSGraphDirectoryObjectCollectionFetcher *)acceptedSenders {
+
+    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"AcceptedSenders" parent:self asClass:[MSGraphDirectoryObject class]];
+}
+
+- (MSGraphDirectoryObjectFetcher *)acceptedSendersById:(NSString *)identifier {
+
+    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"AcceptedSenders" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
+
+}
+
+- (MSGraphDirectoryObjectCollectionFetcher *)rejectedSenders {
+
+    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"RejectedSenders" parent:self asClass:[MSGraphDirectoryObject class]];
+}
+
+- (MSGraphDirectoryObjectFetcher *)rejectedSendersById:(NSString *)identifier {
+
+    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"RejectedSenders" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
+
+}
+
+- (MSGraphDriveFetcher *)drive {
+
+	 return [[MSGraphDriveFetcher alloc] initWithUrl:@"drive" parent:self asClass:[MSGraphDrive class]];
+}
+
+- (MSGraphPlanCollectionFetcher *)plans {
+
+    return [[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]];
+}
+
+- (MSGraphPlanFetcher *)plansById:(NSString *)identifier {
+
+    return [[[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]] getById:identifier];
 
 }
 

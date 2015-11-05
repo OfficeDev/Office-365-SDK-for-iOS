@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 - (MSOutlookCalendarGroupFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=calendars) MSOutlookCalendarCollectionFetcher *calendars;
 
-- (MSOutlookCalendarFetcher *)calendarsById:(NSString*)identifier;
+- (MSOutlookCalendarFetcher *)calendarsById:(id)identifier;
 
 
 @end

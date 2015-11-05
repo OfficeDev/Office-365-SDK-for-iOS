@@ -42,13 +42,13 @@ root for authoritative license information.﻿
 - (MSOutlookCalendarFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOutlookCalendarFetcher *)select:(NSString *)params;
 - (MSOutlookCalendarFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=calendarView) MSOutlookEventCollectionFetcher *calendarView;
-
-- (MSOutlookEventFetcher *)calendarViewById:(NSString*)identifier;
-
 @property (strong, nonatomic, readonly, getter=events) MSOutlookEventCollectionFetcher *events;
 
-- (MSOutlookEventFetcher *)eventsById:(NSString*)identifier;
+- (MSOutlookEventFetcher *)eventsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=calendarView) MSOutlookEventCollectionFetcher *calendarView;
+
+- (MSOutlookEventFetcher *)calendarViewById:(id)identifier;
 
 
 @end

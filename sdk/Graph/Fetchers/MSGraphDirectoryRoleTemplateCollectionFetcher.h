@@ -30,7 +30,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (MSGraphDirectoryRoleTemplateFetcher *)getById:(NSString *)Id;
+- (MSGraphDirectoryRoleTemplateFetcher *)getById: (id) identifier;
 - (void)add:(MSGraphDirectoryRoleTemplate *)entity callback:(void (^)(MSGraphDirectoryRoleTemplate *, MSOrcError *))callback;
 
 - (MSGraphDirectoryRoleTemplateCollectionFetcher *)select:(NSString *)params;

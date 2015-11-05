@@ -17,17 +17,19 @@ root for authoritative license information.﻿
 #define MSGRAPHTENANTDETAIL_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphAssignedPlan;
 @class MSGraphProvisionedPlan;
 @class MSGraphProvisioningError;
 @class MSGraphVerifiedDomain;
 #import "MSGraphDirectoryObject.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphTenantDetail
  *
  */
-@interface MSGraphTenantDetail : MSGraphDirectoryObject
+@interface MSGraphTenantDetail : MSGraphDirectoryObject <MSOrcInteroperableWithDictionary>
 
 /** Property assignedPlans
  *

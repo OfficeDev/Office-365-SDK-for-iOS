@@ -54,13 +54,13 @@ root for authoritative license information.﻿
 - (MSGraphApplicationFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=extensionProperties) MSGraphExtensionPropertyCollectionFetcher *extensionProperties;
 
-- (MSGraphExtensionPropertyFetcher *)extensionPropertiesById:(NSString*)identifier;
+- (MSGraphExtensionPropertyFetcher *)extensionPropertiesById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=createdOnBehalfOf) MSGraphDirectoryObjectFetcher *createdOnBehalfOf;
 @property (strong, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
 
-- (MSGraphDirectoryObjectFetcher *)ownersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownersById:(id)identifier;
 
 
 @end

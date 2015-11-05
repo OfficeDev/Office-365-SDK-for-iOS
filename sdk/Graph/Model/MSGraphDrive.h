@@ -17,36 +17,58 @@ root for authoritative license information.﻿
 #define MSGRAPHDRIVE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-@class MSGraphIdentity;
-@class MSGraphDriveQuota;
+@class MSGraphIdentitySet;
+@class MSGraphQuota;
 @class MSGraphItem;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphDrive
  *
  */
-@interface MSGraphDrive : MSOrcBaseEntity
+@interface MSGraphDrive : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property _id
  *
  */
 @property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
 
+/** Property driveType
+ *
+ */
+@property (nonatomic,  copy, setter=setDriveType:, getter=driveType) NSString * driveType;
+
 /** Property owner
  *
  */
-@property (nonatomic,  copy, setter=setOwner:, getter=owner) MSGraphIdentity * owner;
+@property (nonatomic,  copy, setter=setOwner:, getter=owner) MSGraphIdentitySet * owner;
 
 /** Property quota
  *
  */
-@property (nonatomic,  copy, setter=setQuota:, getter=quota) MSGraphDriveQuota * quota;
+@property (nonatomic,  copy, setter=setQuota:, getter=quota) MSGraphQuota * quota;
 
-/** Property files
+/** Property items
  *
  */
-@property (nonatomic,  copy, setter=setFiles:, getter=files) NSMutableArray * files;
+@property (nonatomic,  copy, setter=setItems:, getter=items) NSMutableArray * items;
+
+/** Property shared
+ *
+ */
+@property (nonatomic,  copy, setter=setShared:, getter=shared) NSMutableArray * shared;
+
+/** Property special
+ *
+ */
+@property (nonatomic,  copy, setter=setSpecial:, getter=special) NSMutableArray * special;
+
+/** Property root
+ *
+ */
+@property (nonatomic,  copy, setter=setRoot:, getter=root) MSGraphItem * root;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

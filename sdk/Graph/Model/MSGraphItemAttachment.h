@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSGRAPHITEMATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphOutlookItem;
 #import "MSGraphAttachment.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphItemAttachment
  *
  */
-@interface MSGraphItemAttachment : MSGraphAttachment
+@interface MSGraphItemAttachment : MSGraphAttachment <MSOrcInteroperableWithDictionary>
 
 /** Property item
  *

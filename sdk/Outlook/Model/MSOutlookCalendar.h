@@ -17,42 +17,44 @@ root for authoritative license information.﻿
 #define MSOUTLOOKCALENDAR_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookEvent;
 #import "MSOutlookCalendarColor.h"
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookCalendar
  *
  */
-@interface MSOutlookCalendar : MSOutlookEntity
+@interface MSOutlookCalendar : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 /** Property name
  *
  */
 @property (nonatomic,  copy, setter=setName:, getter=name) NSString * name;
 
-/** Property changeKey
- *
- */
-@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
-
 /** Property color
  *
  */
 @property (nonatomic,  setter=setColor:, getter=color) MSOutlookCalendarColor color;
 
-- (void)setColorString:(NSString *)value;
+- (void)setColorString:(NSString *)string;
 
-/** Property calendarView
+/** Property changeKey
  *
  */
-@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
+@property (nonatomic,  copy, setter=setChangeKey:, getter=changeKey) NSString * changeKey;
 
 /** Property events
  *
  */
 @property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
+
+/** Property calendarView
+ *
+ */
+@property (nonatomic,  copy, setter=setCalendarView:, getter=calendarView) NSMutableArray * calendarView;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

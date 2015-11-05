@@ -20,21 +20,22 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesDriveQuota
  *
  */
-@interface MSFilesDriveQuota : MSOrcBaseEntity
+@interface MSFilesDriveQuota : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property deleted
  *
  */
-@property (nonatomic,  setter=setDeleted:, getter=deleted) int deleted;
+@property (nonatomic,  setter=setDeleted:, getter=deleted) long long deleted;
 
 /** Property remaining
  *
  */
-@property (nonatomic,  setter=setRemaining:, getter=remaining) int remaining;
+@property (nonatomic,  setter=setRemaining:, getter=remaining) long long remaining;
 
 /** Property state
  *
@@ -44,7 +45,7 @@ root for authoritative license information.﻿
 /** Property total
  *
  */
-@property (nonatomic,  setter=setTotal:, getter=total) int total;
+@property (nonatomic,  setter=setTotal:, getter=total) long long total;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

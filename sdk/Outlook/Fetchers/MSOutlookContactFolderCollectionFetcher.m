@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookContactFolderFetcher *)getById:(NSString *)_id {
+- (MSOutlookContactFolderFetcher *)getById:(id) identifier {
 
-    return [[MSOutlookContactFolderFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSOutlookContactFolderFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSOutlookContactFolderCollectionFetcher *)select:(NSString *)params {

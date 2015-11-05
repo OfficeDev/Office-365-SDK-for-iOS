@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphRecurrenceRange
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,44 +51,59 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+		_startDate = [dic objectForKey: @"StartDate"] != nil ? [[dic objectForKey: @"StartDate"] copy] : _startDate;
+		_endDate = [dic objectForKey: @"EndDate"] != nil ? [[dic objectForKey: @"EndDate"] copy] : _endDate;
+		_numberOfOccurrences = [dic objectForKey: @"NumberOfOccurrences"] != nil ? [[dic objectForKey: @"NumberOfOccurrences"] intValue] : _numberOfOccurrences;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSGraphRecurrenceRangeTypeSerializer toString:_type], @"Type",
+		 [_startDate copy], @"StartDate",
+		 [_endDate copy], @"EndDate",
+		 [NSNumber numberWithInt: _numberOfOccurrences], @"NumberOfOccurrences",
+            nil];
+}
+
+
 /** Setter implementation for property type
  *
  */
 - (void) setType: (MSGraphRecurrenceRangeType) value {
     _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
+    [self valueChangedFor:@"Type"];
 }
        
 
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphRecurrenceRangeTypeEndDate], @"EndDate", [NSNumber numberWithInt:MSGraphRecurrenceRangeTypeNoEnd], @"NoEnd", [NSNumber numberWithInt:MSGraphRecurrenceRangeTypeNumbered], @"Numbered",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSGraphRecurrenceRangeTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
 }
 
 /** Setter implementation for property startDate
  *
  */
-- (void) setStartDate: (NSDate *) value {
+- (void) setStartDate: (NSString *) value {
     _startDate = value;
-    [self valueChanged:_startDate forProperty:@"StartDate"];
+    [self valueChangedFor:@"StartDate"];
 }
        
 /** Setter implementation for property endDate
  *
  */
-- (void) setEndDate: (NSDate *) value {
+- (void) setEndDate: (NSString *) value {
     _endDate = value;
-    [self valueChanged:_endDate forProperty:@"EndDate"];
+    [self valueChangedFor:@"EndDate"];
 }
        
 /** Setter implementation for property numberOfOccurrences
@@ -94,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setNumberOfOccurrences: (int) value {
     _numberOfOccurrences = value;
-    [self valueChangedForInt:_numberOfOccurrences forProperty:@"NumberOfOccurrences"];
+    [self valueChangedFor:@"NumberOfOccurrences"];
 }
        
 

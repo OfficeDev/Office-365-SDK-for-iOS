@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphIdentity
@@ -30,18 +31,19 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"displayName", @"displayName", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"displayName", @"displayName", @"id", @"_id", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Identity";
+		_odataType = @"#Microsoft.Graph.identity";
 
         
     }
@@ -49,20 +51,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+
+    }
+    
+    return self;
 }
-       
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_displayName copy], @"displayName",
+		 [__id copy], @"id",
+            nil];
+}
+
+
 /** Setter implementation for property displayName
  *
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
+}
+       
+/** Setter implementation for property _id
+ *
+ */
+- (void) setId: (NSString *) value {
+    __id = value;
+    [self valueChangedFor:@"id"];
 }
        
 

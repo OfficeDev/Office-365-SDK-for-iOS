@@ -69,17 +69,6 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookAttachmentCollectionFetcher *)attachments {
-
-    return [[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSOutlookAttachment class]];
-}
-
-- (MSOutlookAttachmentFetcher *)attachmentsById:(NSString *)identifier {
-
-    return [[[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSOutlookAttachment class]] getById:identifier];
-
-}
-
 - (MSOutlookCalendarFetcher *)calendar {
 
 	 return [[MSOutlookCalendarFetcher alloc] initWithUrl:@"Calendar" parent:self asClass:[MSOutlookCalendar class]];
@@ -93,6 +82,17 @@ root for authoritative license information.﻿
 - (MSOutlookEventFetcher *)instancesById:(NSString *)identifier {
 
     return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Instances" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
+
+}
+
+- (MSOutlookAttachmentCollectionFetcher *)attachments {
+
+    return [[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSOutlookAttachment class]];
+}
+
+- (MSOutlookAttachmentFetcher *)attachmentsById:(NSString *)identifier {
+
+    return [[[MSOutlookAttachmentCollectionFetcher alloc] initWithUrl:@"Attachments" parent:self asClass:[MSOutlookAttachment class]] getById:identifier];
 
 }
 

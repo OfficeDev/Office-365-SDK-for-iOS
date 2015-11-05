@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSOUTLOOKCONTACTFOLDER_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSOutlookContact;
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookContactFolder
  *
  */
-@interface MSOutlookContactFolder : MSOutlookEntity
+@interface MSOutlookContactFolder : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
 /** Property parentFolderId
  *

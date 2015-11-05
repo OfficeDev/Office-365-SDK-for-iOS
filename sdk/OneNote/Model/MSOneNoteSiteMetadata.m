@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteSiteMetadata
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_siteCollectionId = [dic objectForKey: @"siteCollectionId"] != nil ? [[dic objectForKey: @"siteCollectionId"] copy] : _siteCollectionId;
+		_siteId = [dic objectForKey: @"siteId"] != nil ? [[dic objectForKey: @"siteId"] copy] : _siteId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_siteCollectionId copy], @"siteCollectionId",
+		 [_siteId copy], @"siteId",
+            nil];
+}
+
+
 /** Setter implementation for property siteCollectionId
  *
  */
 - (void) setSiteCollectionId: (NSString *) value {
     _siteCollectionId = value;
-    [self valueChanged:_siteCollectionId forProperty:@"siteCollectionId"];
+    [self valueChangedFor:@"siteCollectionId"];
 }
        
 /** Setter implementation for property siteId
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setSiteId: (NSString *) value {
     _siteId = value;
-    [self valueChanged:_siteId forProperty:@"siteId"];
+    [self valueChangedFor:@"siteId"];
 }
        
 

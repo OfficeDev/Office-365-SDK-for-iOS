@@ -21,18 +21,22 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "MSOrcEntityFetcher.h"
 
-@class MSGraphItemBodyFetcher;
-@class MSGraphLocationFetcher;
 @class MSGraphResponseStatusFetcher;
-@class MSGraphAttendeeCollectionFetcher;
+@class MSGraphItemBodyFetcher;
+@class MSGraphDateTimeTimeZoneFetcher;
+@class MSGraphLocationFetcher;
 @class MSGraphPatternedRecurrenceFetcher;
+@class MSGraphAttendeeCollectionFetcher;
 @class MSGraphRecipientFetcher;
+@class MSGraphCalendarFetcher;
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
 @class MSGraphCalendarFetcher;
+@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
-@class MSGraphCalendarFetcher;
-@class MSGraphAttachmentFetcher;
 @class MSGraphEventFetcher;
+@class MSGraphExtensionFetcher;
+@class MSGraphAttachmentFetcher;
 @class MSGraphEventOperations;
 
 
@@ -51,15 +55,19 @@ root for authoritative license information.﻿
 - (MSGraphEventFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphEventFetcher *)select:(NSString *)params;
 - (MSGraphEventFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
-
-- (MSGraphAttachmentFetcher *)attachmentsById:(NSString*)identifier;
-
 
 @property (strong, nonatomic, readonly, getter=calendar) MSGraphCalendarFetcher *calendar;
 @property (strong, nonatomic, readonly, getter=instances) MSGraphEventCollectionFetcher *instances;
 
-- (MSGraphEventFetcher *)instancesById:(NSString*)identifier;
+- (MSGraphEventFetcher *)instancesById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
+
+- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
+
+- (MSGraphAttachmentFetcher *)attachmentsById:(id)identifier;
 
 
 @end

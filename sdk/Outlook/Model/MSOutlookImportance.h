@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookImportance
+/** Enum MSOutlookImportanceEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookImportance) {
@@ -33,5 +33,11 @@ typedef NS_ENUM(NSInteger, MSOutlookImportance) {
      * */
     MSOutlookImportanceHigh
 };
+
+
+@interface MSOutlookImportanceSerializer : NSObject
++(MSOutlookImportance) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookImportance) value;
+@end
 
 #endif

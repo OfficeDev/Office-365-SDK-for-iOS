@@ -20,21 +20,22 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphIdentity
  *
  */
-@interface MSGraphIdentity : MSOrcBaseEntity
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphIdentity : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
+
+/** Property _id
+ *
+ */
+@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

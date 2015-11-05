@@ -69,17 +69,6 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSOutlookEventCollectionFetcher *)calendarView {
-
-    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]];
-}
-
-- (MSOutlookEventFetcher *)calendarViewById:(NSString *)identifier {
-
-    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
-
-}
-
 - (MSOutlookEventCollectionFetcher *)events {
 
     return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]];
@@ -88,6 +77,17 @@ root for authoritative license information.﻿
 - (MSOutlookEventFetcher *)eventsById:(NSString *)identifier {
 
     return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"Events" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
+
+}
+
+- (MSOutlookEventCollectionFetcher *)calendarView {
+
+    return [[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]];
+}
+
+- (MSOutlookEventFetcher *)calendarViewById:(NSString *)identifier {
+
+    return [[[MSOutlookEventCollectionFetcher alloc] initWithUrl:@"CalendarView" parent:self asClass:[MSOutlookEvent class]] getById:identifier];
 
 }
 

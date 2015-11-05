@@ -17,13 +17,20 @@ root for authoritative license information.﻿
 #define MSOUTLOOKATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSOutlookEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookAttachment
  *
  */
-@interface MSOutlookAttachment : MSOutlookEntity
+@interface MSOutlookAttachment : MSOutlookEntity <MSOrcInteroperableWithDictionary>
+
+/** Property dateTimeLastModified
+ *
+ */
+@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
 
 /** Property name
  *
@@ -44,11 +51,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setIsInline:, getter=isInline) bool isInline;
-
-/** Property dateTimeLastModified
- *
- */
-@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

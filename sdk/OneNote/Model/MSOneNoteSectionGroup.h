@@ -17,16 +17,18 @@ root for authoritative license information.﻿
 #define MSONENOTESECTIONGROUP_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
-@class MSOneNoteComplexUser;
+@class MSOneNoteIdentitySet;
 @class MSOneNoteNotebook;
 @class MSOneNoteSection;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOneNoteSectionGroup
  *
  */
-@interface MSOneNoteSectionGroup : MSOrcBaseEntity
+@interface MSOneNoteSectionGroup : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property sectionsUrl
  *
@@ -51,7 +53,7 @@ root for authoritative license information.﻿
 /** Property createdByUser
  *
  */
-@property (nonatomic,  copy, setter=setCreatedByUser:, getter=createdByUser) MSOneNoteComplexUser * createdByUser;
+@property (nonatomic,  copy, setter=setCreatedByUser:, getter=createdByUser) MSOneNoteIdentitySet * createdByUser;
 
 /** Property lastModifiedBy
  *
@@ -61,7 +63,7 @@ root for authoritative license information.﻿
 /** Property lastModifiedByUser
  *
  */
-@property (nonatomic,  copy, setter=setLastModifiedByUser:, getter=lastModifiedByUser) MSOneNoteComplexUser * lastModifiedByUser;
+@property (nonatomic,  copy, setter=setLastModifiedByUser:, getter=lastModifiedByUser) MSOneNoteIdentitySet * lastModifiedByUser;
 
 /** Property lastModifiedTime
  *

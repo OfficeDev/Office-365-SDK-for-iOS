@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteExternalLink
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,30 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_href = [dic objectForKey: @"href"] != nil ? [[dic objectForKey: @"href"] copy] : _href;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_href copy], @"href",
+            nil];
+}
+
+
 /** Setter implementation for property href
  *
  */
 - (void) setHref: (NSString *) value {
     _href = value;
-    [self valueChanged:_href forProperty:@"href"];
+    [self valueChangedFor:@"href"];
 }
        
 

@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOutlookCalendarColor
+/** Enum MSOutlookCalendarColorEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOutlookCalendarColor) {
@@ -57,5 +57,11 @@ typedef NS_ENUM(NSInteger, MSOutlookCalendarColor) {
      * */
     MSOutlookCalendarColorAuto
 };
+
+
+@interface MSOutlookCalendarColorSerializer : NSObject
++(MSOutlookCalendarColor) fromString:(NSString *) string;
++(NSString *) toString: (MSOutlookCalendarColor) value;
+@end
 
 #endif

@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 - (MSFilesFolderFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=children) MSFilesItemCollectionFetcher *children;
 
-- (MSFilesItemFetcher *)childrenById:(NSString*)identifier;
+- (MSFilesItemFetcher *)childrenById:(id)identifier;
 
 
 @end

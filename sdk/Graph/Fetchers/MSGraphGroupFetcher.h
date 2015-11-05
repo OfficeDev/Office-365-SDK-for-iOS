@@ -25,30 +25,32 @@ root for authoritative license information.﻿
 @class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
-@class MSGraphConversationCollectionFetcher;
 @class MSGraphConversationThreadCollectionFetcher;
 @class MSGraphCalendarFetcher;
 @class MSGraphEventCollectionFetcher;
-@class MSGraphItemCollectionFetcher;
+@class MSGraphConversationCollectionFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphPhotoCollectionFetcher;
+@class MSGraphDriveFetcher;
+@class MSGraphPlanCollectionFetcher;
 @class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
-@class MSGraphConversationCollectionFetcher;
 @class MSGraphConversationThreadCollectionFetcher;
 @class MSGraphCalendarFetcher;
 @class MSGraphEventCollectionFetcher;
-@class MSGraphItemCollectionFetcher;
+@class MSGraphConversationCollectionFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphPhotoCollectionFetcher;
+@class MSGraphDriveFetcher;
+@class MSGraphPlanCollectionFetcher;
 @class MSGraphAppRoleAssignmentFetcher;
 @class MSGraphDirectoryObjectFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphConversationFetcher;
 @class MSGraphConversationThreadFetcher;
 @class MSGraphEventFetcher;
-@class MSGraphItemFetcher;
+@class MSGraphConversationFetcher;
+@class MSGraphPhotoFetcher;
+@class MSGraphPlanFetcher;
 @class MSGraphGroupOperations;
 
 
@@ -69,49 +71,59 @@ root for authoritative license information.﻿
 - (MSGraphGroupFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString*)identifier;
+- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
 
-- (MSGraphDirectoryObjectFetcher *)membersById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)membersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
 
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)memberOfById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=createdOnBehalfOf) MSGraphDirectoryObjectFetcher *createdOnBehalfOf;
 @property (strong, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
 
-- (MSGraphDirectoryObjectFetcher *)ownersById:(NSString*)identifier;
-
-
-@property (strong, nonatomic, readonly, getter=groupPhoto) MSGraphPhotoFetcher *groupPhoto;
-@property (strong, nonatomic, readonly, getter=groupPhotos) MSGraphPhotoCollectionFetcher *groupPhotos;
-
-- (MSGraphPhotoFetcher *)groupPhotosById:(NSString*)identifier;
-
-@property (strong, nonatomic, readonly, getter=conversations) MSGraphConversationCollectionFetcher *conversations;
-
-- (MSGraphConversationFetcher *)conversationsById:(NSString*)identifier;
+- (MSGraphDirectoryObjectFetcher *)ownersById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=threads) MSGraphConversationThreadCollectionFetcher *threads;
 
-- (MSGraphConversationThreadFetcher *)threadsById:(NSString*)identifier;
+- (MSGraphConversationThreadFetcher *)threadsById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=calendar) MSGraphCalendarFetcher *calendar;
-@property (strong, nonatomic, readonly, getter=events) MSGraphEventCollectionFetcher *events;
-
-- (MSGraphEventFetcher *)eventsById:(NSString*)identifier;
-
 @property (strong, nonatomic, readonly, getter=calendarView) MSGraphEventCollectionFetcher *calendarView;
 
-- (MSGraphEventFetcher *)calendarViewById:(NSString*)identifier;
+- (MSGraphEventFetcher *)calendarViewById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=files) MSGraphItemCollectionFetcher *files;
+@property (strong, nonatomic, readonly, getter=events) MSGraphEventCollectionFetcher *events;
 
-- (MSGraphItemFetcher *)filesById:(NSString*)identifier;
+- (MSGraphEventFetcher *)eventsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=conversations) MSGraphConversationCollectionFetcher *conversations;
+
+- (MSGraphConversationFetcher *)conversationsById:(id)identifier;
+
+
+@property (strong, nonatomic, readonly, getter=photo) MSGraphPhotoFetcher *photo;
+@property (strong, nonatomic, readonly, getter=photos) MSGraphPhotoCollectionFetcher *photos;
+
+- (MSGraphPhotoFetcher *)photosById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=acceptedSenders) MSGraphDirectoryObjectCollectionFetcher *acceptedSenders;
+
+- (MSGraphDirectoryObjectFetcher *)acceptedSendersById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=rejectedSenders) MSGraphDirectoryObjectCollectionFetcher *rejectedSenders;
+
+- (MSGraphDirectoryObjectFetcher *)rejectedSendersById:(id)identifier;
+
+
+@property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
+@property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
+
+- (MSGraphPlanFetcher *)plansById:(id)identifier;
 
 
 @end

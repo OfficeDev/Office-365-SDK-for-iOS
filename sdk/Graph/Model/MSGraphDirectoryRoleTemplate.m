@@ -51,12 +51,33 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
+		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [__description copy], @"description",
+		 [_displayName copy], @"displayName",
+            nil];
+}
+
+
 /** Setter implementation for property _description
  *
  */
 - (void) setDescription: (NSString *) value {
     __description = value;
-    [self valueChanged:__description forProperty:@"description"];
+    [self valueChangedFor:@"description"];
 }
        
 /** Setter implementation for property displayName
@@ -64,7 +85,7 @@ root for authoritative license information.﻿
  */
 - (void) setDisplayName: (NSString *) value {
     _displayName = value;
-    [self valueChanged:_displayName forProperty:@"displayName"];
+    [self valueChangedFor:@"displayName"];
 }
        
 

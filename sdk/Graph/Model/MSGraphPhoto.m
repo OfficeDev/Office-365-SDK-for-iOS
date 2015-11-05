@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"Width", @"width", @"Height", @"height", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"Id", @"_id", nil];
     
     }
     
@@ -51,12 +51,33 @@ root for authoritative license information.﻿
 	return self;
 }
 
-/** Setter implementation for property _id
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_height = [dic objectForKey: @"Height"] != nil ? [[dic objectForKey: @"Height"] intValue] : _height;
+		_width = [dic objectForKey: @"Width"] != nil ? [[dic objectForKey: @"Width"] intValue] : _width;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [NSNumber numberWithInt: _height], @"Height",
+		 [NSNumber numberWithInt: _width], @"Width",
+            nil];
+}
+
+
+/** Setter implementation for property height
  *
  */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChanged:__id forProperty:@"Id"];
+- (void) setHeight: (int) value {
+    _height = value;
+    [self valueChangedFor:@"Height"];
 }
        
 /** Setter implementation for property width
@@ -64,15 +85,7 @@ root for authoritative license information.﻿
  */
 - (void) setWidth: (int) value {
     _width = value;
-    [self valueChangedForInt:_width forProperty:@"Width"];
-}
-       
-/** Setter implementation for property height
- *
- */
-- (void) setHeight: (int) value {
-    _height = value;
-    [self valueChangedForInt:_height forProperty:@"Height"];
+    [self valueChangedFor:@"Width"];
 }
        
 

@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphCalendarFetcher *)getById:(NSString *)_id {
+- (MSGraphCalendarFetcher *)getById:(id) identifier {
 
-    return [[MSGraphCalendarFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSGraphCalendarFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSGraphCalendarCollectionFetcher *)select:(NSString *)params {

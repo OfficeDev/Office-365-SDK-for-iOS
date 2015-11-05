@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphResponseStatus
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,28 +51,39 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_response = [dic objectForKey: @"Response"] != nil ? [MSGraphResponseTypeSerializer fromString:[dic objectForKey: @"Response"]] : _response;
+		_time = [dic objectForKey: @"Time"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]] : _time;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSGraphResponseTypeSerializer toString:_response], @"Response",
+		 [MSOrcObjectizer stringFromDate:_time], @"Time",
+            nil];
+}
+
+
 /** Setter implementation for property response
  *
  */
 - (void) setResponse: (MSGraphResponseType) value {
     _response = value;
-    [self valueChangedForInt:_response forProperty:@"Response"];
+    [self valueChangedFor:@"Response"];
 }
        
 
-- (void)setResponseString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphResponseTypeNone], @"None", [NSNumber numberWithInt:MSGraphResponseTypeOrganizer], @"Organizer", [NSNumber numberWithInt:MSGraphResponseTypeTentativelyAccepted], @"TentativelyAccepted", [NSNumber numberWithInt:MSGraphResponseTypeAccepted], @"Accepted", [NSNumber numberWithInt:MSGraphResponseTypeDeclined], @"Declined", [NSNumber numberWithInt:MSGraphResponseTypeNotResponded], @"NotResponded",
-            nil        
-        ];
-    }
-    
-    self.response = [stringMappings[value] intValue]; 
+- (void)setResponseString:(NSString *)string {
+        
+    _response = [MSGraphResponseTypeSerializer fromString:string];
+    [self valueChangedFor:@"Response"]; 
 }
 
 /** Setter implementation for property time
@@ -78,7 +91,7 @@ root for authoritative license information.﻿
  */
 - (void) setTime: (NSDate *) value {
     _time = value;
-    [self valueChanged:_time forProperty:@"Time"];
+    [self valueChangedFor:@"Time"];
 }
        
 

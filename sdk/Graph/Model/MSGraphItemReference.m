@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphItemReference
@@ -37,11 +38,12 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ItemReference";
+		_odataType = @"#Microsoft.Graph.itemReference";
 
         
     }
@@ -49,12 +51,34 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_driveId = [dic objectForKey: @"driveId"] != nil ? [[dic objectForKey: @"driveId"] copy] : _driveId;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_path = [dic objectForKey: @"path"] != nil ? [[dic objectForKey: @"path"] copy] : _path;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_driveId copy], @"driveId",
+		 [__id copy], @"id",
+		 [_path copy], @"path",
+            nil];
+}
+
+
 /** Setter implementation for property driveId
  *
  */
 - (void) setDriveId: (NSString *) value {
     _driveId = value;
-    [self valueChanged:_driveId forProperty:@"driveId"];
+    [self valueChangedFor:@"driveId"];
 }
        
 /** Setter implementation for property _id
@@ -62,7 +86,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property path
@@ -70,7 +94,7 @@ root for authoritative license information.﻿
  */
 - (void) setPath: (NSString *) value {
     _path = value;
-    [self valueChanged:_path forProperty:@"path"];
+    [self valueChangedFor:@"path"];
 }
        
 

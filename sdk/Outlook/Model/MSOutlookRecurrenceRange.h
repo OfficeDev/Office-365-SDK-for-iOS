@@ -21,18 +21,19 @@ root for authoritative license information.﻿
 
 #import "MSOutlookRecurrenceRangeType.h"
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSOutlookRecurrenceRange
  *
  */
-@interface MSOutlookRecurrenceRange : MSOrcBaseEntity
+@interface MSOutlookRecurrenceRange : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property type
  *
  */
 @property (nonatomic,  setter=setType:, getter=type) MSOutlookRecurrenceRangeType type;
 
-- (void)setTypeString:(NSString *)value;
+- (void)setTypeString:(NSString *)string;
 
 /** Property startDate
  *

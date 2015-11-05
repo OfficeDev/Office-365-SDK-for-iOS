@@ -17,22 +17,24 @@ root for authoritative license information.﻿
 #define MSGRAPHEVENTMESSAGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphEvent;
 #import "MSGraphMeetingMessageType.h"
 #import "MSGraphMessage.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphEventMessage
  *
  */
-@interface MSGraphEventMessage : MSGraphMessage
+@interface MSGraphEventMessage : MSGraphMessage <MSOrcInteroperableWithDictionary>
 
 /** Property meetingMessageType
  *
  */
 @property (nonatomic,  setter=setMeetingMessageType:, getter=meetingMessageType) MSGraphMeetingMessageType meetingMessageType;
 
-- (void)setMeetingMessageTypeString:(NSString *)value;
+- (void)setMeetingMessageTypeString:(NSString *)string;
 
 /** Property event
  *

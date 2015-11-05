@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"HasAttachments", @"hasAttachments", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Reminder", @"reminder", @"Location", @"location", @"ShowAs", @"showAs", @"ResponseStatus", @"responseStatus", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"ResponseRequested", @"responseRequested", @"Type", @"type", @"SeriesMasterId", @"seriesMasterId", @"Attendees", @"attendees", @"Recurrence", @"recurrence", @"Organizer", @"organizer", @"iCalUId", @"iCalUId", @"WebLink", @"webLink", @"Attachments", @"attachments", @"Calendar", @"calendar", @"Instances", @"instances", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"Reminder", @"reminder", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -47,243 +47,118 @@ root for authoritative license information.﻿
         
         
 		_attendees = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
 		_instances = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
+		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
 }
 
-/** Setter implementation for property subject
- *
- */
-- (void) setSubject: (NSString *) value {
-    _subject = value;
-    [self valueChanged:_subject forProperty:@"Subject"];
-}
-       
-/** Setter implementation for property body
- *
- */
-- (void) setBody: (MSOutlookItemBody *) value {
-    _body = value;
-    [self valueChanged:_body forProperty:@"Body"];
-}
-       
-/** Setter implementation for property bodyPreview
- *
- */
-- (void) setBodyPreview: (NSString *) value {
-    _bodyPreview = value;
-    [self valueChanged:_bodyPreview forProperty:@"BodyPreview"];
-}
-       
-/** Setter implementation for property importance
- *
- */
-- (void) setImportance: (MSOutlookImportance) value {
-    _importance = value;
-    [self valueChangedForInt:_importance forProperty:@"Importance"];
-}
-       
 
-- (void)setImportanceString:(NSString *)value {
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
     
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookImportanceLow], @"Low", [NSNumber numberWithInt:MSOutlookImportanceNormal], @"Normal", [NSNumber numberWithInt:MSOutlookImportanceHigh], @"High",
-            nil        
-        ];
+		_responseStatus = [dic objectForKey: @"ResponseStatus"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]] : _responseStatus;
+		_iCalUId = [dic objectForKey: @"iCalUId"] != nil ? [[dic objectForKey: @"iCalUId"] copy] : _iCalUId;
+		_reminder = [dic objectForKey: @"Reminder"] != nil ? [[dic objectForKey: @"Reminder"] intValue] : _reminder;
+		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
+		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
+		_body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
+		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
+		_importance = [dic objectForKey: @"Importance"] != nil ? [MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
+		_sensitivity = [dic objectForKey: @"Sensitivity"] != nil ? [MSOutlookSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]] : _sensitivity;
+		_start = [dic objectForKey: @"Start"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Start"]] : _start;
+		_originalStart = [dic objectForKey: @"OriginalStart"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]] : _originalStart;
+		_startTimeZone = [dic objectForKey: @"StartTimeZone"] != nil ? [[dic objectForKey: @"StartTimeZone"] copy] : _startTimeZone;
+		_end = [dic objectForKey: @"End"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"End"]] : _end;
+		_endTimeZone = [dic objectForKey: @"EndTimeZone"] != nil ? [[dic objectForKey: @"EndTimeZone"] copy] : _endTimeZone;
+		_location = [dic objectForKey: @"Location"] != nil ? [[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]] : _location;
+		_isAllDay = [dic objectForKey: @"IsAllDay"] != nil ? [[dic objectForKey: @"IsAllDay"] boolValue] : _isAllDay;
+		_isCancelled = [dic objectForKey: @"IsCancelled"] != nil ? [[dic objectForKey: @"IsCancelled"] boolValue] : _isCancelled;
+		_isOrganizer = [dic objectForKey: @"IsOrganizer"] != nil ? [[dic objectForKey: @"IsOrganizer"] boolValue] : _isOrganizer;
+		_recurrence = [dic objectForKey: @"Recurrence"] != nil ? [[MSOutlookPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]] : _recurrence;
+		_responseRequested = [dic objectForKey: @"ResponseRequested"] != nil ? [[dic objectForKey: @"ResponseRequested"] boolValue] : _responseRequested;
+		_seriesMasterId = [dic objectForKey: @"SeriesMasterId"] != nil ? [[dic objectForKey: @"SeriesMasterId"] copy] : _seriesMasterId;
+		_showAs = [dic objectForKey: @"ShowAs"] != nil ? [MSOutlookFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]] : _showAs;
+		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookEventTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+
+        if([dic objectForKey: @"Attendees"] != [NSNull null]){
+            _attendees = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attendees"] count]];
+            
+            for (id object in [dic objectForKey: @"Attendees"]) {
+                [_attendees addObject:[[MSOutlookAttendee alloc] initWithDictionary: object]];
+            }
+        }
+        
+		_organizer = [dic objectForKey: @"Organizer"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]] : _organizer;
+		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
+		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+
+        if([dic objectForKey: @"Instances"] != [NSNull null]){
+            _instances = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Instances"] count]];
+            
+            for (id object in [dic objectForKey: @"Instances"]) {
+                [_instances addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Attachments"] != [NSNull null]){
+            _attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            
+            for (id object in [dic objectForKey: @"Attachments"]) {
+                [_attachments addObject:[[MSOutlookAttachment alloc] initWithDictionary: object]];
+            }
+        }
+        
+
     }
     
-    self.importance = [stringMappings[value] intValue]; 
+    return self;
 }
 
-/** Setter implementation for property hasAttachments
- *
- */
-- (void) setHasAttachments: (bool) value {
-    _hasAttachments = value;
-    [self valueChangedForBool:_hasAttachments forProperty:@"HasAttachments"];
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_responseStatus toDictionary], @"ResponseStatus",
+		 [_iCalUId copy], @"iCalUId",
+		 [NSNumber numberWithInt: _reminder], @"Reminder",
+		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
+		 [_subject copy], @"Subject",
+		 [_body toDictionary], @"Body",
+		 [_bodyPreview copy], @"BodyPreview",
+		 [MSOutlookImportanceSerializer toString:_importance], @"Importance",
+		 [MSOutlookSensitivitySerializer toString:_sensitivity], @"Sensitivity",
+		 [MSOrcObjectizer stringFromDate:_start], @"Start",
+		 [MSOrcObjectizer stringFromDate:_originalStart], @"OriginalStart",
+		 [_startTimeZone copy], @"StartTimeZone",
+		 [MSOrcObjectizer stringFromDate:_end], @"End",
+		 [_endTimeZone copy], @"EndTimeZone",
+		 [_location toDictionary], @"Location",
+		 (_isAllDay?@"true":@"false"), @"IsAllDay",
+		 (_isCancelled?@"true":@"false"), @"IsCancelled",
+		 (_isOrganizer?@"true":@"false"), @"IsOrganizer",
+		 [_recurrence toDictionary], @"Recurrence",
+		 (_responseRequested?@"true":@"false"), @"ResponseRequested",
+		 [_seriesMasterId copy], @"SeriesMasterId",
+		 [MSOutlookFreeBusyStatusSerializer toString:_showAs], @"ShowAs",
+		 [MSOutlookEventTypeSerializer toString:_type], @"Type",
+		 [[NSMutableArray alloc] init], @"Attendees",
+		 [_organizer toDictionary], @"Organizer",
+		 [_webLink copy], @"WebLink",
+		 [_calendar toDictionary], @"Calendar",
+		 [[NSMutableArray alloc] init], @"Instances",
+		 [[NSMutableArray alloc] init], @"Attachments",
+            nil];
 }
-       
-/** Setter implementation for property start
- *
- */
-- (void) setStart: (NSDate *) value {
-    _start = value;
-    [self valueChanged:_start forProperty:@"Start"];
-}
-       
-/** Setter implementation for property originalStart
- *
- */
-- (void) setOriginalStart: (NSDate *) value {
-    _originalStart = value;
-    [self valueChanged:_originalStart forProperty:@"OriginalStart"];
-}
-       
-/** Setter implementation for property startTimeZone
- *
- */
-- (void) setStartTimeZone: (NSString *) value {
-    _startTimeZone = value;
-    [self valueChanged:_startTimeZone forProperty:@"StartTimeZone"];
-}
-       
-/** Setter implementation for property end
- *
- */
-- (void) setEnd: (NSDate *) value {
-    _end = value;
-    [self valueChanged:_end forProperty:@"End"];
-}
-       
-/** Setter implementation for property endTimeZone
- *
- */
-- (void) setEndTimeZone: (NSString *) value {
-    _endTimeZone = value;
-    [self valueChanged:_endTimeZone forProperty:@"EndTimeZone"];
-}
-       
-/** Setter implementation for property reminder
- *
- */
-- (void) setReminder: (int) value {
-    _reminder = value;
-    [self valueChangedForInt:_reminder forProperty:@"Reminder"];
-}
-       
-/** Setter implementation for property location
- *
- */
-- (void) setLocation: (MSOutlookLocation *) value {
-    _location = value;
-    [self valueChanged:_location forProperty:@"Location"];
-}
-       
-/** Setter implementation for property showAs
- *
- */
-- (void) setShowAs: (MSOutlookFreeBusyStatus) value {
-    _showAs = value;
-    [self valueChangedForInt:_showAs forProperty:@"ShowAs"];
-}
-       
 
-- (void)setShowAsString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookFreeBusyStatusFree], @"Free", [NSNumber numberWithInt:MSOutlookFreeBusyStatusTentative], @"Tentative", [NSNumber numberWithInt:MSOutlookFreeBusyStatusBusy], @"Busy", [NSNumber numberWithInt:MSOutlookFreeBusyStatusOof], @"Oof", [NSNumber numberWithInt:MSOutlookFreeBusyStatusWorkingElsewhere], @"WorkingElsewhere", [NSNumber numberWithInt:MSOutlookFreeBusyStatusUnknown], @"Unknown",
-            nil        
-        ];
-    }
-    
-    self.showAs = [stringMappings[value] intValue]; 
-}
 
 /** Setter implementation for property responseStatus
  *
  */
 - (void) setResponseStatus: (MSOutlookResponseStatus *) value {
     _responseStatus = value;
-    [self valueChanged:_responseStatus forProperty:@"ResponseStatus"];
-}
-       
-/** Setter implementation for property isAllDay
- *
- */
-- (void) setIsAllDay: (bool) value {
-    _isAllDay = value;
-    [self valueChangedForBool:_isAllDay forProperty:@"IsAllDay"];
-}
-       
-/** Setter implementation for property isCancelled
- *
- */
-- (void) setIsCancelled: (bool) value {
-    _isCancelled = value;
-    [self valueChangedForBool:_isCancelled forProperty:@"IsCancelled"];
-}
-       
-/** Setter implementation for property isOrganizer
- *
- */
-- (void) setIsOrganizer: (bool) value {
-    _isOrganizer = value;
-    [self valueChangedForBool:_isOrganizer forProperty:@"IsOrganizer"];
-}
-       
-/** Setter implementation for property responseRequested
- *
- */
-- (void) setResponseRequested: (bool) value {
-    _responseRequested = value;
-    [self valueChangedForBool:_responseRequested forProperty:@"ResponseRequested"];
-}
-       
-/** Setter implementation for property type
- *
- */
-- (void) setType: (MSOutlookEventType) value {
-    _type = value;
-    [self valueChangedForInt:_type forProperty:@"Type"];
-}
-       
-
-- (void)setTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSOutlookEventTypeSingleInstance], @"SingleInstance", [NSNumber numberWithInt:MSOutlookEventTypeOccurrence], @"Occurrence", [NSNumber numberWithInt:MSOutlookEventTypeException], @"Exception", [NSNumber numberWithInt:MSOutlookEventTypeSeriesMaster], @"SeriesMaster",
-            nil        
-        ];
-    }
-    
-    self.type = [stringMappings[value] intValue]; 
-}
-
-/** Setter implementation for property seriesMasterId
- *
- */
-- (void) setSeriesMasterId: (NSString *) value {
-    _seriesMasterId = value;
-    [self valueChanged:_seriesMasterId forProperty:@"SeriesMasterId"];
-}
-       
-/** Setter implementation for property attendees
- *
- */
-- (void) setAttendees: (NSMutableArray *) value {
-    _attendees = value;
-    [self valueChanged:_attendees forProperty:@"Attendees"];
-}
-       
-/** Setter implementation for property recurrence
- *
- */
-- (void) setRecurrence: (MSOutlookPatternedRecurrence *) value {
-    _recurrence = value;
-    [self valueChanged:_recurrence forProperty:@"Recurrence"];
-}
-       
-/** Setter implementation for property organizer
- *
- */
-- (void) setOrganizer: (MSOutlookRecipient *) value {
-    _organizer = value;
-    [self valueChanged:_organizer forProperty:@"Organizer"];
+    [self valueChangedFor:@"ResponseStatus"];
 }
        
 /** Setter implementation for property iCalUId
@@ -291,7 +166,219 @@ root for authoritative license information.﻿
  */
 - (void) setICalUId: (NSString *) value {
     _iCalUId = value;
-    [self valueChanged:_iCalUId forProperty:@"iCalUId"];
+    [self valueChangedFor:@"iCalUId"];
+}
+       
+/** Setter implementation for property reminder
+ *
+ */
+- (void) setReminder: (int) value {
+    _reminder = value;
+    [self valueChangedFor:@"Reminder"];
+}
+       
+/** Setter implementation for property hasAttachments
+ *
+ */
+- (void) setHasAttachments: (bool) value {
+    _hasAttachments = value;
+    [self valueChangedFor:@"HasAttachments"];
+}
+       
+/** Setter implementation for property subject
+ *
+ */
+- (void) setSubject: (NSString *) value {
+    _subject = value;
+    [self valueChangedFor:@"Subject"];
+}
+       
+/** Setter implementation for property body
+ *
+ */
+- (void) setBody: (MSOutlookItemBody *) value {
+    _body = value;
+    [self valueChangedFor:@"Body"];
+}
+       
+/** Setter implementation for property bodyPreview
+ *
+ */
+- (void) setBodyPreview: (NSString *) value {
+    _bodyPreview = value;
+    [self valueChangedFor:@"BodyPreview"];
+}
+       
+/** Setter implementation for property importance
+ *
+ */
+- (void) setImportance: (MSOutlookImportance) value {
+    _importance = value;
+    [self valueChangedFor:@"Importance"];
+}
+       
+
+- (void)setImportanceString:(NSString *)string {
+        
+    _importance = [MSOutlookImportanceSerializer fromString:string];
+    [self valueChangedFor:@"Importance"]; 
+}
+
+/** Setter implementation for property sensitivity
+ *
+ */
+- (void) setSensitivity: (MSOutlookSensitivity) value {
+    _sensitivity = value;
+    [self valueChangedFor:@"Sensitivity"];
+}
+       
+
+- (void)setSensitivityString:(NSString *)string {
+        
+    _sensitivity = [MSOutlookSensitivitySerializer fromString:string];
+    [self valueChangedFor:@"Sensitivity"]; 
+}
+
+/** Setter implementation for property start
+ *
+ */
+- (void) setStart: (NSDate *) value {
+    _start = value;
+    [self valueChangedFor:@"Start"];
+}
+       
+/** Setter implementation for property originalStart
+ *
+ */
+- (void) setOriginalStart: (NSDate *) value {
+    _originalStart = value;
+    [self valueChangedFor:@"OriginalStart"];
+}
+       
+/** Setter implementation for property startTimeZone
+ *
+ */
+- (void) setStartTimeZone: (NSString *) value {
+    _startTimeZone = value;
+    [self valueChangedFor:@"StartTimeZone"];
+}
+       
+/** Setter implementation for property end
+ *
+ */
+- (void) setEnd: (NSDate *) value {
+    _end = value;
+    [self valueChangedFor:@"End"];
+}
+       
+/** Setter implementation for property endTimeZone
+ *
+ */
+- (void) setEndTimeZone: (NSString *) value {
+    _endTimeZone = value;
+    [self valueChangedFor:@"EndTimeZone"];
+}
+       
+/** Setter implementation for property location
+ *
+ */
+- (void) setLocation: (MSOutlookLocation *) value {
+    _location = value;
+    [self valueChangedFor:@"Location"];
+}
+       
+/** Setter implementation for property isAllDay
+ *
+ */
+- (void) setIsAllDay: (bool) value {
+    _isAllDay = value;
+    [self valueChangedFor:@"IsAllDay"];
+}
+       
+/** Setter implementation for property isCancelled
+ *
+ */
+- (void) setIsCancelled: (bool) value {
+    _isCancelled = value;
+    [self valueChangedFor:@"IsCancelled"];
+}
+       
+/** Setter implementation for property isOrganizer
+ *
+ */
+- (void) setIsOrganizer: (bool) value {
+    _isOrganizer = value;
+    [self valueChangedFor:@"IsOrganizer"];
+}
+       
+/** Setter implementation for property recurrence
+ *
+ */
+- (void) setRecurrence: (MSOutlookPatternedRecurrence *) value {
+    _recurrence = value;
+    [self valueChangedFor:@"Recurrence"];
+}
+       
+/** Setter implementation for property responseRequested
+ *
+ */
+- (void) setResponseRequested: (bool) value {
+    _responseRequested = value;
+    [self valueChangedFor:@"ResponseRequested"];
+}
+       
+/** Setter implementation for property seriesMasterId
+ *
+ */
+- (void) setSeriesMasterId: (NSString *) value {
+    _seriesMasterId = value;
+    [self valueChangedFor:@"SeriesMasterId"];
+}
+       
+/** Setter implementation for property showAs
+ *
+ */
+- (void) setShowAs: (MSOutlookFreeBusyStatus) value {
+    _showAs = value;
+    [self valueChangedFor:@"ShowAs"];
+}
+       
+
+- (void)setShowAsString:(NSString *)string {
+        
+    _showAs = [MSOutlookFreeBusyStatusSerializer fromString:string];
+    [self valueChangedFor:@"ShowAs"]; 
+}
+
+/** Setter implementation for property type
+ *
+ */
+- (void) setType: (MSOutlookEventType) value {
+    _type = value;
+    [self valueChangedFor:@"Type"];
+}
+       
+
+- (void)setTypeString:(NSString *)string {
+        
+    _type = [MSOutlookEventTypeSerializer fromString:string];
+    [self valueChangedFor:@"Type"]; 
+}
+
+/** Setter implementation for property attendees
+ *
+ */
+- (void) setAttendees: (NSMutableArray *) value {
+    _attendees = value;
+    [self valueChangedFor:@"Attendees"];
+}
+       
+/** Setter implementation for property organizer
+ *
+ */
+- (void) setOrganizer: (MSOutlookRecipient *) value {
+    _organizer = value;
+    [self valueChangedFor:@"Organizer"];
 }
        
 /** Setter implementation for property webLink
@@ -299,15 +386,7 @@ root for authoritative license information.﻿
  */
 - (void) setWebLink: (NSString *) value {
     _webLink = value;
-    [self valueChanged:_webLink forProperty:@"WebLink"];
-}
-       
-/** Setter implementation for property attachments
- *
- */
-- (void) setAttachments: (NSMutableArray *) value {
-    _attachments = value;
-    [self valueChanged:_attachments forProperty:@"Attachments"];
+    [self valueChangedFor:@"WebLink"];
 }
        
 /** Setter implementation for property calendar
@@ -315,7 +394,7 @@ root for authoritative license information.﻿
  */
 - (void) setCalendar: (MSOutlookCalendar *) value {
     _calendar = value;
-    [self valueChanged:_calendar forProperty:@"Calendar"];
+    [self valueChangedFor:@"Calendar"];
 }
        
 /** Setter implementation for property instances
@@ -323,7 +402,15 @@ root for authoritative license information.﻿
  */
 - (void) setInstances: (NSMutableArray *) value {
     _instances = value;
-    [self valueChanged:_instances forProperty:@"Instances"];
+    [self valueChangedFor:@"Instances"];
+}
+       
+/** Setter implementation for property attachments
+ *
+ */
+- (void) setAttachments: (NSMutableArray *) value {
+    _attachments = value;
+    [self valueChangedFor:@"Attachments"];
 }
        
 

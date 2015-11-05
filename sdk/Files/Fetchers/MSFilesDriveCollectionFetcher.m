@@ -31,9 +31,9 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSFilesDriveFetcher *)getById:(NSString *)_id {
+- (MSFilesDriveFetcher *)getById:(id) identifier {
 
-    return [[MSFilesDriveFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" ,_id] parent:self];
+    return [[MSFilesDriveFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];
 }
 
 - (MSFilesDriveCollectionFetcher *)select:(NSString *)params {

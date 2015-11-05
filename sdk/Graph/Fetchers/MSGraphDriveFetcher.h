@@ -21,10 +21,12 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "MSOrcEntityFetcher.h"
 
-@class MSGraphIdentityFetcher;
-@class MSGraphDriveQuotaFetcher;
+@class MSGraphIdentitySetFetcher;
+@class MSGraphQuotaFetcher;
 @class MSGraphItemCollectionFetcher;
+@class MSGraphItemFetcher;
 @class MSGraphItemCollectionFetcher;
+@class MSGraphItemFetcher;
 @class MSGraphItemFetcher;
 @class MSGraphDriveOperations;
 
@@ -38,16 +40,26 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphDrive *, MSOrcError *))callback;
-- (void)update:(MSGraphDrive *)Drive callback:(void (^)(MSGraphDrive *, MSOrcError*))callback ;
+- (void)update:(MSGraphDrive *)drive callback:(void (^)(MSGraphDrive *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphDriveFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphDriveFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphDriveFetcher *)select:(NSString *)params;
 - (MSGraphDriveFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=files) MSGraphItemCollectionFetcher *files;
+@property (strong, nonatomic, readonly, getter=items) MSGraphItemCollectionFetcher *items;
 
-- (MSGraphItemFetcher *)filesById:(NSString*)identifier;
+- (MSGraphItemFetcher *)itemsById:(id)identifier;
 
+@property (strong, nonatomic, readonly, getter=shared) MSGraphItemCollectionFetcher *shared;
+
+- (MSGraphItemFetcher *)sharedById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=special) MSGraphItemCollectionFetcher *special;
+
+- (MSGraphItemFetcher *)specialById:(id)identifier;
+
+
+@property (strong, nonatomic, readonly, getter=root) MSGraphItemFetcher *root;
 
 @end
 

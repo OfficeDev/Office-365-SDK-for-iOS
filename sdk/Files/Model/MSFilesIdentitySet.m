@@ -15,6 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesIdentitySet
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
@@ -49,12 +51,32 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_application = [dic objectForKey: @"application"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
+		_user = [dic objectForKey: @"user"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [_application toDictionary], @"application",
+		 [_user toDictionary], @"user",
+            nil];
+}
+
+
 /** Setter implementation for property application
  *
  */
 - (void) setApplication: (MSFilesIdentity *) value {
     _application = value;
-    [self valueChanged:_application forProperty:@"application"];
+    [self valueChangedFor:@"application"];
 }
        
 /** Setter implementation for property user
@@ -62,7 +84,7 @@ root for authoritative license information.﻿
  */
 - (void) setUser: (MSFilesIdentity *) value {
     _user = value;
-    [self valueChanged:_user forProperty:@"user"];
+    [self valueChangedFor:@"user"];
 }
        
 

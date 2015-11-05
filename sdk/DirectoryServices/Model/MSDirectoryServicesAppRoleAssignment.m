@@ -51,12 +51,43 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_creationTimestamp = [dic objectForKey: @"creationTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"creationTimestamp"]] : _creationTimestamp;
+		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+		_principalDisplayName = [dic objectForKey: @"principalDisplayName"] != nil ? [[dic objectForKey: @"principalDisplayName"] copy] : _principalDisplayName;
+		_principalId = [dic objectForKey: @"principalId"] != nil ? [[dic objectForKey: @"principalId"] copy] : _principalId;
+		_principalType = [dic objectForKey: @"principalType"] != nil ? [[dic objectForKey: @"principalType"] copy] : _principalType;
+		_resourceDisplayName = [dic objectForKey: @"resourceDisplayName"] != nil ? [[dic objectForKey: @"resourceDisplayName"] copy] : _resourceDisplayName;
+		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSOrcObjectizer stringFromDate:_creationTimestamp], @"creationTimestamp",
+		 [__id copy], @"id",
+		 [_principalDisplayName copy], @"principalDisplayName",
+		 [_principalId copy], @"principalId",
+		 [_principalType copy], @"principalType",
+		 [_resourceDisplayName copy], @"resourceDisplayName",
+		 [_resourceId copy], @"resourceId",
+            nil];
+}
+
+
 /** Setter implementation for property creationTimestamp
  *
  */
 - (void) setCreationTimestamp: (NSDate *) value {
     _creationTimestamp = value;
-    [self valueChanged:_creationTimestamp forProperty:@"creationTimestamp"];
+    [self valueChangedFor:@"creationTimestamp"];
 }
        
 /** Setter implementation for property _id
@@ -64,7 +95,7 @@ root for authoritative license information.﻿
  */
 - (void) setId: (NSString *) value {
     __id = value;
-    [self valueChanged:__id forProperty:@"id"];
+    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property principalDisplayName
@@ -72,7 +103,7 @@ root for authoritative license information.﻿
  */
 - (void) setPrincipalDisplayName: (NSString *) value {
     _principalDisplayName = value;
-    [self valueChanged:_principalDisplayName forProperty:@"principalDisplayName"];
+    [self valueChangedFor:@"principalDisplayName"];
 }
        
 /** Setter implementation for property principalId
@@ -80,7 +111,7 @@ root for authoritative license information.﻿
  */
 - (void) setPrincipalId: (NSString *) value {
     _principalId = value;
-    [self valueChanged:_principalId forProperty:@"principalId"];
+    [self valueChangedFor:@"principalId"];
 }
        
 /** Setter implementation for property principalType
@@ -88,7 +119,7 @@ root for authoritative license information.﻿
  */
 - (void) setPrincipalType: (NSString *) value {
     _principalType = value;
-    [self valueChanged:_principalType forProperty:@"principalType"];
+    [self valueChangedFor:@"principalType"];
 }
        
 /** Setter implementation for property resourceDisplayName
@@ -96,7 +127,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceDisplayName: (NSString *) value {
     _resourceDisplayName = value;
-    [self valueChanged:_resourceDisplayName forProperty:@"resourceDisplayName"];
+    [self valueChangedFor:@"resourceDisplayName"];
 }
        
 /** Setter implementation for property resourceId
@@ -104,7 +135,7 @@ root for authoritative license information.﻿
  */
 - (void) setResourceId: (NSString *) value {
     _resourceId = value;
-    [self valueChanged:_resourceId forProperty:@"resourceId"];
+    [self valueChangedFor:@"resourceId"];
 }
        
 

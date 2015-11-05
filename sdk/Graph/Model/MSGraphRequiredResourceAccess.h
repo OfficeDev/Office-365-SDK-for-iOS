@@ -21,11 +21,12 @@ root for authoritative license information.﻿
 
 @class MSGraphResourceAccess;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphRequiredResourceAccess
  *
  */
-@interface MSGraphRequiredResourceAccess : MSOrcBaseEntity
+@interface MSGraphRequiredResourceAccess : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property resourceAppId
  *

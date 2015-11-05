@@ -17,15 +17,17 @@ root for authoritative license information.﻿
 #define MSGRAPHSUBSCRIBEDSKU_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSGraphLicenseUnitsDetail;
 @class MSGraphServicePlanInfo;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphSubscribedSku
  *
  */
-@interface MSGraphSubscribedSku : MSOrcBaseEntity
+@interface MSGraphSubscribedSku : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
 /** Property capabilityStatus
  *

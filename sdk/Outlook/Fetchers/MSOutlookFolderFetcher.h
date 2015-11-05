@@ -45,11 +45,11 @@ root for authoritative license information.﻿
 - (MSOutlookFolderFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=messages) MSOutlookMessageCollectionFetcher *messages;
 
-- (MSOutlookMessageFetcher *)messagesById:(NSString*)identifier;
+- (MSOutlookMessageFetcher *)messagesById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=childFolders) MSOutlookFolderCollectionFetcher *childFolders;
 
-- (MSOutlookFolderFetcher *)childFoldersById:(NSString*)identifier;
+- (MSOutlookFolderFetcher *)childFoldersById:(id)identifier;
 
 
 @end

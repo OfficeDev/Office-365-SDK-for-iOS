@@ -18,7 +18,7 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-/** Enum MSOneNoteUserRole
+/** Enum MSOneNoteUserRoleEnum
  *
  */
 typedef NS_ENUM(NSInteger, MSOneNoteUserRole) {
@@ -36,5 +36,11 @@ typedef NS_ENUM(NSInteger, MSOneNoteUserRole) {
      * */
     MSOneNoteUserRoleNone
 };
+
+
+@interface MSOneNoteUserRoleSerializer : NSObject
++(MSOneNoteUserRole) fromString:(NSString *) string;
++(NSString *) toString: (MSOneNoteUserRole) value;
+@end
 
 #endif

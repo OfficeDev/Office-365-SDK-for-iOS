@@ -19,29 +19,28 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-@class MSGraphPhysicalAddress;
-@class MSGraphGeoCoordinates;
 #import "MSOrcBaseEntity.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphLocation
  *
  */
-@interface MSGraphLocation : MSOrcBaseEntity
+@interface MSGraphLocation : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
-/** Property displayName
+/** Property altitude
  *
  */
-@property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
+@property (nonatomic,  setter=setAltitude:, getter=altitude) double altitude;
 
-/** Property address
+/** Property latitude
  *
  */
-@property (nonatomic,  copy, setter=setAddress:, getter=address) MSGraphPhysicalAddress * address;
+@property (nonatomic,  setter=setLatitude:, getter=latitude) double latitude;
 
-/** Property coordinates
+/** Property longitude
  *
  */
-@property (nonatomic,  copy, setter=setCoordinates:, getter=coordinates) MSGraphGeoCoordinates * coordinates;
+@property (nonatomic,  setter=setLongitude:, getter=longitude) double longitude;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

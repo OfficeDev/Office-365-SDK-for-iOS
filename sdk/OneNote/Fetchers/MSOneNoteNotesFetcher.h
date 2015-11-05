@@ -59,27 +59,27 @@ root for authoritative license information.﻿
 - (MSOneNoteNotesFetcher *)expand:(NSString *)value;
 @property (strong, nonatomic, readonly, getter=notebooks) MSOneNoteNotebookCollectionFetcher *notebooks;
 
-- (MSOneNoteNotebookFetcher *)notebooksById:(NSString*)identifier;
+- (MSOneNoteNotebookFetcher *)notebooksById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=sections) MSOneNoteSectionCollectionFetcher *sections;
 
-- (MSOneNoteSectionFetcher *)sectionsById:(NSString*)identifier;
+- (MSOneNoteSectionFetcher *)sectionsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=sectionGroups) MSOneNoteSectionGroupCollectionFetcher *sectionGroups;
 
-- (MSOneNoteSectionGroupFetcher *)sectionGroupsById:(NSString*)identifier;
+- (MSOneNoteSectionGroupFetcher *)sectionGroupsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=pages) MSOneNotePageCollectionFetcher *pages;
 
-- (MSOneNotePageFetcher *)pagesById:(NSString*)identifier;
+- (MSOneNotePageFetcher *)pagesById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=resources) MSOneNoteResourceCollectionFetcher *resources;
 
-- (MSOneNoteResourceFetcher *)resourcesById:(NSString*)identifier;
+- (MSOneNoteResourceFetcher *)resourcesById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=_operations) MSOneNoteOperationCollectionFetcher *_operations;
 
-- (MSOneNoteOperationFetcher *)_operationsById:(NSString*)identifier;
+- (MSOneNoteOperationFetcher *)_operationsById:(id)identifier;
 
 
 @end

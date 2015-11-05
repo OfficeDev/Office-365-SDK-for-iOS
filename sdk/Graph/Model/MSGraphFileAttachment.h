@@ -17,13 +17,15 @@ root for authoritative license information.﻿
 #define MSGRAPHFILEATTACHMENT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 #import "MSGraphAttachment.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSGraphFileAttachment
  *
  */
-@interface MSGraphFileAttachment : MSGraphAttachment
+@interface MSGraphFileAttachment : MSGraphAttachment <MSOrcInteroperableWithDictionary>
 
 /** Property contentId
  *
@@ -34,11 +36,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setContentLocation:, getter=contentLocation) NSString * contentLocation;
-
-/** Property isContactPhoto
- *
- */
-@property (nonatomic,  setter=setIsContactPhoto:, getter=isContactPhoto) bool isContactPhoto;
 
 /** Property contentBytes
  *

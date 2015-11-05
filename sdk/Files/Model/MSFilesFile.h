@@ -17,14 +17,16 @@ root for authoritative license information.﻿
 #define MSFILESFILE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcObjectizer.h"
 
 @class MSFilesImageFacet;
 #import "MSFilesItem.h"
+#import <api/MSOrcInteroperableWithDictionary.h>
 
 /** Interface MSFilesFile
  *
  */
-@interface MSFilesFile : MSFilesItem
+@interface MSFilesFile : MSFilesItem <MSOrcInteroperableWithDictionary>
 
 /** Property contentUrl
  *

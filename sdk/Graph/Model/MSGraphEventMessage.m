@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"HasAttachments", @"hasAttachments", @"ParentFolderId", @"parentFolderId", @"From", @"from", @"Sender", @"sender", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsDraft", @"isDraft", @"IsRead", @"isRead", @"WebLink", @"webLink", @"Attachments", @"attachments", @"Id", @"_id", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"InferenceClassification", @"inferenceClassification", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -51,28 +51,40 @@ root for authoritative license information.﻿
 	return self;
 }
 
+
+
+- (instancetype) initWithDictionary: (NSDictionary *) dic {
+    if((self = [self init])) {
+    
+		_meetingMessageType = [dic objectForKey: @"MeetingMessageType"] != nil ? [MSGraphMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]] : _meetingMessageType;
+		_event = [dic objectForKey: @"Event"] != nil ? [[MSGraphEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]] : _event;
+
+    }
+    
+    return self;
+}
+
+- (NSDictionary *) toDictionary {
+    return [[NSDictionary alloc] initWithObjectsAndKeys: 
+    		 [MSGraphMeetingMessageTypeSerializer toString:_meetingMessageType], @"MeetingMessageType",
+		 [_event toDictionary], @"Event",
+            nil];
+}
+
+
 /** Setter implementation for property meetingMessageType
  *
  */
 - (void) setMeetingMessageType: (MSGraphMeetingMessageType) value {
     _meetingMessageType = value;
-    [self valueChangedForInt:_meetingMessageType forProperty:@"MeetingMessageType"];
+    [self valueChangedFor:@"MeetingMessageType"];
 }
        
 
-- (void)setMeetingMessageTypeString:(NSString *)value {
-    
-    static NSDictionary *stringMappings=nil;
-    
-    if(stringMappings==nil)
-    {
-        stringMappings=[[NSDictionary alloc] initWithObjectsAndKeys:
-         [NSNumber numberWithInt:MSGraphMeetingMessageTypeNone], @"None", [NSNumber numberWithInt:MSGraphMeetingMessageTypeMeetingRequest], @"MeetingRequest", [NSNumber numberWithInt:MSGraphMeetingMessageTypeMeetingCancelled], @"MeetingCancelled", [NSNumber numberWithInt:MSGraphMeetingMessageTypeMeetingAccepted], @"MeetingAccepted", [NSNumber numberWithInt:MSGraphMeetingMessageTypeMeetingTenativelyAccepted], @"MeetingTenativelyAccepted", [NSNumber numberWithInt:MSGraphMeetingMessageTypeMeetingDeclined], @"MeetingDeclined",
-            nil        
-        ];
-    }
-    
-    self.meetingMessageType = [stringMappings[value] intValue]; 
+- (void)setMeetingMessageTypeString:(NSString *)string {
+        
+    _meetingMessageType = [MSGraphMeetingMessageTypeSerializer fromString:string];
+    [self valueChangedFor:@"MeetingMessageType"]; 
 }
 
 /** Setter implementation for property event
@@ -80,7 +92,7 @@ root for authoritative license information.﻿
  */
 - (void) setEvent: (MSGraphEvent *) value {
     _event = value;
-    [self valueChanged:_event forProperty:@"Event"];
+    [self valueChangedFor:@"Event"];
 }
        
 
