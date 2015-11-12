@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_startDate = [dic objectForKey: @"startDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startDate"]] : _startDate;
 		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromData:_customKeyIdentifier], @"customKeyIdentifier",
-		 [MSOrcObjectizer stringFromDate:_endDate], @"endDate",
-		 [_keyId copy], @"keyId",
-		 [MSOrcObjectizer stringFromDate:_startDate], @"startDate",
-		 [_value copy], @"value",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromData:self.customKeyIdentifier]; if (curVal!=nil) [dic setValue: curVal forKey: @"customKeyIdentifier"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"endDate"];}
+	{id curVal = [self.keyId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"keyId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"startDate"];}
+	{id curVal = [self.value copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
+    [dic setValue: @"#Microsoft.Graph.PasswordCredential" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.customKeyIdentifier;
+    if([self.updatedValues containsObject:@"customKeyIdentifier"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"customKeyIdentifier"];
+    }
+    }
+	{id curVal = self.endDate;
+    if([self.updatedValues containsObject:@"endDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"endDate"];
+    }
+    }
+	{id curVal = self.keyId;
+    if([self.updatedValues containsObject:@"keyId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"keyId"];
+    }
+    }
+	{id curVal = self.startDate;
+    if([self.updatedValues containsObject:@"startDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startDate"];
+    }
+    }
+	{id curVal = self.value;
+    if([self.updatedValues containsObject:@"value"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
+    }
+    }
+    return dic;
 }
 
 

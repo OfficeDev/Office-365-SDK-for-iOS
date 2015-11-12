@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_onClickTelemetryUrl = [dic objectForKey: @"onClickTelemetryUrl"] != nil ? [[dic objectForKey: @"onClickTelemetryUrl"] copy] : _onClickTelemetryUrl;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_onClickTelemetryUrl copy], @"onClickTelemetryUrl",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.onClickTelemetryUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"onClickTelemetryUrl"];}
+    [dic setValue: @"#Microsoft.Graph.searchResult" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.onClickTelemetryUrl;
+    if([self.updatedValues containsObject:@"onClickTelemetryUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"onClickTelemetryUrl"];
+    }
+    }
+    return dic;
 }
 
 

@@ -61,18 +61,54 @@ root for authoritative license information.﻿
 		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
 		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [__self copy], @"self",
-		 nil/*NSStream*/, @"content",
-		 [_contentUrl copy], @"contentUrl",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self._self copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
+	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{id curVal = [self.contentUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"contentUrl"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.Resource" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self._self;
+    if([self.updatedValues containsObject:@"self"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
+    }
+    }
+	{id curVal = self.content;
+    if([self.updatedValues containsObject:@"content"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+    }
+    }
+	{id curVal = self.contentUrl;
+    if([self.updatedValues containsObject:@"contentUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"contentUrl"];
+    }
+    }
+    return dic;
 }
 
 

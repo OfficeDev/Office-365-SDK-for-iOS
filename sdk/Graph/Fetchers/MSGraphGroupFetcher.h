@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHGROUPFETCHER_H
 #define MSGRAPHGROUPFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphProvisioningErrorCollectionFetcher;
 @class MSGraphAppRoleAssignmentCollectionFetcher;
@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 @class MSGraphCalendarFetcher;
 @class MSGraphEventCollectionFetcher;
 @class MSGraphConversationCollectionFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
+@class MSGraphProfilePhotoFetcher;
+@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
 @class MSGraphPlanCollectionFetcher;
+@class MSGraphNotesFetcher;
 @class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
@@ -40,16 +41,17 @@ root for authoritative license information.﻿
 @class MSGraphCalendarFetcher;
 @class MSGraphEventCollectionFetcher;
 @class MSGraphConversationCollectionFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
+@class MSGraphProfilePhotoFetcher;
+@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
 @class MSGraphPlanCollectionFetcher;
+@class MSGraphNotesFetcher;
 @class MSGraphAppRoleAssignmentFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphConversationThreadFetcher;
 @class MSGraphEventFetcher;
 @class MSGraphConversationFetcher;
-@class MSGraphPhotoFetcher;
+@class MSGraphProfilePhotoFetcher;
 @class MSGraphPlanFetcher;
 @class MSGraphGroupOperations;
 
@@ -106,10 +108,10 @@ root for authoritative license information.﻿
 - (MSGraphConversationFetcher *)conversationsById:(id)identifier;
 
 
-@property (strong, nonatomic, readonly, getter=photo) MSGraphPhotoFetcher *photo;
-@property (strong, nonatomic, readonly, getter=photos) MSGraphPhotoCollectionFetcher *photos;
+@property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
+@property (strong, nonatomic, readonly, getter=photos) MSGraphProfilePhotoCollectionFetcher *photos;
 
-- (MSGraphPhotoFetcher *)photosById:(id)identifier;
+- (MSGraphProfilePhotoFetcher *)photosById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=acceptedSenders) MSGraphDirectoryObjectCollectionFetcher *acceptedSenders;
 
@@ -125,6 +127,8 @@ root for authoritative license information.﻿
 
 - (MSGraphPlanFetcher *)plansById:(id)identifier;
 
+
+@property (strong, nonatomic, readonly, getter=notes) MSGraphNotesFetcher *notes;
 
 @end
 

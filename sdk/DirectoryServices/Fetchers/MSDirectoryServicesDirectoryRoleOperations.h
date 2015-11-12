@@ -17,8 +17,9 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESDIRECTORYROLEOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSDirectoryServicesModels.h"
+#import "api/api.h"
 #import "MSDirectoryServicesDirectoryObjectOperations.h"
 
 

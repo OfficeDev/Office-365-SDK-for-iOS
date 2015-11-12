@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSDISCOVERYMODELS_H
 #define MSDISCOVERYMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSDiscoveryServiceInfo.h"
 

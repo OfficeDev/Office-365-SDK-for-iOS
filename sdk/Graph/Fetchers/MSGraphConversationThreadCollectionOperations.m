@@ -26,12 +26,12 @@ root for authoritative license information.﻿
 - (void)replyWithPost:(MSGraphPost *)post callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *postString = [MSOrcObjectizer deobjectizeToString: post ];
+      NSString *postString = [MSOrcObjectizer deobjectizeToString:post];
 
     return [self replyRawWithPost:postString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {

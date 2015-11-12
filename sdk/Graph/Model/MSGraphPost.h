@@ -24,7 +24,7 @@ root for authoritative license information.﻿
 @class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphOutlookItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPost
  *

@@ -58,15 +58,33 @@ root for authoritative license information.﻿
     
 		__id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : __id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"Id",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.Entity" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

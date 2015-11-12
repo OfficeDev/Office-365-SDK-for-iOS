@@ -58,17 +58,69 @@ root for authoritative license information.﻿
     
 		_classifyAs = [dic objectForKey: @"ClassifyAs"] != nil ? [MSGraphInferenceClassificationTypeSerializer fromString:[dic objectForKey: @"ClassifyAs"]] : _classifyAs;
 		_senderEmailAddress = [dic objectForKey: @"SenderEmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"SenderEmailAddress"]] : _senderEmailAddress;
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphInferenceClassificationTypeSerializer toString:_classifyAs], @"ClassifyAs",
-		 [_senderEmailAddress toDictionary], @"SenderEmailAddress",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphInferenceClassificationTypeSerializer toString:self.classifyAs]; if (curVal!=nil) [dic setValue: curVal forKey: @"ClassifyAs"];}
+	{id curVal = [self.senderEmailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"SenderEmailAddress"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.InferenceClassificationOverride" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.classifyAs;
+    if([self.updatedValues containsObject:@"ClassifyAs"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphInferenceClassificationTypeSerializer toString:curVal] forKey: @"ClassifyAs"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"ClassifyAs"];
+            }
+        
+            }}
+	{id curVal = self.senderEmailAddress;
+    if([self.updatedValues containsObject:@"SenderEmailAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"SenderEmailAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"SenderEmailAddress"];
+            }
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

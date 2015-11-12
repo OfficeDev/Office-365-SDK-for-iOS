@@ -10,8 +10,8 @@
 #ifndef MSOUTLOOK_H
 #define MSOUTLOOK_H
 
-#import <MSOutlookFetchers.h>
-#import <MSOutlookModels.h>
+#import "MSOutlookFetchers.h"
+#import "MSOutlookModels.h"
 
 #endif
     

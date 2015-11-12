@@ -122,25 +122,153 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_objectType copy], @"objectType",
-		 [_objectId copy], @"objectId",
-		 [MSOrcObjectizer stringFromDate:_deletionTimestamp], @"deletionTimestamp",
-		 [_createdOnBehalfOf toDictionary], @"createdOnBehalfOf",
-		 [[NSMutableArray alloc] init], @"createdObjects",
-		 [_manager toDictionary], @"manager",
-		 [[NSMutableArray alloc] init], @"directReports",
-		 [[NSMutableArray alloc] init], @"members",
-		 [[NSMutableArray alloc] init], @"memberOf",
-		 [[NSMutableArray alloc] init], @"owners",
-		 [[NSMutableArray alloc] init], @"ownedObjects",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+	{id curVal = [self.createdOnBehalfOf toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
+	{id curVal = [self.manager toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.DirectoryObject" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+	{id curVal = self.createdOnBehalfOf;
+    if([self.updatedValues containsObject:@"createdOnBehalfOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdOnBehalfOf"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdOnBehalfOf"];
+            }
+        
+            }}
+	{id curVal = self.createdObjects;
+    if([self.updatedValues containsObject:@"createdObjects"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdObjects"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.manager;
+    if([self.updatedValues containsObject:@"manager"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"manager"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"manager"];
+            }
+        
+            }}
+	{id curVal = self.directReports;
+    if([self.updatedValues containsObject:@"directReports"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"directReports"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.members;
+    if([self.updatedValues containsObject:@"members"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"members"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.memberOf;
+    if([self.updatedValues containsObject:@"memberOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"memberOf"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.owners;
+    if([self.updatedValues containsObject:@"owners"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owners"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.ownedObjects;
+    if([self.updatedValues containsObject:@"ownedObjects"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ownedObjects"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

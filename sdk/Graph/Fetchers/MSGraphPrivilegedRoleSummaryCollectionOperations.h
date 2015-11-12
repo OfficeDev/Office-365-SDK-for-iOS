@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHPRIVILEGEDROLESUMMARYCOLLECTIONOPERATIONS_H
 #define MSGRAPHPRIVILEGEDROLESUMMARYCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSGraphPrivilegedRoleSummaryCollectionOperations
  *

@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 #import "MSGraphRecurrencePatternType.h"
 #import "MSGraphDayOfWeek.h"
 #import "MSGraphWeekIndex.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphRecurrencePattern
  *

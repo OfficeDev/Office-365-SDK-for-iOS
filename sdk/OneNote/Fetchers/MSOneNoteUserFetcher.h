@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSONENOTEUSERFETCHER_H
 #define MSONENOTEUSERFETCHER_H
 
-#import <orc.h>
 #import "MSOneNoteModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSOneNoteNotesFetcher;
 @class MSOneNoteNotesFetcher;

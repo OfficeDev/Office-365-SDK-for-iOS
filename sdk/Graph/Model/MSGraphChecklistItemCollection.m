@@ -56,14 +56,26 @@ root for authoritative license information.﻿
     if((self = [self init])) {
     
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-                nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+    [dic setValue: @"#Microsoft.Graph.checklistItemCollection" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+    return dic;
 }
 
 

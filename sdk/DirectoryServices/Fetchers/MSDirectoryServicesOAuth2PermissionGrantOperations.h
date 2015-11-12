@@ -17,9 +17,10 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANTOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSDirectoryServicesModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
 
 
 /** MSDirectoryServicesOAuth2PermissionGrantOperations

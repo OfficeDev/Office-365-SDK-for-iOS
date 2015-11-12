@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHREFERENCEATTACHMENTCOLLECTIONOPERATIONS_H
 #define MSGRAPHREFERENCEATTACHMENTCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphAttachmentCollectionOperations.h"
+
 
 /** MSGraphReferenceAttachmentCollectionOperations
  *

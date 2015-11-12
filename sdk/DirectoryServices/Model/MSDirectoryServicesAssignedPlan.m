@@ -60,18 +60,54 @@ root for authoritative license information.﻿
 		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
 		_servicePlanId = [dic objectForKey: @"servicePlanId"] != nil ? [[dic objectForKey: @"servicePlanId"] copy] : _servicePlanId;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromDate:_assignedTimestamp], @"assignedTimestamp",
-		 [_capabilityStatus copy], @"capabilityStatus",
-		 [_service copy], @"service",
-		 [_servicePlanId copy], @"servicePlanId",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedTimestamp"];}
+	{id curVal = [self.capabilityStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
+	{id curVal = [self.service copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
+	{id curVal = [self.servicePlanId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.AssignedPlan" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.assignedTimestamp;
+    if([self.updatedValues containsObject:@"assignedTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedTimestamp"];
+    }
+    }
+	{id curVal = self.capabilityStatus;
+    if([self.updatedValues containsObject:@"capabilityStatus"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
+    }
+    }
+	{id curVal = self.service;
+    if([self.updatedValues containsObject:@"service"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
+    }
+    }
+	{id curVal = self.servicePlanId;
+    if([self.updatedValues containsObject:@"servicePlanId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
+    }
+    }
+    return dic;
 }
 
 

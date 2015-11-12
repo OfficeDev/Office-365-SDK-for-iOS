@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 #import "MSGraphAlertSeverity.h"
 #import "MSGraphAlertType.h"
 #import "MSGraphAlertStatus.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPrivilegedSecurityAlert
  *

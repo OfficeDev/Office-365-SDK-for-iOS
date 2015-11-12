@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_message = [dic objectForKey: @"message"] != nil ? [[dic objectForKey: @"message"] copy] : _message;
 		_url = [dic objectForKey: @"url"] != nil ? [[dic objectForKey: @"url"] copy] : _url;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_message copy], @"message",
-		 [_url copy], @"url",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.message copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"message"];}
+	{id curVal = [self.url copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"url"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.Diagnostic" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.message;
+    if([self.updatedValues containsObject:@"message"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"message"];
+    }
+    }
+	{id curVal = self.url;
+    if([self.updatedValues containsObject:@"url"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"url"];
+    }
+    }
+    return dic;
 }
 
 

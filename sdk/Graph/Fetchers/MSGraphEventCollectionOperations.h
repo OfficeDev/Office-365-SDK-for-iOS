@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHEVENTCOLLECTIONOPERATIONS_H
 #define MSGRAPHEVENTCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphOutlookItemCollectionOperations.h"
+
 
 /** MSGraphEventCollectionOperations
  *
@@ -31,10 +33,6 @@ root for authoritative license information.﻿
 - (void)declineRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback ;
 - (void)tentativelyAcceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)snoozeReminderWithNewReminderTime:(MSGraphDateTimeTimeZone *)newReminderTime callback:(void (^)(int, MSOrcError*))callback ;
-- (void)snoozeReminderRawWithNewReminderTime:(NSString *)newReminderTime callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)dismissReminderWithCallback:(void (^)(int, MSOrcError*))callback ;
-- (void)dismissReminderRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

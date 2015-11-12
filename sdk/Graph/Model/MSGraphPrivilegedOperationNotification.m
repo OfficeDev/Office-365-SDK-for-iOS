@@ -61,18 +61,54 @@ root for authoritative license information.﻿
 		_notificationType = [dic objectForKey: @"NotificationType"] != nil ? [[dic objectForKey: @"NotificationType"] copy] : _notificationType;
 		_notificationTarget = [dic objectForKey: @"NotificationTarget"] != nil ? [[dic objectForKey: @"NotificationTarget"] copy] : _notificationTarget;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"Id",
-		 [_displayName copy], @"DisplayName",
-		 [_notificationType copy], @"NotificationType",
-		 [_notificationTarget copy], @"NotificationTarget",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.notificationType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationType"];}
+	{id curVal = [self.notificationTarget copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationTarget"];}
+    [dic setValue: @"#Microsoft.Graph.PrivilegedOperationNotification" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.notificationType;
+    if([self.updatedValues containsObject:@"NotificationType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationType"];
+    }
+    }
+	{id curVal = self.notificationTarget;
+    if([self.updatedValues containsObject:@"NotificationTarget"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationTarget"];
+    }
+    }
+    return dic;
 }
 
 

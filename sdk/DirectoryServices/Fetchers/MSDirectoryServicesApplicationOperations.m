@@ -31,12 +31,12 @@ root for authoritative license information.﻿
 - (void)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSDirectoryServicesApplication *, MSOrcError*))callback {
 
 
-      NSString *identifierUrisString = [MSOrcObjectizer deobjectizeToString: identifierUris ];
+      NSString *identifierUrisString = [identifierUris copy];
 
     return [self restoreRawWithIdentifierUris:identifierUrisString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSDirectoryServicesApplication * result = (MSDirectoryServicesApplication *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSDirectoryServicesApplication class]];
+            MSDirectoryServicesApplication * result = (MSDirectoryServicesApplication *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

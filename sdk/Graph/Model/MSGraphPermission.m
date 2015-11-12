@@ -73,21 +73,120 @@ root for authoritative license information.﻿
         
 		_shareId = [dic objectForKey: @"shareId"] != nil ? [[dic objectForKey: @"shareId"] copy] : _shareId;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_grantedTo toDictionary], @"grantedTo",
-		 [__id copy], @"id",
-		 [_invitation toDictionary], @"invitation",
-		 [_inheritedFrom toDictionary], @"inheritedFrom",
-		 [_link toDictionary], @"link",
-		 [[NSMutableArray alloc] init], @"roles",
-		 [_shareId copy], @"shareId",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.grantedTo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"grantedTo"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.invitation toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"invitation"];}
+	{id curVal = [self.inheritedFrom toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"inheritedFrom"];}
+	{id curVal = [self.link toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"link"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
+	{id curVal = [self.shareId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"shareId"];}
+    [dic setValue: @"#Microsoft.Graph.permission" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.grantedTo;
+    if([self.updatedValues containsObject:@"grantedTo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"grantedTo"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"grantedTo"];
+            }
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.invitation;
+    if([self.updatedValues containsObject:@"invitation"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"invitation"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"invitation"];
+            }
+        
+            }}
+	{id curVal = self.inheritedFrom;
+    if([self.updatedValues containsObject:@"inheritedFrom"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"inheritedFrom"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"inheritedFrom"];
+            }
+        
+            }}
+	{id curVal = self.link;
+    if([self.updatedValues containsObject:@"link"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"link"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"link"];
+            }
+        
+            }}
+	{id curVal = self.roles;
+    if([self.updatedValues containsObject:@"roles"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"roles"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.shareId;
+    if([self.updatedValues containsObject:@"shareId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"shareId"];
+    }
+    }
+    return dic;
 }
 
 

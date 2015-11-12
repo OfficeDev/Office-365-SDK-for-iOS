@@ -80,20 +80,98 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_meetingTimeSlot toDictionary], @"MeetingTimeSlot",
-		 [NSNumber numberWithDouble: _confidence], @"Confidence",
-		 [NSNumber numberWithInt: _score], @"Score",
-		 [MSGraphFreeBusyStatusSerializer toString:_organizerAvailability], @"OrganizerAvailability",
-		 [[NSMutableArray alloc] init], @"AttendeeAvailability",
-		 [[NSMutableArray alloc] init], @"Locations",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.meetingTimeSlot toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"MeetingTimeSlot"];}
+	{id curVal = [NSNumber numberWithDouble: self.confidence]; if (curVal!=nil) [dic setValue: curVal forKey: @"Confidence"];}
+	{id curVal = [NSNumber numberWithInt: self.score]; if (curVal!=nil) [dic setValue: curVal forKey: @"Score"];}
+	{id curVal = [MSGraphFreeBusyStatusSerializer toString:self.organizerAvailability]; if (curVal!=nil) [dic setValue: curVal forKey: @"OrganizerAvailability"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"AttendeeAvailability"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Locations"];}
+    [dic setValue: @"#Microsoft.Graph.MeetingTimeCandidate" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.meetingTimeSlot;
+    if([self.updatedValues containsObject:@"MeetingTimeSlot"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"MeetingTimeSlot"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"MeetingTimeSlot"];
+            }
+        
+            }}
+	{id curVal = self.confidence;
+    if([self.updatedValues containsObject:@"Confidence"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Confidence"];
+    }
+    }
+	{id curVal = self.score;
+    if([self.updatedValues containsObject:@"Score"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Score"];
+    }
+    }
+	{id curVal = self.organizerAvailability;
+    if([self.updatedValues containsObject:@"OrganizerAvailability"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"OrganizerAvailability"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"OrganizerAvailability"];
+            }
+        
+            }}
+	{id curVal = self.attendeeAvailability;
+    if([self.updatedValues containsObject:@"AttendeeAvailability"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"AttendeeAvailability"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.locations;
+    if([self.updatedValues containsObject:@"Locations"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Locations"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

@@ -58,16 +58,50 @@ root for authoritative license information.﻿
 		_contentType = [dic objectForKey: @"ContentType"] != nil ? [MSGraphBodyTypeSerializer fromString:[dic objectForKey: @"ContentType"]] : _contentType;
 		_content = [dic objectForKey: @"Content"] != nil ? [[dic objectForKey: @"Content"] copy] : _content;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphBodyTypeSerializer toString:_contentType], @"ContentType",
-		 [_content copy], @"Content",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphBodyTypeSerializer toString:self.contentType]; if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
+	{id curVal = [self.content copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
+    [dic setValue: @"#Microsoft.Graph.ItemBody" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.contentType;
+    if([self.updatedValues containsObject:@"ContentType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"ContentType"];
+            }
+        
+            }}
+	{id curVal = self.content;
+    if([self.updatedValues containsObject:@"Content"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];
+    }
+    }
+    return dic;
 }
 
 

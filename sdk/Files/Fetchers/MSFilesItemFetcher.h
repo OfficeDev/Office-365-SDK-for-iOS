@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSFILESITEMFETCHER_H
 #define MSFILESITEMFETCHER_H
 
-#import <orc.h>
 #import "MSFilesModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSFilesIdentitySetFetcher;
 @class MSFilesItemReferenceFetcher;

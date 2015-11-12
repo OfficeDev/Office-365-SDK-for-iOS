@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHINFERENCECLASSIFICATIONCOLLECTIONOPERATIONS_H
 #define MSGRAPHINFERENCECLASSIFICATIONCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphEntityCollectionOperations.h"
+
 
 /** MSGraphInferenceClassificationCollectionOperations
  *

@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSOutlookEvent;
 #import "MSOutlookMeetingMessageType.h"
 #import "MSOutlookMessage.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookEventMessage
  *

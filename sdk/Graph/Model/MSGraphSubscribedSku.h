@@ -21,8 +21,8 @@ root for authoritative license information.﻿
 
 @class MSGraphLicenseUnitsDetail;
 @class MSGraphServicePlanInfo;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphSubscribedSku
  *

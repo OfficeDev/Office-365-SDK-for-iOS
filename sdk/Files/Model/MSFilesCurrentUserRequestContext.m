@@ -69,17 +69,62 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_drive toDictionary], @"drive",
-		 [[NSMutableArray alloc] init], @"files",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.drive toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"drive"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"files"];}
+    [dic setValue: @"#Microsoft.CoreServices.CurrentUserRequestContext" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.drive;
+    if([self.updatedValues containsObject:@"drive"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"drive"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"drive"];
+            }
+        
+            }}
+	{id curVal = self.files;
+    if([self.updatedValues containsObject:@"files"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"files"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

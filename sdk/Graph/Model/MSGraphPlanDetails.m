@@ -65,22 +65,92 @@ root for authoritative license information.﻿
 		_category5Description = [dic objectForKey: @"category5Description"] != nil ? [[dic objectForKey: @"category5Description"] copy] : _category5Description;
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_sharedWith toDictionary], @"sharedWith",
-		 [_category0Description copy], @"category0Description",
-		 [_category1Description copy], @"category1Description",
-		 [_category2Description copy], @"category2Description",
-		 [_category3Description copy], @"category3Description",
-		 [_category4Description copy], @"category4Description",
-		 [_category5Description copy], @"category5Description",
-		 [__id copy], @"id",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.sharedWith toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"sharedWith"];}
+	{id curVal = [self.category0Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category0Description"];}
+	{id curVal = [self.category1Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category1Description"];}
+	{id curVal = [self.category2Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category2Description"];}
+	{id curVal = [self.category3Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category3Description"];}
+	{id curVal = [self.category4Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category4Description"];}
+	{id curVal = [self.category5Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category5Description"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#Microsoft.Graph.planDetails" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.sharedWith;
+    if([self.updatedValues containsObject:@"sharedWith"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sharedWith"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"sharedWith"];
+            }
+        
+            }}
+	{id curVal = self.category0Description;
+    if([self.updatedValues containsObject:@"category0Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category0Description"];
+    }
+    }
+	{id curVal = self.category1Description;
+    if([self.updatedValues containsObject:@"category1Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category1Description"];
+    }
+    }
+	{id curVal = self.category2Description;
+    if([self.updatedValues containsObject:@"category2Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category2Description"];
+    }
+    }
+	{id curVal = self.category3Description;
+    if([self.updatedValues containsObject:@"category3Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category3Description"];
+    }
+    }
+	{id curVal = self.category4Description;
+    if([self.updatedValues containsObject:@"category4Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category4Description"];
+    }
+    }
+	{id curVal = self.category5Description;
+    if([self.updatedValues containsObject:@"category5Description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category5Description"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+    return dic;
 }
 
 

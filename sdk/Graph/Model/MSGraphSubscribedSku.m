@@ -73,21 +73,90 @@ root for authoritative license information.﻿
 		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
 		_skuPartNumber = [dic objectForKey: @"skuPartNumber"] != nil ? [[dic objectForKey: @"skuPartNumber"] copy] : _skuPartNumber;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_capabilityStatus copy], @"capabilityStatus",
-		 [NSNumber numberWithInt: _consumedUnits], @"consumedUnits",
-		 [_objectId copy], @"objectId",
-		 [_prepaidUnits toDictionary], @"prepaidUnits",
-		 [[NSMutableArray alloc] init], @"servicePlans",
-		 [_skuId copy], @"skuId",
-		 [_skuPartNumber copy], @"skuPartNumber",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.capabilityStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
+	{id curVal = [NSNumber numberWithInt: self.consumedUnits]; if (curVal!=nil) [dic setValue: curVal forKey: @"consumedUnits"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [self.prepaidUnits toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"prepaidUnits"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
+	{id curVal = [self.skuId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
+	{id curVal = [self.skuPartNumber copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuPartNumber"];}
+    [dic setValue: @"#Microsoft.Graph.SubscribedSku" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.capabilityStatus;
+    if([self.updatedValues containsObject:@"capabilityStatus"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
+    }
+    }
+	{id curVal = self.consumedUnits;
+    if([self.updatedValues containsObject:@"consumedUnits"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"consumedUnits"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.prepaidUnits;
+    if([self.updatedValues containsObject:@"prepaidUnits"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"prepaidUnits"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"prepaidUnits"];
+            }
+        
+            }}
+	{id curVal = self.servicePlans;
+    if([self.updatedValues containsObject:@"servicePlans"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"servicePlans"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.skuId;
+    if([self.updatedValues containsObject:@"skuId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
+    }
+    }
+	{id curVal = self.skuPartNumber;
+    if([self.updatedValues containsObject:@"skuPartNumber"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuPartNumber"];
+    }
+    }
+    return dic;
 }
 
 

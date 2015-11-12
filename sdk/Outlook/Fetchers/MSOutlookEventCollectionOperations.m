@@ -26,14 +26,14 @@ root for authoritative license information.﻿
 - (void)acceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
-  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+  NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 
     return [self acceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -49,7 +49,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse, @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -73,14 +73,14 @@ root for authoritative license information.﻿
 - (void)declineWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
-  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+  NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 
     return [self declineRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -96,7 +96,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse, @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -120,14 +120,14 @@ root for authoritative license information.﻿
 - (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
-  NSString *sendResponseString = [MSOrcObjectizer deobjectizeToString: @(sendResponse) ];
+  NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 
     return [self tentativelyAcceptRawWithComment:commentString sendResponse:sendResponseString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -143,7 +143,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse?@"true":@"false", @"SendResponse", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  comment, @"Comment", sendResponse, @"SendResponse", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     

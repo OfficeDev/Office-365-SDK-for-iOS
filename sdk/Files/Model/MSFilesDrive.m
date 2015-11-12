@@ -70,18 +70,79 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_owner toDictionary], @"owner",
-		 [_quota toDictionary], @"quota",
-		 [[NSMutableArray alloc] init], @"files",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.owner toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.quota toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"quota"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"files"];}
+    [dic setValue: @"#Microsoft.FileServices.Drive" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.owner;
+    if([self.updatedValues containsObject:@"owner"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"owner"];
+            }
+        
+            }}
+	{id curVal = self.quota;
+    if([self.updatedValues containsObject:@"quota"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"quota"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"quota"];
+            }
+        
+            }}
+	{id curVal = self.files;
+    if([self.updatedValues containsObject:@"files"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"files"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

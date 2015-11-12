@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSFILESCURRENTUSERREQUESTCONTEXTCOLLECTIONOPERATIONS_H
 #define MSFILESCURRENTUSERREQUESTCONTEXTCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSFilesModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSFilesCurrentUserRequestContextCollectionOperations
  *

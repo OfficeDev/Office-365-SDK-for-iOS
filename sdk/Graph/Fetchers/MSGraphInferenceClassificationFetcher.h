@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHINFERENCECLASSIFICATIONFETCHER_H
 #define MSGRAPHINFERENCECLASSIFICATIONFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphInferenceClassificationOverrideCollectionFetcher;
 @class MSGraphInferenceClassificationOverrideCollectionFetcher;

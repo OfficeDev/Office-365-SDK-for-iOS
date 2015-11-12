@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSOUTLOOKCALENDARCOLLECTIONOPERATIONS_H
 #define MSOUTLOOKCALENDARCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSOutlookModels.h"
+#import "api/api.h"
 #import "MSOutlookEntityCollectionOperations.h"
+
 
 /** MSOutlookCalendarCollectionOperations
  *

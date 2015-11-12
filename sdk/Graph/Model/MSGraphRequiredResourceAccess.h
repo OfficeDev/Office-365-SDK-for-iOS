@@ -20,8 +20,8 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 @class MSGraphResourceAccess;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphRequiredResourceAccess
  *

@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_type copy], @"type",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.ResourceAccess" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+    }
+    }
+    return dic;
 }
 
 

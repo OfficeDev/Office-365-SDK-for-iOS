@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESDIRECTORYROLETEMPLATECOLLECTIONOPERATIONS_H
 #define MSDIRECTORYSERVICESDIRECTORYROLETEMPLATECOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSDirectoryServicesModels.h"
+#import "api/api.h"
 #import "MSDirectoryServicesDirectoryObjectCollectionOperations.h"
+
 
 /** MSDirectoryServicesDirectoryRoleTemplateCollectionOperations
  *

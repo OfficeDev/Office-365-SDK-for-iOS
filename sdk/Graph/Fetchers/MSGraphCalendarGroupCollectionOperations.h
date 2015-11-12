@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHCALENDARGROUPCOLLECTIONOPERATIONS_H
 #define MSGRAPHCALENDARGROUPCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphEntityCollectionOperations.h"
+
 
 /** MSGraphCalendarGroupCollectionOperations
  *

@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_start = [dic objectForKey: @"Start"] != nil ? [[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"Start"]] : _start;
 		_end = [dic objectForKey: @"End"] != nil ? [[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"End"]] : _end;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_start toDictionary], @"Start",
-		 [_end toDictionary], @"End",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.start toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
+	{id curVal = [self.end toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
+    [dic setValue: @"#Microsoft.Graph.TimeSlot" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.start;
+    if([self.updatedValues containsObject:@"Start"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Start"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Start"];
+            }
+        
+            }}
+	{id curVal = self.end;
+    if([self.updatedValues containsObject:@"End"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"End"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"End"];
+            }
+        
+            }}
+    return dic;
 }
 
 

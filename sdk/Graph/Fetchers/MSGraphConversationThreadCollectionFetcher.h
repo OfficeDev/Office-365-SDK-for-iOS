@@ -18,9 +18,8 @@ root for authoritative license information.﻿
 
 @class MSGraphConversationThreadFetcher;
 
-
-
-#import <orc.h>
+#import "core/MSOrcCollectionFetcher.h"
+#import "api/api.h"
 #import "MSGraphModels.h"
 
 /** MSGraphConversationThreadCollectionFetcher

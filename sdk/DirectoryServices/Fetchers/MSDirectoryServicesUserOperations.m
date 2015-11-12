@@ -31,14 +31,14 @@ root for authoritative license information.﻿
 - (void)assignLicenseWithAddLicenses:(MSDirectoryServicesAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSDirectoryServicesUser *, MSOrcError*))callback {
 
 
-      NSString *addLicensesString = [MSOrcObjectizer deobjectizeToString: addLicenses ];
+      NSString *addLicensesString = [MSOrcObjectizer deobjectizeToString:addLicenses];
 
-  NSString *removeLicensesString = [MSOrcObjectizer deobjectizeToString: removeLicenses ];
+  NSString *removeLicensesString = [removeLicenses copy];
 
     return [self assignLicenseRawWithAddLicenses:addLicensesString removeLicenses:removeLicensesString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSDirectoryServicesUser * result = (MSDirectoryServicesUser *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSDirectoryServicesUser class]];
+            MSDirectoryServicesUser * result = (MSDirectoryServicesUser *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

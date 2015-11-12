@@ -65,22 +65,82 @@ root for authoritative license information.﻿
 		_scope = [dic objectForKey: @"scope"] != nil ? [[dic objectForKey: @"scope"] copy] : _scope;
 		_startTime = [dic objectForKey: @"startTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startTime"]] : _startTime;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_clientId copy], @"clientId",
-		 [_consentType copy], @"consentType",
-		 [MSOrcObjectizer stringFromDate:_expiryTime], @"expiryTime",
-		 [_objectId copy], @"objectId",
-		 [_principalId copy], @"principalId",
-		 [_resourceId copy], @"resourceId",
-		 [_scope copy], @"scope",
-		 [MSOrcObjectizer stringFromDate:_startTime], @"startTime",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.clientId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"clientId"];}
+	{id curVal = [self.consentType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"consentType"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.expiryTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"expiryTime"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [self.principalId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"principalId"];}
+	{id curVal = [self.resourceId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceId"];}
+	{id curVal = [self.scope copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"scope"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"startTime"];}
+    [dic setValue: @"#Microsoft.Graph.OAuth2PermissionGrant" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.clientId;
+    if([self.updatedValues containsObject:@"clientId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"clientId"];
+    }
+    }
+	{id curVal = self.consentType;
+    if([self.updatedValues containsObject:@"consentType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"consentType"];
+    }
+    }
+	{id curVal = self.expiryTime;
+    if([self.updatedValues containsObject:@"expiryTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"expiryTime"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.principalId;
+    if([self.updatedValues containsObject:@"principalId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"principalId"];
+    }
+    }
+	{id curVal = self.resourceId;
+    if([self.updatedValues containsObject:@"resourceId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceId"];
+    }
+    }
+	{id curVal = self.scope;
+    if([self.updatedValues containsObject:@"scope"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"scope"];
+    }
+    }
+	{id curVal = self.startTime;
+    if([self.updatedValues containsObject:@"startTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startTime"];
+    }
+    }
+    return dic;
 }
 
 

@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_countryOrRegion = [dic objectForKey: @"CountryOrRegion"] != nil ? [[dic objectForKey: @"CountryOrRegion"] copy] : _countryOrRegion;
 		_postalCode = [dic objectForKey: @"PostalCode"] != nil ? [[dic objectForKey: @"PostalCode"] copy] : _postalCode;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_street copy], @"Street",
-		 [_city copy], @"City",
-		 [_state copy], @"State",
-		 [_countryOrRegion copy], @"CountryOrRegion",
-		 [_postalCode copy], @"PostalCode",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.street copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Street"];}
+	{id curVal = [self.city copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"City"];}
+	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"State"];}
+	{id curVal = [self.countryOrRegion copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"CountryOrRegion"];}
+	{id curVal = [self.postalCode copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"PostalCode"];}
+    [dic setValue: @"#Microsoft.Graph.PhysicalAddress" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.street;
+    if([self.updatedValues containsObject:@"Street"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Street"];
+    }
+    }
+	{id curVal = self.city;
+    if([self.updatedValues containsObject:@"City"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"City"];
+    }
+    }
+	{id curVal = self.state;
+    if([self.updatedValues containsObject:@"State"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"State"];
+    }
+    }
+	{id curVal = self.countryOrRegion;
+    if([self.updatedValues containsObject:@"CountryOrRegion"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"CountryOrRegion"];
+    }
+    }
+	{id curVal = self.postalCode;
+    if([self.updatedValues containsObject:@"PostalCode"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"PostalCode"];
+    }
+    }
+    return dic;
 }
 
 

@@ -63,22 +63,100 @@ root for authoritative license information.﻿
 		_targetObjectId = [dic objectForKey: @"targetObjectId"] != nil ? [[dic objectForKey: @"targetObjectId"] copy] : _targetObjectId;
 		_targetObjectType = [dic objectForKey: @"targetObjectType"] != nil ? [[dic objectForKey: @"targetObjectType"] copy] : _targetObjectType;
 		_targetObjectUri = [dic objectForKey: @"targetObjectUri"] != nil ? [[dic objectForKey: @"targetObjectUri"] copy] : _targetObjectUri;
+		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
+		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
+		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_associationType copy], @"associationType",
-		 [_sourceObjectId copy], @"sourceObjectId",
-		 [_sourceObjectType copy], @"sourceObjectType",
-		 [_sourceObjectUri copy], @"sourceObjectUri",
-		 [_targetObjectId copy], @"targetObjectId",
-		 [_targetObjectType copy], @"targetObjectType",
-		 [_targetObjectUri copy], @"targetObjectUri",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.associationType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"associationType"];}
+	{id curVal = [self.sourceObjectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"sourceObjectId"];}
+	{id curVal = [self.sourceObjectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"sourceObjectType"];}
+	{id curVal = [self.sourceObjectUri copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"sourceObjectUri"];}
+	{id curVal = [self.targetObjectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"targetObjectId"];}
+	{id curVal = [self.targetObjectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"targetObjectType"];}
+	{id curVal = [self.targetObjectUri copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"targetObjectUri"];}
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#Microsoft.Graph.DirectoryLinkChange" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.associationType;
+    if([self.updatedValues containsObject:@"associationType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"associationType"];
+    }
+    }
+	{id curVal = self.sourceObjectId;
+    if([self.updatedValues containsObject:@"sourceObjectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sourceObjectId"];
+    }
+    }
+	{id curVal = self.sourceObjectType;
+    if([self.updatedValues containsObject:@"sourceObjectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sourceObjectType"];
+    }
+    }
+	{id curVal = self.sourceObjectUri;
+    if([self.updatedValues containsObject:@"sourceObjectUri"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sourceObjectUri"];
+    }
+    }
+	{id curVal = self.targetObjectId;
+    if([self.updatedValues containsObject:@"targetObjectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"targetObjectId"];
+    }
+    }
+	{id curVal = self.targetObjectType;
+    if([self.updatedValues containsObject:@"targetObjectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"targetObjectType"];
+    }
+    }
+	{id curVal = self.targetObjectUri;
+    if([self.updatedValues containsObject:@"targetObjectUri"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"targetObjectUri"];
+    }
+    }
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+    return dic;
 }
 
 

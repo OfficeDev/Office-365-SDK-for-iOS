@@ -59,16 +59,50 @@ root for authoritative license information.﻿
 		_type = [dic objectForKey: @"type"] != nil ? [MSGraphTaskBoardTypeSerializer fromString:[dic objectForKey: @"type"]] : _type;
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphTaskBoardTypeSerializer toString:_type], @"type",
-		 [__id copy], @"id",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphTaskBoardTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#Microsoft.Graph.planTaskBoard" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphTaskBoardTypeSerializer toString:curVal] forKey: @"type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"type"];
+            }
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+    return dic;
 }
 
 

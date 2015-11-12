@@ -16,7 +16,8 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESCLIENT_H
 #define MSDIRECTORYSERVICESCLIENT_H
 
-#import <orc.h>
+#import "core/MSOrcBaseContainer.h"
+#import "api/api.h"
 #import "MSDirectoryServicesModels.h"
 
 @class MSDirectoryServicesDirectoryObjectCollectionFetcher;

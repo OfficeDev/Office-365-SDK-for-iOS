@@ -29,7 +29,7 @@ root for authoritative license information.﻿
         return [self subscribeByMailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -69,7 +69,7 @@ root for authoritative license information.﻿
         return [self unsubscribeByMailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -109,7 +109,7 @@ root for authoritative license information.﻿
         return [self addFavoriteRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -149,7 +149,7 @@ root for authoritative license information.﻿
         return [self removeFavoriteRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -189,7 +189,7 @@ root for authoritative license information.﻿
         return [self resetUnseenCountRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {

@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHBUCKETFETCHER_H
 #define MSGRAPHBUCKETFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphTaskCollectionFetcher;
 @class MSGraphTaskCollectionFetcher;

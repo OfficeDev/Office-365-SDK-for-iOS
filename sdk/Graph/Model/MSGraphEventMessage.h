@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSGraphEvent;
 #import "MSGraphMeetingMessageType.h"
 #import "MSGraphMessage.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphEventMessage
  *

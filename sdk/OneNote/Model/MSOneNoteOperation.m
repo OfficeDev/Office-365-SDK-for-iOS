@@ -64,21 +64,85 @@ root for authoritative license information.﻿
 		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
 		_error = [dic objectForKey: @"error"] != nil ? [[MSOneNoteOperationError alloc] initWithDictionary: [dic objectForKey: @"error"]] : _error;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_status copy], @"status",
-		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"createdDateTime",
-		 [MSOrcObjectizer stringFromDate:_lastActionDateTime], @"lastActionDateTime",
-		 [_resourceLocation copy], @"resourceLocation",
-		 [_resourceId copy], @"resourceId",
-		 [_error toDictionary], @"error",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.status copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastActionDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastActionDateTime"];}
+	{id curVal = [self.resourceLocation copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceLocation"];}
+	{id curVal = [self.resourceId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceId"];}
+	{id curVal = [self.error toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"error"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.Operation" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
+    }
+    }
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"createdDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+    }
+    }
+	{id curVal = self.lastActionDateTime;
+    if([self.updatedValues containsObject:@"lastActionDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastActionDateTime"];
+    }
+    }
+	{id curVal = self.resourceLocation;
+    if([self.updatedValues containsObject:@"resourceLocation"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceLocation"];
+    }
+    }
+	{id curVal = self.resourceId;
+    if([self.updatedValues containsObject:@"resourceId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceId"];
+    }
+    }
+	{id curVal = self.error;
+    if([self.updatedValues containsObject:@"error"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"error"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"error"];
+            }
+        
+            }}
+    return dic;
 }
 
 

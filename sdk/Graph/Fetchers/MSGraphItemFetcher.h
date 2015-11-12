@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHITEMFETCHER_H
 #define MSGRAPHITEMFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphIdentitySetFetcher;
 @class MSGraphItemReferenceFetcher;
@@ -29,7 +29,7 @@ root for authoritative license information.﻿
 @class MSGraphFileSystemInfoFetcher;
 @class MSGraphFolderFetcher;
 @class MSGraphImageFetcher;
-@class MSGraphLocationFetcher;
+@class MSGraphGeoCoordinatesFetcher;
 @class MSGraphOpenWithSetFetcher;
 @class MSGraphPhotoFetcher;
 @class MSGraphSearchResultFetcher;

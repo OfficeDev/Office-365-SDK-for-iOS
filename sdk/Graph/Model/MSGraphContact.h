@@ -22,9 +22,9 @@ root for authoritative license information.﻿
 @class MSGraphEmailAddress;
 @class MSGraphPhysicalAddress;
 @class MSGraphExtension;
-@class MSGraphPhoto;
+@class MSGraphProfilePhoto;
 #import "MSGraphOutlookItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphContact
  *
@@ -204,7 +204,7 @@ root for authoritative license information.﻿
 /** Property photo
  *
  */
-@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphProfilePhoto * photo;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHPRIVILEGEDROLESETTINGSFETCHER_H
 #define MSGRAPHPRIVILEGEDROLESETTINGSFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphPrivilegedRoleSettingsOperations;
 

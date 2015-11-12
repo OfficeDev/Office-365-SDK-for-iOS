@@ -16,7 +16,8 @@ root for authoritative license information.﻿
 #ifndef MSOUTLOOKCLIENT_H
 #define MSOUTLOOKCLIENT_H
 
-#import <orc.h>
+#import "core/MSOrcBaseContainer.h"
+#import "api/api.h"
 #import "MSOutlookModels.h"
 
 @class MSOutlookUserCollectionFetcher;

@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"Reminder", @"reminder", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"StartTimeZone", @"startTimeZone", @"EndTimeZone", @"endTimeZone", @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"Reminder", @"reminder", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"End", @"end", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -59,6 +59,8 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
+		_startTimeZone = [dic objectForKey: @"StartTimeZone"] != nil ? [[dic objectForKey: @"StartTimeZone"] copy] : _startTimeZone;
+		_endTimeZone = [dic objectForKey: @"EndTimeZone"] != nil ? [[dic objectForKey: @"EndTimeZone"] copy] : _endTimeZone;
 		_responseStatus = [dic objectForKey: @"ResponseStatus"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]] : _responseStatus;
 		_iCalUId = [dic objectForKey: @"iCalUId"] != nil ? [[dic objectForKey: @"iCalUId"] copy] : _iCalUId;
 		_reminder = [dic objectForKey: @"Reminder"] != nil ? [[dic objectForKey: @"Reminder"] intValue] : _reminder;
@@ -70,9 +72,7 @@ root for authoritative license information.﻿
 		_sensitivity = [dic objectForKey: @"Sensitivity"] != nil ? [MSOutlookSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]] : _sensitivity;
 		_start = [dic objectForKey: @"Start"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Start"]] : _start;
 		_originalStart = [dic objectForKey: @"OriginalStart"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]] : _originalStart;
-		_startTimeZone = [dic objectForKey: @"StartTimeZone"] != nil ? [[dic objectForKey: @"StartTimeZone"] copy] : _startTimeZone;
 		_end = [dic objectForKey: @"End"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"End"]] : _end;
-		_endTimeZone = [dic objectForKey: @"EndTimeZone"] != nil ? [[dic objectForKey: @"EndTimeZone"] copy] : _endTimeZone;
 		_location = [dic objectForKey: @"Location"] != nil ? [[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]] : _location;
 		_isAllDay = [dic objectForKey: @"IsAllDay"] != nil ? [[dic objectForKey: @"IsAllDay"] boolValue] : _isAllDay;
 		_isCancelled = [dic objectForKey: @"IsCancelled"] != nil ? [[dic objectForKey: @"IsCancelled"] boolValue] : _isCancelled;
@@ -112,47 +112,417 @@ root for authoritative license information.﻿
             }
         }
         
+		self.dateTimeCreated = [dic objectForKey: @"DateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeCreated"]] : self.dateTimeCreated;
+		self.dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : self.dateTimeLastModified;
+		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
 
+        if([dic objectForKey: @"Categories"] != [NSNull null]){
+            self.categories = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Categories"] count]];
+            
+            for (id object in [dic objectForKey: @"Categories"]) {
+                [self.categories addObject:[object copy]];
+            }
+        }
+        
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
+
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_responseStatus toDictionary], @"ResponseStatus",
-		 [_iCalUId copy], @"iCalUId",
-		 [NSNumber numberWithInt: _reminder], @"Reminder",
-		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
-		 [_subject copy], @"Subject",
-		 [_body toDictionary], @"Body",
-		 [_bodyPreview copy], @"BodyPreview",
-		 [MSOutlookImportanceSerializer toString:_importance], @"Importance",
-		 [MSOutlookSensitivitySerializer toString:_sensitivity], @"Sensitivity",
-		 [MSOrcObjectizer stringFromDate:_start], @"Start",
-		 [MSOrcObjectizer stringFromDate:_originalStart], @"OriginalStart",
-		 [_startTimeZone copy], @"StartTimeZone",
-		 [MSOrcObjectizer stringFromDate:_end], @"End",
-		 [_endTimeZone copy], @"EndTimeZone",
-		 [_location toDictionary], @"Location",
-		 (_isAllDay?@"true":@"false"), @"IsAllDay",
-		 (_isCancelled?@"true":@"false"), @"IsCancelled",
-		 (_isOrganizer?@"true":@"false"), @"IsOrganizer",
-		 [_recurrence toDictionary], @"Recurrence",
-		 (_responseRequested?@"true":@"false"), @"ResponseRequested",
-		 [_seriesMasterId copy], @"SeriesMasterId",
-		 [MSOutlookFreeBusyStatusSerializer toString:_showAs], @"ShowAs",
-		 [MSOutlookEventTypeSerializer toString:_type], @"Type",
-		 [[NSMutableArray alloc] init], @"Attendees",
-		 [_organizer toDictionary], @"Organizer",
-		 [_webLink copy], @"WebLink",
-		 [_calendar toDictionary], @"Calendar",
-		 [[NSMutableArray alloc] init], @"Instances",
-		 [[NSMutableArray alloc] init], @"Attachments",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.startTimeZone copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"StartTimeZone"];}
+	{id curVal = [self.endTimeZone copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"EndTimeZone"];}
+	{id curVal = [self.responseStatus toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"ResponseStatus"];}
+	{id curVal = [self.iCalUId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"iCalUId"];}
+	{id curVal = [NSNumber numberWithInt: self.reminder]; if (curVal!=nil) [dic setValue: curVal forKey: @"Reminder"];}
+	{id curVal = (self.hasAttachments?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"HasAttachments"];}
+	{id curVal = [self.subject copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
+	{id curVal = [self.body toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
+	{id curVal = [self.bodyPreview copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"BodyPreview"];}
+	{id curVal = [MSOutlookImportanceSerializer toString:self.importance]; if (curVal!=nil) [dic setValue: curVal forKey: @"Importance"];}
+	{id curVal = [MSOutlookSensitivitySerializer toString:self.sensitivity]; if (curVal!=nil) [dic setValue: curVal forKey: @"Sensitivity"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.start]; if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.originalStart]; if (curVal!=nil) [dic setValue: curVal forKey: @"OriginalStart"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.end]; if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
+	{id curVal = [self.location toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Location"];}
+	{id curVal = (self.isAllDay?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsAllDay"];}
+	{id curVal = (self.isCancelled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsCancelled"];}
+	{id curVal = (self.isOrganizer?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsOrganizer"];}
+	{id curVal = [self.recurrence toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Recurrence"];}
+	{id curVal = (self.responseRequested?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"ResponseRequested"];}
+	{id curVal = [self.seriesMasterId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"SeriesMasterId"];}
+	{id curVal = [MSOutlookFreeBusyStatusSerializer toString:self.showAs]; if (curVal!=nil) [dic setValue: curVal forKey: @"ShowAs"];}
+	{id curVal = [MSOutlookEventTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Attendees"];}
+	{id curVal = [self.organizer toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Organizer"];}
+	{id curVal = [self.webLink copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
+	{id curVal = [self.calendar toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Instances"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.OutlookServices.Event" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.startTimeZone;
+    if([self.updatedValues containsObject:@"StartTimeZone"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"StartTimeZone"];
+    }
+    }
+	{id curVal = self.endTimeZone;
+    if([self.updatedValues containsObject:@"EndTimeZone"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"EndTimeZone"];
+    }
+    }
+	{id curVal = self.responseStatus;
+    if([self.updatedValues containsObject:@"ResponseStatus"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ResponseStatus"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"ResponseStatus"];
+            }
+        
+            }}
+	{id curVal = self.iCalUId;
+    if([self.updatedValues containsObject:@"iCalUId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"iCalUId"];
+    }
+    }
+	{id curVal = self.reminder;
+    if([self.updatedValues containsObject:@"Reminder"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Reminder"];
+    }
+    }
+	{id curVal = self.hasAttachments;
+    if([self.updatedValues containsObject:@"HasAttachments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
+    }
+    }
+	{id curVal = self.subject;
+    if([self.updatedValues containsObject:@"Subject"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
+    }
+    }
+	{id curVal = self.body;
+    if([self.updatedValues containsObject:@"Body"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Body"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Body"];
+            }
+        
+            }}
+	{id curVal = self.bodyPreview;
+    if([self.updatedValues containsObject:@"BodyPreview"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
+    }
+    }
+	{id curVal = self.importance;
+    if([self.updatedValues containsObject:@"Importance"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookImportanceSerializer toString:curVal] forKey: @"Importance"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Importance"];
+            }
+        
+            }}
+	{id curVal = self.sensitivity;
+    if([self.updatedValues containsObject:@"Sensitivity"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookSensitivitySerializer toString:curVal] forKey: @"Sensitivity"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Sensitivity"];
+            }
+        
+            }}
+	{id curVal = self.start;
+    if([self.updatedValues containsObject:@"Start"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Start"];
+    }
+    }
+	{id curVal = self.originalStart;
+    if([self.updatedValues containsObject:@"OriginalStart"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"OriginalStart"];
+    }
+    }
+	{id curVal = self.end;
+    if([self.updatedValues containsObject:@"End"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"End"];
+    }
+    }
+	{id curVal = self.location;
+    if([self.updatedValues containsObject:@"Location"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Location"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Location"];
+            }
+        
+            }}
+	{id curVal = self.isAllDay;
+    if([self.updatedValues containsObject:@"IsAllDay"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsAllDay"];
+    }
+    }
+	{id curVal = self.isCancelled;
+    if([self.updatedValues containsObject:@"IsCancelled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsCancelled"];
+    }
+    }
+	{id curVal = self.isOrganizer;
+    if([self.updatedValues containsObject:@"IsOrganizer"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsOrganizer"];
+    }
+    }
+	{id curVal = self.recurrence;
+    if([self.updatedValues containsObject:@"Recurrence"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Recurrence"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Recurrence"];
+            }
+        
+            }}
+	{id curVal = self.responseRequested;
+    if([self.updatedValues containsObject:@"ResponseRequested"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"ResponseRequested"];
+    }
+    }
+	{id curVal = self.seriesMasterId;
+    if([self.updatedValues containsObject:@"SeriesMasterId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SeriesMasterId"];
+    }
+    }
+	{id curVal = self.showAs;
+    if([self.updatedValues containsObject:@"ShowAs"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookFreeBusyStatusSerializer toString:curVal] forKey: @"ShowAs"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"ShowAs"];
+            }
+        
+            }}
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookEventTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.attendees;
+    if([self.updatedValues containsObject:@"Attendees"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attendees"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.organizer;
+    if([self.updatedValues containsObject:@"Organizer"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Organizer"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Organizer"];
+            }
+        
+            }}
+	{id curVal = self.webLink;
+    if([self.updatedValues containsObject:@"WebLink"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
+    }
+    }
+	{id curVal = self.calendar;
+    if([self.updatedValues containsObject:@"Calendar"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendar"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Calendar"];
+            }
+        
+            }}
+	{id curVal = self.instances;
+    if([self.updatedValues containsObject:@"Instances"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Instances"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.attachments;
+    if([self.updatedValues containsObject:@"Attachments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attachments"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.dateTimeCreated;
+    if([self.updatedValues containsObject:@"DateTimeCreated"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+    }
+    }
+	{id curVal = self.dateTimeLastModified;
+    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+    }
+    }
+	{id curVal = self.changeKey;
+    if([self.updatedValues containsObject:@"ChangeKey"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+    }
+    }
+	{id curVal = self.categories;
+    if([self.updatedValues containsObject:@"Categories"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Categories"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 
+/** Setter implementation for property startTimeZone
+ *
+ */
+- (void) setStartTimeZone: (NSString *) value {
+    _startTimeZone = value;
+    [self valueChangedFor:@"StartTimeZone"];
+}
+       
+/** Setter implementation for property endTimeZone
+ *
+ */
+- (void) setEndTimeZone: (NSString *) value {
+    _endTimeZone = value;
+    [self valueChangedFor:@"EndTimeZone"];
+}
+       
 /** Setter implementation for property responseStatus
  *
  */
@@ -255,28 +625,12 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"OriginalStart"];
 }
        
-/** Setter implementation for property startTimeZone
- *
- */
-- (void) setStartTimeZone: (NSString *) value {
-    _startTimeZone = value;
-    [self valueChangedFor:@"StartTimeZone"];
-}
-       
 /** Setter implementation for property end
  *
  */
 - (void) setEnd: (NSDate *) value {
     _end = value;
     [self valueChangedFor:@"End"];
-}
-       
-/** Setter implementation for property endTimeZone
- *
- */
-- (void) setEndTimeZone: (NSString *) value {
-    _endTimeZone = value;
-    [self valueChangedFor:@"EndTimeZone"];
 }
        
 /** Setter implementation for property location

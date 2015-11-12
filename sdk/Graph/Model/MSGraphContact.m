@@ -144,51 +144,396 @@ root for authoritative license information.﻿
             }
         }
         
-		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphProfilePhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
+		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
+		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
 
+        if([dic objectForKey: @"Categories"] != [NSNull null]){
+            self.categories = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Categories"] count]];
+            
+            for (id object in [dic objectForKey: @"Categories"]) {
+                [self.categories addObject:[object copy]];
+            }
+        }
+        
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
+
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_parentFolderId copy], @"ParentFolderId",
-		 [MSOrcObjectizer stringFromDate:_birthday], @"Birthday",
-		 [_fileAs copy], @"FileAs",
-		 [_displayName copy], @"DisplayName",
-		 [_givenName copy], @"GivenName",
-		 [_initials copy], @"Initials",
-		 [_middleName copy], @"MiddleName",
-		 [_nickName copy], @"NickName",
-		 [_surname copy], @"Surname",
-		 [_title copy], @"Title",
-		 [_yomiGivenName copy], @"YomiGivenName",
-		 [_yomiSurname copy], @"YomiSurname",
-		 [_yomiCompanyName copy], @"YomiCompanyName",
-		 [_generation copy], @"Generation",
-		 [[NSMutableArray alloc] init], @"EmailAddresses",
-		 [[NSMutableArray alloc] init], @"ImAddresses",
-		 [_jobTitle copy], @"JobTitle",
-		 [_companyName copy], @"CompanyName",
-		 [_department copy], @"Department",
-		 [_officeLocation copy], @"OfficeLocation",
-		 [_profession copy], @"Profession",
-		 [_businessHomePage copy], @"BusinessHomePage",
-		 [_assistantName copy], @"AssistantName",
-		 [_manager copy], @"Manager",
-		 [[NSMutableArray alloc] init], @"HomePhones",
-		 [_mobilePhone1 copy], @"MobilePhone1",
-		 [[NSMutableArray alloc] init], @"BusinessPhones",
-		 [_homeAddress toDictionary], @"HomeAddress",
-		 [_businessAddress toDictionary], @"BusinessAddress",
-		 [_otherAddress toDictionary], @"OtherAddress",
-		 [_spouseName copy], @"SpouseName",
-		 [_personalNotes copy], @"PersonalNotes",
-		 [[NSMutableArray alloc] init], @"Children",
-		 [[NSMutableArray alloc] init], @"Extensions",
-		 [_photo toDictionary], @"Photo",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.parentFolderId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.birthday]; if (curVal!=nil) [dic setValue: curVal forKey: @"Birthday"];}
+	{id curVal = [self.fileAs copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"FileAs"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.givenName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"GivenName"];}
+	{id curVal = [self.initials copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Initials"];}
+	{id curVal = [self.middleName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"MiddleName"];}
+	{id curVal = [self.nickName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NickName"];}
+	{id curVal = [self.surname copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Surname"];}
+	{id curVal = [self.title copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Title"];}
+	{id curVal = [self.yomiGivenName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"YomiGivenName"];}
+	{id curVal = [self.yomiSurname copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"YomiSurname"];}
+	{id curVal = [self.yomiCompanyName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"YomiCompanyName"];}
+	{id curVal = [self.generation copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Generation"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddresses"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ImAddresses"];}
+	{id curVal = [self.jobTitle copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"JobTitle"];}
+	{id curVal = [self.companyName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"CompanyName"];}
+	{id curVal = [self.department copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Department"];}
+	{id curVal = [self.officeLocation copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"OfficeLocation"];}
+	{id curVal = [self.profession copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Profession"];}
+	{id curVal = [self.businessHomePage copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessHomePage"];}
+	{id curVal = [self.assistantName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AssistantName"];}
+	{id curVal = [self.manager copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Manager"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"HomePhones"];}
+	{id curVal = [self.mobilePhone1 copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"MobilePhone1"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessPhones"];}
+	{id curVal = [self.homeAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"HomeAddress"];}
+	{id curVal = [self.businessAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessAddress"];}
+	{id curVal = [self.otherAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"OtherAddress"];}
+	{id curVal = [self.spouseName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"SpouseName"];}
+	{id curVal = [self.personalNotes copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"PersonalNotes"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Children"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
+	{id curVal = [self.photo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
+	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.Contact" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.parentFolderId;
+    if([self.updatedValues containsObject:@"ParentFolderId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
+    }
+    }
+	{id curVal = self.birthday;
+    if([self.updatedValues containsObject:@"Birthday"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Birthday"];
+    }
+    }
+	{id curVal = self.fileAs;
+    if([self.updatedValues containsObject:@"FileAs"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"FileAs"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.givenName;
+    if([self.updatedValues containsObject:@"GivenName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"GivenName"];
+    }
+    }
+	{id curVal = self.initials;
+    if([self.updatedValues containsObject:@"Initials"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Initials"];
+    }
+    }
+	{id curVal = self.middleName;
+    if([self.updatedValues containsObject:@"MiddleName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MiddleName"];
+    }
+    }
+	{id curVal = self.nickName;
+    if([self.updatedValues containsObject:@"NickName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NickName"];
+    }
+    }
+	{id curVal = self.surname;
+    if([self.updatedValues containsObject:@"Surname"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Surname"];
+    }
+    }
+	{id curVal = self.title;
+    if([self.updatedValues containsObject:@"Title"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Title"];
+    }
+    }
+	{id curVal = self.yomiGivenName;
+    if([self.updatedValues containsObject:@"YomiGivenName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"YomiGivenName"];
+    }
+    }
+	{id curVal = self.yomiSurname;
+    if([self.updatedValues containsObject:@"YomiSurname"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"YomiSurname"];
+    }
+    }
+	{id curVal = self.yomiCompanyName;
+    if([self.updatedValues containsObject:@"YomiCompanyName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"YomiCompanyName"];
+    }
+    }
+	{id curVal = self.generation;
+    if([self.updatedValues containsObject:@"Generation"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Generation"];
+    }
+    }
+	{id curVal = self.emailAddresses;
+    if([self.updatedValues containsObject:@"EmailAddresses"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddresses"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.imAddresses;
+    if([self.updatedValues containsObject:@"ImAddresses"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ImAddresses"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.jobTitle;
+    if([self.updatedValues containsObject:@"JobTitle"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"JobTitle"];
+    }
+    }
+	{id curVal = self.companyName;
+    if([self.updatedValues containsObject:@"CompanyName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"CompanyName"];
+    }
+    }
+	{id curVal = self.department;
+    if([self.updatedValues containsObject:@"Department"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Department"];
+    }
+    }
+	{id curVal = self.officeLocation;
+    if([self.updatedValues containsObject:@"OfficeLocation"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"OfficeLocation"];
+    }
+    }
+	{id curVal = self.profession;
+    if([self.updatedValues containsObject:@"Profession"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Profession"];
+    }
+    }
+	{id curVal = self.businessHomePage;
+    if([self.updatedValues containsObject:@"BusinessHomePage"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BusinessHomePage"];
+    }
+    }
+	{id curVal = self.assistantName;
+    if([self.updatedValues containsObject:@"AssistantName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AssistantName"];
+    }
+    }
+	{id curVal = self.manager;
+    if([self.updatedValues containsObject:@"Manager"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Manager"];
+    }
+    }
+	{id curVal = self.homePhones;
+    if([self.updatedValues containsObject:@"HomePhones"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"HomePhones"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.mobilePhone1;
+    if([self.updatedValues containsObject:@"MobilePhone1"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MobilePhone1"];
+    }
+    }
+	{id curVal = self.businessPhones;
+    if([self.updatedValues containsObject:@"BusinessPhones"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BusinessPhones"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.homeAddress;
+    if([self.updatedValues containsObject:@"HomeAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"HomeAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"HomeAddress"];
+            }
+        
+            }}
+	{id curVal = self.businessAddress;
+    if([self.updatedValues containsObject:@"BusinessAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"BusinessAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"BusinessAddress"];
+            }
+        
+            }}
+	{id curVal = self.otherAddress;
+    if([self.updatedValues containsObject:@"OtherAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"OtherAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"OtherAddress"];
+            }
+        
+            }}
+	{id curVal = self.spouseName;
+    if([self.updatedValues containsObject:@"SpouseName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SpouseName"];
+    }
+    }
+	{id curVal = self.personalNotes;
+    if([self.updatedValues containsObject:@"PersonalNotes"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"PersonalNotes"];
+    }
+    }
+	{id curVal = self.children;
+    if([self.updatedValues containsObject:@"Children"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Children"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.extensions;
+    if([self.updatedValues containsObject:@"Extensions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Extensions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.photo;
+    if([self.updatedValues containsObject:@"Photo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Photo"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Photo"];
+            }
+        
+            }}
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"CreatedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"CreatedDateTime"];
+    }
+    }
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
+    }
+    }
+	{id curVal = self.changeKey;
+    if([self.updatedValues containsObject:@"ChangeKey"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+    }
+    }
+	{id curVal = self.categories;
+    if([self.updatedValues containsObject:@"Categories"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Categories"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 
@@ -467,7 +812,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property photo
  *
  */
-- (void) setPhoto: (MSGraphPhoto *) value {
+- (void) setPhoto: (MSGraphProfilePhoto *) value {
     _photo = value;
     [self valueChangedFor:@"Photo"];
 }

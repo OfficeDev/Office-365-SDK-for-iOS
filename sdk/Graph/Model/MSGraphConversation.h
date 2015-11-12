@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSGraphConversationThread;
 #import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphConversation
  *

@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_redeemedBy = [dic objectForKey: @"redeemedBy"] != nil ? [[dic objectForKey: @"redeemedBy"] copy] : _redeemedBy;
 		_signInRequired = [dic objectForKey: @"signInRequired"] != nil ? [[dic objectForKey: @"signInRequired"] boolValue] : _signInRequired;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_email copy], @"email",
-		 [_redeemedBy copy], @"redeemedBy",
-		 (_signInRequired?@"true":@"false"), @"signInRequired",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.email copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
+	{id curVal = [self.redeemedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"redeemedBy"];}
+	{id curVal = (self.signInRequired?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"signInRequired"];}
+    [dic setValue: @"#Microsoft.Graph.sharingInvitation" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.email;
+    if([self.updatedValues containsObject:@"email"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
+    }
+    }
+	{id curVal = self.redeemedBy;
+    if([self.updatedValues containsObject:@"redeemedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"redeemedBy"];
+    }
+    }
+	{id curVal = self.signInRequired;
+    if([self.updatedValues containsObject:@"signInRequired"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"signInRequired"];
+    }
+    }
+    return dic;
 }
 
 

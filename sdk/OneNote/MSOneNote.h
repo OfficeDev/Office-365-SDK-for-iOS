@@ -10,8 +10,8 @@
 #ifndef MSONENOTE_H
 #define MSONENOTE_H
 
-#import <MSOneNoteFetchers.h>
-#import <MSOneNoteModels.h>
+#import "MSOneNoteFetchers.h"
+#import "MSOneNoteModels.h"
 
 #endif
     

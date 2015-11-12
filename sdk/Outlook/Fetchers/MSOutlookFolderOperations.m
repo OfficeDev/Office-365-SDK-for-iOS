@@ -31,12 +31,12 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookFolder *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+      NSString *destinationIdString = [destinationId copy];
 
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookFolder class]];
+            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -76,12 +76,12 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookFolder *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+      NSString *destinationIdString = [destinationId copy];
 
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOutlookFolder class]];
+            MSOutlookFolder * result = (MSOutlookFolder *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

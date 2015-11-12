@@ -18,9 +18,8 @@ root for authoritative license information.﻿
 
 @class MSDirectoryServicesServicePrincipalFetcher;
 
-
-
-#import <orc.h>
+#import "core/MSOrcCollectionFetcher.h"
+#import "api/api.h"
 #import "MSDirectoryServicesModels.h"
 
 /** MSDirectoryServicesServicePrincipalCollectionFetcher

@@ -59,17 +59,57 @@ root for authoritative license information.﻿
 		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
 		_webUrl = [dic objectForKey: @"webUrl"] != nil ? [[dic objectForKey: @"webUrl"] copy] : _webUrl;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_application toDictionary], @"application",
-		 [_type copy], @"type",
-		 [_webUrl copy], @"webUrl",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.application toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
+	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.webUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"webUrl"];}
+    [dic setValue: @"#Microsoft.Graph.sharingLink" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.application;
+    if([self.updatedValues containsObject:@"application"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"application"];
+            }
+        
+            }}
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+    }
+    }
+	{id curVal = self.webUrl;
+    if([self.updatedValues containsObject:@"webUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webUrl"];
+    }
+    }
+    return dic;
 }
 
 

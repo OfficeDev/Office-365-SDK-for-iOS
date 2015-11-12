@@ -31,20 +31,20 @@ root for authoritative license information.﻿
 - (void)copyToNotebookWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *_idString = [MSOrcObjectizer deobjectizeToString: _id ];
+      NSString *_idString = [_id copy];
 
-  NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+  NSString *siteCollectionIdString = [siteCollectionId copy];
 
-  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+  NSString *siteIdString = [siteId copy];
 
-  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+  NSString *groupIdString = [groupId copy];
 
-  NSString *renameAsString = [MSOrcObjectizer deobjectizeToString: renameAs ];
+  NSString *renameAsString = [renameAs copy];
 
     return [self copyToNotebookRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -84,20 +84,20 @@ root for authoritative license information.﻿
 - (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *_idString = [MSOrcObjectizer deobjectizeToString: _id ];
+      NSString *_idString = [_id copy];
 
-  NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+  NSString *siteCollectionIdString = [siteCollectionId copy];
 
-  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+  NSString *siteIdString = [siteId copy];
 
-  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+  NSString *groupIdString = [groupId copy];
 
-  NSString *renameAsString = [MSOrcObjectizer deobjectizeToString: renameAs ];
+  NSString *renameAsString = [renameAs copy];
 
     return [self copyToSectionGroupRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -140,7 +140,7 @@ root for authoritative license information.﻿
         return [self thumbnailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSStream * result = (NSStream *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSStream class]];
+            NSStream * result = (NSStream *)nil/*NSStream*/;
             callback(result, e);
         } 
         else {

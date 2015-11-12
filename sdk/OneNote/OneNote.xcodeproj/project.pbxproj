@@ -7,631 +7,631 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01FD2FAF146C9C6789237637 /* MSOneNotePageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB6AE0EA88FC79B783051DF /* MSOneNotePageOperations.m */; };
-		037A0EE2FFF246E7C5A5677F /* MSOneNoteOperationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 14570F215D7D9182C7D8DFCE /* MSOneNoteOperationCollectionOperations.h */; };
-		044D28FB3F20630E36F9B25B /* MSOneNoteGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FD0D34CBD379092DA4AE2A6 /* MSOneNoteGroupCollectionFetcher.h */; };
-		049356B8541BF77AC0982611 /* MSOneNoteSectionCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 69541D7971D0145F5338ACF9 /* MSOneNoteSectionCollectionFetcher.h */; };
-		09D279888AC8F5C7CD473EF2 /* MSOneNoteSectionCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = DBB76A10B9C8763921F3775C /* MSOneNoteSectionCollectionOperations.h */; };
-		0EBB69FDC53B3C29C11DC22C /* MSOneNoteMyOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B94FD3E83D657ABFE327327 /* MSOneNoteMyOrganization.m */; };
-		0F302C87EB6709909A9FE207 /* MSOneNotePageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA8ECB3BD858FC94E8FFF02 /* MSOneNotePageFetcher.m */; };
-		10A861DF82CF2660202BCC3B /* MSOneNoteGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC394CF76134802DF2E89D6 /* MSOneNoteGroupFetcher.m */; };
-		110E9848491B4005A7208B04 /* MSOneNoteUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C8317C6F992EF27DE5A693D /* MSOneNoteUserCollectionOperations.h */; };
-		110FB8F2B59B543A582353A7 /* MSOneNoteNotebookOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCFC62B7137307F3C85919D /* MSOneNoteNotebookOperations.m */; };
-		124E013A0857CD36273E9044 /* MSOneNoteSiteCollection_CollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = A1C7AE3AD38F33ECCCA625B6 /* MSOneNoteSiteCollection_CollectionOperations.h */; };
-		14384E45B91F1DB6F32B5AC1 /* MSOneNoteSiteOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 12286B9218E805244E53BC0B /* MSOneNoteSiteOperations.m */; };
-		1546B523C713C1861BB84B49 /* MSOneNoteSectionGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = BB88CD5E5F05D4F75D797955 /* MSOneNoteSectionGroup.h */; };
-		1B10D83CE139244DD95A1B82 /* MSOneNoteUserRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 221AD74183C45E9760B93231 /* MSOneNoteUserRole.m */; };
-		1CE4541FB79F3FD6D49DE78A /* MSOneNoteNotebookCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D91F027FF95CA3B80681CD8 /* MSOneNoteNotebookCollectionOperations.m */; };
-		1F178F92F6ADBBF9D5A37335 /* MSOneNoteOperationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEEC31708E7855B0875FD45 /* MSOneNoteOperationFetcher.m */; };
-		206AF548A7C13883BEC0EE56 /* MSOneNoteOperationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B8175DEF3440A1A7C92B9E /* MSOneNoteOperationCollectionFetcher.m */; };
-		21825BD5117AC93378405E70 /* MSOneNoteMyOrganizationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CE42C4A64723C6FEA6D680E /* MSOneNoteMyOrganizationFetcher.h */; };
-		21B18C3C2877EC34C1335B13 /* MSOneNoteClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EAE1496BFBFD2E0406A3FA7 /* MSOneNoteClient.h */; };
-		230A30DBCAEF63D0EDF7BF5C /* MSOneNoteOperationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DC7305A9F2820DDE0110A37 /* MSOneNoteOperationCollectionOperations.m */; };
-		25337059BD3396C61F768789 /* MSOneNoteImportStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC66C81D6C11F303FB21235 /* MSOneNoteImportStatusModel.m */; };
-		29613E2E922CE2FAA82B8CD4 /* MSOneNotePageCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25410EDA4435965644BFCC /* MSOneNotePageCollectionOperations.m */; };
-		29A5E0EB4AFD90535E4D78B5 /* MSOneNoteResourceCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = D7917853D398839293254245 /* MSOneNoteResourceCollectionOperations.m */; };
-		2B848DEFED35EE056EBDFA77 /* MSOneNoteResource.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1AB022DCCF8C6383C583AF /* MSOneNoteResource.m */; };
-		2BCB518E61C229D0027BE990 /* MSOneNotePatchContentCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 99F3A1B6ECD648BB48205FAB /* MSOneNotePatchContentCommand.h */; };
-		2FAD39C698587EAEEDB5DA8B /* MSOneNoteSectionGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FF74E8C41E8B2BDECE1C29 /* MSOneNoteSectionGroupFetcher.m */; };
-		2FC5DF2B42EAE269E0BB09B6 /* MSOneNotePageCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = FF48C324C0E012D100CD8BA6 /* MSOneNotePageCollectionOperations.h */; };
-		300BEB90BC0EF50EB1B37D31 /* MSOneNoteUserFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BA3238A6C1C6D6F46C21D062 /* MSOneNoteUserFetcher.h */; };
-		30CCD2BA404B4DF30A6A64EA /* MSOneNoteSectionGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E4ADE26AD6075B1976ECC674 /* MSOneNoteSectionGroupOperations.h */; };
-		31478EE71E555E3EDF2B4FBF /* MSOneNotePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 918D4301EE3A73041D967DA1 /* MSOneNotePage.m */; };
-		381B63A1F6BB6FC89F4CF6D9 /* MSOneNoteGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 714F440B38E92773C95E1285 /* MSOneNoteGroupCollectionFetcher.m */; };
-		391A2272BB303A407FB58C6D /* MSOneNoteIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B97CE4A382BF8C38602A75 /* MSOneNoteIdentitySet.m */; };
-		3A1192BDF78C73013FFA36A7 /* MSOneNoteResourceFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A39A1FB91F2F37D767B11B80 /* MSOneNoteResourceFetcher.h */; };
-		3DC1E39B25E0FF353DD1079F /* MSOneNoteOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 085EB66562AEBEE7F4A2D412 /* MSOneNoteOperation.h */; };
-		41025ABE79BCD3D833DE0E14 /* MSOneNoteMyOrganizationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3037F7CB5438BECB71DB0441 /* MSOneNoteMyOrganizationCollectionFetcher.h */; };
-		41AB8C4811484BC8D5A3D095 /* MSOneNoteUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 382B2E054CEECEE2B17F94F9 /* MSOneNoteUserCollectionFetcher.m */; };
-		42023D3A1CFB8C46751E58ED /* MSOneNoteGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C7A892EDC8531CBB135054 /* MSOneNoteGroupOperations.h */; };
-		43FB26803D5A8B89DD56B2EC /* MSOneNoteNotebookCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04A3CEEAF62F9C6260732E /* MSOneNoteNotebookCollectionFetcher.m */; };
-		4544A31D2039EEF916A60DD1 /* MSOneNoteNotesCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 871026AFD17E9E0BCDAC09D4 /* MSOneNoteNotesCollectionOperations.m */; };
-		48914FC0E4A51955E1A010EE /* MSOneNoteIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C33C19A8B8080694EE62543 /* MSOneNoteIdentitySet.h */; };
-		49945105181341213EFD5195 /* MSOneNoteUserRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC2CC06C9A3DDD6EA0FB1FC /* MSOneNoteUserRole.h */; };
-		4DAF2E9E9D6D04CE70B015B0 /* MSOneNoteUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FA8926510863C0AF3D18BC /* MSOneNoteUserOperations.m */; };
-		50479251A3238B45126C7C1B /* MSOneNoteSiteCollection_CollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F539329E19FB66E5752912 /* MSOneNoteSiteCollection_CollectionFetcher.m */; };
-		50F384AC2E1985B37AB57988 /* MSOneNoteMyOrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DAA451791C02A115D9CFE0E /* MSOneNoteMyOrganization.h */; };
-		5272D25D18C566079B4905B5 /* MSOneNoteSiteCollection_Fetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C190464E7691A6D8BC51DE49 /* MSOneNoteSiteCollection_Fetcher.m */; };
-		55DA248C3497EFC3423AB078 /* MSOneNoteNotebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BFB74A2CC01C175D750D10B /* MSOneNoteNotebook.h */; };
-		55EC2F481F251DD10EE2E0EB /* MSOneNoteNotebookFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BED38A9AD3AB8EA6CB34E86 /* MSOneNoteNotebookFetcher.m */; };
-		5A6949331DAA23621D8DD55F /* MSOneNoteGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 98D36F574E47CF564104B38B /* MSOneNoteGroupOperations.m */; };
-		5B5EC374857998B01B30776C /* MSOneNoteExternalLink.h in Headers */ = {isa = PBXBuildFile; fileRef = B281DDF4C0539D99A8DE3939 /* MSOneNoteExternalLink.h */; };
-		64A440DB28907CF6D45D253C /* MSOneNotePatchActionType.h in Headers */ = {isa = PBXBuildFile; fileRef = 696ED601C047344D7646C9E3 /* MSOneNotePatchActionType.h */; };
-		687D70747FAC4EE0132D435C /* MSOneNoteDiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DAB1C099B5C7344D489EB5 /* MSOneNoteDiagnostic.m */; };
-		693E178247D2495B37390BCB /* MSOneNoteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3147B584D8FBC20A11587D0C /* MSOneNoteOperation.m */; };
-		6A75927BCEE0A6FB06171C22 /* MSOneNoteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F20B7BC2548035FCF8F0DD2B /* MSOneNoteUser.m */; };
-		6C8B02D382AC9CE1869845FB /* MSOneNoteResourceCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F3E5B10417885236763868 /* MSOneNoteResourceCollectionFetcher.m */; };
-		6FFF7C94373ED6299CC192E6 /* MSOneNoteIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E01A6725FF724C77474E682 /* MSOneNoteIdentity.m */; };
-		70FD43433E93AC9E8D7C3748 /* MSOneNotePageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B756A6C8B87B71261A3C3 /* MSOneNotePageLinks.m */; };
-		71C5A9B838AA82FC84F8AC6F /* MSOneNoteSectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 80410943B67507FBC7E0160D /* MSOneNoteSectionOperations.m */; };
-		726E8BA40AB1BD622428CE70 /* MSOneNoteNotesCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A171AE196C39F284A173E0E /* MSOneNoteNotesCollectionFetcher.m */; };
-		72E3ABC44997125A2C255A73 /* MSOneNoteNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E7F176E9FE114167AF7B30 /* MSOneNoteNotes.m */; };
-		73CA785CDCD04DBFDB35A474 /* MSOneNotePatchActionType.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F66646275FFF181C470966 /* MSOneNotePatchActionType.m */; };
-		74AEDEE9A6B7E58A24EF3DA0 /* MSOneNoteOperationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D3544623C138269EE0FC7A9 /* MSOneNoteOperationFetcher.h */; };
-		75EA0031173C86941EC2FE39 /* MSOneNoteSectionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB4EC247E55CC77771306A3 /* MSOneNoteSectionGroup.m */; };
-		78874D72B857249631D353C9 /* MSOneNoteCopyStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46F7A0B2A32753F9792F952B /* MSOneNoteCopyStatusModel.m */; };
-		79223714DB100F02D313B737 /* MSOneNoteUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = EFD89AF08861EA67AFE2F68D /* MSOneNoteUserCollectionFetcher.h */; };
-		79FB3850D3F2E76292F6E570 /* MSOneNoteSiteMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 5497B255ED43908682DE70D7 /* MSOneNoteSiteMetadata.m */; };
-		7AC0977EF3565DE548ABB774 /* MSOneNoteNotesCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E0FF5C3843C728FD4D0BF3EB /* MSOneNoteNotesCollectionOperations.h */; };
-		7AC26E32A6C11561F32B3C1B /* MSOneNoteGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 04DB9A4FF5CEE06650F8794A /* MSOneNoteGroup.h */; };
-		7B0E51280C79EE9BCEBE33F1 /* MSOneNoteResourceOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F9C9B5C54DE554D5EB5618F /* MSOneNoteResourceOperations.m */; };
-		7B945E48BF859C4164D15677 /* MSOneNotePageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 418CF09FDD05A19AED85316E /* MSOneNotePageCollectionFetcher.m */; };
-		7E9464A8B0EA770F380136FD /* MSOneNoteSiteCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F9A623F13CEE49C6F25A43C7 /* MSOneNoteSiteCollectionOperations.m */; };
-		81C5F17DF28AE313B692F6C7 /* MSOneNoteUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 49433C78CEE941D151658322 /* MSOneNoteUserOperations.h */; };
-		8317F8250A6723A7ED77F64B /* MSOneNoteSiteCollection_Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE7435136AC57B124710804 /* MSOneNoteSiteCollection_Operations.m */; };
-		83EBF43CF063602A2F534656 /* MSOneNoteSiteMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = D84935218D44BA28DA4B2C07 /* MSOneNoteSiteMetadata.h */; };
-		8603ACA8ABBDB3B4C5602D40 /* MSOneNoteNotesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A194023ECCDBA2C6911AD894 /* MSOneNoteNotesFetcher.m */; };
-		864D20957C55C61D4C945CE0 /* MSOneNoteNotesOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A901CD54771BFD29B83564D /* MSOneNoteNotesOperations.m */; };
-		8C0D32A264D887788D234897 /* MSOneNoteSiteCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D3D151B42074B9AA97DD8E /* MSOneNoteSiteCollectionFetcher.m */; };
-		8C3F62465377730C332B8F12 /* MSOneNotePatchInsertPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 149026816B42F99448623296 /* MSOneNotePatchInsertPosition.h */; };
-		8CE59F0349AF1ED7F14CC3FD /* MSOneNoteResourceOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = F71BD0C4E8D2B0D1AC945A84 /* MSOneNoteResourceOperations.h */; };
-		8E88FF592566C113AB68CD41 /* MSOneNoteSection.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFDD95BBC9DBA8F22BB7E6A /* MSOneNoteSection.m */; };
-		8F6FD731AE79688663733FB3 /* MSOneNoteFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D22BF370FFF8071DE2AA6E /* MSOneNoteFetchers.h */; };
-		8F83925846A8FFBFEFA036CE /* MSOneNoteSectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0073665EA3B82A3A4B978FF1 /* MSOneNoteSectionFetcher.h */; };
-		92C68F0D8639A8502C2CA956 /* MSOneNoteSiteCollection_CollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 45CAB6F4B89F27F72E3866C5 /* MSOneNoteSiteCollection_CollectionFetcher.h */; };
-		93C057EEEBCA0657B99F55D6 /* MSOneNoteSectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C637529DF725835002E04F61 /* MSOneNoteSectionFetcher.m */; };
-		952F505C8C7D2F1890D8BA6A /* MSOneNoteNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 257D515867EC5C53E8DB9817 /* MSOneNoteNotebook.m */; };
-		971B1FF48BD46E4686735B3E /* MSOneNoteSiteCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B5B9166161E2FEF98AA70545 /* MSOneNoteSiteCollectionOperations.h */; };
-		9910C2AA482CD0769DEE47FA /* MSOneNoteResourceCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8B37A1960BED30714EA1BD /* MSOneNoteResourceCollectionOperations.h */; };
-		991AD6A803CB545503FA89FC /* MSOneNoteMyOrganizationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F37782C8B27E63E7AF1ADBE /* MSOneNoteMyOrganizationCollectionFetcher.m */; };
-		9C0B3EFF0F072F64B3BCB526 /* MSOneNoteMyOrganizationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC1264C2063C11913F84D1A /* MSOneNoteMyOrganizationCollectionOperations.h */; };
-		9C179AC0EE3082F536782581 /* MSOneNotePageLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = B1CD6875B757424934E5B498 /* MSOneNotePageLinks.h */; };
-		9D3712282879FBF1051634F5 /* MSOneNoteCopyStatusModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F4593680C87BB48B05D6899A /* MSOneNoteCopyStatusModel.h */; };
-		9FD511032F4CD34F7F39AEA5 /* MSOneNoteUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A64B6E82FF8B116DEC3EAAB8 /* MSOneNoteUserFetcher.m */; };
-		A00917ECDF8729C28BDC8428 /* MSOneNoteGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DE31CB15FC9E379A210A3C /* MSOneNoteGroupCollectionOperations.m */; };
-		A4658081E9DE8477D3B93A35 /* MSOneNoteSectionGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D546BC3F7CCE5F4F6F06B516 /* MSOneNoteSectionGroupCollectionFetcher.m */; };
-		A8435EB61CAE8C41228C2244 /* MSOneNoteNotebookLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2246C50C91A15DB2C84EEE /* MSOneNoteNotebookLinks.m */; };
-		A95D136330A377770525F612 /* MSOneNoteSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CFB8EA1814655D31C82C30C /* MSOneNoteSite.m */; };
-		AAB689C02E8BCDA96F90F324 /* MSOneNoteMyOrganizationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = C60F7392DEB2FA88D9E806C5 /* MSOneNoteMyOrganizationOperations.m */; };
-		ABC60F35B737F163D998CF11 /* MSOneNoteModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A84494F5738F96A2D44DDD1 /* MSOneNoteModels.h */; };
-		AC36245B025B2EEC43F88866 /* MSOneNote.h in Headers */ = {isa = PBXBuildFile; fileRef = DE1A2AD23C102AC844E53301 /* MSOneNote.h */; };
-		ACA0A460D33E216D6622EA1F /* MSOneNoteSectionGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F7689B191A0A69D539A107B0 /* MSOneNoteSectionGroupFetcher.h */; };
-		AD1F3EAE53363BD0DB4DB702 /* MSOneNoteOperationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DE83429769ED23F4EDD88 /* MSOneNoteOperationOperations.m */; };
-		AEDC1EEE22F47558A6EC26AB /* MSOneNoteNotebookCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = C74150D24E54F66CBA3582BF /* MSOneNoteNotebookCollectionFetcher.h */; };
-		AF4FEF705427B47929CF7044 /* MSOneNoteExternalLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 9646F8DB0EA3578576CCCD7E /* MSOneNoteExternalLink.m */; };
-		AF563FD1FEBD96A7E54C345A /* MSOneNoteSectionGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = FD8CD263621ABEFB77BEF9A2 /* MSOneNoteSectionGroupCollectionOperations.h */; };
-		AF93CC028512F95DC23C805F /* MSOneNoteSectionGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = B775009AF2F2E86981F293F6 /* MSOneNoteSectionGroupOperations.m */; };
-		AF9A43433848CB3735C64289 /* MSOneNoteNotesOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = EC7474DA11D7EBB00A7D0AFF /* MSOneNoteNotesOperations.h */; };
-		B0223F745ADE83E65764D7CA /* MSOneNoteOperationError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7705F807CCE4DEC4B216FD /* MSOneNoteOperationError.m */; };
-		B4F8B073B12E2B22ABC5F37A /* MSOneNoteNotes.h in Headers */ = {isa = PBXBuildFile; fileRef = A545A423B3F87DC42310BF88 /* MSOneNoteNotes.h */; };
-		B703B1A8F9C0B0D3133A1889 /* MSOneNoteNotebookLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = EC096344F19F69CD54302C6A /* MSOneNoteNotebookLinks.h */; };
-		BBAF1F7C1C046E38B98FB276 /* MSOneNoteDiagnostic.h in Headers */ = {isa = PBXBuildFile; fileRef = E0AB0E2A3F3209970CDDA4EC /* MSOneNoteDiagnostic.h */; };
-		BE068390DA8013F26213B83B /* MSOneNoteSectionCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 92013419920DA7BF30106838 /* MSOneNoteSectionCollectionFetcher.m */; };
-		BEF0A7C3359177CD1EEC409D /* MSOneNoteOperationError.h in Headers */ = {isa = PBXBuildFile; fileRef = DCF2ED63A59F25011B34E1E3 /* MSOneNoteOperationError.h */; };
-		BF98DCAF3D5CB042E9442C13 /* MSOneNoteImportStatusModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 54634165528C86BB15ECEE1C /* MSOneNoteImportStatusModel.h */; };
-		C0B4E8396A20EA122D506759 /* MSOneNoteResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 59D0B1222F14BC9BE93BAAC3 /* MSOneNoteResource.h */; };
-		C28E52FC51A58C9AE325365B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 114B5DE60F66C2BADEFE4373 /* Foundation.framework */; };
-		C290D9520D9A8F84D1EDB095 /* MSOneNotePatchInsertPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9BA267B86EF4874F9C8FA54 /* MSOneNotePatchInsertPosition.m */; };
-		C41D2C14269C0CD324FBC0BD /* MSOneNoteNotesCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B7BBFA8D14FFD6C3749E0AAD /* MSOneNoteNotesCollectionFetcher.h */; };
-		C5BEC8E390A212CFC11CADD2 /* MSOneNoteSiteCollection_CollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 54CAC2F0A3D5F40F23752AEA /* MSOneNoteSiteCollection_CollectionOperations.m */; };
-		C7A9E0F43A35147D3F6B3263 /* MSOneNoteMyOrganizationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D08FCE8F3D2D28F5802CD /* MSOneNoteMyOrganizationCollectionOperations.m */; };
-		C9339E1411969652F0DD35C9 /* MSOneNoteMyOrganizationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCF48203DD6C918ED0FD901 /* MSOneNoteMyOrganizationFetcher.m */; };
-		CA0172AB6C3AE2DDC978164C /* MSOneNotePage.h in Headers */ = {isa = PBXBuildFile; fileRef = C18AEE904440ECF9E86BBAE8 /* MSOneNotePage.h */; };
-		CB26B6AACB931E43403F78EA /* MSOneNoteSectionCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5910E1C16AB0FA9C637AD0 /* MSOneNoteSectionCollectionOperations.m */; };
-		CBA1C432EB0195EE72F710EA /* MSOneNotePageFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F385B16B98E93A77ABE2C05D /* MSOneNotePageFetcher.h */; };
-		CCA94D7F3F1F41BC9673255C /* MSOneNotePageOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E8F7C91109FD2B8C60F9C952 /* MSOneNotePageOperations.h */; };
-		CCE99DEB43C7E74D5F35C1FE /* MSOneNoteSiteCollection_Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = 913B2445D2FC3897FAAA1FEF /* MSOneNoteSiteCollection_Operations.h */; };
-		CD3C9DF1AB8A5D76C3FBB7A4 /* MSOneNoteSectionGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA5AFFAEEFCDE8847251F12 /* MSOneNoteSectionGroupCollectionOperations.m */; };
-		CD5DBCA04F79D110B7B17788 /* MSOneNoteSiteCollection_Fetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FC7DA472FD2A1662E942DBBB /* MSOneNoteSiteCollection_Fetcher.h */; };
-		CE9A591748BA6C51C1D3FA83 /* MSOneNoteUser.h in Headers */ = {isa = PBXBuildFile; fileRef = EB42366A86B7D1119AF60D93 /* MSOneNoteUser.h */; };
-		CF6A52919BD90915E82607DC /* MSOneNoteNotebookFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F5E42845D8468AEC21A6D83 /* MSOneNoteNotebookFetcher.h */; };
-		D069DC727D36E4C10710B958 /* MSOneNoteSiteFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E9CDC2FAFFD29A6A4131AE8D /* MSOneNoteSiteFetcher.h */; };
-		D09C852EBB20C2DE5881F477 /* MSOneNoteOperationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C4779307EED3FC2A31E5679 /* MSOneNoteOperationCollectionFetcher.h */; };
-		D1940F4810A6B017C2989735 /* MSOneNoteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6542CE05780639941CB27E32 /* MSOneNoteClient.m */; };
-		D21D3F3B5E797A6EFCD3490C /* MSOneNoteSiteCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 771AC4C65890625A8A5138CF /* MSOneNoteSiteCollectionFetcher.h */; };
-		D28E24968146B4A6B6E21603 /* MSOneNoteResourceFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C75AAA5D67EBB29C6B3157 /* MSOneNoteResourceFetcher.m */; };
-		D3866B5205987DFC75783BB6 /* MSOneNotePatchContentCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0CF1CF19ACA3052D1AFA09 /* MSOneNotePatchContentCommand.m */; };
-		D7F1C9C122E356D07E5B13AB /* MSOneNoteMyOrganizationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E250EF7AD10CB47C19EC2A /* MSOneNoteMyOrganizationOperations.h */; };
-		D9A4BCF22D51BF5B8E837B1C /* MSOneNoteSectionGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A568AFBF32AE5E9726C92AE /* MSOneNoteSectionGroupCollectionFetcher.h */; };
-		DCA14E558CB7618D26AF6090 /* MSOneNoteNotebookOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 39FEDE096B9D4D2802011C27 /* MSOneNoteNotebookOperations.h */; };
-		E09DD36B6EBAD0A71D328FC8 /* MSOneNoteGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B1E5D5D82BC8DC50A780542C /* MSOneNoteGroupFetcher.h */; };
-		E4E32BFB481B6D7B61F62208 /* MSOneNoteUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 16C06F1EE201A88B17EAC5F5 /* MSOneNoteUserCollectionOperations.m */; };
-		E57D604EA3FA610AD412BA81 /* MSOneNotePageCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FDC4CB2F906B402AB9A65BD /* MSOneNotePageCollectionFetcher.h */; };
-		E5A7A8D3025DBD10B5F0159E /* MSOneNoteNotebookCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 081EE86FEBF42828EC444D47 /* MSOneNoteNotebookCollectionOperations.h */; };
-		E5C8D21C502F7417B46AE9EF /* MSOneNoteSiteCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B71EDA56F3EA4C5CEDF8DAB /* MSOneNoteSiteCollection.m */; };
-		E676B090BB29B57598F0E610 /* MSOneNoteNotesFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A95E28B9577282A5CB5F79A /* MSOneNoteNotesFetcher.h */; };
-		E6873783DA0CE848892F0A4F /* MSOneNoteSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A218CBFD17C2D7956A8A381 /* MSOneNoteSection.h */; };
-		E6C87AC32F4F6CF2248F9814 /* MSOneNoteSiteFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B402E2882D9C9875262E9C0E /* MSOneNoteSiteFetcher.m */; };
-		ED90F5C7F9D1E642D8292453 /* MSOneNoteGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A84F4C8645DF1AECAC5813C /* MSOneNoteGroupCollectionOperations.h */; };
-		EDD0840ECC882DF4C2B29242 /* MSOneNoteOperationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 10419B1383F69A64E0223327 /* MSOneNoteOperationOperations.h */; };
-		EECC77348B6A982731F2B4ED /* MSOneNoteSectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F0D65114A076E3E86810B08 /* MSOneNoteSectionOperations.h */; };
-		F1D923BDC366FDAAD4F17E9C /* MSOneNoteIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 515477F79A95FB6D8C57B254 /* MSOneNoteIdentity.h */; };
-		F71DCECB92D4F800822125E8 /* MSOneNoteSiteCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FFC56DEB604CCF685FF7038 /* MSOneNoteSiteCollection.h */; };
-		F85F559214DCB45720596214 /* MSOneNoteSiteOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = F6DF108AA3DD7C12E6EB5487 /* MSOneNoteSiteOperations.h */; };
-		F991E4BC0D5D388000E42889 /* MSOneNoteSite.h in Headers */ = {isa = PBXBuildFile; fileRef = 27939039CEC5C5D676EC5E61 /* MSOneNoteSite.h */; };
-		FB0B1F112AAD62C75C5FA8C9 /* MSOneNoteGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F57D75D829D9DA12926C81 /* MSOneNoteGroup.m */; };
-		FE7F41429D1FF3E7FC0D7E96 /* MSOneNoteResourceCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D2BA938A47C4153F32D72F48 /* MSOneNoteResourceCollectionFetcher.h */; };
+		0296090F73E6C798F83B72D2 /* MSOneNoteNotebookCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CA762D04991E4E7DAEEA1BE6 /* MSOneNoteNotebookCollectionFetcher.m */; };
+		034719D9BCDF19C46A44D463 /* MSOneNotePatchInsertPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F0BA27648EE04B7F12FFF08 /* MSOneNotePatchInsertPosition.m */; };
+		0415A0B00BF678125E010B25 /* MSOneNoteSectionCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = CC8135DDE2F0FBFC0077E414 /* MSOneNoteSectionCollectionFetcher.h */; };
+		05A14221E946B0A6C89753E5 /* MSOneNoteSectionGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 42B7396E0E7C6461E0EB568B /* MSOneNoteSectionGroup.h */; };
+		063391F22278118F150174BA /* MSOneNoteOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6163A2FA3099EE12C5C3A6D9 /* MSOneNoteOperation.h */; };
+		07DA4DCBE15D6A8990555DDC /* MSOneNoteNotesFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B0E7F3A7D82D577B250802 /* MSOneNoteNotesFetcher.m */; };
+		09B41194BB9B3B53BFFDB777 /* MSOneNoteSectionGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 886784053178D70192D80BA9 /* MSOneNoteSectionGroupCollectionOperations.h */; };
+		0B33C98725149667420AA22E /* MSOneNoteSiteCollection_Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = B9D8F1E8FDAFA822AFEBDCAE /* MSOneNoteSiteCollection_Operations.m */; };
+		0C4A5702C5E45DFA846B1D6F /* MSOneNoteNotesFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = CD130467F6D0A3C4355F0A37 /* MSOneNoteNotesFetcher.h */; };
+		0D95E1E4AF42B7F7DA640D34 /* MSOneNoteGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 61F08EDDB73FD033D8D09E81 /* MSOneNoteGroupFetcher.h */; };
+		0EC144F4A4AD057C811FFB52 /* MSOneNoteGroupCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 276C8EBBC996974E244FE6A6 /* MSOneNoteGroupCollectionOperations.h */; };
+		0F1F5DE1CBC601B3AC0705F2 /* MSOneNoteImportStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 67A725A89B1A795E4C1A10CB /* MSOneNoteImportStatusModel.m */; };
+		0FE1BBF0B1A94D24D0C1F248 /* MSOneNoteOperationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 1349765E28ED1944EBB7499A /* MSOneNoteOperationFetcher.h */; };
+		0FF086FBA2D8B3A01E6362CF /* MSOneNoteSection.h in Headers */ = {isa = PBXBuildFile; fileRef = FFC59B6F260A1D98A6A80F27 /* MSOneNoteSection.h */; };
+		13392407A2B1C397111B2DE6 /* MSOneNoteSectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 96FFDCF26F72E441FB26CEEA /* MSOneNoteSectionFetcher.h */; };
+		142298D07A33205181CA5588 /* MSOneNoteOperationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3962FC1F6D636794BBA25E /* MSOneNoteOperationFetcher.m */; };
+		19B8CD326C501C4EBD0B9B15 /* MSOneNoteNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9FE63FC3323ED1578D72A5 /* MSOneNoteNotebook.m */; };
+		1AA2D8146AF74378FCB5F6D0 /* MSOneNoteFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CEEF912796E2A5B95CE5248 /* MSOneNoteFetchers.h */; };
+		1AD1B7D618FAB34FE8A30036 /* MSOneNoteResourceCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1804CC39FCF282C3592B7E /* MSOneNoteResourceCollectionOperations.m */; };
+		1BC3E7164CB75417F4D749B9 /* MSOneNoteNotebookOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E156D6809C7F73AA3A8FC40 /* MSOneNoteNotebookOperations.h */; };
+		209B282FD54E2033186B8477 /* MSOneNotePageCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B7B05ACA0EFFBAF8E11742E2 /* MSOneNotePageCollectionFetcher.m */; };
+		25A96B2B487D876B47468CAA /* MSOneNotePageOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A119633C660844F23EE67A /* MSOneNotePageOperations.m */; };
+		2666B3169280E12B2E0819B8 /* MSOneNotePageLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AADBC5F6E197DBD5B91793 /* MSOneNotePageLinks.m */; };
+		28A88F86193668035F27684D /* MSOneNoteSiteCollection_Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = 32C7820C485089F992A5D43C /* MSOneNoteSiteCollection_Operations.h */; };
+		2EE6C95F197695BAC2A99974 /* MSOneNoteMyOrganizationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 771264138822AE5E84D8926A /* MSOneNoteMyOrganizationCollectionOperations.h */; };
+		3069468D3A29C627F8678E3B /* MSOneNoteOperationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FB33BD260636B0C804B2762 /* MSOneNoteOperationOperations.h */; };
+		33DAB6B0A43F60A146485DAB /* MSOneNoteGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = F1738BA226C2FE90AD98FC27 /* MSOneNoteGroupOperations.h */; };
+		36F35AA33E811CF075332967 /* MSOneNote.h in Headers */ = {isa = PBXBuildFile; fileRef = 589EED4DF1EA558D4B4E9840 /* MSOneNote.h */; };
+		3840652EF99297E65A75BE6D /* MSOneNoteIdentity.m in Sources */ = {isa = PBXBuildFile; fileRef = 205E2319105D151E8FD9CB78 /* MSOneNoteIdentity.m */; };
+		39628ACCCE46AAF9E92D4048 /* MSOneNotePageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 458DDACFF38FBF2A52F5DC9F /* MSOneNotePageFetcher.m */; };
+		3A1207FD8C0F8DCA2291C0B0 /* MSOneNoteSectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D7A33B1F071C9AFAAE3AC /* MSOneNoteSectionOperations.m */; };
+		3C40005828D321B993ABCF02 /* MSOneNoteSiteCollection_CollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F6F9F01F1037AAEF050043EB /* MSOneNoteSiteCollection_CollectionFetcher.h */; };
+		3C8213FF54DC39D438983E70 /* MSOneNoteNotebookCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FA2021DF41D053023988F58 /* MSOneNoteNotebookCollectionOperations.h */; };
+		3C9D2422BA2ECC0184413C98 /* MSOneNoteNotebookCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F18B008E3DEFCC0F81A26EB /* MSOneNoteNotebookCollectionFetcher.h */; };
+		3D887659B4D35A46E0525F5D /* MSOneNoteClient.h in Headers */ = {isa = PBXBuildFile; fileRef = E08F5430192F81D8A2195696 /* MSOneNoteClient.h */; };
+		423867AD5ABC6744A2453418 /* MSOneNoteSection.m in Sources */ = {isa = PBXBuildFile; fileRef = F82435CE10AB9725DC02C0EB /* MSOneNoteSection.m */; };
+		44B11AF2249F3DBA749E285E /* MSOneNoteSectionGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DB4844DB5E0F4BD90A0704 /* MSOneNoteSectionGroupOperations.m */; };
+		4FF9094F47A845DCF8F7C360 /* MSOneNoteIdentitySet.h in Headers */ = {isa = PBXBuildFile; fileRef = 934F0291D0E3F77877E18F1B /* MSOneNoteIdentitySet.h */; };
+		519AAF5934FEDD2A031308C2 /* MSOneNoteSiteOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF616E4632B3D409FA8FE0 /* MSOneNoteSiteOperations.m */; };
+		542A3F33DEC8148C7350824F /* MSOneNoteOperationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 804221B65CCBA2D99D31BB1F /* MSOneNoteOperationOperations.m */; };
+		55BC16BD5CC826F65A521312 /* MSOneNoteSiteCollection_Fetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E750298234E86499FD1D17E /* MSOneNoteSiteCollection_Fetcher.h */; };
+		55D7299C33C522C9362337A5 /* MSOneNotePage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E3D8F7CDE776A6605B9A48B /* MSOneNotePage.h */; };
+		55FDBD01D7F1383B450E4F61 /* MSOneNoteOperationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = D907C4E19A5668FF66F30982 /* MSOneNoteOperationCollectionOperations.m */; };
+		5723CF6AF836827E1F3F6F83 /* MSOneNoteGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C47C39006B6E7E2D10EFC2D2 /* MSOneNoteGroupCollectionFetcher.m */; };
+		5889B5116C5AAA25BA0AAC50 /* MSOneNoteUserOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 46BDA3B916B9D36B8C639124 /* MSOneNoteUserOperations.m */; };
+		5C05F731A5D1430CD663F766 /* MSOneNoteNotesOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7BB0974F2AC7C11D62887C /* MSOneNoteNotesOperations.h */; };
+		5CDD872772A227D99FFAB94A /* MSOneNoteSiteCollection_CollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 70922D9C64ADAE75EE97358F /* MSOneNoteSiteCollection_CollectionOperations.m */; };
+		5CE8226BF43ECB84DD00FF82 /* MSOneNoteNotebookFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DC6D98A337AC9F35DA895DC5 /* MSOneNoteNotebookFetcher.m */; };
+		5EE24B407CF73632F5FA97F7 /* MSOneNoteMyOrganizationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B4AF579528E4F11A05E8DAD /* MSOneNoteMyOrganizationCollectionFetcher.h */; };
+		5F62CA4AC35AFACE65039ACB /* MSOneNoteResourceFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B366E29984F1551173DE7 /* MSOneNoteResourceFetcher.m */; };
+		61A5255B7A4A3653D003DD7E /* MSOneNoteCopyStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B824930A3C7373919674AD3 /* MSOneNoteCopyStatusModel.m */; };
+		62976724EB4D6F426128FF9D /* MSOneNotePageCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C94760D771E13C39EE14D90 /* MSOneNotePageCollectionOperations.m */; };
+		6597B694C40792CEE8593EB6 /* MSOneNoteSectionCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F393903F159182EB560A60D /* MSOneNoteSectionCollectionFetcher.m */; };
+		6682F860219CEFC375112C5C /* MSOneNoteSiteCollection_Fetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BE539DCB03713940635972B4 /* MSOneNoteSiteCollection_Fetcher.m */; };
+		67F47B9CA2482B638AEF4C50 /* MSOneNoteNotes.h in Headers */ = {isa = PBXBuildFile; fileRef = EDAEEA557017BFF5148ED9B2 /* MSOneNoteNotes.h */; };
+		69CCFE683590791F3BDF7979 /* MSOneNotePatchInsertPosition.h in Headers */ = {isa = PBXBuildFile; fileRef = 36C91E249CADE099C81A2C42 /* MSOneNotePatchInsertPosition.h */; };
+		6DEBDBF1834E0748128A8EF5 /* MSOneNoteResourceOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 97B93D5CF3F221FC430B9B35 /* MSOneNoteResourceOperations.h */; };
+		6F21555E94C38CC210495546 /* MSOneNoteSiteFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E0843B5B5E4ECFE22CE56B90 /* MSOneNoteSiteFetcher.h */; };
+		70421898E9B17CEC86B4E555 /* MSOneNoteResourceCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D422A27C142DAF56FF81EA0A /* MSOneNoteResourceCollectionFetcher.h */; };
+		71302FCD1EC5EF1BE3C6B25E /* MSOneNoteUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D11558DFBB2C9E04BF7DF130 /* MSOneNoteUser.m */; };
+		72ABF41A6F9358B98254D286 /* MSOneNoteUserFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B1FB63CAB7D6373EB0FAE4EB /* MSOneNoteUserFetcher.h */; };
+		756D3D94B7032B6B2FBA9B8F /* MSOneNoteNotes.m in Sources */ = {isa = PBXBuildFile; fileRef = E0490A53F2256F495BCC9450 /* MSOneNoteNotes.m */; };
+		758FAE5C06A71FC1052263AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8A44D68ABAE562CCE722C4 /* Foundation.framework */; };
+		76523D30D4385F139200D2ED /* MSOneNoteOperationError.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D6711C8E1622D636BA38CFC /* MSOneNoteOperationError.h */; };
+		7A1D46287F2451DEC39DA131 /* MSOneNoteMyOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BE436ACDD162F58113CD36 /* MSOneNoteMyOrganization.m */; };
+		7D7E77AD9F872FBF3F7E5D85 /* MSOneNotePageOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 78E4E0D71357B6D8D421CD5A /* MSOneNotePageOperations.h */; };
+		7E7855DB4EFB61BAF442AA13 /* MSOneNoteGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6030390ECB797CF235B5A1A2 /* MSOneNoteGroupCollectionFetcher.h */; };
+		7E7EEB61EA008465619CD83C /* MSOneNoteUserRole.h in Headers */ = {isa = PBXBuildFile; fileRef = 9404EB8BFCBEE98FDACF5CEE /* MSOneNoteUserRole.h */; };
+		7F52858EA97217B71922E086 /* MSOneNotePatchContentCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 2609D0036E23B0699CEB35DF /* MSOneNotePatchContentCommand.m */; };
+		80B890AB52CE71B6AD90F073 /* MSOneNoteSiteFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C20BE3B684439A0ED5D8DCF /* MSOneNoteSiteFetcher.m */; };
+		843216DBC850598AE27667BA /* MSOneNoteNotesCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B55EC9F22410948184981655 /* MSOneNoteNotesCollectionFetcher.h */; };
+		84D35866C84408A0B622BB80 /* MSOneNoteModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FE9A815473478AA615E61E1 /* MSOneNoteModels.h */; };
+		85F5C1E28CFA19118F3CDC5B /* MSOneNoteUserCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E57676418E467764BFD200E /* MSOneNoteUserCollectionOperations.h */; };
+		87E0E03BD553C04BDC3A1B09 /* MSOneNoteSectionGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C6946548437AFD9CB7C66D6 /* MSOneNoteSectionGroupCollectionOperations.m */; };
+		907720862CE23765A24644DE /* MSOneNoteCopyStatusModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 776A77B68C8B8FDD4650EC34 /* MSOneNoteCopyStatusModel.h */; };
+		908A23093EDA9EE3C9F71783 /* MSOneNoteSiteCollection_CollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C3544C60392C597C7CD837E3 /* MSOneNoteSiteCollection_CollectionFetcher.m */; };
+		93D164AD88EEE44EB23F37A3 /* MSOneNoteSiteMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = CBCC41E33F04F2607E58AEC2 /* MSOneNoteSiteMetadata.h */; };
+		93DDF6D98039EC227F29995E /* MSOneNoteDiagnostic.m in Sources */ = {isa = PBXBuildFile; fileRef = E42E788CF478A5BE213E70CE /* MSOneNoteDiagnostic.m */; };
+		94023236D2BCAFBAA6304DDC /* MSOneNoteUserOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = FE158261140FDA53A7B4F154 /* MSOneNoteUserOperations.h */; };
+		940E4C4749F9FA7A2544928D /* MSOneNoteDiagnostic.h in Headers */ = {isa = PBXBuildFile; fileRef = 3027C31FE07F15BBC47F8A7E /* MSOneNoteDiagnostic.h */; };
+		9643992016B42D99BED774E9 /* MSOneNoteSite.h in Headers */ = {isa = PBXBuildFile; fileRef = 78A13691AE8232B9FAD9C161 /* MSOneNoteSite.h */; };
+		99ADBF7F3AFB023E9118ACB3 /* MSOneNoteResourceCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FD8A1A46AF355C3DB7D818 /* MSOneNoteResourceCollectionFetcher.m */; };
+		9C59465572ACF6468C7C8A9C /* MSOneNoteSiteCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C2C4D4EB6E3153754DFAB9 /* MSOneNoteSiteCollectionFetcher.m */; };
+		9E35A3584E2DFE081E6537EB /* MSOneNoteNotesOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 554EAA650A16222E51887428 /* MSOneNoteNotesOperations.m */; };
+		A27B2AF924A5CA1E047F1AAB /* MSOneNoteOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB7A25605F581759C22BD2A /* MSOneNoteOperation.m */; };
+		A452419D8563571180FB03A5 /* MSOneNoteSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BA6A07E58F79E409076485 /* MSOneNoteSite.m */; };
+		A78ED47F1D3DA8613997AB11 /* MSOneNotePatchActionType.h in Headers */ = {isa = PBXBuildFile; fileRef = B29736025BB6644802B0D602 /* MSOneNotePatchActionType.h */; };
+		A7AD54741D18156100ED6B6B /* MSOneNoteMyOrganizationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC02BF68F496955C4AB09A3 /* MSOneNoteMyOrganizationCollectionFetcher.m */; };
+		A8FD1E791F40F8BF0896AEE2 /* MSOneNoteExternalLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7560460581467AC390A479 /* MSOneNoteExternalLink.m */; };
+		AC029C49E84579C534EEE3AD /* MSOneNoteGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 464D6E87F0BA8CA984841F3D /* MSOneNoteGroup.m */; };
+		AEB3B677FEBF2BD94836EEC4 /* MSOneNoteIdentitySet.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E7C1D28B14A4B1DAEFE22 /* MSOneNoteIdentitySet.m */; };
+		AEB59A88C72D166F9D524E01 /* MSOneNotePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F34B83E58916361574C8F1 /* MSOneNotePage.m */; };
+		B0333EA5D3120B79BC89C842 /* MSOneNoteNotebook.h in Headers */ = {isa = PBXBuildFile; fileRef = E36EADE0B04EF91D00978FF9 /* MSOneNoteNotebook.h */; };
+		B0D72EB8DFC76602865ABF1E /* MSOneNoteNotebookLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = FBFB4946A34970CBD942391F /* MSOneNoteNotebookLinks.h */; };
+		B138872475B6D73F7323CBBA /* MSOneNoteMyOrganizationFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC5FCA621DEA33F9880D9DC /* MSOneNoteMyOrganizationFetcher.h */; };
+		B1413B23D712C9C7B74C1DDF /* MSOneNoteOperationCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B130437EAD6827D3335B7BE2 /* MSOneNoteOperationCollectionFetcher.m */; };
+		B14CD73583656E2E5E780E1D /* MSOneNoteOperationCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 3266756664FB87BBA66FFBDC /* MSOneNoteOperationCollectionOperations.h */; };
+		B214A92A35C1E64203F21F84 /* MSOneNotePageCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 819287B0F904B6628A6D7132 /* MSOneNotePageCollectionFetcher.h */; };
+		B6152817463ED6815090C494 /* MSOneNoteSiteCollection_CollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = AEC713F608C1B5593E8A6CA2 /* MSOneNoteSiteCollection_CollectionOperations.h */; };
+		B6D4AEAAE10204FBAB0D7E21 /* MSOneNoteNotesCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6134AF135D2DA59EFB3EB70B /* MSOneNoteNotesCollectionFetcher.m */; };
+		B7F6F00C16ABB2D92027E9EF /* MSOneNoteNotesCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = B251768DB821FB0C008E45A3 /* MSOneNoteNotesCollectionOperations.m */; };
+		B802AB31BC061CAD07EA2DB1 /* MSOneNoteUserFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A3EDA49A8A3393DFB1E903 /* MSOneNoteUserFetcher.m */; };
+		B94F52BCA632DFC8CBBEC456 /* MSOneNoteClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DE9D2AF78840A8B5A3EF082 /* MSOneNoteClient.m */; };
+		B958338462CDF85FE3FB5B3E /* MSOneNoteNotesCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = BB9152661FDF9682DEF12D42 /* MSOneNoteNotesCollectionOperations.h */; };
+		BB8AA91932C83E7B41C2E528 /* MSOneNoteGroupCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 338A85C077137D1FBA3052DD /* MSOneNoteGroupCollectionOperations.m */; };
+		BC02EBB74BF776BD1B08223D /* MSOneNoteSiteCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = C33EB2349FF96678CE328343 /* MSOneNoteSiteCollection.m */; };
+		BDC2595B078024ECAD4515C8 /* MSOneNoteGroupOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D1CBC7D3C627818AEF78194 /* MSOneNoteGroupOperations.m */; };
+		BE03C7EBAAECAB3952FB321D /* MSOneNoteSectionCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B7BF6C1AE695042B046DBF1 /* MSOneNoteSectionCollectionOperations.m */; };
+		BFCEABA4D47FFD9097BC7FEE /* MSOneNoteSectionGroupFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 166A7E5B66A35F7C150CA442 /* MSOneNoteSectionGroupFetcher.h */; };
+		C16DCBEC52BB44236D20D40C /* MSOneNoteOperationCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F826999129E531C4E20B10E /* MSOneNoteOperationCollectionFetcher.h */; };
+		C22A276E8C61933AD1921AA7 /* MSOneNoteSectionGroupCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F36A0C926BDFDBFD978E21 /* MSOneNoteSectionGroupCollectionFetcher.m */; };
+		C3A764F1078142D3CA3D13E5 /* MSOneNoteUserCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D4994B9B49AF57D7707E0 /* MSOneNoteUserCollectionFetcher.m */; };
+		C5ADC3F400144FEE4ABC1ED3 /* MSOneNoteUser.h in Headers */ = {isa = PBXBuildFile; fileRef = C33E33D30B0CE37C2A742FA2 /* MSOneNoteUser.h */; };
+		C776C72BF723FE5C141B0B58 /* MSOneNoteIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EACD4FD4A327816D80D274 /* MSOneNoteIdentity.h */; };
+		C79AF2B0EF7E652A7B1DCF08 /* MSOneNoteMyOrganizationOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 55EADA3B54773746371F79E7 /* MSOneNoteMyOrganizationOperations.m */; };
+		C7E40B83B00FB86C8A8E395E /* MSOneNoteResource.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E75868AD75FB171D163A04 /* MSOneNoteResource.m */; };
+		CA9AEFD245A8587A83AFB921 /* MSOneNoteExternalLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B58832E0D8741750882B224 /* MSOneNoteExternalLink.h */; };
+		CB9C044BD31B29D3A29C92CE /* MSOneNoteSectionGroupCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B56F9C68B252E4838710BCFD /* MSOneNoteSectionGroupCollectionFetcher.h */; };
+		CEB226E1FCC47C0D1CB54D43 /* MSOneNoteResourceOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F000ED96BB6561C5B5FA76C5 /* MSOneNoteResourceOperations.m */; };
+		D0A76817EF3282F0ED95E508 /* MSOneNotePageFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B61BB5FB9FBF9642D10535DC /* MSOneNotePageFetcher.h */; };
+		D494DA99887245DC1C20F657 /* MSOneNoteSiteCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 479FC6D6569D368034768FCA /* MSOneNoteSiteCollectionFetcher.h */; };
+		D58E92624FA33D7B18637930 /* MSOneNoteSiteCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 302411CA8FFDB91024F69B83 /* MSOneNoteSiteCollectionOperations.h */; };
+		D8B6F99BF00E42F4788D3BC4 /* MSOneNoteSiteMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 53BCD86AED941AD8CA868D23 /* MSOneNoteSiteMetadata.m */; };
+		D8D78A7A68F8978115B57DD0 /* MSOneNoteNotebookFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E44569D1C82280475C8EC23 /* MSOneNoteNotebookFetcher.h */; };
+		DA46D927606977912DDB28F7 /* MSOneNoteSectionGroupOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FB8935CA834D88904782E6 /* MSOneNoteSectionGroupOperations.h */; };
+		DACE67B6C13A5F1C14576CB8 /* MSOneNoteNotebookOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC33E0967B6EEAA03E8C5E7 /* MSOneNoteNotebookOperations.m */; };
+		DB07242C46A139BA5F3F8D34 /* MSOneNoteUserCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B701CB4F45188A9297B70DA /* MSOneNoteUserCollectionOperations.m */; };
+		DB6069ED2B67E5DC3B49169A /* MSOneNoteSectionGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6947D714C0EDBBEAF3462135 /* MSOneNoteSectionGroupFetcher.m */; };
+		DDD32E676DB2BF3B0598DEBB /* MSOneNoteSectionCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A10819E19783C3826736A18 /* MSOneNoteSectionCollectionOperations.h */; };
+		E11D172BF4E25FF68FA0EDC1 /* MSOneNoteNotebookLinks.m in Sources */ = {isa = PBXBuildFile; fileRef = 43F67D7037DEBDD818F2396A /* MSOneNoteNotebookLinks.m */; };
+		E3B8DE570E44309B07716762 /* MSOneNoteOperationError.m in Sources */ = {isa = PBXBuildFile; fileRef = 19B2E0CD0C72465CBF8AE0D5 /* MSOneNoteOperationError.m */; };
+		E4B6E6FDBB545FFD712F55EE /* MSOneNotePatchContentCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 91B11F727E3BB58DA22B9430 /* MSOneNotePatchContentCommand.h */; };
+		E507D220FABE19566B588A94 /* MSOneNoteGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3470BEE585107CFF0751BDBB /* MSOneNoteGroup.h */; };
+		E597F624A4A30B37E7E7B4BC /* MSOneNoteUserCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8AB00A068636ED724C87C /* MSOneNoteUserCollectionFetcher.h */; };
+		E78A6389C7435E3DAA0D838F /* MSOneNoteSiteOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BA0DF664B3F13E914C99B10 /* MSOneNoteSiteOperations.h */; };
+		E7C516EAAE64BB79324C69D3 /* MSOneNoteMyOrganization.h in Headers */ = {isa = PBXBuildFile; fileRef = D08E2AF15DB5D96C3D9F14B4 /* MSOneNoteMyOrganization.h */; };
+		E7FDF3ABAA12BB1FFFA09A2A /* MSOneNoteSiteCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = E55B1D364C52540980F961A7 /* MSOneNoteSiteCollection.h */; };
+		EA0AF8A2DA2997754C5521D0 /* MSOneNoteMyOrganizationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D247E705D91C05D9553DF03F /* MSOneNoteMyOrganizationFetcher.m */; };
+		EAFEBAC5F552E3A9A9350408 /* MSOneNoteSiteCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = C982BAD989A18934FBC45E11 /* MSOneNoteSiteCollectionOperations.m */; };
+		EDECDC289AE7DFEB3D4E947A /* MSOneNoteMyOrganizationOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = DC8BFAAD3144553A864068D4 /* MSOneNoteMyOrganizationOperations.h */; };
+		EFEA88274EF4358AD38D17AA /* MSOneNoteUserRole.m in Sources */ = {isa = PBXBuildFile; fileRef = 31854724226D8EB205069604 /* MSOneNoteUserRole.m */; };
+		F218B3EDD48ADC1E1AC6753B /* MSOneNoteResourceFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B789AFAC28353A79CB81DB6 /* MSOneNoteResourceFetcher.h */; };
+		F24CD45C7F548DC589D091DD /* MSOneNotePageLinks.h in Headers */ = {isa = PBXBuildFile; fileRef = A373B3F16754FAB6F1CE93BA /* MSOneNotePageLinks.h */; };
+		F425DDB9283BFD85CD7D83B4 /* MSOneNoteSectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 072EA0343C0E3679614FBEE6 /* MSOneNoteSectionOperations.h */; };
+		F4F6E23D5FBDBF5AC5C7B4DB /* MSOneNoteMyOrganizationCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0328E8AAFCF68288CEEBA41F /* MSOneNoteMyOrganizationCollectionOperations.m */; };
+		F6106ABD3401F64A1AF4AD89 /* MSOneNoteImportStatusModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F47AF6C74960F81134110F35 /* MSOneNoteImportStatusModel.h */; };
+		F690E8B9E887F04425E1EE22 /* MSOneNotePatchActionType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D15284DCD8E76EA6A1113BB /* MSOneNotePatchActionType.m */; };
+		F8EC196FB0DEA988A49D1254 /* MSOneNoteResourceCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B090563F2BAEABE576753129 /* MSOneNoteResourceCollectionOperations.h */; };
+		F9B9EBEEEB8E156C9C2185D6 /* MSOneNoteGroupFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB98AA3BE14F0EACEDFDB87 /* MSOneNoteGroupFetcher.m */; };
+		FC32038AC7C95B61B00F9303 /* MSOneNoteSectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 151CACF04730E93F9F4E9691 /* MSOneNoteSectionFetcher.m */; };
+		FC8E9F2476B7BE5496C4E0FA /* MSOneNoteResource.h in Headers */ = {isa = PBXBuildFile; fileRef = C9E5B18C7625854C709A3AC3 /* MSOneNoteResource.h */; };
+		FD6618501F39C9992D59E917 /* MSOneNoteSectionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C3987948A0DF2DD095A52CE /* MSOneNoteSectionGroup.m */; };
+		FF9877EDBD9BAC1C602038D6 /* MSOneNoteNotebookCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7992387A1EC8A442F6C5B2 /* MSOneNoteNotebookCollectionOperations.m */; };
+		FFBDB5BA22AA717464C22AE4 /* MSOneNotePageCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = A4FF839DF2D00387D6729EAB /* MSOneNotePageCollectionOperations.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0073665EA3B82A3A4B978FF1 /* MSOneNoteSectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionFetcher.h; path = ./Fetchers/MSOneNoteSectionFetcher.h; sourceTree = "<group>"; };
-		04DB9A4FF5CEE06650F8794A /* MSOneNoteGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroup.h; path = ./Model/MSOneNoteGroup.h; sourceTree = "<group>"; };
-		081EE86FEBF42828EC444D47 /* MSOneNoteNotebookCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookCollectionOperations.h; path = ./Fetchers/MSOneNoteNotebookCollectionOperations.h; sourceTree = "<group>"; };
-		085EB66562AEBEE7F4A2D412 /* MSOneNoteOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperation.h; path = ./Model/MSOneNoteOperation.h; sourceTree = "<group>"; };
-		0FD0D34CBD379092DA4AE2A6 /* MSOneNoteGroupCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupCollectionFetcher.h; path = ./Fetchers/MSOneNoteGroupCollectionFetcher.h; sourceTree = "<group>"; };
-		10419B1383F69A64E0223327 /* MSOneNoteOperationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationOperations.h; path = ./Fetchers/MSOneNoteOperationOperations.h; sourceTree = "<group>"; };
-		114B5DE60F66C2BADEFE4373 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		12286B9218E805244E53BC0B /* MSOneNoteSiteOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteOperations.m; path = ./Fetchers/MSOneNoteSiteOperations.m; sourceTree = "<group>"; };
-		14570F215D7D9182C7D8DFCE /* MSOneNoteOperationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationCollectionOperations.h; path = ./Fetchers/MSOneNoteOperationCollectionOperations.h; sourceTree = "<group>"; };
-		149026816B42F99448623296 /* MSOneNotePatchInsertPosition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchInsertPosition.h; path = ./Model/MSOneNotePatchInsertPosition.h; sourceTree = "<group>"; };
-		16C06F1EE201A88B17EAC5F5 /* MSOneNoteUserCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserCollectionOperations.m; path = ./Fetchers/MSOneNoteUserCollectionOperations.m; sourceTree = "<group>"; };
-		1A218CBFD17C2D7956A8A381 /* MSOneNoteSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSection.h; path = ./Model/MSOneNoteSection.h; sourceTree = "<group>"; };
-		1A568AFBF32AE5E9726C92AE /* MSOneNoteSectionGroupCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupCollectionFetcher.h; path = ./Fetchers/MSOneNoteSectionGroupCollectionFetcher.h; sourceTree = "<group>"; };
-		1B2D08FCE8F3D2D28F5802CD /* MSOneNoteMyOrganizationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationCollectionOperations.m; path = ./Fetchers/MSOneNoteMyOrganizationCollectionOperations.m; sourceTree = "<group>"; };
-		1C33C19A8B8080694EE62543 /* MSOneNoteIdentitySet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteIdentitySet.h; path = ./Model/MSOneNoteIdentitySet.h; sourceTree = "<group>"; };
-		1CFB8EA1814655D31C82C30C /* MSOneNoteSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSite.m; path = ./Model/MSOneNoteSite.m; sourceTree = "<group>"; };
-		1DAA451791C02A115D9CFE0E /* MSOneNoteMyOrganization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganization.h; path = ./Model/MSOneNoteMyOrganization.h; sourceTree = "<group>"; };
-		1FFC56DEB604CCF685FF7038 /* MSOneNoteSiteCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection.h; path = ./Model/MSOneNoteSiteCollection.h; sourceTree = "<group>"; };
-		221AD74183C45E9760B93231 /* MSOneNoteUserRole.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserRole.m; path = ./Model/MSOneNoteUserRole.m; sourceTree = "<group>"; };
-		24D22BF370FFF8071DE2AA6E /* MSOneNoteFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteFetchers.h; path = ./Fetchers/MSOneNoteFetchers.h; sourceTree = "<group>"; };
-		257D515867EC5C53E8DB9817 /* MSOneNoteNotebook.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebook.m; path = ./Model/MSOneNoteNotebook.m; sourceTree = "<group>"; };
-		25C75AAA5D67EBB29C6B3157 /* MSOneNoteResourceFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceFetcher.m; path = ./Fetchers/MSOneNoteResourceFetcher.m; sourceTree = "<group>"; };
-		27939039CEC5C5D676EC5E61 /* MSOneNoteSite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSite.h; path = ./Model/MSOneNoteSite.h; sourceTree = "<group>"; };
-		2CEEC31708E7855B0875FD45 /* MSOneNoteOperationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationFetcher.m; path = ./Fetchers/MSOneNoteOperationFetcher.m; sourceTree = "<group>"; };
-		3037F7CB5438BECB71DB0441 /* MSOneNoteMyOrganizationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationCollectionFetcher.h; path = ./Fetchers/MSOneNoteMyOrganizationCollectionFetcher.h; sourceTree = "<group>"; };
-		3147B584D8FBC20A11587D0C /* MSOneNoteOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperation.m; path = ./Model/MSOneNoteOperation.m; sourceTree = "<group>"; };
-		382B2E054CEECEE2B17F94F9 /* MSOneNoteUserCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserCollectionFetcher.m; path = ./Fetchers/MSOneNoteUserCollectionFetcher.m; sourceTree = "<group>"; };
-		39FEDE096B9D4D2802011C27 /* MSOneNoteNotebookOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookOperations.h; path = ./Fetchers/MSOneNoteNotebookOperations.h; sourceTree = "<group>"; };
-		3A7705F807CCE4DEC4B216FD /* MSOneNoteOperationError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationError.m; path = ./Model/MSOneNoteOperationError.m; sourceTree = "<group>"; };
-		3BC394CF76134802DF2E89D6 /* MSOneNoteGroupFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupFetcher.m; path = ./Fetchers/MSOneNoteGroupFetcher.m; sourceTree = "<group>"; };
-		3D91F027FF95CA3B80681CD8 /* MSOneNoteNotebookCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookCollectionOperations.m; path = ./Fetchers/MSOneNoteNotebookCollectionOperations.m; sourceTree = "<group>"; };
-		3E0CF1CF19ACA3052D1AFA09 /* MSOneNotePatchContentCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchContentCommand.m; path = ./Model/MSOneNotePatchContentCommand.m; sourceTree = "<group>"; };
-		3FC1264C2063C11913F84D1A /* MSOneNoteMyOrganizationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationCollectionOperations.h; path = ./Fetchers/MSOneNoteMyOrganizationCollectionOperations.h; sourceTree = "<group>"; };
-		3FDC4CB2F906B402AB9A65BD /* MSOneNotePageCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageCollectionFetcher.h; path = ./Fetchers/MSOneNotePageCollectionFetcher.h; sourceTree = "<group>"; };
-		418CF09FDD05A19AED85316E /* MSOneNotePageCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageCollectionFetcher.m; path = ./Fetchers/MSOneNotePageCollectionFetcher.m; sourceTree = "<group>"; };
-		45CAB6F4B89F27F72E3866C5 /* MSOneNoteSiteCollection_CollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_CollectionFetcher.h; path = ./Fetchers/MSOneNoteSiteCollection_CollectionFetcher.h; sourceTree = "<group>"; };
-		46F7A0B2A32753F9792F952B /* MSOneNoteCopyStatusModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteCopyStatusModel.m; path = ./Model/MSOneNoteCopyStatusModel.m; sourceTree = "<group>"; };
-		49433C78CEE941D151658322 /* MSOneNoteUserOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserOperations.h; path = ./Fetchers/MSOneNoteUserOperations.h; sourceTree = "<group>"; };
-		4A84F4C8645DF1AECAC5813C /* MSOneNoteGroupCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupCollectionOperations.h; path = ./Fetchers/MSOneNoteGroupCollectionOperations.h; sourceTree = "<group>"; };
-		4BC2CC06C9A3DDD6EA0FB1FC /* MSOneNoteUserRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserRole.h; path = ./Model/MSOneNoteUserRole.h; sourceTree = "<group>"; };
-		515477F79A95FB6D8C57B254 /* MSOneNoteIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteIdentity.h; path = ./Model/MSOneNoteIdentity.h; sourceTree = "<group>"; };
-		54634165528C86BB15ECEE1C /* MSOneNoteImportStatusModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteImportStatusModel.h; path = ./Model/MSOneNoteImportStatusModel.h; sourceTree = "<group>"; };
-		5497B255ED43908682DE70D7 /* MSOneNoteSiteMetadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteMetadata.m; path = ./Model/MSOneNoteSiteMetadata.m; sourceTree = "<group>"; };
-		54CAC2F0A3D5F40F23752AEA /* MSOneNoteSiteCollection_CollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_CollectionOperations.m; path = ./Fetchers/MSOneNoteSiteCollection_CollectionOperations.m; sourceTree = "<group>"; };
-		56DAB1C099B5C7344D489EB5 /* MSOneNoteDiagnostic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteDiagnostic.m; path = ./Model/MSOneNoteDiagnostic.m; sourceTree = "<group>"; };
-		59D0B1222F14BC9BE93BAAC3 /* MSOneNoteResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResource.h; path = ./Model/MSOneNoteResource.h; sourceTree = "<group>"; };
-		5BFB74A2CC01C175D750D10B /* MSOneNoteNotebook.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebook.h; path = ./Model/MSOneNoteNotebook.h; sourceTree = "<group>"; };
-		5F37782C8B27E63E7AF1ADBE /* MSOneNoteMyOrganizationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationCollectionFetcher.m; path = ./Fetchers/MSOneNoteMyOrganizationCollectionFetcher.m; sourceTree = "<group>"; };
-		6542CE05780639941CB27E32 /* MSOneNoteClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteClient.m; path = ./Fetchers/MSOneNoteClient.m; sourceTree = "<group>"; };
-		67B8175DEF3440A1A7C92B9E /* MSOneNoteOperationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationCollectionFetcher.m; path = ./Fetchers/MSOneNoteOperationCollectionFetcher.m; sourceTree = "<group>"; };
-		67F3E5B10417885236763868 /* MSOneNoteResourceCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceCollectionFetcher.m; path = ./Fetchers/MSOneNoteResourceCollectionFetcher.m; sourceTree = "<group>"; };
-		69541D7971D0145F5338ACF9 /* MSOneNoteSectionCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionCollectionFetcher.h; path = ./Fetchers/MSOneNoteSectionCollectionFetcher.h; sourceTree = "<group>"; };
-		696ED601C047344D7646C9E3 /* MSOneNotePatchActionType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchActionType.h; path = ./Model/MSOneNotePatchActionType.h; sourceTree = "<group>"; };
-		6A901CD54771BFD29B83564D /* MSOneNoteNotesOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesOperations.m; path = ./Fetchers/MSOneNoteNotesOperations.m; sourceTree = "<group>"; };
-		6B71EDA56F3EA4C5CEDF8DAB /* MSOneNoteSiteCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection.m; path = ./Model/MSOneNoteSiteCollection.m; sourceTree = "<group>"; };
-		6E04A3CEEAF62F9C6260732E /* MSOneNoteNotebookCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookCollectionFetcher.m; path = ./Fetchers/MSOneNoteNotebookCollectionFetcher.m; sourceTree = "<group>"; };
-		714F440B38E92773C95E1285 /* MSOneNoteGroupCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupCollectionFetcher.m; path = ./Fetchers/MSOneNoteGroupCollectionFetcher.m; sourceTree = "<group>"; };
-		72FA8926510863C0AF3D18BC /* MSOneNoteUserOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserOperations.m; path = ./Fetchers/MSOneNoteUserOperations.m; sourceTree = "<group>"; };
-		771AC4C65890625A8A5138CF /* MSOneNoteSiteCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollectionFetcher.h; path = ./Fetchers/MSOneNoteSiteCollectionFetcher.h; sourceTree = "<group>"; };
-		7A171AE196C39F284A173E0E /* MSOneNoteNotesCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesCollectionFetcher.m; path = ./Fetchers/MSOneNoteNotesCollectionFetcher.m; sourceTree = "<group>"; };
-		7C4779307EED3FC2A31E5679 /* MSOneNoteOperationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationCollectionFetcher.h; path = ./Fetchers/MSOneNoteOperationCollectionFetcher.h; sourceTree = "<group>"; };
-		7C8317C6F992EF27DE5A693D /* MSOneNoteUserCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserCollectionOperations.h; path = ./Fetchers/MSOneNoteUserCollectionOperations.h; sourceTree = "<group>"; };
-		7CE42C4A64723C6FEA6D680E /* MSOneNoteMyOrganizationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationFetcher.h; path = ./Fetchers/MSOneNoteMyOrganizationFetcher.h; sourceTree = "<group>"; };
-		7D3544623C138269EE0FC7A9 /* MSOneNoteOperationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationFetcher.h; path = ./Fetchers/MSOneNoteOperationFetcher.h; sourceTree = "<group>"; };
-		7DC7305A9F2820DDE0110A37 /* MSOneNoteOperationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationCollectionOperations.m; path = ./Fetchers/MSOneNoteOperationCollectionOperations.m; sourceTree = "<group>"; };
-		80410943B67507FBC7E0160D /* MSOneNoteSectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionOperations.m; path = ./Fetchers/MSOneNoteSectionOperations.m; sourceTree = "<group>"; };
-		871026AFD17E9E0BCDAC09D4 /* MSOneNoteNotesCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesCollectionOperations.m; path = ./Fetchers/MSOneNoteNotesCollectionOperations.m; sourceTree = "<group>"; };
-		88E7F176E9FE114167AF7B30 /* MSOneNoteNotes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotes.m; path = ./Model/MSOneNoteNotes.m; sourceTree = "<group>"; };
-		88F539329E19FB66E5752912 /* MSOneNoteSiteCollection_CollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_CollectionFetcher.m; path = ./Fetchers/MSOneNoteSiteCollection_CollectionFetcher.m; sourceTree = "<group>"; };
-		8A84494F5738F96A2D44DDD1 /* MSOneNoteModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteModels.h; path = ./Model/MSOneNoteModels.h; sourceTree = "<group>"; };
-		8EAE1496BFBFD2E0406A3FA7 /* MSOneNoteClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteClient.h; path = ./Fetchers/MSOneNoteClient.h; sourceTree = "<group>"; };
-		8F0D65114A076E3E86810B08 /* MSOneNoteSectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionOperations.h; path = ./Fetchers/MSOneNoteSectionOperations.h; sourceTree = "<group>"; };
-		913B2445D2FC3897FAAA1FEF /* MSOneNoteSiteCollection_Operations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_Operations.h; path = ./Fetchers/MSOneNoteSiteCollection_Operations.h; sourceTree = "<group>"; };
-		918D4301EE3A73041D967DA1 /* MSOneNotePage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePage.m; path = ./Model/MSOneNotePage.m; sourceTree = "<group>"; };
-		92013419920DA7BF30106838 /* MSOneNoteSectionCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionCollectionFetcher.m; path = ./Fetchers/MSOneNoteSectionCollectionFetcher.m; sourceTree = "<group>"; };
-		93E250EF7AD10CB47C19EC2A /* MSOneNoteMyOrganizationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationOperations.h; path = ./Fetchers/MSOneNoteMyOrganizationOperations.h; sourceTree = "<group>"; };
-		9646F8DB0EA3578576CCCD7E /* MSOneNoteExternalLink.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteExternalLink.m; path = ./Model/MSOneNoteExternalLink.m; sourceTree = "<group>"; };
-		98D36F574E47CF564104B38B /* MSOneNoteGroupOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupOperations.m; path = ./Fetchers/MSOneNoteGroupOperations.m; sourceTree = "<group>"; };
-		99F3A1B6ECD648BB48205FAB /* MSOneNotePatchContentCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchContentCommand.h; path = ./Model/MSOneNotePatchContentCommand.h; sourceTree = "<group>"; };
-		9A95E28B9577282A5CB5F79A /* MSOneNoteNotesFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesFetcher.h; path = ./Fetchers/MSOneNoteNotesFetcher.h; sourceTree = "<group>"; };
-		9B25410EDA4435965644BFCC /* MSOneNotePageCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageCollectionOperations.m; path = ./Fetchers/MSOneNotePageCollectionOperations.m; sourceTree = "<group>"; };
-		9B94FD3E83D657ABFE327327 /* MSOneNoteMyOrganization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganization.m; path = ./Model/MSOneNoteMyOrganization.m; sourceTree = "<group>"; };
-		9BED38A9AD3AB8EA6CB34E86 /* MSOneNoteNotebookFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookFetcher.m; path = ./Fetchers/MSOneNoteNotebookFetcher.m; sourceTree = "<group>"; };
-		9C2246C50C91A15DB2C84EEE /* MSOneNoteNotebookLinks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookLinks.m; path = ./Model/MSOneNoteNotebookLinks.m; sourceTree = "<group>"; };
-		9C7DE83429769ED23F4EDD88 /* MSOneNoteOperationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationOperations.m; path = ./Fetchers/MSOneNoteOperationOperations.m; sourceTree = "<group>"; };
-		9E01A6725FF724C77474E682 /* MSOneNoteIdentity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteIdentity.m; path = ./Model/MSOneNoteIdentity.m; sourceTree = "<group>"; };
-		9EB6AE0EA88FC79B783051DF /* MSOneNotePageOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageOperations.m; path = ./Fetchers/MSOneNotePageOperations.m; sourceTree = "<group>"; };
-		9F5E42845D8468AEC21A6D83 /* MSOneNoteNotebookFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookFetcher.h; path = ./Fetchers/MSOneNoteNotebookFetcher.h; sourceTree = "<group>"; };
-		9F9C9B5C54DE554D5EB5618F /* MSOneNoteResourceOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceOperations.m; path = ./Fetchers/MSOneNoteResourceOperations.m; sourceTree = "<group>"; };
-		A194023ECCDBA2C6911AD894 /* MSOneNoteNotesFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesFetcher.m; path = ./Fetchers/MSOneNoteNotesFetcher.m; sourceTree = "<group>"; };
-		A1C7AE3AD38F33ECCCA625B6 /* MSOneNoteSiteCollection_CollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_CollectionOperations.h; path = ./Fetchers/MSOneNoteSiteCollection_CollectionOperations.h; sourceTree = "<group>"; };
-		A39A1FB91F2F37D767B11B80 /* MSOneNoteResourceFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceFetcher.h; path = ./Fetchers/MSOneNoteResourceFetcher.h; sourceTree = "<group>"; };
-		A3B97CE4A382BF8C38602A75 /* MSOneNoteIdentitySet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteIdentitySet.m; path = ./Model/MSOneNoteIdentitySet.m; sourceTree = "<group>"; };
-		A545A423B3F87DC42310BF88 /* MSOneNoteNotes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotes.h; path = ./Model/MSOneNoteNotes.h; sourceTree = "<group>"; };
-		A64B6E82FF8B116DEC3EAAB8 /* MSOneNoteUserFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserFetcher.m; path = ./Fetchers/MSOneNoteUserFetcher.m; sourceTree = "<group>"; };
-		A7F57D75D829D9DA12926C81 /* MSOneNoteGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroup.m; path = ./Model/MSOneNoteGroup.m; sourceTree = "<group>"; };
-		A9BA267B86EF4874F9C8FA54 /* MSOneNotePatchInsertPosition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchInsertPosition.m; path = ./Model/MSOneNotePatchInsertPosition.m; sourceTree = "<group>"; };
-		AAA5AFFAEEFCDE8847251F12 /* MSOneNoteSectionGroupCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupCollectionOperations.m; path = ./Fetchers/MSOneNoteSectionGroupCollectionOperations.m; sourceTree = "<group>"; };
-		AB5910E1C16AB0FA9C637AD0 /* MSOneNoteSectionCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionCollectionOperations.m; path = ./Fetchers/MSOneNoteSectionCollectionOperations.m; sourceTree = "<group>"; };
-		ABA8ECB3BD858FC94E8FFF02 /* MSOneNotePageFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageFetcher.m; path = ./Fetchers/MSOneNotePageFetcher.m; sourceTree = "<group>"; };
-		AD8B37A1960BED30714EA1BD /* MSOneNoteResourceCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceCollectionOperations.h; path = ./Fetchers/MSOneNoteResourceCollectionOperations.h; sourceTree = "<group>"; };
-		AFCFC62B7137307F3C85919D /* MSOneNoteNotebookOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookOperations.m; path = ./Fetchers/MSOneNoteNotebookOperations.m; sourceTree = "<group>"; };
-		B1CD6875B757424934E5B498 /* MSOneNotePageLinks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageLinks.h; path = ./Model/MSOneNotePageLinks.h; sourceTree = "<group>"; };
-		B1E5D5D82BC8DC50A780542C /* MSOneNoteGroupFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupFetcher.h; path = ./Fetchers/MSOneNoteGroupFetcher.h; sourceTree = "<group>"; };
-		B281DDF4C0539D99A8DE3939 /* MSOneNoteExternalLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteExternalLink.h; path = ./Model/MSOneNoteExternalLink.h; sourceTree = "<group>"; };
-		B402E2882D9C9875262E9C0E /* MSOneNoteSiteFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteFetcher.m; path = ./Fetchers/MSOneNoteSiteFetcher.m; sourceTree = "<group>"; };
-		B5B9166161E2FEF98AA70545 /* MSOneNoteSiteCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollectionOperations.h; path = ./Fetchers/MSOneNoteSiteCollectionOperations.h; sourceTree = "<group>"; };
-		B775009AF2F2E86981F293F6 /* MSOneNoteSectionGroupOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupOperations.m; path = ./Fetchers/MSOneNoteSectionGroupOperations.m; sourceTree = "<group>"; };
-		B7BBFA8D14FFD6C3749E0AAD /* MSOneNoteNotesCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesCollectionFetcher.h; path = ./Fetchers/MSOneNoteNotesCollectionFetcher.h; sourceTree = "<group>"; };
-		BA3238A6C1C6D6F46C21D062 /* MSOneNoteUserFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserFetcher.h; path = ./Fetchers/MSOneNoteUserFetcher.h; sourceTree = "<group>"; };
-		BB88CD5E5F05D4F75D797955 /* MSOneNoteSectionGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroup.h; path = ./Model/MSOneNoteSectionGroup.h; sourceTree = "<group>"; };
-		BBCF48203DD6C918ED0FD901 /* MSOneNoteMyOrganizationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationFetcher.m; path = ./Fetchers/MSOneNoteMyOrganizationFetcher.m; sourceTree = "<group>"; };
-		C18AEE904440ECF9E86BBAE8 /* MSOneNotePage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePage.h; path = ./Model/MSOneNotePage.h; sourceTree = "<group>"; };
-		C190464E7691A6D8BC51DE49 /* MSOneNoteSiteCollection_Fetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_Fetcher.m; path = ./Fetchers/MSOneNoteSiteCollection_Fetcher.m; sourceTree = "<group>"; };
-		C2C7A892EDC8531CBB135054 /* MSOneNoteGroupOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupOperations.h; path = ./Fetchers/MSOneNoteGroupOperations.h; sourceTree = "<group>"; };
-		C60F7392DEB2FA88D9E806C5 /* MSOneNoteMyOrganizationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationOperations.m; path = ./Fetchers/MSOneNoteMyOrganizationOperations.m; sourceTree = "<group>"; };
-		C637529DF725835002E04F61 /* MSOneNoteSectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionFetcher.m; path = ./Fetchers/MSOneNoteSectionFetcher.m; sourceTree = "<group>"; };
-		C74150D24E54F66CBA3582BF /* MSOneNoteNotebookCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookCollectionFetcher.h; path = ./Fetchers/MSOneNoteNotebookCollectionFetcher.h; sourceTree = "<group>"; };
-		CA83ED245679BC50A3690330 /* libOneNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOneNote.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBB4EC247E55CC77771306A3 /* MSOneNoteSectionGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroup.m; path = ./Model/MSOneNoteSectionGroup.m; sourceTree = "<group>"; };
-		D2BA938A47C4153F32D72F48 /* MSOneNoteResourceCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceCollectionFetcher.h; path = ./Fetchers/MSOneNoteResourceCollectionFetcher.h; sourceTree = "<group>"; };
-		D546BC3F7CCE5F4F6F06B516 /* MSOneNoteSectionGroupCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupCollectionFetcher.m; path = ./Fetchers/MSOneNoteSectionGroupCollectionFetcher.m; sourceTree = "<group>"; };
-		D7917853D398839293254245 /* MSOneNoteResourceCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceCollectionOperations.m; path = ./Fetchers/MSOneNoteResourceCollectionOperations.m; sourceTree = "<group>"; };
-		D84935218D44BA28DA4B2C07 /* MSOneNoteSiteMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteMetadata.h; path = ./Model/MSOneNoteSiteMetadata.h; sourceTree = "<group>"; };
-		DA1AB022DCCF8C6383C583AF /* MSOneNoteResource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResource.m; path = ./Model/MSOneNoteResource.m; sourceTree = "<group>"; };
-		DAE7435136AC57B124710804 /* MSOneNoteSiteCollection_Operations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_Operations.m; path = ./Fetchers/MSOneNoteSiteCollection_Operations.m; sourceTree = "<group>"; };
-		DBB76A10B9C8763921F3775C /* MSOneNoteSectionCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionCollectionOperations.h; path = ./Fetchers/MSOneNoteSectionCollectionOperations.h; sourceTree = "<group>"; };
-		DCF2ED63A59F25011B34E1E3 /* MSOneNoteOperationError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationError.h; path = ./Model/MSOneNoteOperationError.h; sourceTree = "<group>"; };
-		DD6B756A6C8B87B71261A3C3 /* MSOneNotePageLinks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageLinks.m; path = ./Model/MSOneNotePageLinks.m; sourceTree = "<group>"; };
-		DE1A2AD23C102AC844E53301 /* MSOneNote.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNote.h; path = ./MSOneNote.h; sourceTree = "<group>"; };
-		DFC66C81D6C11F303FB21235 /* MSOneNoteImportStatusModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteImportStatusModel.m; path = ./Model/MSOneNoteImportStatusModel.m; sourceTree = "<group>"; };
-		E0AB0E2A3F3209970CDDA4EC /* MSOneNoteDiagnostic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteDiagnostic.h; path = ./Model/MSOneNoteDiagnostic.h; sourceTree = "<group>"; };
-		E0FF5C3843C728FD4D0BF3EB /* MSOneNoteNotesCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesCollectionOperations.h; path = ./Fetchers/MSOneNoteNotesCollectionOperations.h; sourceTree = "<group>"; };
-		E3FF74E8C41E8B2BDECE1C29 /* MSOneNoteSectionGroupFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupFetcher.m; path = ./Fetchers/MSOneNoteSectionGroupFetcher.m; sourceTree = "<group>"; };
-		E4ADE26AD6075B1976ECC674 /* MSOneNoteSectionGroupOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupOperations.h; path = ./Fetchers/MSOneNoteSectionGroupOperations.h; sourceTree = "<group>"; };
-		E8F7C91109FD2B8C60F9C952 /* MSOneNotePageOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageOperations.h; path = ./Fetchers/MSOneNotePageOperations.h; sourceTree = "<group>"; };
-		E9CDC2FAFFD29A6A4131AE8D /* MSOneNoteSiteFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteFetcher.h; path = ./Fetchers/MSOneNoteSiteFetcher.h; sourceTree = "<group>"; };
-		EB42366A86B7D1119AF60D93 /* MSOneNoteUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUser.h; path = ./Model/MSOneNoteUser.h; sourceTree = "<group>"; };
-		EC096344F19F69CD54302C6A /* MSOneNoteNotebookLinks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookLinks.h; path = ./Model/MSOneNoteNotebookLinks.h; sourceTree = "<group>"; };
-		EC7474DA11D7EBB00A7D0AFF /* MSOneNoteNotesOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesOperations.h; path = ./Fetchers/MSOneNoteNotesOperations.h; sourceTree = "<group>"; };
-		EFD89AF08861EA67AFE2F68D /* MSOneNoteUserCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserCollectionFetcher.h; path = ./Fetchers/MSOneNoteUserCollectionFetcher.h; sourceTree = "<group>"; };
-		F1DE31CB15FC9E379A210A3C /* MSOneNoteGroupCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupCollectionOperations.m; path = ./Fetchers/MSOneNoteGroupCollectionOperations.m; sourceTree = "<group>"; };
-		F20B7BC2548035FCF8F0DD2B /* MSOneNoteUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUser.m; path = ./Model/MSOneNoteUser.m; sourceTree = "<group>"; };
-		F2F66646275FFF181C470966 /* MSOneNotePatchActionType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchActionType.m; path = ./Model/MSOneNotePatchActionType.m; sourceTree = "<group>"; };
-		F385B16B98E93A77ABE2C05D /* MSOneNotePageFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageFetcher.h; path = ./Fetchers/MSOneNotePageFetcher.h; sourceTree = "<group>"; };
-		F4593680C87BB48B05D6899A /* MSOneNoteCopyStatusModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteCopyStatusModel.h; path = ./Model/MSOneNoteCopyStatusModel.h; sourceTree = "<group>"; };
-		F4D3D151B42074B9AA97DD8E /* MSOneNoteSiteCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollectionFetcher.m; path = ./Fetchers/MSOneNoteSiteCollectionFetcher.m; sourceTree = "<group>"; };
-		F6DF108AA3DD7C12E6EB5487 /* MSOneNoteSiteOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteOperations.h; path = ./Fetchers/MSOneNoteSiteOperations.h; sourceTree = "<group>"; };
-		F71BD0C4E8D2B0D1AC945A84 /* MSOneNoteResourceOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceOperations.h; path = ./Fetchers/MSOneNoteResourceOperations.h; sourceTree = "<group>"; };
-		F7689B191A0A69D539A107B0 /* MSOneNoteSectionGroupFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupFetcher.h; path = ./Fetchers/MSOneNoteSectionGroupFetcher.h; sourceTree = "<group>"; };
-		F9A623F13CEE49C6F25A43C7 /* MSOneNoteSiteCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollectionOperations.m; path = ./Fetchers/MSOneNoteSiteCollectionOperations.m; sourceTree = "<group>"; };
-		FAFDD95BBC9DBA8F22BB7E6A /* MSOneNoteSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSection.m; path = ./Model/MSOneNoteSection.m; sourceTree = "<group>"; };
-		FC7DA472FD2A1662E942DBBB /* MSOneNoteSiteCollection_Fetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_Fetcher.h; path = ./Fetchers/MSOneNoteSiteCollection_Fetcher.h; sourceTree = "<group>"; };
-		FD8CD263621ABEFB77BEF9A2 /* MSOneNoteSectionGroupCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupCollectionOperations.h; path = ./Fetchers/MSOneNoteSectionGroupCollectionOperations.h; sourceTree = "<group>"; };
-		FF48C324C0E012D100CD8BA6 /* MSOneNotePageCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageCollectionOperations.h; path = ./Fetchers/MSOneNotePageCollectionOperations.h; sourceTree = "<group>"; };
+		00BA6A07E58F79E409076485 /* MSOneNoteSite.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSite.m; path = ./Model/MSOneNoteSite.m; sourceTree = "<group>"; };
+		0328E8AAFCF68288CEEBA41F /* MSOneNoteMyOrganizationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationCollectionOperations.m; path = ./Fetchers/MSOneNoteMyOrganizationCollectionOperations.m; sourceTree = "<group>"; };
+		05EACD4FD4A327816D80D274 /* MSOneNoteIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteIdentity.h; path = ./Model/MSOneNoteIdentity.h; sourceTree = "<group>"; };
+		072EA0343C0E3679614FBEE6 /* MSOneNoteSectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionOperations.h; path = ./Fetchers/MSOneNoteSectionOperations.h; sourceTree = "<group>"; };
+		08DB4844DB5E0F4BD90A0704 /* MSOneNoteSectionGroupOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupOperations.m; path = ./Fetchers/MSOneNoteSectionGroupOperations.m; sourceTree = "<group>"; };
+		0B824930A3C7373919674AD3 /* MSOneNoteCopyStatusModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteCopyStatusModel.m; path = ./Model/MSOneNoteCopyStatusModel.m; sourceTree = "<group>"; };
+		0CB8AB00A068636ED724C87C /* MSOneNoteUserCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserCollectionFetcher.h; path = ./Fetchers/MSOneNoteUserCollectionFetcher.h; sourceTree = "<group>"; };
+		0FB33BD260636B0C804B2762 /* MSOneNoteOperationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationOperations.h; path = ./Fetchers/MSOneNoteOperationOperations.h; sourceTree = "<group>"; };
+		11F34B83E58916361574C8F1 /* MSOneNotePage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePage.m; path = ./Model/MSOneNotePage.m; sourceTree = "<group>"; };
+		1349765E28ED1944EBB7499A /* MSOneNoteOperationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationFetcher.h; path = ./Fetchers/MSOneNoteOperationFetcher.h; sourceTree = "<group>"; };
+		151CACF04730E93F9F4E9691 /* MSOneNoteSectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionFetcher.m; path = ./Fetchers/MSOneNoteSectionFetcher.m; sourceTree = "<group>"; };
+		166A7E5B66A35F7C150CA442 /* MSOneNoteSectionGroupFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupFetcher.h; path = ./Fetchers/MSOneNoteSectionGroupFetcher.h; sourceTree = "<group>"; };
+		188D7A33B1F071C9AFAAE3AC /* MSOneNoteSectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionOperations.m; path = ./Fetchers/MSOneNoteSectionOperations.m; sourceTree = "<group>"; };
+		19B2E0CD0C72465CBF8AE0D5 /* MSOneNoteOperationError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationError.m; path = ./Model/MSOneNoteOperationError.m; sourceTree = "<group>"; };
+		1CEEF912796E2A5B95CE5248 /* MSOneNoteFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteFetchers.h; path = ./Fetchers/MSOneNoteFetchers.h; sourceTree = "<group>"; };
+		1E3962FC1F6D636794BBA25E /* MSOneNoteOperationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationFetcher.m; path = ./Fetchers/MSOneNoteOperationFetcher.m; sourceTree = "<group>"; };
+		1E9FE63FC3323ED1578D72A5 /* MSOneNoteNotebook.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebook.m; path = ./Model/MSOneNoteNotebook.m; sourceTree = "<group>"; };
+		205E2319105D151E8FD9CB78 /* MSOneNoteIdentity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteIdentity.m; path = ./Model/MSOneNoteIdentity.m; sourceTree = "<group>"; };
+		2609D0036E23B0699CEB35DF /* MSOneNotePatchContentCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchContentCommand.m; path = ./Model/MSOneNotePatchContentCommand.m; sourceTree = "<group>"; };
+		276C8EBBC996974E244FE6A6 /* MSOneNoteGroupCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupCollectionOperations.h; path = ./Fetchers/MSOneNoteGroupCollectionOperations.h; sourceTree = "<group>"; };
+		2E156D6809C7F73AA3A8FC40 /* MSOneNoteNotebookOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookOperations.h; path = ./Fetchers/MSOneNoteNotebookOperations.h; sourceTree = "<group>"; };
+		2E57676418E467764BFD200E /* MSOneNoteUserCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserCollectionOperations.h; path = ./Fetchers/MSOneNoteUserCollectionOperations.h; sourceTree = "<group>"; };
+		302411CA8FFDB91024F69B83 /* MSOneNoteSiteCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollectionOperations.h; path = ./Fetchers/MSOneNoteSiteCollectionOperations.h; sourceTree = "<group>"; };
+		3027C31FE07F15BBC47F8A7E /* MSOneNoteDiagnostic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteDiagnostic.h; path = ./Model/MSOneNoteDiagnostic.h; sourceTree = "<group>"; };
+		31854724226D8EB205069604 /* MSOneNoteUserRole.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserRole.m; path = ./Model/MSOneNoteUserRole.m; sourceTree = "<group>"; };
+		3266756664FB87BBA66FFBDC /* MSOneNoteOperationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationCollectionOperations.h; path = ./Fetchers/MSOneNoteOperationCollectionOperations.h; sourceTree = "<group>"; };
+		32C7820C485089F992A5D43C /* MSOneNoteSiteCollection_Operations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_Operations.h; path = ./Fetchers/MSOneNoteSiteCollection_Operations.h; sourceTree = "<group>"; };
+		32FB8935CA834D88904782E6 /* MSOneNoteSectionGroupOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupOperations.h; path = ./Fetchers/MSOneNoteSectionGroupOperations.h; sourceTree = "<group>"; };
+		338A85C077137D1FBA3052DD /* MSOneNoteGroupCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupCollectionOperations.m; path = ./Fetchers/MSOneNoteGroupCollectionOperations.m; sourceTree = "<group>"; };
+		3470BEE585107CFF0751BDBB /* MSOneNoteGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroup.h; path = ./Model/MSOneNoteGroup.h; sourceTree = "<group>"; };
+		36C91E249CADE099C81A2C42 /* MSOneNotePatchInsertPosition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchInsertPosition.h; path = ./Model/MSOneNotePatchInsertPosition.h; sourceTree = "<group>"; };
+		3A10819E19783C3826736A18 /* MSOneNoteSectionCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionCollectionOperations.h; path = ./Fetchers/MSOneNoteSectionCollectionOperations.h; sourceTree = "<group>"; };
+		3B58832E0D8741750882B224 /* MSOneNoteExternalLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteExternalLink.h; path = ./Model/MSOneNoteExternalLink.h; sourceTree = "<group>"; };
+		3BB98AA3BE14F0EACEDFDB87 /* MSOneNoteGroupFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupFetcher.m; path = ./Fetchers/MSOneNoteGroupFetcher.m; sourceTree = "<group>"; };
+		3DFF616E4632B3D409FA8FE0 /* MSOneNoteSiteOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteOperations.m; path = ./Fetchers/MSOneNoteSiteOperations.m; sourceTree = "<group>"; };
+		3E3D8F7CDE776A6605B9A48B /* MSOneNotePage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePage.h; path = ./Model/MSOneNotePage.h; sourceTree = "<group>"; };
+		3F7BB0974F2AC7C11D62887C /* MSOneNoteNotesOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesOperations.h; path = ./Fetchers/MSOneNoteNotesOperations.h; sourceTree = "<group>"; };
+		3FF76CBCADE4F7BDF445D70D /* libOneNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOneNote.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		42B7396E0E7C6461E0EB568B /* MSOneNoteSectionGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroup.h; path = ./Model/MSOneNoteSectionGroup.h; sourceTree = "<group>"; };
+		43F36A0C926BDFDBFD978E21 /* MSOneNoteSectionGroupCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupCollectionFetcher.m; path = ./Fetchers/MSOneNoteSectionGroupCollectionFetcher.m; sourceTree = "<group>"; };
+		43F67D7037DEBDD818F2396A /* MSOneNoteNotebookLinks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookLinks.m; path = ./Model/MSOneNoteNotebookLinks.m; sourceTree = "<group>"; };
+		458DDACFF38FBF2A52F5DC9F /* MSOneNotePageFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageFetcher.m; path = ./Fetchers/MSOneNotePageFetcher.m; sourceTree = "<group>"; };
+		464D6E87F0BA8CA984841F3D /* MSOneNoteGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroup.m; path = ./Model/MSOneNoteGroup.m; sourceTree = "<group>"; };
+		46BDA3B916B9D36B8C639124 /* MSOneNoteUserOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserOperations.m; path = ./Fetchers/MSOneNoteUserOperations.m; sourceTree = "<group>"; };
+		479FC6D6569D368034768FCA /* MSOneNoteSiteCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollectionFetcher.h; path = ./Fetchers/MSOneNoteSiteCollectionFetcher.h; sourceTree = "<group>"; };
+		4A7560460581467AC390A479 /* MSOneNoteExternalLink.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteExternalLink.m; path = ./Model/MSOneNoteExternalLink.m; sourceTree = "<group>"; };
+		4B7BF6C1AE695042B046DBF1 /* MSOneNoteSectionCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionCollectionOperations.m; path = ./Fetchers/MSOneNoteSectionCollectionOperations.m; sourceTree = "<group>"; };
+		4F0BA27648EE04B7F12FFF08 /* MSOneNotePatchInsertPosition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchInsertPosition.m; path = ./Model/MSOneNotePatchInsertPosition.m; sourceTree = "<group>"; };
+		4F393903F159182EB560A60D /* MSOneNoteSectionCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionCollectionFetcher.m; path = ./Fetchers/MSOneNoteSectionCollectionFetcher.m; sourceTree = "<group>"; };
+		53BCD86AED941AD8CA868D23 /* MSOneNoteSiteMetadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteMetadata.m; path = ./Model/MSOneNoteSiteMetadata.m; sourceTree = "<group>"; };
+		554EAA650A16222E51887428 /* MSOneNoteNotesOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesOperations.m; path = ./Fetchers/MSOneNoteNotesOperations.m; sourceTree = "<group>"; };
+		55EADA3B54773746371F79E7 /* MSOneNoteMyOrganizationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationOperations.m; path = ./Fetchers/MSOneNoteMyOrganizationOperations.m; sourceTree = "<group>"; };
+		589EED4DF1EA558D4B4E9840 /* MSOneNote.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNote.h; path = ./MSOneNote.h; sourceTree = "<group>"; };
+		5C6946548437AFD9CB7C66D6 /* MSOneNoteSectionGroupCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupCollectionOperations.m; path = ./Fetchers/MSOneNoteSectionGroupCollectionOperations.m; sourceTree = "<group>"; };
+		5D6711C8E1622D636BA38CFC /* MSOneNoteOperationError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationError.h; path = ./Model/MSOneNoteOperationError.h; sourceTree = "<group>"; };
+		6030390ECB797CF235B5A1A2 /* MSOneNoteGroupCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupCollectionFetcher.h; path = ./Fetchers/MSOneNoteGroupCollectionFetcher.h; sourceTree = "<group>"; };
+		6134AF135D2DA59EFB3EB70B /* MSOneNoteNotesCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesCollectionFetcher.m; path = ./Fetchers/MSOneNoteNotesCollectionFetcher.m; sourceTree = "<group>"; };
+		6163A2FA3099EE12C5C3A6D9 /* MSOneNoteOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperation.h; path = ./Model/MSOneNoteOperation.h; sourceTree = "<group>"; };
+		61F08EDDB73FD033D8D09E81 /* MSOneNoteGroupFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupFetcher.h; path = ./Fetchers/MSOneNoteGroupFetcher.h; sourceTree = "<group>"; };
+		67A725A89B1A795E4C1A10CB /* MSOneNoteImportStatusModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteImportStatusModel.m; path = ./Model/MSOneNoteImportStatusModel.m; sourceTree = "<group>"; };
+		6947D714C0EDBBEAF3462135 /* MSOneNoteSectionGroupFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroupFetcher.m; path = ./Fetchers/MSOneNoteSectionGroupFetcher.m; sourceTree = "<group>"; };
+		6C20BE3B684439A0ED5D8DCF /* MSOneNoteSiteFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteFetcher.m; path = ./Fetchers/MSOneNoteSiteFetcher.m; sourceTree = "<group>"; };
+		6E44569D1C82280475C8EC23 /* MSOneNoteNotebookFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookFetcher.h; path = ./Fetchers/MSOneNoteNotebookFetcher.h; sourceTree = "<group>"; };
+		6E750298234E86499FD1D17E /* MSOneNoteSiteCollection_Fetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_Fetcher.h; path = ./Fetchers/MSOneNoteSiteCollection_Fetcher.h; sourceTree = "<group>"; };
+		6F18B008E3DEFCC0F81A26EB /* MSOneNoteNotebookCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookCollectionFetcher.h; path = ./Fetchers/MSOneNoteNotebookCollectionFetcher.h; sourceTree = "<group>"; };
+		6F826999129E531C4E20B10E /* MSOneNoteOperationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteOperationCollectionFetcher.h; path = ./Fetchers/MSOneNoteOperationCollectionFetcher.h; sourceTree = "<group>"; };
+		70922D9C64ADAE75EE97358F /* MSOneNoteSiteCollection_CollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_CollectionOperations.m; path = ./Fetchers/MSOneNoteSiteCollection_CollectionOperations.m; sourceTree = "<group>"; };
+		74A119633C660844F23EE67A /* MSOneNotePageOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageOperations.m; path = ./Fetchers/MSOneNotePageOperations.m; sourceTree = "<group>"; };
+		771264138822AE5E84D8926A /* MSOneNoteMyOrganizationCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationCollectionOperations.h; path = ./Fetchers/MSOneNoteMyOrganizationCollectionOperations.h; sourceTree = "<group>"; };
+		776A77B68C8B8FDD4650EC34 /* MSOneNoteCopyStatusModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteCopyStatusModel.h; path = ./Model/MSOneNoteCopyStatusModel.h; sourceTree = "<group>"; };
+		78A13691AE8232B9FAD9C161 /* MSOneNoteSite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSite.h; path = ./Model/MSOneNoteSite.h; sourceTree = "<group>"; };
+		78E4E0D71357B6D8D421CD5A /* MSOneNotePageOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageOperations.h; path = ./Fetchers/MSOneNotePageOperations.h; sourceTree = "<group>"; };
+		7B4AF579528E4F11A05E8DAD /* MSOneNoteMyOrganizationCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationCollectionFetcher.h; path = ./Fetchers/MSOneNoteMyOrganizationCollectionFetcher.h; sourceTree = "<group>"; };
+		7C3987948A0DF2DD095A52CE /* MSOneNoteSectionGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSectionGroup.m; path = ./Model/MSOneNoteSectionGroup.m; sourceTree = "<group>"; };
+		7C7992387A1EC8A442F6C5B2 /* MSOneNoteNotebookCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookCollectionOperations.m; path = ./Fetchers/MSOneNoteNotebookCollectionOperations.m; sourceTree = "<group>"; };
+		7D15284DCD8E76EA6A1113BB /* MSOneNotePatchActionType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePatchActionType.m; path = ./Model/MSOneNotePatchActionType.m; sourceTree = "<group>"; };
+		7DE9D2AF78840A8B5A3EF082 /* MSOneNoteClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteClient.m; path = ./Fetchers/MSOneNoteClient.m; sourceTree = "<group>"; };
+		7FA2021DF41D053023988F58 /* MSOneNoteNotebookCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookCollectionOperations.h; path = ./Fetchers/MSOneNoteNotebookCollectionOperations.h; sourceTree = "<group>"; };
+		804221B65CCBA2D99D31BB1F /* MSOneNoteOperationOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationOperations.m; path = ./Fetchers/MSOneNoteOperationOperations.m; sourceTree = "<group>"; };
+		808B366E29984F1551173DE7 /* MSOneNoteResourceFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceFetcher.m; path = ./Fetchers/MSOneNoteResourceFetcher.m; sourceTree = "<group>"; };
+		819287B0F904B6628A6D7132 /* MSOneNotePageCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageCollectionFetcher.h; path = ./Fetchers/MSOneNotePageCollectionFetcher.h; sourceTree = "<group>"; };
+		84AADBC5F6E197DBD5B91793 /* MSOneNotePageLinks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageLinks.m; path = ./Model/MSOneNotePageLinks.m; sourceTree = "<group>"; };
+		84BE436ACDD162F58113CD36 /* MSOneNoteMyOrganization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganization.m; path = ./Model/MSOneNoteMyOrganization.m; sourceTree = "<group>"; };
+		886784053178D70192D80BA9 /* MSOneNoteSectionGroupCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupCollectionOperations.h; path = ./Fetchers/MSOneNoteSectionGroupCollectionOperations.h; sourceTree = "<group>"; };
+		8B701CB4F45188A9297B70DA /* MSOneNoteUserCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserCollectionOperations.m; path = ./Fetchers/MSOneNoteUserCollectionOperations.m; sourceTree = "<group>"; };
+		8B789AFAC28353A79CB81DB6 /* MSOneNoteResourceFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceFetcher.h; path = ./Fetchers/MSOneNoteResourceFetcher.h; sourceTree = "<group>"; };
+		8E1D4994B9B49AF57D7707E0 /* MSOneNoteUserCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserCollectionFetcher.m; path = ./Fetchers/MSOneNoteUserCollectionFetcher.m; sourceTree = "<group>"; };
+		91B11F727E3BB58DA22B9430 /* MSOneNotePatchContentCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchContentCommand.h; path = ./Model/MSOneNotePatchContentCommand.h; sourceTree = "<group>"; };
+		934F0291D0E3F77877E18F1B /* MSOneNoteIdentitySet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteIdentitySet.h; path = ./Model/MSOneNoteIdentitySet.h; sourceTree = "<group>"; };
+		9404EB8BFCBEE98FDACF5CEE /* MSOneNoteUserRole.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserRole.h; path = ./Model/MSOneNoteUserRole.h; sourceTree = "<group>"; };
+		96FFDCF26F72E441FB26CEEA /* MSOneNoteSectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionFetcher.h; path = ./Fetchers/MSOneNoteSectionFetcher.h; sourceTree = "<group>"; };
+		97B93D5CF3F221FC430B9B35 /* MSOneNoteResourceOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceOperations.h; path = ./Fetchers/MSOneNoteResourceOperations.h; sourceTree = "<group>"; };
+		9AC5FCA621DEA33F9880D9DC /* MSOneNoteMyOrganizationFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationFetcher.h; path = ./Fetchers/MSOneNoteMyOrganizationFetcher.h; sourceTree = "<group>"; };
+		9BA0DF664B3F13E914C99B10 /* MSOneNoteSiteOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteOperations.h; path = ./Fetchers/MSOneNoteSiteOperations.h; sourceTree = "<group>"; };
+		9C94760D771E13C39EE14D90 /* MSOneNotePageCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageCollectionOperations.m; path = ./Fetchers/MSOneNotePageCollectionOperations.m; sourceTree = "<group>"; };
+		9D1CBC7D3C627818AEF78194 /* MSOneNoteGroupOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupOperations.m; path = ./Fetchers/MSOneNoteGroupOperations.m; sourceTree = "<group>"; };
+		9E1804CC39FCF282C3592B7E /* MSOneNoteResourceCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceCollectionOperations.m; path = ./Fetchers/MSOneNoteResourceCollectionOperations.m; sourceTree = "<group>"; };
+		9FC33E0967B6EEAA03E8C5E7 /* MSOneNoteNotebookOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookOperations.m; path = ./Fetchers/MSOneNoteNotebookOperations.m; sourceTree = "<group>"; };
+		9FE9A815473478AA615E61E1 /* MSOneNoteModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteModels.h; path = ./Model/MSOneNoteModels.h; sourceTree = "<group>"; };
+		A373B3F16754FAB6F1CE93BA /* MSOneNotePageLinks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageLinks.h; path = ./Model/MSOneNotePageLinks.h; sourceTree = "<group>"; };
+		A4FF839DF2D00387D6729EAB /* MSOneNotePageCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageCollectionOperations.h; path = ./Fetchers/MSOneNotePageCollectionOperations.h; sourceTree = "<group>"; };
+		AC2E7C1D28B14A4B1DAEFE22 /* MSOneNoteIdentitySet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteIdentitySet.m; path = ./Model/MSOneNoteIdentitySet.m; sourceTree = "<group>"; };
+		AEB7A25605F581759C22BD2A /* MSOneNoteOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperation.m; path = ./Model/MSOneNoteOperation.m; sourceTree = "<group>"; };
+		AEC713F608C1B5593E8A6CA2 /* MSOneNoteSiteCollection_CollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_CollectionOperations.h; path = ./Fetchers/MSOneNoteSiteCollection_CollectionOperations.h; sourceTree = "<group>"; };
+		B090563F2BAEABE576753129 /* MSOneNoteResourceCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceCollectionOperations.h; path = ./Fetchers/MSOneNoteResourceCollectionOperations.h; sourceTree = "<group>"; };
+		B130437EAD6827D3335B7BE2 /* MSOneNoteOperationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationCollectionFetcher.m; path = ./Fetchers/MSOneNoteOperationCollectionFetcher.m; sourceTree = "<group>"; };
+		B1FB63CAB7D6373EB0FAE4EB /* MSOneNoteUserFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserFetcher.h; path = ./Fetchers/MSOneNoteUserFetcher.h; sourceTree = "<group>"; };
+		B251768DB821FB0C008E45A3 /* MSOneNoteNotesCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesCollectionOperations.m; path = ./Fetchers/MSOneNoteNotesCollectionOperations.m; sourceTree = "<group>"; };
+		B29736025BB6644802B0D602 /* MSOneNotePatchActionType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePatchActionType.h; path = ./Model/MSOneNotePatchActionType.h; sourceTree = "<group>"; };
+		B55EC9F22410948184981655 /* MSOneNoteNotesCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesCollectionFetcher.h; path = ./Fetchers/MSOneNoteNotesCollectionFetcher.h; sourceTree = "<group>"; };
+		B56F9C68B252E4838710BCFD /* MSOneNoteSectionGroupCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionGroupCollectionFetcher.h; path = ./Fetchers/MSOneNoteSectionGroupCollectionFetcher.h; sourceTree = "<group>"; };
+		B61BB5FB9FBF9642D10535DC /* MSOneNotePageFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNotePageFetcher.h; path = ./Fetchers/MSOneNotePageFetcher.h; sourceTree = "<group>"; };
+		B6C2C4D4EB6E3153754DFAB9 /* MSOneNoteSiteCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollectionFetcher.m; path = ./Fetchers/MSOneNoteSiteCollectionFetcher.m; sourceTree = "<group>"; };
+		B7B05ACA0EFFBAF8E11742E2 /* MSOneNotePageCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNotePageCollectionFetcher.m; path = ./Fetchers/MSOneNotePageCollectionFetcher.m; sourceTree = "<group>"; };
+		B9A3EDA49A8A3393DFB1E903 /* MSOneNoteUserFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUserFetcher.m; path = ./Fetchers/MSOneNoteUserFetcher.m; sourceTree = "<group>"; };
+		B9D8F1E8FDAFA822AFEBDCAE /* MSOneNoteSiteCollection_Operations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_Operations.m; path = ./Fetchers/MSOneNoteSiteCollection_Operations.m; sourceTree = "<group>"; };
+		BB9152661FDF9682DEF12D42 /* MSOneNoteNotesCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesCollectionOperations.h; path = ./Fetchers/MSOneNoteNotesCollectionOperations.h; sourceTree = "<group>"; };
+		BE539DCB03713940635972B4 /* MSOneNoteSiteCollection_Fetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_Fetcher.m; path = ./Fetchers/MSOneNoteSiteCollection_Fetcher.m; sourceTree = "<group>"; };
+		C33E33D30B0CE37C2A742FA2 /* MSOneNoteUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUser.h; path = ./Model/MSOneNoteUser.h; sourceTree = "<group>"; };
+		C33EB2349FF96678CE328343 /* MSOneNoteSiteCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection.m; path = ./Model/MSOneNoteSiteCollection.m; sourceTree = "<group>"; };
+		C3544C60392C597C7CD837E3 /* MSOneNoteSiteCollection_CollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollection_CollectionFetcher.m; path = ./Fetchers/MSOneNoteSiteCollection_CollectionFetcher.m; sourceTree = "<group>"; };
+		C47C39006B6E7E2D10EFC2D2 /* MSOneNoteGroupCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteGroupCollectionFetcher.m; path = ./Fetchers/MSOneNoteGroupCollectionFetcher.m; sourceTree = "<group>"; };
+		C6FD8A1A46AF355C3DB7D818 /* MSOneNoteResourceCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceCollectionFetcher.m; path = ./Fetchers/MSOneNoteResourceCollectionFetcher.m; sourceTree = "<group>"; };
+		C982BAD989A18934FBC45E11 /* MSOneNoteSiteCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSiteCollectionOperations.m; path = ./Fetchers/MSOneNoteSiteCollectionOperations.m; sourceTree = "<group>"; };
+		C9E5B18C7625854C709A3AC3 /* MSOneNoteResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResource.h; path = ./Model/MSOneNoteResource.h; sourceTree = "<group>"; };
+		CA762D04991E4E7DAEEA1BE6 /* MSOneNoteNotebookCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookCollectionFetcher.m; path = ./Fetchers/MSOneNoteNotebookCollectionFetcher.m; sourceTree = "<group>"; };
+		CBCC41E33F04F2607E58AEC2 /* MSOneNoteSiteMetadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteMetadata.h; path = ./Model/MSOneNoteSiteMetadata.h; sourceTree = "<group>"; };
+		CC8135DDE2F0FBFC0077E414 /* MSOneNoteSectionCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSectionCollectionFetcher.h; path = ./Fetchers/MSOneNoteSectionCollectionFetcher.h; sourceTree = "<group>"; };
+		CD130467F6D0A3C4355F0A37 /* MSOneNoteNotesFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotesFetcher.h; path = ./Fetchers/MSOneNoteNotesFetcher.h; sourceTree = "<group>"; };
+		CE8A44D68ABAE562CCE722C4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D08E2AF15DB5D96C3D9F14B4 /* MSOneNoteMyOrganization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganization.h; path = ./Model/MSOneNoteMyOrganization.h; sourceTree = "<group>"; };
+		D11558DFBB2C9E04BF7DF130 /* MSOneNoteUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteUser.m; path = ./Model/MSOneNoteUser.m; sourceTree = "<group>"; };
+		D247E705D91C05D9553DF03F /* MSOneNoteMyOrganizationFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationFetcher.m; path = ./Fetchers/MSOneNoteMyOrganizationFetcher.m; sourceTree = "<group>"; };
+		D422A27C142DAF56FF81EA0A /* MSOneNoteResourceCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteResourceCollectionFetcher.h; path = ./Fetchers/MSOneNoteResourceCollectionFetcher.h; sourceTree = "<group>"; };
+		D6B0E7F3A7D82D577B250802 /* MSOneNoteNotesFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotesFetcher.m; path = ./Fetchers/MSOneNoteNotesFetcher.m; sourceTree = "<group>"; };
+		D907C4E19A5668FF66F30982 /* MSOneNoteOperationCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteOperationCollectionOperations.m; path = ./Fetchers/MSOneNoteOperationCollectionOperations.m; sourceTree = "<group>"; };
+		DC6D98A337AC9F35DA895DC5 /* MSOneNoteNotebookFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotebookFetcher.m; path = ./Fetchers/MSOneNoteNotebookFetcher.m; sourceTree = "<group>"; };
+		DC8BFAAD3144553A864068D4 /* MSOneNoteMyOrganizationOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteMyOrganizationOperations.h; path = ./Fetchers/MSOneNoteMyOrganizationOperations.h; sourceTree = "<group>"; };
+		E0490A53F2256F495BCC9450 /* MSOneNoteNotes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteNotes.m; path = ./Model/MSOneNoteNotes.m; sourceTree = "<group>"; };
+		E0843B5B5E4ECFE22CE56B90 /* MSOneNoteSiteFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteFetcher.h; path = ./Fetchers/MSOneNoteSiteFetcher.h; sourceTree = "<group>"; };
+		E08F5430192F81D8A2195696 /* MSOneNoteClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteClient.h; path = ./Fetchers/MSOneNoteClient.h; sourceTree = "<group>"; };
+		E36EADE0B04EF91D00978FF9 /* MSOneNoteNotebook.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebook.h; path = ./Model/MSOneNoteNotebook.h; sourceTree = "<group>"; };
+		E42E788CF478A5BE213E70CE /* MSOneNoteDiagnostic.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteDiagnostic.m; path = ./Model/MSOneNoteDiagnostic.m; sourceTree = "<group>"; };
+		E55B1D364C52540980F961A7 /* MSOneNoteSiteCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection.h; path = ./Model/MSOneNoteSiteCollection.h; sourceTree = "<group>"; };
+		E9E75868AD75FB171D163A04 /* MSOneNoteResource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResource.m; path = ./Model/MSOneNoteResource.m; sourceTree = "<group>"; };
+		EBC02BF68F496955C4AB09A3 /* MSOneNoteMyOrganizationCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteMyOrganizationCollectionFetcher.m; path = ./Fetchers/MSOneNoteMyOrganizationCollectionFetcher.m; sourceTree = "<group>"; };
+		EDAEEA557017BFF5148ED9B2 /* MSOneNoteNotes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotes.h; path = ./Model/MSOneNoteNotes.h; sourceTree = "<group>"; };
+		F000ED96BB6561C5B5FA76C5 /* MSOneNoteResourceOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteResourceOperations.m; path = ./Fetchers/MSOneNoteResourceOperations.m; sourceTree = "<group>"; };
+		F1738BA226C2FE90AD98FC27 /* MSOneNoteGroupOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteGroupOperations.h; path = ./Fetchers/MSOneNoteGroupOperations.h; sourceTree = "<group>"; };
+		F47AF6C74960F81134110F35 /* MSOneNoteImportStatusModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteImportStatusModel.h; path = ./Model/MSOneNoteImportStatusModel.h; sourceTree = "<group>"; };
+		F6F9F01F1037AAEF050043EB /* MSOneNoteSiteCollection_CollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSiteCollection_CollectionFetcher.h; path = ./Fetchers/MSOneNoteSiteCollection_CollectionFetcher.h; sourceTree = "<group>"; };
+		F82435CE10AB9725DC02C0EB /* MSOneNoteSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSOneNoteSection.m; path = ./Model/MSOneNoteSection.m; sourceTree = "<group>"; };
+		FBFB4946A34970CBD942391F /* MSOneNoteNotebookLinks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteNotebookLinks.h; path = ./Model/MSOneNoteNotebookLinks.h; sourceTree = "<group>"; };
+		FE158261140FDA53A7B4F154 /* MSOneNoteUserOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteUserOperations.h; path = ./Fetchers/MSOneNoteUserOperations.h; sourceTree = "<group>"; };
+		FFC59B6F260A1D98A6A80F27 /* MSOneNoteSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSOneNoteSection.h; path = ./Model/MSOneNoteSection.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		81A274445D2FCAE3F40C1F8B /* Frameworks */ = {
+		09F826AEF2A7AABEAF0C70E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28E52FC51A58C9AE325365B /* Foundation.framework in Frameworks */,
+				758FAE5C06A71FC1052263AA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		077A7476ED799D985D702A97 /* Model */ = {
+		06180B3C0A0737C35DB0284D = {
 			isa = PBXGroup;
 			children = (
-				F4593680C87BB48B05D6899A /* MSOneNoteCopyStatusModel.h */,
-				46F7A0B2A32753F9792F952B /* MSOneNoteCopyStatusModel.m */,
-				E0AB0E2A3F3209970CDDA4EC /* MSOneNoteDiagnostic.h */,
-				56DAB1C099B5C7344D489EB5 /* MSOneNoteDiagnostic.m */,
-				B281DDF4C0539D99A8DE3939 /* MSOneNoteExternalLink.h */,
-				9646F8DB0EA3578576CCCD7E /* MSOneNoteExternalLink.m */,
-				04DB9A4FF5CEE06650F8794A /* MSOneNoteGroup.h */,
-				A7F57D75D829D9DA12926C81 /* MSOneNoteGroup.m */,
-				515477F79A95FB6D8C57B254 /* MSOneNoteIdentity.h */,
-				9E01A6725FF724C77474E682 /* MSOneNoteIdentity.m */,
-				1C33C19A8B8080694EE62543 /* MSOneNoteIdentitySet.h */,
-				A3B97CE4A382BF8C38602A75 /* MSOneNoteIdentitySet.m */,
-				54634165528C86BB15ECEE1C /* MSOneNoteImportStatusModel.h */,
-				DFC66C81D6C11F303FB21235 /* MSOneNoteImportStatusModel.m */,
-				8A84494F5738F96A2D44DDD1 /* MSOneNoteModels.h */,
-				1DAA451791C02A115D9CFE0E /* MSOneNoteMyOrganization.h */,
-				9B94FD3E83D657ABFE327327 /* MSOneNoteMyOrganization.m */,
-				5BFB74A2CC01C175D750D10B /* MSOneNoteNotebook.h */,
-				257D515867EC5C53E8DB9817 /* MSOneNoteNotebook.m */,
-				EC096344F19F69CD54302C6A /* MSOneNoteNotebookLinks.h */,
-				9C2246C50C91A15DB2C84EEE /* MSOneNoteNotebookLinks.m */,
-				A545A423B3F87DC42310BF88 /* MSOneNoteNotes.h */,
-				88E7F176E9FE114167AF7B30 /* MSOneNoteNotes.m */,
-				085EB66562AEBEE7F4A2D412 /* MSOneNoteOperation.h */,
-				3147B584D8FBC20A11587D0C /* MSOneNoteOperation.m */,
-				DCF2ED63A59F25011B34E1E3 /* MSOneNoteOperationError.h */,
-				3A7705F807CCE4DEC4B216FD /* MSOneNoteOperationError.m */,
-				C18AEE904440ECF9E86BBAE8 /* MSOneNotePage.h */,
-				918D4301EE3A73041D967DA1 /* MSOneNotePage.m */,
-				B1CD6875B757424934E5B498 /* MSOneNotePageLinks.h */,
-				DD6B756A6C8B87B71261A3C3 /* MSOneNotePageLinks.m */,
-				696ED601C047344D7646C9E3 /* MSOneNotePatchActionType.h */,
-				F2F66646275FFF181C470966 /* MSOneNotePatchActionType.m */,
-				99F3A1B6ECD648BB48205FAB /* MSOneNotePatchContentCommand.h */,
-				3E0CF1CF19ACA3052D1AFA09 /* MSOneNotePatchContentCommand.m */,
-				149026816B42F99448623296 /* MSOneNotePatchInsertPosition.h */,
-				A9BA267B86EF4874F9C8FA54 /* MSOneNotePatchInsertPosition.m */,
-				59D0B1222F14BC9BE93BAAC3 /* MSOneNoteResource.h */,
-				DA1AB022DCCF8C6383C583AF /* MSOneNoteResource.m */,
-				1A218CBFD17C2D7956A8A381 /* MSOneNoteSection.h */,
-				FAFDD95BBC9DBA8F22BB7E6A /* MSOneNoteSection.m */,
-				BB88CD5E5F05D4F75D797955 /* MSOneNoteSectionGroup.h */,
-				CBB4EC247E55CC77771306A3 /* MSOneNoteSectionGroup.m */,
-				27939039CEC5C5D676EC5E61 /* MSOneNoteSite.h */,
-				1CFB8EA1814655D31C82C30C /* MSOneNoteSite.m */,
-				1FFC56DEB604CCF685FF7038 /* MSOneNoteSiteCollection.h */,
-				6B71EDA56F3EA4C5CEDF8DAB /* MSOneNoteSiteCollection.m */,
-				D84935218D44BA28DA4B2C07 /* MSOneNoteSiteMetadata.h */,
-				5497B255ED43908682DE70D7 /* MSOneNoteSiteMetadata.m */,
-				EB42366A86B7D1119AF60D93 /* MSOneNoteUser.h */,
-				F20B7BC2548035FCF8F0DD2B /* MSOneNoteUser.m */,
-				4BC2CC06C9A3DDD6EA0FB1FC /* MSOneNoteUserRole.h */,
-				221AD74183C45E9760B93231 /* MSOneNoteUserRole.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		28A30F68BEDD241B996EDED8 = {
-			isa = PBXGroup;
-			children = (
-				3E7E2EEDA88B6064133292BA /* Products */,
-				60C0A47B44B19DCB632BA6E5 /* Frameworks */,
-				ACE9C8CE74A1A95092E7910B /* Fetchers */,
-				077A7476ED799D985D702A97 /* Model */,
-				DE1A2AD23C102AC844E53301 /* MSOneNote.h */,
+				28DD09D296418AE99E0505CA /* Products */,
+				D731F6F36B66489D7F4FE278 /* Frameworks */,
+				8863FCACC1A7D0FCC50457BF /* Fetchers */,
+				B773675167580F216D9ECCC3 /* Model */,
+				589EED4DF1EA558D4B4E9840 /* MSOneNote.h */,
 			);
 			sourceTree = "<group>";
 		};
-		3E7E2EEDA88B6064133292BA /* Products */ = {
+		28DD09D296418AE99E0505CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA83ED245679BC50A3690330 /* libOneNote.a */,
+				3FF76CBCADE4F7BDF445D70D /* libOneNote.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		60C0A47B44B19DCB632BA6E5 /* Frameworks */ = {
+		47557FD2897FD8EA74B12346 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				C5DF2893F88B35C611ED4E8D /* iOS */,
+				CE8A44D68ABAE562CCE722C4 /* Foundation.framework */,
 			);
-			name = Frameworks;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		ACE9C8CE74A1A95092E7910B /* Fetchers */ = {
+		8863FCACC1A7D0FCC50457BF /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
-				8EAE1496BFBFD2E0406A3FA7 /* MSOneNoteClient.h */,
-				6542CE05780639941CB27E32 /* MSOneNoteClient.m */,
-				24D22BF370FFF8071DE2AA6E /* MSOneNoteFetchers.h */,
-				0FD0D34CBD379092DA4AE2A6 /* MSOneNoteGroupCollectionFetcher.h */,
-				714F440B38E92773C95E1285 /* MSOneNoteGroupCollectionFetcher.m */,
-				4A84F4C8645DF1AECAC5813C /* MSOneNoteGroupCollectionOperations.h */,
-				F1DE31CB15FC9E379A210A3C /* MSOneNoteGroupCollectionOperations.m */,
-				B1E5D5D82BC8DC50A780542C /* MSOneNoteGroupFetcher.h */,
-				3BC394CF76134802DF2E89D6 /* MSOneNoteGroupFetcher.m */,
-				C2C7A892EDC8531CBB135054 /* MSOneNoteGroupOperations.h */,
-				98D36F574E47CF564104B38B /* MSOneNoteGroupOperations.m */,
-				3037F7CB5438BECB71DB0441 /* MSOneNoteMyOrganizationCollectionFetcher.h */,
-				5F37782C8B27E63E7AF1ADBE /* MSOneNoteMyOrganizationCollectionFetcher.m */,
-				3FC1264C2063C11913F84D1A /* MSOneNoteMyOrganizationCollectionOperations.h */,
-				1B2D08FCE8F3D2D28F5802CD /* MSOneNoteMyOrganizationCollectionOperations.m */,
-				7CE42C4A64723C6FEA6D680E /* MSOneNoteMyOrganizationFetcher.h */,
-				BBCF48203DD6C918ED0FD901 /* MSOneNoteMyOrganizationFetcher.m */,
-				93E250EF7AD10CB47C19EC2A /* MSOneNoteMyOrganizationOperations.h */,
-				C60F7392DEB2FA88D9E806C5 /* MSOneNoteMyOrganizationOperations.m */,
-				C74150D24E54F66CBA3582BF /* MSOneNoteNotebookCollectionFetcher.h */,
-				6E04A3CEEAF62F9C6260732E /* MSOneNoteNotebookCollectionFetcher.m */,
-				081EE86FEBF42828EC444D47 /* MSOneNoteNotebookCollectionOperations.h */,
-				3D91F027FF95CA3B80681CD8 /* MSOneNoteNotebookCollectionOperations.m */,
-				9F5E42845D8468AEC21A6D83 /* MSOneNoteNotebookFetcher.h */,
-				9BED38A9AD3AB8EA6CB34E86 /* MSOneNoteNotebookFetcher.m */,
-				39FEDE096B9D4D2802011C27 /* MSOneNoteNotebookOperations.h */,
-				AFCFC62B7137307F3C85919D /* MSOneNoteNotebookOperations.m */,
-				B7BBFA8D14FFD6C3749E0AAD /* MSOneNoteNotesCollectionFetcher.h */,
-				7A171AE196C39F284A173E0E /* MSOneNoteNotesCollectionFetcher.m */,
-				E0FF5C3843C728FD4D0BF3EB /* MSOneNoteNotesCollectionOperations.h */,
-				871026AFD17E9E0BCDAC09D4 /* MSOneNoteNotesCollectionOperations.m */,
-				9A95E28B9577282A5CB5F79A /* MSOneNoteNotesFetcher.h */,
-				A194023ECCDBA2C6911AD894 /* MSOneNoteNotesFetcher.m */,
-				EC7474DA11D7EBB00A7D0AFF /* MSOneNoteNotesOperations.h */,
-				6A901CD54771BFD29B83564D /* MSOneNoteNotesOperations.m */,
-				7C4779307EED3FC2A31E5679 /* MSOneNoteOperationCollectionFetcher.h */,
-				67B8175DEF3440A1A7C92B9E /* MSOneNoteOperationCollectionFetcher.m */,
-				14570F215D7D9182C7D8DFCE /* MSOneNoteOperationCollectionOperations.h */,
-				7DC7305A9F2820DDE0110A37 /* MSOneNoteOperationCollectionOperations.m */,
-				7D3544623C138269EE0FC7A9 /* MSOneNoteOperationFetcher.h */,
-				2CEEC31708E7855B0875FD45 /* MSOneNoteOperationFetcher.m */,
-				10419B1383F69A64E0223327 /* MSOneNoteOperationOperations.h */,
-				9C7DE83429769ED23F4EDD88 /* MSOneNoteOperationOperations.m */,
-				3FDC4CB2F906B402AB9A65BD /* MSOneNotePageCollectionFetcher.h */,
-				418CF09FDD05A19AED85316E /* MSOneNotePageCollectionFetcher.m */,
-				FF48C324C0E012D100CD8BA6 /* MSOneNotePageCollectionOperations.h */,
-				9B25410EDA4435965644BFCC /* MSOneNotePageCollectionOperations.m */,
-				F385B16B98E93A77ABE2C05D /* MSOneNotePageFetcher.h */,
-				ABA8ECB3BD858FC94E8FFF02 /* MSOneNotePageFetcher.m */,
-				E8F7C91109FD2B8C60F9C952 /* MSOneNotePageOperations.h */,
-				9EB6AE0EA88FC79B783051DF /* MSOneNotePageOperations.m */,
-				D2BA938A47C4153F32D72F48 /* MSOneNoteResourceCollectionFetcher.h */,
-				67F3E5B10417885236763868 /* MSOneNoteResourceCollectionFetcher.m */,
-				AD8B37A1960BED30714EA1BD /* MSOneNoteResourceCollectionOperations.h */,
-				D7917853D398839293254245 /* MSOneNoteResourceCollectionOperations.m */,
-				A39A1FB91F2F37D767B11B80 /* MSOneNoteResourceFetcher.h */,
-				25C75AAA5D67EBB29C6B3157 /* MSOneNoteResourceFetcher.m */,
-				F71BD0C4E8D2B0D1AC945A84 /* MSOneNoteResourceOperations.h */,
-				9F9C9B5C54DE554D5EB5618F /* MSOneNoteResourceOperations.m */,
-				69541D7971D0145F5338ACF9 /* MSOneNoteSectionCollectionFetcher.h */,
-				92013419920DA7BF30106838 /* MSOneNoteSectionCollectionFetcher.m */,
-				DBB76A10B9C8763921F3775C /* MSOneNoteSectionCollectionOperations.h */,
-				AB5910E1C16AB0FA9C637AD0 /* MSOneNoteSectionCollectionOperations.m */,
-				0073665EA3B82A3A4B978FF1 /* MSOneNoteSectionFetcher.h */,
-				C637529DF725835002E04F61 /* MSOneNoteSectionFetcher.m */,
-				1A568AFBF32AE5E9726C92AE /* MSOneNoteSectionGroupCollectionFetcher.h */,
-				D546BC3F7CCE5F4F6F06B516 /* MSOneNoteSectionGroupCollectionFetcher.m */,
-				FD8CD263621ABEFB77BEF9A2 /* MSOneNoteSectionGroupCollectionOperations.h */,
-				AAA5AFFAEEFCDE8847251F12 /* MSOneNoteSectionGroupCollectionOperations.m */,
-				F7689B191A0A69D539A107B0 /* MSOneNoteSectionGroupFetcher.h */,
-				E3FF74E8C41E8B2BDECE1C29 /* MSOneNoteSectionGroupFetcher.m */,
-				E4ADE26AD6075B1976ECC674 /* MSOneNoteSectionGroupOperations.h */,
-				B775009AF2F2E86981F293F6 /* MSOneNoteSectionGroupOperations.m */,
-				8F0D65114A076E3E86810B08 /* MSOneNoteSectionOperations.h */,
-				80410943B67507FBC7E0160D /* MSOneNoteSectionOperations.m */,
-				45CAB6F4B89F27F72E3866C5 /* MSOneNoteSiteCollection_CollectionFetcher.h */,
-				88F539329E19FB66E5752912 /* MSOneNoteSiteCollection_CollectionFetcher.m */,
-				A1C7AE3AD38F33ECCCA625B6 /* MSOneNoteSiteCollection_CollectionOperations.h */,
-				54CAC2F0A3D5F40F23752AEA /* MSOneNoteSiteCollection_CollectionOperations.m */,
-				FC7DA472FD2A1662E942DBBB /* MSOneNoteSiteCollection_Fetcher.h */,
-				C190464E7691A6D8BC51DE49 /* MSOneNoteSiteCollection_Fetcher.m */,
-				913B2445D2FC3897FAAA1FEF /* MSOneNoteSiteCollection_Operations.h */,
-				DAE7435136AC57B124710804 /* MSOneNoteSiteCollection_Operations.m */,
-				771AC4C65890625A8A5138CF /* MSOneNoteSiteCollectionFetcher.h */,
-				F4D3D151B42074B9AA97DD8E /* MSOneNoteSiteCollectionFetcher.m */,
-				B5B9166161E2FEF98AA70545 /* MSOneNoteSiteCollectionOperations.h */,
-				F9A623F13CEE49C6F25A43C7 /* MSOneNoteSiteCollectionOperations.m */,
-				E9CDC2FAFFD29A6A4131AE8D /* MSOneNoteSiteFetcher.h */,
-				B402E2882D9C9875262E9C0E /* MSOneNoteSiteFetcher.m */,
-				F6DF108AA3DD7C12E6EB5487 /* MSOneNoteSiteOperations.h */,
-				12286B9218E805244E53BC0B /* MSOneNoteSiteOperations.m */,
-				EFD89AF08861EA67AFE2F68D /* MSOneNoteUserCollectionFetcher.h */,
-				382B2E054CEECEE2B17F94F9 /* MSOneNoteUserCollectionFetcher.m */,
-				7C8317C6F992EF27DE5A693D /* MSOneNoteUserCollectionOperations.h */,
-				16C06F1EE201A88B17EAC5F5 /* MSOneNoteUserCollectionOperations.m */,
-				BA3238A6C1C6D6F46C21D062 /* MSOneNoteUserFetcher.h */,
-				A64B6E82FF8B116DEC3EAAB8 /* MSOneNoteUserFetcher.m */,
-				49433C78CEE941D151658322 /* MSOneNoteUserOperations.h */,
-				72FA8926510863C0AF3D18BC /* MSOneNoteUserOperations.m */,
+				E08F5430192F81D8A2195696 /* MSOneNoteClient.h */,
+				7DE9D2AF78840A8B5A3EF082 /* MSOneNoteClient.m */,
+				1CEEF912796E2A5B95CE5248 /* MSOneNoteFetchers.h */,
+				6030390ECB797CF235B5A1A2 /* MSOneNoteGroupCollectionFetcher.h */,
+				C47C39006B6E7E2D10EFC2D2 /* MSOneNoteGroupCollectionFetcher.m */,
+				276C8EBBC996974E244FE6A6 /* MSOneNoteGroupCollectionOperations.h */,
+				338A85C077137D1FBA3052DD /* MSOneNoteGroupCollectionOperations.m */,
+				61F08EDDB73FD033D8D09E81 /* MSOneNoteGroupFetcher.h */,
+				3BB98AA3BE14F0EACEDFDB87 /* MSOneNoteGroupFetcher.m */,
+				F1738BA226C2FE90AD98FC27 /* MSOneNoteGroupOperations.h */,
+				9D1CBC7D3C627818AEF78194 /* MSOneNoteGroupOperations.m */,
+				7B4AF579528E4F11A05E8DAD /* MSOneNoteMyOrganizationCollectionFetcher.h */,
+				EBC02BF68F496955C4AB09A3 /* MSOneNoteMyOrganizationCollectionFetcher.m */,
+				771264138822AE5E84D8926A /* MSOneNoteMyOrganizationCollectionOperations.h */,
+				0328E8AAFCF68288CEEBA41F /* MSOneNoteMyOrganizationCollectionOperations.m */,
+				9AC5FCA621DEA33F9880D9DC /* MSOneNoteMyOrganizationFetcher.h */,
+				D247E705D91C05D9553DF03F /* MSOneNoteMyOrganizationFetcher.m */,
+				DC8BFAAD3144553A864068D4 /* MSOneNoteMyOrganizationOperations.h */,
+				55EADA3B54773746371F79E7 /* MSOneNoteMyOrganizationOperations.m */,
+				6F18B008E3DEFCC0F81A26EB /* MSOneNoteNotebookCollectionFetcher.h */,
+				CA762D04991E4E7DAEEA1BE6 /* MSOneNoteNotebookCollectionFetcher.m */,
+				7FA2021DF41D053023988F58 /* MSOneNoteNotebookCollectionOperations.h */,
+				7C7992387A1EC8A442F6C5B2 /* MSOneNoteNotebookCollectionOperations.m */,
+				6E44569D1C82280475C8EC23 /* MSOneNoteNotebookFetcher.h */,
+				DC6D98A337AC9F35DA895DC5 /* MSOneNoteNotebookFetcher.m */,
+				2E156D6809C7F73AA3A8FC40 /* MSOneNoteNotebookOperations.h */,
+				9FC33E0967B6EEAA03E8C5E7 /* MSOneNoteNotebookOperations.m */,
+				B55EC9F22410948184981655 /* MSOneNoteNotesCollectionFetcher.h */,
+				6134AF135D2DA59EFB3EB70B /* MSOneNoteNotesCollectionFetcher.m */,
+				BB9152661FDF9682DEF12D42 /* MSOneNoteNotesCollectionOperations.h */,
+				B251768DB821FB0C008E45A3 /* MSOneNoteNotesCollectionOperations.m */,
+				CD130467F6D0A3C4355F0A37 /* MSOneNoteNotesFetcher.h */,
+				D6B0E7F3A7D82D577B250802 /* MSOneNoteNotesFetcher.m */,
+				3F7BB0974F2AC7C11D62887C /* MSOneNoteNotesOperations.h */,
+				554EAA650A16222E51887428 /* MSOneNoteNotesOperations.m */,
+				6F826999129E531C4E20B10E /* MSOneNoteOperationCollectionFetcher.h */,
+				B130437EAD6827D3335B7BE2 /* MSOneNoteOperationCollectionFetcher.m */,
+				3266756664FB87BBA66FFBDC /* MSOneNoteOperationCollectionOperations.h */,
+				D907C4E19A5668FF66F30982 /* MSOneNoteOperationCollectionOperations.m */,
+				1349765E28ED1944EBB7499A /* MSOneNoteOperationFetcher.h */,
+				1E3962FC1F6D636794BBA25E /* MSOneNoteOperationFetcher.m */,
+				0FB33BD260636B0C804B2762 /* MSOneNoteOperationOperations.h */,
+				804221B65CCBA2D99D31BB1F /* MSOneNoteOperationOperations.m */,
+				819287B0F904B6628A6D7132 /* MSOneNotePageCollectionFetcher.h */,
+				B7B05ACA0EFFBAF8E11742E2 /* MSOneNotePageCollectionFetcher.m */,
+				A4FF839DF2D00387D6729EAB /* MSOneNotePageCollectionOperations.h */,
+				9C94760D771E13C39EE14D90 /* MSOneNotePageCollectionOperations.m */,
+				B61BB5FB9FBF9642D10535DC /* MSOneNotePageFetcher.h */,
+				458DDACFF38FBF2A52F5DC9F /* MSOneNotePageFetcher.m */,
+				78E4E0D71357B6D8D421CD5A /* MSOneNotePageOperations.h */,
+				74A119633C660844F23EE67A /* MSOneNotePageOperations.m */,
+				D422A27C142DAF56FF81EA0A /* MSOneNoteResourceCollectionFetcher.h */,
+				C6FD8A1A46AF355C3DB7D818 /* MSOneNoteResourceCollectionFetcher.m */,
+				B090563F2BAEABE576753129 /* MSOneNoteResourceCollectionOperations.h */,
+				9E1804CC39FCF282C3592B7E /* MSOneNoteResourceCollectionOperations.m */,
+				8B789AFAC28353A79CB81DB6 /* MSOneNoteResourceFetcher.h */,
+				808B366E29984F1551173DE7 /* MSOneNoteResourceFetcher.m */,
+				97B93D5CF3F221FC430B9B35 /* MSOneNoteResourceOperations.h */,
+				F000ED96BB6561C5B5FA76C5 /* MSOneNoteResourceOperations.m */,
+				CC8135DDE2F0FBFC0077E414 /* MSOneNoteSectionCollectionFetcher.h */,
+				4F393903F159182EB560A60D /* MSOneNoteSectionCollectionFetcher.m */,
+				3A10819E19783C3826736A18 /* MSOneNoteSectionCollectionOperations.h */,
+				4B7BF6C1AE695042B046DBF1 /* MSOneNoteSectionCollectionOperations.m */,
+				96FFDCF26F72E441FB26CEEA /* MSOneNoteSectionFetcher.h */,
+				151CACF04730E93F9F4E9691 /* MSOneNoteSectionFetcher.m */,
+				B56F9C68B252E4838710BCFD /* MSOneNoteSectionGroupCollectionFetcher.h */,
+				43F36A0C926BDFDBFD978E21 /* MSOneNoteSectionGroupCollectionFetcher.m */,
+				886784053178D70192D80BA9 /* MSOneNoteSectionGroupCollectionOperations.h */,
+				5C6946548437AFD9CB7C66D6 /* MSOneNoteSectionGroupCollectionOperations.m */,
+				166A7E5B66A35F7C150CA442 /* MSOneNoteSectionGroupFetcher.h */,
+				6947D714C0EDBBEAF3462135 /* MSOneNoteSectionGroupFetcher.m */,
+				32FB8935CA834D88904782E6 /* MSOneNoteSectionGroupOperations.h */,
+				08DB4844DB5E0F4BD90A0704 /* MSOneNoteSectionGroupOperations.m */,
+				072EA0343C0E3679614FBEE6 /* MSOneNoteSectionOperations.h */,
+				188D7A33B1F071C9AFAAE3AC /* MSOneNoteSectionOperations.m */,
+				F6F9F01F1037AAEF050043EB /* MSOneNoteSiteCollection_CollectionFetcher.h */,
+				C3544C60392C597C7CD837E3 /* MSOneNoteSiteCollection_CollectionFetcher.m */,
+				AEC713F608C1B5593E8A6CA2 /* MSOneNoteSiteCollection_CollectionOperations.h */,
+				70922D9C64ADAE75EE97358F /* MSOneNoteSiteCollection_CollectionOperations.m */,
+				6E750298234E86499FD1D17E /* MSOneNoteSiteCollection_Fetcher.h */,
+				BE539DCB03713940635972B4 /* MSOneNoteSiteCollection_Fetcher.m */,
+				32C7820C485089F992A5D43C /* MSOneNoteSiteCollection_Operations.h */,
+				B9D8F1E8FDAFA822AFEBDCAE /* MSOneNoteSiteCollection_Operations.m */,
+				479FC6D6569D368034768FCA /* MSOneNoteSiteCollectionFetcher.h */,
+				B6C2C4D4EB6E3153754DFAB9 /* MSOneNoteSiteCollectionFetcher.m */,
+				302411CA8FFDB91024F69B83 /* MSOneNoteSiteCollectionOperations.h */,
+				C982BAD989A18934FBC45E11 /* MSOneNoteSiteCollectionOperations.m */,
+				E0843B5B5E4ECFE22CE56B90 /* MSOneNoteSiteFetcher.h */,
+				6C20BE3B684439A0ED5D8DCF /* MSOneNoteSiteFetcher.m */,
+				9BA0DF664B3F13E914C99B10 /* MSOneNoteSiteOperations.h */,
+				3DFF616E4632B3D409FA8FE0 /* MSOneNoteSiteOperations.m */,
+				0CB8AB00A068636ED724C87C /* MSOneNoteUserCollectionFetcher.h */,
+				8E1D4994B9B49AF57D7707E0 /* MSOneNoteUserCollectionFetcher.m */,
+				2E57676418E467764BFD200E /* MSOneNoteUserCollectionOperations.h */,
+				8B701CB4F45188A9297B70DA /* MSOneNoteUserCollectionOperations.m */,
+				B1FB63CAB7D6373EB0FAE4EB /* MSOneNoteUserFetcher.h */,
+				B9A3EDA49A8A3393DFB1E903 /* MSOneNoteUserFetcher.m */,
+				FE158261140FDA53A7B4F154 /* MSOneNoteUserOperations.h */,
+				46BDA3B916B9D36B8C639124 /* MSOneNoteUserOperations.m */,
 			);
 			name = Fetchers;
 			sourceTree = "<group>";
 		};
-		C5DF2893F88B35C611ED4E8D /* iOS */ = {
+		B773675167580F216D9ECCC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				114B5DE60F66C2BADEFE4373 /* Foundation.framework */,
+				776A77B68C8B8FDD4650EC34 /* MSOneNoteCopyStatusModel.h */,
+				0B824930A3C7373919674AD3 /* MSOneNoteCopyStatusModel.m */,
+				3027C31FE07F15BBC47F8A7E /* MSOneNoteDiagnostic.h */,
+				E42E788CF478A5BE213E70CE /* MSOneNoteDiagnostic.m */,
+				3B58832E0D8741750882B224 /* MSOneNoteExternalLink.h */,
+				4A7560460581467AC390A479 /* MSOneNoteExternalLink.m */,
+				3470BEE585107CFF0751BDBB /* MSOneNoteGroup.h */,
+				464D6E87F0BA8CA984841F3D /* MSOneNoteGroup.m */,
+				05EACD4FD4A327816D80D274 /* MSOneNoteIdentity.h */,
+				205E2319105D151E8FD9CB78 /* MSOneNoteIdentity.m */,
+				934F0291D0E3F77877E18F1B /* MSOneNoteIdentitySet.h */,
+				AC2E7C1D28B14A4B1DAEFE22 /* MSOneNoteIdentitySet.m */,
+				F47AF6C74960F81134110F35 /* MSOneNoteImportStatusModel.h */,
+				67A725A89B1A795E4C1A10CB /* MSOneNoteImportStatusModel.m */,
+				9FE9A815473478AA615E61E1 /* MSOneNoteModels.h */,
+				D08E2AF15DB5D96C3D9F14B4 /* MSOneNoteMyOrganization.h */,
+				84BE436ACDD162F58113CD36 /* MSOneNoteMyOrganization.m */,
+				E36EADE0B04EF91D00978FF9 /* MSOneNoteNotebook.h */,
+				1E9FE63FC3323ED1578D72A5 /* MSOneNoteNotebook.m */,
+				FBFB4946A34970CBD942391F /* MSOneNoteNotebookLinks.h */,
+				43F67D7037DEBDD818F2396A /* MSOneNoteNotebookLinks.m */,
+				EDAEEA557017BFF5148ED9B2 /* MSOneNoteNotes.h */,
+				E0490A53F2256F495BCC9450 /* MSOneNoteNotes.m */,
+				6163A2FA3099EE12C5C3A6D9 /* MSOneNoteOperation.h */,
+				AEB7A25605F581759C22BD2A /* MSOneNoteOperation.m */,
+				5D6711C8E1622D636BA38CFC /* MSOneNoteOperationError.h */,
+				19B2E0CD0C72465CBF8AE0D5 /* MSOneNoteOperationError.m */,
+				3E3D8F7CDE776A6605B9A48B /* MSOneNotePage.h */,
+				11F34B83E58916361574C8F1 /* MSOneNotePage.m */,
+				A373B3F16754FAB6F1CE93BA /* MSOneNotePageLinks.h */,
+				84AADBC5F6E197DBD5B91793 /* MSOneNotePageLinks.m */,
+				B29736025BB6644802B0D602 /* MSOneNotePatchActionType.h */,
+				7D15284DCD8E76EA6A1113BB /* MSOneNotePatchActionType.m */,
+				91B11F727E3BB58DA22B9430 /* MSOneNotePatchContentCommand.h */,
+				2609D0036E23B0699CEB35DF /* MSOneNotePatchContentCommand.m */,
+				36C91E249CADE099C81A2C42 /* MSOneNotePatchInsertPosition.h */,
+				4F0BA27648EE04B7F12FFF08 /* MSOneNotePatchInsertPosition.m */,
+				C9E5B18C7625854C709A3AC3 /* MSOneNoteResource.h */,
+				E9E75868AD75FB171D163A04 /* MSOneNoteResource.m */,
+				FFC59B6F260A1D98A6A80F27 /* MSOneNoteSection.h */,
+				F82435CE10AB9725DC02C0EB /* MSOneNoteSection.m */,
+				42B7396E0E7C6461E0EB568B /* MSOneNoteSectionGroup.h */,
+				7C3987948A0DF2DD095A52CE /* MSOneNoteSectionGroup.m */,
+				78A13691AE8232B9FAD9C161 /* MSOneNoteSite.h */,
+				00BA6A07E58F79E409076485 /* MSOneNoteSite.m */,
+				E55B1D364C52540980F961A7 /* MSOneNoteSiteCollection.h */,
+				C33EB2349FF96678CE328343 /* MSOneNoteSiteCollection.m */,
+				CBCC41E33F04F2607E58AEC2 /* MSOneNoteSiteMetadata.h */,
+				53BCD86AED941AD8CA868D23 /* MSOneNoteSiteMetadata.m */,
+				C33E33D30B0CE37C2A742FA2 /* MSOneNoteUser.h */,
+				D11558DFBB2C9E04BF7DF130 /* MSOneNoteUser.m */,
+				9404EB8BFCBEE98FDACF5CEE /* MSOneNoteUserRole.h */,
+				31854724226D8EB205069604 /* MSOneNoteUserRole.m */,
 			);
-			name = iOS;
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D731F6F36B66489D7F4FE278 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47557FD2897FD8EA74B12346 /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1F4FB15EC5AA3CB2D7147527 /* Headers */ = {
+		18BAE0F0B96F7DD21DDD1D46 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B18C3C2877EC34C1335B13 /* MSOneNoteClient.h in Headers */,
-				8F6FD731AE79688663733FB3 /* MSOneNoteFetchers.h in Headers */,
-				044D28FB3F20630E36F9B25B /* MSOneNoteGroupCollectionFetcher.h in Headers */,
-				ED90F5C7F9D1E642D8292453 /* MSOneNoteGroupCollectionOperations.h in Headers */,
-				E09DD36B6EBAD0A71D328FC8 /* MSOneNoteGroupFetcher.h in Headers */,
-				42023D3A1CFB8C46751E58ED /* MSOneNoteGroupOperations.h in Headers */,
-				41025ABE79BCD3D833DE0E14 /* MSOneNoteMyOrganizationCollectionFetcher.h in Headers */,
-				9C0B3EFF0F072F64B3BCB526 /* MSOneNoteMyOrganizationCollectionOperations.h in Headers */,
-				21825BD5117AC93378405E70 /* MSOneNoteMyOrganizationFetcher.h in Headers */,
-				D7F1C9C122E356D07E5B13AB /* MSOneNoteMyOrganizationOperations.h in Headers */,
-				AEDC1EEE22F47558A6EC26AB /* MSOneNoteNotebookCollectionFetcher.h in Headers */,
-				E5A7A8D3025DBD10B5F0159E /* MSOneNoteNotebookCollectionOperations.h in Headers */,
-				CF6A52919BD90915E82607DC /* MSOneNoteNotebookFetcher.h in Headers */,
-				DCA14E558CB7618D26AF6090 /* MSOneNoteNotebookOperations.h in Headers */,
-				C41D2C14269C0CD324FBC0BD /* MSOneNoteNotesCollectionFetcher.h in Headers */,
-				7AC0977EF3565DE548ABB774 /* MSOneNoteNotesCollectionOperations.h in Headers */,
-				E676B090BB29B57598F0E610 /* MSOneNoteNotesFetcher.h in Headers */,
-				AF9A43433848CB3735C64289 /* MSOneNoteNotesOperations.h in Headers */,
-				D09C852EBB20C2DE5881F477 /* MSOneNoteOperationCollectionFetcher.h in Headers */,
-				037A0EE2FFF246E7C5A5677F /* MSOneNoteOperationCollectionOperations.h in Headers */,
-				74AEDEE9A6B7E58A24EF3DA0 /* MSOneNoteOperationFetcher.h in Headers */,
-				EDD0840ECC882DF4C2B29242 /* MSOneNoteOperationOperations.h in Headers */,
-				E57D604EA3FA610AD412BA81 /* MSOneNotePageCollectionFetcher.h in Headers */,
-				2FC5DF2B42EAE269E0BB09B6 /* MSOneNotePageCollectionOperations.h in Headers */,
-				CBA1C432EB0195EE72F710EA /* MSOneNotePageFetcher.h in Headers */,
-				CCA94D7F3F1F41BC9673255C /* MSOneNotePageOperations.h in Headers */,
-				FE7F41429D1FF3E7FC0D7E96 /* MSOneNoteResourceCollectionFetcher.h in Headers */,
-				9910C2AA482CD0769DEE47FA /* MSOneNoteResourceCollectionOperations.h in Headers */,
-				3A1192BDF78C73013FFA36A7 /* MSOneNoteResourceFetcher.h in Headers */,
-				8CE59F0349AF1ED7F14CC3FD /* MSOneNoteResourceOperations.h in Headers */,
-				049356B8541BF77AC0982611 /* MSOneNoteSectionCollectionFetcher.h in Headers */,
-				09D279888AC8F5C7CD473EF2 /* MSOneNoteSectionCollectionOperations.h in Headers */,
-				8F83925846A8FFBFEFA036CE /* MSOneNoteSectionFetcher.h in Headers */,
-				D9A4BCF22D51BF5B8E837B1C /* MSOneNoteSectionGroupCollectionFetcher.h in Headers */,
-				AF563FD1FEBD96A7E54C345A /* MSOneNoteSectionGroupCollectionOperations.h in Headers */,
-				ACA0A460D33E216D6622EA1F /* MSOneNoteSectionGroupFetcher.h in Headers */,
-				30CCD2BA404B4DF30A6A64EA /* MSOneNoteSectionGroupOperations.h in Headers */,
-				EECC77348B6A982731F2B4ED /* MSOneNoteSectionOperations.h in Headers */,
-				92C68F0D8639A8502C2CA956 /* MSOneNoteSiteCollection_CollectionFetcher.h in Headers */,
-				124E013A0857CD36273E9044 /* MSOneNoteSiteCollection_CollectionOperations.h in Headers */,
-				CD5DBCA04F79D110B7B17788 /* MSOneNoteSiteCollection_Fetcher.h in Headers */,
-				CCE99DEB43C7E74D5F35C1FE /* MSOneNoteSiteCollection_Operations.h in Headers */,
-				D21D3F3B5E797A6EFCD3490C /* MSOneNoteSiteCollectionFetcher.h in Headers */,
-				971B1FF48BD46E4686735B3E /* MSOneNoteSiteCollectionOperations.h in Headers */,
-				D069DC727D36E4C10710B958 /* MSOneNoteSiteFetcher.h in Headers */,
-				F85F559214DCB45720596214 /* MSOneNoteSiteOperations.h in Headers */,
-				79223714DB100F02D313B737 /* MSOneNoteUserCollectionFetcher.h in Headers */,
-				110E9848491B4005A7208B04 /* MSOneNoteUserCollectionOperations.h in Headers */,
-				300BEB90BC0EF50EB1B37D31 /* MSOneNoteUserFetcher.h in Headers */,
-				81C5F17DF28AE313B692F6C7 /* MSOneNoteUserOperations.h in Headers */,
-				9D3712282879FBF1051634F5 /* MSOneNoteCopyStatusModel.h in Headers */,
-				BBAF1F7C1C046E38B98FB276 /* MSOneNoteDiagnostic.h in Headers */,
-				5B5EC374857998B01B30776C /* MSOneNoteExternalLink.h in Headers */,
-				7AC26E32A6C11561F32B3C1B /* MSOneNoteGroup.h in Headers */,
-				F1D923BDC366FDAAD4F17E9C /* MSOneNoteIdentity.h in Headers */,
-				48914FC0E4A51955E1A010EE /* MSOneNoteIdentitySet.h in Headers */,
-				BF98DCAF3D5CB042E9442C13 /* MSOneNoteImportStatusModel.h in Headers */,
-				ABC60F35B737F163D998CF11 /* MSOneNoteModels.h in Headers */,
-				50F384AC2E1985B37AB57988 /* MSOneNoteMyOrganization.h in Headers */,
-				55DA248C3497EFC3423AB078 /* MSOneNoteNotebook.h in Headers */,
-				B703B1A8F9C0B0D3133A1889 /* MSOneNoteNotebookLinks.h in Headers */,
-				B4F8B073B12E2B22ABC5F37A /* MSOneNoteNotes.h in Headers */,
-				3DC1E39B25E0FF353DD1079F /* MSOneNoteOperation.h in Headers */,
-				BEF0A7C3359177CD1EEC409D /* MSOneNoteOperationError.h in Headers */,
-				CA0172AB6C3AE2DDC978164C /* MSOneNotePage.h in Headers */,
-				9C179AC0EE3082F536782581 /* MSOneNotePageLinks.h in Headers */,
-				64A440DB28907CF6D45D253C /* MSOneNotePatchActionType.h in Headers */,
-				2BCB518E61C229D0027BE990 /* MSOneNotePatchContentCommand.h in Headers */,
-				8C3F62465377730C332B8F12 /* MSOneNotePatchInsertPosition.h in Headers */,
-				C0B4E8396A20EA122D506759 /* MSOneNoteResource.h in Headers */,
-				E6873783DA0CE848892F0A4F /* MSOneNoteSection.h in Headers */,
-				1546B523C713C1861BB84B49 /* MSOneNoteSectionGroup.h in Headers */,
-				F991E4BC0D5D388000E42889 /* MSOneNoteSite.h in Headers */,
-				F71DCECB92D4F800822125E8 /* MSOneNoteSiteCollection.h in Headers */,
-				83EBF43CF063602A2F534656 /* MSOneNoteSiteMetadata.h in Headers */,
-				CE9A591748BA6C51C1D3FA83 /* MSOneNoteUser.h in Headers */,
-				49945105181341213EFD5195 /* MSOneNoteUserRole.h in Headers */,
-				AC36245B025B2EEC43F88866 /* MSOneNote.h in Headers */,
+				3D887659B4D35A46E0525F5D /* MSOneNoteClient.h in Headers */,
+				1AA2D8146AF74378FCB5F6D0 /* MSOneNoteFetchers.h in Headers */,
+				7E7855DB4EFB61BAF442AA13 /* MSOneNoteGroupCollectionFetcher.h in Headers */,
+				0EC144F4A4AD057C811FFB52 /* MSOneNoteGroupCollectionOperations.h in Headers */,
+				0D95E1E4AF42B7F7DA640D34 /* MSOneNoteGroupFetcher.h in Headers */,
+				33DAB6B0A43F60A146485DAB /* MSOneNoteGroupOperations.h in Headers */,
+				5EE24B407CF73632F5FA97F7 /* MSOneNoteMyOrganizationCollectionFetcher.h in Headers */,
+				2EE6C95F197695BAC2A99974 /* MSOneNoteMyOrganizationCollectionOperations.h in Headers */,
+				B138872475B6D73F7323CBBA /* MSOneNoteMyOrganizationFetcher.h in Headers */,
+				EDECDC289AE7DFEB3D4E947A /* MSOneNoteMyOrganizationOperations.h in Headers */,
+				3C9D2422BA2ECC0184413C98 /* MSOneNoteNotebookCollectionFetcher.h in Headers */,
+				3C8213FF54DC39D438983E70 /* MSOneNoteNotebookCollectionOperations.h in Headers */,
+				D8D78A7A68F8978115B57DD0 /* MSOneNoteNotebookFetcher.h in Headers */,
+				1BC3E7164CB75417F4D749B9 /* MSOneNoteNotebookOperations.h in Headers */,
+				843216DBC850598AE27667BA /* MSOneNoteNotesCollectionFetcher.h in Headers */,
+				B958338462CDF85FE3FB5B3E /* MSOneNoteNotesCollectionOperations.h in Headers */,
+				0C4A5702C5E45DFA846B1D6F /* MSOneNoteNotesFetcher.h in Headers */,
+				5C05F731A5D1430CD663F766 /* MSOneNoteNotesOperations.h in Headers */,
+				C16DCBEC52BB44236D20D40C /* MSOneNoteOperationCollectionFetcher.h in Headers */,
+				B14CD73583656E2E5E780E1D /* MSOneNoteOperationCollectionOperations.h in Headers */,
+				0FE1BBF0B1A94D24D0C1F248 /* MSOneNoteOperationFetcher.h in Headers */,
+				3069468D3A29C627F8678E3B /* MSOneNoteOperationOperations.h in Headers */,
+				B214A92A35C1E64203F21F84 /* MSOneNotePageCollectionFetcher.h in Headers */,
+				FFBDB5BA22AA717464C22AE4 /* MSOneNotePageCollectionOperations.h in Headers */,
+				D0A76817EF3282F0ED95E508 /* MSOneNotePageFetcher.h in Headers */,
+				7D7E77AD9F872FBF3F7E5D85 /* MSOneNotePageOperations.h in Headers */,
+				70421898E9B17CEC86B4E555 /* MSOneNoteResourceCollectionFetcher.h in Headers */,
+				F8EC196FB0DEA988A49D1254 /* MSOneNoteResourceCollectionOperations.h in Headers */,
+				F218B3EDD48ADC1E1AC6753B /* MSOneNoteResourceFetcher.h in Headers */,
+				6DEBDBF1834E0748128A8EF5 /* MSOneNoteResourceOperations.h in Headers */,
+				0415A0B00BF678125E010B25 /* MSOneNoteSectionCollectionFetcher.h in Headers */,
+				DDD32E676DB2BF3B0598DEBB /* MSOneNoteSectionCollectionOperations.h in Headers */,
+				13392407A2B1C397111B2DE6 /* MSOneNoteSectionFetcher.h in Headers */,
+				CB9C044BD31B29D3A29C92CE /* MSOneNoteSectionGroupCollectionFetcher.h in Headers */,
+				09B41194BB9B3B53BFFDB777 /* MSOneNoteSectionGroupCollectionOperations.h in Headers */,
+				BFCEABA4D47FFD9097BC7FEE /* MSOneNoteSectionGroupFetcher.h in Headers */,
+				DA46D927606977912DDB28F7 /* MSOneNoteSectionGroupOperations.h in Headers */,
+				F425DDB9283BFD85CD7D83B4 /* MSOneNoteSectionOperations.h in Headers */,
+				3C40005828D321B993ABCF02 /* MSOneNoteSiteCollection_CollectionFetcher.h in Headers */,
+				B6152817463ED6815090C494 /* MSOneNoteSiteCollection_CollectionOperations.h in Headers */,
+				55BC16BD5CC826F65A521312 /* MSOneNoteSiteCollection_Fetcher.h in Headers */,
+				28A88F86193668035F27684D /* MSOneNoteSiteCollection_Operations.h in Headers */,
+				D494DA99887245DC1C20F657 /* MSOneNoteSiteCollectionFetcher.h in Headers */,
+				D58E92624FA33D7B18637930 /* MSOneNoteSiteCollectionOperations.h in Headers */,
+				6F21555E94C38CC210495546 /* MSOneNoteSiteFetcher.h in Headers */,
+				E78A6389C7435E3DAA0D838F /* MSOneNoteSiteOperations.h in Headers */,
+				E597F624A4A30B37E7E7B4BC /* MSOneNoteUserCollectionFetcher.h in Headers */,
+				85F5C1E28CFA19118F3CDC5B /* MSOneNoteUserCollectionOperations.h in Headers */,
+				72ABF41A6F9358B98254D286 /* MSOneNoteUserFetcher.h in Headers */,
+				94023236D2BCAFBAA6304DDC /* MSOneNoteUserOperations.h in Headers */,
+				907720862CE23765A24644DE /* MSOneNoteCopyStatusModel.h in Headers */,
+				940E4C4749F9FA7A2544928D /* MSOneNoteDiagnostic.h in Headers */,
+				CA9AEFD245A8587A83AFB921 /* MSOneNoteExternalLink.h in Headers */,
+				E507D220FABE19566B588A94 /* MSOneNoteGroup.h in Headers */,
+				C776C72BF723FE5C141B0B58 /* MSOneNoteIdentity.h in Headers */,
+				4FF9094F47A845DCF8F7C360 /* MSOneNoteIdentitySet.h in Headers */,
+				F6106ABD3401F64A1AF4AD89 /* MSOneNoteImportStatusModel.h in Headers */,
+				84D35866C84408A0B622BB80 /* MSOneNoteModels.h in Headers */,
+				E7C516EAAE64BB79324C69D3 /* MSOneNoteMyOrganization.h in Headers */,
+				B0333EA5D3120B79BC89C842 /* MSOneNoteNotebook.h in Headers */,
+				B0D72EB8DFC76602865ABF1E /* MSOneNoteNotebookLinks.h in Headers */,
+				67F47B9CA2482B638AEF4C50 /* MSOneNoteNotes.h in Headers */,
+				063391F22278118F150174BA /* MSOneNoteOperation.h in Headers */,
+				76523D30D4385F139200D2ED /* MSOneNoteOperationError.h in Headers */,
+				55D7299C33C522C9362337A5 /* MSOneNotePage.h in Headers */,
+				F24CD45C7F548DC589D091DD /* MSOneNotePageLinks.h in Headers */,
+				A78ED47F1D3DA8613997AB11 /* MSOneNotePatchActionType.h in Headers */,
+				E4B6E6FDBB545FFD712F55EE /* MSOneNotePatchContentCommand.h in Headers */,
+				69CCFE683590791F3BDF7979 /* MSOneNotePatchInsertPosition.h in Headers */,
+				FC8E9F2476B7BE5496C4E0FA /* MSOneNoteResource.h in Headers */,
+				0FF086FBA2D8B3A01E6362CF /* MSOneNoteSection.h in Headers */,
+				05A14221E946B0A6C89753E5 /* MSOneNoteSectionGroup.h in Headers */,
+				9643992016B42D99BED774E9 /* MSOneNoteSite.h in Headers */,
+				E7FDF3ABAA12BB1FFFA09A2A /* MSOneNoteSiteCollection.h in Headers */,
+				93D164AD88EEE44EB23F37A3 /* MSOneNoteSiteMetadata.h in Headers */,
+				C5ADC3F400144FEE4ABC1ED3 /* MSOneNoteUser.h in Headers */,
+				7E7EEB61EA008465619CD83C /* MSOneNoteUserRole.h in Headers */,
+				36F35AA33E811CF075332967 /* MSOneNote.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C795BE1DF1681FAC0155BF14 /* OneNote */ = {
+		9D43019205920A1CE7958F5E /* OneNote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90FC1D10EE78CE594EC35719 /* Build configuration list for PBXNativeTarget "OneNote" */;
+			buildConfigurationList = F38A59D4399224E5B0DE8C81 /* Build configuration list for PBXNativeTarget "OneNote" */;
 			buildPhases = (
-				9F8A181CCB826C0B697D5FD0 /* Sources */,
-				81A274445D2FCAE3F40C1F8B /* Frameworks */,
-				1F4FB15EC5AA3CB2D7147527 /* Headers */,
+				77C7B0C64EC64BA9A8E345B7 /* Sources */,
+				09F826AEF2A7AABEAF0C70E6 /* Frameworks */,
+				18BAE0F0B96F7DD21DDD1D46 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -639,122 +639,122 @@
 			);
 			name = OneNote;
 			productName = OneNote;
-			productReference = CA83ED245679BC50A3690330 /* libOneNote.a */;
+			productReference = 3FF76CBCADE4F7BDF445D70D /* libOneNote.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0BD785586D997CAA4C6F3DA5 /* Project object */ = {
+		3F314C33305E80F05A947F40 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 0555DF990BF4668B0CDB1279 /* Build configuration list for PBXProject "OneNote" */;
+			buildConfigurationList = 4F43E31E8D1623403516D9A7 /* Build configuration list for PBXProject "OneNote" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 28A30F68BEDD241B996EDED8;
-			productRefGroup = 3E7E2EEDA88B6064133292BA /* Products */;
+			mainGroup = 06180B3C0A0737C35DB0284D;
+			productRefGroup = 28DD09D296418AE99E0505CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C795BE1DF1681FAC0155BF14 /* OneNote */,
+				9D43019205920A1CE7958F5E /* OneNote */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9F8A181CCB826C0B697D5FD0 /* Sources */ = {
+		77C7B0C64EC64BA9A8E345B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1940F4810A6B017C2989735 /* MSOneNoteClient.m in Sources */,
-				381B63A1F6BB6FC89F4CF6D9 /* MSOneNoteGroupCollectionFetcher.m in Sources */,
-				A00917ECDF8729C28BDC8428 /* MSOneNoteGroupCollectionOperations.m in Sources */,
-				10A861DF82CF2660202BCC3B /* MSOneNoteGroupFetcher.m in Sources */,
-				5A6949331DAA23621D8DD55F /* MSOneNoteGroupOperations.m in Sources */,
-				991AD6A803CB545503FA89FC /* MSOneNoteMyOrganizationCollectionFetcher.m in Sources */,
-				C7A9E0F43A35147D3F6B3263 /* MSOneNoteMyOrganizationCollectionOperations.m in Sources */,
-				C9339E1411969652F0DD35C9 /* MSOneNoteMyOrganizationFetcher.m in Sources */,
-				AAB689C02E8BCDA96F90F324 /* MSOneNoteMyOrganizationOperations.m in Sources */,
-				43FB26803D5A8B89DD56B2EC /* MSOneNoteNotebookCollectionFetcher.m in Sources */,
-				1CE4541FB79F3FD6D49DE78A /* MSOneNoteNotebookCollectionOperations.m in Sources */,
-				55EC2F481F251DD10EE2E0EB /* MSOneNoteNotebookFetcher.m in Sources */,
-				110FB8F2B59B543A582353A7 /* MSOneNoteNotebookOperations.m in Sources */,
-				726E8BA40AB1BD622428CE70 /* MSOneNoteNotesCollectionFetcher.m in Sources */,
-				4544A31D2039EEF916A60DD1 /* MSOneNoteNotesCollectionOperations.m in Sources */,
-				8603ACA8ABBDB3B4C5602D40 /* MSOneNoteNotesFetcher.m in Sources */,
-				864D20957C55C61D4C945CE0 /* MSOneNoteNotesOperations.m in Sources */,
-				206AF548A7C13883BEC0EE56 /* MSOneNoteOperationCollectionFetcher.m in Sources */,
-				230A30DBCAEF63D0EDF7BF5C /* MSOneNoteOperationCollectionOperations.m in Sources */,
-				1F178F92F6ADBBF9D5A37335 /* MSOneNoteOperationFetcher.m in Sources */,
-				AD1F3EAE53363BD0DB4DB702 /* MSOneNoteOperationOperations.m in Sources */,
-				7B945E48BF859C4164D15677 /* MSOneNotePageCollectionFetcher.m in Sources */,
-				29613E2E922CE2FAA82B8CD4 /* MSOneNotePageCollectionOperations.m in Sources */,
-				0F302C87EB6709909A9FE207 /* MSOneNotePageFetcher.m in Sources */,
-				01FD2FAF146C9C6789237637 /* MSOneNotePageOperations.m in Sources */,
-				6C8B02D382AC9CE1869845FB /* MSOneNoteResourceCollectionFetcher.m in Sources */,
-				29A5E0EB4AFD90535E4D78B5 /* MSOneNoteResourceCollectionOperations.m in Sources */,
-				D28E24968146B4A6B6E21603 /* MSOneNoteResourceFetcher.m in Sources */,
-				7B0E51280C79EE9BCEBE33F1 /* MSOneNoteResourceOperations.m in Sources */,
-				BE068390DA8013F26213B83B /* MSOneNoteSectionCollectionFetcher.m in Sources */,
-				CB26B6AACB931E43403F78EA /* MSOneNoteSectionCollectionOperations.m in Sources */,
-				93C057EEEBCA0657B99F55D6 /* MSOneNoteSectionFetcher.m in Sources */,
-				A4658081E9DE8477D3B93A35 /* MSOneNoteSectionGroupCollectionFetcher.m in Sources */,
-				CD3C9DF1AB8A5D76C3FBB7A4 /* MSOneNoteSectionGroupCollectionOperations.m in Sources */,
-				2FAD39C698587EAEEDB5DA8B /* MSOneNoteSectionGroupFetcher.m in Sources */,
-				AF93CC028512F95DC23C805F /* MSOneNoteSectionGroupOperations.m in Sources */,
-				71C5A9B838AA82FC84F8AC6F /* MSOneNoteSectionOperations.m in Sources */,
-				50479251A3238B45126C7C1B /* MSOneNoteSiteCollection_CollectionFetcher.m in Sources */,
-				C5BEC8E390A212CFC11CADD2 /* MSOneNoteSiteCollection_CollectionOperations.m in Sources */,
-				5272D25D18C566079B4905B5 /* MSOneNoteSiteCollection_Fetcher.m in Sources */,
-				8317F8250A6723A7ED77F64B /* MSOneNoteSiteCollection_Operations.m in Sources */,
-				8C0D32A264D887788D234897 /* MSOneNoteSiteCollectionFetcher.m in Sources */,
-				7E9464A8B0EA770F380136FD /* MSOneNoteSiteCollectionOperations.m in Sources */,
-				E6C87AC32F4F6CF2248F9814 /* MSOneNoteSiteFetcher.m in Sources */,
-				14384E45B91F1DB6F32B5AC1 /* MSOneNoteSiteOperations.m in Sources */,
-				41AB8C4811484BC8D5A3D095 /* MSOneNoteUserCollectionFetcher.m in Sources */,
-				E4E32BFB481B6D7B61F62208 /* MSOneNoteUserCollectionOperations.m in Sources */,
-				9FD511032F4CD34F7F39AEA5 /* MSOneNoteUserFetcher.m in Sources */,
-				4DAF2E9E9D6D04CE70B015B0 /* MSOneNoteUserOperations.m in Sources */,
-				78874D72B857249631D353C9 /* MSOneNoteCopyStatusModel.m in Sources */,
-				687D70747FAC4EE0132D435C /* MSOneNoteDiagnostic.m in Sources */,
-				AF4FEF705427B47929CF7044 /* MSOneNoteExternalLink.m in Sources */,
-				FB0B1F112AAD62C75C5FA8C9 /* MSOneNoteGroup.m in Sources */,
-				6FFF7C94373ED6299CC192E6 /* MSOneNoteIdentity.m in Sources */,
-				391A2272BB303A407FB58C6D /* MSOneNoteIdentitySet.m in Sources */,
-				25337059BD3396C61F768789 /* MSOneNoteImportStatusModel.m in Sources */,
-				0EBB69FDC53B3C29C11DC22C /* MSOneNoteMyOrganization.m in Sources */,
-				952F505C8C7D2F1890D8BA6A /* MSOneNoteNotebook.m in Sources */,
-				A8435EB61CAE8C41228C2244 /* MSOneNoteNotebookLinks.m in Sources */,
-				72E3ABC44997125A2C255A73 /* MSOneNoteNotes.m in Sources */,
-				693E178247D2495B37390BCB /* MSOneNoteOperation.m in Sources */,
-				B0223F745ADE83E65764D7CA /* MSOneNoteOperationError.m in Sources */,
-				31478EE71E555E3EDF2B4FBF /* MSOneNotePage.m in Sources */,
-				70FD43433E93AC9E8D7C3748 /* MSOneNotePageLinks.m in Sources */,
-				73CA785CDCD04DBFDB35A474 /* MSOneNotePatchActionType.m in Sources */,
-				D3866B5205987DFC75783BB6 /* MSOneNotePatchContentCommand.m in Sources */,
-				C290D9520D9A8F84D1EDB095 /* MSOneNotePatchInsertPosition.m in Sources */,
-				2B848DEFED35EE056EBDFA77 /* MSOneNoteResource.m in Sources */,
-				8E88FF592566C113AB68CD41 /* MSOneNoteSection.m in Sources */,
-				75EA0031173C86941EC2FE39 /* MSOneNoteSectionGroup.m in Sources */,
-				A95D136330A377770525F612 /* MSOneNoteSite.m in Sources */,
-				E5C8D21C502F7417B46AE9EF /* MSOneNoteSiteCollection.m in Sources */,
-				79FB3850D3F2E76292F6E570 /* MSOneNoteSiteMetadata.m in Sources */,
-				6A75927BCEE0A6FB06171C22 /* MSOneNoteUser.m in Sources */,
-				1B10D83CE139244DD95A1B82 /* MSOneNoteUserRole.m in Sources */,
+				B94F52BCA632DFC8CBBEC456 /* MSOneNoteClient.m in Sources */,
+				5723CF6AF836827E1F3F6F83 /* MSOneNoteGroupCollectionFetcher.m in Sources */,
+				BB8AA91932C83E7B41C2E528 /* MSOneNoteGroupCollectionOperations.m in Sources */,
+				F9B9EBEEEB8E156C9C2185D6 /* MSOneNoteGroupFetcher.m in Sources */,
+				BDC2595B078024ECAD4515C8 /* MSOneNoteGroupOperations.m in Sources */,
+				A7AD54741D18156100ED6B6B /* MSOneNoteMyOrganizationCollectionFetcher.m in Sources */,
+				F4F6E23D5FBDBF5AC5C7B4DB /* MSOneNoteMyOrganizationCollectionOperations.m in Sources */,
+				EA0AF8A2DA2997754C5521D0 /* MSOneNoteMyOrganizationFetcher.m in Sources */,
+				C79AF2B0EF7E652A7B1DCF08 /* MSOneNoteMyOrganizationOperations.m in Sources */,
+				0296090F73E6C798F83B72D2 /* MSOneNoteNotebookCollectionFetcher.m in Sources */,
+				FF9877EDBD9BAC1C602038D6 /* MSOneNoteNotebookCollectionOperations.m in Sources */,
+				5CE8226BF43ECB84DD00FF82 /* MSOneNoteNotebookFetcher.m in Sources */,
+				DACE67B6C13A5F1C14576CB8 /* MSOneNoteNotebookOperations.m in Sources */,
+				B6D4AEAAE10204FBAB0D7E21 /* MSOneNoteNotesCollectionFetcher.m in Sources */,
+				B7F6F00C16ABB2D92027E9EF /* MSOneNoteNotesCollectionOperations.m in Sources */,
+				07DA4DCBE15D6A8990555DDC /* MSOneNoteNotesFetcher.m in Sources */,
+				9E35A3584E2DFE081E6537EB /* MSOneNoteNotesOperations.m in Sources */,
+				B1413B23D712C9C7B74C1DDF /* MSOneNoteOperationCollectionFetcher.m in Sources */,
+				55FDBD01D7F1383B450E4F61 /* MSOneNoteOperationCollectionOperations.m in Sources */,
+				142298D07A33205181CA5588 /* MSOneNoteOperationFetcher.m in Sources */,
+				542A3F33DEC8148C7350824F /* MSOneNoteOperationOperations.m in Sources */,
+				209B282FD54E2033186B8477 /* MSOneNotePageCollectionFetcher.m in Sources */,
+				62976724EB4D6F426128FF9D /* MSOneNotePageCollectionOperations.m in Sources */,
+				39628ACCCE46AAF9E92D4048 /* MSOneNotePageFetcher.m in Sources */,
+				25A96B2B487D876B47468CAA /* MSOneNotePageOperations.m in Sources */,
+				99ADBF7F3AFB023E9118ACB3 /* MSOneNoteResourceCollectionFetcher.m in Sources */,
+				1AD1B7D618FAB34FE8A30036 /* MSOneNoteResourceCollectionOperations.m in Sources */,
+				5F62CA4AC35AFACE65039ACB /* MSOneNoteResourceFetcher.m in Sources */,
+				CEB226E1FCC47C0D1CB54D43 /* MSOneNoteResourceOperations.m in Sources */,
+				6597B694C40792CEE8593EB6 /* MSOneNoteSectionCollectionFetcher.m in Sources */,
+				BE03C7EBAAECAB3952FB321D /* MSOneNoteSectionCollectionOperations.m in Sources */,
+				FC32038AC7C95B61B00F9303 /* MSOneNoteSectionFetcher.m in Sources */,
+				C22A276E8C61933AD1921AA7 /* MSOneNoteSectionGroupCollectionFetcher.m in Sources */,
+				87E0E03BD553C04BDC3A1B09 /* MSOneNoteSectionGroupCollectionOperations.m in Sources */,
+				DB6069ED2B67E5DC3B49169A /* MSOneNoteSectionGroupFetcher.m in Sources */,
+				44B11AF2249F3DBA749E285E /* MSOneNoteSectionGroupOperations.m in Sources */,
+				3A1207FD8C0F8DCA2291C0B0 /* MSOneNoteSectionOperations.m in Sources */,
+				908A23093EDA9EE3C9F71783 /* MSOneNoteSiteCollection_CollectionFetcher.m in Sources */,
+				5CDD872772A227D99FFAB94A /* MSOneNoteSiteCollection_CollectionOperations.m in Sources */,
+				6682F860219CEFC375112C5C /* MSOneNoteSiteCollection_Fetcher.m in Sources */,
+				0B33C98725149667420AA22E /* MSOneNoteSiteCollection_Operations.m in Sources */,
+				9C59465572ACF6468C7C8A9C /* MSOneNoteSiteCollectionFetcher.m in Sources */,
+				EAFEBAC5F552E3A9A9350408 /* MSOneNoteSiteCollectionOperations.m in Sources */,
+				80B890AB52CE71B6AD90F073 /* MSOneNoteSiteFetcher.m in Sources */,
+				519AAF5934FEDD2A031308C2 /* MSOneNoteSiteOperations.m in Sources */,
+				C3A764F1078142D3CA3D13E5 /* MSOneNoteUserCollectionFetcher.m in Sources */,
+				DB07242C46A139BA5F3F8D34 /* MSOneNoteUserCollectionOperations.m in Sources */,
+				B802AB31BC061CAD07EA2DB1 /* MSOneNoteUserFetcher.m in Sources */,
+				5889B5116C5AAA25BA0AAC50 /* MSOneNoteUserOperations.m in Sources */,
+				61A5255B7A4A3653D003DD7E /* MSOneNoteCopyStatusModel.m in Sources */,
+				93DDF6D98039EC227F29995E /* MSOneNoteDiagnostic.m in Sources */,
+				A8FD1E791F40F8BF0896AEE2 /* MSOneNoteExternalLink.m in Sources */,
+				AC029C49E84579C534EEE3AD /* MSOneNoteGroup.m in Sources */,
+				3840652EF99297E65A75BE6D /* MSOneNoteIdentity.m in Sources */,
+				AEB3B677FEBF2BD94836EEC4 /* MSOneNoteIdentitySet.m in Sources */,
+				0F1F5DE1CBC601B3AC0705F2 /* MSOneNoteImportStatusModel.m in Sources */,
+				7A1D46287F2451DEC39DA131 /* MSOneNoteMyOrganization.m in Sources */,
+				19B8CD326C501C4EBD0B9B15 /* MSOneNoteNotebook.m in Sources */,
+				E11D172BF4E25FF68FA0EDC1 /* MSOneNoteNotebookLinks.m in Sources */,
+				756D3D94B7032B6B2FBA9B8F /* MSOneNoteNotes.m in Sources */,
+				A27B2AF924A5CA1E047F1AAB /* MSOneNoteOperation.m in Sources */,
+				E3B8DE570E44309B07716762 /* MSOneNoteOperationError.m in Sources */,
+				AEB59A88C72D166F9D524E01 /* MSOneNotePage.m in Sources */,
+				2666B3169280E12B2E0819B8 /* MSOneNotePageLinks.m in Sources */,
+				F690E8B9E887F04425E1EE22 /* MSOneNotePatchActionType.m in Sources */,
+				7F52858EA97217B71922E086 /* MSOneNotePatchContentCommand.m in Sources */,
+				034719D9BCDF19C46A44D463 /* MSOneNotePatchInsertPosition.m in Sources */,
+				C7E40B83B00FB86C8A8E395E /* MSOneNoteResource.m in Sources */,
+				423867AD5ABC6744A2453418 /* MSOneNoteSection.m in Sources */,
+				FD6618501F39C9992D59E917 /* MSOneNoteSectionGroup.m in Sources */,
+				A452419D8563571180FB03A5 /* MSOneNoteSite.m in Sources */,
+				BC02EBB74BF776BD1B08223D /* MSOneNoteSiteCollection.m in Sources */,
+				D8B6F99BF00E42F4788D3BC4 /* MSOneNoteSiteMetadata.m in Sources */,
+				71302FCD1EC5EF1BE3C6B25E /* MSOneNoteUser.m in Sources */,
+				EFEA88274EF4358AD38D17AA /* MSOneNoteUserRole.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3E306187A3DD8C65B3583466 /* Debug */ = {
+		1915B2D1ABC10C77CDC3352E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -767,7 +767,7 @@
 			};
 			name = Debug;
 		};
-		4A2BCDD901324EC8B440BB52 /* Release */ = {
+		5DDAD077AC1E6D2F3E0EEFD3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -780,7 +780,7 @@
 			};
 			name = Release;
 		};
-		6423BED07E392822530D7F39 /* Debug */ = {
+		A26BC0F5DCF3C3766C741817 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -816,7 +816,7 @@
 			};
 			name = Debug;
 		};
-		75E4FC117019B14A5D0472BD /* Release */ = {
+		B8B08588E153CC2D8A8674F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -849,25 +849,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0555DF990BF4668B0CDB1279 /* Build configuration list for PBXProject "OneNote" */ = {
+		4F43E31E8D1623403516D9A7 /* Build configuration list for PBXProject "OneNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6423BED07E392822530D7F39 /* Debug */,
-				75E4FC117019B14A5D0472BD /* Release */,
+				A26BC0F5DCF3C3766C741817 /* Debug */,
+				B8B08588E153CC2D8A8674F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90FC1D10EE78CE594EC35719 /* Build configuration list for PBXNativeTarget "OneNote" */ = {
+		F38A59D4399224E5B0DE8C81 /* Build configuration list for PBXNativeTarget "OneNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4A2BCDD901324EC8B440BB52 /* Release */,
-				3E306187A3DD8C65B3583466 /* Debug */,
+				5DDAD077AC1E6D2F3E0EEFD3 /* Release */,
+				1915B2D1ABC10C77CDC3352E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0BD785586D997CAA4C6F3DA5 /* Project object */;
+	rootObject = 3F314C33305E80F05A947F40 /* Project object */;
 }

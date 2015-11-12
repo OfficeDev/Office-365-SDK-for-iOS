@@ -16,7 +16,8 @@ root for authoritative license information.﻿
 #ifndef MSONENOTECLIENT_H
 #define MSONENOTECLIENT_H
 
-#import <orc.h>
+#import "core/MSOrcBaseContainer.h"
+#import "api/api.h"
 #import "MSOneNoteModels.h"
 
 @class MSOneNoteUserCollectionFetcher;

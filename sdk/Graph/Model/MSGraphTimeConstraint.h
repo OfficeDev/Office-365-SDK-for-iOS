@@ -21,8 +21,8 @@ root for authoritative license information.﻿
 
 @class MSGraphTimeSlot;
 #import "MSGraphActivityDomain.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphTimeConstraint
  *

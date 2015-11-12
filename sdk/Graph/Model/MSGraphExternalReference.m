@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
 		_lastModifiedDateTime = [dic objectForKey: @"lastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]] : _lastModifiedDateTime;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_alias copy], @"alias",
-		 [_type copy], @"type",
-		 [_previewPriority copy], @"previewPriority",
-		 [_lastModifiedBy copy], @"lastModifiedBy",
-		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"lastModifiedDateTime",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.alias copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"alias"];}
+	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.previewPriority copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"previewPriority"];}
+	{id curVal = [self.lastModifiedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedDateTime"];}
+    [dic setValue: @"#Microsoft.Graph.externalReference" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.alias;
+    if([self.updatedValues containsObject:@"alias"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"alias"];
+    }
+    }
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+    }
+    }
+	{id curVal = self.previewPriority;
+    if([self.updatedValues containsObject:@"previewPriority"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"previewPriority"];
+    }
+    }
+	{id curVal = self.lastModifiedBy;
+    if([self.updatedValues containsObject:@"lastModifiedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"lastModifiedBy"];
+    }
+    }
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"lastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedDateTime"];
+    }
+    }
+    return dic;
 }
 
 

@@ -20,8 +20,8 @@ root for authoritative license information.﻿
 #import "core/MSOrcObjectizer.h"
 
 @class MSGraphPrivilegedRole;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPrivilegedRoleAssignment
  *

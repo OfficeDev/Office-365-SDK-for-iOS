@@ -17,9 +17,10 @@ root for authoritative license information.﻿
 #define MSONENOTENOTEBOOKOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSOneNoteModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
 
 
 /** MSOneNoteNotebookOperations
@@ -29,8 +30,8 @@ root for authoritative license information.﻿
 
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (void)copyNotebookWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback ;
-- (void)copyNotebookRawWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)copyNotebookWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs notebookFolder:(NSString *)notebookFolder callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback ;
+- (void)copyNotebookRawWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs notebookFolder:(NSString *)notebookFolder callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)exportNotebookWithCallback:(void (^)(int, MSOrcError*))callback ;
 - (void)exportNotebookRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 

@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSFILESFILECOLLECTIONOPERATIONS_H
 #define MSFILESFILECOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSFilesModels.h"
+#import "api/api.h"
 #import "MSFilesItemCollectionOperations.h"
+
 
 /** MSFilesFileCollectionOperations
  *

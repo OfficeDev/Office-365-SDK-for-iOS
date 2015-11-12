@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSOUTLOOKENTITYFETCHER_H
 #define MSOUTLOOKENTITYFETCHER_H
 
-#import <orc.h>
 #import "MSOutlookModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSOutlookAttachmentFetcher;	
 @class MSOutlookItemFetcher;	

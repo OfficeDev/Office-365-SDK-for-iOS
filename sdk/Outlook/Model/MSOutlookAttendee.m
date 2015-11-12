@@ -57,17 +57,79 @@ root for authoritative license information.﻿
     
 		_status = [dic objectForKey: @"Status"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]] : _status;
 		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+		self.emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSOutlookEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : self.emailAddress;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_status toDictionary], @"Status",
-		 [MSOutlookAttendeeTypeSerializer toString:_type], @"Type",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.status toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
+	{id curVal = [MSOutlookAttendeeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = [self.emailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
+    [dic setValue: @"#Microsoft.OutlookServices.Attendee" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"Status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Status"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Status"];
+            }
+        
+            }}
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.emailAddress;
+    if([self.updatedValues containsObject:@"EmailAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"EmailAddress"];
+            }
+        
+            }}
+    return dic;
 }
 
 

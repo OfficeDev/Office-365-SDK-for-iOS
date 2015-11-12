@@ -23,8 +23,8 @@ root for authoritative license information.﻿
 @class MSGraphBucket;
 @class MSGraphPlanDetails;
 @class MSGraphPlanTaskBoard;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPlan
  *

@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_servicePlanId = [dic objectForKey: @"servicePlanId"] != nil ? [[dic objectForKey: @"servicePlanId"] copy] : _servicePlanId;
 		_servicePlanName = [dic objectForKey: @"servicePlanName"] != nil ? [[dic objectForKey: @"servicePlanName"] copy] : _servicePlanName;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_servicePlanId copy], @"servicePlanId",
-		 [_servicePlanName copy], @"servicePlanName",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.servicePlanId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
+	{id curVal = [self.servicePlanName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanName"];}
+    [dic setValue: @"#Microsoft.Graph.ServicePlanInfo" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.servicePlanId;
+    if([self.updatedValues containsObject:@"servicePlanId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
+    }
+    }
+	{id curVal = self.servicePlanName;
+    if([self.updatedValues containsObject:@"servicePlanName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanName"];
+    }
+    }
+    return dic;
 }
 
 

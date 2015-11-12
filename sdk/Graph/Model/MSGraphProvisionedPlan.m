@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_provisioningStatus = [dic objectForKey: @"provisioningStatus"] != nil ? [[dic objectForKey: @"provisioningStatus"] copy] : _provisioningStatus;
 		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_capabilityStatus copy], @"capabilityStatus",
-		 [_provisioningStatus copy], @"provisioningStatus",
-		 [_service copy], @"service",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.capabilityStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
+	{id curVal = [self.provisioningStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningStatus"];}
+	{id curVal = [self.service copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
+    [dic setValue: @"#Microsoft.Graph.ProvisionedPlan" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.capabilityStatus;
+    if([self.updatedValues containsObject:@"capabilityStatus"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
+    }
+    }
+	{id curVal = self.provisioningStatus;
+    if([self.updatedValues containsObject:@"provisioningStatus"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"provisioningStatus"];
+    }
+    }
+	{id curVal = self.service;
+    if([self.updatedValues containsObject:@"service"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
+    }
+    }
+    return dic;
 }
 
 

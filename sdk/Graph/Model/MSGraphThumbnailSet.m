@@ -62,19 +62,101 @@ root for authoritative license information.﻿
 		_small = [dic objectForKey: @"small"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"small"]] : _small;
 		_source = [dic objectForKey: @"source"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"source"]] : _source;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_large toDictionary], @"large",
-		 [_medium toDictionary], @"medium",
-		 [_small toDictionary], @"small",
-		 [_source toDictionary], @"source",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.large toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"large"];}
+	{id curVal = [self.medium toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"medium"];}
+	{id curVal = [self.small toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"small"];}
+	{id curVal = [self.source toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"source"];}
+    [dic setValue: @"#Microsoft.Graph.thumbnailSet" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.large;
+    if([self.updatedValues containsObject:@"large"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"large"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"large"];
+            }
+        
+            }}
+	{id curVal = self.medium;
+    if([self.updatedValues containsObject:@"medium"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"medium"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"medium"];
+            }
+        
+            }}
+	{id curVal = self.small;
+    if([self.updatedValues containsObject:@"small"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"small"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"small"];
+            }
+        
+            }}
+	{id curVal = self.source;
+    if([self.updatedValues containsObject:@"source"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"source"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"source"];
+            }
+        
+            }}
+    return dic;
 }
 
 

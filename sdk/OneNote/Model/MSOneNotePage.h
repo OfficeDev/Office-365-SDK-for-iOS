@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 @class MSOneNotePageLinks;
 @class MSOneNoteSection;
 @class MSOneNoteNotebook;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOneNotePage
  *

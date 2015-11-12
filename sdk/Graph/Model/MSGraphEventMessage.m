@@ -58,17 +58,444 @@ root for authoritative license information.﻿
     
 		_meetingMessageType = [dic objectForKey: @"MeetingMessageType"] != nil ? [MSGraphMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]] : _meetingMessageType;
 		_event = [dic objectForKey: @"Event"] != nil ? [[MSGraphEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]] : _event;
+		self.receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : self.receivedDateTime;
+		self.sentDateTime = [dic objectForKey: @"SentDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]] : self.sentDateTime;
+		self.hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : self.hasAttachments;
+		self.subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : self.subject;
+		self.body = [dic objectForKey: @"Body"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : self.body;
+		self.bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : self.bodyPreview;
+		self.importance = [dic objectForKey: @"Importance"] != nil ? [MSGraphImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : self.importance;
+		self.parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : self.parentFolderId;
+		self.sender = [dic objectForKey: @"Sender"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : self.sender;
+		self.from = [dic objectForKey: @"From"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : self.from;
 
+        if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
+            self.toRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ToRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"ToRecipients"]) {
+                [self.toRecipients addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"CcRecipients"] != [NSNull null]){
+            self.ccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CcRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"CcRecipients"]) {
+                [self.ccRecipients addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"BccRecipients"] != [NSNull null]){
+            self.bccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"BccRecipients"] count]];
+            
+            for (id object in [dic objectForKey: @"BccRecipients"]) {
+                [self.bccRecipients addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ReplyTo"] != [NSNull null]){
+            self.replyTo = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ReplyTo"] count]];
+            
+            for (id object in [dic objectForKey: @"ReplyTo"]) {
+                [self.replyTo addObject:[[MSGraphRecipient alloc] initWithDictionary: object]];
+            }
+        }
+        
+		self.conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : self.conversationId;
+		self.uniqueBody = [dic objectForKey: @"UniqueBody"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]] : self.uniqueBody;
+		self.isDeliveryReceiptRequested = [dic objectForKey: @"IsDeliveryReceiptRequested"] != nil ? [[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue] : self.isDeliveryReceiptRequested;
+		self.isReadReceiptRequested = [dic objectForKey: @"IsReadReceiptRequested"] != nil ? [[dic objectForKey: @"IsReadReceiptRequested"] boolValue] : self.isReadReceiptRequested;
+		self.isRead = [dic objectForKey: @"IsRead"] != nil ? [[dic objectForKey: @"IsRead"] boolValue] : self.isRead;
+		self.isDraft = [dic objectForKey: @"IsDraft"] != nil ? [[dic objectForKey: @"IsDraft"] boolValue] : self.isDraft;
+		self.webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : self.webLink;
+		self.inferenceClassification = [dic objectForKey: @"InferenceClassification"] != nil ? [MSGraphInferenceClassificationTypeSerializer fromString:[dic objectForKey: @"InferenceClassification"]] : self.inferenceClassification;
+
+        if([dic objectForKey: @"Extensions"] != [NSNull null]){
+            self.extensions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Extensions"] count]];
+            
+            for (id object in [dic objectForKey: @"Extensions"]) {
+                [self.extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"Attachments"] != [NSNull null]){
+            self.attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            
+            for (id object in [dic objectForKey: @"Attachments"]) {
+                [self.attachments addObject:[[MSGraphAttachment alloc] initWithDictionary: object]];
+            }
+        }
+        
+		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
+		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
+		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+
+        if([dic objectForKey: @"Categories"] != [NSNull null]){
+            self.categories = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Categories"] count]];
+            
+            for (id object in [dic objectForKey: @"Categories"]) {
+                [self.categories addObject:[object copy]];
+            }
+        }
+        
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
+
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphMeetingMessageTypeSerializer toString:_meetingMessageType], @"MeetingMessageType",
-		 [_event toDictionary], @"Event",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphMeetingMessageTypeSerializer toString:self.meetingMessageType]; if (curVal!=nil) [dic setValue: curVal forKey: @"MeetingMessageType"];}
+	{id curVal = [self.event toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Event"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.receivedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"ReceivedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.sentDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"SentDateTime"];}
+	{id curVal = (self.hasAttachments?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"HasAttachments"];}
+	{id curVal = [self.subject copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
+	{id curVal = [self.body toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
+	{id curVal = [self.bodyPreview copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"BodyPreview"];}
+	{id curVal = [MSGraphImportanceSerializer toString:self.importance]; if (curVal!=nil) [dic setValue: curVal forKey: @"Importance"];}
+	{id curVal = [self.parentFolderId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
+	{id curVal = [self.sender toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Sender"];}
+	{id curVal = [self.from toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"From"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ToRecipients"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CcRecipients"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"BccRecipients"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ReplyTo"];}
+	{id curVal = [self.conversationId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
+	{id curVal = [self.uniqueBody toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueBody"];}
+	{id curVal = (self.isDeliveryReceiptRequested?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsDeliveryReceiptRequested"];}
+	{id curVal = (self.isReadReceiptRequested?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsReadReceiptRequested"];}
+	{id curVal = (self.isRead?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsRead"];}
+	{id curVal = (self.isDraft?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsDraft"];}
+	{id curVal = [self.webLink copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
+	{id curVal = [MSGraphInferenceClassificationTypeSerializer toString:self.inferenceClassification]; if (curVal!=nil) [dic setValue: curVal forKey: @"InferenceClassification"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
+	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.EventMessage" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.meetingMessageType;
+    if([self.updatedValues containsObject:@"MeetingMessageType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphMeetingMessageTypeSerializer toString:curVal] forKey: @"MeetingMessageType"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"MeetingMessageType"];
+            }
+        
+            }}
+	{id curVal = self.event;
+    if([self.updatedValues containsObject:@"Event"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Event"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Event"];
+            }
+        
+            }}
+	{id curVal = self.receivedDateTime;
+    if([self.updatedValues containsObject:@"ReceivedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ReceivedDateTime"];
+    }
+    }
+	{id curVal = self.sentDateTime;
+    if([self.updatedValues containsObject:@"SentDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"SentDateTime"];
+    }
+    }
+	{id curVal = self.hasAttachments;
+    if([self.updatedValues containsObject:@"HasAttachments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
+    }
+    }
+	{id curVal = self.subject;
+    if([self.updatedValues containsObject:@"Subject"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
+    }
+    }
+	{id curVal = self.body;
+    if([self.updatedValues containsObject:@"Body"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Body"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Body"];
+            }
+        
+            }}
+	{id curVal = self.bodyPreview;
+    if([self.updatedValues containsObject:@"BodyPreview"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
+    }
+    }
+	{id curVal = self.importance;
+    if([self.updatedValues containsObject:@"Importance"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphImportanceSerializer toString:curVal] forKey: @"Importance"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Importance"];
+            }
+        
+            }}
+	{id curVal = self.parentFolderId;
+    if([self.updatedValues containsObject:@"ParentFolderId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
+    }
+    }
+	{id curVal = self.sender;
+    if([self.updatedValues containsObject:@"Sender"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Sender"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Sender"];
+            }
+        
+            }}
+	{id curVal = self.from;
+    if([self.updatedValues containsObject:@"From"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"From"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"From"];
+            }
+        
+            }}
+	{id curVal = self.toRecipients;
+    if([self.updatedValues containsObject:@"ToRecipients"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ToRecipients"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.ccRecipients;
+    if([self.updatedValues containsObject:@"CcRecipients"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CcRecipients"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.bccRecipients;
+    if([self.updatedValues containsObject:@"BccRecipients"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"BccRecipients"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.replyTo;
+    if([self.updatedValues containsObject:@"ReplyTo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ReplyTo"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.conversationId;
+    if([self.updatedValues containsObject:@"ConversationId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ConversationId"];
+    }
+    }
+	{id curVal = self.uniqueBody;
+    if([self.updatedValues containsObject:@"UniqueBody"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"UniqueBody"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"UniqueBody"];
+            }
+        
+            }}
+	{id curVal = self.isDeliveryReceiptRequested;
+    if([self.updatedValues containsObject:@"IsDeliveryReceiptRequested"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];
+    }
+    }
+	{id curVal = self.isReadReceiptRequested;
+    if([self.updatedValues containsObject:@"IsReadReceiptRequested"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsReadReceiptRequested"];
+    }
+    }
+	{id curVal = self.isRead;
+    if([self.updatedValues containsObject:@"IsRead"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRead"];
+    }
+    }
+	{id curVal = self.isDraft;
+    if([self.updatedValues containsObject:@"IsDraft"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDraft"];
+    }
+    }
+	{id curVal = self.webLink;
+    if([self.updatedValues containsObject:@"WebLink"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
+    }
+    }
+	{id curVal = self.inferenceClassification;
+    if([self.updatedValues containsObject:@"InferenceClassification"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphInferenceClassificationTypeSerializer toString:curVal] forKey: @"InferenceClassification"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"InferenceClassification"];
+            }
+        
+            }}
+	{id curVal = self.extensions;
+    if([self.updatedValues containsObject:@"Extensions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Extensions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.attachments;
+    if([self.updatedValues containsObject:@"Attachments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attachments"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"CreatedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"CreatedDateTime"];
+    }
+    }
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
+    }
+    }
+	{id curVal = self.changeKey;
+    if([self.updatedValues containsObject:@"ChangeKey"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+    }
+    }
+	{id curVal = self.categories;
+    if([self.updatedValues containsObject:@"Categories"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Categories"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

@@ -20,8 +20,8 @@ root for authoritative license information.﻿
 #import "core/MSOrcObjectizer.h"
 
 #import "MSGraphTaskBoardType.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPlanTaskBoard
  *

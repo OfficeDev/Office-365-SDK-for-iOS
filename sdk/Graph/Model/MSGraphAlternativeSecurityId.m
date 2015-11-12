@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_identityProvider = [dic objectForKey: @"identityProvider"] != nil ? [[dic objectForKey: @"identityProvider"] copy] : _identityProvider;
 		_key = [dic objectForKey: @"key"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"key"]] : _key;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithInt: _type], @"type",
-		 [_identityProvider copy], @"identityProvider",
-		 [MSOrcObjectizer stringFromData:_key], @"key",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithInt: self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.identityProvider copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"identityProvider"];}
+	{id curVal = [MSOrcObjectizer stringFromData:self.key]; if (curVal!=nil) [dic setValue: curVal forKey: @"key"];}
+    [dic setValue: @"#Microsoft.Graph.AlternativeSecurityId" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"type"];
+    }
+    }
+	{id curVal = self.identityProvider;
+    if([self.updatedValues containsObject:@"identityProvider"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"identityProvider"];
+    }
+    }
+	{id curVal = self.key;
+    if([self.updatedValues containsObject:@"key"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"key"];
+    }
+    }
+    return dic;
 }
 
 

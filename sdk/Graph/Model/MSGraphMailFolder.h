@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSGraphMessage;
 #import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphMailFolder
  *

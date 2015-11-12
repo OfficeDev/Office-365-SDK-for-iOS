@@ -141,28 +141,186 @@ root for authoritative license information.﻿
         }
         
 		_rootFolder = [dic objectForKey: @"RootFolder"] != nil ? [[MSOutlookFolder alloc] initWithDictionary: [dic objectForKey: @"RootFolder"]] : _rootFolder;
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_displayName copy], @"DisplayName",
-		 [_alias copy], @"Alias",
-		 [_mailboxGuid copy], @"MailboxGuid",
-		 [[NSMutableArray alloc] init], @"Messages",
-		 [[NSMutableArray alloc] init], @"Folders",
-		 [_calendar toDictionary], @"Calendar",
-		 [[NSMutableArray alloc] init], @"Calendars",
-		 [[NSMutableArray alloc] init], @"CalendarGroups",
-		 [[NSMutableArray alloc] init], @"CalendarView",
-		 [[NSMutableArray alloc] init], @"Events",
-		 [[NSMutableArray alloc] init], @"Contacts",
-		 [[NSMutableArray alloc] init], @"ContactFolders",
-		 [_rootFolder toDictionary], @"RootFolder",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.alias copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Alias"];}
+	{id curVal = [self.mailboxGuid copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"MailboxGuid"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Messages"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Folders"];}
+	{id curVal = [self.calendar toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendars"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarGroups"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Contacts"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ContactFolders"];}
+	{id curVal = [self.rootFolder toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"RootFolder"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.OutlookServices.User" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.alias;
+    if([self.updatedValues containsObject:@"Alias"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Alias"];
+    }
+    }
+	{id curVal = self.mailboxGuid;
+    if([self.updatedValues containsObject:@"MailboxGuid"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MailboxGuid"];
+    }
+    }
+	{id curVal = self.messages;
+    if([self.updatedValues containsObject:@"Messages"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Messages"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.folders;
+    if([self.updatedValues containsObject:@"Folders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Folders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.calendar;
+    if([self.updatedValues containsObject:@"Calendar"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendar"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Calendar"];
+            }
+        
+            }}
+	{id curVal = self.calendars;
+    if([self.updatedValues containsObject:@"Calendars"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendars"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.calendarGroups;
+    if([self.updatedValues containsObject:@"CalendarGroups"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarGroups"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.calendarView;
+    if([self.updatedValues containsObject:@"CalendarView"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarView"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.events;
+    if([self.updatedValues containsObject:@"Events"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Events"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.contacts;
+    if([self.updatedValues containsObject:@"Contacts"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Contacts"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.contactFolders;
+    if([self.updatedValues containsObject:@"ContactFolders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ContactFolders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.rootFolder;
+    if([self.updatedValues containsObject:@"RootFolder"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RootFolder"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"RootFolder"];
+            }
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

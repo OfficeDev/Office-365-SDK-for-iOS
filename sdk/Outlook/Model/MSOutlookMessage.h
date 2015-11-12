@@ -24,7 +24,7 @@ root for authoritative license information.﻿
 @class MSOutlookAttachment;
 #import "MSOutlookImportance.h"
 #import "MSOutlookItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookMessage
  *

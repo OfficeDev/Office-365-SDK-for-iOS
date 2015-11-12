@@ -10,8 +10,8 @@
 #ifndef MSDIRECTORYSERVICES_H
 #define MSDIRECTORYSERVICES_H
 
-#import <MSDirectoryServicesFetchers.h>
-#import <MSDirectoryServicesModels.h>
+#import "MSDirectoryServicesFetchers.h"
+#import "MSDirectoryServicesModels.h"
 
 #endif
     

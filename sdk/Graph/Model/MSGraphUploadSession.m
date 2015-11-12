@@ -68,17 +68,52 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_uploadUrl copy], @"uploadUrl",
-		 [MSOrcObjectizer stringFromDate:_expirationDateTime], @"expirationDateTime",
-		 [[NSMutableArray alloc] init], @"nextExpectedRanges",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.uploadUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"uploadUrl"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.expirationDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"expirationDateTime"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"nextExpectedRanges"];}
+    [dic setValue: @"#Microsoft.Graph.uploadSession" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.uploadUrl;
+    if([self.updatedValues containsObject:@"uploadUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"uploadUrl"];
+    }
+    }
+	{id curVal = self.expirationDateTime;
+    if([self.updatedValues containsObject:@"expirationDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"expirationDateTime"];
+    }
+    }
+	{id curVal = self.nextExpectedRanges;
+    if([self.updatedValues containsObject:@"nextExpectedRanges"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"nextExpectedRanges"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

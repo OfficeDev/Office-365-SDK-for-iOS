@@ -27,7 +27,7 @@ root for authoritative license information.﻿
 @class MSGraphFileSystemInfo;
 @class MSGraphFolder;
 @class MSGraphImage;
-@class MSGraphLocation;
+@class MSGraphGeoCoordinates;
 @class MSGraphOpenWithSet;
 @class MSGraphPhoto;
 @class MSGraphSearchResult;
@@ -37,8 +37,8 @@ root for authoritative license information.﻿
 @class MSGraphUser;
 @class MSGraphPermission;
 @class MSGraphThumbnailSet;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphItem
  *
@@ -148,7 +148,7 @@ root for authoritative license information.﻿
 /** Property location
  *
  */
-@property (nonatomic,  copy, setter=setLocation:, getter=location) MSGraphLocation * location;
+@property (nonatomic,  copy, setter=setLocation:, getter=location) MSGraphGeoCoordinates * location;
 
 /** Property openWith
  *

@@ -31,14 +31,14 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSGraphRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
-  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString: toRecipients ];
+  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString:toRecipients];
 
     return [self forwardRawWithComment:commentString toRecipients:toRecipientsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -78,12 +78,12 @@ root for authoritative license information.﻿
 - (void)replyWithPost:(MSGraphPost *)post callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *postString = [MSOrcObjectizer deobjectizeToString: post ];
+      NSString *postString = [MSOrcObjectizer deobjectizeToString:post];
 
     return [self replyRawWithPost:postString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {

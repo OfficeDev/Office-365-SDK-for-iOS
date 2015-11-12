@@ -56,22 +56,68 @@ root for authoritative license information.﻿
     if((self = [self init])) {
     
 		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
-		_startDate = [dic objectForKey: @"StartDate"] != nil ? [[dic objectForKey: @"StartDate"] copy] : _startDate;
-		_endDate = [dic objectForKey: @"EndDate"] != nil ? [[dic objectForKey: @"EndDate"] copy] : _endDate;
+		_startDate = [dic objectForKey: @"StartDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"StartDate"]] : _startDate;
+		_endDate = [dic objectForKey: @"EndDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]] : _endDate;
 		_numberOfOccurrences = [dic objectForKey: @"NumberOfOccurrences"] != nil ? [[dic objectForKey: @"NumberOfOccurrences"] intValue] : _numberOfOccurrences;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphRecurrenceRangeTypeSerializer toString:_type], @"Type",
-		 [_startDate copy], @"StartDate",
-		 [_endDate copy], @"EndDate",
-		 [NSNumber numberWithInt: _numberOfOccurrences], @"NumberOfOccurrences",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphRecurrenceRangeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"StartDate"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"EndDate"];}
+	{id curVal = [NSNumber numberWithInt: self.numberOfOccurrences]; if (curVal!=nil) [dic setValue: curVal forKey: @"NumberOfOccurrences"];}
+    [dic setValue: @"#Microsoft.Graph.RecurrenceRange" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphRecurrenceRangeTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.startDate;
+    if([self.updatedValues containsObject:@"StartDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"StartDate"];
+    }
+    }
+	{id curVal = self.endDate;
+    if([self.updatedValues containsObject:@"EndDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"EndDate"];
+    }
+    }
+	{id curVal = self.numberOfOccurrences;
+    if([self.updatedValues containsObject:@"NumberOfOccurrences"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"NumberOfOccurrences"];
+    }
+    }
+    return dic;
 }
 
 
@@ -93,7 +139,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property startDate
  *
  */
-- (void) setStartDate: (NSString *) value {
+- (void) setStartDate: (NSDate *) value {
     _startDate = value;
     [self valueChangedFor:@"StartDate"];
 }
@@ -101,7 +147,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property endDate
  *
  */
-- (void) setEndDate: (NSString *) value {
+- (void) setEndDate: (NSDate *) value {
     _endDate = value;
     [self valueChangedFor:@"EndDate"];
 }

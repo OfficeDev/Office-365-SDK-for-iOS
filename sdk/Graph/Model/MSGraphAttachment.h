@@ -20,7 +20,7 @@ root for authoritative license information.﻿
 #import "core/MSOrcObjectizer.h"
 
 #import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphAttachment
  *

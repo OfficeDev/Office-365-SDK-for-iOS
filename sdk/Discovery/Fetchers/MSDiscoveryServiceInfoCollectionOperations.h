@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSDISCOVERYSERVICEINFOCOLLECTIONOPERATIONS_H
 #define MSDISCOVERYSERVICEINFOCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSDiscoveryModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSDiscoveryServiceInfoCollectionOperations
  *

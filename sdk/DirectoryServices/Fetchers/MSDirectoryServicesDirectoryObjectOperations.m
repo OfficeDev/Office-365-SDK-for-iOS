@@ -31,12 +31,12 @@ root for authoritative license information.﻿
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *groupIdsString = [MSOrcObjectizer deobjectizeToString: groupIds ];
+      NSString *groupIdsString = [groupIds copy];
 
     return [self checkMemberGroupsRawWithGroupIds:groupIdsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
+            NSString * result = (NSString *)[returnValue copy];
             callback(result, e);
         } 
         else {
@@ -76,12 +76,12 @@ root for authoritative license information.﻿
 - (void)getMemberGroupsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *securityEnabledOnlyString = [MSOrcObjectizer deobjectizeToString: @(securityEnabledOnly) ];
+      NSString *securityEnabledOnlyString = [MSOrcObjectizer stringFromBool:securityEnabledOnly];
 
     return [self getMemberGroupsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
+            NSString * result = (NSString *)[returnValue copy];
             callback(result, e);
         } 
         else {
@@ -97,7 +97,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly?@"true":@"false", @"securityEnabledOnly", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly, @"securityEnabledOnly", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -121,12 +121,12 @@ root for authoritative license information.﻿
 - (void)getMemberObjectsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *securityEnabledOnlyString = [MSOrcObjectizer deobjectizeToString: @(securityEnabledOnly) ];
+      NSString *securityEnabledOnlyString = [MSOrcObjectizer stringFromBool:securityEnabledOnly];
 
     return [self getMemberObjectsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            NSString * result = (NSString *)[MSOrcObjectizer objectizeFromString:returnValue toType:[NSString class]];
+            NSString * result = (NSString *)[returnValue copy];
             callback(result, e);
         } 
         else {
@@ -142,7 +142,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly?@"true":@"false", @"securityEnabledOnly", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly, @"securityEnabledOnly", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     

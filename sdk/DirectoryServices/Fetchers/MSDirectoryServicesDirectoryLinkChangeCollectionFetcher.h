@@ -18,9 +18,8 @@ root for authoritative license information.﻿
 
 @class MSDirectoryServicesDirectoryLinkChangeFetcher;
 
-
-
-#import <orc.h>
+#import "core/MSOrcCollectionFetcher.h"
+#import "api/api.h"
 #import "MSDirectoryServicesModels.h"
 
 /** MSDirectoryServicesDirectoryLinkChangeCollectionFetcher

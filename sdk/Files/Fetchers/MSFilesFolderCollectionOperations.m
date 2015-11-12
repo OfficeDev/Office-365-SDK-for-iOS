@@ -26,16 +26,16 @@ root for authoritative license information.﻿
 - (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSFilesFolder *, MSOrcError*))callback {
 
 
-      NSString *destFolderIdString = [MSOrcObjectizer deobjectizeToString: destFolderId ];
+      NSString *destFolderIdString = [destFolderId copy];
 
-  NSString *destFolderPathString = [MSOrcObjectizer deobjectizeToString: destFolderPath ];
+  NSString *destFolderPathString = [destFolderPath copy];
 
-  NSString *newNameString = [MSOrcObjectizer deobjectizeToString: newName ];
+  NSString *newNameString = [newName copy];
 
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFolder * result = (MSFilesFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSFilesFolder class]];
+            MSFilesFolder * result = (MSFilesFolder *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

@@ -72,21 +72,110 @@ root for authoritative license information.﻿
 		_firstDayOfWeek = [dic objectForKey: @"FirstDayOfWeek"] != nil ? [MSOutlookDayOfWeekSerializer fromString:[dic objectForKey: @"FirstDayOfWeek"]] : _firstDayOfWeek;
 		_index = [dic objectForKey: @"Index"] != nil ? [MSOutlookWeekIndexSerializer fromString:[dic objectForKey: @"Index"]] : _index;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOutlookRecurrencePatternTypeSerializer toString:_type], @"Type",
-		 [NSNumber numberWithInt: _interval], @"Interval",
-		 [NSNumber numberWithInt: _month], @"Month",
-		 [NSNumber numberWithInt: _dayOfMonth], @"DayOfMonth",
-		 [[NSMutableArray alloc] init], @"DaysOfWeek",
-		 [MSOutlookDayOfWeekSerializer toString:_firstDayOfWeek], @"FirstDayOfWeek",
-		 [MSOutlookWeekIndexSerializer toString:_index], @"Index",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOutlookRecurrencePatternTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = [NSNumber numberWithInt: self.interval]; if (curVal!=nil) [dic setValue: curVal forKey: @"Interval"];}
+	{id curVal = [NSNumber numberWithInt: self.month]; if (curVal!=nil) [dic setValue: curVal forKey: @"Month"];}
+	{id curVal = [NSNumber numberWithInt: self.dayOfMonth]; if (curVal!=nil) [dic setValue: curVal forKey: @"DayOfMonth"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"DaysOfWeek"];}
+	{id curVal = [MSOutlookDayOfWeekSerializer toString:self.firstDayOfWeek]; if (curVal!=nil) [dic setValue: curVal forKey: @"FirstDayOfWeek"];}
+	{id curVal = [MSOutlookWeekIndexSerializer toString:self.index]; if (curVal!=nil) [dic setValue: curVal forKey: @"Index"];}
+    [dic setValue: @"#Microsoft.OutlookServices.RecurrencePattern" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookRecurrencePatternTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.interval;
+    if([self.updatedValues containsObject:@"Interval"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Interval"];
+    }
+    }
+	{id curVal = self.month;
+    if([self.updatedValues containsObject:@"Month"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Month"];
+    }
+    }
+	{id curVal = self.dayOfMonth;
+    if([self.updatedValues containsObject:@"DayOfMonth"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"DayOfMonth"];
+    }
+    }
+	{id curVal = self.daysOfWeek;
+    if([self.updatedValues containsObject:@"DaysOfWeek"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookDayOfWeekSerializer toString:curVal] forKey: @"DaysOfWeek"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.firstDayOfWeek;
+    if([self.updatedValues containsObject:@"FirstDayOfWeek"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookDayOfWeekSerializer toString:curVal] forKey: @"FirstDayOfWeek"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"FirstDayOfWeek"];
+            }
+        
+            }}
+	{id curVal = self.index;
+    if([self.updatedValues containsObject:@"Index"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookWeekIndexSerializer toString:curVal] forKey: @"Index"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Index"];
+            }
+        
+            }}
+    return dic;
 }
 
 

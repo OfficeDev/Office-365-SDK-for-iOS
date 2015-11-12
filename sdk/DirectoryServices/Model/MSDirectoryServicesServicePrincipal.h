@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesAppRoleAssignment;
 @class MSDirectoryServicesOAuth2PermissionGrant;
 #import "MSDirectoryServicesDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSDirectoryServicesServicePrincipal
  *

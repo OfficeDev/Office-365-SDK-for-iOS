@@ -10,8 +10,8 @@
 #ifndef MSFILES_H
 #define MSFILES_H
 
-#import <MSFilesFetchers.h>
-#import <MSFilesModels.h>
+#import "MSFilesFetchers.h"
+#import "MSFilesModels.h"
 
 #endif
     

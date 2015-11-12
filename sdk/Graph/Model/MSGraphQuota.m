@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_total = [dic objectForKey: @"total"] != nil ? [[dic objectForKey: @"total"] longLongValue] : _total;
 		_used = [dic objectForKey: @"used"] != nil ? [[dic objectForKey: @"used"] longLongValue] : _used;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithLongLong: _deleted], @"deleted",
-		 [NSNumber numberWithLongLong: _remaining], @"remaining",
-		 [_state copy], @"state",
-		 [NSNumber numberWithLongLong: _total], @"total",
-		 [NSNumber numberWithLongLong: _used], @"used",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithLongLong: self.deleted]; if (curVal!=nil) [dic setValue: curVal forKey: @"deleted"];}
+	{id curVal = [NSNumber numberWithLongLong: self.remaining]; if (curVal!=nil) [dic setValue: curVal forKey: @"remaining"];}
+	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
+	{id curVal = [NSNumber numberWithLongLong: self.total]; if (curVal!=nil) [dic setValue: curVal forKey: @"total"];}
+	{id curVal = [NSNumber numberWithLongLong: self.used]; if (curVal!=nil) [dic setValue: curVal forKey: @"used"];}
+    [dic setValue: @"#Microsoft.Graph.quota" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.deleted;
+    if([self.updatedValues containsObject:@"deleted"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"deleted"];
+    }
+    }
+	{id curVal = self.remaining;
+    if([self.updatedValues containsObject:@"remaining"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"remaining"];
+    }
+    }
+	{id curVal = self.state;
+    if([self.updatedValues containsObject:@"state"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
+    }
+    }
+	{id curVal = self.total;
+    if([self.updatedValues containsObject:@"total"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"total"];
+    }
+    }
+	{id curVal = self.used;
+    if([self.updatedValues containsObject:@"used"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"used"];
+    }
+    }
+    return dic;
 }
 
 

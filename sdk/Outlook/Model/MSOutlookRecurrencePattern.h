@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 #import "MSOutlookRecurrencePatternType.h"
 #import "MSOutlookDayOfWeek.h"
 #import "MSOutlookWeekIndex.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookRecurrencePattern
  *

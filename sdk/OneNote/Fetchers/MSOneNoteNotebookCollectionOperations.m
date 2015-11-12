@@ -23,21 +23,23 @@ root for authoritative license information.﻿
  */
 @implementation MSOneNoteNotebookCollectionOperations
 
-- (void)copyNotebookWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
+- (void)copyNotebookWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs notebookFolder:(NSString *)notebookFolder callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *siteCollectionIdString = [MSOrcObjectizer deobjectizeToString: siteCollectionId ];
+      NSString *siteCollectionIdString = [siteCollectionId copy];
 
-  NSString *siteIdString = [MSOrcObjectizer deobjectizeToString: siteId ];
+  NSString *siteIdString = [siteId copy];
 
-  NSString *groupIdString = [MSOrcObjectizer deobjectizeToString: groupId ];
+  NSString *groupIdString = [groupId copy];
 
-  NSString *renameAsString = [MSOrcObjectizer deobjectizeToString: renameAs ];
+  NSString *renameAsString = [renameAs copy];
 
-    return [self copyNotebookRawWithSiteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
+  NSString *notebookFolderString = [notebookFolder copy];
+
+    return [self copyNotebookRawWithSiteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString notebookFolder:notebookFolderString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSOneNoteCopyStatusModel class]];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -49,11 +51,11 @@ root for authoritative license information.﻿
         
 }
 
-- (void)copyNotebookRawWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(NSString *, MSOrcError*))callback {
+- (void)copyNotebookRawWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs notebookFolder:(NSString *)notebookFolder callback:(void (^)(NSString *, MSOrcError*))callback {
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  siteCollectionId, @"siteCollectionId", siteId, @"siteId", groupId, @"groupId", renameAs, @"renameAs", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  siteCollectionId, @"siteCollectionId", siteId, @"siteId", groupId, @"groupId", renameAs, @"renameAs", notebookFolder, @"notebookFolder", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -80,7 +82,7 @@ root for authoritative license information.﻿
         return [self exportNotebookRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {

@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_suspended = [dic objectForKey: @"suspended"] != nil ? [[dic objectForKey: @"suspended"] intValue] : _suspended;
 		_warning = [dic objectForKey: @"warning"] != nil ? [[dic objectForKey: @"warning"] intValue] : _warning;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithInt: _enabled], @"enabled",
-		 [NSNumber numberWithInt: _suspended], @"suspended",
-		 [NSNumber numberWithInt: _warning], @"warning",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithInt: self.enabled]; if (curVal!=nil) [dic setValue: curVal forKey: @"enabled"];}
+	{id curVal = [NSNumber numberWithInt: self.suspended]; if (curVal!=nil) [dic setValue: curVal forKey: @"suspended"];}
+	{id curVal = [NSNumber numberWithInt: self.warning]; if (curVal!=nil) [dic setValue: curVal forKey: @"warning"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.LicenseUnitsDetail" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.enabled;
+    if([self.updatedValues containsObject:@"enabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"enabled"];
+    }
+    }
+	{id curVal = self.suspended;
+    if([self.updatedValues containsObject:@"suspended"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"suspended"];
+    }
+    }
+	{id curVal = self.warning;
+    if([self.updatedValues containsObject:@"warning"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"warning"];
+    }
+    }
+    return dic;
 }
 
 

@@ -80,9 +80,9 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphPhotoFetcher *)photo {
+- (MSGraphProfilePhotoFetcher *)photo {
 
-	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphPhoto class]];
+	 return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
 @end

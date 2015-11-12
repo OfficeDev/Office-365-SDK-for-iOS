@@ -60,18 +60,54 @@ root for authoritative license information.﻿
 		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
 		_timestamp = [dic objectForKey: @"timestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"timestamp"]] : _timestamp;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_errorDetail copy], @"errorDetail",
-		 (_resolved?@"true":@"false"), @"resolved",
-		 [_service copy], @"service",
-		 [MSOrcObjectizer stringFromDate:_timestamp], @"timestamp",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.errorDetail copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"errorDetail"];}
+	{id curVal = (self.resolved?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"resolved"];}
+	{id curVal = [self.service copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.timestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"timestamp"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.ProvisioningError" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.errorDetail;
+    if([self.updatedValues containsObject:@"errorDetail"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorDetail"];
+    }
+    }
+	{id curVal = self.resolved;
+    if([self.updatedValues containsObject:@"resolved"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"resolved"];
+    }
+    }
+	{id curVal = self.service;
+    if([self.updatedValues containsObject:@"service"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
+    }
+    }
+	{id curVal = self.timestamp;
+    if([self.updatedValues containsObject:@"timestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"timestamp"];
+    }
+    }
+    return dic;
 }
 
 

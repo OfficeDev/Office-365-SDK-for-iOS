@@ -20,8 +20,8 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 #import "MSGraphRecurrenceRangeType.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphRecurrenceRange
  *
@@ -38,12 +38,12 @@ root for authoritative license information.﻿
 /** Property startDate
  *
  */
-@property (nonatomic,  copy, setter=setStartDate:, getter=startDate) NSString * startDate;
+@property (nonatomic,  copy, setter=setStartDate:, getter=startDate) NSDate * startDate;
 
 /** Property endDate
  *
  */
-@property (nonatomic,  copy, setter=setEndDate:, getter=endDate) NSString * endDate;
+@property (nonatomic,  copy, setter=setEndDate:, getter=endDate) NSDate * endDate;
 
 /** Property numberOfOccurrences
  *

@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_height = [dic objectForKey: @"height"] != nil ? [[dic objectForKey: @"height"] intValue] : _height;
 		_width = [dic objectForKey: @"width"] != nil ? [[dic objectForKey: @"width"] intValue] : _width;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithInt: _height], @"height",
-		 [NSNumber numberWithInt: _width], @"width",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"height"];}
+	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"width"];}
+    [dic setValue: @"#Microsoft.Graph.image" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.height;
+    if([self.updatedValues containsObject:@"height"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
+    }
+    }
+	{id curVal = self.width;
+    if([self.updatedValues containsObject:@"width"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
+    }
+    }
+    return dic;
 }
 
 

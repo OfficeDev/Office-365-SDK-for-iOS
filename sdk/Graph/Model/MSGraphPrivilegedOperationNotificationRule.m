@@ -65,22 +65,82 @@ root for authoritative license information.﻿
 		_notificationName = [dic objectForKey: @"NotificationName"] != nil ? [[dic objectForKey: @"NotificationName"] copy] : _notificationName;
 		_event = [dic objectForKey: @"Event"] != nil ? [[dic objectForKey: @"Event"] copy] : _event;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"Id",
-		 [_userName copy], @"UserName",
-		 [_userId copy], @"UserId",
-		 [_roleName copy], @"RoleName",
-		 [_roleId copy], @"RoleId",
-		 [_notificationId copy], @"NotificationId",
-		 [_notificationName copy], @"NotificationName",
-		 [_event copy], @"Event",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.userName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"UserName"];}
+	{id curVal = [self.userId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"UserId"];}
+	{id curVal = [self.roleName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleName"];}
+	{id curVal = [self.roleId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
+	{id curVal = [self.notificationId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationId"];}
+	{id curVal = [self.notificationName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationName"];}
+	{id curVal = [self.event copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Event"];}
+    [dic setValue: @"#Microsoft.Graph.PrivilegedOperationNotificationRule" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+	{id curVal = self.userName;
+    if([self.updatedValues containsObject:@"UserName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UserName"];
+    }
+    }
+	{id curVal = self.userId;
+    if([self.updatedValues containsObject:@"UserId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UserId"];
+    }
+    }
+	{id curVal = self.roleName;
+    if([self.updatedValues containsObject:@"RoleName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleName"];
+    }
+    }
+	{id curVal = self.roleId;
+    if([self.updatedValues containsObject:@"RoleId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
+    }
+    }
+	{id curVal = self.notificationId;
+    if([self.updatedValues containsObject:@"NotificationId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationId"];
+    }
+    }
+	{id curVal = self.notificationName;
+    if([self.updatedValues containsObject:@"NotificationName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationName"];
+    }
+    }
+	{id curVal = self.event;
+    if([self.updatedValues containsObject:@"Event"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Event"];
+    }
+    }
+    return dic;
 }
 
 

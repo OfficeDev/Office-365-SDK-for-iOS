@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_name copy], @"name",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+    [dic setValue: @"#Microsoft.Graph.chunkedUploadSessionDescriptor" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+    }
+    }
+    return dic;
 }
 
 

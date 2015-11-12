@@ -17,16 +17,16 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHCONTACTFETCHER_H
 #define MSGRAPHCONTACTFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphEmailAddressCollectionFetcher;
 @class MSGraphPhysicalAddressFetcher;
 @class MSGraphExtensionCollectionFetcher;
-@class MSGraphPhotoFetcher;
+@class MSGraphProfilePhotoFetcher;
 @class MSGraphExtensionCollectionFetcher;
-@class MSGraphPhotoFetcher;
+@class MSGraphProfilePhotoFetcher;
 @class MSGraphExtensionFetcher;
 @class MSGraphContactOperations;
 
@@ -51,7 +51,7 @@ root for authoritative license information.﻿
 - (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
 
 
-@property (strong, nonatomic, readonly, getter=photo) MSGraphPhotoFetcher *photo;
+@property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
 
 @end
 

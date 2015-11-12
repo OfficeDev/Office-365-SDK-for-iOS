@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_href = [dic objectForKey: @"href"] != nil ? [[dic objectForKey: @"href"] copy] : _href;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_href copy], @"href",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.href copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"href"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.ExternalLink" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.href;
+    if([self.updatedValues containsObject:@"href"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"href"];
+    }
+    }
+    return dic;
 }
 
 

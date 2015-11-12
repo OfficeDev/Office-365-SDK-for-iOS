@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSFilesImageFacet;
 #import "MSFilesItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSFilesFile
  *

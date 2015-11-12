@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Photo", @"photo", @"Photos", @"photos", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"drive", @"drive", @"plans", @"plans", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Photo", @"photo", @"Photos", @"photos", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"drive", @"drive", @"plans", @"plans", @"notes", @"notes", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
     
     }
     
@@ -199,13 +199,13 @@ root for authoritative license information.﻿
             }
         }
         
-		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphProfilePhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
 
         if([dic objectForKey: @"Photos"] != [NSNull null]){
             _photos = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Photos"] count]];
             
             for (id object in [dic objectForKey: @"Photos"]) {
-                [_photos addObject:[[MSGraphPhoto alloc] initWithDictionary: object]];
+                [_photos addObject:[[MSGraphProfilePhoto alloc] initWithDictionary: object]];
             }
         }
         
@@ -237,52 +237,458 @@ root for authoritative license information.﻿
             }
         }
         
+		_notes = [dic objectForKey: @"notes"] != nil ? [[MSGraphNotes alloc] initWithDictionary: [dic objectForKey: @"notes"]] : _notes;
+		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
+		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
+		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__description copy], @"description",
-		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
-		 [_displayName copy], @"displayName",
-		 [[NSMutableArray alloc] init], @"creationOptions",
-		 [[NSMutableArray alloc] init], @"groupTypes",
-		 (_isPublic?@"true":@"false"), @"isPublic",
-		 [MSOrcObjectizer stringFromDate:_lastDirSyncTime], @"lastDirSyncTime",
-		 [_mail copy], @"mail",
-		 [_mailNickname copy], @"mailNickname",
-		 (_mailEnabled?@"true":@"false"), @"mailEnabled",
-		 [_onPremisesSecurityIdentifier copy], @"onPremisesSecurityIdentifier",
-		 [[NSMutableArray alloc] init], @"provisioningErrors",
-		 [[NSMutableArray alloc] init], @"proxyAddresses",
-		 (_securityEnabled?@"true":@"false"), @"securityEnabled",
-		 [MSGraphGroupAccessTypeSerializer toString:_accessType], @"AccessType",
-		 (_allowExternalSenders?@"true":@"false"), @"AllowExternalSenders",
-		 (_autoSubscribeNewMembers?@"true":@"false"), @"AutoSubscribeNewMembers",
-		 [_emailAddress copy], @"EmailAddress",
-		 (_isFavorite?@"true":@"false"), @"IsFavorite",
-		 (_isSubscribedByMail?@"true":@"false"), @"IsSubscribedByMail",
-		 [NSNumber numberWithInt: _unseenCount], @"UnseenCount",
-		 [[NSMutableArray alloc] init], @"appRoleAssignments",
-		 [[NSMutableArray alloc] init], @"members",
-		 [[NSMutableArray alloc] init], @"memberOf",
-		 [_createdOnBehalfOf toDictionary], @"createdOnBehalfOf",
-		 [[NSMutableArray alloc] init], @"owners",
-		 [[NSMutableArray alloc] init], @"Threads",
-		 [_calendar toDictionary], @"Calendar",
-		 [[NSMutableArray alloc] init], @"CalendarView",
-		 [[NSMutableArray alloc] init], @"Events",
-		 [[NSMutableArray alloc] init], @"Conversations",
-		 [_photo toDictionary], @"Photo",
-		 [[NSMutableArray alloc] init], @"Photos",
-		 [[NSMutableArray alloc] init], @"AcceptedSenders",
-		 [[NSMutableArray alloc] init], @"RejectedSenders",
-		 [_drive toDictionary], @"drive",
-		 [[NSMutableArray alloc] init], @"plans",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{id curVal = (self.dirSyncEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"dirSyncEnabled"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"creationOptions"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"groupTypes"];}
+	{id curVal = (self.isPublic?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isPublic"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDirSyncTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastDirSyncTime"];}
+	{id curVal = [self.mail copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mail"];}
+	{id curVal = [self.mailNickname copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mailNickname"];}
+	{id curVal = (self.mailEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"mailEnabled"];}
+	{id curVal = [self.onPremisesSecurityIdentifier copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"onPremisesSecurityIdentifier"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"proxyAddresses"];}
+	{id curVal = (self.securityEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"securityEnabled"];}
+	{id curVal = [MSGraphGroupAccessTypeSerializer toString:self.accessType]; if (curVal!=nil) [dic setValue: curVal forKey: @"AccessType"];}
+	{id curVal = (self.allowExternalSenders?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"AllowExternalSenders"];}
+	{id curVal = (self.autoSubscribeNewMembers?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"AutoSubscribeNewMembers"];}
+	{id curVal = [self.emailAddress copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
+	{id curVal = (self.isFavorite?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsFavorite"];}
+	{id curVal = (self.isSubscribedByMail?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsSubscribedByMail"];}
+	{id curVal = [NSNumber numberWithInt: self.unseenCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"UnseenCount"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignments"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
+	{id curVal = [self.createdOnBehalfOf toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
+	{id curVal = [self.calendar toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Conversations"];}
+	{id curVal = [self.photo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Photos"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"AcceptedSenders"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"RejectedSenders"];}
+	{id curVal = [self.drive toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"drive"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"plans"];}
+	{id curVal = [self.notes toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"notes"];}
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#Microsoft.Graph.Group" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._description;
+    if([self.updatedValues containsObject:@"description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+    }
+    }
+	{id curVal = self.dirSyncEnabled;
+    if([self.updatedValues containsObject:@"dirSyncEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"displayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+    }
+    }
+	{id curVal = self.creationOptions;
+    if([self.updatedValues containsObject:@"creationOptions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"creationOptions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.groupTypes;
+    if([self.updatedValues containsObject:@"groupTypes"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"groupTypes"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.isPublic;
+    if([self.updatedValues containsObject:@"isPublic"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isPublic"];
+    }
+    }
+	{id curVal = self.lastDirSyncTime;
+    if([self.updatedValues containsObject:@"lastDirSyncTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastDirSyncTime"];
+    }
+    }
+	{id curVal = self.mail;
+    if([self.updatedValues containsObject:@"mail"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mail"];
+    }
+    }
+	{id curVal = self.mailNickname;
+    if([self.updatedValues containsObject:@"mailNickname"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mailNickname"];
+    }
+    }
+	{id curVal = self.mailEnabled;
+    if([self.updatedValues containsObject:@"mailEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"mailEnabled"];
+    }
+    }
+	{id curVal = self.onPremisesSecurityIdentifier;
+    if([self.updatedValues containsObject:@"onPremisesSecurityIdentifier"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"onPremisesSecurityIdentifier"];
+    }
+    }
+	{id curVal = self.provisioningErrors;
+    if([self.updatedValues containsObject:@"provisioningErrors"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"provisioningErrors"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.proxyAddresses;
+    if([self.updatedValues containsObject:@"proxyAddresses"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"proxyAddresses"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.securityEnabled;
+    if([self.updatedValues containsObject:@"securityEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"securityEnabled"];
+    }
+    }
+	{id curVal = self.accessType;
+    if([self.updatedValues containsObject:@"AccessType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphGroupAccessTypeSerializer toString:curVal] forKey: @"AccessType"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"AccessType"];
+            }
+        
+            }}
+	{id curVal = self.allowExternalSenders;
+    if([self.updatedValues containsObject:@"AllowExternalSenders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"AllowExternalSenders"];
+    }
+    }
+	{id curVal = self.autoSubscribeNewMembers;
+    if([self.updatedValues containsObject:@"AutoSubscribeNewMembers"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"AutoSubscribeNewMembers"];
+    }
+    }
+	{id curVal = self.emailAddress;
+    if([self.updatedValues containsObject:@"EmailAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"EmailAddress"];
+    }
+    }
+	{id curVal = self.isFavorite;
+    if([self.updatedValues containsObject:@"IsFavorite"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsFavorite"];
+    }
+    }
+	{id curVal = self.isSubscribedByMail;
+    if([self.updatedValues containsObject:@"IsSubscribedByMail"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsSubscribedByMail"];
+    }
+    }
+	{id curVal = self.unseenCount;
+    if([self.updatedValues containsObject:@"UnseenCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UnseenCount"];
+    }
+    }
+	{id curVal = self.appRoleAssignments;
+    if([self.updatedValues containsObject:@"appRoleAssignments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoleAssignments"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.members;
+    if([self.updatedValues containsObject:@"members"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"members"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.memberOf;
+    if([self.updatedValues containsObject:@"memberOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"memberOf"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.createdOnBehalfOf;
+    if([self.updatedValues containsObject:@"createdOnBehalfOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdOnBehalfOf"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdOnBehalfOf"];
+            }
+        
+            }}
+	{id curVal = self.owners;
+    if([self.updatedValues containsObject:@"owners"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owners"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.threads;
+    if([self.updatedValues containsObject:@"Threads"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Threads"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.calendar;
+    if([self.updatedValues containsObject:@"Calendar"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendar"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Calendar"];
+            }
+        
+            }}
+	{id curVal = self.calendarView;
+    if([self.updatedValues containsObject:@"CalendarView"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarView"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.events;
+    if([self.updatedValues containsObject:@"Events"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Events"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.conversations;
+    if([self.updatedValues containsObject:@"Conversations"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Conversations"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.photo;
+    if([self.updatedValues containsObject:@"Photo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Photo"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Photo"];
+            }
+        
+            }}
+	{id curVal = self.photos;
+    if([self.updatedValues containsObject:@"Photos"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Photos"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.acceptedSenders;
+    if([self.updatedValues containsObject:@"AcceptedSenders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"AcceptedSenders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.rejectedSenders;
+    if([self.updatedValues containsObject:@"RejectedSenders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RejectedSenders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.drive;
+    if([self.updatedValues containsObject:@"drive"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"drive"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"drive"];
+            }
+        
+            }}
+	{id curVal = self.plans;
+    if([self.updatedValues containsObject:@"plans"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"plans"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.notes;
+    if([self.updatedValues containsObject:@"notes"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"notes"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"notes"];
+            }
+        
+            }}
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+    return dic;
 }
 
 
@@ -544,7 +950,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property photo
  *
  */
-- (void) setPhoto: (MSGraphPhoto *) value {
+- (void) setPhoto: (MSGraphProfilePhoto *) value {
     _photo = value;
     [self valueChangedFor:@"Photo"];
 }
@@ -587,6 +993,14 @@ root for authoritative license information.﻿
 - (void) setPlans: (NSMutableArray *) value {
     _plans = value;
     [self valueChangedFor:@"plans"];
+}
+       
+/** Setter implementation for property notes
+ *
+ */
+- (void) setNotes: (MSGraphNotes *) value {
+    _notes = value;
+    [self valueChangedFor:@"notes"];
 }
        
 

@@ -13,6 +13,7 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSOUTLOOKFETCHERS_H
 #define MSOUTLOOKFETCHERS_H
 #import "MSOutlookEntityCollectionFetcher.h"

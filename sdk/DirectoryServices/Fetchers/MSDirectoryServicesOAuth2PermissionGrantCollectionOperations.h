@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANTCOLLECTIONOPERATIONS_H
 #define MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANTCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSDirectoryServicesModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSDirectoryServicesOAuth2PermissionGrantCollectionOperations
  *

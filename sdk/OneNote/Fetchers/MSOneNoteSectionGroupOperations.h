@@ -17,9 +17,10 @@ root for authoritative license information.﻿
 #define MSONENOTESECTIONGROUPOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSOneNoteModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
 
 
 /** MSOneNoteSectionGroupOperations

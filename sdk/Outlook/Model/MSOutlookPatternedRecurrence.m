@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_pattern = [dic objectForKey: @"Pattern"] != nil ? [[MSOutlookRecurrencePattern alloc] initWithDictionary: [dic objectForKey: @"Pattern"]] : _pattern;
 		_range = [dic objectForKey: @"Range"] != nil ? [[MSOutlookRecurrenceRange alloc] initWithDictionary: [dic objectForKey: @"Range"]] : _range;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_pattern toDictionary], @"Pattern",
-		 [_range toDictionary], @"Range",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.pattern toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Pattern"];}
+	{id curVal = [self.range toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Range"];}
+    [dic setValue: @"#Microsoft.OutlookServices.PatternedRecurrence" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.pattern;
+    if([self.updatedValues containsObject:@"Pattern"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Pattern"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Pattern"];
+            }
+        
+            }}
+	{id curVal = self.range;
+    if([self.updatedValues containsObject:@"Range"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Range"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Range"];
+            }
+        
+            }}
+    return dic;
 }
 
 

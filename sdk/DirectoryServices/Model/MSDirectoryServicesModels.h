@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESMODELS_H
 #define MSDIRECTORYSERVICESMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSDirectoryServicesAssignedLicense.h"
 #import "MSDirectoryServicesAppRole.h"

@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSONENOTEMODELS_H
 #define MSONENOTEMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSOneNotePatchInsertPosition.h"
 #import "MSOneNotePatchActionType.h"

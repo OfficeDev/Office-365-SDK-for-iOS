@@ -67,16 +67,45 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_resourceAppId copy], @"resourceAppId",
-		 [[NSMutableArray alloc] init], @"resourceAccess",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.resourceAppId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceAppId"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceAccess"];}
+    [dic setValue: @"#Microsoft.Graph.RequiredResourceAccess" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.resourceAppId;
+    if([self.updatedValues containsObject:@"resourceAppId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceAppId"];
+    }
+    }
+	{id curVal = self.resourceAccess;
+    if([self.updatedValues containsObject:@"resourceAccess"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"resourceAccess"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

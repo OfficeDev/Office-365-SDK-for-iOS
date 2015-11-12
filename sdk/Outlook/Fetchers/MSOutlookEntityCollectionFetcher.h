@@ -18,9 +18,8 @@ root for authoritative license information.﻿
 
 @class MSOutlookEntityFetcher;
 
-
-
-#import <orc.h>
+#import "core/MSOrcCollectionFetcher.h"
+#import "api/api.h"
 #import "MSOutlookModels.h"
 
 /** MSOutlookEntityCollectionFetcher

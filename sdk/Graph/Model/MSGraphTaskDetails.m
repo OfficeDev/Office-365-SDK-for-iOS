@@ -63,20 +63,98 @@ root for authoritative license information.﻿
 		_checklist = [dic objectForKey: @"checklist"] != nil ? [[MSGraphChecklistItemCollection alloc] initWithDictionary: [dic objectForKey: @"checklist"]] : _checklist;
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__description copy], @"description",
-		 [MSGraphPreviewTypeSerializer toString:_previewType], @"previewType",
-		 [_completedBy copy], @"completedBy",
-		 [_references toDictionary], @"references",
-		 [_checklist toDictionary], @"checklist",
-		 [__id copy], @"id",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{id curVal = [MSGraphPreviewTypeSerializer toString:self.previewType]; if (curVal!=nil) [dic setValue: curVal forKey: @"previewType"];}
+	{id curVal = [self.completedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"completedBy"];}
+	{id curVal = [self.references toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"references"];}
+	{id curVal = [self.checklist toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"checklist"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#Microsoft.Graph.taskDetails" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._description;
+    if([self.updatedValues containsObject:@"description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+    }
+    }
+	{id curVal = self.previewType;
+    if([self.updatedValues containsObject:@"previewType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"previewType"];
+            }
+        
+            }}
+	{id curVal = self.completedBy;
+    if([self.updatedValues containsObject:@"completedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"completedBy"];
+    }
+    }
+	{id curVal = self.references;
+    if([self.updatedValues containsObject:@"references"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"references"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"references"];
+            }
+        
+            }}
+	{id curVal = self.checklist;
+    if([self.updatedValues containsObject:@"checklist"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"checklist"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"checklist"];
+            }
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+    return dic;
 }
 
 

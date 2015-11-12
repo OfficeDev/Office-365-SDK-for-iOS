@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_accuracy = [dic objectForKey: @"Accuracy"] != nil ? [[dic objectForKey: @"Accuracy"] doubleValue] : _accuracy;
 		_altitudeAccuracy = [dic objectForKey: @"AltitudeAccuracy"] != nil ? [[dic objectForKey: @"AltitudeAccuracy"] doubleValue] : _altitudeAccuracy;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithDouble: _altitude], @"Altitude",
-		 [NSNumber numberWithDouble: _latitude], @"Latitude",
-		 [NSNumber numberWithDouble: _longitude], @"Longitude",
-		 [NSNumber numberWithDouble: _accuracy], @"Accuracy",
-		 [NSNumber numberWithDouble: _altitudeAccuracy], @"AltitudeAccuracy",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithDouble: self.altitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"Altitude"];}
+	{id curVal = [NSNumber numberWithDouble: self.latitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"Latitude"];}
+	{id curVal = [NSNumber numberWithDouble: self.longitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"Longitude"];}
+	{id curVal = [NSNumber numberWithDouble: self.accuracy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Accuracy"];}
+	{id curVal = [NSNumber numberWithDouble: self.altitudeAccuracy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AltitudeAccuracy"];}
+    [dic setValue: @"#Microsoft.OutlookServices.GeoCoordinates" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.altitude;
+    if([self.updatedValues containsObject:@"Altitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Altitude"];
+    }
+    }
+	{id curVal = self.latitude;
+    if([self.updatedValues containsObject:@"Latitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Latitude"];
+    }
+    }
+	{id curVal = self.longitude;
+    if([self.updatedValues containsObject:@"Longitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Longitude"];
+    }
+    }
+	{id curVal = self.accuracy;
+    if([self.updatedValues containsObject:@"Accuracy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Accuracy"];
+    }
+    }
+	{id curVal = self.altitudeAccuracy;
+    if([self.updatedValues containsObject:@"AltitudeAccuracy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"AltitudeAccuracy"];
+    }
+    }
+    return dic;
 }
 
 

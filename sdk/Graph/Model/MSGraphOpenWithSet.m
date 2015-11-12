@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_web = [dic objectForKey: @"web"] != nil ? [[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"web"]] : _web;
 		_webEmbedded = [dic objectForKey: @"webEmbedded"] != nil ? [[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"webEmbedded"]] : _webEmbedded;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_web toDictionary], @"web",
-		 [_webEmbedded toDictionary], @"webEmbedded",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.web toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"web"];}
+	{id curVal = [self.webEmbedded toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"webEmbedded"];}
+    [dic setValue: @"#Microsoft.Graph.openWithSet" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.web;
+    if([self.updatedValues containsObject:@"web"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"web"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"web"];
+            }
+        
+            }}
+	{id curVal = self.webEmbedded;
+    if([self.updatedValues containsObject:@"webEmbedded"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"webEmbedded"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"webEmbedded"];
+            }
+        
+            }}
+    return dic;
 }
 
 

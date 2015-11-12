@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_oneNoteClientUrl = [dic objectForKey: @"oneNoteClientUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]] : _oneNoteClientUrl;
 		_oneNoteWebUrl = [dic objectForKey: @"oneNoteWebUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]] : _oneNoteWebUrl;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_oneNoteClientUrl toDictionary], @"oneNoteClientUrl",
-		 [_oneNoteWebUrl toDictionary], @"oneNoteWebUrl",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.oneNoteClientUrl toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteClientUrl"];}
+	{id curVal = [self.oneNoteWebUrl toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteWebUrl"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.NotebookLinks" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.oneNoteClientUrl;
+    if([self.updatedValues containsObject:@"oneNoteClientUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteClientUrl"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"oneNoteClientUrl"];
+            }
+        
+            }}
+	{id curVal = self.oneNoteWebUrl;
+    if([self.updatedValues containsObject:@"oneNoteWebUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteWebUrl"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"oneNoteWebUrl"];
+            }
+        
+            }}
+    return dic;
 }
 
 

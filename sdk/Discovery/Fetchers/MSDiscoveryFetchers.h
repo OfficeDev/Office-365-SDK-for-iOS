@@ -13,6 +13,7 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSDISCOVERYFETCHERS_H
 #define MSDISCOVERYFETCHERS_H
 #import "MSDiscoveryServiceInfoCollectionFetcher.h"

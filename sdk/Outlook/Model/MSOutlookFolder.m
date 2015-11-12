@@ -81,22 +81,94 @@ root for authoritative license information.﻿
             }
         }
         
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_displayName copy], @"DisplayName",
-		 [_parentFolderId copy], @"ParentFolderId",
-		 [NSNumber numberWithInt: _childFolderCount], @"ChildFolderCount",
-		 [NSNumber numberWithInt: _unreadItemCount], @"UnreadItemCount",
-		 [NSNumber numberWithInt: _totalItemCount], @"TotalItemCount",
-		 [[NSMutableArray alloc] init], @"Messages",
-		 [[NSMutableArray alloc] init], @"ChildFolders",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.parentFolderId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
+	{id curVal = [NSNumber numberWithInt: self.childFolderCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolderCount"];}
+	{id curVal = [NSNumber numberWithInt: self.unreadItemCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"UnreadItemCount"];}
+	{id curVal = [NSNumber numberWithInt: self.totalItemCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"TotalItemCount"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Messages"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolders"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.OutlookServices.Folder" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.parentFolderId;
+    if([self.updatedValues containsObject:@"ParentFolderId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
+    }
+    }
+	{id curVal = self.childFolderCount;
+    if([self.updatedValues containsObject:@"ChildFolderCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ChildFolderCount"];
+    }
+    }
+	{id curVal = self.unreadItemCount;
+    if([self.updatedValues containsObject:@"UnreadItemCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UnreadItemCount"];
+    }
+    }
+	{id curVal = self.totalItemCount;
+    if([self.updatedValues containsObject:@"TotalItemCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"TotalItemCount"];
+    }
+    }
+	{id curVal = self.messages;
+    if([self.updatedValues containsObject:@"Messages"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Messages"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.childFolders;
+    if([self.updatedValues containsObject:@"ChildFolders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ChildFolders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

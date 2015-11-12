@@ -64,22 +64,82 @@ root for authoritative license information.﻿
 		_userConsentDisplayName = [dic objectForKey: @"userConsentDisplayName"] != nil ? [[dic objectForKey: @"userConsentDisplayName"] copy] : _userConsentDisplayName;
 		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_adminConsentDescription copy], @"adminConsentDescription",
-		 [_adminConsentDisplayName copy], @"adminConsentDisplayName",
-		 [__id copy], @"id",
-		 (_isEnabled?@"true":@"false"), @"isEnabled",
-		 [_type copy], @"type",
-		 [_userConsentDescription copy], @"userConsentDescription",
-		 [_userConsentDisplayName copy], @"userConsentDisplayName",
-		 [_value copy], @"value",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.adminConsentDescription copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"adminConsentDescription"];}
+	{id curVal = [self.adminConsentDisplayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"adminConsentDisplayName"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = (self.isEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isEnabled"];}
+	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.userConsentDescription copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"userConsentDescription"];}
+	{id curVal = [self.userConsentDisplayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"userConsentDisplayName"];}
+	{id curVal = [self.value copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.OAuth2Permission" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.adminConsentDescription;
+    if([self.updatedValues containsObject:@"adminConsentDescription"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"adminConsentDescription"];
+    }
+    }
+	{id curVal = self.adminConsentDisplayName;
+    if([self.updatedValues containsObject:@"adminConsentDisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"adminConsentDisplayName"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.isEnabled;
+    if([self.updatedValues containsObject:@"isEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
+    }
+    }
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+    }
+    }
+	{id curVal = self.userConsentDescription;
+    if([self.updatedValues containsObject:@"userConsentDescription"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"userConsentDescription"];
+    }
+    }
+	{id curVal = self.userConsentDisplayName;
+    if([self.updatedValues containsObject:@"userConsentDisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"userConsentDisplayName"];
+    }
+    }
+	{id curVal = self.value;
+    if([self.updatedValues containsObject:@"value"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
+    }
+    }
+    return dic;
 }
 
 

@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_siteCollectionId = [dic objectForKey: @"siteCollectionId"] != nil ? [[dic objectForKey: @"siteCollectionId"] copy] : _siteCollectionId;
 		_siteId = [dic objectForKey: @"siteId"] != nil ? [[dic objectForKey: @"siteId"] copy] : _siteId;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_siteCollectionId copy], @"siteCollectionId",
-		 [_siteId copy], @"siteId",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.siteCollectionId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"siteCollectionId"];}
+	{id curVal = [self.siteId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"siteId"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.SiteMetadata" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.siteCollectionId;
+    if([self.updatedValues containsObject:@"siteCollectionId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteCollectionId"];
+    }
+    }
+	{id curVal = self.siteId;
+    if([self.updatedValues containsObject:@"siteId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteId"];
+    }
+    }
+    return dic;
 }
 
 

@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSONENOTEPAGEFETCHER_H
 #define MSONENOTEPAGEFETCHER_H
 
-#import <orc.h>
 #import "MSOneNoteModels.h"
-#import "MSOrcMediaEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcMediaEntityFetcher.h"
 
 @class MSOneNotePageLinksFetcher;
 @class MSOneNoteSectionFetcher;

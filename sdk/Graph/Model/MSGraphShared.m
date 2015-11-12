@@ -58,16 +58,50 @@ root for authoritative license information.﻿
 		_owner = [dic objectForKey: @"owner"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
 		_scope = [dic objectForKey: @"scope"] != nil ? [[dic objectForKey: @"scope"] copy] : _scope;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_owner toDictionary], @"owner",
-		 [_scope copy], @"scope",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.owner toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.scope copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"scope"];}
+    [dic setValue: @"#Microsoft.Graph.shared" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.owner;
+    if([self.updatedValues containsObject:@"owner"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"owner"];
+            }
+        
+            }}
+	{id curVal = self.scope;
+    if([self.updatedValues containsObject:@"scope"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"scope"];
+    }
+    }
+    return dic;
 }
 
 

@@ -24,7 +24,7 @@ root for authoritative license information.﻿
 @class MSGraphProvisioningError;
 @class MSGraphVerifiedDomain;
 #import "MSGraphDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphTenantDetail
  *

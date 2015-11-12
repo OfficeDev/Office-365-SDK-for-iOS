@@ -69,19 +69,68 @@ root for authoritative license information.﻿
             }
         }
         
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromDate:_dateTimeCreated], @"DateTimeCreated",
-		 [MSOrcObjectizer stringFromDate:_dateTimeLastModified], @"DateTimeLastModified",
-		 [_changeKey copy], @"ChangeKey",
-		 [[NSMutableArray alloc] init], @"Categories",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.OutlookServices.Item" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.dateTimeCreated;
+    if([self.updatedValues containsObject:@"DateTimeCreated"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+    }
+    }
+	{id curVal = self.dateTimeLastModified;
+    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+    }
+    }
+	{id curVal = self.changeKey;
+    if([self.updatedValues containsObject:@"ChangeKey"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+    }
+    }
+	{id curVal = self.categories;
+    if([self.updatedValues containsObject:@"Categories"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Categories"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

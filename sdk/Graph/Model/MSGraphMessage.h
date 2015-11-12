@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 #import "MSGraphImportance.h"
 #import "MSGraphInferenceClassificationType.h"
 #import "MSGraphOutlookItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphMessage
  *

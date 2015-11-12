@@ -26,12 +26,13 @@ root for authoritative license information.﻿
 @class MSGraphCalendar;
 @class MSGraphEvent;
 @class MSGraphConversation;
-@class MSGraphPhoto;
+@class MSGraphProfilePhoto;
 @class MSGraphDrive;
 @class MSGraphPlan;
+@class MSGraphNotes;
 #import "MSGraphGroupAccessType.h"
 #import "MSGraphDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphGroup
  *
@@ -198,7 +199,7 @@ root for authoritative license information.﻿
 /** Property photo
  *
  */
-@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphProfilePhoto * photo;
 
 /** Property photos
  *
@@ -224,6 +225,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
+
+/** Property notes
+ *
+ */
+@property (nonatomic,  copy, setter=setNotes:, getter=notes) MSGraphNotes * notes;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

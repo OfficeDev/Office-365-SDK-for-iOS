@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSOUTLOOKMODELS_H
 #define MSOUTLOOKMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSOutlookMeetingMessageType.h"
 #import "MSOutlookBodyType.h"

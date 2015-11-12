@@ -34,7 +34,7 @@ root for authoritative license information.﻿
         return [self allPhotosRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

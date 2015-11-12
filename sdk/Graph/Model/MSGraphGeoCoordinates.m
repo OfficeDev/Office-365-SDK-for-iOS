@@ -31,7 +31,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Altitude", @"altitude", @"Latitude", @"latitude", @"Longitude", @"longitude", @"Accuracy", @"accuracy", @"AltitudeAccuracy", @"altitudeAccuracy", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"altitude", @"altitude", @"latitude", @"latitude", @"longitude", @"longitude", nil];
     
     }
     
@@ -43,7 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.GeoCoordinates";
+		_odataType = @"#Microsoft.Graph.geoCoordinates";
 
         
     }
@@ -55,25 +55,51 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
-		_altitude = [dic objectForKey: @"Altitude"] != nil ? [[dic objectForKey: @"Altitude"] doubleValue] : _altitude;
-		_latitude = [dic objectForKey: @"Latitude"] != nil ? [[dic objectForKey: @"Latitude"] doubleValue] : _latitude;
-		_longitude = [dic objectForKey: @"Longitude"] != nil ? [[dic objectForKey: @"Longitude"] doubleValue] : _longitude;
-		_accuracy = [dic objectForKey: @"Accuracy"] != nil ? [[dic objectForKey: @"Accuracy"] doubleValue] : _accuracy;
-		_altitudeAccuracy = [dic objectForKey: @"AltitudeAccuracy"] != nil ? [[dic objectForKey: @"AltitudeAccuracy"] doubleValue] : _altitudeAccuracy;
+		_altitude = [dic objectForKey: @"altitude"] != nil ? [[dic objectForKey: @"altitude"] doubleValue] : _altitude;
+		_latitude = [dic objectForKey: @"latitude"] != nil ? [[dic objectForKey: @"latitude"] doubleValue] : _latitude;
+		_longitude = [dic objectForKey: @"longitude"] != nil ? [[dic objectForKey: @"longitude"] doubleValue] : _longitude;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithDouble: _altitude], @"Altitude",
-		 [NSNumber numberWithDouble: _latitude], @"Latitude",
-		 [NSNumber numberWithDouble: _longitude], @"Longitude",
-		 [NSNumber numberWithDouble: _accuracy], @"Accuracy",
-		 [NSNumber numberWithDouble: _altitudeAccuracy], @"AltitudeAccuracy",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithDouble: self.altitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"altitude"];}
+	{id curVal = [NSNumber numberWithDouble: self.latitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"latitude"];}
+	{id curVal = [NSNumber numberWithDouble: self.longitude]; if (curVal!=nil) [dic setValue: curVal forKey: @"longitude"];}
+    [dic setValue: @"#Microsoft.Graph.geoCoordinates" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.altitude;
+    if([self.updatedValues containsObject:@"altitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"altitude"];
+    }
+    }
+	{id curVal = self.latitude;
+    if([self.updatedValues containsObject:@"latitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"latitude"];
+    }
+    }
+	{id curVal = self.longitude;
+    if([self.updatedValues containsObject:@"longitude"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"longitude"];
+    }
+    }
+    return dic;
 }
 
 
@@ -82,7 +108,7 @@ root for authoritative license information.﻿
  */
 - (void) setAltitude: (double) value {
     _altitude = value;
-    [self valueChangedFor:@"Altitude"];
+    [self valueChangedFor:@"altitude"];
 }
        
 /** Setter implementation for property latitude
@@ -90,7 +116,7 @@ root for authoritative license information.﻿
  */
 - (void) setLatitude: (double) value {
     _latitude = value;
-    [self valueChangedFor:@"Latitude"];
+    [self valueChangedFor:@"latitude"];
 }
        
 /** Setter implementation for property longitude
@@ -98,23 +124,7 @@ root for authoritative license information.﻿
  */
 - (void) setLongitude: (double) value {
     _longitude = value;
-    [self valueChangedFor:@"Longitude"];
-}
-       
-/** Setter implementation for property accuracy
- *
- */
-- (void) setAccuracy: (double) value {
-    _accuracy = value;
-    [self valueChangedFor:@"Accuracy"];
-}
-       
-/** Setter implementation for property altitudeAccuracy
- *
- */
-- (void) setAltitudeAccuracy: (double) value {
-    _altitudeAccuracy = value;
-    [self valueChangedFor:@"AltitudeAccuracy"];
+    [self valueChangedFor:@"longitude"];
 }
        
 

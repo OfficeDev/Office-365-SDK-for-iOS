@@ -23,8 +23,8 @@ root for authoritative license information.﻿
 @class MSGraphTaskDetails;
 @class MSGraphTaskBoardTaskFormat;
 #import "MSGraphPreviewType.h"
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphTask
  *

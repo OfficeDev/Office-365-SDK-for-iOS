@@ -27,7 +27,7 @@ root for authoritative license information.﻿
 @class MSOutlookContact;
 @class MSOutlookContactFolder;
 #import "MSOutlookDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookUser
  *

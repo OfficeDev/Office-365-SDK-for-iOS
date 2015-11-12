@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_dateTimeTaken = [dic objectForKey: @"dateTimeTaken"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeTaken"]] : _dateTimeTaken;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromDate:_dateTimeTaken], @"dateTimeTaken",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeTaken]; if (curVal!=nil) [dic setValue: curVal forKey: @"dateTimeTaken"];}
+    [dic setValue: @"#Microsoft.FileServices.ImageFacet" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.dateTimeTaken;
+    if([self.updatedValues containsObject:@"dateTimeTaken"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"dateTimeTaken"];
+    }
+    }
+    return dic;
 }
 
 

@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_status = [dic objectForKey: @"status"] != nil ? [[dic objectForKey: @"status"] copy] : _status;
 		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_status copy], @"status",
-		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"createdDateTime",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.status copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.ImportStatusModel" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
+    }
+    }
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"createdDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+    }
+    }
+    return dic;
 }
 
 

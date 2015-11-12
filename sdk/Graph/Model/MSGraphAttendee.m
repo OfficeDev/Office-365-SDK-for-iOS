@@ -59,17 +59,77 @@ root for authoritative license information.﻿
 		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
 		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : _emailAddress;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_status toDictionary], @"Status",
-		 [MSGraphAttendeeTypeSerializer toString:_type], @"Type",
-		 [_emailAddress toDictionary], @"EmailAddress",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.status toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
+	{id curVal = [MSGraphAttendeeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = [self.emailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
+    [dic setValue: @"#Microsoft.Graph.Attendee" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"Status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Status"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Status"];
+            }
+        
+            }}
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.emailAddress;
+    if([self.updatedValues containsObject:@"EmailAddress"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"EmailAddress"];
+            }
+        
+            }}
+    return dic;
 }
 
 

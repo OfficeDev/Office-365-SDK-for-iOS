@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSOutlookEvent;
 #import "MSOutlookCalendarColor.h"
 #import "MSOutlookEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookCalendar
  *

@@ -21,8 +21,8 @@ root for authoritative license information.﻿
 
 @class MSGraphRecurrencePattern;
 @class MSGraphRecurrenceRange;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPatternedRecurrence
  *

@@ -58,16 +58,40 @@ root for authoritative license information.﻿
 		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
 		_address = [dic objectForKey: @"Address"] != nil ? [[dic objectForKey: @"Address"] copy] : _address;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_name copy], @"Name",
-		 [_address copy], @"Address",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.address copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
+    [dic setValue: @"#Microsoft.Graph.EmailAddress" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"Name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+    }
+    }
+	{id curVal = self.address;
+    if([self.updatedValues containsObject:@"Address"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Address"];
+    }
+    }
+    return dic;
 }
 
 

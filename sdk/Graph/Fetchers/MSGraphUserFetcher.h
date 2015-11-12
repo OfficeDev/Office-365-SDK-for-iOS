@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHUSERFETCHER_H
 #define MSGRAPHUSERFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphAssignedLicenseCollectionFetcher;
 @class MSGraphAssignedPlanCollectionFetcher;
@@ -37,16 +37,17 @@ root for authoritative license information.﻿
 @class MSGraphCalendarCollectionFetcher;
 @class MSGraphCalendarGroupCollectionFetcher;
 @class MSGraphEventCollectionFetcher;
-@class MSGraphPersonCollectionFetcher;
 @class MSGraphContactCollectionFetcher;
 @class MSGraphContactFolderCollectionFetcher;
 @class MSGraphInferenceClassificationFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
+@class MSGraphMailFolderFetcher;
+@class MSGraphProfilePhotoFetcher;
+@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
 @class MSGraphItemCollectionFetcher;
 @class MSGraphTaskCollectionFetcher;
 @class MSGraphPlanCollectionFetcher;
+@class MSGraphNotesFetcher;
 @class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphOAuth2PermissionGrantCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
@@ -58,16 +59,17 @@ root for authoritative license information.﻿
 @class MSGraphCalendarCollectionFetcher;
 @class MSGraphCalendarGroupCollectionFetcher;
 @class MSGraphEventCollectionFetcher;
-@class MSGraphPersonCollectionFetcher;
 @class MSGraphContactCollectionFetcher;
 @class MSGraphContactFolderCollectionFetcher;
 @class MSGraphInferenceClassificationFetcher;
-@class MSGraphPhotoFetcher;
-@class MSGraphPhotoCollectionFetcher;
+@class MSGraphMailFolderFetcher;
+@class MSGraphProfilePhotoFetcher;
+@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
 @class MSGraphItemCollectionFetcher;
 @class MSGraphTaskCollectionFetcher;
 @class MSGraphPlanCollectionFetcher;
+@class MSGraphNotesFetcher;
 @class MSGraphAppRoleAssignmentFetcher;
 @class MSGraphOAuth2PermissionGrantFetcher;
 @class MSGraphDirectoryObjectFetcher;
@@ -77,10 +79,9 @@ root for authoritative license information.﻿
 @class MSGraphCalendarFetcher;
 @class MSGraphCalendarGroupFetcher;
 @class MSGraphEventFetcher;
-@class MSGraphPersonFetcher;
 @class MSGraphContactFetcher;
 @class MSGraphContactFolderFetcher;
-@class MSGraphPhotoFetcher;
+@class MSGraphProfilePhotoFetcher;
 @class MSGraphItemFetcher;
 @class MSGraphUserFetcher;
 @class MSGraphTaskFetcher;
@@ -167,10 +168,6 @@ root for authoritative license information.﻿
 
 - (MSGraphEventFetcher *)eventsById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=people) MSGraphPersonCollectionFetcher *people;
-
-- (MSGraphPersonFetcher *)peopleById:(id)identifier;
-
 @property (strong, nonatomic, readonly, getter=contacts) MSGraphContactCollectionFetcher *contacts;
 
 - (MSGraphContactFetcher *)contactsById:(id)identifier;
@@ -182,10 +179,12 @@ root for authoritative license information.﻿
 
 @property (strong, nonatomic, readonly, getter=inferenceClassification) MSGraphInferenceClassificationFetcher *inferenceClassification;
 
-@property (strong, nonatomic, readonly, getter=photo) MSGraphPhotoFetcher *photo;
-@property (strong, nonatomic, readonly, getter=photos) MSGraphPhotoCollectionFetcher *photos;
+@property (strong, nonatomic, readonly, getter=rootFolder) MSGraphMailFolderFetcher *rootFolder;
 
-- (MSGraphPhotoFetcher *)photosById:(id)identifier;
+@property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
+@property (strong, nonatomic, readonly, getter=photos) MSGraphProfilePhotoCollectionFetcher *photos;
+
+- (MSGraphProfilePhotoFetcher *)photosById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
@@ -205,6 +204,8 @@ root for authoritative license information.﻿
 
 - (MSGraphPlanFetcher *)plansById:(id)identifier;
 
+
+@property (strong, nonatomic, readonly, getter=notes) MSGraphNotesFetcher *notes;
 
 @end
 

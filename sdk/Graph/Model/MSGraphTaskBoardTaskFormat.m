@@ -60,17 +60,57 @@ root for authoritative license information.﻿
 		_orderHint = [dic objectForKey: @"orderHint"] != nil ? [[dic objectForKey: @"orderHint"] copy] : _orderHint;
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSGraphTaskBoardTypeSerializer toString:_type], @"type",
-		 [_orderHint copy], @"orderHint",
-		 [__id copy], @"id",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSGraphTaskBoardTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.orderHint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#Microsoft.Graph.taskBoardTaskFormat" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphTaskBoardTypeSerializer toString:curVal] forKey: @"type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"type"];
+            }
+        
+            }}
+	{id curVal = self.orderHint;
+    if([self.updatedValues containsObject:@"orderHint"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+    return dic;
 }
 
 

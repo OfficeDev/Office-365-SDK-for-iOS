@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESCONTACTFETCHER_H
 #define MSDIRECTORYSERVICESCONTACTFETCHER_H
 
-#import <orc.h>
 #import "MSDirectoryServicesModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSDirectoryServicesProvisioningErrorCollectionFetcher;
 @class MSDirectoryServicesContactOperations;

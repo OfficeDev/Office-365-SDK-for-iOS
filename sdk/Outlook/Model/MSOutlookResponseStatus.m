@@ -58,16 +58,50 @@ root for authoritative license information.﻿
 		_response = [dic objectForKey: @"Response"] != nil ? [MSOutlookResponseTypeSerializer fromString:[dic objectForKey: @"Response"]] : _response;
 		_time = [dic objectForKey: @"Time"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]] : _time;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOutlookResponseTypeSerializer toString:_response], @"Response",
-		 [MSOrcObjectizer stringFromDate:_time], @"Time",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOutlookResponseTypeSerializer toString:self.response]; if (curVal!=nil) [dic setValue: curVal forKey: @"Response"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.time]; if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
+    [dic setValue: @"#Microsoft.OutlookServices.ResponseStatus" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.response;
+    if([self.updatedValues containsObject:@"Response"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookResponseTypeSerializer toString:curVal] forKey: @"Response"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Response"];
+            }
+        
+            }}
+	{id curVal = self.time;
+    if([self.updatedValues containsObject:@"Time"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
+    }
+    }
+    return dic;
 }
 
 

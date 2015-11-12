@@ -92,22 +92,127 @@ root for authoritative license information.﻿
         
 		_root = [dic objectForKey: @"root"] != nil ? [[MSGraphItem alloc] initWithDictionary: [dic objectForKey: @"root"]] : _root;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"id",
-		 [_driveType copy], @"driveType",
-		 [_owner toDictionary], @"owner",
-		 [_quota toDictionary], @"quota",
-		 [[NSMutableArray alloc] init], @"items",
-		 [[NSMutableArray alloc] init], @"shared",
-		 [[NSMutableArray alloc] init], @"special",
-		 [_root toDictionary], @"root",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.driveType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"driveType"];}
+	{id curVal = [self.owner toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.quota toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"quota"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"items"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"shared"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"special"];}
+	{id curVal = [self.root toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"root"];}
+    [dic setValue: @"#Microsoft.Graph.drive" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.driveType;
+    if([self.updatedValues containsObject:@"driveType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"driveType"];
+    }
+    }
+	{id curVal = self.owner;
+    if([self.updatedValues containsObject:@"owner"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"owner"];
+            }
+        
+            }}
+	{id curVal = self.quota;
+    if([self.updatedValues containsObject:@"quota"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"quota"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"quota"];
+            }
+        
+            }}
+	{id curVal = self.items;
+    if([self.updatedValues containsObject:@"items"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"items"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.shared;
+    if([self.updatedValues containsObject:@"shared"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"shared"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.special;
+    if([self.updatedValues containsObject:@"special"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"special"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.root;
+    if([self.updatedValues containsObject:@"root"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"root"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"root"];
+            }
+        
+            }}
+    return dic;
 }
 
 

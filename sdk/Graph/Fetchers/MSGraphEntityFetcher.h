@@ -17,18 +17,17 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHENTITYFETCHER_H
 #define MSGRAPHENTITYFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphOutlookItemFetcher;	
 @class MSGraphMailFolderFetcher;	
 @class MSGraphCalendarFetcher;	
 @class MSGraphCalendarGroupFetcher;	
-@class MSGraphPersonFetcher;	
 @class MSGraphContactFolderFetcher;	
 @class MSGraphInferenceClassificationFetcher;	
-@class MSGraphPhotoFetcher;	
+@class MSGraphProfilePhotoFetcher;	
 @class MSGraphConversationThreadFetcher;	
 @class MSGraphConversationFetcher;	
 @class MSGraphAttachmentFetcher;	
@@ -56,10 +55,9 @@ root for authoritative license information.﻿
 - (MSGraphMailFolderFetcher *)asMailFolder;	
 - (MSGraphCalendarFetcher *)asCalendar;	
 - (MSGraphCalendarGroupFetcher *)asCalendarGroup;	
-- (MSGraphPersonFetcher *)asPerson;	
 - (MSGraphContactFolderFetcher *)asContactFolder;	
 - (MSGraphInferenceClassificationFetcher *)asInferenceClassification;	
-- (MSGraphPhotoFetcher *)asPhoto;	
+- (MSGraphProfilePhotoFetcher *)asProfilePhoto;	
 - (MSGraphConversationThreadFetcher *)asConversationThread;	
 - (MSGraphConversationFetcher *)asConversation;	
 - (MSGraphAttachmentFetcher *)asAttachment;	

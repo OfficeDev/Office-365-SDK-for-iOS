@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_attendee = [dic objectForKey: @"Attendee"] != nil ? [[MSGraphAttendeeBase alloc] initWithDictionary: [dic objectForKey: @"Attendee"]] : _attendee;
 		_availability = [dic objectForKey: @"Availability"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"Availability"]] : _availability;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_attendee toDictionary], @"Attendee",
-		 [MSGraphFreeBusyStatusSerializer toString:_availability], @"Availability",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.attendee toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Attendee"];}
+	{id curVal = [MSGraphFreeBusyStatusSerializer toString:self.availability]; if (curVal!=nil) [dic setValue: curVal forKey: @"Availability"];}
+    [dic setValue: @"#Microsoft.Graph.AttendeeAvailability" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.attendee;
+    if([self.updatedValues containsObject:@"Attendee"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attendee"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Attendee"];
+            }
+        
+            }}
+	{id curVal = self.availability;
+    if([self.updatedValues containsObject:@"Availability"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"Availability"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Availability"];
+            }
+        
+            }}
+    return dic;
 }
 
 

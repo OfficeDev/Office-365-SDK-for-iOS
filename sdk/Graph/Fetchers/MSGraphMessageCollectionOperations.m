@@ -26,12 +26,12 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphMessage *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+      NSString *destinationIdString = [destinationId copy];
 
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMessage class]];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -71,12 +71,12 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphMessage *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [MSOrcObjectizer deobjectizeToString: destinationId ];
+      NSString *destinationIdString = [destinationId copy];
 
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMessage class]];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -119,7 +119,7 @@ root for authoritative license information.﻿
         return [self createReplyRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMessage class]];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -159,7 +159,7 @@ root for authoritative license information.﻿
         return [self createReplyAllRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMessage class]];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -199,7 +199,7 @@ root for authoritative license information.﻿
         return [self createForwardRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphMessage class]];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -236,12 +236,12 @@ root for authoritative license information.﻿
 - (void)replyWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
     return [self replyRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -281,12 +281,12 @@ root for authoritative license information.﻿
 - (void)replyAllWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
     return [self replyAllRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -326,14 +326,14 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSGraphRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [MSOrcObjectizer deobjectizeToString: comment ];
+      NSString *commentString = [comment copy];
 
-  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString: toRecipients ];
+  NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString:toRecipients];
 
     return [self forwardRawWithComment:commentString toRecipients:toRecipientsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -376,7 +376,7 @@ root for authoritative license information.﻿
         return [self sendRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {

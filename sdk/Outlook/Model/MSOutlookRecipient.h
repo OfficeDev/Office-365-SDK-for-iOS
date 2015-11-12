@@ -20,8 +20,8 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 
 @class MSOutlookEmailAddress;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookRecipient
  *

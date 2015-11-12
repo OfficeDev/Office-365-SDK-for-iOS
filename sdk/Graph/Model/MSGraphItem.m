@@ -80,7 +80,7 @@ root for authoritative license information.﻿
 		_fileSystemInfo = [dic objectForKey: @"fileSystemInfo"] != nil ? [[MSGraphFileSystemInfo alloc] initWithDictionary: [dic objectForKey: @"fileSystemInfo"]] : _fileSystemInfo;
 		_folder = [dic objectForKey: @"folder"] != nil ? [[MSGraphFolder alloc] initWithDictionary: [dic objectForKey: @"folder"]] : _folder;
 		_image = [dic objectForKey: @"image"] != nil ? [[MSGraphImage alloc] initWithDictionary: [dic objectForKey: @"image"]] : _image;
-		_location = [dic objectForKey: @"location"] != nil ? [[MSGraphLocation alloc] initWithDictionary: [dic objectForKey: @"location"]] : _location;
+		_location = [dic objectForKey: @"location"] != nil ? [[MSGraphGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"location"]] : _location;
 		_openWith = [dic objectForKey: @"openWith"] != nil ? [[MSGraphOpenWithSet alloc] initWithDictionary: [dic objectForKey: @"openWith"]] : _openWith;
 		_photo = [dic objectForKey: @"photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"photo"]] : _photo;
 		_searchResult = [dic objectForKey: @"searchResult"] != nil ? [[MSGraphSearchResult alloc] initWithDictionary: [dic objectForKey: @"searchResult"]] : _searchResult;
@@ -126,47 +126,457 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 nil/*NSStream*/, @"content",
-		 [_createdBy toDictionary], @"createdBy",
-		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"createdDateTime",
-		 [_cTag copy], @"cTag",
-		 [__description copy], @"description",
-		 [_eTag copy], @"eTag",
-		 [__id copy], @"id",
-		 [_lastModifiedBy toDictionary], @"lastModifiedBy",
-		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"lastModifiedDateTime",
-		 [_name copy], @"name",
-		 [_parentReference toDictionary], @"parentReference",
-		 [NSNumber numberWithLongLong: _size], @"size",
-		 [_webDavUrl copy], @"webDavUrl",
-		 [_webUrl copy], @"webUrl",
-		 [_audio toDictionary], @"audio",
-		 [_deleted toDictionary], @"deleted",
-		 [_file toDictionary], @"file",
-		 [_fileSystemInfo toDictionary], @"fileSystemInfo",
-		 [_folder toDictionary], @"folder",
-		 [_image toDictionary], @"image",
-		 [_location toDictionary], @"location",
-		 [_openWith toDictionary], @"openWith",
-		 [_photo toDictionary], @"photo",
-		 [_searchResult toDictionary], @"searchResult",
-		 [_shared toDictionary], @"shared",
-		 [_specialFolder toDictionary], @"specialFolder",
-		 [_video toDictionary], @"video",
-		 [_createdByUser toDictionary], @"createdByUser",
-		 [_lastModifiedByUser toDictionary], @"lastModifiedByUser",
-		 [[NSMutableArray alloc] init], @"permissions",
-		 [[NSMutableArray alloc] init], @"versions",
-		 [[NSMutableArray alloc] init], @"children",
-		 [[NSMutableArray alloc] init], @"thumbnails",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{id curVal = [self.createdBy toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [self.cTag copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"cTag"];}
+	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{id curVal = [self.eTag copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"eTag"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.lastModifiedBy toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedDateTime"];}
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.parentReference toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentReference"];}
+	{id curVal = [NSNumber numberWithLongLong: self.size]; if (curVal!=nil) [dic setValue: curVal forKey: @"size"];}
+	{id curVal = [self.webDavUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"webDavUrl"];}
+	{id curVal = [self.webUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"webUrl"];}
+	{id curVal = [self.audio toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"audio"];}
+	{id curVal = [self.deleted toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"deleted"];}
+	{id curVal = [self.file toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"file"];}
+	{id curVal = [self.fileSystemInfo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"fileSystemInfo"];}
+	{id curVal = [self.folder toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"folder"];}
+	{id curVal = [self.image toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"image"];}
+	{id curVal = [self.location toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"location"];}
+	{id curVal = [self.openWith toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"openWith"];}
+	{id curVal = [self.photo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"photo"];}
+	{id curVal = [self.searchResult toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"searchResult"];}
+	{id curVal = [self.shared toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"shared"];}
+	{id curVal = [self.specialFolder toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"specialFolder"];}
+	{id curVal = [self.video toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"video"];}
+	{id curVal = [self.createdByUser toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdByUser"];}
+	{id curVal = [self.lastModifiedByUser toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedByUser"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"permissions"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"versions"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"children"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"thumbnails"];}
+    [dic setValue: @"#Microsoft.Graph.item" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.content;
+    if([self.updatedValues containsObject:@"content"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+    }
+    }
+	{id curVal = self.createdBy;
+    if([self.updatedValues containsObject:@"createdBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdBy"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdBy"];
+            }
+        
+            }}
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"createdDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+    }
+    }
+	{id curVal = self.cTag;
+    if([self.updatedValues containsObject:@"cTag"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cTag"];
+    }
+    }
+	{id curVal = self._description;
+    if([self.updatedValues containsObject:@"description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+    }
+    }
+	{id curVal = self.eTag;
+    if([self.updatedValues containsObject:@"eTag"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"eTag"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.lastModifiedBy;
+    if([self.updatedValues containsObject:@"lastModifiedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"lastModifiedBy"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"lastModifiedBy"];
+            }
+        
+            }}
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"lastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedDateTime"];
+    }
+    }
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+    }
+    }
+	{id curVal = self.parentReference;
+    if([self.updatedValues containsObject:@"parentReference"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentReference"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"parentReference"];
+            }
+        
+            }}
+	{id curVal = self.size;
+    if([self.updatedValues containsObject:@"size"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"size"];
+    }
+    }
+	{id curVal = self.webDavUrl;
+    if([self.updatedValues containsObject:@"webDavUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webDavUrl"];
+    }
+    }
+	{id curVal = self.webUrl;
+    if([self.updatedValues containsObject:@"webUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webUrl"];
+    }
+    }
+	{id curVal = self.audio;
+    if([self.updatedValues containsObject:@"audio"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"audio"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"audio"];
+            }
+        
+            }}
+	{id curVal = self.deleted;
+    if([self.updatedValues containsObject:@"deleted"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"deleted"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"deleted"];
+            }
+        
+            }}
+	{id curVal = self.file;
+    if([self.updatedValues containsObject:@"file"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"file"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"file"];
+            }
+        
+            }}
+	{id curVal = self.fileSystemInfo;
+    if([self.updatedValues containsObject:@"fileSystemInfo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"fileSystemInfo"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"fileSystemInfo"];
+            }
+        
+            }}
+	{id curVal = self.folder;
+    if([self.updatedValues containsObject:@"folder"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"folder"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"folder"];
+            }
+        
+            }}
+	{id curVal = self.image;
+    if([self.updatedValues containsObject:@"image"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"image"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"image"];
+            }
+        
+            }}
+	{id curVal = self.location;
+    if([self.updatedValues containsObject:@"location"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"location"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"location"];
+            }
+        
+            }}
+	{id curVal = self.openWith;
+    if([self.updatedValues containsObject:@"openWith"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"openWith"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"openWith"];
+            }
+        
+            }}
+	{id curVal = self.photo;
+    if([self.updatedValues containsObject:@"photo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"photo"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"photo"];
+            }
+        
+            }}
+	{id curVal = self.searchResult;
+    if([self.updatedValues containsObject:@"searchResult"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"searchResult"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"searchResult"];
+            }
+        
+            }}
+	{id curVal = self.shared;
+    if([self.updatedValues containsObject:@"shared"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"shared"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"shared"];
+            }
+        
+            }}
+	{id curVal = self.specialFolder;
+    if([self.updatedValues containsObject:@"specialFolder"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"specialFolder"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"specialFolder"];
+            }
+        
+            }}
+	{id curVal = self.video;
+    if([self.updatedValues containsObject:@"video"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"video"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"video"];
+            }
+        
+            }}
+	{id curVal = self.createdByUser;
+    if([self.updatedValues containsObject:@"createdByUser"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdByUser"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdByUser"];
+            }
+        
+            }}
+	{id curVal = self.lastModifiedByUser;
+    if([self.updatedValues containsObject:@"lastModifiedByUser"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"lastModifiedByUser"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"lastModifiedByUser"];
+            }
+        
+            }}
+	{id curVal = self.permissions;
+    if([self.updatedValues containsObject:@"permissions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"permissions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.versions;
+    if([self.updatedValues containsObject:@"versions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"versions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.children;
+    if([self.updatedValues containsObject:@"children"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"children"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.thumbnails;
+    if([self.updatedValues containsObject:@"thumbnails"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"thumbnails"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 
@@ -333,7 +743,7 @@ root for authoritative license information.﻿
 /** Setter implementation for property location
  *
  */
-- (void) setLocation: (MSGraphLocation *) value {
+- (void) setLocation: (MSGraphGeoCoordinates *) value {
     _location = value;
     [self valueChangedFor:@"location"];
 }

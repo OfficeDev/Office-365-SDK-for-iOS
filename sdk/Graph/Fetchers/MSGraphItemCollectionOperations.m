@@ -26,20 +26,20 @@ root for authoritative license information.﻿
 - (void)inviteWithRecipients:(MSGraphRecipients *)recipients message:(NSString *)message requireSignIn:(bool)requireSignIn sendInvitation:(bool)sendInvitation roles:(NSString *)roles callback:(void (^)(MSGraphPermission *, MSOrcError*))callback {
 
 
-      NSString *recipientsString = [MSOrcObjectizer deobjectizeToString: recipients ];
+      NSString *recipientsString = [MSOrcObjectizer deobjectizeToString:recipients];
 
-  NSString *messageString = [MSOrcObjectizer deobjectizeToString: message ];
+  NSString *messageString = [message copy];
 
-  NSString *requireSignInString = [MSOrcObjectizer deobjectizeToString: @(requireSignIn) ];
+  NSString *requireSignInString = [MSOrcObjectizer stringFromBool:requireSignIn];
 
-  NSString *sendInvitationString = [MSOrcObjectizer deobjectizeToString: @(sendInvitation) ];
+  NSString *sendInvitationString = [MSOrcObjectizer stringFromBool:sendInvitation];
 
-  NSString *rolesString = [MSOrcObjectizer deobjectizeToString: roles ];
+  NSString *rolesString = [roles copy];
 
     return [self inviteRawWithRecipients:recipientsString message:messageString requireSignIn:requireSignInString sendInvitation:sendInvitationString roles:rolesString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPermission class]];
+            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -55,7 +55,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  recipients, @"recipients", message, @"message", requireSignIn?@"true":@"false", @"requireSignIn", sendInvitation?@"true":@"false", @"sendInvitation", roles, @"roles", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  recipients, @"recipients", message, @"message", requireSignIn, @"requireSignIn", sendInvitation, @"sendInvitation", roles, @"roles", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     
@@ -79,14 +79,14 @@ root for authoritative license information.﻿
 - (void)copyWithParentReference:(MSGraphItemReference *)parentReference name:(NSString *)name callback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-      NSString *parentReferenceString = [MSOrcObjectizer deobjectizeToString: parentReference ];
+      NSString *parentReferenceString = [MSOrcObjectizer deobjectizeToString:parentReference];
 
-  NSString *nameString = [MSOrcObjectizer deobjectizeToString: name ];
+  NSString *nameString = [name copy];
 
     return [self copyRawWithParentReference:parentReferenceString name:nameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -126,12 +126,12 @@ root for authoritative license information.﻿
 - (void)createLinkWithType:(NSString *)type callback:(void (^)(MSGraphPermission *, MSOrcError*))callback {
 
 
-      NSString *typeString = [MSOrcObjectizer deobjectizeToString: type ];
+      NSString *typeString = [type copy];
 
     return [self createLinkRawWithType:typeString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPermission class]];
+            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -171,12 +171,12 @@ root for authoritative license information.﻿
 - (void)createSessionWithItem:(MSGraphChunkedUploadSessionDescriptor *)item callback:(void (^)(MSGraphUploadSession *, MSOrcError*))callback {
 
 
-      NSString *itemString = [MSOrcObjectizer deobjectizeToString: item ];
+      NSString *itemString = [MSOrcObjectizer deobjectizeToString:item];
 
     return [self createSessionRawWithItem:itemString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphUploadSession * result = (MSGraphUploadSession *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphUploadSession class]];
+            MSGraphUploadSession * result = (MSGraphUploadSession *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -219,7 +219,7 @@ root for authoritative license information.﻿
         return [self allPhotosRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -256,12 +256,12 @@ root for authoritative license information.﻿
 - (void)deltaWithToken:(NSString *)token callback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-      NSString *tokenString = [MSOrcObjectizer deobjectizeToString: token ];
+      NSString *tokenString = [token copy];
 
     return [self deltaRawWithToken:tokenString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -301,12 +301,12 @@ root for authoritative license information.﻿
 - (void)searchWithQ:(NSString *)q callback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-      NSString *qString = [MSOrcObjectizer deobjectizeToString: q ];
+      NSString *qString = [q copy];
 
     return [self searchRawWithQ:qString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphItem class]];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

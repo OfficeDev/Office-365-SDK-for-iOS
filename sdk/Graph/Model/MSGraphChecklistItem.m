@@ -61,19 +61,61 @@ root for authoritative license information.﻿
 		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
 		_lastModifiedDateTime = [dic objectForKey: @"lastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]] : _lastModifiedDateTime;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 (_isChecked?@"true":@"false"), @"isChecked",
-		 [_title copy], @"title",
-		 [_orderHint copy], @"orderHint",
-		 [_lastModifiedBy copy], @"lastModifiedBy",
-		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"lastModifiedDateTime",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = (self.isChecked?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isChecked"];}
+	{id curVal = [self.title copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
+	{id curVal = [self.orderHint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
+	{id curVal = [self.lastModifiedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedDateTime"];}
+    [dic setValue: @"#Microsoft.Graph.checklistItem" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.isChecked;
+    if([self.updatedValues containsObject:@"isChecked"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isChecked"];
+    }
+    }
+	{id curVal = self.title;
+    if([self.updatedValues containsObject:@"title"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
+    }
+    }
+	{id curVal = self.orderHint;
+    if([self.updatedValues containsObject:@"orderHint"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
+    }
+    }
+	{id curVal = self.lastModifiedBy;
+    if([self.updatedValues containsObject:@"lastModifiedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"lastModifiedBy"];
+    }
+    }
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"lastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedDateTime"];
+    }
+    }
+    return dic;
 }
 
 

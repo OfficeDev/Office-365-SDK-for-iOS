@@ -31,14 +31,14 @@ root for authoritative license information.﻿
 - (void)sendMailWithMessage:(MSOutlookMessage *)message saveToSentItems:(bool)saveToSentItems callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *messageString = [MSOrcObjectizer deobjectizeToString: message ];
+      NSString *messageString = [MSOrcObjectizer deobjectizeToString:message];
 
-  NSString *saveToSentItemsString = [MSOrcObjectizer deobjectizeToString: @(saveToSentItems) ];
+  NSString *saveToSentItemsString = [MSOrcObjectizer stringFromBool:saveToSentItems];
 
     return [self sendMailRawWithMessage:messageString saveToSentItems:saveToSentItemsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -54,7 +54,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  message, @"Message", saveToSentItems?@"true":@"false", @"SaveToSentItems", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  message, @"Message", saveToSentItems, @"SaveToSentItems", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     

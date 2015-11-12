@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHGROUPCOLLECTIONOPERATIONS_H
 #define MSGRAPHGROUPCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphDirectoryObjectCollectionOperations.h"
+
 
 /** MSGraphGroupCollectionOperations
  *

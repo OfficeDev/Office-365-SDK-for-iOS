@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 @class MSFilesIdentity;
 @class MSFilesDriveQuota;
 @class MSFilesItem;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSFilesDrive
  *

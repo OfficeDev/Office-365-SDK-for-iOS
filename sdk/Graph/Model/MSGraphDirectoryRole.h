@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSGraphDirectoryObject;
 #import "MSGraphDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphDirectoryRole
  *

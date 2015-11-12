@@ -80,21 +80,87 @@ root for authoritative license information.﻿
             }
         }
         
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_topic copy], @"Topic",
-		 (_hasAttachments?@"true":@"false"), @"HasAttachments",
-		 [MSOrcObjectizer stringFromDate:_lastDeliveredDateTime], @"LastDeliveredDateTime",
-		 [[NSMutableArray alloc] init], @"UniqueSenders",
-		 [_preview copy], @"Preview",
-		 [[NSMutableArray alloc] init], @"Threads",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.topic copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Topic"];}
+	{id curVal = (self.hasAttachments?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"HasAttachments"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDeliveredDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastDeliveredDateTime"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueSenders"];}
+	{id curVal = [self.preview copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Preview"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.Conversation" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.topic;
+    if([self.updatedValues containsObject:@"Topic"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Topic"];
+    }
+    }
+	{id curVal = self.hasAttachments;
+    if([self.updatedValues containsObject:@"HasAttachments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
+    }
+    }
+	{id curVal = self.lastDeliveredDateTime;
+    if([self.updatedValues containsObject:@"LastDeliveredDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastDeliveredDateTime"];
+    }
+    }
+	{id curVal = self.uniqueSenders;
+    if([self.updatedValues containsObject:@"UniqueSenders"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UniqueSenders"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.preview;
+    if([self.updatedValues containsObject:@"Preview"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Preview"];
+    }
+    }
+	{id curVal = self.threads;
+    if([self.updatedValues containsObject:@"Threads"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Threads"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

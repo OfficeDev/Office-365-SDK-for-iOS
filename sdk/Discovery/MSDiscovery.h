@@ -10,8 +10,8 @@
 #ifndef MSDISCOVERY_H
 #define MSDISCOVERY_H
 
-#import <MSDiscoveryFetchers.h>
-#import <MSDiscoveryModels.h>
+#import "MSDiscoveryFetchers.h"
+#import "MSDiscoveryModels.h"
 
 #endif
     

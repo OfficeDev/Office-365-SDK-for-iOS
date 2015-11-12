@@ -13,29 +13,59 @@ root for authoritative license information.﻿
 ******************************************************************************/
 
 
+
 #ifndef MSGRAPHPHOTO_H
 #define MSGRAPHPHOTO_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
 
-#import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPhoto
  *
  */
-@interface MSGraphPhoto : MSGraphEntity <MSOrcInteroperableWithDictionary>
+@interface MSGraphPhoto : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
-/** Property height
+/** Property cameraMake
  *
  */
-@property (nonatomic,  setter=setHeight:, getter=height) int height;
+@property (nonatomic,  copy, setter=setCameraMake:, getter=cameraMake) NSString * cameraMake;
 
-/** Property width
+/** Property cameraModel
  *
  */
-@property (nonatomic,  setter=setWidth:, getter=width) int width;
+@property (nonatomic,  copy, setter=setCameraModel:, getter=cameraModel) NSString * cameraModel;
+
+/** Property exposureDenominator
+ *
+ */
+@property (nonatomic,  setter=setExposureDenominator:, getter=exposureDenominator) double exposureDenominator;
+
+/** Property exposureNumerator
+ *
+ */
+@property (nonatomic,  setter=setExposureNumerator:, getter=exposureNumerator) double exposureNumerator;
+
+/** Property focalLength
+ *
+ */
+@property (nonatomic,  setter=setFocalLength:, getter=focalLength) double focalLength;
+
+/** Property fNumber
+ *
+ */
+@property (nonatomic,  setter=setFNumber:, getter=fNumber) double fNumber;
+
+/** Property takenDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setTakenDateTime:, getter=takenDateTime) NSDate * takenDateTime;
+
+/** Property iso
+ *
+ */
+@property (nonatomic,  setter=setIso:, getter=iso) int iso;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

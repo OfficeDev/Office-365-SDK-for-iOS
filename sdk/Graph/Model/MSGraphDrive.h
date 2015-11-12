@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 @class MSGraphIdentitySet;
 @class MSGraphQuota;
 @class MSGraphItem;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphDrive
  *

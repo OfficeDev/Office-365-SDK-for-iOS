@@ -31,16 +31,16 @@ root for authoritative license information.﻿
 - (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSFilesFile *, MSOrcError*))callback {
 
 
-      NSString *destFolderIdString = [MSOrcObjectizer deobjectizeToString: destFolderId ];
+      NSString *destFolderIdString = [destFolderId copy];
 
-  NSString *destFolderPathString = [MSOrcObjectizer deobjectizeToString: destFolderPath ];
+  NSString *destFolderPathString = [destFolderPath copy];
 
-  NSString *newNameString = [MSOrcObjectizer deobjectizeToString: newName ];
+  NSString *newNameString = [newName copy];
 
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFile * result = (MSFilesFile *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSFilesFile class]];
+            MSFilesFile * result = (MSFilesFile *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -80,12 +80,12 @@ root for authoritative license information.﻿
 - (void)uploadContentWithContentStream:(NSStream *)contentStream callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *contentStreamString = [MSOrcObjectizer deobjectizeToString: contentStream ];
+      NSString *contentStreamString = nil/*NSStream*/;
 
     return [self uploadContentRawWithContentStream:contentStreamString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            int result = (int)[MSOrcObjectizer objectizeFromString:returnValue toType:nil];
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -136,8 +136,7 @@ root for authoritative license information.﻿
 	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
         if (e == nil) {
-
-            NSStream * result = (NSStream *)[MSOrcObjectizer objectizeFromString: [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType:[NSStream class]];
+            NSStream * result = (NSStream *)nil/*NSStream*/;
             callback(result, e);
         }
         else {

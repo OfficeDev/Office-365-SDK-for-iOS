@@ -19,8 +19,8 @@ root for authoritative license information.﻿
 
 #import <Foundation/Foundation.h>
 
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphGeoCoordinates
  *
@@ -41,16 +41,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setLongitude:, getter=longitude) double longitude;
-
-/** Property accuracy
- *
- */
-@property (nonatomic,  setter=setAccuracy:, getter=accuracy) double accuracy;
-
-/** Property altitudeAccuracy
- *
- */
-@property (nonatomic,  setter=setAltitudeAccuracy:, getter=altitudeAccuracy) double altitudeAccuracy;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

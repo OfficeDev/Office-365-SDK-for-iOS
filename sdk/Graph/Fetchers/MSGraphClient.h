@@ -16,7 +16,8 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHCLIENT_H
 #define MSGRAPHCLIENT_H
 
-#import <orc.h>
+#import "core/MSOrcBaseContainer.h"
+#import "api/api.h"
 #import "MSGraphModels.h"
 
 @class MSGraphDirectoryObjectCollectionFetcher;
@@ -37,6 +38,7 @@ root for authoritative license information.﻿
 @class MSGraphTaskCollectionFetcher;
 @class MSGraphPlanCollectionFetcher;
 @class MSGraphBucketCollectionFetcher;
+@class MSGraphSiteCollection_CollectionFetcher;
 @class MSGraphPrivilegedRoleCollectionFetcher;
 @class MSGraphPrivilegedSecurityAlertCollectionFetcher;
 @class MSGraphPrivilegedRoleAssignmentCollectionFetcher;
@@ -70,6 +72,7 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=tasks) MSGraphTaskCollectionFetcher *tasks;
 @property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
 @property (strong, nonatomic, readonly, getter=buckets) MSGraphBucketCollectionFetcher *buckets;
+@property (strong, nonatomic, readonly, getter=siteCollections) MSGraphSiteCollection_CollectionFetcher *siteCollections;
 @property (strong, nonatomic, readonly, getter=privilegedRoles) MSGraphPrivilegedRoleCollectionFetcher *privilegedRoles;
 @property (strong, nonatomic, readonly, getter=privilegedSecurityAlerts) MSGraphPrivilegedSecurityAlertCollectionFetcher *privilegedSecurityAlerts;
 @property (strong, nonatomic, readonly, getter=privilegedRoleAssignments) MSGraphPrivilegedRoleAssignmentCollectionFetcher *privilegedRoleAssignments;

@@ -60,18 +60,54 @@ root for authoritative license information.﻿
 		_url = [dic objectForKey: @"url"] != nil ? [[dic objectForKey: @"url"] copy] : _url;
 		_width = [dic objectForKey: @"width"] != nil ? [[dic objectForKey: @"width"] intValue] : _width;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 nil/*NSStream*/, @"content",
-		 [NSNumber numberWithInt: _height], @"height",
-		 [_url copy], @"url",
-		 [NSNumber numberWithInt: _width], @"width",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"height"];}
+	{id curVal = [self.url copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"url"];}
+	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"width"];}
+    [dic setValue: @"#Microsoft.Graph.thumbnail" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.content;
+    if([self.updatedValues containsObject:@"content"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+    }
+    }
+	{id curVal = self.height;
+    if([self.updatedValues containsObject:@"height"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
+    }
+    }
+	{id curVal = self.url;
+    if([self.updatedValues containsObject:@"url"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"url"];
+    }
+    }
+	{id curVal = self.width;
+    if([self.updatedValues containsObject:@"width"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
+    }
+    }
+    return dic;
 }
 
 

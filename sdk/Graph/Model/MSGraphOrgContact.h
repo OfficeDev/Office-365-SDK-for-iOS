@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSGraphProvisioningError;
 @class MSGraphDirectoryObject;
 #import "MSGraphDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphOrgContact
  *

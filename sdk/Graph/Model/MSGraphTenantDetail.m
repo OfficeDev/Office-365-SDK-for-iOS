@@ -147,34 +147,224 @@ root for authoritative license information.﻿
             }
         }
         
+		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
+		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
+		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [[NSMutableArray alloc] init], @"assignedPlans",
-		 [_city copy], @"city",
-		 [MSOrcObjectizer stringFromDate:_companyLastDirSyncTime], @"companyLastDirSyncTime",
-		 [_country copy], @"country",
-		 [_countryLetterCode copy], @"countryLetterCode",
-		 (_dirSyncEnabled?@"true":@"false"), @"dirSyncEnabled",
-		 [_displayName copy], @"displayName",
-		 [[NSMutableArray alloc] init], @"marketingNotificationEmails",
-		 [_postalCode copy], @"postalCode",
-		 [_preferredLanguage copy], @"preferredLanguage",
-		 [[NSMutableArray alloc] init], @"provisionedPlans",
-		 [[NSMutableArray alloc] init], @"provisioningErrors",
-		 [[NSMutableArray alloc] init], @"securityComplianceNotificationMails",
-		 [[NSMutableArray alloc] init], @"securityComplianceNotificationPhones",
-		 [_state copy], @"state",
-		 [_street copy], @"street",
-		 [[NSMutableArray alloc] init], @"technicalNotificationMails",
-		 [_telephoneNumber copy], @"telephoneNumber",
-		 [[NSMutableArray alloc] init], @"verifiedDomains",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedPlans"];}
+	{id curVal = [self.city copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"city"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.companyLastDirSyncTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"companyLastDirSyncTime"];}
+	{id curVal = [self.country copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"country"];}
+	{id curVal = [self.countryLetterCode copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"countryLetterCode"];}
+	{id curVal = (self.dirSyncEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"dirSyncEnabled"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"marketingNotificationEmails"];}
+	{id curVal = [self.postalCode copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"postalCode"];}
+	{id curVal = [self.preferredLanguage copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"preferredLanguage"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"provisionedPlans"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"securityComplianceNotificationMails"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"securityComplianceNotificationPhones"];}
+	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
+	{id curVal = [self.street copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"street"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"technicalNotificationMails"];}
+	{id curVal = [self.telephoneNumber copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"telephoneNumber"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"verifiedDomains"];}
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#Microsoft.Graph.TenantDetail" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.assignedPlans;
+    if([self.updatedValues containsObject:@"assignedPlans"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"assignedPlans"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.city;
+    if([self.updatedValues containsObject:@"city"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"city"];
+    }
+    }
+	{id curVal = self.companyLastDirSyncTime;
+    if([self.updatedValues containsObject:@"companyLastDirSyncTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"companyLastDirSyncTime"];
+    }
+    }
+	{id curVal = self.country;
+    if([self.updatedValues containsObject:@"country"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"country"];
+    }
+    }
+	{id curVal = self.countryLetterCode;
+    if([self.updatedValues containsObject:@"countryLetterCode"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"countryLetterCode"];
+    }
+    }
+	{id curVal = self.dirSyncEnabled;
+    if([self.updatedValues containsObject:@"dirSyncEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"displayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+    }
+    }
+	{id curVal = self.marketingNotificationEmails;
+    if([self.updatedValues containsObject:@"marketingNotificationEmails"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"marketingNotificationEmails"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.postalCode;
+    if([self.updatedValues containsObject:@"postalCode"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"postalCode"];
+    }
+    }
+	{id curVal = self.preferredLanguage;
+    if([self.updatedValues containsObject:@"preferredLanguage"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"preferredLanguage"];
+    }
+    }
+	{id curVal = self.provisionedPlans;
+    if([self.updatedValues containsObject:@"provisionedPlans"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"provisionedPlans"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.provisioningErrors;
+    if([self.updatedValues containsObject:@"provisioningErrors"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"provisioningErrors"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.securityComplianceNotificationMails;
+    if([self.updatedValues containsObject:@"securityComplianceNotificationMails"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"securityComplianceNotificationMails"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.securityComplianceNotificationPhones;
+    if([self.updatedValues containsObject:@"securityComplianceNotificationPhones"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"securityComplianceNotificationPhones"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.state;
+    if([self.updatedValues containsObject:@"state"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
+    }
+    }
+	{id curVal = self.street;
+    if([self.updatedValues containsObject:@"street"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"street"];
+    }
+    }
+	{id curVal = self.technicalNotificationMails;
+    if([self.updatedValues containsObject:@"technicalNotificationMails"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"technicalNotificationMails"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.telephoneNumber;
+    if([self.updatedValues containsObject:@"telephoneNumber"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"telephoneNumber"];
+    }
+    }
+	{id curVal = self.verifiedDomains;
+    if([self.updatedValues containsObject:@"verifiedDomains"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"verifiedDomains"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+    return dic;
 }
 
 

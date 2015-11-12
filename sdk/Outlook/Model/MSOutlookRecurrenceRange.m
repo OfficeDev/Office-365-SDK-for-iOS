@@ -60,18 +60,64 @@ root for authoritative license information.﻿
 		_endDate = [dic objectForKey: @"EndDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]] : _endDate;
 		_numberOfOccurrences = [dic objectForKey: @"NumberOfOccurrences"] != nil ? [[dic objectForKey: @"NumberOfOccurrences"] intValue] : _numberOfOccurrences;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOutlookRecurrenceRangeTypeSerializer toString:_type], @"Type",
-		 [MSOrcObjectizer stringFromDate:_startDate], @"StartDate",
-		 [MSOrcObjectizer stringFromDate:_endDate], @"EndDate",
-		 [NSNumber numberWithInt: _numberOfOccurrences], @"NumberOfOccurrences",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOutlookRecurrenceRangeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"StartDate"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"EndDate"];}
+	{id curVal = [NSNumber numberWithInt: self.numberOfOccurrences]; if (curVal!=nil) [dic setValue: curVal forKey: @"NumberOfOccurrences"];}
+    [dic setValue: @"#Microsoft.OutlookServices.RecurrenceRange" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.type;
+    if([self.updatedValues containsObject:@"Type"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookRecurrenceRangeTypeSerializer toString:curVal] forKey: @"Type"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Type"];
+            }
+        
+            }}
+	{id curVal = self.startDate;
+    if([self.updatedValues containsObject:@"StartDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"StartDate"];
+    }
+    }
+	{id curVal = self.endDate;
+    if([self.updatedValues containsObject:@"EndDate"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"EndDate"];
+    }
+    }
+	{id curVal = self.numberOfOccurrences;
+    if([self.updatedValues containsObject:@"NumberOfOccurrences"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"NumberOfOccurrences"];
+    }
+    }
+    return dic;
 }
 
 

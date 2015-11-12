@@ -94,6 +94,10 @@ root for authoritative license information.﻿
 
 	return [[MSGraphBucketCollectionFetcher alloc] initWithUrl:@"buckets" parent:self];
 }
+- (MSGraphSiteCollection_CollectionFetcher *)siteCollections {
+
+	return [[MSGraphSiteCollection_CollectionFetcher alloc] initWithUrl:@"siteCollections" parent:self];
+}
 - (MSGraphPrivilegedRoleCollectionFetcher *)privilegedRoles {
 
 	return [[MSGraphPrivilegedRoleCollectionFetcher alloc] initWithUrl:@"PrivilegedRoles" parent:self];

@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_state copy], @"state",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
+    [dic setValue: @"#Microsoft.Graph.deleted" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.state;
+    if([self.updatedValues containsObject:@"state"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
+    }
+    }
+    return dic;
 }
 
 

@@ -58,16 +58,50 @@ root for authoritative license information.﻿
 		_hashes = [dic objectForKey: @"hashes"] != nil ? [[MSGraphHashes alloc] initWithDictionary: [dic objectForKey: @"hashes"]] : _hashes;
 		_mimeType = [dic objectForKey: @"mimeType"] != nil ? [[dic objectForKey: @"mimeType"] copy] : _mimeType;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_hashes toDictionary], @"hashes",
-		 [_mimeType copy], @"mimeType",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.hashes toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"hashes"];}
+	{id curVal = [self.mimeType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mimeType"];}
+    [dic setValue: @"#Microsoft.Graph.file" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.hashes;
+    if([self.updatedValues containsObject:@"hashes"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"hashes"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"hashes"];
+            }
+        
+            }}
+	{id curVal = self.mimeType;
+    if([self.updatedValues containsObject:@"mimeType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mimeType"];
+    }
+    }
+    return dic;
 }
 
 

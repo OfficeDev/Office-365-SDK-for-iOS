@@ -17,13 +17,12 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHEVENTFETCHER_H
 #define MSGRAPHEVENTFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphResponseStatusFetcher;
 @class MSGraphItemBodyFetcher;
-@class MSGraphDateTimeTimeZoneFetcher;
 @class MSGraphLocationFetcher;
 @class MSGraphPatternedRecurrenceFetcher;
 @class MSGraphAttendeeCollectionFetcher;

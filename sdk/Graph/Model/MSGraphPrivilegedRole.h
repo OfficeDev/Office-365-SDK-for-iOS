@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 @class MSGraphPrivilegedRoleSummary;
 @class MSGraphPrivilegedRoleSettings;
 @class MSGraphPrivilegedRoleAssignment;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPrivilegedRole
  *

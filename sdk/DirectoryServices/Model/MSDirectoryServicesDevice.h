@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesAlternativeSecurityId;
 @class MSDirectoryServicesDirectoryObject;
 #import "MSDirectoryServicesDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSDirectoryServicesDevice
  *

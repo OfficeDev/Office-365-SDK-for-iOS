@@ -71,19 +71,86 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [__id copy], @"Id",
-		 [_name copy], @"Name",
-		 [_summary toDictionary], @"Summary",
-		 [_settings toDictionary], @"Settings",
-		 [[NSMutableArray alloc] init], @"Assignments",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.summary toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Summary"];}
+	{id curVal = [self.settings toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Settings"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Assignments"];}
+    [dic setValue: @"#Microsoft.Graph.PrivilegedRole" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"Name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+    }
+    }
+	{id curVal = self.summary;
+    if([self.updatedValues containsObject:@"Summary"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Summary"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Summary"];
+            }
+        
+            }}
+	{id curVal = self.settings;
+    if([self.updatedValues containsObject:@"Settings"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Settings"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Settings"];
+            }
+        
+            }}
+	{id curVal = self.assignments;
+    if([self.updatedValues containsObject:@"Assignments"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Assignments"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

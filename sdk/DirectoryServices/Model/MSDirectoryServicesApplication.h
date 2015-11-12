@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesRequiredResourceAccess;
 @class MSDirectoryServicesExtensionProperty;
 #import "MSDirectoryServicesDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSDirectoryServicesApplication
  *

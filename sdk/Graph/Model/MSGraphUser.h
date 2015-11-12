@@ -33,17 +33,17 @@ root for authoritative license information.﻿
 @class MSGraphCalendar;
 @class MSGraphCalendarGroup;
 @class MSGraphEvent;
-@class MSGraphPerson;
 @class MSGraphContact;
 @class MSGraphContactFolder;
 @class MSGraphInferenceClassification;
-@class MSGraphPhoto;
+@class MSGraphProfilePhoto;
 @class MSGraphDrive;
 @class MSGraphItem;
 @class MSGraphTask;
 @class MSGraphPlan;
+@class MSGraphNotes;
 #import "MSGraphDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphUser
  *
@@ -225,11 +225,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setUserType:, getter=userType) NSString * userType;
 
-/** Property emailAddress
- *
- */
-@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
-
 /** Property mailboxGuid
  *
  */
@@ -385,11 +380,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setEvents:, getter=events) NSMutableArray * events;
 
-/** Property people
- *
- */
-@property (nonatomic,  copy, setter=setPeople:, getter=people) NSMutableArray * people;
-
 /** Property contacts
  *
  */
@@ -405,10 +395,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassification * inferenceClassification;
 
+/** Property rootFolder
+ *
+ */
+@property (nonatomic,  copy, setter=setRootFolder:, getter=rootFolder) MSGraphMailFolder * rootFolder;
+
 /** Property photo
  *
  */
-@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphPhoto * photo;
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphProfilePhoto * photo;
 
 /** Property photos
  *
@@ -439,6 +434,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
+
+/** Property notes
+ *
+ */
+@property (nonatomic,  copy, setter=setNotes:, getter=notes) MSGraphNotes * notes;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

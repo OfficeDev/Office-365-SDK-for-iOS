@@ -61,20 +61,70 @@ root for authoritative license information.﻿
 		_contentType = [dic objectForKey: @"ContentType"] != nil ? [[dic objectForKey: @"ContentType"] copy] : _contentType;
 		_size = [dic objectForKey: @"Size"] != nil ? [[dic objectForKey: @"Size"] intValue] : _size;
 		_isInline = [dic objectForKey: @"IsInline"] != nil ? [[dic objectForKey: @"IsInline"] boolValue] : _isInline;
+		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromDate:_lastModifiedDateTime], @"LastModifiedDateTime",
-		 [_name copy], @"Name",
-		 [_contentType copy], @"ContentType",
-		 [NSNumber numberWithInt: _size], @"Size",
-		 (_isInline?@"true":@"false"), @"IsInline",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.contentType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
+	{id curVal = [NSNumber numberWithInt: self.size]; if (curVal!=nil) [dic setValue: curVal forKey: @"Size"];}
+	{id curVal = (self.isInline?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsInline"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#Microsoft.Graph.Attachment" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
+    }
+    }
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"Name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+    }
+    }
+	{id curVal = self.contentType;
+    if([self.updatedValues containsObject:@"ContentType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
+    }
+    }
+	{id curVal = self.size;
+    if([self.updatedValues containsObject:@"Size"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
+    }
+    }
+	{id curVal = self.isInline;
+    if([self.updatedValues containsObject:@"IsInline"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"Id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+    }
+    }
+    return dic;
 }
 
 

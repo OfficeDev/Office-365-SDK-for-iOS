@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSDirectoryServicesProvisioningError;
 #import "MSDirectoryServicesDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSDirectoryServicesContact
  *

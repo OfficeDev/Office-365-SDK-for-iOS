@@ -80,37 +80,247 @@ root for authoritative license information.﻿
 		_progressTaskBoardFormat = [dic objectForKey: @"progressTaskBoardFormat"] != nil ? [[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"progressTaskBoardFormat"]] : _progressTaskBoardFormat;
 		_bucketTaskBoardFormat = [dic objectForKey: @"bucketTaskBoardFormat"] != nil ? [[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"bucketTaskBoardFormat"]] : _bucketTaskBoardFormat;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_createdBy copy], @"createdBy",
-		 [_assignedTo copy], @"assignedTo",
-		 [_planId copy], @"planId",
-		 [_bucketId copy], @"bucketId",
-		 [_title copy], @"title",
-		 [_orderHint copy], @"orderHint",
-		 [_assigneePriority copy], @"assigneePriority",
-		 [NSNumber numberWithInt: _percentComplete], @"percentComplete",
-		 [MSOrcObjectizer stringFromDate:_startDateTime], @"startDateTime",
-		 [MSOrcObjectizer stringFromDate:_assignedDateTime], @"assignedDateTime",
-		 [MSOrcObjectizer stringFromDate:_createdDateTime], @"createdDateTime",
-		 [_assignedBy copy], @"assignedBy",
-		 [MSOrcObjectizer stringFromDate:_dueDateTime], @"dueDateTime",
-		 (_hasDescription?@"true":@"false"), @"hasDescription",
-		 [MSGraphPreviewTypeSerializer toString:_previewType], @"previewType",
-		 [MSOrcObjectizer stringFromDate:_completedDateTime], @"completedDateTime",
-		 [_appliedCategories toDictionary], @"appliedCategories",
-		 [_conversationThreadId copy], @"conversationThreadId",
-		 [__id copy], @"id",
-		 [_details toDictionary], @"details",
-		 [_assignedToTaskBoardFormat toDictionary], @"assignedToTaskBoardFormat",
-		 [_progressTaskBoardFormat toDictionary], @"progressTaskBoardFormat",
-		 [_bucketTaskBoardFormat toDictionary], @"bucketTaskBoardFormat",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.createdBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
+	{id curVal = [self.assignedTo copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedTo"];}
+	{id curVal = [self.planId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"planId"];}
+	{id curVal = [self.bucketId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"bucketId"];}
+	{id curVal = [self.title copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
+	{id curVal = [self.orderHint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
+	{id curVal = [self.assigneePriority copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"assigneePriority"];}
+	{id curVal = [NSNumber numberWithInt: self.percentComplete]; if (curVal!=nil) [dic setValue: curVal forKey: @"percentComplete"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"startDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [self.assignedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dueDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"dueDateTime"];}
+	{id curVal = (self.hasDescription?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"hasDescription"];}
+	{id curVal = [MSGraphPreviewTypeSerializer toString:self.previewType]; if (curVal!=nil) [dic setValue: curVal forKey: @"previewType"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.completedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"completedDateTime"];}
+	{id curVal = [self.appliedCategories toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"appliedCategories"];}
+	{id curVal = [self.conversationThreadId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"conversationThreadId"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.details toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"details"];}
+	{id curVal = [self.assignedToTaskBoardFormat toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedToTaskBoardFormat"];}
+	{id curVal = [self.progressTaskBoardFormat toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"progressTaskBoardFormat"];}
+	{id curVal = [self.bucketTaskBoardFormat toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"bucketTaskBoardFormat"];}
+    [dic setValue: @"#Microsoft.Graph.task" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.createdBy;
+    if([self.updatedValues containsObject:@"createdBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
+    }
+    }
+	{id curVal = self.assignedTo;
+    if([self.updatedValues containsObject:@"assignedTo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"assignedTo"];
+    }
+    }
+	{id curVal = self.planId;
+    if([self.updatedValues containsObject:@"planId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"planId"];
+    }
+    }
+	{id curVal = self.bucketId;
+    if([self.updatedValues containsObject:@"bucketId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"bucketId"];
+    }
+    }
+	{id curVal = self.title;
+    if([self.updatedValues containsObject:@"title"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
+    }
+    }
+	{id curVal = self.orderHint;
+    if([self.updatedValues containsObject:@"orderHint"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
+    }
+    }
+	{id curVal = self.assigneePriority;
+    if([self.updatedValues containsObject:@"assigneePriority"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"assigneePriority"];
+    }
+    }
+	{id curVal = self.percentComplete;
+    if([self.updatedValues containsObject:@"percentComplete"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"percentComplete"];
+    }
+    }
+	{id curVal = self.startDateTime;
+    if([self.updatedValues containsObject:@"startDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startDateTime"];
+    }
+    }
+	{id curVal = self.assignedDateTime;
+    if([self.updatedValues containsObject:@"assignedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedDateTime"];
+    }
+    }
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"createdDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+    }
+    }
+	{id curVal = self.assignedBy;
+    if([self.updatedValues containsObject:@"assignedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"assignedBy"];
+    }
+    }
+	{id curVal = self.dueDateTime;
+    if([self.updatedValues containsObject:@"dueDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"dueDateTime"];
+    }
+    }
+	{id curVal = self.hasDescription;
+    if([self.updatedValues containsObject:@"hasDescription"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"hasDescription"];
+    }
+    }
+	{id curVal = self.previewType;
+    if([self.updatedValues containsObject:@"previewType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"previewType"];
+            }
+        
+            }}
+	{id curVal = self.completedDateTime;
+    if([self.updatedValues containsObject:@"completedDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"completedDateTime"];
+    }
+    }
+	{id curVal = self.appliedCategories;
+    if([self.updatedValues containsObject:@"appliedCategories"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appliedCategories"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"appliedCategories"];
+            }
+        
+            }}
+	{id curVal = self.conversationThreadId;
+    if([self.updatedValues containsObject:@"conversationThreadId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"conversationThreadId"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.details;
+    if([self.updatedValues containsObject:@"details"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"details"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"details"];
+            }
+        
+            }}
+	{id curVal = self.assignedToTaskBoardFormat;
+    if([self.updatedValues containsObject:@"assignedToTaskBoardFormat"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"assignedToTaskBoardFormat"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"assignedToTaskBoardFormat"];
+            }
+        
+            }}
+	{id curVal = self.progressTaskBoardFormat;
+    if([self.updatedValues containsObject:@"progressTaskBoardFormat"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"progressTaskBoardFormat"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"progressTaskBoardFormat"];
+            }
+        
+            }}
+	{id curVal = self.bucketTaskBoardFormat;
+    if([self.updatedValues containsObject:@"bucketTaskBoardFormat"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"bucketTaskBoardFormat"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"bucketTaskBoardFormat"];
+            }
+        
+            }}
+    return dic;
 }
 
 

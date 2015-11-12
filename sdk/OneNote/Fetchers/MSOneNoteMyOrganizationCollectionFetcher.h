@@ -18,9 +18,8 @@ root for authoritative license information.﻿
 
 @class MSOneNoteMyOrganizationFetcher;
 
-
-
-#import <orc.h>
+#import "core/MSOrcCollectionFetcher.h"
+#import "api/api.h"
 #import "MSOneNoteModels.h"
 
 /** MSOneNoteMyOrganizationCollectionFetcher

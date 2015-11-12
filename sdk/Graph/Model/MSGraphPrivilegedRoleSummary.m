@@ -63,20 +63,78 @@ root for authoritative license information.﻿
 		_elevatedCount = [dic objectForKey: @"ElevatedCount"] != nil ? [[dic objectForKey: @"ElevatedCount"] intValue] : _elevatedCount;
 		_mfaEnabled = [dic objectForKey: @"MfaEnabled"] != nil ? [[dic objectForKey: @"MfaEnabled"] boolValue] : _mfaEnabled;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_roleId copy], @"RoleId",
-		 [MSGraphRoleSummaryStatusSerializer toString:_status], @"Status",
-		 [NSNumber numberWithInt: _usersCount], @"UsersCount",
-		 [NSNumber numberWithInt: _managedCount], @"ManagedCount",
-		 [NSNumber numberWithInt: _elevatedCount], @"ElevatedCount",
-		 (_mfaEnabled?@"true":@"false"), @"MfaEnabled",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.roleId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
+	{id curVal = [MSGraphRoleSummaryStatusSerializer toString:self.status]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
+	{id curVal = [NSNumber numberWithInt: self.usersCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"UsersCount"];}
+	{id curVal = [NSNumber numberWithInt: self.managedCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"ManagedCount"];}
+	{id curVal = [NSNumber numberWithInt: self.elevatedCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"ElevatedCount"];}
+	{id curVal = (self.mfaEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"MfaEnabled"];}
+    [dic setValue: @"#Microsoft.Graph.PrivilegedRoleSummary" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.roleId;
+    if([self.updatedValues containsObject:@"RoleId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
+    }
+    }
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"Status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphRoleSummaryStatusSerializer toString:curVal] forKey: @"Status"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Status"];
+            }
+        
+            }}
+	{id curVal = self.usersCount;
+    if([self.updatedValues containsObject:@"UsersCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UsersCount"];
+    }
+    }
+	{id curVal = self.managedCount;
+    if([self.updatedValues containsObject:@"ManagedCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ManagedCount"];
+    }
+    }
+	{id curVal = self.elevatedCount;
+    if([self.updatedValues containsObject:@"ElevatedCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ElevatedCount"];
+    }
+    }
+	{id curVal = self.mfaEnabled;
+    if([self.updatedValues containsObject:@"MfaEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"MfaEnabled"];
+    }
+    }
+    return dic;
 }
 
 

@@ -23,8 +23,8 @@ root for authoritative license information.﻿
 @class MSGraphSharingInvitation;
 @class MSGraphItemReference;
 @class MSGraphSharingLink;
-#import "MSOrcBaseEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "core/MSOrcBaseEntity.h"
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPermission
  *

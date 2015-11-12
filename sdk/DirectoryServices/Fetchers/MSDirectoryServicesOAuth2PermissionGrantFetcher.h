@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANTFETCHER_H
 #define MSDIRECTORYSERVICESOAUTH2PERMISSIONGRANTFETCHER_H
 
-#import <orc.h>
 #import "MSDirectoryServicesModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSDirectoryServicesOAuth2PermissionGrantOperations;
 

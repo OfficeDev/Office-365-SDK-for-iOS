@@ -21,7 +21,7 @@ root for authoritative license information.﻿
 
 @class MSOutlookCalendar;
 #import "MSOutlookEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookCalendarGroup
  *

@@ -17,8 +17,9 @@ root for authoritative license information.﻿
 #define MSGRAPHUSEROPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphDirectoryObjectOperations.h"
 
 
@@ -35,8 +36,6 @@ root for authoritative license information.﻿
 - (void)sendMailRawWithMessage:(NSString *)message saveToSentItems:(NSString *)saveToSentItems callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)findMeetingTimesWithAttendees:(MSGraphAttendeeBase *)attendees locationConstraint:(MSGraphLocationConstraint *)locationConstraint timeConstraint:(MSGraphTimeConstraint *)timeConstraint meetingDuration:(NSTimeInterval)meetingDuration maxCandidates:(int)maxCandidates isOrganizerOptional:(bool)isOrganizerOptional callback:(void (^)(MSGraphMeetingTimeCandidate *, MSOrcError*))callback ;
 - (void)findMeetingTimesRawWithAttendees:(NSString *)attendees locationConstraint:(NSString *)locationConstraint timeConstraint:(NSString *)timeConstraint meetingDuration:(NSString *)meetingDuration maxCandidates:(NSString *)maxCandidates isOrganizerOptional:(NSString *)isOrganizerOptional callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSGraphReminder *, MSOrcError*))callback ;
-- (void)reminderViewRawWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

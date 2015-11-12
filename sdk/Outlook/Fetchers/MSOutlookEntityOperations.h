@@ -17,9 +17,10 @@ root for authoritative license information.﻿
 #define MSOUTLOOKENTITYOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSOutlookModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
 
 
 /** MSOutlookEntityOperations

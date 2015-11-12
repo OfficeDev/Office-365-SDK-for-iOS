@@ -71,20 +71,73 @@ root for authoritative license information.﻿
 		_isEnabled = [dic objectForKey: @"isEnabled"] != nil ? [[dic objectForKey: @"isEnabled"] boolValue] : _isEnabled;
 		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [[NSMutableArray alloc] init], @"allowedMemberTypes",
-		 [__description copy], @"description",
-		 [_displayName copy], @"displayName",
-		 [__id copy], @"id",
-		 (_isEnabled?@"true":@"false"), @"isEnabled",
-		 [_value copy], @"value",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"allowedMemberTypes"];}
+	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = (self.isEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isEnabled"];}
+	{id curVal = [self.value copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.AppRole" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.allowedMemberTypes;
+    if([self.updatedValues containsObject:@"allowedMemberTypes"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"allowedMemberTypes"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self._description;
+    if([self.updatedValues containsObject:@"description"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"displayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.isEnabled;
+    if([self.updatedValues containsObject:@"isEnabled"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
+    }
+    }
+	{id curVal = self.value;
+    if([self.updatedValues containsObject:@"value"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
+    }
+    }
+    return dic;
 }
 
 

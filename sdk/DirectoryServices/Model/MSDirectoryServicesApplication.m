@@ -159,37 +159,412 @@ root for authoritative license information.﻿
             }
         }
         
+		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
+		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
+		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
+		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
 
+        if([dic objectForKey: @"createdObjects"] != [NSNull null]){
+            self.createdObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"createdObjects"] count]];
+            
+            for (id object in [dic objectForKey: @"createdObjects"]) {
+                [self.createdObjects addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+
+        if([dic objectForKey: @"directReports"] != [NSNull null]){
+            self.directReports = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"directReports"] count]];
+            
+            for (id object in [dic objectForKey: @"directReports"]) {
+                [self.directReports addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"members"] != [NSNull null]){
+            self.members = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"members"] count]];
+            
+            for (id object in [dic objectForKey: @"members"]) {
+                [self.members addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"memberOf"] != [NSNull null]){
+            self.memberOf = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"memberOf"] count]];
+            
+            for (id object in [dic objectForKey: @"memberOf"]) {
+                [self.memberOf addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"owners"] != [NSNull null]){
+            self.owners = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"owners"] count]];
+            
+            for (id object in [dic objectForKey: @"owners"]) {
+                [self.owners addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+        if([dic objectForKey: @"ownedObjects"] != [NSNull null]){
+            self.ownedObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ownedObjects"] count]];
+            
+            for (id object in [dic objectForKey: @"ownedObjects"]) {
+                [self.ownedObjects addObject:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: object]];
+            }
+        }
+        
+
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_appId copy], @"appId",
-		 [[NSMutableArray alloc] init], @"appRoles",
-		 (_availableToOtherTenants?@"true":@"false"), @"availableToOtherTenants",
-		 [_displayName copy], @"displayName",
-		 [_errorUrl copy], @"errorUrl",
-		 [_groupMembershipClaims copy], @"groupMembershipClaims",
-		 [_homepage copy], @"homepage",
-		 [[NSMutableArray alloc] init], @"identifierUris",
-		 [[NSMutableArray alloc] init], @"keyCredentials",
-		 [[NSMutableArray alloc] init], @"knownClientApplications",
-		 nil/*NSStream*/, @"mainLogo",
-		 [_logoutUrl copy], @"logoutUrl",
-		 (_oauth2AllowImplicitFlow?@"true":@"false"), @"oauth2AllowImplicitFlow",
-		 (_oauth2AllowUrlPathMatching?@"true":@"false"), @"oauth2AllowUrlPathMatching",
-		 [[NSMutableArray alloc] init], @"oauth2Permissions",
-		 (_oauth2RequirePostResponse?@"true":@"false"), @"oauth2RequirePostResponse",
-		 [[NSMutableArray alloc] init], @"passwordCredentials",
-		 (_publicClient?@"true":@"false"), @"publicClient",
-		 [[NSMutableArray alloc] init], @"replyUrls",
-		 [[NSMutableArray alloc] init], @"requiredResourceAccess",
-		 [_samlMetadataUrl copy], @"samlMetadataUrl",
-		 [[NSMutableArray alloc] init], @"extensionProperties",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.appId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"appId"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"appRoles"];}
+	{id curVal = (self.availableToOtherTenants?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"availableToOtherTenants"];}
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = [self.errorUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"errorUrl"];}
+	{id curVal = [self.groupMembershipClaims copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"groupMembershipClaims"];}
+	{id curVal = [self.homepage copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"homepage"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"identifierUris"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"keyCredentials"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"knownClientApplications"];}
+	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"mainLogo"];}
+	{id curVal = [self.logoutUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"logoutUrl"];}
+	{id curVal = (self.oauth2AllowImplicitFlow?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2AllowImplicitFlow"];}
+	{id curVal = (self.oauth2AllowUrlPathMatching?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2AllowUrlPathMatching"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2Permissions"];}
+	{id curVal = (self.oauth2RequirePostResponse?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2RequirePostResponse"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"passwordCredentials"];}
+	{id curVal = (self.publicClient?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"publicClient"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"replyUrls"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"requiredResourceAccess"];}
+	{id curVal = [self.samlMetadataUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"samlMetadataUrl"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"extensionProperties"];}
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+	{id curVal = [self.createdOnBehalfOf toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
+	{id curVal = [self.manager toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
+    [dic setValue: @"#Microsoft.DirectoryServices.Application" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.appId;
+    if([self.updatedValues containsObject:@"appId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appId"];
+    }
+    }
+	{id curVal = self.appRoles;
+    if([self.updatedValues containsObject:@"appRoles"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoles"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.availableToOtherTenants;
+    if([self.updatedValues containsObject:@"availableToOtherTenants"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"availableToOtherTenants"];
+    }
+    }
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"displayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+    }
+    }
+	{id curVal = self.errorUrl;
+    if([self.updatedValues containsObject:@"errorUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorUrl"];
+    }
+    }
+	{id curVal = self.groupMembershipClaims;
+    if([self.updatedValues containsObject:@"groupMembershipClaims"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"groupMembershipClaims"];
+    }
+    }
+	{id curVal = self.homepage;
+    if([self.updatedValues containsObject:@"homepage"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"homepage"];
+    }
+    }
+	{id curVal = self.identifierUris;
+    if([self.updatedValues containsObject:@"identifierUris"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"identifierUris"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.keyCredentials;
+    if([self.updatedValues containsObject:@"keyCredentials"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"keyCredentials"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.knownClientApplications;
+    if([self.updatedValues containsObject:@"knownClientApplications"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"knownClientApplications"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.mainLogo;
+    if([self.updatedValues containsObject:@"mainLogo"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"mainLogo"];
+    }
+    }
+	{id curVal = self.logoutUrl;
+    if([self.updatedValues containsObject:@"logoutUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"logoutUrl"];
+    }
+    }
+	{id curVal = self.oauth2AllowImplicitFlow;
+    if([self.updatedValues containsObject:@"oauth2AllowImplicitFlow"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"oauth2AllowImplicitFlow"];
+    }
+    }
+	{id curVal = self.oauth2AllowUrlPathMatching;
+    if([self.updatedValues containsObject:@"oauth2AllowUrlPathMatching"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"oauth2AllowUrlPathMatching"];
+    }
+    }
+	{id curVal = self.oauth2Permissions;
+    if([self.updatedValues containsObject:@"oauth2Permissions"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oauth2Permissions"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.oauth2RequirePostResponse;
+    if([self.updatedValues containsObject:@"oauth2RequirePostResponse"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"oauth2RequirePostResponse"];
+    }
+    }
+	{id curVal = self.passwordCredentials;
+    if([self.updatedValues containsObject:@"passwordCredentials"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"passwordCredentials"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.publicClient;
+    if([self.updatedValues containsObject:@"publicClient"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"publicClient"];
+    }
+    }
+	{id curVal = self.replyUrls;
+    if([self.updatedValues containsObject:@"replyUrls"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"replyUrls"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.requiredResourceAccess;
+    if([self.updatedValues containsObject:@"requiredResourceAccess"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"requiredResourceAccess"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.samlMetadataUrl;
+    if([self.updatedValues containsObject:@"samlMetadataUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"samlMetadataUrl"];
+    }
+    }
+	{id curVal = self.extensionProperties;
+    if([self.updatedValues containsObject:@"extensionProperties"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"extensionProperties"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+	{id curVal = self.createdOnBehalfOf;
+    if([self.updatedValues containsObject:@"createdOnBehalfOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdOnBehalfOf"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdOnBehalfOf"];
+            }
+        
+            }}
+	{id curVal = self.createdObjects;
+    if([self.updatedValues containsObject:@"createdObjects"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdObjects"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.manager;
+    if([self.updatedValues containsObject:@"manager"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"manager"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"manager"];
+            }
+        
+            }}
+	{id curVal = self.directReports;
+    if([self.updatedValues containsObject:@"directReports"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"directReports"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.members;
+    if([self.updatedValues containsObject:@"members"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"members"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.memberOf;
+    if([self.updatedValues containsObject:@"memberOf"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"memberOf"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.owners;
+    if([self.updatedValues containsObject:@"owners"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owners"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.ownedObjects;
+    if([self.updatedValues containsObject:@"ownedObjects"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ownedObjects"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

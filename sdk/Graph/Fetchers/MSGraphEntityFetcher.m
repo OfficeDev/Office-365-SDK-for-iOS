@@ -89,11 +89,6 @@ root for authoritative license information.﻿
 	return [[MSGraphCalendarGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphCalendarGroup class]];
 }
 
-- (MSGraphPersonFetcher *)asPerson {
-
-	return [[MSGraphPersonFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphPerson class]];
-}
-
 - (MSGraphContactFolderFetcher *)asContactFolder {
 
 	return [[MSGraphContactFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphContactFolder class]];
@@ -104,9 +99,9 @@ root for authoritative license information.﻿
 	return [[MSGraphInferenceClassificationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphInferenceClassification class]];
 }
 
-- (MSGraphPhotoFetcher *)asPhoto {
+- (MSGraphProfilePhotoFetcher *)asProfilePhoto {
 
-	return [[MSGraphPhotoFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphPhoto class]];
+	return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
 - (MSGraphConversationThreadFetcher *)asConversationThread {

@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHMAILFOLDERCOLLECTIONOPERATIONS_H
 #define MSGRAPHMAILFOLDERCOLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSGraphModels.h"
+#import "api/api.h"
 #import "MSGraphEntityCollectionOperations.h"
+
 
 /** MSGraphMailFolderCollectionOperations
  *

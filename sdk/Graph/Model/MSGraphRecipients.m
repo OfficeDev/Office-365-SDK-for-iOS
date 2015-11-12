@@ -60,18 +60,54 @@ root for authoritative license information.﻿
 		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
 		_permissionIdentityType = [dic objectForKey: @"permissionIdentityType"] != nil ? [[dic objectForKey: @"permissionIdentityType"] copy] : _permissionIdentityType;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_email copy], @"email",
-		 [_alias copy], @"alias",
-		 [_objectId copy], @"objectId",
-		 [_permissionIdentityType copy], @"permissionIdentityType",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.email copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
+	{id curVal = [self.alias copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"alias"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [self.permissionIdentityType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"permissionIdentityType"];}
+    [dic setValue: @"#Microsoft.Graph.recipients" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.email;
+    if([self.updatedValues containsObject:@"email"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
+    }
+    }
+	{id curVal = self.alias;
+    if([self.updatedValues containsObject:@"alias"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"alias"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.permissionIdentityType;
+    if([self.updatedValues containsObject:@"permissionIdentityType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"permissionIdentityType"];
+    }
+    }
+    return dic;
 }
 
 

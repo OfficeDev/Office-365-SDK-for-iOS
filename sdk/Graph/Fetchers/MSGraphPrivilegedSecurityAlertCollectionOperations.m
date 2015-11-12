@@ -29,7 +29,7 @@ root for authoritative license information.﻿
         return [self dismissRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPrivilegedSecurityAlert class]];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -69,7 +69,7 @@ root for authoritative license information.﻿
         return [self reactivateRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPrivilegedSecurityAlert class]];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -106,12 +106,12 @@ root for authoritative license information.﻿
 - (void)fixWithItemId:(int)itemId callback:(void (^)(MSGraphPrivilegedSecurityAlert *, MSOrcError*))callback {
 
 
-      NSString *itemIdString = [MSOrcObjectizer deobjectizeToString: @(itemId) ];
+      NSString *itemIdString = [MSOrcObjectizer stringFromInt:itemId];
 
     return [self fixRawWithItemId:itemIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPrivilegedSecurityAlert class]];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -127,7 +127,7 @@ root for authoritative license information.﻿
         
     id<MSOrcRequest> request = [super.resolver createOrcRequest];
     
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  [[NSString alloc] initWithFormat:@"%d", itemId], @"ItemId", nil ] , nil];
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  itemId, @"ItemId", nil ] , nil];
     NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
     [request setContent:payload];
     

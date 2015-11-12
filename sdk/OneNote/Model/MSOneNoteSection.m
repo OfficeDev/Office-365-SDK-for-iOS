@@ -80,28 +80,169 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 (_isDefault?@"true":@"false"), @"isDefault",
-		 [_pagesUrl copy], @"pagesUrl",
-		 [_name copy], @"name",
-		 [_createdBy copy], @"createdBy",
-		 [_createdByUser toDictionary], @"createdByUser",
-		 [_lastModifiedBy copy], @"lastModifiedBy",
-		 [_lastModifiedByUser toDictionary], @"lastModifiedByUser",
-		 [MSOrcObjectizer stringFromDate:_lastModifiedTime], @"lastModifiedTime",
-		 [__id copy], @"id",
-		 [__self copy], @"self",
-		 [MSOrcObjectizer stringFromDate:_createdTime], @"createdTime",
-		 [_parentNotebook toDictionary], @"parentNotebook",
-		 [_parentSectionGroup toDictionary], @"parentSectionGroup",
-		 [[NSMutableArray alloc] init], @"pages",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = (self.isDefault?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isDefault"];}
+	{id curVal = [self.pagesUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"pagesUrl"];}
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.createdBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
+	{id curVal = [self.createdByUser toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdByUser"];}
+	{id curVal = [self.lastModifiedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
+	{id curVal = [self.lastModifiedByUser toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedByUser"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedTime"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self._self copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdTime"];}
+	{id curVal = [self.parentNotebook toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentNotebook"];}
+	{id curVal = [self.parentSectionGroup toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentSectionGroup"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"pages"];}
+    [dic setValue: @"#Microsoft.OneNote.Api.Section" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.isDefault;
+    if([self.updatedValues containsObject:@"isDefault"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
+    }
+    }
+	{id curVal = self.pagesUrl;
+    if([self.updatedValues containsObject:@"pagesUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"pagesUrl"];
+    }
+    }
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+    }
+    }
+	{id curVal = self.createdBy;
+    if([self.updatedValues containsObject:@"createdBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
+    }
+    }
+	{id curVal = self.createdByUser;
+    if([self.updatedValues containsObject:@"createdByUser"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdByUser"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"createdByUser"];
+            }
+        
+            }}
+	{id curVal = self.lastModifiedBy;
+    if([self.updatedValues containsObject:@"lastModifiedBy"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"lastModifiedBy"];
+    }
+    }
+	{id curVal = self.lastModifiedByUser;
+    if([self.updatedValues containsObject:@"lastModifiedByUser"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"lastModifiedByUser"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"lastModifiedByUser"];
+            }
+        
+            }}
+	{id curVal = self.lastModifiedTime;
+    if([self.updatedValues containsObject:@"lastModifiedTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self._self;
+    if([self.updatedValues containsObject:@"self"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
+    }
+    }
+	{id curVal = self.createdTime;
+    if([self.updatedValues containsObject:@"createdTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdTime"];
+    }
+    }
+	{id curVal = self.parentNotebook;
+    if([self.updatedValues containsObject:@"parentNotebook"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentNotebook"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"parentNotebook"];
+            }
+        
+            }}
+	{id curVal = self.parentSectionGroup;
+    if([self.updatedValues containsObject:@"parentSectionGroup"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentSectionGroup"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"parentSectionGroup"];
+            }
+        
+            }}
+	{id curVal = self.pages;
+    if([self.updatedValues containsObject:@"pages"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"pages"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

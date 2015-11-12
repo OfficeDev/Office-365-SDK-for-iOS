@@ -57,15 +57,33 @@ root for authoritative license information.﻿
     
 		_childCount = [dic objectForKey: @"childCount"] != nil ? [[dic objectForKey: @"childCount"] intValue] : _childCount;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithInt: _childCount], @"childCount",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [NSNumber numberWithInt: self.childCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"childCount"];}
+    [dic setValue: @"#Microsoft.Graph.folder" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.childCount;
+    if([self.updatedValues containsObject:@"childCount"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"childCount"];
+    }
+    }
+    return dic;
 }
 
 

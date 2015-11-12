@@ -71,19 +71,66 @@ root for authoritative license information.﻿
         }
         
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_name copy], @"name",
-		 [_planId copy], @"planId",
-		 [_orderHint copy], @"orderHint",
-		 [__id copy], @"id",
-		 [[NSMutableArray alloc] init], @"tasks",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.planId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"planId"];}
+	{id curVal = [self.orderHint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
+	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"tasks"];}
+    [dic setValue: @"#Microsoft.Graph.bucket" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.name;
+    if([self.updatedValues containsObject:@"name"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+    }
+    }
+	{id curVal = self.planId;
+    if([self.updatedValues containsObject:@"planId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"planId"];
+    }
+    }
+	{id curVal = self.orderHint;
+    if([self.updatedValues containsObject:@"orderHint"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
+    }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+    }
+    }
+	{id curVal = self.tasks;
+    if([self.updatedValues containsObject:@"tasks"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"tasks"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+    return dic;
 }
 
 

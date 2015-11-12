@@ -59,17 +59,67 @@ root for authoritative license information.﻿
 		_address = [dic objectForKey: @"Address"] != nil ? [[MSOutlookPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]] : _address;
 		_coordinates = [dic objectForKey: @"Coordinates"] != nil ? [[MSOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]] : _coordinates;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_displayName copy], @"DisplayName",
-		 [_address toDictionary], @"Address",
-		 [_coordinates toDictionary], @"Coordinates",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.address toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
+	{id curVal = [self.coordinates toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Coordinates"];}
+    [dic setValue: @"#Microsoft.OutlookServices.Location" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"DisplayName"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+    }
+    }
+	{id curVal = self.address;
+    if([self.updatedValues containsObject:@"Address"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Address"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Address"];
+            }
+        
+            }}
+	{id curVal = self.coordinates;
+    if([self.updatedValues containsObject:@"Coordinates"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Coordinates"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Coordinates"];
+            }
+        
+            }}
+    return dic;
 }
 
 

@@ -60,17 +60,57 @@ root for authoritative license information.﻿
 		_isRegistered = [dic objectForKey: @"IsRegistered"] != nil ? [[dic objectForKey: @"IsRegistered"] boolValue] : _isRegistered;
 		_status = [dic objectForKey: @"Status"] != nil ? [MSGraphSetupStatusSerializer fromString:[dic objectForKey: @"Status"]] : _status;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_tenantId copy], @"TenantId",
-		 (_isRegistered?@"true":@"false"), @"IsRegistered",
-		 [MSGraphSetupStatusSerializer toString:_status], @"Status",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.tenantId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"TenantId"];}
+	{id curVal = (self.isRegistered?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsRegistered"];}
+	{id curVal = [MSGraphSetupStatusSerializer toString:self.status]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
+    [dic setValue: @"#Microsoft.Graph.PrivilegedSignupStatus" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.tenantId;
+    if([self.updatedValues containsObject:@"TenantId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"TenantId"];
+    }
+    }
+	{id curVal = self.isRegistered;
+    if([self.updatedValues containsObject:@"IsRegistered"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRegistered"];
+    }
+    }
+	{id curVal = self.status;
+    if([self.updatedValues containsObject:@"Status"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSGraphSetupStatusSerializer toString:curVal] forKey: @"Status"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Status"];
+            }
+        
+            }}
+    return dic;
 }
 
 

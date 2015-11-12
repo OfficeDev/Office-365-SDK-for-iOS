@@ -17,9 +17,10 @@ root for authoritative license information.﻿
 #define MSFILESCURRENTUSERREQUESTCONTEXTOPERATIONS_H
 				  		
 
-#import <orc.h>
+
 #import "MSFilesModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
 
 
 /** MSFilesCurrentUserRequestContextOperations

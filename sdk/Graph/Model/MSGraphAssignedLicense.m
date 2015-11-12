@@ -67,16 +67,45 @@ root for authoritative license information.﻿
         
 		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [[NSMutableArray alloc] init], @"disabledPlans",
-		 [_skuId copy], @"skuId",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"disabledPlans"];}
+	{id curVal = [self.skuId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
+    [dic setValue: @"#Microsoft.Graph.AssignedLicense" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.disabledPlans;
+    if([self.updatedValues containsObject:@"disabledPlans"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"disabledPlans"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.skuId;
+    if([self.updatedValues containsObject:@"skuId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
+    }
+    }
+    return dic;
 }
 
 

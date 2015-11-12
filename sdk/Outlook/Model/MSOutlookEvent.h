@@ -32,12 +32,22 @@ root for authoritative license information.﻿
 #import "MSOutlookFreeBusyStatus.h"
 #import "MSOutlookEventType.h"
 #import "MSOutlookItem.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookEvent
  *
  */
 @interface MSOutlookEvent : MSOutlookItem <MSOrcInteroperableWithDictionary>
+
+/** Property startTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setStartTimeZone:, getter=startTimeZone) NSString * startTimeZone;
+
+/** Property endTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
 
 /** Property responseStatus
  *
@@ -98,20 +108,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setOriginalStart:, getter=originalStart) NSDate * originalStart;
 
-/** Property startTimeZone
- *
- */
-@property (nonatomic,  copy, setter=setStartTimeZone:, getter=startTimeZone) NSString * startTimeZone;
-
 /** Property end
  *
  */
 @property (nonatomic,  copy, setter=setEnd:, getter=end) NSDate * end;
-
-/** Property endTimeZone
- *
- */
-@property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
 
 /** Property location
  *

@@ -58,16 +58,60 @@ root for authoritative license information.﻿
 		_application = [dic objectForKey: @"application"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
 		_user = [dic objectForKey: @"user"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_application toDictionary], @"application",
-		 [_user toDictionary], @"user",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.application toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
+	{id curVal = [self.user toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"user"];}
+    [dic setValue: @"#Microsoft.FileServices.IdentitySet" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.application;
+    if([self.updatedValues containsObject:@"application"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"application"];
+            }
+        
+            }}
+	{id curVal = self.user;
+    if([self.updatedValues containsObject:@"user"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"user"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"user"];
+            }
+        
+            }}
+    return dic;
 }
 
 

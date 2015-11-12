@@ -244,17 +244,6 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphPersonCollectionFetcher *)people {
-
-    return [[MSGraphPersonCollectionFetcher alloc] initWithUrl:@"People" parent:self asClass:[MSGraphPerson class]];
-}
-
-- (MSGraphPersonFetcher *)peopleById:(NSString *)identifier {
-
-    return [[[MSGraphPersonCollectionFetcher alloc] initWithUrl:@"People" parent:self asClass:[MSGraphPerson class]] getById:identifier];
-
-}
-
 - (MSGraphContactCollectionFetcher *)contacts {
 
     return [[MSGraphContactCollectionFetcher alloc] initWithUrl:@"Contacts" parent:self asClass:[MSGraphContact class]];
@@ -282,19 +271,24 @@ root for authoritative license information.﻿
 	 return [[MSGraphInferenceClassificationFetcher alloc] initWithUrl:@"InferenceClassification" parent:self asClass:[MSGraphInferenceClassification class]];
 }
 
-- (MSGraphPhotoFetcher *)photo {
+- (MSGraphMailFolderFetcher *)rootFolder {
 
-	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphPhoto class]];
+	 return [[MSGraphMailFolderFetcher alloc] initWithUrl:@"RootFolder" parent:self asClass:[MSGraphMailFolder class]];
 }
 
-- (MSGraphPhotoCollectionFetcher *)photos {
+- (MSGraphProfilePhotoFetcher *)photo {
 
-    return [[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]];
+	 return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
-- (MSGraphPhotoFetcher *)photosById:(NSString *)identifier {
+- (MSGraphProfilePhotoCollectionFetcher *)photos {
 
-    return [[[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]] getById:identifier];
+    return [[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]];
+}
+
+- (MSGraphProfilePhotoFetcher *)photosById:(NSString *)identifier {
+
+    return [[[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]] getById:identifier];
 
 }
 
@@ -345,6 +339,11 @@ root for authoritative license information.﻿
 
     return [[[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]] getById:identifier];
 
+}
+
+- (MSGraphNotesFetcher *)notes {
+
+	 return [[MSGraphNotesFetcher alloc] initWithUrl:@"notes" parent:self asClass:[MSGraphNotes class]];
 }
 
 @end

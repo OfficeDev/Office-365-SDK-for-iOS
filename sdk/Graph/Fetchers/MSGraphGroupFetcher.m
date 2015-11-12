@@ -167,19 +167,19 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphPhotoFetcher *)photo {
+- (MSGraphProfilePhotoFetcher *)photo {
 
-	 return [[MSGraphPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphPhoto class]];
+	 return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
-- (MSGraphPhotoCollectionFetcher *)photos {
+- (MSGraphProfilePhotoCollectionFetcher *)photos {
 
-    return [[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]];
+    return [[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
-- (MSGraphPhotoFetcher *)photosById:(NSString *)identifier {
+- (MSGraphProfilePhotoFetcher *)photosById:(NSString *)identifier {
 
-    return [[[MSGraphPhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphPhoto class]] getById:identifier];
+    return [[[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]] getById:identifier];
 
 }
 
@@ -219,6 +219,11 @@ root for authoritative license information.﻿
 
     return [[[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]] getById:identifier];
 
+}
+
+- (MSGraphNotesFetcher *)notes {
+
+	 return [[MSGraphNotesFetcher alloc] initWithUrl:@"notes" parent:self asClass:[MSGraphNotes class]];
 }
 
 @end

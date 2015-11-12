@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSGraphEmailAddress;
 #import "MSGraphInferenceClassificationType.h"
 #import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphInferenceClassificationOverride
  *

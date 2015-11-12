@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSGraphRecipient;
 @class MSGraphPost;
 #import "MSGraphEntity.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphConversationThread
  *

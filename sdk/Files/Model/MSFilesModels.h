@@ -16,7 +16,7 @@ root for authoritative license information.﻿
 #ifndef MSFILESMODELS_H
 #define MSFILESMODELS_H
 
-#import "NSArray+Extension.h"
+#import "core/NSArray+Extension.h"
 
 #import "MSFilesCurrentUserRequestContext.h"
 #import "MSFilesDriveQuota.h"

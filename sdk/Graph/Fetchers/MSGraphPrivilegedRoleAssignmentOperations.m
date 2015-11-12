@@ -31,18 +31,18 @@ root for authoritative license information.﻿
 - (void)activateWithReason:(NSString *)reason duration:(NSString *)duration ticketNumber:(NSString *)ticketNumber ticketSystem:(NSString *)ticketSystem callback:(void (^)(MSGraphPrivilegedRoleAssignment *, MSOrcError*))callback {
 
 
-      NSString *reasonString = [MSOrcObjectizer deobjectizeToString: reason ];
+      NSString *reasonString = [reason copy];
 
-  NSString *durationString = [MSOrcObjectizer deobjectizeToString: duration ];
+  NSString *durationString = [duration copy];
 
-  NSString *ticketNumberString = [MSOrcObjectizer deobjectizeToString: ticketNumber ];
+  NSString *ticketNumberString = [ticketNumber copy];
 
-  NSString *ticketSystemString = [MSOrcObjectizer deobjectizeToString: ticketSystem ];
+  NSString *ticketSystemString = [ticketSystem copy];
 
     return [self activateRawWithReason:reasonString duration:durationString ticketNumber:ticketNumberString ticketSystem:ticketSystemString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPrivilegedRoleAssignment class]];
+            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {
@@ -85,7 +85,7 @@ root for authoritative license information.﻿
         return [self deactivateRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue toType:[MSGraphPrivilegedRoleAssignment class]];
+            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue];
             callback(result, e);
         } 
         else {

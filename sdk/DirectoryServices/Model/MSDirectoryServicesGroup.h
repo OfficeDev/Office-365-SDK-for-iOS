@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSDirectoryServicesProvisioningError;
 @class MSDirectoryServicesAppRoleAssignment;
 #import "MSDirectoryServicesDirectoryObject.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSDirectoryServicesGroup
  *

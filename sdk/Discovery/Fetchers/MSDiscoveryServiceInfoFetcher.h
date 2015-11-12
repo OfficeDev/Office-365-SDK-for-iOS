@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSDISCOVERYSERVICEINFOFETCHER_H
 #define MSDISCOVERYSERVICEINFOFETCHER_H
 
-#import <orc.h>
 #import "MSDiscoveryModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSDiscoveryServiceInfoOperations;
 

@@ -78,19 +78,89 @@ root for authoritative license information.﻿
         
 		_registrationQuota = [dic objectForKey: @"registrationQuota"] != nil ? [[dic objectForKey: @"registrationQuota"] intValue] : _registrationQuota;
 		_maximumRegistrationInactivityPeriod = [dic objectForKey: @"maximumRegistrationInactivityPeriod"] != nil ? [[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue] : _maximumRegistrationInactivityPeriod;
+		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
+		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
+		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [[NSMutableArray alloc] init], @"publicIssuerCertificates",
-		 [[NSMutableArray alloc] init], @"cloudPublicIssuerCertificates",
-		 [NSNumber numberWithInt: _registrationQuota], @"registrationQuota",
-		 [NSNumber numberWithInt: _maximumRegistrationInactivityPeriod], @"maximumRegistrationInactivityPeriod",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"publicIssuerCertificates"];}
+	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"cloudPublicIssuerCertificates"];}
+	{id curVal = [NSNumber numberWithInt: self.registrationQuota]; if (curVal!=nil) [dic setValue: curVal forKey: @"registrationQuota"];}
+	{id curVal = [NSNumber numberWithInt: self.maximumRegistrationInactivityPeriod]; if (curVal!=nil) [dic setValue: curVal forKey: @"maximumRegistrationInactivityPeriod"];}
+	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#Microsoft.Graph.DeviceConfiguration" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.publicIssuerCertificates;
+    if([self.updatedValues containsObject:@"publicIssuerCertificates"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"publicIssuerCertificates"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.cloudPublicIssuerCertificates;
+    if([self.updatedValues containsObject:@"cloudPublicIssuerCertificates"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"cloudPublicIssuerCertificates"];
+    }
+        else
+    {
+                
+        //Check collection change:
+        
+            }}
+	{id curVal = self.registrationQuota;
+    if([self.updatedValues containsObject:@"registrationQuota"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"registrationQuota"];
+    }
+    }
+	{id curVal = self.maximumRegistrationInactivityPeriod;
+    if([self.updatedValues containsObject:@"maximumRegistrationInactivityPeriod"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"maximumRegistrationInactivityPeriod"];
+    }
+    }
+	{id curVal = self.objectType;
+    if([self.updatedValues containsObject:@"objectType"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+    }
+    }
+	{id curVal = self.objectId;
+    if([self.updatedValues containsObject:@"objectId"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+    }
+    }
+	{id curVal = self.deletionTimestamp;
+    if([self.updatedValues containsObject:@"deletionTimestamp"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+    }
+    }
+    return dic;
 }
 
 

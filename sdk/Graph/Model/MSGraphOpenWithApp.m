@@ -61,19 +61,71 @@ root for authoritative license information.﻿
 		_viewPostParameters = [dic objectForKey: @"viewPostParameters"] != nil ? [[dic objectForKey: @"viewPostParameters"] copy] : _viewPostParameters;
 		_editPostParameters = [dic objectForKey: @"editPostParameters"] != nil ? [[dic objectForKey: @"editPostParameters"] copy] : _editPostParameters;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [_app toDictionary], @"app",
-		 [_viewUrl copy], @"viewUrl",
-		 [_editUrl copy], @"editUrl",
-		 [_viewPostParameters copy], @"viewPostParameters",
-		 [_editPostParameters copy], @"editPostParameters",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.app toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"app"];}
+	{id curVal = [self.viewUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"viewUrl"];}
+	{id curVal = [self.editUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"editUrl"];}
+	{id curVal = [self.viewPostParameters copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"viewPostParameters"];}
+	{id curVal = [self.editPostParameters copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"editPostParameters"];}
+    [dic setValue: @"#Microsoft.Graph.openWithApp" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.app;
+    if([self.updatedValues containsObject:@"app"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"app"];
+    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"app"];
+            }
+        
+            }}
+	{id curVal = self.viewUrl;
+    if([self.updatedValues containsObject:@"viewUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewUrl"];
+    }
+    }
+	{id curVal = self.editUrl;
+    if([self.updatedValues containsObject:@"editUrl"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editUrl"];
+    }
+    }
+	{id curVal = self.viewPostParameters;
+    if([self.updatedValues containsObject:@"viewPostParameters"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewPostParameters"];
+    }
+    }
+	{id curVal = self.editPostParameters;
+    if([self.updatedValues containsObject:@"editPostParameters"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editPostParameters"];
+    }
+    }
+    return dic;
 }
 
 

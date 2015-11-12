@@ -16,9 +16,11 @@ root for authoritative license information.﻿
 #ifndef MSONENOTESITECOLLECTION_COLLECTIONOPERATIONS_H
 #define MSONENOTESITECOLLECTION_COLLECTIONOPERATIONS_H
 
-#import <orc.h>
+
 #import "MSOneNoteModels.h"
-#import "MSOrcOperations.h"
+#import "api/api.h"
+#import "core/MSOrcOperations.h"
+
 
 /** MSOneNoteSiteCollection_CollectionOperations
  *

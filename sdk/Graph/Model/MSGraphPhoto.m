@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPhoto
@@ -26,25 +26,25 @@ root for authoritative license information.﻿
 
 @synthesize odataType = _odataType;
 
-
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"cameraMake", @"cameraMake", @"cameraModel", @"cameraModel", @"exposureDenominator", @"exposureDenominator", @"exposureNumerator", @"exposureNumerator", @"focalLength", @"focalLength", @"fNumber", @"fNumber", @"takenDateTime", @"takenDateTime", @"iso", @"iso", nil];
     
     }
     
     return _$$$_$$$propertiesNamesMappings;
 }
 
+
 - (instancetype)init {
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Photo";
-        
+		_odataType = @"#Microsoft.Graph.photo";
+
         
     }
 
@@ -52,40 +52,159 @@ root for authoritative license information.﻿
 }
 
 
-
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
-		_height = [dic objectForKey: @"Height"] != nil ? [[dic objectForKey: @"Height"] intValue] : _height;
-		_width = [dic objectForKey: @"Width"] != nil ? [[dic objectForKey: @"Width"] intValue] : _width;
+		_cameraMake = [dic objectForKey: @"cameraMake"] != nil ? [[dic objectForKey: @"cameraMake"] copy] : _cameraMake;
+		_cameraModel = [dic objectForKey: @"cameraModel"] != nil ? [[dic objectForKey: @"cameraModel"] copy] : _cameraModel;
+		_exposureDenominator = [dic objectForKey: @"exposureDenominator"] != nil ? [[dic objectForKey: @"exposureDenominator"] doubleValue] : _exposureDenominator;
+		_exposureNumerator = [dic objectForKey: @"exposureNumerator"] != nil ? [[dic objectForKey: @"exposureNumerator"] doubleValue] : _exposureNumerator;
+		_focalLength = [dic objectForKey: @"focalLength"] != nil ? [[dic objectForKey: @"focalLength"] doubleValue] : _focalLength;
+		_fNumber = [dic objectForKey: @"fNumber"] != nil ? [[dic objectForKey: @"fNumber"] doubleValue] : _fNumber;
+		_takenDateTime = [dic objectForKey: @"takenDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"takenDateTime"]] : _takenDateTime;
+		_iso = [dic objectForKey: @"iso"] != nil ? [[dic objectForKey: @"iso"] intValue] : _iso;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [NSNumber numberWithInt: _height], @"Height",
-		 [NSNumber numberWithInt: _width], @"Width",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [self.cameraMake copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"cameraMake"];}
+	{id curVal = [self.cameraModel copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"cameraModel"];}
+	{id curVal = [NSNumber numberWithDouble: self.exposureDenominator]; if (curVal!=nil) [dic setValue: curVal forKey: @"exposureDenominator"];}
+	{id curVal = [NSNumber numberWithDouble: self.exposureNumerator]; if (curVal!=nil) [dic setValue: curVal forKey: @"exposureNumerator"];}
+	{id curVal = [NSNumber numberWithDouble: self.focalLength]; if (curVal!=nil) [dic setValue: curVal forKey: @"focalLength"];}
+	{id curVal = [NSNumber numberWithDouble: self.fNumber]; if (curVal!=nil) [dic setValue: curVal forKey: @"fNumber"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.takenDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"takenDateTime"];}
+	{id curVal = [NSNumber numberWithInt: self.iso]; if (curVal!=nil) [dic setValue: curVal forKey: @"iso"];}
+    [dic setValue: @"#Microsoft.Graph.photo" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.cameraMake;
+    if([self.updatedValues containsObject:@"cameraMake"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraMake"];
+    }
+    }
+	{id curVal = self.cameraModel;
+    if([self.updatedValues containsObject:@"cameraModel"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraModel"];
+    }
+    }
+	{id curVal = self.exposureDenominator;
+    if([self.updatedValues containsObject:@"exposureDenominator"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureDenominator"];
+    }
+    }
+	{id curVal = self.exposureNumerator;
+    if([self.updatedValues containsObject:@"exposureNumerator"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureNumerator"];
+    }
+    }
+	{id curVal = self.focalLength;
+    if([self.updatedValues containsObject:@"focalLength"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"focalLength"];
+    }
+    }
+	{id curVal = self.fNumber;
+    if([self.updatedValues containsObject:@"fNumber"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"fNumber"];
+    }
+    }
+	{id curVal = self.takenDateTime;
+    if([self.updatedValues containsObject:@"takenDateTime"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"takenDateTime"];
+    }
+    }
+	{id curVal = self.iso;
+    if([self.updatedValues containsObject:@"iso"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"iso"];
+    }
+    }
+    return dic;
 }
 
 
-/** Setter implementation for property height
+/** Setter implementation for property cameraMake
  *
  */
-- (void) setHeight: (int) value {
-    _height = value;
-    [self valueChangedFor:@"Height"];
+- (void) setCameraMake: (NSString *) value {
+    _cameraMake = value;
+    [self valueChangedFor:@"cameraMake"];
 }
        
-/** Setter implementation for property width
+/** Setter implementation for property cameraModel
  *
  */
-- (void) setWidth: (int) value {
-    _width = value;
-    [self valueChangedFor:@"Width"];
+- (void) setCameraModel: (NSString *) value {
+    _cameraModel = value;
+    [self valueChangedFor:@"cameraModel"];
+}
+       
+/** Setter implementation for property exposureDenominator
+ *
+ */
+- (void) setExposureDenominator: (double) value {
+    _exposureDenominator = value;
+    [self valueChangedFor:@"exposureDenominator"];
+}
+       
+/** Setter implementation for property exposureNumerator
+ *
+ */
+- (void) setExposureNumerator: (double) value {
+    _exposureNumerator = value;
+    [self valueChangedFor:@"exposureNumerator"];
+}
+       
+/** Setter implementation for property focalLength
+ *
+ */
+- (void) setFocalLength: (double) value {
+    _focalLength = value;
+    [self valueChangedFor:@"focalLength"];
+}
+       
+/** Setter implementation for property fNumber
+ *
+ */
+- (void) setFNumber: (double) value {
+    _fNumber = value;
+    [self valueChangedFor:@"fNumber"];
+}
+       
+/** Setter implementation for property takenDateTime
+ *
+ */
+- (void) setTakenDateTime: (NSDate *) value {
+    _takenDateTime = value;
+    [self valueChangedFor:@"takenDateTime"];
+}
+       
+/** Setter implementation for property iso
+ *
+ */
+- (void) setIso: (int) value {
+    _iso = value;
+    [self valueChangedFor:@"iso"];
 }
        
 

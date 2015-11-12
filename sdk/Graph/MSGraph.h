@@ -10,8 +10,8 @@
 #ifndef MSGRAPH_H
 #define MSGRAPH_H
 
-#import <MSGraphFetchers.h>
-#import <MSGraphModels.h>
+#import "MSGraphFetchers.h"
+#import "MSGraphModels.h"
 
 #endif
     

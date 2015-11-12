@@ -22,7 +22,7 @@ root for authoritative license information.﻿
 @class MSOutlookResponseStatus;
 #import "MSOutlookAttendeeType.h"
 #import "MSOutlookRecipient.h"
-#import <api/MSOrcInteroperableWithDictionary.h>
+#import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSOutlookAttendee
  *

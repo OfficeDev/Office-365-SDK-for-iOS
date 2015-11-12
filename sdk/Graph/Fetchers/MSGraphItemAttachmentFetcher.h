@@ -17,9 +17,9 @@ root for authoritative license information.﻿
 #ifndef MSGRAPHITEMATTACHMENTFETCHER_H
 #define MSGRAPHITEMATTACHMENTFETCHER_H
 
-#import <orc.h>
 #import "MSGraphModels.h"
-#import "MSOrcEntityFetcher.h"
+#import "api/api.h"
+#import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphOutlookItemFetcher;
 @class MSGraphOutlookItemFetcher;

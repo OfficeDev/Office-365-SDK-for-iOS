@@ -59,17 +59,47 @@ root for authoritative license information.﻿
 		_time = [dic objectForKey: @"Time"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]] : _time;
 		_timeZone = [dic objectForKey: @"TimeZone"] != nil ? [[dic objectForKey: @"TimeZone"] copy] : _timeZone;
 
+    [self.updatedValues removeAllObjects];
     }
     
     return self;
 }
 
 - (NSDictionary *) toDictionary {
-    return [[NSDictionary alloc] initWithObjectsAndKeys: 
-    		 [MSOrcObjectizer stringFromDate:_date], @"Date",
-		 [MSOrcObjectizer stringFromDate:_time], @"Time",
-		 [_timeZone copy], @"TimeZone",
-            nil];
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = [MSOrcObjectizer stringFromDate:self.date]; if (curVal!=nil) [dic setValue: curVal forKey: @"Date"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.time]; if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
+	{id curVal = [self.timeZone copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"TimeZone"];}
+    [dic setValue: @"#Microsoft.Graph.TimeStamp" forKey: @"@odata.type"];
+
+    return dic;
+}
+
+- (NSDictionary *) toUpdatedValuesDictionary {
+    
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
+
+	{id curVal = self.date;
+    if([self.updatedValues containsObject:@"Date"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Date"];
+    }
+    }
+	{id curVal = self.time;
+    if([self.updatedValues containsObject:@"Time"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
+    }
+    }
+	{id curVal = self.timeZone;
+    if([self.updatedValues containsObject:@"TimeZone"])
+    {
+        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"TimeZone"];
+    }
+    }
+    return dic;
 }
 
 
