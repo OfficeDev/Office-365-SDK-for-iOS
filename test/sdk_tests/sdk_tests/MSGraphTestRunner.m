@@ -1214,7 +1214,7 @@
         
         NSString *photoId = photos == nil ? @"" : [[photos objectAtIndex:0] _id];
         
-        [[[self.Client.users getById:self.TestMail].userPhotos getById:photoId] readWithCallback:^(MSGraphPhoto *photo, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].photos getById:photoId] readWithCallback:^(MSGraphProfilePhoto *photo, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1243,7 +1243,7 @@
 
 -(void)TestGetUserPhoto:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].photo readWithCallback:^(MSGraphPhoto *photo, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].photo readWithCallback:^(MSGraphProfilePhoto *photo, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1297,7 +1297,7 @@
 
 -(void)TestGetUserFiles:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].drive readWithCallback:^(NSArray *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive.root.children readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -1324,7 +1324,7 @@
 
 -(void)TestGetUserFilesById:(void (^) (Test*))result{
     
-    return [[self.Client.users getById:self.TestMail].drive readWithCallback:^(NSArray *items, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive.root.children readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error != nil) {
             
@@ -1335,7 +1335,7 @@
         
         NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] _id];
         
-        [[[self.Client.users getById:self.TestMail].files getById:itemId] readWithCallback:^(MSGraphItem *item, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].drive.root.children getById:itemId] readWithCallback:^(MSGraphItem *item, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1363,18 +1363,18 @@
 }
 
 -(void)TestCreateFileWithContent:(void (^) (Test*))result{
-    
+    /*
     MSGraphItem *itemToAdd = [self getFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSInputStream* contentStream = [NSInputStream inputStreamWithData:content];
     //Create file
-    return [[self.Client.users getById:self.TestMail].drive add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
+    return [[self.Client.users getById:self.TestMail].drive.root.children add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
         //Put content to file
        
-        [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] asFile].operations uploadContentWithContentStream:contentStream callback:^(int returnValue, MSOrcError *error) {
+        [[[[self.Client.users getById:self.TestMail].drive.root.children getById:addedItem._id].content putContent: contentStream callback:^(int returnValue, MSOrcError *error) {
             
             //Get file content
-            [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id] asFile].operations contentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
+            [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id].content stream contentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1411,7 +1411,12 @@
                 result(test);
             }];
         }];
-    }];
+    }];*/
+         
+         Test *test = [Test alloc];
+         test.executionMessages = [NSMutableArray array];
+         test.passed = FALSE;
+         result(test);
 }
 
 - (MSGraphMessage *)getSampleMessage:(NSString *)subject to:(NSString *)to cc:(NSString *)cc {
@@ -1484,7 +1489,9 @@
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
     MSGraphItem *item = [[MSGraphItem alloc] init];
     
-    [item setType:@"File"];
+    MSGraphFile *file = [[MSGraphFile alloc]init];
+    
+    [item setFile:file];
     [item setName:fileName];
     return item;
 }

@@ -106,6 +106,10 @@
     if([testName isEqualToString:@"TestUpdateEvents"])return [self testUpdateEvents:result];
     if([testName isEqualToString:@"TestDeleteEvents"])return [self testDeleteEvents:result];
     
+    if([testName isEqualToString:@"TestRetrieveConversation"])return [self testRetrieveConversation:result];
+    if([testName isEqualToString:@"TestRetrievePrivilegedRoleSettings"])return [self testRetrievePrivilegedRoleSettings:result];
+
+    
     /*
      else{
      return [self TestDefaultWithCompletionHandler:result];
@@ -2453,6 +2457,9 @@
         }
     }];
 }
+
+- (void)testRetrievePrivilegedRoleSettings:(void(^)(Test *))result {
+    _weakSelf.client }
 
 - (MSOutlookEvent *)getSampleEvent {
     
