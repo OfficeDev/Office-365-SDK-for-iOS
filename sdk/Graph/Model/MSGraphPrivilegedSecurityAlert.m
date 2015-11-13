@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PrivilegedSecurityAlert";
-        
+		_odataType = @"#microsoft.graph.PrivilegedSecurityAlert";
         
     }
 
@@ -84,24 +83,24 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.alertId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AlertId"];}
-	{id curVal = [NSNumber numberWithInt: self.numberOfAffectedItems]; if (curVal!=nil) [dic setValue: curVal forKey: @"NumberOfAffectedItems"];}
-	{id curVal = [self.additionalData copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AdditionalData"];}
-	{id curVal = [self.alertName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AlertName"];}
-	{id curVal = [self.alertDescription copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"AlertDescription"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedTime"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastScannedTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastScannedTime"];}
-	{id curVal = [MSGraphAlertSeveritySerializer toString:self.severityLevel]; if (curVal!=nil) [dic setValue: curVal forKey: @"SeverityLevel"];}
-	{id curVal = [MSGraphAlertTypeSerializer toString:self.alertType]; if (curVal!=nil) [dic setValue: curVal forKey: @"AlertType"];}
-	{id curVal = [self.securityImpact copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"SecurityImpact"];}
-	{id curVal = [self.mitigationSteps copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"MitigationSteps"];}
-	{id curVal = [self.howToPrevent copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"HowToPrevent"];}
-	{id curVal = (self.wasDismissed?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"WasDismissed"];}
-	{id curVal = (self.isActive?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsActive"];}
-	{id curVal = (self.isResolvable?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsResolvable"];}
-	{id curVal = (self.isConfigurable?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsConfigurable"];}
-	{id curVal = [MSGraphAlertStatusSerializer toString:self.status]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
-    [dic setValue: @"#Microsoft.Graph.PrivilegedSecurityAlert" forKey: @"@odata.type"];
+	{id curVal = [self.alertId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"AlertId"];}
+	{[dic setValue: [NSNumber numberWithInt: self.numberOfAffectedItems] forKey: @"NumberOfAffectedItems"];}
+	{id curVal = [self.additionalData copy];if (curVal!=nil) [dic setValue: curVal forKey: @"AdditionalData"];}
+	{id curVal = [self.alertName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"AlertName"];}
+	{id curVal = [self.alertDescription copy];if (curVal!=nil) [dic setValue: curVal forKey: @"AlertDescription"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastScannedTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastScannedTime"];}
+	{[dic setValue: [MSGraphAlertSeveritySerializer toString:self.severityLevel] forKey: @"SeverityLevel"];}
+	{[dic setValue: [MSGraphAlertTypeSerializer toString:self.alertType] forKey: @"AlertType"];}
+	{id curVal = [self.securityImpact copy];if (curVal!=nil) [dic setValue: curVal forKey: @"SecurityImpact"];}
+	{id curVal = [self.mitigationSteps copy];if (curVal!=nil) [dic setValue: curVal forKey: @"MitigationSteps"];}
+	{id curVal = [self.howToPrevent copy];if (curVal!=nil) [dic setValue: curVal forKey: @"HowToPrevent"];}
+	{[dic setValue: (self.wasDismissed?@"true":@"false") forKey: @"WasDismissed"];}
+	{[dic setValue: (self.isActive?@"true":@"false") forKey: @"IsActive"];}
+	{[dic setValue: (self.isResolvable?@"true":@"false") forKey: @"IsResolvable"];}
+	{[dic setValue: (self.isConfigurable?@"true":@"false") forKey: @"IsConfigurable"];}
+	{[dic setValue: [MSGraphAlertStatusSerializer toString:self.status] forKey: @"Status"];}
+    [dic setValue: @"#microsoft.graph.PrivilegedSecurityAlert" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -113,50 +112,50 @@ root for authoritative license information.﻿
 	{id curVal = self.alertId;
     if([self.updatedValues containsObject:@"AlertId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertId"];
+            }
     }
 	{id curVal = self.numberOfAffectedItems;
     if([self.updatedValues containsObject:@"NumberOfAffectedItems"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"NumberOfAffectedItems"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"NumberOfAffectedItems"];
+            }
     }
 	{id curVal = self.additionalData;
     if([self.updatedValues containsObject:@"AdditionalData"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AdditionalData"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AdditionalData"];
+            }
     }
 	{id curVal = self.alertName;
     if([self.updatedValues containsObject:@"AlertName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertName"];
+            }
     }
 	{id curVal = self.alertDescription;
     if([self.updatedValues containsObject:@"AlertDescription"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertDescription"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertDescription"];
+            }
     }
 	{id curVal = self.lastModifiedTime;
     if([self.updatedValues containsObject:@"LastModifiedTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedTime"];
+            }
     }
 	{id curVal = self.lastScannedTime;
     if([self.updatedValues containsObject:@"LastScannedTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastScannedTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastScannedTime"];
+            }
     }
 	{id curVal = self.severityLevel;
     if([self.updatedValues containsObject:@"SeverityLevel"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertSeveritySerializer toString:curVal] forKey: @"SeverityLevel"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertSeveritySerializer toString:curVal] forKey: @"SeverityLevel"];
+            }
         else
     {
                 
@@ -171,8 +170,8 @@ root for authoritative license information.﻿
 	{id curVal = self.alertType;
     if([self.updatedValues containsObject:@"AlertType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertTypeSerializer toString:curVal] forKey: @"AlertType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertTypeSerializer toString:curVal] forKey: @"AlertType"];
+            }
         else
     {
                 
@@ -187,50 +186,50 @@ root for authoritative license information.﻿
 	{id curVal = self.securityImpact;
     if([self.updatedValues containsObject:@"SecurityImpact"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SecurityImpact"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SecurityImpact"];
+            }
     }
 	{id curVal = self.mitigationSteps;
     if([self.updatedValues containsObject:@"MitigationSteps"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MitigationSteps"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MitigationSteps"];
+            }
     }
 	{id curVal = self.howToPrevent;
     if([self.updatedValues containsObject:@"HowToPrevent"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"HowToPrevent"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"HowToPrevent"];
+            }
     }
 	{id curVal = self.wasDismissed;
     if([self.updatedValues containsObject:@"WasDismissed"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"WasDismissed"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"WasDismissed"];
+            }
     }
 	{id curVal = self.isActive;
     if([self.updatedValues containsObject:@"IsActive"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsActive"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsActive"];
+            }
     }
 	{id curVal = self.isResolvable;
     if([self.updatedValues containsObject:@"IsResolvable"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsResolvable"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsResolvable"];
+            }
     }
 	{id curVal = self.isConfigurable;
     if([self.updatedValues containsObject:@"IsConfigurable"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsConfigurable"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsConfigurable"];
+            }
     }
 	{id curVal = self.status;
     if([self.updatedValues containsObject:@"Status"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertStatusSerializer toString:curVal] forKey: @"Status"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertStatusSerializer toString:curVal] forKey: @"Status"];
+            }
         else
     {
                 

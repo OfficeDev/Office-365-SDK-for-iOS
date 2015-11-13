@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHDEVICECONFIGURATION_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphDirectoryObject.h"
 #import "api/MSOrcInteroperableWithDictionary.h"

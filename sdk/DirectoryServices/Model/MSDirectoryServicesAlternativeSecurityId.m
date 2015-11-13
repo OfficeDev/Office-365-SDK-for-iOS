@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.DirectoryServices.AlternativeSecurityId";
 
-        
     }
 
 	return self;
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
-	{id curVal = [self.identityProvider copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"identityProvider"];}
-	{id curVal = [MSOrcObjectizer stringFromData:self.key]; if (curVal!=nil) [dic setValue: curVal forKey: @"key"];}
+	{[dic setValue: [NSNumber numberWithInt: self.type] forKey: @"type"];}
+	{id curVal = [self.identityProvider copy];if (curVal!=nil) [dic setValue: curVal forKey: @"identityProvider"];}
+	{id curVal = [MSOrcObjectizer stringFromData:self.key];if (curVal!=nil) [dic setValue: curVal forKey: @"key"];}
     [dic setValue: @"#Microsoft.DirectoryServices.AlternativeSecurityId" forKey: @"@odata.type"];
 
     return dic;
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"type"];
+            }
     }
 	{id curVal = self.identityProvider;
     if([self.updatedValues containsObject:@"identityProvider"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"identityProvider"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"identityProvider"];
+            }
     }
 	{id curVal = self.key;
     if([self.updatedValues containsObject:@"key"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"key"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"key"];
+            }
     }
     return dic;
 }

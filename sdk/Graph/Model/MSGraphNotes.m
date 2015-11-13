@@ -43,14 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Notes";
+		_odataType = @"#microsoft.graph.Notes";
         
-        
-		_notebooks = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_sections = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_sectionGroups = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_pages = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_resources = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -64,47 +58,57 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
         if([dic objectForKey: @"notebooks"] != [NSNull null]){
-            _notebooks = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"notebooks"] count]];
+            _notebooks = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"notebooks"]) {
                 [_notebooks addObject:[[MSGraphNotebook alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_notebooks resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"sections"] != [NSNull null]){
-            _sections = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sections"] count]];
+            _sections = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"sections"]) {
                 [_sections addObject:[[MSGraphSection alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_sections resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"sectionGroups"] != [NSNull null]){
-            _sectionGroups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sectionGroups"] count]];
+            _sectionGroups = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"sectionGroups"]) {
                 [_sectionGroups addObject:[[MSGraphSectionGroup alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_sectionGroups resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"pages"] != [NSNull null]){
-            _pages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"pages"] count]];
+            _pages = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"pages"]) {
                 [_pages addObject:[[MSGraphPage alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_pages resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"resources"] != [NSNull null]){
-            _resources = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"resources"] count]];
+            _resources = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"resources"]) {
                 [_resources addObject:[[MSGraphResource alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_resources resetChangedFlag];
         }
         
 
@@ -118,13 +122,43 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"notebooks"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"sections"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"sectionGroups"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"pages"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"resources"];}
-    [dic setValue: @"#Microsoft.Graph.Notes" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.notebooks) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sections) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sectionGroups) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.pages) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.resources) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.Notes" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -136,62 +170,137 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.notebooks;
     if([self.updatedValues containsObject:@"notebooks"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"notebooks"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"notebooks"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.notebooks) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"notebooks"];
+        }
         
             }}
 	{id curVal = self.sections;
     if([self.updatedValues containsObject:@"sections"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sections"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"sections"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sections) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"sections"];
+        }
         
             }}
 	{id curVal = self.sectionGroups;
     if([self.updatedValues containsObject:@"sectionGroups"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sectionGroups"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"sectionGroups"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sectionGroups) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"sectionGroups"];
+        }
         
             }}
 	{id curVal = self.pages;
     if([self.updatedValues containsObject:@"pages"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"pages"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"pages"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.pages) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"pages"];
+        }
         
             }}
 	{id curVal = self.resources;
     if([self.updatedValues containsObject:@"resources"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"resources"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"resources"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.resources) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"resources"];
+        }
         
             }}
     return dic;

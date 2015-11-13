@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Location";
+		_odataType = @"#microsoft.graph.Location";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = [self.locationEmailAddress copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"LocationEmailAddress"];}
-	{id curVal = [self.address toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
-	{id curVal = [self.coordinates toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Coordinates"];}
-    [dic setValue: @"#Microsoft.Graph.Location" forKey: @"@odata.type"];
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.locationEmailAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"LocationEmailAddress"];}
+	{id curVal = [self.address toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
+	{id curVal = [self.coordinates toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Coordinates"];}
+    [dic setValue: @"#microsoft.graph.Location" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,20 +85,20 @@ root for authoritative license information.﻿
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+            }
     }
 	{id curVal = self.locationEmailAddress;
     if([self.updatedValues containsObject:@"LocationEmailAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"LocationEmailAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"LocationEmailAddress"];
+            }
     }
 	{id curVal = self.address;
     if([self.updatedValues containsObject:@"Address"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Address"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Address"];
+            }
         else
     {
                 
@@ -114,8 +113,8 @@ root for authoritative license information.﻿
 	{id curVal = self.coordinates;
     if([self.updatedValues containsObject:@"Coordinates"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Coordinates"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Coordinates"];
+            }
         else
     {
                 

@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PrivilegedRoleSummary";
-        
+		_odataType = @"#microsoft.graph.PrivilegedRoleSummary";
         
     }
 
@@ -73,13 +72,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.roleId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
-	{id curVal = [MSGraphRoleSummaryStatusSerializer toString:self.status]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
-	{id curVal = [NSNumber numberWithInt: self.usersCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"UsersCount"];}
-	{id curVal = [NSNumber numberWithInt: self.managedCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"ManagedCount"];}
-	{id curVal = [NSNumber numberWithInt: self.elevatedCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"ElevatedCount"];}
-	{id curVal = (self.mfaEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"MfaEnabled"];}
-    [dic setValue: @"#Microsoft.Graph.PrivilegedRoleSummary" forKey: @"@odata.type"];
+	{id curVal = [self.roleId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
+	{[dic setValue: [MSGraphRoleSummaryStatusSerializer toString:self.status] forKey: @"Status"];}
+	{[dic setValue: [NSNumber numberWithInt: self.usersCount] forKey: @"UsersCount"];}
+	{[dic setValue: [NSNumber numberWithInt: self.managedCount] forKey: @"ManagedCount"];}
+	{[dic setValue: [NSNumber numberWithInt: self.elevatedCount] forKey: @"ElevatedCount"];}
+	{[dic setValue: (self.mfaEnabled?@"true":@"false") forKey: @"MfaEnabled"];}
+    [dic setValue: @"#microsoft.graph.PrivilegedRoleSummary" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,14 +90,14 @@ root for authoritative license information.﻿
 	{id curVal = self.roleId;
     if([self.updatedValues containsObject:@"RoleId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
+            }
     }
 	{id curVal = self.status;
     if([self.updatedValues containsObject:@"Status"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphRoleSummaryStatusSerializer toString:curVal] forKey: @"Status"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphRoleSummaryStatusSerializer toString:curVal] forKey: @"Status"];
+            }
         else
     {
                 
@@ -113,26 +112,26 @@ root for authoritative license information.﻿
 	{id curVal = self.usersCount;
     if([self.updatedValues containsObject:@"UsersCount"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UsersCount"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UsersCount"];
+            }
     }
 	{id curVal = self.managedCount;
     if([self.updatedValues containsObject:@"ManagedCount"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ManagedCount"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ManagedCount"];
+            }
     }
 	{id curVal = self.elevatedCount;
     if([self.updatedValues containsObject:@"ElevatedCount"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ElevatedCount"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ElevatedCount"];
+            }
     }
 	{id curVal = self.mfaEnabled;
     if([self.updatedValues containsObject:@"MfaEnabled"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"MfaEnabled"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"MfaEnabled"];
+            }
     }
     return dic;
 }

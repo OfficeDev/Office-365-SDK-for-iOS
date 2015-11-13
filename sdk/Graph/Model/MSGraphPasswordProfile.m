@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PasswordProfile";
+		_odataType = @"#microsoft.graph.PasswordProfile";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.password copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"password"];}
-	{id curVal = (self.forceChangePasswordNextLogin?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"forceChangePasswordNextLogin"];}
-    [dic setValue: @"#Microsoft.Graph.PasswordProfile" forKey: @"@odata.type"];
+	{id curVal = [self.password copy];if (curVal!=nil) [dic setValue: curVal forKey: @"password"];}
+	{[dic setValue: (self.forceChangePasswordNextLogin?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];}
+    [dic setValue: @"#microsoft.graph.PasswordProfile" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.password;
     if([self.updatedValues containsObject:@"password"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"password"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"password"];
+            }
     }
 	{id curVal = self.forceChangePasswordNextLogin;
     if([self.updatedValues containsObject:@"forceChangePasswordNextLogin"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];
+            }
     }
     return dic;
 }

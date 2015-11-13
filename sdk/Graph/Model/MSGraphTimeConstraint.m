@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.TimeConstraint";
+		_odataType = @"#microsoft.graph.TimeConstraint";
 
-        
-		_timeslots = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -59,11 +57,13 @@ root for authoritative license information.﻿
 		_activityDomain = [dic objectForKey: @"ActivityDomain"] != nil ? [MSGraphActivityDomainSerializer fromString:[dic objectForKey: @"ActivityDomain"]] : _activityDomain;
 
         if([dic objectForKey: @"Timeslots"] != [NSNull null]){
-            _timeslots = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Timeslots"] count]];
+            _timeslots = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Timeslots"]) {
                 [_timeslots addObject:[[MSGraphTimeSlot alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_timeslots resetChangedFlag];
         }
         
 
@@ -77,9 +77,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphActivityDomainSerializer toString:self.activityDomain]; if (curVal!=nil) [dic setValue: curVal forKey: @"ActivityDomain"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Timeslots"];}
-    [dic setValue: @"#Microsoft.Graph.TimeConstraint" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphActivityDomainSerializer toString:self.activityDomain] forKey: @"ActivityDomain"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.timeslots) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.TimeConstraint" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.activityDomain;
     if([self.updatedValues containsObject:@"ActivityDomain"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphActivityDomainSerializer toString:curVal] forKey: @"ActivityDomain"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphActivityDomainSerializer toString:curVal] forKey: @"ActivityDomain"];
+            }
         else
     {
                 
@@ -107,12 +113,27 @@ root for authoritative license information.﻿
 	{id curVal = self.timeslots;
     if([self.updatedValues containsObject:@"Timeslots"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Timeslots"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Timeslots"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.timeslots) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Timeslots"];
+        }
         
             }}
     return dic;

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.fileSystemInfo";
+		_odataType = @"#microsoft.graph.fileSystemInfo";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedDateTime"];}
-    [dic setValue: @"#Microsoft.Graph.fileSystemInfo" forKey: @"@odata.type"];
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedDateTime"];}
+    [dic setValue: @"#microsoft.graph.fileSystemInfo" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.createdDateTime;
     if([self.updatedValues containsObject:@"createdDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+            }
     }
 	{id curVal = self.lastModifiedDateTime;
     if([self.updatedValues containsObject:@"lastModifiedDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedDateTime"];
+            }
     }
     return dic;
 }

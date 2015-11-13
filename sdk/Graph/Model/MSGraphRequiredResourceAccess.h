@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHREQUIREDRESOURCEACCESS_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphResourceAccess;
 #import "core/MSOrcBaseEntity.h"

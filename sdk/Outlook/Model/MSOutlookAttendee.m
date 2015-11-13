@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.Attendee";
 
-        
     }
 
 	return self;
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.status toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
-	{id curVal = [MSOutlookAttendeeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
-	{id curVal = [self.emailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
+	{id curVal = [self.status toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
+	{[dic setValue: [MSOutlookAttendeeTypeSerializer toString:self.type] forKey: @"Type"];}
+	{id curVal = [self.emailAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
     [dic setValue: @"#Microsoft.OutlookServices.Attendee" forKey: @"@odata.type"];
 
     return dic;
@@ -84,8 +83,8 @@ root for authoritative license information.﻿
 	{id curVal = self.status;
     if([self.updatedValues containsObject:@"Status"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Status"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Status"];
+            }
         else
     {
                 
@@ -100,8 +99,8 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"Type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
+            }
         else
     {
                 
@@ -116,8 +115,8 @@ root for authoritative license information.﻿
 	{id curVal = self.emailAddress;
     if([self.updatedValues containsObject:@"EmailAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
+            }
         else
     {
                 

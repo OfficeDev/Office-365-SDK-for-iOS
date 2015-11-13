@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.FileServices.ItemReference";
 
-        
     }
 
 	return self;
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.driveId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"driveId"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.path copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"path"];}
+	{id curVal = [self.driveId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"driveId"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.path copy];if (curVal!=nil) [dic setValue: curVal forKey: @"path"];}
     [dic setValue: @"#Microsoft.FileServices.ItemReference" forKey: @"@odata.type"];
 
     return dic;
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self.driveId;
     if([self.updatedValues containsObject:@"driveId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"driveId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"driveId"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.path;
     if([self.updatedValues containsObject:@"path"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"path"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"path"];
+            }
     }
     return dic;
 }

@@ -43,11 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Conversation";
+		_odataType = @"#microsoft.graph.Conversation";
         
-        
-		_uniqueSenders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_threads = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -63,21 +60,25 @@ root for authoritative license information.﻿
 		_lastDeliveredDateTime = [dic objectForKey: @"LastDeliveredDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastDeliveredDateTime"]] : _lastDeliveredDateTime;
 
         if([dic objectForKey: @"UniqueSenders"] != [NSNull null]){
-            _uniqueSenders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"UniqueSenders"] count]];
+            _uniqueSenders = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"UniqueSenders"]) {
                 [_uniqueSenders addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_uniqueSenders resetChangedFlag];
         }
         
 		_preview = [dic objectForKey: @"Preview"] != nil ? [[dic objectForKey: @"Preview"] copy] : _preview;
 
         if([dic objectForKey: @"Threads"] != [NSNull null]){
-            _threads = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Threads"] count]];
+            _threads = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Threads"]) {
                 [_threads addObject:[[MSGraphConversationThread alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_threads resetChangedFlag];
         }
         
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
@@ -92,14 +93,26 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.topic copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Topic"];}
-	{id curVal = (self.hasAttachments?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"HasAttachments"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDeliveredDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastDeliveredDateTime"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueSenders"];}
-	{id curVal = [self.preview copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Preview"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.Conversation" forKey: @"@odata.type"];
+	{id curVal = [self.topic copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Topic"];}
+	{[dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDeliveredDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastDeliveredDateTime"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.uniqueSenders) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.preview copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Preview"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.threads) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.Conversation" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -111,54 +124,84 @@ root for authoritative license information.﻿
 	{id curVal = self.topic;
     if([self.updatedValues containsObject:@"Topic"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Topic"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Topic"];
+            }
     }
 	{id curVal = self.hasAttachments;
     if([self.updatedValues containsObject:@"HasAttachments"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
+            }
     }
 	{id curVal = self.lastDeliveredDateTime;
     if([self.updatedValues containsObject:@"LastDeliveredDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastDeliveredDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastDeliveredDateTime"];
+            }
     }
 	{id curVal = self.uniqueSenders;
     if([self.updatedValues containsObject:@"UniqueSenders"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UniqueSenders"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"UniqueSenders"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.uniqueSenders) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"UniqueSenders"];
+        }
         
             }}
 	{id curVal = self.preview;
     if([self.updatedValues containsObject:@"Preview"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Preview"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Preview"];
+            }
     }
 	{id curVal = self.threads;
     if([self.updatedValues containsObject:@"Threads"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Threads"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Threads"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.threads) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Threads"];
+        }
         
             }}
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

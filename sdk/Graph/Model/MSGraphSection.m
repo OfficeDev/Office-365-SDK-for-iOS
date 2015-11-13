@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Section";
+		_odataType = @"#microsoft.graph.Section";
         
-        
-		_pages = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -70,11 +68,13 @@ root for authoritative license information.﻿
 		_parentSectionGroup = [dic objectForKey: @"parentSectionGroup"] != nil ? [[MSGraphSectionGroup alloc] initWithDictionary: [dic objectForKey: @"parentSectionGroup"]] : _parentSectionGroup;
 
         if([dic objectForKey: @"pages"] != [NSNull null]){
-            _pages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"pages"] count]];
+            _pages = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"pages"]) {
                 [_pages addObject:[[MSGraphPage alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_pages resetChangedFlag];
         }
         
 
@@ -88,19 +88,25 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = (self.isDefault?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isDefault"];}
-	{id curVal = [self.pagesUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"pagesUrl"];}
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
-	{id curVal = [self.createdBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
-	{id curVal = [self.lastModifiedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedTime"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self._self copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.createdTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdTime"];}
-	{id curVal = [self.parentNotebook toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentNotebook"];}
-	{id curVal = [self.parentSectionGroup toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentSectionGroup"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"pages"];}
-    [dic setValue: @"#Microsoft.Graph.Section" forKey: @"@odata.type"];
+	{[dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];}
+	{id curVal = [self.pagesUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"pagesUrl"];}
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.createdBy copy];if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
+	{id curVal = [self.lastModifiedBy copy];if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedBy"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedTime"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self._self copy];if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdTime];if (curVal!=nil) [dic setValue: curVal forKey: @"createdTime"];}
+	{id curVal = [self.parentNotebook toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"parentNotebook"];}
+	{id curVal = [self.parentSectionGroup toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"parentSectionGroup"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.pages) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.Section" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -112,62 +118,62 @@ root for authoritative license information.﻿
 	{id curVal = self.isDefault;
     if([self.updatedValues containsObject:@"isDefault"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
+            }
     }
 	{id curVal = self.pagesUrl;
     if([self.updatedValues containsObject:@"pagesUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"pagesUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"pagesUrl"];
+            }
     }
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+            }
     }
 	{id curVal = self.createdBy;
     if([self.updatedValues containsObject:@"createdBy"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
+            }
     }
 	{id curVal = self.lastModifiedBy;
     if([self.updatedValues containsObject:@"lastModifiedBy"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"lastModifiedBy"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"lastModifiedBy"];
+            }
     }
 	{id curVal = self.lastModifiedTime;
     if([self.updatedValues containsObject:@"lastModifiedTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self._self;
     if([self.updatedValues containsObject:@"self"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
+            }
     }
 	{id curVal = self.createdTime;
     if([self.updatedValues containsObject:@"createdTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdTime"];
+            }
     }
 	{id curVal = self.parentNotebook;
     if([self.updatedValues containsObject:@"parentNotebook"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentNotebook"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentNotebook"];
+            }
         else
     {
                 
@@ -182,8 +188,8 @@ root for authoritative license information.﻿
 	{id curVal = self.parentSectionGroup;
     if([self.updatedValues containsObject:@"parentSectionGroup"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentSectionGroup"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentSectionGroup"];
+            }
         else
     {
                 
@@ -198,12 +204,27 @@ root for authoritative license information.﻿
 	{id curVal = self.pages;
     if([self.updatedValues containsObject:@"pages"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"pages"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"pages"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.pages) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"pages"];
+        }
         
             }}
     return dic;

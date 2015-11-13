@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.OpenTypeExtension";
-        
+		_odataType = @"#microsoft.graph.OpenTypeExtension";
         
     }
 
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.extensionName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ExtensionName"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.OpenTypeExtension" forKey: @"@odata.type"];
+	{id curVal = [self.extensionName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ExtensionName"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.OpenTypeExtension" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -83,14 +82,14 @@ root for authoritative license information.﻿
 	{id curVal = self.extensionName;
     if([self.updatedValues containsObject:@"ExtensionName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ExtensionName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ExtensionName"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

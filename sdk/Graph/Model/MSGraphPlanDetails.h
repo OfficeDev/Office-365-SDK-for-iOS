@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHPLANDETAILS_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphUserIdCollection;
 #import "core/MSOrcBaseEntity.h"

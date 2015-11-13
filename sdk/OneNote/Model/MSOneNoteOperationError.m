@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.OperationError";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.code copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"code"];}
-	{id curVal = [self.message copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"message"];}
+	{id curVal = [self.code copy];if (curVal!=nil) [dic setValue: curVal forKey: @"code"];}
+	{id curVal = [self.message copy];if (curVal!=nil) [dic setValue: curVal forKey: @"message"];}
     [dic setValue: @"#Microsoft.OneNote.Api.OperationError" forKey: @"@odata.type"];
 
     return dic;
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.code;
     if([self.updatedValues containsObject:@"code"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"code"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"code"];
+            }
     }
 	{id curVal = self.message;
     if([self.updatedValues containsObject:@"message"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"message"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"message"];
+            }
     }
     return dic;
 }

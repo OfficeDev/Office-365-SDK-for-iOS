@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.PatternedRecurrence";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.pattern toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Pattern"];}
-	{id curVal = [self.range toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Range"];}
+	{id curVal = [self.pattern toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Pattern"];}
+	{id curVal = [self.range toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Range"];}
     [dic setValue: @"#Microsoft.OutlookServices.PatternedRecurrence" forKey: @"@odata.type"];
 
     return dic;
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.pattern;
     if([self.updatedValues containsObject:@"Pattern"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Pattern"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Pattern"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.range;
     if([self.updatedValues containsObject:@"Range"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Range"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Range"];
+            }
         else
     {
                 

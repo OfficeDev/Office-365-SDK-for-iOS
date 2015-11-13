@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSONENOTEPATCHCONTENTCOMMAND_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSOneNotePatchActionType.h"
 #import "MSOneNotePatchInsertPosition.h"

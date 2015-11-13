@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHCONVERSATIONTHREAD_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphRecipient;
 @class MSGraphPost;

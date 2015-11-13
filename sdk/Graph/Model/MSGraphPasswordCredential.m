@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PasswordCredential";
+		_odataType = @"#microsoft.graph.PasswordCredential";
 
-        
     }
 
 	return self;
@@ -71,12 +70,12 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromData:self.customKeyIdentifier]; if (curVal!=nil) [dic setValue: curVal forKey: @"customKeyIdentifier"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"endDate"];}
-	{id curVal = [self.keyId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"keyId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate]; if (curVal!=nil) [dic setValue: curVal forKey: @"startDate"];}
-	{id curVal = [self.value copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
-    [dic setValue: @"#Microsoft.Graph.PasswordCredential" forKey: @"@odata.type"];
+	{id curVal = [MSOrcObjectizer stringFromData:self.customKeyIdentifier];if (curVal!=nil) [dic setValue: curVal forKey: @"customKeyIdentifier"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate];if (curVal!=nil) [dic setValue: curVal forKey: @"endDate"];}
+	{id curVal = [self.keyId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"keyId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate];if (curVal!=nil) [dic setValue: curVal forKey: @"startDate"];}
+	{id curVal = [self.value copy];if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
+    [dic setValue: @"#microsoft.graph.PasswordCredential" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -88,32 +87,32 @@ root for authoritative license information.﻿
 	{id curVal = self.customKeyIdentifier;
     if([self.updatedValues containsObject:@"customKeyIdentifier"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"customKeyIdentifier"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"customKeyIdentifier"];
+            }
     }
 	{id curVal = self.endDate;
     if([self.updatedValues containsObject:@"endDate"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"endDate"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"endDate"];
+            }
     }
 	{id curVal = self.keyId;
     if([self.updatedValues containsObject:@"keyId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"keyId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"keyId"];
+            }
     }
 	{id curVal = self.startDate;
     if([self.updatedValues containsObject:@"startDate"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startDate"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startDate"];
+            }
     }
 	{id curVal = self.value;
     if([self.updatedValues containsObject:@"value"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
+            }
     }
     return dic;
 }

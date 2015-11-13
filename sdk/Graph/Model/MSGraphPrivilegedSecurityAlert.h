@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHPRIVILEGEDSECURITYALERT_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphAlertSeverity.h"
 #import "MSGraphAlertType.h"

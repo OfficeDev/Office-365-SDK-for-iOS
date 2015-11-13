@@ -19,6 +19,7 @@ root for authoritative license information.﻿
 
 #import "MSGraphModels.h"
 #import "api/api.h"
+#import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphAlternativeSecurityIdCollectionFetcher;

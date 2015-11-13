@@ -20,6 +20,7 @@ root for authoritative license information.﻿
 
 #import "MSOneNoteModels.h"
 #import "api/api.h"
+#import "core/core.h"
 #import "core/MSOrcOperations.h"
 
 

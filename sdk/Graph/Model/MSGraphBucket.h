@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHBUCKET_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphTask;
 #import "core/MSOrcBaseEntity.h"

@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.DirectoryServices.ResourceAccess";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.type copy];if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
     [dic setValue: @"#Microsoft.DirectoryServices.ResourceAccess" forKey: @"@odata.type"];
 
     return dic;
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+            }
     }
     return dic;
 }

@@ -43,13 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.OrgContact";
+		_odataType = @"#microsoft.graph.OrgContact";
         
-        
-		_provisioningErrors = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_proxyAddresses = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_directReports = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_memberOf = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -76,20 +71,24 @@ root for authoritative license information.﻿
 		_postalCode = [dic objectForKey: @"postalCode"] != nil ? [[dic objectForKey: @"postalCode"] copy] : _postalCode;
 
         if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
-            _provisioningErrors = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"provisioningErrors"] count]];
+            _provisioningErrors = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"provisioningErrors"]) {
                 [_provisioningErrors addObject:[[MSGraphProvisioningError alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_provisioningErrors resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"proxyAddresses"] != [NSNull null]){
-            _proxyAddresses = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"proxyAddresses"] count]];
+            _proxyAddresses = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"proxyAddresses"]) {
                 [_proxyAddresses addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_proxyAddresses resetChangedFlag];
         }
         
 		_sipProxyAddress = [dic objectForKey: @"sipProxyAddress"] != nil ? [[dic objectForKey: @"sipProxyAddress"] copy] : _sipProxyAddress;
@@ -101,20 +100,24 @@ root for authoritative license information.﻿
 		_manager = [dic objectForKey: @"manager"] != nil ? [[MSGraphDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : _manager;
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
-            _directReports = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"directReports"] count]];
+            _directReports = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"directReports"]) {
                 [_directReports addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_directReports resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"memberOf"] != [NSNull null]){
-            _memberOf = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"memberOf"] count]];
+            _memberOf = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"memberOf"]) {
                 [_memberOf addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_memberOf resetChangedFlag];
         }
         
 		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
@@ -131,35 +134,59 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.city copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"city"];}
-	{id curVal = [self.country copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"country"];}
-	{id curVal = [self.department copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"department"];}
-	{id curVal = (self.dirSyncEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"dirSyncEnabled"];}
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
-	{id curVal = [self.facsimileTelephoneNumber copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"facsimileTelephoneNumber"];}
-	{id curVal = [self.givenName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"givenName"];}
-	{id curVal = [self.jobTitle copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"jobTitle"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDirSyncTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastDirSyncTime"];}
-	{id curVal = [self.mail copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mail"];}
-	{id curVal = [self.mailNickname copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mailNickname"];}
-	{id curVal = [self.mobile copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mobile"];}
-	{id curVal = [self.physicalDeliveryOfficeName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"physicalDeliveryOfficeName"];}
-	{id curVal = [self.postalCode copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"postalCode"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"proxyAddresses"];}
-	{id curVal = [self.sipProxyAddress copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"sipProxyAddress"];}
-	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
-	{id curVal = [self.streetAddress copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"streetAddress"];}
-	{id curVal = [self.surname copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"surname"];}
-	{id curVal = [self.telephoneNumber copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"telephoneNumber"];}
-	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"thumbnailPhoto"];}
-	{id curVal = [self.manager toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
-	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
-	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
-    [dic setValue: @"#Microsoft.Graph.OrgContact" forKey: @"@odata.type"];
+	{id curVal = [self.city copy];if (curVal!=nil) [dic setValue: curVal forKey: @"city"];}
+	{id curVal = [self.country copy];if (curVal!=nil) [dic setValue: curVal forKey: @"country"];}
+	{id curVal = [self.department copy];if (curVal!=nil) [dic setValue: curVal forKey: @"department"];}
+	{[dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = [self.facsimileTelephoneNumber copy];if (curVal!=nil) [dic setValue: curVal forKey: @"facsimileTelephoneNumber"];}
+	{id curVal = [self.givenName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"givenName"];}
+	{id curVal = [self.jobTitle copy];if (curVal!=nil) [dic setValue: curVal forKey: @"jobTitle"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDirSyncTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastDirSyncTime"];}
+	{id curVal = [self.mail copy];if (curVal!=nil) [dic setValue: curVal forKey: @"mail"];}
+	{id curVal = [self.mailNickname copy];if (curVal!=nil) [dic setValue: curVal forKey: @"mailNickname"];}
+	{id curVal = [self.mobile copy];if (curVal!=nil) [dic setValue: curVal forKey: @"mobile"];}
+	{id curVal = [self.physicalDeliveryOfficeName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"physicalDeliveryOfficeName"];}
+	{id curVal = [self.postalCode copy];if (curVal!=nil) [dic setValue: curVal forKey: @"postalCode"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.provisioningErrors) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.proxyAddresses) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.sipProxyAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"sipProxyAddress"];}
+	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
+	{id curVal = [self.streetAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"streetAddress"];}
+	{id curVal = [self.surname copy];if (curVal!=nil) [dic setValue: curVal forKey: @"surname"];}
+	{id curVal = [self.telephoneNumber copy];if (curVal!=nil) [dic setValue: curVal forKey: @"telephoneNumber"];}
+	{id curVal = nil/*NSStream*/;if (curVal!=nil) [dic setValue: curVal forKey: @"thumbnailPhoto"];}
+	{id curVal = [self.manager toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.directReports) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.memberOf) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#microsoft.graph.OrgContact" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -171,150 +198,180 @@ root for authoritative license information.﻿
 	{id curVal = self.city;
     if([self.updatedValues containsObject:@"city"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"city"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"city"];
+            }
     }
 	{id curVal = self.country;
     if([self.updatedValues containsObject:@"country"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"country"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"country"];
+            }
     }
 	{id curVal = self.department;
     if([self.updatedValues containsObject:@"department"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"department"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"department"];
+            }
     }
 	{id curVal = self.dirSyncEnabled;
     if([self.updatedValues containsObject:@"dirSyncEnabled"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
+            }
     }
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+            }
     }
 	{id curVal = self.facsimileTelephoneNumber;
     if([self.updatedValues containsObject:@"facsimileTelephoneNumber"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"facsimileTelephoneNumber"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"facsimileTelephoneNumber"];
+            }
     }
 	{id curVal = self.givenName;
     if([self.updatedValues containsObject:@"givenName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"givenName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"givenName"];
+            }
     }
 	{id curVal = self.jobTitle;
     if([self.updatedValues containsObject:@"jobTitle"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"jobTitle"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"jobTitle"];
+            }
     }
 	{id curVal = self.lastDirSyncTime;
     if([self.updatedValues containsObject:@"lastDirSyncTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastDirSyncTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastDirSyncTime"];
+            }
     }
 	{id curVal = self.mail;
     if([self.updatedValues containsObject:@"mail"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mail"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mail"];
+            }
     }
 	{id curVal = self.mailNickname;
     if([self.updatedValues containsObject:@"mailNickname"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mailNickname"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mailNickname"];
+            }
     }
 	{id curVal = self.mobile;
     if([self.updatedValues containsObject:@"mobile"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mobile"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mobile"];
+            }
     }
 	{id curVal = self.physicalDeliveryOfficeName;
     if([self.updatedValues containsObject:@"physicalDeliveryOfficeName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"physicalDeliveryOfficeName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"physicalDeliveryOfficeName"];
+            }
     }
 	{id curVal = self.postalCode;
     if([self.updatedValues containsObject:@"postalCode"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"postalCode"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"postalCode"];
+            }
     }
 	{id curVal = self.provisioningErrors;
     if([self.updatedValues containsObject:@"provisioningErrors"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"provisioningErrors"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"provisioningErrors"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.provisioningErrors) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"provisioningErrors"];
+        }
         
             }}
 	{id curVal = self.proxyAddresses;
     if([self.updatedValues containsObject:@"proxyAddresses"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"proxyAddresses"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"proxyAddresses"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.proxyAddresses) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"proxyAddresses"];
+        }
         
             }}
 	{id curVal = self.sipProxyAddress;
     if([self.updatedValues containsObject:@"sipProxyAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sipProxyAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sipProxyAddress"];
+            }
     }
 	{id curVal = self.state;
     if([self.updatedValues containsObject:@"state"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
+            }
     }
 	{id curVal = self.streetAddress;
     if([self.updatedValues containsObject:@"streetAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"streetAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"streetAddress"];
+            }
     }
 	{id curVal = self.surname;
     if([self.updatedValues containsObject:@"surname"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"surname"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"surname"];
+            }
     }
 	{id curVal = self.telephoneNumber;
     if([self.updatedValues containsObject:@"telephoneNumber"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"telephoneNumber"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"telephoneNumber"];
+            }
     }
 	{id curVal = self.thumbnailPhoto;
     if([self.updatedValues containsObject:@"thumbnailPhoto"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"thumbnailPhoto"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"thumbnailPhoto"];
+            }
     }
 	{id curVal = self.manager;
     if([self.updatedValues containsObject:@"manager"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"manager"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"manager"];
+            }
         else
     {
                 
@@ -329,42 +386,72 @@ root for authoritative license information.﻿
 	{id curVal = self.directReports;
     if([self.updatedValues containsObject:@"directReports"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"directReports"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"directReports"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.directReports) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"directReports"];
+        }
         
             }}
 	{id curVal = self.memberOf;
     if([self.updatedValues containsObject:@"memberOf"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"memberOf"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"memberOf"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.memberOf) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"memberOf"];
+        }
         
             }}
 	{id curVal = self.objectType;
     if([self.updatedValues containsObject:@"objectType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+            }
     }
 	{id curVal = self.objectId;
     if([self.updatedValues containsObject:@"objectId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+            }
     }
 	{id curVal = self.deletionTimestamp;
     if([self.updatedValues containsObject:@"deletionTimestamp"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+            }
     }
     return dic;
 }

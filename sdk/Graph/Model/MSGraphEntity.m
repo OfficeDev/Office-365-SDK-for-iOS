@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Entity";
-        
+		_odataType = @"#microsoft.graph.Entity";
         
     }
 
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.Entity" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.Entity" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -81,8 +80,8 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

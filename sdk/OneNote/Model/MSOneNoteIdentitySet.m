@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.IdentitySet";
 
-        
     }
 
 	return self;
@@ -67,7 +66,7 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.user toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"user"];}
+	{id curVal = [self.user toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"user"];}
     [dic setValue: @"#Microsoft.OneNote.Api.IdentitySet" forKey: @"@odata.type"];
 
     return dic;
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.user;
     if([self.updatedValues containsObject:@"user"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"user"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"user"];
+            }
         else
     {
                 

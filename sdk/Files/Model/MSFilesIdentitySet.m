@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.FileServices.IdentitySet";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.application toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
-	{id curVal = [self.user toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"user"];}
+	{id curVal = [self.application toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
+	{id curVal = [self.user toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"user"];}
     [dic setValue: @"#Microsoft.FileServices.IdentitySet" forKey: @"@odata.type"];
 
     return dic;
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.application;
     if([self.updatedValues containsObject:@"application"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.user;
     if([self.updatedValues containsObject:@"user"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"user"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"user"];
+            }
         else
     {
                 

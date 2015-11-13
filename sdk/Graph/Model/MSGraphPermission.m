@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.permission";
+		_odataType = @"#microsoft.graph.permission";
         
-        
-		_roles = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -64,11 +62,13 @@ root for authoritative license information.﻿
 		_link = [dic objectForKey: @"link"] != nil ? [[MSGraphSharingLink alloc] initWithDictionary: [dic objectForKey: @"link"]] : _link;
 
         if([dic objectForKey: @"roles"] != [NSNull null]){
-            _roles = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"roles"] count]];
+            _roles = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"roles"]) {
                 [_roles addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_roles resetChangedFlag];
         }
         
 		_shareId = [dic objectForKey: @"shareId"] != nil ? [[dic objectForKey: @"shareId"] copy] : _shareId;
@@ -83,14 +83,20 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.grantedTo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"grantedTo"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.invitation toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"invitation"];}
-	{id curVal = [self.inheritedFrom toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"inheritedFrom"];}
-	{id curVal = [self.link toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"link"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
-	{id curVal = [self.shareId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"shareId"];}
-    [dic setValue: @"#Microsoft.Graph.permission" forKey: @"@odata.type"];
+	{id curVal = [self.grantedTo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"grantedTo"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.invitation toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"invitation"];}
+	{id curVal = [self.inheritedFrom toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"inheritedFrom"];}
+	{id curVal = [self.link toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"link"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.roles) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.shareId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"shareId"];}
+    [dic setValue: @"#microsoft.graph.permission" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -102,8 +108,8 @@ root for authoritative license information.﻿
 	{id curVal = self.grantedTo;
     if([self.updatedValues containsObject:@"grantedTo"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"grantedTo"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"grantedTo"];
+            }
         else
     {
                 
@@ -118,14 +124,14 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.invitation;
     if([self.updatedValues containsObject:@"invitation"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"invitation"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"invitation"];
+            }
         else
     {
                 
@@ -140,8 +146,8 @@ root for authoritative license information.﻿
 	{id curVal = self.inheritedFrom;
     if([self.updatedValues containsObject:@"inheritedFrom"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"inheritedFrom"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"inheritedFrom"];
+            }
         else
     {
                 
@@ -156,8 +162,8 @@ root for authoritative license information.﻿
 	{id curVal = self.link;
     if([self.updatedValues containsObject:@"link"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"link"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"link"];
+            }
         else
     {
                 
@@ -172,19 +178,34 @@ root for authoritative license information.﻿
 	{id curVal = self.roles;
     if([self.updatedValues containsObject:@"roles"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"roles"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"roles"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.roles) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"roles"];
+        }
         
             }}
 	{id curVal = self.shareId;
     if([self.updatedValues containsObject:@"shareId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"shareId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"shareId"];
+            }
     }
     return dic;
 }

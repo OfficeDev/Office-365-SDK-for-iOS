@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.PhysicalAddress";
 
-        
     }
 
 	return self;
@@ -71,11 +70,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.street copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Street"];}
-	{id curVal = [self.city copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"City"];}
-	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"State"];}
-	{id curVal = [self.countryOrRegion copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"CountryOrRegion"];}
-	{id curVal = [self.postalCode copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"PostalCode"];}
+	{id curVal = [self.street copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Street"];}
+	{id curVal = [self.city copy];if (curVal!=nil) [dic setValue: curVal forKey: @"City"];}
+	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"State"];}
+	{id curVal = [self.countryOrRegion copy];if (curVal!=nil) [dic setValue: curVal forKey: @"CountryOrRegion"];}
+	{id curVal = [self.postalCode copy];if (curVal!=nil) [dic setValue: curVal forKey: @"PostalCode"];}
     [dic setValue: @"#Microsoft.OutlookServices.PhysicalAddress" forKey: @"@odata.type"];
 
     return dic;
@@ -88,32 +87,32 @@ root for authoritative license information.﻿
 	{id curVal = self.street;
     if([self.updatedValues containsObject:@"Street"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Street"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Street"];
+            }
     }
 	{id curVal = self.city;
     if([self.updatedValues containsObject:@"City"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"City"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"City"];
+            }
     }
 	{id curVal = self.state;
     if([self.updatedValues containsObject:@"State"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"State"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"State"];
+            }
     }
 	{id curVal = self.countryOrRegion;
     if([self.updatedValues containsObject:@"CountryOrRegion"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"CountryOrRegion"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"CountryOrRegion"];
+            }
     }
 	{id curVal = self.postalCode;
     if([self.updatedValues containsObject:@"PostalCode"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"PostalCode"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"PostalCode"];
+            }
     }
     return dic;
 }

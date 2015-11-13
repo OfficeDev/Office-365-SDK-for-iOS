@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSOUTLOOKITEMBODY_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSOutlookBodyType.h"
 #import "core/MSOrcBaseEntity.h"

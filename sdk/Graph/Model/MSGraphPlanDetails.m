@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.planDetails";
-        
+		_odataType = @"#microsoft.graph.planDetails";
         
     }
 
@@ -75,15 +74,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.sharedWith toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"sharedWith"];}
-	{id curVal = [self.category0Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category0Description"];}
-	{id curVal = [self.category1Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category1Description"];}
-	{id curVal = [self.category2Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category2Description"];}
-	{id curVal = [self.category3Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category3Description"];}
-	{id curVal = [self.category4Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category4Description"];}
-	{id curVal = [self.category5Description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"category5Description"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-    [dic setValue: @"#Microsoft.Graph.planDetails" forKey: @"@odata.type"];
+	{id curVal = [self.sharedWith toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"sharedWith"];}
+	{id curVal = [self.category0Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category0Description"];}
+	{id curVal = [self.category1Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category1Description"];}
+	{id curVal = [self.category2Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category2Description"];}
+	{id curVal = [self.category3Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category3Description"];}
+	{id curVal = [self.category4Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category4Description"];}
+	{id curVal = [self.category5Description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"category5Description"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.planDetails" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -95,8 +94,8 @@ root for authoritative license information.﻿
 	{id curVal = self.sharedWith;
     if([self.updatedValues containsObject:@"sharedWith"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sharedWith"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sharedWith"];
+            }
         else
     {
                 
@@ -111,44 +110,44 @@ root for authoritative license information.﻿
 	{id curVal = self.category0Description;
     if([self.updatedValues containsObject:@"category0Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category0Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category0Description"];
+            }
     }
 	{id curVal = self.category1Description;
     if([self.updatedValues containsObject:@"category1Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category1Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category1Description"];
+            }
     }
 	{id curVal = self.category2Description;
     if([self.updatedValues containsObject:@"category2Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category2Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category2Description"];
+            }
     }
 	{id curVal = self.category3Description;
     if([self.updatedValues containsObject:@"category3Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category3Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category3Description"];
+            }
     }
 	{id curVal = self.category4Description;
     if([self.updatedValues containsObject:@"category4Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category4Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category4Description"];
+            }
     }
 	{id curVal = self.category5Description;
     if([self.updatedValues containsObject:@"category5Description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category5Description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"category5Description"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
     return dic;
 }

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.sharingLink";
+		_odataType = @"#microsoft.graph.sharingLink";
 
-        
     }
 
 	return self;
@@ -69,10 +68,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.application toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
-	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
-	{id curVal = [self.webUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"webUrl"];}
-    [dic setValue: @"#Microsoft.Graph.sharingLink" forKey: @"@odata.type"];
+	{id curVal = [self.application toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"application"];}
+	{id curVal = [self.type copy];if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.webUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"webUrl"];}
+    [dic setValue: @"#microsoft.graph.sharingLink" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -84,8 +83,8 @@ root for authoritative license information.﻿
 	{id curVal = self.application;
     if([self.updatedValues containsObject:@"application"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"application"];
+            }
         else
     {
                 
@@ -100,14 +99,14 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+            }
     }
 	{id curVal = self.webUrl;
     if([self.updatedValues containsObject:@"webUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webUrl"];
+            }
     }
     return dic;
 }

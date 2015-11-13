@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.SiteCollection";
+		_odataType = @"#microsoft.graph.SiteCollection";
         
-        
-		_sites = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -60,11 +58,13 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
         if([dic objectForKey: @"sites"] != [NSNull null]){
-            _sites = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"sites"] count]];
+            _sites = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"sites"]) {
                 [_sites addObject:[[MSGraphSite alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_sites resetChangedFlag];
         }
         
 
@@ -78,9 +78,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"sites"];}
-    [dic setValue: @"#Microsoft.Graph.SiteCollection" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sites) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.SiteCollection" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -92,18 +98,33 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.sites;
     if([self.updatedValues containsObject:@"sites"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"sites"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"sites"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.sites) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"sites"];
+        }
         
             }}
     return dic;

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.photo";
+		_odataType = @"#microsoft.graph.photo";
 
-        
     }
 
 	return self;
@@ -74,15 +73,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.cameraMake copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"cameraMake"];}
-	{id curVal = [self.cameraModel copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"cameraModel"];}
-	{id curVal = [NSNumber numberWithDouble: self.exposureDenominator]; if (curVal!=nil) [dic setValue: curVal forKey: @"exposureDenominator"];}
-	{id curVal = [NSNumber numberWithDouble: self.exposureNumerator]; if (curVal!=nil) [dic setValue: curVal forKey: @"exposureNumerator"];}
-	{id curVal = [NSNumber numberWithDouble: self.focalLength]; if (curVal!=nil) [dic setValue: curVal forKey: @"focalLength"];}
-	{id curVal = [NSNumber numberWithDouble: self.fNumber]; if (curVal!=nil) [dic setValue: curVal forKey: @"fNumber"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.takenDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"takenDateTime"];}
-	{id curVal = [NSNumber numberWithInt: self.iso]; if (curVal!=nil) [dic setValue: curVal forKey: @"iso"];}
-    [dic setValue: @"#Microsoft.Graph.photo" forKey: @"@odata.type"];
+	{id curVal = [self.cameraMake copy];if (curVal!=nil) [dic setValue: curVal forKey: @"cameraMake"];}
+	{id curVal = [self.cameraModel copy];if (curVal!=nil) [dic setValue: curVal forKey: @"cameraModel"];}
+	{[dic setValue: [NSNumber numberWithDouble: self.exposureDenominator] forKey: @"exposureDenominator"];}
+	{[dic setValue: [NSNumber numberWithDouble: self.exposureNumerator] forKey: @"exposureNumerator"];}
+	{[dic setValue: [NSNumber numberWithDouble: self.focalLength] forKey: @"focalLength"];}
+	{[dic setValue: [NSNumber numberWithDouble: self.fNumber] forKey: @"fNumber"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.takenDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"takenDateTime"];}
+	{[dic setValue: [NSNumber numberWithInt: self.iso] forKey: @"iso"];}
+    [dic setValue: @"#microsoft.graph.photo" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -94,50 +93,50 @@ root for authoritative license information.﻿
 	{id curVal = self.cameraMake;
     if([self.updatedValues containsObject:@"cameraMake"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraMake"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraMake"];
+            }
     }
 	{id curVal = self.cameraModel;
     if([self.updatedValues containsObject:@"cameraModel"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraModel"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraModel"];
+            }
     }
 	{id curVal = self.exposureDenominator;
     if([self.updatedValues containsObject:@"exposureDenominator"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureDenominator"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureDenominator"];
+            }
     }
 	{id curVal = self.exposureNumerator;
     if([self.updatedValues containsObject:@"exposureNumerator"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureNumerator"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureNumerator"];
+            }
     }
 	{id curVal = self.focalLength;
     if([self.updatedValues containsObject:@"focalLength"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"focalLength"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"focalLength"];
+            }
     }
 	{id curVal = self.fNumber;
     if([self.updatedValues containsObject:@"fNumber"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"fNumber"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"fNumber"];
+            }
     }
 	{id curVal = self.takenDateTime;
     if([self.updatedValues containsObject:@"takenDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"takenDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"takenDateTime"];
+            }
     }
 	{id curVal = self.iso;
     if([self.updatedValues containsObject:@"iso"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"iso"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"iso"];
+            }
     }
     return dic;
 }

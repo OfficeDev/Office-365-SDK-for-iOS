@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHSITECOLLECTION_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphSite;
 #import "core/MSOrcBaseEntity.h"

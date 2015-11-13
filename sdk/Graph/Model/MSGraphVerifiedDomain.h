@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHVERIFIEDDOMAIN_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "core/MSOrcBaseEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"

@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ItemAttachment";
-        
+		_odataType = @"#microsoft.graph.ItemAttachment";
         
     }
 
@@ -74,14 +73,14 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.item toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Item"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
-	{id curVal = [self.contentType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
-	{id curVal = [NSNumber numberWithInt: self.size]; if (curVal!=nil) [dic setValue: curVal forKey: @"Size"];}
-	{id curVal = (self.isInline?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsInline"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.ItemAttachment" forKey: @"@odata.type"];
+	{id curVal = [self.item toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Item"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.contentType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
+	{[dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];}
+	{[dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.ItemAttachment" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -93,8 +92,8 @@ root for authoritative license information.﻿
 	{id curVal = self.item;
     if([self.updatedValues containsObject:@"Item"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Item"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Item"];
+            }
         else
     {
                 
@@ -109,38 +108,38 @@ root for authoritative license information.﻿
 	{id curVal = self.lastModifiedDateTime;
     if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
+            }
     }
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"Name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+            }
     }
 	{id curVal = self.contentType;
     if([self.updatedValues containsObject:@"ContentType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
+            }
     }
 	{id curVal = self.size;
     if([self.updatedValues containsObject:@"Size"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
+            }
     }
 	{id curVal = self.isInline;
     if([self.updatedValues containsObject:@"IsInline"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

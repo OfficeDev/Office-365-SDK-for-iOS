@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.recipients";
+		_odataType = @"#microsoft.graph.recipients";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.email copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
-	{id curVal = [self.alias copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"alias"];}
-	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [self.permissionIdentityType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"permissionIdentityType"];}
-    [dic setValue: @"#Microsoft.Graph.recipients" forKey: @"@odata.type"];
+	{id curVal = [self.email copy];if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
+	{id curVal = [self.alias copy];if (curVal!=nil) [dic setValue: curVal forKey: @"alias"];}
+	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [self.permissionIdentityType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"permissionIdentityType"];}
+    [dic setValue: @"#microsoft.graph.recipients" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,26 +85,26 @@ root for authoritative license information.﻿
 	{id curVal = self.email;
     if([self.updatedValues containsObject:@"email"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
+            }
     }
 	{id curVal = self.alias;
     if([self.updatedValues containsObject:@"alias"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"alias"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"alias"];
+            }
     }
 	{id curVal = self.objectId;
     if([self.updatedValues containsObject:@"objectId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+            }
     }
 	{id curVal = self.permissionIdentityType;
     if([self.updatedValues containsObject:@"permissionIdentityType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"permissionIdentityType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"permissionIdentityType"];
+            }
     }
     return dic;
 }

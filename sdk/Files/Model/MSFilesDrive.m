@@ -45,8 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.FileServices.Drive";
         
-        
-		_files = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -62,11 +60,13 @@ root for authoritative license information.﻿
 		_quota = [dic objectForKey: @"quota"] != nil ? [[MSFilesDriveQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]] : _quota;
 
         if([dic objectForKey: @"files"] != [NSNull null]){
-            _files = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"files"] count]];
+            _files = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"files"]) {
                 [_files addObject:[[MSFilesItem alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_files resetChangedFlag];
         }
         
 
@@ -80,10 +80,16 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.owner toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
-	{id curVal = [self.quota toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"quota"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"files"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.owner toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.quota toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"quota"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.files) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
     [dic setValue: @"#Microsoft.FileServices.Drive" forKey: @"@odata.type"];
 
     return dic;
@@ -96,14 +102,14 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.owner;
     if([self.updatedValues containsObject:@"owner"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
+            }
         else
     {
                 
@@ -118,8 +124,8 @@ root for authoritative license information.﻿
 	{id curVal = self.quota;
     if([self.updatedValues containsObject:@"quota"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"quota"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"quota"];
+            }
         else
     {
                 
@@ -134,12 +140,27 @@ root for authoritative license information.﻿
 	{id curVal = self.files;
     if([self.updatedValues containsObject:@"files"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"files"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"files"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.files) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"files"];
+        }
         
             }}
     return dic;

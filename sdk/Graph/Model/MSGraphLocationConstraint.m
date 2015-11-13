@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.LocationConstraint";
+		_odataType = @"#microsoft.graph.LocationConstraint";
 
-        
-		_locations = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -60,11 +58,13 @@ root for authoritative license information.﻿
 		_suggestLocation = [dic objectForKey: @"SuggestLocation"] != nil ? [[dic objectForKey: @"SuggestLocation"] boolValue] : _suggestLocation;
 
         if([dic objectForKey: @"Locations"] != [NSNull null]){
-            _locations = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Locations"] count]];
+            _locations = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Locations"]) {
                 [_locations addObject:[[MSGraphLocation alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_locations resetChangedFlag];
         }
         
 
@@ -78,10 +78,16 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = (self.isRequired?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsRequired"];}
-	{id curVal = (self.suggestLocation?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"SuggestLocation"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Locations"];}
-    [dic setValue: @"#Microsoft.Graph.LocationConstraint" forKey: @"@odata.type"];
+	{[dic setValue: (self.isRequired?@"true":@"false") forKey: @"IsRequired"];}
+	{[dic setValue: (self.suggestLocation?@"true":@"false") forKey: @"SuggestLocation"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.locations) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.LocationConstraint" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -93,24 +99,39 @@ root for authoritative license information.﻿
 	{id curVal = self.isRequired;
     if([self.updatedValues containsObject:@"IsRequired"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRequired"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRequired"];
+            }
     }
 	{id curVal = self.suggestLocation;
     if([self.updatedValues containsObject:@"SuggestLocation"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"SuggestLocation"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"SuggestLocation"];
+            }
     }
 	{id curVal = self.locations;
     if([self.updatedValues containsObject:@"Locations"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Locations"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Locations"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.locations) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Locations"];
+        }
         
             }}
     return dic;

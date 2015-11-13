@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHITEMBODY_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphBodyType.h"
 #import "core/MSOrcBaseEntity.h"

@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ProfilePhoto";
-        
+		_odataType = @"#microsoft.graph.ProfilePhoto";
         
     }
 
@@ -70,10 +69,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"Height"];}
-	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"Width"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.ProfilePhoto" forKey: @"@odata.type"];
+	{[dic setValue: [NSNumber numberWithInt: self.height] forKey: @"Height"];}
+	{[dic setValue: [NSNumber numberWithInt: self.width] forKey: @"Width"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.ProfilePhoto" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -85,20 +84,20 @@ root for authoritative license information.﻿
 	{id curVal = self.height;
     if([self.updatedValues containsObject:@"Height"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Height"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Height"];
+            }
     }
 	{id curVal = self.width;
     if([self.updatedValues containsObject:@"Width"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Width"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Width"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

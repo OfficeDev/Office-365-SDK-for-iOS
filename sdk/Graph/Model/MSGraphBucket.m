@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.bucket";
+		_odataType = @"#microsoft.graph.bucket";
         
-        
-		_tasks = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -63,11 +61,13 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
         if([dic objectForKey: @"tasks"] != [NSNull null]){
-            _tasks = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"tasks"] count]];
+            _tasks = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"tasks"]) {
                 [_tasks addObject:[[MSGraphTask alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_tasks resetChangedFlag];
         }
         
 
@@ -81,12 +81,18 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
-	{id curVal = [self.planId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"planId"];}
-	{id curVal = [self.orderHint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"tasks"];}
-    [dic setValue: @"#Microsoft.Graph.bucket" forKey: @"@odata.type"];
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.planId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"planId"];}
+	{id curVal = [self.orderHint copy];if (curVal!=nil) [dic setValue: curVal forKey: @"orderHint"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tasks) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.bucket" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -98,36 +104,51 @@ root for authoritative license information.﻿
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+            }
     }
 	{id curVal = self.planId;
     if([self.updatedValues containsObject:@"planId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"planId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"planId"];
+            }
     }
 	{id curVal = self.orderHint;
     if([self.updatedValues containsObject:@"orderHint"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"orderHint"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.tasks;
     if([self.updatedValues containsObject:@"tasks"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"tasks"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"tasks"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tasks) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"tasks"];
+        }
         
             }}
     return dic;

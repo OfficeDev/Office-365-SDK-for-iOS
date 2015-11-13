@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DA0EA6041C673CC10176847 /* MSSampleServiceSampleComplexType.h in Headers */ = {isa = PBXBuildFile; fileRef = CBE9CEAEDD9B0F750F74402F /* MSSampleServiceSampleComplexType.h */; };
+		0E71DA8F40C404686F19C286 /* MSSampleServiceItemA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FD3B16E12DDE11E3FFBB6 /* MSSampleServiceItemA.m */; };
+		0FF4A12C6836A29C2DB369FC /* MSSampleServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 172FE3AC3A55E3BE793283A1 /* MSSampleServiceClient.m */; };
+		1095E485F3B574FFC882BEF4 /* MSSampleServiceAnotherEntityCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = F1E73B7569B56CD9BB4985CA /* MSSampleServiceAnotherEntityCollectionOperations.h */; };
+		11AB64A05118F6F82B103350 /* MSSampleServiceSampleEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD46254ED8A16520EFE7D78 /* MSSampleServiceSampleEntityCollectionFetcher.m */; };
+		146234456D53E680B98A4A5B /* MSSampleServiceSampleEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E67775DC7D20683E3FB1E63 /* MSSampleServiceSampleEntityOperations.m */; };
+		1C6E39F513310BE72FF25EDA /* MSSampleServiceAnotherEntityOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E879302D9C7B5F30E8FFC8F /* MSSampleServiceAnotherEntityOperations.h */; };
+		1D200FF6687B3FC6E05F55D7 /* MSSampleServiceItemAOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09D7F7EB6BF86E7BB20B3A /* MSSampleServiceItemAOperations.m */; };
+		1DC8E951FE1B3C086F41FAE0 /* MSSampleServiceItemBCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 225C6B366D0E617EC08DB391 /* MSSampleServiceItemBCollectionOperations.m */; };
+		221053D7F9C05C447A7D9E24 /* MSSampleServiceItemAOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E01B7E22524E3B8B112F404B /* MSSampleServiceItemAOperations.h */; };
+		26DD06187D969F015C528EF3 /* MSSampleServiceItemAFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D37D96A50526766EEF4B55DE /* MSSampleServiceItemAFetcher.h */; };
+		285496A525CA31045BD39FB8 /* MSSampleServiceItemB.h in Headers */ = {isa = PBXBuildFile; fileRef = 74CE04763A1A68D52F59E12C /* MSSampleServiceItemB.h */; };
+		2870F1C2C5A3489283D3A697 /* MSSampleServiceModels.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0A7E5B7A4B4FB9E9449775 /* MSSampleServiceModels.h */; };
+		3AD72835EAFD07F623808F0F /* MSSampleServiceItemOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F39F931A9D95BB9092F432 /* MSSampleServiceItemOperations.m */; };
+		3B59E87BAC546ABE71A9447E /* MSSampleServiceItemBOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 55FEA39CDE7B5212B987708E /* MSSampleServiceItemBOperations.h */; };
+		4642F7D719E661401BE1A84E /* MSSampleServiceEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADF7F13CCCD1A49A78FCAD8 /* MSSampleServiceEntityCollectionOperations.m */; };
+		487AAE1050DBB94B2C141FE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B078565846FD2EF2F69119 /* Foundation.framework */; };
+		4E1D1C4DA403CBE4D7CF6CA1 /* MSSampleServiceItemCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B87ED19AA99C08BE7EAFAEEA /* MSSampleServiceItemCollectionFetcher.h */; };
+		5152CC995D9308423A0A0350 /* MSSampleServiceItemBCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF35D106022C7282EEB0DE1 /* MSSampleServiceItemBCollectionFetcher.h */; };
+		53603CBB7E310BAFE0980237 /* MSSampleServiceSampleEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2D9E9A4700535CBA4D28D4 /* MSSampleServiceSampleEntityCollectionOperations.m */; };
+		5506D044C54DE7639AE9EEDE /* MSSampleServiceItemFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E0E709617CD4B2B40796C863 /* MSSampleServiceItemFetcher.h */; };
+		555DB0981CA4F075E5B50C9E /* MSSampleServiceAnotherEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A06AB9B492E38217FC9325E /* MSSampleServiceAnotherEntity.h */; };
+		5BC9999D391B5E6758EFA280 /* MSSampleServiceEntityOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = FDBFE7E8273A65B31934D7F3 /* MSSampleServiceEntityOperations.h */; };
+		5C1F67BAC37465D67C820364 /* MSSampleServiceEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5013DE8B20CA1CF405E73D9F /* MSSampleServiceEntityFetcher.m */; };
+		5CAE3CC13D1D59932F9E323E /* MSSampleServiceSampleEntityCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 7854CC378508926B5458EDCA /* MSSampleServiceSampleEntityCollectionOperations.h */; };
+		5CC3F29F0BB97C7BE38D18A1 /* MSSampleServiceSampleEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FE1FEED2CF9063FAB621B5 /* MSSampleServiceSampleEntity.m */; };
+		64C04E4AF7BDA0620B883349 /* MSSampleServiceAnotherEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D3AEF9F996FFE14F7C42CC6 /* MSSampleServiceAnotherEntityFetcher.h */; };
+		6BDC50D5715D82F83742EAA9 /* MSSampleServiceSampleEntityCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F6A741D1983818EE5CA1EC4 /* MSSampleServiceSampleEntityCollectionFetcher.h */; };
+		72C04503A24524B1FEC88D28 /* MSSampleServiceItemOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 47E6BAE425426EB779F92623 /* MSSampleServiceItemOperations.h */; };
+		75E47AFA06C467C0B974DABD /* MSSampleServiceItemBOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = D126113EB50BC06020959DBE /* MSSampleServiceItemBOperations.m */; };
+		7B332FCA09023C9B594BFF88 /* MSSampleServiceSampleEntityOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = A060D2BAE84C76A9FA25A254 /* MSSampleServiceSampleEntityOperations.h */; };
+		8250BD6A1C24863F4D792BD6 /* MSSampleServiceItemCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 29C06FDEC00CA085080D9C27 /* MSSampleServiceItemCollectionOperations.h */; };
+		8281108767E8C87FDBA0FA54 /* MSSampleServiceSampleEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DBFF9F28FC42F7C9E19A330 /* MSSampleServiceSampleEntityFetcher.h */; };
+		833D3886D751117EB87DE416 /* MSSampleServiceSampleEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 4639E9B023F44AAFD5FBABC7 /* MSSampleServiceSampleEntity.h */; };
+		84F9F689805E58B1A510417C /* MSSampleServiceEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = BF35441D0887BCB324D2F2C7 /* MSSampleServiceEntity.h */; };
+		86E70C8ACB248249BACB8E1B /* MSSampleServiceSampleEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA70A675A1A48EA8800D7CC /* MSSampleServiceSampleEntityFetcher.m */; };
+		877D35C544CADAF7CD4244C0 /* MSSampleServiceItemAFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7A384A113DDC4CD50EE4EB /* MSSampleServiceItemAFetcher.m */; };
+		8B785FD62E98FCF92E79510F /* MSSampleServiceAnotherEntityCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 157F4A3A2EDD5F5128E9D5E5 /* MSSampleServiceAnotherEntityCollectionFetcher.h */; };
+		8C085E5F62FB94588599D134 /* MSSampleServiceEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A6061AFDDA75F86CCAAE8101 /* MSSampleServiceEntity.m */; };
+		902E90D1FF6FD33C4A9465B2 /* MSSampleServiceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4B960295E4A5F964FCBDDE /* MSSampleServiceItem.m */; };
+		9107B0C663E62B9923174CDF /* MSSampleServiceItemFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 395F74F67EB8386AE8664742 /* MSSampleServiceItemFetcher.m */; };
+		9375F6288AB64401E0186C47 /* MSSampleServiceItemBFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A261307A1074156BE9FFC475 /* MSSampleServiceItemBFetcher.m */; };
+		969A95AC0C3668F5F2736368 /* MSSampleServiceEntityCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = DC663279B85EA4E2DEF5892B /* MSSampleServiceEntityCollectionOperations.h */; };
+		984987392246F530E8BA9D59 /* MSSampleServiceAnotherEntityFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C1C92EDB2A8777C6455BEE2D /* MSSampleServiceAnotherEntityFetcher.m */; };
+		993C44988A51ADA558B1315B /* MSSampleServiceEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC2F9E0A16AD97D02B2CF5F /* MSSampleServiceEntityOperations.m */; };
+		9D9A1F7C8CA12B250F84AB84 /* MSSampleServiceAnotherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F79B3F1E26F59EB94959534 /* MSSampleServiceAnotherEntity.m */; };
+		A467747B6891525AF57CB18E /* MSSampleServiceItemCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 203F3393CBF3A4536A0635CC /* MSSampleServiceItemCollectionOperations.m */; };
+		A7F933F20682FD2049366248 /* MSSampleServiceAnotherEntityOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD019DC7E2A7DCEA9D1234 /* MSSampleServiceAnotherEntityOperations.m */; };
+		AC1E56F66855A0850C729D0D /* MSSampleServiceItemBCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = B60ED063DAFBD2284C54DCE8 /* MSSampleServiceItemBCollectionOperations.h */; };
+		AC390A37C6202B0B4DE9E052 /* MSSampleServiceFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = C94C39411CC08C6018911A41 /* MSSampleServiceFetchers.h */; };
+		B9864D61588142CE93CD1ED3 /* MSSampleService.h in Headers */ = {isa = PBXBuildFile; fileRef = 58475720A75CAFA6731B7CD2 /* MSSampleService.h */; };
+		BAE6161F0613A92D1E2E5641 /* MSSampleServiceItemCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F93E6D6AA3BBF153A07A74D /* MSSampleServiceItemCollectionFetcher.m */; };
+		BD3DCD8C91FFCB43BF1496E3 /* MSSampleServiceItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C5DDB3DF6790847160B2371 /* MSSampleServiceItem.h */; };
+		BE42727766918A15BCCD8E58 /* MSSampleServiceAnotherEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B936A848CA4E13EFEB2B93F /* MSSampleServiceAnotherEntityCollectionFetcher.m */; };
+		BFA88705F4DFE841653FAF94 /* MSSampleServiceItemB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E1C67C1797FFA9ADED936C8 /* MSSampleServiceItemB.m */; };
+		BFACBF450FF8BA1F67068361 /* MSSampleServiceItemBCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B1888E0A1F17E9BA92B59C /* MSSampleServiceItemBCollectionFetcher.m */; };
+		D00B8D04152E3E8A10FAFB59 /* MSSampleServiceItemACollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 47963263E90AAC45C885E528 /* MSSampleServiceItemACollectionFetcher.m */; };
+		D04958175BDC5ED3878A3CC0 /* MSSampleServiceClient.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCABA17F61D9B6378726352 /* MSSampleServiceClient.h */; };
+		D24BC05FF2CA227AD5C6F5B3 /* MSSampleServiceItemA.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FBF8BE6E6F3FB29DA5F8B2E /* MSSampleServiceItemA.h */; };
+		DCF3464678572562F881D4FD /* MSSampleServiceEntityCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4F95B3DF1613EEFA21E70E /* MSSampleServiceEntityCollectionFetcher.h */; };
+		E55C419632EF75A6DF8617F1 /* MSSampleServiceItemACollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3389CB39966936E193052CC6 /* MSSampleServiceItemACollectionFetcher.h */; };
+		E5FA5B1BC7ED2FEFF0824CBE /* MSSampleServiceItemACollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 98560FEC0417AEB83B982086 /* MSSampleServiceItemACollectionOperations.h */; };
+		EB5B22A393D20F5A1FDCFD3E /* MSSampleServiceEntityCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 670A29B6929717911F7D420E /* MSSampleServiceEntityCollectionFetcher.m */; };
+		EC36A3DE2E111D2FD2ECBAB4 /* MSSampleServiceItemACollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD2D1FE2ADD9D29007DF6EA /* MSSampleServiceItemACollectionOperations.m */; };
+		F1432B3BFC4A58B14DEE8168 /* MSSampleServiceAnotherEntityCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = AACFFF5BC59D3A0630BD697C /* MSSampleServiceAnotherEntityCollectionOperations.m */; };
+		F2E97846AF231473DFC58C58 /* MSSampleServiceSampleComplexType.m in Sources */ = {isa = PBXBuildFile; fileRef = 659D408C921E39001CD25973 /* MSSampleServiceSampleComplexType.m */; };
+		FC436BC6F5A853B9738170BB /* MSSampleServiceEntityFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FA57BA0796C46FC8D47B9027 /* MSSampleServiceEntityFetcher.h */; };
+		FF1A1225F023D58A54748497 /* MSSampleServiceItemBFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = AD65E617F0D252944C1CDE43 /* MSSampleServiceItemBFetcher.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08B078565846FD2EF2F69119 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		0D3AEF9F996FFE14F7C42CC6 /* MSSampleServiceAnotherEntityFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceAnotherEntityFetcher.h; path = ./Fetchers/MSSampleServiceAnotherEntityFetcher.h; sourceTree = "<group>"; };
+		157F4A3A2EDD5F5128E9D5E5 /* MSSampleServiceAnotherEntityCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceAnotherEntityCollectionFetcher.h; path = ./Fetchers/MSSampleServiceAnotherEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		172FE3AC3A55E3BE793283A1 /* MSSampleServiceClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceClient.m; path = ./Fetchers/MSSampleServiceClient.m; sourceTree = "<group>"; };
+		1B936A848CA4E13EFEB2B93F /* MSSampleServiceAnotherEntityCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceAnotherEntityCollectionFetcher.m; path = ./Fetchers/MSSampleServiceAnotherEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		203F3393CBF3A4536A0635CC /* MSSampleServiceItemCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemCollectionOperations.m; path = ./Fetchers/MSSampleServiceItemCollectionOperations.m; sourceTree = "<group>"; };
+		225C6B366D0E617EC08DB391 /* MSSampleServiceItemBCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemBCollectionOperations.m; path = ./Fetchers/MSSampleServiceItemBCollectionOperations.m; sourceTree = "<group>"; };
+		29C06FDEC00CA085080D9C27 /* MSSampleServiceItemCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemCollectionOperations.h; path = ./Fetchers/MSSampleServiceItemCollectionOperations.h; sourceTree = "<group>"; };
+		2DD46254ED8A16520EFE7D78 /* MSSampleServiceSampleEntityCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleEntityCollectionFetcher.m; path = ./Fetchers/MSSampleServiceSampleEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		2E1C67C1797FFA9ADED936C8 /* MSSampleServiceItemB.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemB.m; path = ./Model/MSSampleServiceItemB.m; sourceTree = "<group>"; };
+		2F79B3F1E26F59EB94959534 /* MSSampleServiceAnotherEntity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceAnotherEntity.m; path = ./Model/MSSampleServiceAnotherEntity.m; sourceTree = "<group>"; };
+		3389CB39966936E193052CC6 /* MSSampleServiceItemACollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemACollectionFetcher.h; path = ./Fetchers/MSSampleServiceItemACollectionFetcher.h; sourceTree = "<group>"; };
+		395F74F67EB8386AE8664742 /* MSSampleServiceItemFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemFetcher.m; path = ./Fetchers/MSSampleServiceItemFetcher.m; sourceTree = "<group>"; };
+		3A06AB9B492E38217FC9325E /* MSSampleServiceAnotherEntity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceAnotherEntity.h; path = ./Model/MSSampleServiceAnotherEntity.h; sourceTree = "<group>"; };
+		3FBF8BE6E6F3FB29DA5F8B2E /* MSSampleServiceItemA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemA.h; path = ./Model/MSSampleServiceItemA.h; sourceTree = "<group>"; };
+		4639E9B023F44AAFD5FBABC7 /* MSSampleServiceSampleEntity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleEntity.h; path = ./Model/MSSampleServiceSampleEntity.h; sourceTree = "<group>"; };
+		47963263E90AAC45C885E528 /* MSSampleServiceItemACollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemACollectionFetcher.m; path = ./Fetchers/MSSampleServiceItemACollectionFetcher.m; sourceTree = "<group>"; };
+		47E6BAE425426EB779F92623 /* MSSampleServiceItemOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemOperations.h; path = ./Fetchers/MSSampleServiceItemOperations.h; sourceTree = "<group>"; };
+		4B5FD3B16E12DDE11E3FFBB6 /* MSSampleServiceItemA.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemA.m; path = ./Model/MSSampleServiceItemA.m; sourceTree = "<group>"; };
+		4D4F95B3DF1613EEFA21E70E /* MSSampleServiceEntityCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceEntityCollectionFetcher.h; path = ./Fetchers/MSSampleServiceEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		4E2D9E9A4700535CBA4D28D4 /* MSSampleServiceSampleEntityCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleEntityCollectionOperations.m; path = ./Fetchers/MSSampleServiceSampleEntityCollectionOperations.m; sourceTree = "<group>"; };
+		4F6A741D1983818EE5CA1EC4 /* MSSampleServiceSampleEntityCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleEntityCollectionFetcher.h; path = ./Fetchers/MSSampleServiceSampleEntityCollectionFetcher.h; sourceTree = "<group>"; };
+		5013DE8B20CA1CF405E73D9F /* MSSampleServiceEntityFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceEntityFetcher.m; path = ./Fetchers/MSSampleServiceEntityFetcher.m; sourceTree = "<group>"; };
+		55FEA39CDE7B5212B987708E /* MSSampleServiceItemBOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemBOperations.h; path = ./Fetchers/MSSampleServiceItemBOperations.h; sourceTree = "<group>"; };
+		58475720A75CAFA6731B7CD2 /* MSSampleService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleService.h; path = ./MSSampleService.h; sourceTree = "<group>"; };
+		5CF35D106022C7282EEB0DE1 /* MSSampleServiceItemBCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemBCollectionFetcher.h; path = ./Fetchers/MSSampleServiceItemBCollectionFetcher.h; sourceTree = "<group>"; };
+		5DBFF9F28FC42F7C9E19A330 /* MSSampleServiceSampleEntityFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleEntityFetcher.h; path = ./Fetchers/MSSampleServiceSampleEntityFetcher.h; sourceTree = "<group>"; };
+		5F93E6D6AA3BBF153A07A74D /* MSSampleServiceItemCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemCollectionFetcher.m; path = ./Fetchers/MSSampleServiceItemCollectionFetcher.m; sourceTree = "<group>"; };
+		60B1888E0A1F17E9BA92B59C /* MSSampleServiceItemBCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemBCollectionFetcher.m; path = ./Fetchers/MSSampleServiceItemBCollectionFetcher.m; sourceTree = "<group>"; };
+		659D408C921E39001CD25973 /* MSSampleServiceSampleComplexType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleComplexType.m; path = ./Model/MSSampleServiceSampleComplexType.m; sourceTree = "<group>"; };
+		670A29B6929717911F7D420E /* MSSampleServiceEntityCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceEntityCollectionFetcher.m; path = ./Fetchers/MSSampleServiceEntityCollectionFetcher.m; sourceTree = "<group>"; };
+		681E2BC63BBE501F005B9394 /* libSampleService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSampleService.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68FE1FEED2CF9063FAB621B5 /* MSSampleServiceSampleEntity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleEntity.m; path = ./Model/MSSampleServiceSampleEntity.m; sourceTree = "<group>"; };
+		6E879302D9C7B5F30E8FFC8F /* MSSampleServiceAnotherEntityOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceAnotherEntityOperations.h; path = ./Fetchers/MSSampleServiceAnotherEntityOperations.h; sourceTree = "<group>"; };
+		74CE04763A1A68D52F59E12C /* MSSampleServiceItemB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemB.h; path = ./Model/MSSampleServiceItemB.h; sourceTree = "<group>"; };
+		7854CC378508926B5458EDCA /* MSSampleServiceSampleEntityCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleEntityCollectionOperations.h; path = ./Fetchers/MSSampleServiceSampleEntityCollectionOperations.h; sourceTree = "<group>"; };
+		7CDD019DC7E2A7DCEA9D1234 /* MSSampleServiceAnotherEntityOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceAnotherEntityOperations.m; path = ./Fetchers/MSSampleServiceAnotherEntityOperations.m; sourceTree = "<group>"; };
+		7E67775DC7D20683E3FB1E63 /* MSSampleServiceSampleEntityOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleEntityOperations.m; path = ./Fetchers/MSSampleServiceSampleEntityOperations.m; sourceTree = "<group>"; };
+		7FD2D1FE2ADD9D29007DF6EA /* MSSampleServiceItemACollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemACollectionOperations.m; path = ./Fetchers/MSSampleServiceItemACollectionOperations.m; sourceTree = "<group>"; };
+		8BA70A675A1A48EA8800D7CC /* MSSampleServiceSampleEntityFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceSampleEntityFetcher.m; path = ./Fetchers/MSSampleServiceSampleEntityFetcher.m; sourceTree = "<group>"; };
+		98560FEC0417AEB83B982086 /* MSSampleServiceItemACollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemACollectionOperations.h; path = ./Fetchers/MSSampleServiceItemACollectionOperations.h; sourceTree = "<group>"; };
+		9ADF7F13CCCD1A49A78FCAD8 /* MSSampleServiceEntityCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceEntityCollectionOperations.m; path = ./Fetchers/MSSampleServiceEntityCollectionOperations.m; sourceTree = "<group>"; };
+		9C5DDB3DF6790847160B2371 /* MSSampleServiceItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItem.h; path = ./Model/MSSampleServiceItem.h; sourceTree = "<group>"; };
+		A060D2BAE84C76A9FA25A254 /* MSSampleServiceSampleEntityOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleEntityOperations.h; path = ./Fetchers/MSSampleServiceSampleEntityOperations.h; sourceTree = "<group>"; };
+		A261307A1074156BE9FFC475 /* MSSampleServiceItemBFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemBFetcher.m; path = ./Fetchers/MSSampleServiceItemBFetcher.m; sourceTree = "<group>"; };
+		A6061AFDDA75F86CCAAE8101 /* MSSampleServiceEntity.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceEntity.m; path = ./Model/MSSampleServiceEntity.m; sourceTree = "<group>"; };
+		A6F39F931A9D95BB9092F432 /* MSSampleServiceItemOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemOperations.m; path = ./Fetchers/MSSampleServiceItemOperations.m; sourceTree = "<group>"; };
+		AACFFF5BC59D3A0630BD697C /* MSSampleServiceAnotherEntityCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceAnotherEntityCollectionOperations.m; path = ./Fetchers/MSSampleServiceAnotherEntityCollectionOperations.m; sourceTree = "<group>"; };
+		AD65E617F0D252944C1CDE43 /* MSSampleServiceItemBFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemBFetcher.h; path = ./Fetchers/MSSampleServiceItemBFetcher.h; sourceTree = "<group>"; };
+		AFCABA17F61D9B6378726352 /* MSSampleServiceClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceClient.h; path = ./Fetchers/MSSampleServiceClient.h; sourceTree = "<group>"; };
+		B60ED063DAFBD2284C54DCE8 /* MSSampleServiceItemBCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemBCollectionOperations.h; path = ./Fetchers/MSSampleServiceItemBCollectionOperations.h; sourceTree = "<group>"; };
+		B87ED19AA99C08BE7EAFAEEA /* MSSampleServiceItemCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemCollectionFetcher.h; path = ./Fetchers/MSSampleServiceItemCollectionFetcher.h; sourceTree = "<group>"; };
+		BA09D7F7EB6BF86E7BB20B3A /* MSSampleServiceItemAOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemAOperations.m; path = ./Fetchers/MSSampleServiceItemAOperations.m; sourceTree = "<group>"; };
+		BBC2F9E0A16AD97D02B2CF5F /* MSSampleServiceEntityOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceEntityOperations.m; path = ./Fetchers/MSSampleServiceEntityOperations.m; sourceTree = "<group>"; };
+		BF35441D0887BCB324D2F2C7 /* MSSampleServiceEntity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceEntity.h; path = ./Model/MSSampleServiceEntity.h; sourceTree = "<group>"; };
+		C1C92EDB2A8777C6455BEE2D /* MSSampleServiceAnotherEntityFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceAnotherEntityFetcher.m; path = ./Fetchers/MSSampleServiceAnotherEntityFetcher.m; sourceTree = "<group>"; };
+		C94C39411CC08C6018911A41 /* MSSampleServiceFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceFetchers.h; path = ./Fetchers/MSSampleServiceFetchers.h; sourceTree = "<group>"; };
+		CBE9CEAEDD9B0F750F74402F /* MSSampleServiceSampleComplexType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceSampleComplexType.h; path = ./Model/MSSampleServiceSampleComplexType.h; sourceTree = "<group>"; };
+		CF7A384A113DDC4CD50EE4EB /* MSSampleServiceItemAFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemAFetcher.m; path = ./Fetchers/MSSampleServiceItemAFetcher.m; sourceTree = "<group>"; };
+		D126113EB50BC06020959DBE /* MSSampleServiceItemBOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItemBOperations.m; path = ./Fetchers/MSSampleServiceItemBOperations.m; sourceTree = "<group>"; };
+		D37D96A50526766EEF4B55DE /* MSSampleServiceItemAFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemAFetcher.h; path = ./Fetchers/MSSampleServiceItemAFetcher.h; sourceTree = "<group>"; };
+		DC0A7E5B7A4B4FB9E9449775 /* MSSampleServiceModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceModels.h; path = ./Model/MSSampleServiceModels.h; sourceTree = "<group>"; };
+		DC663279B85EA4E2DEF5892B /* MSSampleServiceEntityCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceEntityCollectionOperations.h; path = ./Fetchers/MSSampleServiceEntityCollectionOperations.h; sourceTree = "<group>"; };
+		E01B7E22524E3B8B112F404B /* MSSampleServiceItemAOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemAOperations.h; path = ./Fetchers/MSSampleServiceItemAOperations.h; sourceTree = "<group>"; };
+		E0E709617CD4B2B40796C863 /* MSSampleServiceItemFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceItemFetcher.h; path = ./Fetchers/MSSampleServiceItemFetcher.h; sourceTree = "<group>"; };
+		EC4B960295E4A5F964FCBDDE /* MSSampleServiceItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSampleServiceItem.m; path = ./Model/MSSampleServiceItem.m; sourceTree = "<group>"; };
+		F1E73B7569B56CD9BB4985CA /* MSSampleServiceAnotherEntityCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceAnotherEntityCollectionOperations.h; path = ./Fetchers/MSSampleServiceAnotherEntityCollectionOperations.h; sourceTree = "<group>"; };
+		FA57BA0796C46FC8D47B9027 /* MSSampleServiceEntityFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceEntityFetcher.h; path = ./Fetchers/MSSampleServiceEntityFetcher.h; sourceTree = "<group>"; };
+		FDBFE7E8273A65B31934D7F3 /* MSSampleServiceEntityOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSampleServiceEntityOperations.h; path = ./Fetchers/MSSampleServiceEntityOperations.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B8E2FB8650F8EACA540B9A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				487AAE1050DBB94B2C141FE4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		027880809799DF3EEF57C64C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D1B2D70D1476433AB9DBDE8 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D1B2D70D1476433AB9DBDE8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				08B078565846FD2EF2F69119 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		454B9DD74E2D1A7297C43F29 /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				157F4A3A2EDD5F5128E9D5E5 /* MSSampleServiceAnotherEntityCollectionFetcher.h */,
+				1B936A848CA4E13EFEB2B93F /* MSSampleServiceAnotherEntityCollectionFetcher.m */,
+				F1E73B7569B56CD9BB4985CA /* MSSampleServiceAnotherEntityCollectionOperations.h */,
+				AACFFF5BC59D3A0630BD697C /* MSSampleServiceAnotherEntityCollectionOperations.m */,
+				0D3AEF9F996FFE14F7C42CC6 /* MSSampleServiceAnotherEntityFetcher.h */,
+				C1C92EDB2A8777C6455BEE2D /* MSSampleServiceAnotherEntityFetcher.m */,
+				6E879302D9C7B5F30E8FFC8F /* MSSampleServiceAnotherEntityOperations.h */,
+				7CDD019DC7E2A7DCEA9D1234 /* MSSampleServiceAnotherEntityOperations.m */,
+				AFCABA17F61D9B6378726352 /* MSSampleServiceClient.h */,
+				172FE3AC3A55E3BE793283A1 /* MSSampleServiceClient.m */,
+				4D4F95B3DF1613EEFA21E70E /* MSSampleServiceEntityCollectionFetcher.h */,
+				670A29B6929717911F7D420E /* MSSampleServiceEntityCollectionFetcher.m */,
+				DC663279B85EA4E2DEF5892B /* MSSampleServiceEntityCollectionOperations.h */,
+				9ADF7F13CCCD1A49A78FCAD8 /* MSSampleServiceEntityCollectionOperations.m */,
+				FA57BA0796C46FC8D47B9027 /* MSSampleServiceEntityFetcher.h */,
+				5013DE8B20CA1CF405E73D9F /* MSSampleServiceEntityFetcher.m */,
+				FDBFE7E8273A65B31934D7F3 /* MSSampleServiceEntityOperations.h */,
+				BBC2F9E0A16AD97D02B2CF5F /* MSSampleServiceEntityOperations.m */,
+				C94C39411CC08C6018911A41 /* MSSampleServiceFetchers.h */,
+				3389CB39966936E193052CC6 /* MSSampleServiceItemACollectionFetcher.h */,
+				47963263E90AAC45C885E528 /* MSSampleServiceItemACollectionFetcher.m */,
+				98560FEC0417AEB83B982086 /* MSSampleServiceItemACollectionOperations.h */,
+				7FD2D1FE2ADD9D29007DF6EA /* MSSampleServiceItemACollectionOperations.m */,
+				D37D96A50526766EEF4B55DE /* MSSampleServiceItemAFetcher.h */,
+				CF7A384A113DDC4CD50EE4EB /* MSSampleServiceItemAFetcher.m */,
+				E01B7E22524E3B8B112F404B /* MSSampleServiceItemAOperations.h */,
+				BA09D7F7EB6BF86E7BB20B3A /* MSSampleServiceItemAOperations.m */,
+				5CF35D106022C7282EEB0DE1 /* MSSampleServiceItemBCollectionFetcher.h */,
+				60B1888E0A1F17E9BA92B59C /* MSSampleServiceItemBCollectionFetcher.m */,
+				B60ED063DAFBD2284C54DCE8 /* MSSampleServiceItemBCollectionOperations.h */,
+				225C6B366D0E617EC08DB391 /* MSSampleServiceItemBCollectionOperations.m */,
+				AD65E617F0D252944C1CDE43 /* MSSampleServiceItemBFetcher.h */,
+				A261307A1074156BE9FFC475 /* MSSampleServiceItemBFetcher.m */,
+				55FEA39CDE7B5212B987708E /* MSSampleServiceItemBOperations.h */,
+				D126113EB50BC06020959DBE /* MSSampleServiceItemBOperations.m */,
+				B87ED19AA99C08BE7EAFAEEA /* MSSampleServiceItemCollectionFetcher.h */,
+				5F93E6D6AA3BBF153A07A74D /* MSSampleServiceItemCollectionFetcher.m */,
+				29C06FDEC00CA085080D9C27 /* MSSampleServiceItemCollectionOperations.h */,
+				203F3393CBF3A4536A0635CC /* MSSampleServiceItemCollectionOperations.m */,
+				E0E709617CD4B2B40796C863 /* MSSampleServiceItemFetcher.h */,
+				395F74F67EB8386AE8664742 /* MSSampleServiceItemFetcher.m */,
+				47E6BAE425426EB779F92623 /* MSSampleServiceItemOperations.h */,
+				A6F39F931A9D95BB9092F432 /* MSSampleServiceItemOperations.m */,
+				4F6A741D1983818EE5CA1EC4 /* MSSampleServiceSampleEntityCollectionFetcher.h */,
+				2DD46254ED8A16520EFE7D78 /* MSSampleServiceSampleEntityCollectionFetcher.m */,
+				7854CC378508926B5458EDCA /* MSSampleServiceSampleEntityCollectionOperations.h */,
+				4E2D9E9A4700535CBA4D28D4 /* MSSampleServiceSampleEntityCollectionOperations.m */,
+				5DBFF9F28FC42F7C9E19A330 /* MSSampleServiceSampleEntityFetcher.h */,
+				8BA70A675A1A48EA8800D7CC /* MSSampleServiceSampleEntityFetcher.m */,
+				A060D2BAE84C76A9FA25A254 /* MSSampleServiceSampleEntityOperations.h */,
+				7E67775DC7D20683E3FB1E63 /* MSSampleServiceSampleEntityOperations.m */,
+			);
+			name = Fetchers;
+			sourceTree = "<group>";
+		};
+		636FC4399D4A5EBA4ACB76F6 = {
+			isa = PBXGroup;
+			children = (
+				D31697A59471350B9E7021F0 /* Products */,
+				027880809799DF3EEF57C64C /* Frameworks */,
+				454B9DD74E2D1A7297C43F29 /* Fetchers */,
+				FBDC30B3D7EF7B7B2CFF42D4 /* Model */,
+				58475720A75CAFA6731B7CD2 /* MSSampleService.h */,
+			);
+			sourceTree = "<group>";
+		};
+		D31697A59471350B9E7021F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				681E2BC63BBE501F005B9394 /* libSampleService.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBDC30B3D7EF7B7B2CFF42D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A06AB9B492E38217FC9325E /* MSSampleServiceAnotherEntity.h */,
+				2F79B3F1E26F59EB94959534 /* MSSampleServiceAnotherEntity.m */,
+				BF35441D0887BCB324D2F2C7 /* MSSampleServiceEntity.h */,
+				A6061AFDDA75F86CCAAE8101 /* MSSampleServiceEntity.m */,
+				9C5DDB3DF6790847160B2371 /* MSSampleServiceItem.h */,
+				EC4B960295E4A5F964FCBDDE /* MSSampleServiceItem.m */,
+				3FBF8BE6E6F3FB29DA5F8B2E /* MSSampleServiceItemA.h */,
+				4B5FD3B16E12DDE11E3FFBB6 /* MSSampleServiceItemA.m */,
+				74CE04763A1A68D52F59E12C /* MSSampleServiceItemB.h */,
+				2E1C67C1797FFA9ADED936C8 /* MSSampleServiceItemB.m */,
+				DC0A7E5B7A4B4FB9E9449775 /* MSSampleServiceModels.h */,
+				CBE9CEAEDD9B0F750F74402F /* MSSampleServiceSampleComplexType.h */,
+				659D408C921E39001CD25973 /* MSSampleServiceSampleComplexType.m */,
+				4639E9B023F44AAFD5FBABC7 /* MSSampleServiceSampleEntity.h */,
+				68FE1FEED2CF9063FAB621B5 /* MSSampleServiceSampleEntity.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F43FAC68A59A5F09992E1BB5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B785FD62E98FCF92E79510F /* MSSampleServiceAnotherEntityCollectionFetcher.h in Headers */,
+				1095E485F3B574FFC882BEF4 /* MSSampleServiceAnotherEntityCollectionOperations.h in Headers */,
+				64C04E4AF7BDA0620B883349 /* MSSampleServiceAnotherEntityFetcher.h in Headers */,
+				1C6E39F513310BE72FF25EDA /* MSSampleServiceAnotherEntityOperations.h in Headers */,
+				D04958175BDC5ED3878A3CC0 /* MSSampleServiceClient.h in Headers */,
+				DCF3464678572562F881D4FD /* MSSampleServiceEntityCollectionFetcher.h in Headers */,
+				969A95AC0C3668F5F2736368 /* MSSampleServiceEntityCollectionOperations.h in Headers */,
+				FC436BC6F5A853B9738170BB /* MSSampleServiceEntityFetcher.h in Headers */,
+				5BC9999D391B5E6758EFA280 /* MSSampleServiceEntityOperations.h in Headers */,
+				AC390A37C6202B0B4DE9E052 /* MSSampleServiceFetchers.h in Headers */,
+				E55C419632EF75A6DF8617F1 /* MSSampleServiceItemACollectionFetcher.h in Headers */,
+				E5FA5B1BC7ED2FEFF0824CBE /* MSSampleServiceItemACollectionOperations.h in Headers */,
+				26DD06187D969F015C528EF3 /* MSSampleServiceItemAFetcher.h in Headers */,
+				221053D7F9C05C447A7D9E24 /* MSSampleServiceItemAOperations.h in Headers */,
+				5152CC995D9308423A0A0350 /* MSSampleServiceItemBCollectionFetcher.h in Headers */,
+				AC1E56F66855A0850C729D0D /* MSSampleServiceItemBCollectionOperations.h in Headers */,
+				FF1A1225F023D58A54748497 /* MSSampleServiceItemBFetcher.h in Headers */,
+				3B59E87BAC546ABE71A9447E /* MSSampleServiceItemBOperations.h in Headers */,
+				4E1D1C4DA403CBE4D7CF6CA1 /* MSSampleServiceItemCollectionFetcher.h in Headers */,
+				8250BD6A1C24863F4D792BD6 /* MSSampleServiceItemCollectionOperations.h in Headers */,
+				5506D044C54DE7639AE9EEDE /* MSSampleServiceItemFetcher.h in Headers */,
+				72C04503A24524B1FEC88D28 /* MSSampleServiceItemOperations.h in Headers */,
+				6BDC50D5715D82F83742EAA9 /* MSSampleServiceSampleEntityCollectionFetcher.h in Headers */,
+				5CAE3CC13D1D59932F9E323E /* MSSampleServiceSampleEntityCollectionOperations.h in Headers */,
+				8281108767E8C87FDBA0FA54 /* MSSampleServiceSampleEntityFetcher.h in Headers */,
+				7B332FCA09023C9B594BFF88 /* MSSampleServiceSampleEntityOperations.h in Headers */,
+				555DB0981CA4F075E5B50C9E /* MSSampleServiceAnotherEntity.h in Headers */,
+				84F9F689805E58B1A510417C /* MSSampleServiceEntity.h in Headers */,
+				BD3DCD8C91FFCB43BF1496E3 /* MSSampleServiceItem.h in Headers */,
+				D24BC05FF2CA227AD5C6F5B3 /* MSSampleServiceItemA.h in Headers */,
+				285496A525CA31045BD39FB8 /* MSSampleServiceItemB.h in Headers */,
+				2870F1C2C5A3489283D3A697 /* MSSampleServiceModels.h in Headers */,
+				0DA0EA6041C673CC10176847 /* MSSampleServiceSampleComplexType.h in Headers */,
+				833D3886D751117EB87DE416 /* MSSampleServiceSampleEntity.h in Headers */,
+				B9864D61588142CE93CD1ED3 /* MSSampleService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9718D3D95DE2AA4E5C6E503B /* SampleService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B437026DA7E292E5B86FE83 /* Build configuration list for PBXNativeTarget "SampleService" */;
+			buildPhases = (
+				8A612E9FEC42FD2CAFEE12B6 /* Sources */,
+				6B8E2FB8650F8EACA540B9A2 /* Frameworks */,
+				F43FAC68A59A5F09992E1BB5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleService;
+			productName = SampleService;
+			productReference = 681E2BC63BBE501F005B9394 /* libSampleService.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B727F4A3ACADC3520ADD6B6A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 6537EEC49282B40195B624F2 /* Build configuration list for PBXProject "SampleService" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 636FC4399D4A5EBA4ACB76F6;
+			productRefGroup = D31697A59471350B9E7021F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9718D3D95DE2AA4E5C6E503B /* SampleService */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A612E9FEC42FD2CAFEE12B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE42727766918A15BCCD8E58 /* MSSampleServiceAnotherEntityCollectionFetcher.m in Sources */,
+				F1432B3BFC4A58B14DEE8168 /* MSSampleServiceAnotherEntityCollectionOperations.m in Sources */,
+				984987392246F530E8BA9D59 /* MSSampleServiceAnotherEntityFetcher.m in Sources */,
+				A7F933F20682FD2049366248 /* MSSampleServiceAnotherEntityOperations.m in Sources */,
+				0FF4A12C6836A29C2DB369FC /* MSSampleServiceClient.m in Sources */,
+				EB5B22A393D20F5A1FDCFD3E /* MSSampleServiceEntityCollectionFetcher.m in Sources */,
+				4642F7D719E661401BE1A84E /* MSSampleServiceEntityCollectionOperations.m in Sources */,
+				5C1F67BAC37465D67C820364 /* MSSampleServiceEntityFetcher.m in Sources */,
+				993C44988A51ADA558B1315B /* MSSampleServiceEntityOperations.m in Sources */,
+				D00B8D04152E3E8A10FAFB59 /* MSSampleServiceItemACollectionFetcher.m in Sources */,
+				EC36A3DE2E111D2FD2ECBAB4 /* MSSampleServiceItemACollectionOperations.m in Sources */,
+				877D35C544CADAF7CD4244C0 /* MSSampleServiceItemAFetcher.m in Sources */,
+				1D200FF6687B3FC6E05F55D7 /* MSSampleServiceItemAOperations.m in Sources */,
+				BFACBF450FF8BA1F67068361 /* MSSampleServiceItemBCollectionFetcher.m in Sources */,
+				1DC8E951FE1B3C086F41FAE0 /* MSSampleServiceItemBCollectionOperations.m in Sources */,
+				9375F6288AB64401E0186C47 /* MSSampleServiceItemBFetcher.m in Sources */,
+				75E47AFA06C467C0B974DABD /* MSSampleServiceItemBOperations.m in Sources */,
+				BAE6161F0613A92D1E2E5641 /* MSSampleServiceItemCollectionFetcher.m in Sources */,
+				A467747B6891525AF57CB18E /* MSSampleServiceItemCollectionOperations.m in Sources */,
+				9107B0C663E62B9923174CDF /* MSSampleServiceItemFetcher.m in Sources */,
+				3AD72835EAFD07F623808F0F /* MSSampleServiceItemOperations.m in Sources */,
+				11AB64A05118F6F82B103350 /* MSSampleServiceSampleEntityCollectionFetcher.m in Sources */,
+				53603CBB7E310BAFE0980237 /* MSSampleServiceSampleEntityCollectionOperations.m in Sources */,
+				86E70C8ACB248249BACB8E1B /* MSSampleServiceSampleEntityFetcher.m in Sources */,
+				146234456D53E680B98A4A5B /* MSSampleServiceSampleEntityOperations.m in Sources */,
+				9D9A1F7C8CA12B250F84AB84 /* MSSampleServiceAnotherEntity.m in Sources */,
+				8C085E5F62FB94588599D134 /* MSSampleServiceEntity.m in Sources */,
+				902E90D1FF6FD33C4A9465B2 /* MSSampleServiceItem.m in Sources */,
+				0E71DA8F40C404686F19C286 /* MSSampleServiceItemA.m in Sources */,
+				BFA88705F4DFE841653FAF94 /* MSSampleServiceItemB.m in Sources */,
+				F2E97846AF231473DFC58C58 /* MSSampleServiceSampleComplexType.m in Sources */,
+				5CC3F29F0BB97C7BE38D18A1 /* MSSampleServiceSampleEntity.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0623BDDAE9F72FA43814EB84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		91DF50BD9CA9E34A66103F11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		93E5185F6BF3BB86AB8B7342 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E2BEFBDA67A81BAB5E1CE007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B437026DA7E292E5B86FE83 /* Build configuration list for PBXNativeTarget "SampleService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0623BDDAE9F72FA43814EB84 /* Release */,
+				91DF50BD9CA9E34A66103F11 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6537EEC49282B40195B624F2 /* Build configuration list for PBXProject "SampleService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2BEFBDA67A81BAB5E1CE007 /* Debug */,
+				93E5185F6BF3BB86AB8B7342 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B727F4A3ACADC3520ADD6B6A /* Project object */;
+}

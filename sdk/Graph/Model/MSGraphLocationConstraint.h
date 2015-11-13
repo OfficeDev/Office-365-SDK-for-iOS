@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHLOCATIONCONSTRAINT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphLocation;
 #import "core/MSOrcBaseEntity.h"

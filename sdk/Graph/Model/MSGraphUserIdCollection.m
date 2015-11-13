@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.userIdCollection";
+		_odataType = @"#microsoft.graph.userIdCollection";
 
-        
     }
 
 	return self;
@@ -66,7 +65,7 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-    [dic setValue: @"#Microsoft.Graph.userIdCollection" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.userIdCollection" forKey: @"@odata.type"];
 
     return dic;
 }

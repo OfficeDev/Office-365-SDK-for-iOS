@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.uploadSession";
+		_odataType = @"#microsoft.graph.uploadSession";
 
-        
-		_nextExpectedRanges = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -60,11 +58,13 @@ root for authoritative license information.﻿
 		_expirationDateTime = [dic objectForKey: @"expirationDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"expirationDateTime"]] : _expirationDateTime;
 
         if([dic objectForKey: @"nextExpectedRanges"] != [NSNull null]){
-            _nextExpectedRanges = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"nextExpectedRanges"] count]];
+            _nextExpectedRanges = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"nextExpectedRanges"]) {
                 [_nextExpectedRanges addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_nextExpectedRanges resetChangedFlag];
         }
         
 
@@ -78,10 +78,16 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.uploadUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"uploadUrl"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.expirationDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"expirationDateTime"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"nextExpectedRanges"];}
-    [dic setValue: @"#Microsoft.Graph.uploadSession" forKey: @"@odata.type"];
+	{id curVal = [self.uploadUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"uploadUrl"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.expirationDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"expirationDateTime"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.nextExpectedRanges) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.uploadSession" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -93,24 +99,39 @@ root for authoritative license information.﻿
 	{id curVal = self.uploadUrl;
     if([self.updatedValues containsObject:@"uploadUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"uploadUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"uploadUrl"];
+            }
     }
 	{id curVal = self.expirationDateTime;
     if([self.updatedValues containsObject:@"expirationDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"expirationDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"expirationDateTime"];
+            }
     }
 	{id curVal = self.nextExpectedRanges;
     if([self.updatedValues containsObject:@"nextExpectedRanges"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"nextExpectedRanges"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"nextExpectedRanges"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.nextExpectedRanges) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"nextExpectedRanges"];
+        }
         
             }}
     return dic;

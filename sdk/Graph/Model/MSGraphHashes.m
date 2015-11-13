@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.hashes";
+		_odataType = @"#microsoft.graph.hashes";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.crc32Hash copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"crc32Hash"];}
-	{id curVal = [self.sha1Hash copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"sha1Hash"];}
-    [dic setValue: @"#Microsoft.Graph.hashes" forKey: @"@odata.type"];
+	{id curVal = [self.crc32Hash copy];if (curVal!=nil) [dic setValue: curVal forKey: @"crc32Hash"];}
+	{id curVal = [self.sha1Hash copy];if (curVal!=nil) [dic setValue: curVal forKey: @"sha1Hash"];}
+    [dic setValue: @"#microsoft.graph.hashes" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.crc32Hash;
     if([self.updatedValues containsObject:@"crc32Hash"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"crc32Hash"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"crc32Hash"];
+            }
     }
 	{id curVal = self.sha1Hash;
     if([self.updatedValues containsObject:@"sha1Hash"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sha1Hash"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sha1Hash"];
+            }
     }
     return dic;
 }

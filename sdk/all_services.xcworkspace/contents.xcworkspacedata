@@ -19,4 +19,7 @@
    <FileRef
       location = "group:Outlook/Outlook.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:SampleService/SampleService.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.planTaskBoard";
-        
+		_odataType = @"#microsoft.graph.planTaskBoard";
         
     }
 
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphTaskBoardTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-    [dic setValue: @"#Microsoft.Graph.planTaskBoard" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphTaskBoardTypeSerializer toString:self.type] forKey: @"type"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.planTaskBoard" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -83,8 +82,8 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphTaskBoardTypeSerializer toString:curVal] forKey: @"type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphTaskBoardTypeSerializer toString:curVal] forKey: @"type"];
+            }
         else
     {
                 
@@ -99,8 +98,8 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
     return dic;
 }

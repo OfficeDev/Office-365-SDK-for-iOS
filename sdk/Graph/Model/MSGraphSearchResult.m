@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.searchResult";
+		_odataType = @"#microsoft.graph.searchResult";
 
-        
     }
 
 	return self;
@@ -67,8 +66,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.onClickTelemetryUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"onClickTelemetryUrl"];}
-    [dic setValue: @"#Microsoft.Graph.searchResult" forKey: @"@odata.type"];
+	{id curVal = [self.onClickTelemetryUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"onClickTelemetryUrl"];}
+    [dic setValue: @"#microsoft.graph.searchResult" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.onClickTelemetryUrl;
     if([self.updatedValues containsObject:@"onClickTelemetryUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"onClickTelemetryUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"onClickTelemetryUrl"];
+            }
     }
     return dic;
 }

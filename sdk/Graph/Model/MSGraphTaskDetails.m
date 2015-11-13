@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.taskDetails";
-        
+		_odataType = @"#microsoft.graph.taskDetails";
         
     }
 
@@ -73,13 +72,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
-	{id curVal = [MSGraphPreviewTypeSerializer toString:self.previewType]; if (curVal!=nil) [dic setValue: curVal forKey: @"previewType"];}
-	{id curVal = [self.completedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"completedBy"];}
-	{id curVal = [self.references toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"references"];}
-	{id curVal = [self.checklist toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"checklist"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-    [dic setValue: @"#Microsoft.Graph.taskDetails" forKey: @"@odata.type"];
+	{id curVal = [self._description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{[dic setValue: [MSGraphPreviewTypeSerializer toString:self.previewType] forKey: @"previewType"];}
+	{id curVal = [self.completedBy copy];if (curVal!=nil) [dic setValue: curVal forKey: @"completedBy"];}
+	{id curVal = [self.references toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"references"];}
+	{id curVal = [self.checklist toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"checklist"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.taskDetails" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,14 +90,14 @@ root for authoritative license information.﻿
 	{id curVal = self._description;
     if([self.updatedValues containsObject:@"description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+            }
     }
 	{id curVal = self.previewType;
     if([self.updatedValues containsObject:@"previewType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
+            }
         else
     {
                 
@@ -113,14 +112,14 @@ root for authoritative license information.﻿
 	{id curVal = self.completedBy;
     if([self.updatedValues containsObject:@"completedBy"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"completedBy"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"completedBy"];
+            }
     }
 	{id curVal = self.references;
     if([self.updatedValues containsObject:@"references"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"references"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"references"];
+            }
         else
     {
                 
@@ -135,8 +134,8 @@ root for authoritative license information.﻿
 	{id curVal = self.checklist;
     if([self.updatedValues containsObject:@"checklist"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"checklist"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"checklist"];
+            }
         else
     {
                 
@@ -151,8 +150,8 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
     return dic;
 }

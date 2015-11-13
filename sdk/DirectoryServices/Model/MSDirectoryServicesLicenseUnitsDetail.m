@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.DirectoryServices.LicenseUnitsDetail";
 
-        
     }
 
 	return self;
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.enabled]; if (curVal!=nil) [dic setValue: curVal forKey: @"enabled"];}
-	{id curVal = [NSNumber numberWithInt: self.suspended]; if (curVal!=nil) [dic setValue: curVal forKey: @"suspended"];}
-	{id curVal = [NSNumber numberWithInt: self.warning]; if (curVal!=nil) [dic setValue: curVal forKey: @"warning"];}
+	{[dic setValue: [NSNumber numberWithInt: self.enabled] forKey: @"enabled"];}
+	{[dic setValue: [NSNumber numberWithInt: self.suspended] forKey: @"suspended"];}
+	{[dic setValue: [NSNumber numberWithInt: self.warning] forKey: @"warning"];}
     [dic setValue: @"#Microsoft.DirectoryServices.LicenseUnitsDetail" forKey: @"@odata.type"];
 
     return dic;
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self.enabled;
     if([self.updatedValues containsObject:@"enabled"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"enabled"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"enabled"];
+            }
     }
 	{id curVal = self.suspended;
     if([self.updatedValues containsObject:@"suspended"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"suspended"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"suspended"];
+            }
     }
 	{id curVal = self.warning;
     if([self.updatedValues containsObject:@"warning"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"warning"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"warning"];
+            }
     }
     return dic;
 }

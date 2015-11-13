@@ -43,11 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ContactFolder";
+		_odataType = @"#microsoft.graph.ContactFolder";
         
-        
-		_contacts = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_childFolders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -62,20 +59,24 @@ root for authoritative license information.﻿
 		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
 
         if([dic objectForKey: @"Contacts"] != [NSNull null]){
-            _contacts = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Contacts"] count]];
+            _contacts = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Contacts"]) {
                 [_contacts addObject:[[MSGraphContact alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_contacts resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"ChildFolders"] != [NSNull null]){
-            _childFolders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ChildFolders"] count]];
+            _childFolders = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"ChildFolders"]) {
                 [_childFolders addObject:[[MSGraphContactFolder alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_childFolders resetChangedFlag];
         }
         
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
@@ -90,12 +91,24 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.parentFolderId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Contacts"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolders"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.ContactFolder" forKey: @"@odata.type"];
+	{id curVal = [self.parentFolderId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contacts) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.childFolders) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.ContactFolder" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -107,42 +120,72 @@ root for authoritative license information.﻿
 	{id curVal = self.parentFolderId;
     if([self.updatedValues containsObject:@"ParentFolderId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
+            }
     }
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+            }
     }
 	{id curVal = self.contacts;
     if([self.updatedValues containsObject:@"Contacts"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Contacts"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Contacts"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contacts) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Contacts"];
+        }
         
             }}
 	{id curVal = self.childFolders;
     if([self.updatedValues containsObject:@"ChildFolders"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ChildFolders"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"ChildFolders"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.childFolders) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"ChildFolders"];
+        }
         
             }}
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

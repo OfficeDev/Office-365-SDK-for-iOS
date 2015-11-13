@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.image";
+		_odataType = @"#microsoft.graph.image";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"height"];}
-	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"width"];}
-    [dic setValue: @"#Microsoft.Graph.image" forKey: @"@odata.type"];
+	{[dic setValue: [NSNumber numberWithInt: self.height] forKey: @"height"];}
+	{[dic setValue: [NSNumber numberWithInt: self.width] forKey: @"width"];}
+    [dic setValue: @"#microsoft.graph.image" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.height;
     if([self.updatedValues containsObject:@"height"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
+            }
     }
 	{id curVal = self.width;
     if([self.updatedValues containsObject:@"width"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
+            }
     }
     return dic;
 }

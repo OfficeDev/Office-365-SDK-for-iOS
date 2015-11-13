@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHRESPONSESTATUS_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphResponseType.h"
 #import "core/MSOrcBaseEntity.h"

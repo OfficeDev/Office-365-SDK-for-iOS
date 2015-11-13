@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.thumbnailSet";
-        
+		_odataType = @"#microsoft.graph.thumbnailSet";
         
     }
 
@@ -72,12 +71,12 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.large toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"large"];}
-	{id curVal = [self.medium toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"medium"];}
-	{id curVal = [self.small toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"small"];}
-	{id curVal = [self.source toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"source"];}
-    [dic setValue: @"#Microsoft.Graph.thumbnailSet" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.large toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"large"];}
+	{id curVal = [self.medium toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"medium"];}
+	{id curVal = [self.small toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"small"];}
+	{id curVal = [self.source toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"source"];}
+    [dic setValue: @"#microsoft.graph.thumbnailSet" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -89,14 +88,14 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.large;
     if([self.updatedValues containsObject:@"large"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"large"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"large"];
+            }
         else
     {
                 
@@ -111,8 +110,8 @@ root for authoritative license information.﻿
 	{id curVal = self.medium;
     if([self.updatedValues containsObject:@"medium"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"medium"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"medium"];
+            }
         else
     {
                 
@@ -127,8 +126,8 @@ root for authoritative license information.﻿
 	{id curVal = self.small;
     if([self.updatedValues containsObject:@"small"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"small"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"small"];
+            }
         else
     {
                 
@@ -143,8 +142,8 @@ root for authoritative license information.﻿
 	{id curVal = self.source;
     if([self.updatedValues containsObject:@"source"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"source"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"source"];
+            }
         else
     {
                 

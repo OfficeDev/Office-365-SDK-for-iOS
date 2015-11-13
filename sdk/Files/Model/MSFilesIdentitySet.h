@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSFILESIDENTITYSET_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSFilesIdentity;
 #import "core/MSOrcBaseEntity.h"

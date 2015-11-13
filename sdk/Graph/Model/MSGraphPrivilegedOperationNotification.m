@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PrivilegedOperationNotification";
-        
+		_odataType = @"#microsoft.graph.PrivilegedOperationNotification";
         
     }
 
@@ -71,11 +70,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = [self.notificationType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationType"];}
-	{id curVal = [self.notificationTarget copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationTarget"];}
-    [dic setValue: @"#Microsoft.Graph.PrivilegedOperationNotification" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.notificationType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationType"];}
+	{id curVal = [self.notificationTarget copy];if (curVal!=nil) [dic setValue: curVal forKey: @"NotificationTarget"];}
+    [dic setValue: @"#microsoft.graph.PrivilegedOperationNotification" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -87,26 +86,26 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+            }
     }
 	{id curVal = self.notificationType;
     if([self.updatedValues containsObject:@"NotificationType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationType"];
+            }
     }
 	{id curVal = self.notificationTarget;
     if([self.updatedValues containsObject:@"NotificationTarget"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationTarget"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"NotificationTarget"];
+            }
     }
     return dic;
 }

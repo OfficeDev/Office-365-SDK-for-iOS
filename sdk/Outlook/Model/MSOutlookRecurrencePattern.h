@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSOUTLOOKRECURRENCEPATTERN_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSOutlookRecurrencePatternType.h"
 #import "MSOutlookDayOfWeek.h"

@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHRECURRENCEPATTERN_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphRecurrencePatternType.h"
 #import "MSGraphDayOfWeek.h"

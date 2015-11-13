@@ -20,6 +20,7 @@ root for authoritative license information.﻿
 
 #import "MSFilesModels.h"
 #import "api/api.h"
+#import "core/core.h"
 #import "MSFilesItemOperations.h"
 
 

@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHTASKBOARDTASKFORMAT_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphTaskBoardType.h"
 #import "core/MSOrcBaseEntity.h"

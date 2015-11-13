@@ -45,15 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.User";
         
-        
-		_messages = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_folders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_calendars = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_calendarGroups = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_contacts = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_contactFolders = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -69,75 +60,91 @@ root for authoritative license information.﻿
 		_mailboxGuid = [dic objectForKey: @"MailboxGuid"] != nil ? [[dic objectForKey: @"MailboxGuid"] copy] : _mailboxGuid;
 
         if([dic objectForKey: @"Messages"] != [NSNull null]){
-            _messages = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Messages"] count]];
+            _messages = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Messages"]) {
                 [_messages addObject:[[MSOutlookMessage alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_messages resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"Folders"] != [NSNull null]){
-            _folders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Folders"] count]];
+            _folders = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Folders"]) {
                 [_folders addObject:[[MSOutlookFolder alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_folders resetChangedFlag];
         }
         
 		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
 
         if([dic objectForKey: @"Calendars"] != [NSNull null]){
-            _calendars = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Calendars"] count]];
+            _calendars = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Calendars"]) {
                 [_calendars addObject:[[MSOutlookCalendar alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_calendars resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"CalendarGroups"] != [NSNull null]){
-            _calendarGroups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarGroups"] count]];
+            _calendarGroups = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"CalendarGroups"]) {
                 [_calendarGroups addObject:[[MSOutlookCalendarGroup alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_calendarGroups resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"CalendarView"] != [NSNull null]){
-            _calendarView = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarView"] count]];
+            _calendarView = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"CalendarView"]) {
                 [_calendarView addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_calendarView resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"Events"] != [NSNull null]){
-            _events = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Events"] count]];
+            _events = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Events"]) {
                 [_events addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_events resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"Contacts"] != [NSNull null]){
-            _contacts = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Contacts"] count]];
+            _contacts = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Contacts"]) {
                 [_contacts addObject:[[MSOutlookContact alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_contacts resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"ContactFolders"] != [NSNull null]){
-            _contactFolders = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ContactFolders"] count]];
+            _contactFolders = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"ContactFolders"]) {
                 [_contactFolders addObject:[[MSOutlookContactFolder alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_contactFolders resetChangedFlag];
         }
         
 		_rootFolder = [dic objectForKey: @"RootFolder"] != nil ? [[MSOutlookFolder alloc] initWithDictionary: [dic objectForKey: @"RootFolder"]] : _rootFolder;
@@ -153,20 +160,68 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = [self.alias copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Alias"];}
-	{id curVal = [self.mailboxGuid copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"MailboxGuid"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Messages"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Folders"];}
-	{id curVal = [self.calendar toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Calendars"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarGroups"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Contacts"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ContactFolders"];}
-	{id curVal = [self.rootFolder toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"RootFolder"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
+	{id curVal = [self.alias copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Alias"];}
+	{id curVal = [self.mailboxGuid copy];if (curVal!=nil) [dic setValue: curVal forKey: @"MailboxGuid"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.messages) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.folders) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.calendar toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendars) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarGroups) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarView) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.events) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contacts) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contactFolders) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.rootFolder toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"RootFolder"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.User" forKey: @"@odata.type"];
 
     return dic;
@@ -179,48 +234,78 @@ root for authoritative license information.﻿
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
+            }
     }
 	{id curVal = self.alias;
     if([self.updatedValues containsObject:@"Alias"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Alias"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Alias"];
+            }
     }
 	{id curVal = self.mailboxGuid;
     if([self.updatedValues containsObject:@"MailboxGuid"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MailboxGuid"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MailboxGuid"];
+            }
     }
 	{id curVal = self.messages;
     if([self.updatedValues containsObject:@"Messages"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Messages"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Messages"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.messages) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Messages"];
+        }
         
             }}
 	{id curVal = self.folders;
     if([self.updatedValues containsObject:@"Folders"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Folders"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Folders"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.folders) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Folders"];
+        }
         
             }}
 	{id curVal = self.calendar;
     if([self.updatedValues containsObject:@"Calendar"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendar"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendar"];
+            }
         else
     {
                 
@@ -235,74 +320,164 @@ root for authoritative license information.﻿
 	{id curVal = self.calendars;
     if([self.updatedValues containsObject:@"Calendars"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Calendars"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Calendars"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendars) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Calendars"];
+        }
         
             }}
 	{id curVal = self.calendarGroups;
     if([self.updatedValues containsObject:@"CalendarGroups"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarGroups"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"CalendarGroups"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarGroups) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"CalendarGroups"];
+        }
         
             }}
 	{id curVal = self.calendarView;
     if([self.updatedValues containsObject:@"CalendarView"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarView"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"CalendarView"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarView) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"CalendarView"];
+        }
         
             }}
 	{id curVal = self.events;
     if([self.updatedValues containsObject:@"Events"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Events"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Events"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.events) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Events"];
+        }
         
             }}
 	{id curVal = self.contacts;
     if([self.updatedValues containsObject:@"Contacts"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Contacts"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Contacts"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contacts) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Contacts"];
+        }
         
             }}
 	{id curVal = self.contactFolders;
     if([self.updatedValues containsObject:@"ContactFolders"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ContactFolders"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"ContactFolders"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.contactFolders) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"ContactFolders"];
+        }
         
             }}
 	{id curVal = self.rootFolder;
     if([self.updatedValues containsObject:@"RootFolder"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RootFolder"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RootFolder"];
+            }
         else
     {
                 
@@ -317,8 +492,8 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

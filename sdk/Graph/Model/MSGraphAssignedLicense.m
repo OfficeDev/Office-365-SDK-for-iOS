@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.AssignedLicense";
+		_odataType = @"#microsoft.graph.AssignedLicense";
 
-        
-		_disabledPlans = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -58,11 +56,13 @@ root for authoritative license information.﻿
     
 
         if([dic objectForKey: @"disabledPlans"] != [NSNull null]){
-            _disabledPlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"disabledPlans"] count]];
+            _disabledPlans = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"disabledPlans"]) {
                 [_disabledPlans addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_disabledPlans resetChangedFlag];
         }
         
 		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
@@ -77,9 +77,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"disabledPlans"];}
-	{id curVal = [self.skuId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
-    [dic setValue: @"#Microsoft.Graph.AssignedLicense" forKey: @"@odata.type"];
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.disabledPlans) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.skuId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
+    [dic setValue: @"#microsoft.graph.AssignedLicense" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,19 +97,34 @@ root for authoritative license information.﻿
 	{id curVal = self.disabledPlans;
     if([self.updatedValues containsObject:@"disabledPlans"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"disabledPlans"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"disabledPlans"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.disabledPlans) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"disabledPlans"];
+        }
         
             }}
 	{id curVal = self.skuId;
     if([self.updatedValues containsObject:@"skuId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
+            }
     }
     return dic;
 }

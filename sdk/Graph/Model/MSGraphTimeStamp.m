@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.TimeStamp";
+		_odataType = @"#microsoft.graph.TimeStamp";
 
-        
     }
 
 	return self;
@@ -69,10 +68,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.date]; if (curVal!=nil) [dic setValue: curVal forKey: @"Date"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.time]; if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
-	{id curVal = [self.timeZone copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"TimeZone"];}
-    [dic setValue: @"#Microsoft.Graph.TimeStamp" forKey: @"@odata.type"];
+	{id curVal = [MSOrcObjectizer stringFromDate:self.date];if (curVal!=nil) [dic setValue: curVal forKey: @"Date"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.time];if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
+	{id curVal = [self.timeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"TimeZone"];}
+    [dic setValue: @"#microsoft.graph.TimeStamp" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self.date;
     if([self.updatedValues containsObject:@"Date"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Date"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Date"];
+            }
     }
 	{id curVal = self.time;
     if([self.updatedValues containsObject:@"Time"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
+            }
     }
 	{id curVal = self.timeZone;
     if([self.updatedValues containsObject:@"TimeZone"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"TimeZone"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"TimeZone"];
+            }
     }
     return dic;
 }

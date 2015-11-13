@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.Operation";
         
-        
     }
 
 	return self;
@@ -74,13 +73,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.status copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastActionDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastActionDateTime"];}
-	{id curVal = [self.resourceLocation copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceLocation"];}
-	{id curVal = [self.resourceId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"resourceId"];}
-	{id curVal = [self.error toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"error"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.status copy];if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastActionDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastActionDateTime"];}
+	{id curVal = [self.resourceLocation copy];if (curVal!=nil) [dic setValue: curVal forKey: @"resourceLocation"];}
+	{id curVal = [self.resourceId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"resourceId"];}
+	{id curVal = [self.error toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"error"];}
     [dic setValue: @"#Microsoft.OneNote.Api.Operation" forKey: @"@odata.type"];
 
     return dic;
@@ -93,44 +92,44 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.status;
     if([self.updatedValues containsObject:@"status"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
+            }
     }
 	{id curVal = self.createdDateTime;
     if([self.updatedValues containsObject:@"createdDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+            }
     }
 	{id curVal = self.lastActionDateTime;
     if([self.updatedValues containsObject:@"lastActionDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastActionDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastActionDateTime"];
+            }
     }
 	{id curVal = self.resourceLocation;
     if([self.updatedValues containsObject:@"resourceLocation"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceLocation"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceLocation"];
+            }
     }
 	{id curVal = self.resourceId;
     if([self.updatedValues containsObject:@"resourceId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"resourceId"];
+            }
     }
 	{id curVal = self.error;
     if([self.updatedValues containsObject:@"error"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"error"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"error"];
+            }
         else
     {
                 

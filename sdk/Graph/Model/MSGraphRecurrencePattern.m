@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.RecurrencePattern";
+		_odataType = @"#microsoft.graph.RecurrencePattern";
 
-        
-		_daysOfWeek = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -62,11 +60,13 @@ root for authoritative license information.﻿
 		_dayOfMonth = [dic objectForKey: @"DayOfMonth"] != nil ? [[dic objectForKey: @"DayOfMonth"] intValue] : _dayOfMonth;
 
         if([dic objectForKey: @"DaysOfWeek"] != [NSNull null]){
-            _daysOfWeek = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"DaysOfWeek"] count]];
+            _daysOfWeek = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"DaysOfWeek"]) {
                 [_daysOfWeek addObject:@([MSGraphDayOfWeekSerializer fromString:object])];
             }
+            
+            [(MSOrcChangesTrackingArray *)_daysOfWeek resetChangedFlag];
         }
         
 		_firstDayOfWeek = [dic objectForKey: @"FirstDayOfWeek"] != nil ? [MSGraphDayOfWeekSerializer fromString:[dic objectForKey: @"FirstDayOfWeek"]] : _firstDayOfWeek;
@@ -82,14 +82,20 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphRecurrencePatternTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
-	{id curVal = [NSNumber numberWithInt: self.interval]; if (curVal!=nil) [dic setValue: curVal forKey: @"Interval"];}
-	{id curVal = [NSNumber numberWithInt: self.month]; if (curVal!=nil) [dic setValue: curVal forKey: @"Month"];}
-	{id curVal = [NSNumber numberWithInt: self.dayOfMonth]; if (curVal!=nil) [dic setValue: curVal forKey: @"DayOfMonth"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"DaysOfWeek"];}
-	{id curVal = [MSGraphDayOfWeekSerializer toString:self.firstDayOfWeek]; if (curVal!=nil) [dic setValue: curVal forKey: @"FirstDayOfWeek"];}
-	{id curVal = [MSGraphWeekIndexSerializer toString:self.index]; if (curVal!=nil) [dic setValue: curVal forKey: @"Index"];}
-    [dic setValue: @"#Microsoft.Graph.RecurrencePattern" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphRecurrencePatternTypeSerializer toString:self.type] forKey: @"Type"];}
+	{[dic setValue: [NSNumber numberWithInt: self.interval] forKey: @"Interval"];}
+	{[dic setValue: [NSNumber numberWithInt: self.month] forKey: @"Month"];}
+	{[dic setValue: [NSNumber numberWithInt: self.dayOfMonth] forKey: @"DayOfMonth"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.daysOfWeek) {
+       [curVal addObject:[MSGraphDayOfWeekSerializer toString:obj]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{[dic setValue: [MSGraphDayOfWeekSerializer toString:self.firstDayOfWeek] forKey: @"FirstDayOfWeek"];}
+	{[dic setValue: [MSGraphWeekIndexSerializer toString:self.index] forKey: @"Index"];}
+    [dic setValue: @"#microsoft.graph.RecurrencePattern" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -101,8 +107,8 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"Type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphRecurrencePatternTypeSerializer toString:curVal] forKey: @"Type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphRecurrencePatternTypeSerializer toString:curVal] forKey: @"Type"];
+            }
         else
     {
                 
@@ -117,37 +123,52 @@ root for authoritative license information.﻿
 	{id curVal = self.interval;
     if([self.updatedValues containsObject:@"Interval"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Interval"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Interval"];
+            }
     }
 	{id curVal = self.month;
     if([self.updatedValues containsObject:@"Month"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Month"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Month"];
+            }
     }
 	{id curVal = self.dayOfMonth;
     if([self.updatedValues containsObject:@"DayOfMonth"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"DayOfMonth"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"DayOfMonth"];
+            }
     }
 	{id curVal = self.daysOfWeek;
     if([self.updatedValues containsObject:@"DaysOfWeek"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphDayOfWeekSerializer toString:curVal] forKey: @"DaysOfWeek"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[MSGraphDayOfWeekSerializer toString:obj]];
     }
+    
+            [dic setValue: curArray forKey: @"DaysOfWeek"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.daysOfWeek) {
+       [curArray addObject:[MSGraphDayOfWeekSerializer toString:obj]];
+    }
+    
+                 [dic setValue: curArray forKey: @"DaysOfWeek"];
+        }
         
             }}
 	{id curVal = self.firstDayOfWeek;
     if([self.updatedValues containsObject:@"FirstDayOfWeek"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphDayOfWeekSerializer toString:curVal] forKey: @"FirstDayOfWeek"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphDayOfWeekSerializer toString:curVal] forKey: @"FirstDayOfWeek"];
+            }
         else
     {
                 
@@ -162,8 +183,8 @@ root for authoritative license information.﻿
 	{id curVal = self.index;
     if([self.updatedValues containsObject:@"Index"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphWeekIndexSerializer toString:curVal] forKey: @"Index"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphWeekIndexSerializer toString:curVal] forKey: @"Index"];
+            }
         else
     {
                 

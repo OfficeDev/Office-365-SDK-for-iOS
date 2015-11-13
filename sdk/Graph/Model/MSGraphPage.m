@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.Page";
-        
+		_odataType = @"#microsoft.graph.Page";
         
     }
 
@@ -78,18 +77,18 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.title copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
-	{id curVal = [self.createdByAppId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdByAppId"];}
-	{id curVal = [self.links toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"links"];}
-	{id curVal = [self.contentUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"contentUrl"];}
-	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedTime"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self._self copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.createdTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdTime"];}
-	{id curVal = [self.parentSection toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentSection"];}
-	{id curVal = [self.parentNotebook toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"parentNotebook"];}
-    [dic setValue: @"#Microsoft.Graph.Page" forKey: @"@odata.type"];
+	{id curVal = [self.title copy];if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
+	{id curVal = [self.createdByAppId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"createdByAppId"];}
+	{id curVal = [self.links toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"links"];}
+	{id curVal = [self.contentUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"contentUrl"];}
+	{id curVal = nil/*NSStream*/;if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastModifiedTime"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self._self copy];if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdTime];if (curVal!=nil) [dic setValue: curVal forKey: @"createdTime"];}
+	{id curVal = [self.parentSection toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"parentSection"];}
+	{id curVal = [self.parentNotebook toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"parentNotebook"];}
+    [dic setValue: @"#microsoft.graph.Page" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -101,20 +100,20 @@ root for authoritative license information.﻿
 	{id curVal = self.title;
     if([self.updatedValues containsObject:@"title"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
+            }
     }
 	{id curVal = self.createdByAppId;
     if([self.updatedValues containsObject:@"createdByAppId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdByAppId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdByAppId"];
+            }
     }
 	{id curVal = self.links;
     if([self.updatedValues containsObject:@"links"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"links"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"links"];
+            }
         else
     {
                 
@@ -129,44 +128,44 @@ root for authoritative license information.﻿
 	{id curVal = self.contentUrl;
     if([self.updatedValues containsObject:@"contentUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"contentUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"contentUrl"];
+            }
     }
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+            }
     }
 	{id curVal = self.lastModifiedTime;
     if([self.updatedValues containsObject:@"lastModifiedTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self._self;
     if([self.updatedValues containsObject:@"self"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
+            }
     }
 	{id curVal = self.createdTime;
     if([self.updatedValues containsObject:@"createdTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdTime"];
+            }
     }
 	{id curVal = self.parentSection;
     if([self.updatedValues containsObject:@"parentSection"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentSection"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentSection"];
+            }
         else
     {
                 
@@ -181,8 +180,8 @@ root for authoritative license information.﻿
 	{id curVal = self.parentNotebook;
     if([self.updatedValues containsObject:@"parentNotebook"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentNotebook"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"parentNotebook"];
+            }
         else
     {
                 

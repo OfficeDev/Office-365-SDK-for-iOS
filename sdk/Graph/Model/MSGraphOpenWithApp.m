@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.openWithApp";
+		_odataType = @"#microsoft.graph.openWithApp";
 
-        
     }
 
 	return self;
@@ -71,12 +70,12 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.app toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"app"];}
-	{id curVal = [self.viewUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"viewUrl"];}
-	{id curVal = [self.editUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"editUrl"];}
-	{id curVal = [self.viewPostParameters copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"viewPostParameters"];}
-	{id curVal = [self.editPostParameters copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"editPostParameters"];}
-    [dic setValue: @"#Microsoft.Graph.openWithApp" forKey: @"@odata.type"];
+	{id curVal = [self.app toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"app"];}
+	{id curVal = [self.viewUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"viewUrl"];}
+	{id curVal = [self.editUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"editUrl"];}
+	{id curVal = [self.viewPostParameters copy];if (curVal!=nil) [dic setValue: curVal forKey: @"viewPostParameters"];}
+	{id curVal = [self.editPostParameters copy];if (curVal!=nil) [dic setValue: curVal forKey: @"editPostParameters"];}
+    [dic setValue: @"#microsoft.graph.openWithApp" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -88,8 +87,8 @@ root for authoritative license information.﻿
 	{id curVal = self.app;
     if([self.updatedValues containsObject:@"app"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"app"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"app"];
+            }
         else
     {
                 
@@ -104,26 +103,26 @@ root for authoritative license information.﻿
 	{id curVal = self.viewUrl;
     if([self.updatedValues containsObject:@"viewUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewUrl"];
+            }
     }
 	{id curVal = self.editUrl;
     if([self.updatedValues containsObject:@"editUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editUrl"];
+            }
     }
 	{id curVal = self.viewPostParameters;
     if([self.updatedValues containsObject:@"viewPostParameters"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewPostParameters"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"viewPostParameters"];
+            }
     }
 	{id curVal = self.editPostParameters;
     if([self.updatedValues containsObject:@"editPostParameters"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editPostParameters"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"editPostParameters"];
+            }
     }
     return dic;
 }

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ItemBody";
+		_odataType = @"#microsoft.graph.ItemBody";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphBodyTypeSerializer toString:self.contentType]; if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
-	{id curVal = [self.content copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
-    [dic setValue: @"#Microsoft.Graph.ItemBody" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphBodyTypeSerializer toString:self.contentType] forKey: @"ContentType"];}
+	{id curVal = [self.content copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
+    [dic setValue: @"#microsoft.graph.ItemBody" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.contentType;
     if([self.updatedValues containsObject:@"ContentType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"Content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];
+            }
     }
     return dic;
 }

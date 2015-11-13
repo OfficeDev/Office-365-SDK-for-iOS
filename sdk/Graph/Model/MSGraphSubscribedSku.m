@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.SubscribedSku";
+		_odataType = @"#microsoft.graph.SubscribedSku";
         
-        
-		_servicePlans = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -63,11 +61,13 @@ root for authoritative license information.﻿
 		_prepaidUnits = [dic objectForKey: @"prepaidUnits"] != nil ? [[MSGraphLicenseUnitsDetail alloc] initWithDictionary: [dic objectForKey: @"prepaidUnits"]] : _prepaidUnits;
 
         if([dic objectForKey: @"servicePlans"] != [NSNull null]){
-            _servicePlans = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"servicePlans"] count]];
+            _servicePlans = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"servicePlans"]) {
                 [_servicePlans addObject:[[MSGraphServicePlanInfo alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_servicePlans resetChangedFlag];
         }
         
 		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
@@ -83,14 +83,20 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.capabilityStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
-	{id curVal = [NSNumber numberWithInt: self.consumedUnits]; if (curVal!=nil) [dic setValue: curVal forKey: @"consumedUnits"];}
-	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [self.prepaidUnits toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"prepaidUnits"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
-	{id curVal = [self.skuId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
-	{id curVal = [self.skuPartNumber copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"skuPartNumber"];}
-    [dic setValue: @"#Microsoft.Graph.SubscribedSku" forKey: @"@odata.type"];
+	{id curVal = [self.capabilityStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
+	{[dic setValue: [NSNumber numberWithInt: self.consumedUnits] forKey: @"consumedUnits"];}
+	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [self.prepaidUnits toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"prepaidUnits"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.servicePlans) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.skuId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
+	{id curVal = [self.skuPartNumber copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuPartNumber"];}
+    [dic setValue: @"#microsoft.graph.SubscribedSku" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -102,26 +108,26 @@ root for authoritative license information.﻿
 	{id curVal = self.capabilityStatus;
     if([self.updatedValues containsObject:@"capabilityStatus"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
+            }
     }
 	{id curVal = self.consumedUnits;
     if([self.updatedValues containsObject:@"consumedUnits"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"consumedUnits"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"consumedUnits"];
+            }
     }
 	{id curVal = self.objectId;
     if([self.updatedValues containsObject:@"objectId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+            }
     }
 	{id curVal = self.prepaidUnits;
     if([self.updatedValues containsObject:@"prepaidUnits"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"prepaidUnits"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"prepaidUnits"];
+            }
         else
     {
                 
@@ -136,25 +142,40 @@ root for authoritative license information.﻿
 	{id curVal = self.servicePlans;
     if([self.updatedValues containsObject:@"servicePlans"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"servicePlans"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"servicePlans"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.servicePlans) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"servicePlans"];
+        }
         
             }}
 	{id curVal = self.skuId;
     if([self.updatedValues containsObject:@"skuId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuId"];
+            }
     }
 	{id curVal = self.skuPartNumber;
     if([self.updatedValues containsObject:@"skuPartNumber"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuPartNumber"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuPartNumber"];
+            }
     }
     return dic;
 }

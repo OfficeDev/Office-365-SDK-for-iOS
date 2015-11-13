@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.sharingInvitation";
+		_odataType = @"#microsoft.graph.sharingInvitation";
 
-        
     }
 
 	return self;
@@ -69,10 +68,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.email copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
-	{id curVal = [self.redeemedBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"redeemedBy"];}
-	{id curVal = (self.signInRequired?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"signInRequired"];}
-    [dic setValue: @"#Microsoft.Graph.sharingInvitation" forKey: @"@odata.type"];
+	{id curVal = [self.email copy];if (curVal!=nil) [dic setValue: curVal forKey: @"email"];}
+	{id curVal = [self.redeemedBy copy];if (curVal!=nil) [dic setValue: curVal forKey: @"redeemedBy"];}
+	{[dic setValue: (self.signInRequired?@"true":@"false") forKey: @"signInRequired"];}
+    [dic setValue: @"#microsoft.graph.sharingInvitation" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self.email;
     if([self.updatedValues containsObject:@"email"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"email"];
+            }
     }
 	{id curVal = self.redeemedBy;
     if([self.updatedValues containsObject:@"redeemedBy"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"redeemedBy"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"redeemedBy"];
+            }
     }
 	{id curVal = self.signInRequired;
     if([self.updatedValues containsObject:@"signInRequired"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"signInRequired"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"signInRequired"];
+            }
     }
     return dic;
 }

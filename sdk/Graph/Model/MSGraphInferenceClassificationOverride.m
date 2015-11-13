@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.InferenceClassificationOverride";
-        
+		_odataType = @"#microsoft.graph.InferenceClassificationOverride";
         
     }
 
@@ -70,10 +69,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphInferenceClassificationTypeSerializer toString:self.classifyAs]; if (curVal!=nil) [dic setValue: curVal forKey: @"ClassifyAs"];}
-	{id curVal = [self.senderEmailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"SenderEmailAddress"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#Microsoft.Graph.InferenceClassificationOverride" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphInferenceClassificationTypeSerializer toString:self.classifyAs] forKey: @"ClassifyAs"];}
+	{id curVal = [self.senderEmailAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"SenderEmailAddress"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+    [dic setValue: @"#microsoft.graph.InferenceClassificationOverride" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -85,8 +84,8 @@ root for authoritative license information.﻿
 	{id curVal = self.classifyAs;
     if([self.updatedValues containsObject:@"ClassifyAs"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphInferenceClassificationTypeSerializer toString:curVal] forKey: @"ClassifyAs"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphInferenceClassificationTypeSerializer toString:curVal] forKey: @"ClassifyAs"];
+            }
         else
     {
                 
@@ -101,8 +100,8 @@ root for authoritative license information.﻿
 	{id curVal = self.senderEmailAddress;
     if([self.updatedValues containsObject:@"SenderEmailAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"SenderEmailAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"SenderEmailAddress"];
+            }
         else
     {
                 
@@ -117,8 +116,8 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

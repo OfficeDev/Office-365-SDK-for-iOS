@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHSHARINGLINK_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphIdentity;
 #import "core/MSOrcBaseEntity.h"

@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSOUTLOOKITEMATTACHMENT_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSOutlookItem;
 #import "MSOutlookAttachment.h"

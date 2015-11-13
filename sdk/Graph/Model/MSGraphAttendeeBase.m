@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.AttendeeBase";
+		_odataType = @"#microsoft.graph.AttendeeBase";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphAttendeeTypeSerializer toString:self.type]; if (curVal!=nil) [dic setValue: curVal forKey: @"Type"];}
-	{id curVal = [self.emailAddress toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
-    [dic setValue: @"#Microsoft.Graph.AttendeeBase" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphAttendeeTypeSerializer toString:self.type] forKey: @"Type"];}
+	{id curVal = [self.emailAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
+    [dic setValue: @"#microsoft.graph.AttendeeBase" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"Type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.emailAddress;
     if([self.updatedValues containsObject:@"EmailAddress"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];
+            }
         else
     {
                 

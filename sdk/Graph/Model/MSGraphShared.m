@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.shared";
+		_odataType = @"#microsoft.graph.shared";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.owner toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
-	{id curVal = [self.scope copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"scope"];}
-    [dic setValue: @"#Microsoft.Graph.shared" forKey: @"@odata.type"];
+	{id curVal = [self.owner toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.scope copy];if (curVal!=nil) [dic setValue: curVal forKey: @"scope"];}
+    [dic setValue: @"#microsoft.graph.shared" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.owner;
     if([self.updatedValues containsObject:@"owner"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owner"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.scope;
     if([self.updatedValues containsObject:@"scope"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"scope"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"scope"];
+            }
     }
     return dic;
 }

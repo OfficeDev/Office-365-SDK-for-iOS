@@ -45,9 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.MyOrganization";
         
-        
-		_siteCollections = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_groups = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -61,20 +58,24 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
         if([dic objectForKey: @"siteCollections"] != [NSNull null]){
-            _siteCollections = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"siteCollections"] count]];
+            _siteCollections = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"siteCollections"]) {
                 [_siteCollections addObject:[[MSOneNoteSiteCollection alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_siteCollections resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"groups"] != [NSNull null]){
-            _groups = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"groups"] count]];
+            _groups = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"groups"]) {
                 [_groups addObject:[[MSOneNoteGroup alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_groups resetChangedFlag];
         }
         
 
@@ -88,9 +89,21 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"siteCollections"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"groups"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.siteCollections) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.groups) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
     [dic setValue: @"#Microsoft.OneNote.Api.MyOrganization" forKey: @"@odata.type"];
 
     return dic;
@@ -103,29 +116,59 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.siteCollections;
     if([self.updatedValues containsObject:@"siteCollections"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"siteCollections"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"siteCollections"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.siteCollections) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"siteCollections"];
+        }
         
             }}
 	{id curVal = self.groups;
     if([self.updatedValues containsObject:@"groups"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"groups"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"groups"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.groups) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"groups"];
+        }
         
             }}
     return dic;

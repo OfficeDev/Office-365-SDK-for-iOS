@@ -20,6 +20,7 @@ root for authoritative license information.﻿
 
 #import "core/MSOrcCollectionFetcher.h"
 #import "api/api.h"
+#import "core/core.h"
 #import "MSGraphModels.h"
 
 /** MSGraphResourceCollectionFetcher

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ExternalLink";
+		_odataType = @"#microsoft.graph.ExternalLink";
 
-        
     }
 
 	return self;
@@ -67,8 +66,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.href copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"href"];}
-    [dic setValue: @"#Microsoft.Graph.ExternalLink" forKey: @"@odata.type"];
+	{id curVal = [self.href copy];if (curVal!=nil) [dic setValue: curVal forKey: @"href"];}
+    [dic setValue: @"#microsoft.graph.ExternalLink" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.href;
     if([self.updatedValues containsObject:@"href"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"href"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"href"];
+            }
     }
     return dic;
 }

@@ -68,4 +68,11 @@ Pod::Spec.new do |s|
     subspec.header_dir = "Outlook"
   end
 
+
+  s.subspec "SampleService" do |subspec|
+    subspec.source_files = "sdk/SampleService/**/*.{h,m}"
+    subspec.public_header_files = "sdk/SampleService/**/*.h"
+    subspec.header_dir = "SampleService"
+  end
+
 end

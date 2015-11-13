@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.PatchContentCommand";
 
-        
     }
 
 	return self;
@@ -70,10 +69,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOneNotePatchActionTypeSerializer toString:self.action]; if (curVal!=nil) [dic setValue: curVal forKey: @"action"];}
-	{id curVal = [self.target copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"target"];}
-	{id curVal = [self.content copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
-	{id curVal = [MSOneNotePatchInsertPositionSerializer toString:self.position]; if (curVal!=nil) [dic setValue: curVal forKey: @"position"];}
+	{[dic setValue: [MSOneNotePatchActionTypeSerializer toString:self.action] forKey: @"action"];}
+	{id curVal = [self.target copy];if (curVal!=nil) [dic setValue: curVal forKey: @"target"];}
+	{id curVal = [self.content copy];if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{[dic setValue: [MSOneNotePatchInsertPositionSerializer toString:self.position] forKey: @"position"];}
     [dic setValue: @"#Microsoft.OneNote.Api.PatchContentCommand" forKey: @"@odata.type"];
 
     return dic;
@@ -86,8 +85,8 @@ root for authoritative license information.﻿
 	{id curVal = self.action;
     if([self.updatedValues containsObject:@"action"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOneNotePatchActionTypeSerializer toString:curVal] forKey: @"action"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOneNotePatchActionTypeSerializer toString:curVal] forKey: @"action"];
+            }
         else
     {
                 
@@ -102,20 +101,20 @@ root for authoritative license information.﻿
 	{id curVal = self.target;
     if([self.updatedValues containsObject:@"target"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"target"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"target"];
+            }
     }
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"content"];
+            }
     }
 	{id curVal = self.position;
     if([self.updatedValues containsObject:@"position"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOneNotePatchInsertPositionSerializer toString:curVal] forKey: @"position"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOneNotePatchInsertPositionSerializer toString:curVal] forKey: @"position"];
+            }
         else
     {
                 

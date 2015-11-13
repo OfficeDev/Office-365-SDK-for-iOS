@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.externalReferenceCollection";
+		_odataType = @"#microsoft.graph.externalReferenceCollection";
 
-        
     }
 
 	return self;
@@ -66,7 +65,7 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-    [dic setValue: @"#Microsoft.Graph.externalReferenceCollection" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.externalReferenceCollection" forKey: @"@odata.type"];
 
     return dic;
 }

@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHCOPYPAGEMODEL_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphCopySectionModel;
 @class MSGraphCopyNotebookModel;

@@ -45,12 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.Message";
         
-        
-		_toRecipients = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_ccRecipients = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_bccRecipients = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_replyTo = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_attachments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -73,38 +67,46 @@ root for authoritative license information.﻿
 		_from = [dic objectForKey: @"From"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : _from;
 
         if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
-            _toRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ToRecipients"] count]];
+            _toRecipients = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"ToRecipients"]) {
                 [_toRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_toRecipients resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"CcRecipients"] != [NSNull null]){
-            _ccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CcRecipients"] count]];
+            _ccRecipients = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"CcRecipients"]) {
                 [_ccRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_ccRecipients resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"BccRecipients"] != [NSNull null]){
-            _bccRecipients = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"BccRecipients"] count]];
+            _bccRecipients = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"BccRecipients"]) {
                 [_bccRecipients addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_bccRecipients resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"ReplyTo"] != [NSNull null]){
-            _replyTo = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ReplyTo"] count]];
+            _replyTo = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"ReplyTo"]) {
                 [_replyTo addObject:[[MSOutlookRecipient alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_replyTo resetChangedFlag];
         }
         
 		_conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : _conversationId;
@@ -116,11 +118,13 @@ root for authoritative license information.﻿
 		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
-            _attachments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Attachments"] count]];
+            _attachments = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Attachments"]) {
                 [_attachments addObject:[[MSOutlookAttachment alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_attachments resetChangedFlag];
         }
         
 		self.dateTimeCreated = [dic objectForKey: @"DateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeCreated"]] : self.dateTimeCreated;
@@ -128,11 +132,13 @@ root for authoritative license information.﻿
 		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
-            self.categories = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Categories"] count]];
+            self.categories = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Categories"]) {
                 [self.categories addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
@@ -147,33 +153,69 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeReceived]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeReceived"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeSent]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeSent"];}
-	{id curVal = (self.hasAttachments?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"HasAttachments"];}
-	{id curVal = [self.subject copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
-	{id curVal = [self.body toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
-	{id curVal = [self.bodyPreview copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"BodyPreview"];}
-	{id curVal = [MSOutlookImportanceSerializer toString:self.importance]; if (curVal!=nil) [dic setValue: curVal forKey: @"Importance"];}
-	{id curVal = [self.parentFolderId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
-	{id curVal = [self.sender toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Sender"];}
-	{id curVal = [self.from toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"From"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ToRecipients"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CcRecipients"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"BccRecipients"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ReplyTo"];}
-	{id curVal = [self.conversationId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
-	{id curVal = [self.uniqueBody toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueBody"];}
-	{id curVal = (self.isDeliveryReceiptRequested?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsDeliveryReceiptRequested"];}
-	{id curVal = (self.isReadReceiptRequested?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsReadReceiptRequested"];}
-	{id curVal = (self.isRead?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsRead"];}
-	{id curVal = (self.isDraft?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsDraft"];}
-	{id curVal = [self.webLink copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified]; if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
-	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeReceived];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeReceived"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeSent];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeSent"];}
+	{[dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];}
+	{id curVal = [self.subject copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
+	{id curVal = [self.body toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
+	{id curVal = [self.bodyPreview copy];if (curVal!=nil) [dic setValue: curVal forKey: @"BodyPreview"];}
+	{[dic setValue: [MSOutlookImportanceSerializer toString:self.importance] forKey: @"Importance"];}
+	{id curVal = [self.parentFolderId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ParentFolderId"];}
+	{id curVal = [self.sender toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Sender"];}
+	{id curVal = [self.from toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"From"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.toRecipients) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.ccRecipients) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.bccRecipients) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.replyTo) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.conversationId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
+	{id curVal = [self.uniqueBody toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueBody"];}
+	{[dic setValue: (self.isDeliveryReceiptRequested?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];}
+	{[dic setValue: (self.isReadReceiptRequested?@"true":@"false") forKey: @"IsReadReceiptRequested"];}
+	{[dic setValue: (self.isRead?@"true":@"false") forKey: @"IsRead"];}
+	{[dic setValue: (self.isDraft?@"true":@"false") forKey: @"IsDraft"];}
+	{id curVal = [self.webLink copy];if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.attachments) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.categories) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.Message" forKey: @"@odata.type"];
 
     return dic;
@@ -186,32 +228,32 @@ root for authoritative license information.﻿
 	{id curVal = self.dateTimeReceived;
     if([self.updatedValues containsObject:@"DateTimeReceived"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeReceived"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeReceived"];
+            }
     }
 	{id curVal = self.dateTimeSent;
     if([self.updatedValues containsObject:@"DateTimeSent"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeSent"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeSent"];
+            }
     }
 	{id curVal = self.hasAttachments;
     if([self.updatedValues containsObject:@"HasAttachments"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
+            }
     }
 	{id curVal = self.subject;
     if([self.updatedValues containsObject:@"Subject"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
+            }
     }
 	{id curVal = self.body;
     if([self.updatedValues containsObject:@"Body"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Body"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Body"];
+            }
         else
     {
                 
@@ -226,14 +268,14 @@ root for authoritative license information.﻿
 	{id curVal = self.bodyPreview;
     if([self.updatedValues containsObject:@"BodyPreview"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
+            }
     }
 	{id curVal = self.importance;
     if([self.updatedValues containsObject:@"Importance"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookImportanceSerializer toString:curVal] forKey: @"Importance"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookImportanceSerializer toString:curVal] forKey: @"Importance"];
+            }
         else
     {
                 
@@ -248,14 +290,14 @@ root for authoritative license information.﻿
 	{id curVal = self.parentFolderId;
     if([self.updatedValues containsObject:@"ParentFolderId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
+            }
     }
 	{id curVal = self.sender;
     if([self.updatedValues containsObject:@"Sender"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Sender"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Sender"];
+            }
         else
     {
                 
@@ -270,8 +312,8 @@ root for authoritative license information.﻿
 	{id curVal = self.from;
     if([self.updatedValues containsObject:@"From"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"From"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"From"];
+            }
         else
     {
                 
@@ -286,58 +328,118 @@ root for authoritative license information.﻿
 	{id curVal = self.toRecipients;
     if([self.updatedValues containsObject:@"ToRecipients"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ToRecipients"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"ToRecipients"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.toRecipients) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"ToRecipients"];
+        }
         
             }}
 	{id curVal = self.ccRecipients;
     if([self.updatedValues containsObject:@"CcRecipients"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CcRecipients"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"CcRecipients"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.ccRecipients) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"CcRecipients"];
+        }
         
             }}
 	{id curVal = self.bccRecipients;
     if([self.updatedValues containsObject:@"BccRecipients"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"BccRecipients"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"BccRecipients"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.bccRecipients) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"BccRecipients"];
+        }
         
             }}
 	{id curVal = self.replyTo;
     if([self.updatedValues containsObject:@"ReplyTo"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ReplyTo"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"ReplyTo"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.replyTo) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"ReplyTo"];
+        }
         
             }}
 	{id curVal = self.conversationId;
     if([self.updatedValues containsObject:@"ConversationId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ConversationId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ConversationId"];
+            }
     }
 	{id curVal = self.uniqueBody;
     if([self.updatedValues containsObject:@"UniqueBody"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"UniqueBody"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"UniqueBody"];
+            }
         else
     {
                 
@@ -352,78 +454,108 @@ root for authoritative license information.﻿
 	{id curVal = self.isDeliveryReceiptRequested;
     if([self.updatedValues containsObject:@"IsDeliveryReceiptRequested"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];
+            }
     }
 	{id curVal = self.isReadReceiptRequested;
     if([self.updatedValues containsObject:@"IsReadReceiptRequested"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsReadReceiptRequested"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsReadReceiptRequested"];
+            }
     }
 	{id curVal = self.isRead;
     if([self.updatedValues containsObject:@"IsRead"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRead"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRead"];
+            }
     }
 	{id curVal = self.isDraft;
     if([self.updatedValues containsObject:@"IsDraft"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDraft"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDraft"];
+            }
     }
 	{id curVal = self.webLink;
     if([self.updatedValues containsObject:@"WebLink"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
+            }
     }
 	{id curVal = self.attachments;
     if([self.updatedValues containsObject:@"Attachments"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attachments"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Attachments"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.attachments) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Attachments"];
+        }
         
             }}
 	{id curVal = self.dateTimeCreated;
     if([self.updatedValues containsObject:@"DateTimeCreated"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+            }
     }
 	{id curVal = self.dateTimeLastModified;
     if([self.updatedValues containsObject:@"DateTimeLastModified"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+            }
     }
 	{id curVal = self.changeKey;
     if([self.updatedValues containsObject:@"ChangeKey"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+            }
     }
 	{id curVal = self.categories;
     if([self.updatedValues containsObject:@"Categories"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Categories"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"Categories"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.categories) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Categories"];
+        }
         
             }}
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

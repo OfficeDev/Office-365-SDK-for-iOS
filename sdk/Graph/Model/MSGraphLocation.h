@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHLOCATION_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphPhysicalAddress;
 @class MSGraphOutlookGeoCoordinates;

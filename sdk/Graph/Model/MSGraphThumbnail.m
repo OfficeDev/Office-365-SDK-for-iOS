@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.thumbnail";
+		_odataType = @"#microsoft.graph.thumbnail";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
-	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"height"];}
-	{id curVal = [self.url copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"url"];}
-	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"width"];}
-    [dic setValue: @"#Microsoft.Graph.thumbnail" forKey: @"@odata.type"];
+	{id curVal = nil/*NSStream*/;if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{[dic setValue: [NSNumber numberWithInt: self.height] forKey: @"height"];}
+	{id curVal = [self.url copy];if (curVal!=nil) [dic setValue: curVal forKey: @"url"];}
+	{[dic setValue: [NSNumber numberWithInt: self.width] forKey: @"width"];}
+    [dic setValue: @"#microsoft.graph.thumbnail" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,26 +85,26 @@ root for authoritative license information.﻿
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+            }
     }
 	{id curVal = self.height;
     if([self.updatedValues containsObject:@"height"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
+            }
     }
 	{id curVal = self.url;
     if([self.updatedValues containsObject:@"url"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"url"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"url"];
+            }
     }
 	{id curVal = self.width;
     if([self.updatedValues containsObject:@"width"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
+            }
     }
     return dic;
 }

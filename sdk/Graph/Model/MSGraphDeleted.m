@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.deleted";
+		_odataType = @"#microsoft.graph.deleted";
 
-        
     }
 
 	return self;
@@ -67,8 +66,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.state copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
-    [dic setValue: @"#Microsoft.Graph.deleted" forKey: @"@odata.type"];
+	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
+    [dic setValue: @"#microsoft.graph.deleted" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.state;
     if([self.updatedValues containsObject:@"state"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
+            }
     }
     return dic;
 }

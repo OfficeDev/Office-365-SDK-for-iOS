@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.AssignedPlan";
+		_odataType = @"#microsoft.graph.AssignedPlan";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedTimestamp"];}
-	{id curVal = [self.capabilityStatus copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
-	{id curVal = [self.service copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
-	{id curVal = [self.servicePlanId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
-    [dic setValue: @"#Microsoft.Graph.AssignedPlan" forKey: @"@odata.type"];
+	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"assignedTimestamp"];}
+	{id curVal = [self.capabilityStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
+	{id curVal = [self.service copy];if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
+	{id curVal = [self.servicePlanId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
+    [dic setValue: @"#microsoft.graph.AssignedPlan" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,26 +85,26 @@ root for authoritative license information.﻿
 	{id curVal = self.assignedTimestamp;
     if([self.updatedValues containsObject:@"assignedTimestamp"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedTimestamp"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedTimestamp"];
+            }
     }
 	{id curVal = self.capabilityStatus;
     if([self.updatedValues containsObject:@"capabilityStatus"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
+            }
     }
 	{id curVal = self.service;
     if([self.updatedValues containsObject:@"service"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
+            }
     }
 	{id curVal = self.servicePlanId;
     if([self.updatedValues containsObject:@"servicePlanId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
+            }
     }
     return dic;
 }

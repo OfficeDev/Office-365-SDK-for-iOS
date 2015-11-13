@@ -43,11 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.plan";
+		_odataType = @"#microsoft.graph.plan";
         
-        
-		_tasks = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_buckets = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -64,20 +61,24 @@ root for authoritative license information.﻿
 		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
 
         if([dic objectForKey: @"tasks"] != [NSNull null]){
-            _tasks = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"tasks"] count]];
+            _tasks = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"tasks"]) {
                 [_tasks addObject:[[MSGraphTask alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_tasks resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"buckets"] != [NSNull null]){
-            _buckets = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"buckets"] count]];
+            _buckets = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"buckets"]) {
                 [_buckets addObject:[[MSGraphBucket alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_buckets resetChangedFlag];
         }
         
 		_details = [dic objectForKey: @"details"] != nil ? [[MSGraphPlanDetails alloc] initWithDictionary: [dic objectForKey: @"details"]] : _details;
@@ -95,17 +96,29 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.createdBy copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
-	{id curVal = [self.owner copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
-	{id curVal = [self.title copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"tasks"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"buckets"];}
-	{id curVal = [self.details toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"details"];}
-	{id curVal = [self.assignedToTaskBoard toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"assignedToTaskBoard"];}
-	{id curVal = [self.progressTaskBoard toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"progressTaskBoard"];}
-	{id curVal = [self.bucketTaskBoard toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"bucketTaskBoard"];}
-    [dic setValue: @"#Microsoft.Graph.plan" forKey: @"@odata.type"];
+	{id curVal = [self.createdBy copy];if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
+	{id curVal = [self.owner copy];if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
+	{id curVal = [self.title copy];if (curVal!=nil) [dic setValue: curVal forKey: @"title"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tasks) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.buckets) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.details toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"details"];}
+	{id curVal = [self.assignedToTaskBoard toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"assignedToTaskBoard"];}
+	{id curVal = [self.progressTaskBoard toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"progressTaskBoard"];}
+	{id curVal = [self.bucketTaskBoard toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"bucketTaskBoard"];}
+    [dic setValue: @"#microsoft.graph.plan" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -117,54 +130,84 @@ root for authoritative license information.﻿
 	{id curVal = self.createdBy;
     if([self.updatedValues containsObject:@"createdBy"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"createdBy"];
+            }
     }
 	{id curVal = self.owner;
     if([self.updatedValues containsObject:@"owner"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"owner"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"owner"];
+            }
     }
 	{id curVal = self.title;
     if([self.updatedValues containsObject:@"title"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.tasks;
     if([self.updatedValues containsObject:@"tasks"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"tasks"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"tasks"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tasks) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"tasks"];
+        }
         
             }}
 	{id curVal = self.buckets;
     if([self.updatedValues containsObject:@"buckets"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"buckets"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"buckets"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.buckets) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"buckets"];
+        }
         
             }}
 	{id curVal = self.details;
     if([self.updatedValues containsObject:@"details"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"details"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"details"];
+            }
         else
     {
                 
@@ -179,8 +222,8 @@ root for authoritative license information.﻿
 	{id curVal = self.assignedToTaskBoard;
     if([self.updatedValues containsObject:@"assignedToTaskBoard"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"assignedToTaskBoard"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"assignedToTaskBoard"];
+            }
         else
     {
                 
@@ -195,8 +238,8 @@ root for authoritative license information.﻿
 	{id curVal = self.progressTaskBoard;
     if([self.updatedValues containsObject:@"progressTaskBoard"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"progressTaskBoard"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"progressTaskBoard"];
+            }
         else
     {
                 
@@ -211,8 +254,8 @@ root for authoritative license information.﻿
 	{id curVal = self.bucketTaskBoard;
     if([self.updatedValues containsObject:@"bucketTaskBoard"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"bucketTaskBoard"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"bucketTaskBoard"];
+            }
         else
     {
                 

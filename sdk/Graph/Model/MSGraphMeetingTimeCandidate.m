@@ -43,11 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.MeetingTimeCandidate";
+		_odataType = @"#microsoft.graph.MeetingTimeCandidate";
 
-        
-		_attendeeAvailability = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_locations = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -63,20 +60,24 @@ root for authoritative license information.﻿
 		_organizerAvailability = [dic objectForKey: @"OrganizerAvailability"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"OrganizerAvailability"]] : _organizerAvailability;
 
         if([dic objectForKey: @"AttendeeAvailability"] != [NSNull null]){
-            _attendeeAvailability = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"AttendeeAvailability"] count]];
+            _attendeeAvailability = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"AttendeeAvailability"]) {
                 [_attendeeAvailability addObject:[[MSGraphAttendeeAvailability alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_attendeeAvailability resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"Locations"] != [NSNull null]){
-            _locations = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Locations"] count]];
+            _locations = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Locations"]) {
                 [_locations addObject:[[MSGraphLocation alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_locations resetChangedFlag];
         }
         
 
@@ -90,13 +91,25 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.meetingTimeSlot toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"MeetingTimeSlot"];}
-	{id curVal = [NSNumber numberWithDouble: self.confidence]; if (curVal!=nil) [dic setValue: curVal forKey: @"Confidence"];}
-	{id curVal = [NSNumber numberWithInt: self.score]; if (curVal!=nil) [dic setValue: curVal forKey: @"Score"];}
-	{id curVal = [MSGraphFreeBusyStatusSerializer toString:self.organizerAvailability]; if (curVal!=nil) [dic setValue: curVal forKey: @"OrganizerAvailability"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"AttendeeAvailability"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Locations"];}
-    [dic setValue: @"#Microsoft.Graph.MeetingTimeCandidate" forKey: @"@odata.type"];
+	{id curVal = [self.meetingTimeSlot toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"MeetingTimeSlot"];}
+	{[dic setValue: [NSNumber numberWithDouble: self.confidence] forKey: @"Confidence"];}
+	{[dic setValue: [NSNumber numberWithInt: self.score] forKey: @"Score"];}
+	{[dic setValue: [MSGraphFreeBusyStatusSerializer toString:self.organizerAvailability] forKey: @"OrganizerAvailability"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.attendeeAvailability) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.locations) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+    [dic setValue: @"#microsoft.graph.MeetingTimeCandidate" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -108,8 +121,8 @@ root for authoritative license information.﻿
 	{id curVal = self.meetingTimeSlot;
     if([self.updatedValues containsObject:@"MeetingTimeSlot"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"MeetingTimeSlot"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"MeetingTimeSlot"];
+            }
         else
     {
                 
@@ -124,20 +137,20 @@ root for authoritative license information.﻿
 	{id curVal = self.confidence;
     if([self.updatedValues containsObject:@"Confidence"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Confidence"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Confidence"];
+            }
     }
 	{id curVal = self.score;
     if([self.updatedValues containsObject:@"Score"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Score"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Score"];
+            }
     }
 	{id curVal = self.organizerAvailability;
     if([self.updatedValues containsObject:@"OrganizerAvailability"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"OrganizerAvailability"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"OrganizerAvailability"];
+            }
         else
     {
                 
@@ -152,23 +165,53 @@ root for authoritative license information.﻿
 	{id curVal = self.attendeeAvailability;
     if([self.updatedValues containsObject:@"AttendeeAvailability"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"AttendeeAvailability"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"AttendeeAvailability"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.attendeeAvailability) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"AttendeeAvailability"];
+        }
         
             }}
 	{id curVal = self.locations;
     if([self.updatedValues containsObject:@"Locations"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Locations"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Locations"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.locations) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Locations"];
+        }
         
             }}
     return dic;

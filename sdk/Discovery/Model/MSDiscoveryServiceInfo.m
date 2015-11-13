@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.DiscoveryServices.ServiceInfo";
         
-        
     }
 
 	return self;
@@ -77,16 +76,16 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.capability copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capability"];}
-	{id curVal = [self.entityKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"entityKey"];}
-	{id curVal = [self.providerId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"providerId"];}
-	{id curVal = [self.providerName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"providerName"];}
-	{id curVal = [NSNumber numberWithInt: self.serviceAccountType]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceAccountType"];}
-	{id curVal = [self.serviceApiVersion copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceApiVersion"];}
-	{id curVal = [self.serviceEndpointUri copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceEndpointUri"];}
-	{id curVal = [self.serviceId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceId"];}
-	{id curVal = [self.serviceName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceName"];}
-	{id curVal = [self.serviceResourceId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"serviceResourceId"];}
+	{id curVal = [self.capability copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capability"];}
+	{id curVal = [self.entityKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"entityKey"];}
+	{id curVal = [self.providerId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"providerId"];}
+	{id curVal = [self.providerName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"providerName"];}
+	{[dic setValue: [NSNumber numberWithInt: self.serviceAccountType] forKey: @"serviceAccountType"];}
+	{id curVal = [self.serviceApiVersion copy];if (curVal!=nil) [dic setValue: curVal forKey: @"serviceApiVersion"];}
+	{id curVal = [self.serviceEndpointUri copy];if (curVal!=nil) [dic setValue: curVal forKey: @"serviceEndpointUri"];}
+	{id curVal = [self.serviceId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"serviceId"];}
+	{id curVal = [self.serviceName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"serviceName"];}
+	{id curVal = [self.serviceResourceId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"serviceResourceId"];}
     [dic setValue: @"#Microsoft.DiscoveryServices.ServiceInfo" forKey: @"@odata.type"];
 
     return dic;
@@ -99,62 +98,62 @@ root for authoritative license information.﻿
 	{id curVal = self.capability;
     if([self.updatedValues containsObject:@"capability"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capability"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capability"];
+            }
     }
 	{id curVal = self.entityKey;
     if([self.updatedValues containsObject:@"entityKey"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"entityKey"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"entityKey"];
+            }
     }
 	{id curVal = self.providerId;
     if([self.updatedValues containsObject:@"providerId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"providerId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"providerId"];
+            }
     }
 	{id curVal = self.providerName;
     if([self.updatedValues containsObject:@"providerName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"providerName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"providerName"];
+            }
     }
 	{id curVal = self.serviceAccountType;
     if([self.updatedValues containsObject:@"serviceAccountType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"serviceAccountType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"serviceAccountType"];
+            }
     }
 	{id curVal = self.serviceApiVersion;
     if([self.updatedValues containsObject:@"serviceApiVersion"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceApiVersion"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceApiVersion"];
+            }
     }
 	{id curVal = self.serviceEndpointUri;
     if([self.updatedValues containsObject:@"serviceEndpointUri"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceEndpointUri"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceEndpointUri"];
+            }
     }
 	{id curVal = self.serviceId;
     if([self.updatedValues containsObject:@"serviceId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceId"];
+            }
     }
 	{id curVal = self.serviceName;
     if([self.updatedValues containsObject:@"serviceName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceName"];
+            }
     }
 	{id curVal = self.serviceResourceId;
     if([self.updatedValues containsObject:@"serviceResourceId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceResourceId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceResourceId"];
+            }
     }
     return dic;
 }

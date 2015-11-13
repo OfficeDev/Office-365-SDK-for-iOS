@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.TimeSlot";
+		_odataType = @"#microsoft.graph.TimeSlot";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.start toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
-	{id curVal = [self.end toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
-    [dic setValue: @"#Microsoft.Graph.TimeSlot" forKey: @"@odata.type"];
+	{id curVal = [self.start toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
+	{id curVal = [self.end toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
+    [dic setValue: @"#microsoft.graph.TimeSlot" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.start;
     if([self.updatedValues containsObject:@"Start"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Start"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Start"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.end;
     if([self.updatedValues containsObject:@"End"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"End"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"End"];
+            }
         else
     {
                 

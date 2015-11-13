@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSONENOTEIDENTITYSET_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSOneNoteIdentity;
 #import "core/MSOrcBaseEntity.h"

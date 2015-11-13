@@ -43,8 +43,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.PrivilegedRoleAssignment";
-        
+		_odataType = @"#microsoft.graph.PrivilegedRoleAssignment";
         
     }
 
@@ -73,13 +72,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.userId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"UserId"];}
-	{id curVal = [self.roleId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
-	{id curVal = (self.isElevated?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"IsElevated"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.expirationTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"ExpirationTime"];}
-	{id curVal = [self.resultMessage copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ResultMessage"];}
-	{id curVal = [self.roleInfo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"RoleInfo"];}
-    [dic setValue: @"#Microsoft.Graph.PrivilegedRoleAssignment" forKey: @"@odata.type"];
+	{id curVal = [self.userId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"UserId"];}
+	{id curVal = [self.roleId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"RoleId"];}
+	{[dic setValue: (self.isElevated?@"true":@"false") forKey: @"IsElevated"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.expirationTime];if (curVal!=nil) [dic setValue: curVal forKey: @"ExpirationTime"];}
+	{id curVal = [self.resultMessage copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ResultMessage"];}
+	{id curVal = [self.roleInfo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"RoleInfo"];}
+    [dic setValue: @"#microsoft.graph.PrivilegedRoleAssignment" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,38 +90,38 @@ root for authoritative license information.﻿
 	{id curVal = self.userId;
     if([self.updatedValues containsObject:@"UserId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UserId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"UserId"];
+            }
     }
 	{id curVal = self.roleId;
     if([self.updatedValues containsObject:@"RoleId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
+            }
     }
 	{id curVal = self.isElevated;
     if([self.updatedValues containsObject:@"IsElevated"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsElevated"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsElevated"];
+            }
     }
 	{id curVal = self.expirationTime;
     if([self.updatedValues containsObject:@"ExpirationTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ExpirationTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ExpirationTime"];
+            }
     }
 	{id curVal = self.resultMessage;
     if([self.updatedValues containsObject:@"ResultMessage"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ResultMessage"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ResultMessage"];
+            }
     }
 	{id curVal = self.roleInfo;
     if([self.updatedValues containsObject:@"RoleInfo"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RoleInfo"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RoleInfo"];
+            }
         else
     {
                 

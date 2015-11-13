@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.video";
+		_odataType = @"#microsoft.graph.video";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.bitrate]; if (curVal!=nil) [dic setValue: curVal forKey: @"bitrate"];}
-	{id curVal = [NSNumber numberWithLongLong: self.duration]; if (curVal!=nil) [dic setValue: curVal forKey: @"duration"];}
-	{id curVal = [NSNumber numberWithInt: self.height]; if (curVal!=nil) [dic setValue: curVal forKey: @"height"];}
-	{id curVal = [NSNumber numberWithInt: self.width]; if (curVal!=nil) [dic setValue: curVal forKey: @"width"];}
-    [dic setValue: @"#Microsoft.Graph.video" forKey: @"@odata.type"];
+	{[dic setValue: [NSNumber numberWithInt: self.bitrate] forKey: @"bitrate"];}
+	{[dic setValue: [NSNumber numberWithLongLong: self.duration] forKey: @"duration"];}
+	{[dic setValue: [NSNumber numberWithInt: self.height] forKey: @"height"];}
+	{[dic setValue: [NSNumber numberWithInt: self.width] forKey: @"width"];}
+    [dic setValue: @"#microsoft.graph.video" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,26 +85,26 @@ root for authoritative license information.﻿
 	{id curVal = self.bitrate;
     if([self.updatedValues containsObject:@"bitrate"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"bitrate"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"bitrate"];
+            }
     }
 	{id curVal = self.duration;
     if([self.updatedValues containsObject:@"duration"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"duration"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"duration"];
+            }
     }
 	{id curVal = self.height;
     if([self.updatedValues containsObject:@"height"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
+            }
     }
 	{id curVal = self.width;
     if([self.updatedValues containsObject:@"width"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
+            }
     }
     return dic;
 }

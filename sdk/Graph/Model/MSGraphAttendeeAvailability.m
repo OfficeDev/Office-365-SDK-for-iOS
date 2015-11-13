@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.AttendeeAvailability";
+		_odataType = @"#microsoft.graph.AttendeeAvailability";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.attendee toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"Attendee"];}
-	{id curVal = [MSGraphFreeBusyStatusSerializer toString:self.availability]; if (curVal!=nil) [dic setValue: curVal forKey: @"Availability"];}
-    [dic setValue: @"#Microsoft.Graph.AttendeeAvailability" forKey: @"@odata.type"];
+	{id curVal = [self.attendee toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Attendee"];}
+	{[dic setValue: [MSGraphFreeBusyStatusSerializer toString:self.availability] forKey: @"Availability"];}
+    [dic setValue: @"#microsoft.graph.AttendeeAvailability" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.attendee;
     if([self.updatedValues containsObject:@"Attendee"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attendee"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Attendee"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.availability;
     if([self.updatedValues containsObject:@"Availability"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"Availability"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"Availability"];
+            }
         else
     {
                 

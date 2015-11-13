@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSOUTLOOKATTENDEE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSOutlookResponseStatus;
 #import "MSOutlookAttendeeType.h"

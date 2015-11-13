@@ -43,22 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ServicePrincipal";
+		_odataType = @"#microsoft.graph.ServicePrincipal";
         
-        
-		_appRoles = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_keyCredentials = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_oauth2Permissions = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_passwordCredentials = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_replyUrls = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_servicePrincipalNames = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_tags = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_appRoleAssignments = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_oauth2PermissionGrants = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_memberOf = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_createdObjects = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_owners = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_ownedObjects = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -76,11 +62,13 @@ root for authoritative license information.﻿
 		_appRoleAssignmentRequired = [dic objectForKey: @"appRoleAssignmentRequired"] != nil ? [[dic objectForKey: @"appRoleAssignmentRequired"] boolValue] : _appRoleAssignmentRequired;
 
         if([dic objectForKey: @"appRoles"] != [NSNull null]){
-            _appRoles = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"appRoles"] count]];
+            _appRoles = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"appRoles"]) {
                 [_appRoles addObject:[[MSGraphAppRole alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_appRoles resetChangedFlag];
         }
         
 		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
@@ -88,116 +76,140 @@ root for authoritative license information.﻿
 		_homepage = [dic objectForKey: @"homepage"] != nil ? [[dic objectForKey: @"homepage"] copy] : _homepage;
 
         if([dic objectForKey: @"keyCredentials"] != [NSNull null]){
-            _keyCredentials = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"keyCredentials"] count]];
+            _keyCredentials = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"keyCredentials"]) {
                 [_keyCredentials addObject:[[MSGraphKeyCredential alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_keyCredentials resetChangedFlag];
         }
         
 		_logoutUrl = [dic objectForKey: @"logoutUrl"] != nil ? [[dic objectForKey: @"logoutUrl"] copy] : _logoutUrl;
 
         if([dic objectForKey: @"oauth2Permissions"] != [NSNull null]){
-            _oauth2Permissions = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"oauth2Permissions"] count]];
+            _oauth2Permissions = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"oauth2Permissions"]) {
                 [_oauth2Permissions addObject:[[MSGraphOAuth2Permission alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_oauth2Permissions resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"passwordCredentials"] != [NSNull null]){
-            _passwordCredentials = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"passwordCredentials"] count]];
+            _passwordCredentials = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"passwordCredentials"]) {
                 [_passwordCredentials addObject:[[MSGraphPasswordCredential alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_passwordCredentials resetChangedFlag];
         }
         
 		_preferredTokenSigningKeyThumbprint = [dic objectForKey: @"preferredTokenSigningKeyThumbprint"] != nil ? [[dic objectForKey: @"preferredTokenSigningKeyThumbprint"] copy] : _preferredTokenSigningKeyThumbprint;
 		_publisherName = [dic objectForKey: @"publisherName"] != nil ? [[dic objectForKey: @"publisherName"] copy] : _publisherName;
 
         if([dic objectForKey: @"replyUrls"] != [NSNull null]){
-            _replyUrls = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"replyUrls"] count]];
+            _replyUrls = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"replyUrls"]) {
                 [_replyUrls addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_replyUrls resetChangedFlag];
         }
         
 		_samlMetadataUrl = [dic objectForKey: @"samlMetadataUrl"] != nil ? [[dic objectForKey: @"samlMetadataUrl"] copy] : _samlMetadataUrl;
 
         if([dic objectForKey: @"servicePrincipalNames"] != [NSNull null]){
-            _servicePrincipalNames = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"servicePrincipalNames"] count]];
+            _servicePrincipalNames = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"servicePrincipalNames"]) {
                 [_servicePrincipalNames addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_servicePrincipalNames resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"tags"] != [NSNull null]){
-            _tags = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"tags"] count]];
+            _tags = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"tags"]) {
                 [_tags addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_tags resetChangedFlag];
         }
         
 		_appRoleAssignedTo = [dic objectForKey: @"appRoleAssignedTo"] != nil ? [[MSGraphAppRoleAssignment alloc] initWithDictionary: [dic objectForKey: @"appRoleAssignedTo"]] : _appRoleAssignedTo;
 
         if([dic objectForKey: @"appRoleAssignments"] != [NSNull null]){
-            _appRoleAssignments = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"appRoleAssignments"] count]];
+            _appRoleAssignments = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"appRoleAssignments"]) {
                 [_appRoleAssignments addObject:[[MSGraphAppRoleAssignment alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_appRoleAssignments resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"oauth2PermissionGrants"] != [NSNull null]){
-            _oauth2PermissionGrants = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"oauth2PermissionGrants"] count]];
+            _oauth2PermissionGrants = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"oauth2PermissionGrants"]) {
                 [_oauth2PermissionGrants addObject:[[MSGraphOAuth2PermissionGrant alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_oauth2PermissionGrants resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"memberOf"] != [NSNull null]){
-            _memberOf = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"memberOf"] count]];
+            _memberOf = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"memberOf"]) {
                 [_memberOf addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_memberOf resetChangedFlag];
         }
         
 		_createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSGraphDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : _createdOnBehalfOf;
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
-            _createdObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"createdObjects"] count]];
+            _createdObjects = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"createdObjects"]) {
                 [_createdObjects addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_createdObjects resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"owners"] != [NSNull null]){
-            _owners = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"owners"] count]];
+            _owners = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"owners"]) {
                 [_owners addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_owners resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"ownedObjects"] != [NSNull null]){
-            _ownedObjects = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"ownedObjects"] count]];
+            _ownedObjects = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"ownedObjects"]) {
                 [_ownedObjects addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_ownedObjects resetChangedFlag];
         }
         
 		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
@@ -214,37 +226,115 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = (self.accountEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"accountEnabled"];}
-	{id curVal = [self.appDisplayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"appDisplayName"];}
-	{id curVal = [self.appId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"appId"];}
-	{id curVal = [self.appOwnerTenantId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"appOwnerTenantId"];}
-	{id curVal = (self.appRoleAssignmentRequired?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignmentRequired"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"appRoles"];}
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
-	{id curVal = [self.errorUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"errorUrl"];}
-	{id curVal = [self.homepage copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"homepage"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"keyCredentials"];}
-	{id curVal = [self.logoutUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"logoutUrl"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2Permissions"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"passwordCredentials"];}
-	{id curVal = [self.preferredTokenSigningKeyThumbprint copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"preferredTokenSigningKeyThumbprint"];}
-	{id curVal = [self.publisherName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"publisherName"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"replyUrls"];}
-	{id curVal = [self.samlMetadataUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"samlMetadataUrl"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePrincipalNames"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"tags"];}
-	{id curVal = [self.appRoleAssignedTo toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignedTo"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignments"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2PermissionGrants"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
-	{id curVal = [self.createdOnBehalfOf toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
-	{id curVal = [self.objectType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
-	{id curVal = [self.objectId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
-    [dic setValue: @"#Microsoft.Graph.ServicePrincipal" forKey: @"@odata.type"];
+	{[dic setValue: (self.accountEnabled?@"true":@"false") forKey: @"accountEnabled"];}
+	{id curVal = [self.appDisplayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"appDisplayName"];}
+	{id curVal = [self.appId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"appId"];}
+	{id curVal = [self.appOwnerTenantId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"appOwnerTenantId"];}
+	{[dic setValue: (self.appRoleAssignmentRequired?@"true":@"false") forKey: @"appRoleAssignmentRequired"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.appRoles) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = [self.errorUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"errorUrl"];}
+	{id curVal = [self.homepage copy];if (curVal!=nil) [dic setValue: curVal forKey: @"homepage"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.keyCredentials) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.logoutUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"logoutUrl"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.oauth2Permissions) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.passwordCredentials) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.preferredTokenSigningKeyThumbprint copy];if (curVal!=nil) [dic setValue: curVal forKey: @"preferredTokenSigningKeyThumbprint"];}
+	{id curVal = [self.publisherName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"publisherName"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.replyUrls) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.samlMetadataUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"samlMetadataUrl"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.servicePrincipalNames) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tags) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.appRoleAssignedTo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignedTo"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.appRoleAssignments) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.oauth2PermissionGrants) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.memberOf) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.createdOnBehalfOf toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.createdObjects) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.owners) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.ownedObjects) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
+	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
+    [dic setValue: @"#microsoft.graph.ServicePrincipal" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -256,157 +346,262 @@ root for authoritative license information.﻿
 	{id curVal = self.accountEnabled;
     if([self.updatedValues containsObject:@"accountEnabled"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"accountEnabled"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"accountEnabled"];
+            }
     }
 	{id curVal = self.appDisplayName;
     if([self.updatedValues containsObject:@"appDisplayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appDisplayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appDisplayName"];
+            }
     }
 	{id curVal = self.appId;
     if([self.updatedValues containsObject:@"appId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appId"];
+            }
     }
 	{id curVal = self.appOwnerTenantId;
     if([self.updatedValues containsObject:@"appOwnerTenantId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appOwnerTenantId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appOwnerTenantId"];
+            }
     }
 	{id curVal = self.appRoleAssignmentRequired;
     if([self.updatedValues containsObject:@"appRoleAssignmentRequired"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"appRoleAssignmentRequired"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"appRoleAssignmentRequired"];
+            }
     }
 	{id curVal = self.appRoles;
     if([self.updatedValues containsObject:@"appRoles"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoles"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"appRoles"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.appRoles) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"appRoles"];
+        }
         
             }}
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+            }
     }
 	{id curVal = self.errorUrl;
     if([self.updatedValues containsObject:@"errorUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorUrl"];
+            }
     }
 	{id curVal = self.homepage;
     if([self.updatedValues containsObject:@"homepage"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"homepage"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"homepage"];
+            }
     }
 	{id curVal = self.keyCredentials;
     if([self.updatedValues containsObject:@"keyCredentials"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"keyCredentials"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"keyCredentials"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.keyCredentials) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"keyCredentials"];
+        }
         
             }}
 	{id curVal = self.logoutUrl;
     if([self.updatedValues containsObject:@"logoutUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"logoutUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"logoutUrl"];
+            }
     }
 	{id curVal = self.oauth2Permissions;
     if([self.updatedValues containsObject:@"oauth2Permissions"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oauth2Permissions"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"oauth2Permissions"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.oauth2Permissions) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"oauth2Permissions"];
+        }
         
             }}
 	{id curVal = self.passwordCredentials;
     if([self.updatedValues containsObject:@"passwordCredentials"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"passwordCredentials"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"passwordCredentials"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.passwordCredentials) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"passwordCredentials"];
+        }
         
             }}
 	{id curVal = self.preferredTokenSigningKeyThumbprint;
     if([self.updatedValues containsObject:@"preferredTokenSigningKeyThumbprint"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"preferredTokenSigningKeyThumbprint"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"preferredTokenSigningKeyThumbprint"];
+            }
     }
 	{id curVal = self.publisherName;
     if([self.updatedValues containsObject:@"publisherName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"publisherName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"publisherName"];
+            }
     }
 	{id curVal = self.replyUrls;
     if([self.updatedValues containsObject:@"replyUrls"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"replyUrls"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"replyUrls"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.replyUrls) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"replyUrls"];
+        }
         
             }}
 	{id curVal = self.samlMetadataUrl;
     if([self.updatedValues containsObject:@"samlMetadataUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"samlMetadataUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"samlMetadataUrl"];
+            }
     }
 	{id curVal = self.servicePrincipalNames;
     if([self.updatedValues containsObject:@"servicePrincipalNames"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePrincipalNames"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"servicePrincipalNames"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.servicePrincipalNames) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"servicePrincipalNames"];
+        }
         
             }}
 	{id curVal = self.tags;
     if([self.updatedValues containsObject:@"tags"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"tags"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"tags"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.tags) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"tags"];
+        }
         
             }}
 	{id curVal = self.appRoleAssignedTo;
     if([self.updatedValues containsObject:@"appRoleAssignedTo"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoleAssignedTo"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoleAssignedTo"];
+            }
         else
     {
                 
@@ -421,41 +616,86 @@ root for authoritative license information.﻿
 	{id curVal = self.appRoleAssignments;
     if([self.updatedValues containsObject:@"appRoleAssignments"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"appRoleAssignments"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"appRoleAssignments"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.appRoleAssignments) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"appRoleAssignments"];
+        }
         
             }}
 	{id curVal = self.oauth2PermissionGrants;
     if([self.updatedValues containsObject:@"oauth2PermissionGrants"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oauth2PermissionGrants"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"oauth2PermissionGrants"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.oauth2PermissionGrants) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"oauth2PermissionGrants"];
+        }
         
             }}
 	{id curVal = self.memberOf;
     if([self.updatedValues containsObject:@"memberOf"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"memberOf"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"memberOf"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.memberOf) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"memberOf"];
+        }
         
             }}
 	{id curVal = self.createdOnBehalfOf;
     if([self.updatedValues containsObject:@"createdOnBehalfOf"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdOnBehalfOf"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdOnBehalfOf"];
+            }
         else
     {
                 
@@ -470,53 +710,98 @@ root for authoritative license information.﻿
 	{id curVal = self.createdObjects;
     if([self.updatedValues containsObject:@"createdObjects"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"createdObjects"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"createdObjects"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.createdObjects) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"createdObjects"];
+        }
         
             }}
 	{id curVal = self.owners;
     if([self.updatedValues containsObject:@"owners"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"owners"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"owners"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.owners) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"owners"];
+        }
         
             }}
 	{id curVal = self.ownedObjects;
     if([self.updatedValues containsObject:@"ownedObjects"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"ownedObjects"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"ownedObjects"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.ownedObjects) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"ownedObjects"];
+        }
         
             }}
 	{id curVal = self.objectType;
     if([self.updatedValues containsObject:@"objectType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
+            }
     }
 	{id curVal = self.objectId;
     if([self.updatedValues containsObject:@"objectId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
+            }
     }
 	{id curVal = self.deletionTimestamp;
     if([self.updatedValues containsObject:@"deletionTimestamp"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+            }
     }
     return dic;
 }

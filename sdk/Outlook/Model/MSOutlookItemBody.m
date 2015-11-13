@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.ItemBody";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOutlookBodyTypeSerializer toString:self.contentType]; if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
-	{id curVal = [self.content copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
+	{[dic setValue: [MSOutlookBodyTypeSerializer toString:self.contentType] forKey: @"ContentType"];}
+	{id curVal = [self.content copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
     [dic setValue: @"#Microsoft.OutlookServices.ItemBody" forKey: @"@odata.type"];
 
     return dic;
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.contentType;
     if([self.updatedValues containsObject:@"ContentType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"Content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];
+            }
     }
     return dic;
 }

@@ -43,10 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.AppRole";
+		_odataType = @"#microsoft.graph.AppRole";
 
-        
-		_allowedMemberTypes = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -58,11 +56,13 @@ root for authoritative license information.﻿
     
 
         if([dic objectForKey: @"allowedMemberTypes"] != [NSNull null]){
-            _allowedMemberTypes = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"allowedMemberTypes"] count]];
+            _allowedMemberTypes = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"allowedMemberTypes"]) {
                 [_allowedMemberTypes addObject:[object copy]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_allowedMemberTypes resetChangedFlag];
         }
         
 		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
@@ -81,13 +81,19 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"allowedMemberTypes"];}
-	{id curVal = [self._description copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
-	{id curVal = [self.displayName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = (self.isEnabled?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"isEnabled"];}
-	{id curVal = [self.value copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
-    [dic setValue: @"#Microsoft.Graph.AppRole" forKey: @"@odata.type"];
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.allowedMemberTypes) {
+       [curVal addObject:[obj copy]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self._description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{[dic setValue: (self.isEnabled?@"true":@"false") forKey: @"isEnabled"];}
+	{id curVal = [self.value copy];if (curVal!=nil) [dic setValue: curVal forKey: @"value"];}
+    [dic setValue: @"#microsoft.graph.AppRole" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -99,43 +105,58 @@ root for authoritative license information.﻿
 	{id curVal = self.allowedMemberTypes;
     if([self.updatedValues containsObject:@"allowedMemberTypes"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"allowedMemberTypes"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj copy]];
     }
+    
+            [dic setValue: curArray forKey: @"allowedMemberTypes"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.allowedMemberTypes) {
+       [curArray addObject:[obj copy]];
+    }
+    
+                 [dic setValue: curArray forKey: @"allowedMemberTypes"];
+        }
         
             }}
 	{id curVal = self._description;
     if([self.updatedValues containsObject:@"description"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
+            }
     }
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.isEnabled;
     if([self.updatedValues containsObject:@"isEnabled"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
+            }
     }
 	{id curVal = self.value;
     if([self.updatedValues containsObject:@"value"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];
+            }
     }
     return dic;
 }

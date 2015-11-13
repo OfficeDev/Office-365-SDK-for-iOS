@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.chunkedUploadSessionDescriptor";
+		_odataType = @"#microsoft.graph.chunkedUploadSessionDescriptor";
 
-        
     }
 
 	return self;
@@ -67,8 +66,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
-    [dic setValue: @"#Microsoft.Graph.chunkedUploadSessionDescriptor" forKey: @"@odata.type"];
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+    [dic setValue: @"#microsoft.graph.chunkedUploadSessionDescriptor" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+            }
     }
     return dic;
 }

@@ -45,9 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.Calendar";
         
-        
-		_events = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
-		_calendarView = [[NSMutableArray alloc] initWithCollectionType:@"NSMutableArray"];
     }
 
 	return self;
@@ -63,20 +60,24 @@ root for authoritative license information.﻿
 		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
 
         if([dic objectForKey: @"Events"] != [NSNull null]){
-            _events = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"Events"] count]];
+            _events = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"Events"]) {
                 [_events addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_events resetChangedFlag];
         }
         
 
         if([dic objectForKey: @"CalendarView"] != [NSNull null]){
-            _calendarView = [NSMutableArray arrayWithCapacity:[[dic objectForKey: @"CalendarView"] count]];
+            _calendarView = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"CalendarView"]) {
                 [_calendarView addObject:[[MSOutlookEvent alloc] initWithDictionary: object]];
             }
+            
+            [(MSOrcChangesTrackingArray *)_calendarView resetChangedFlag];
         }
         
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
@@ -91,12 +92,24 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
-	{id curVal = [MSOutlookCalendarColorSerializer toString:self.color]; if (curVal!=nil) [dic setValue: curVal forKey: @"Color"];}
-	{id curVal = [self.changeKey copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
-	{id curVal = nil/*MUST SERIALIZE COLLECTION!*/; if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{[dic setValue: [MSOutlookCalendarColorSerializer toString:self.color] forKey: @"Color"];}
+	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.events) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarView) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.Calendar" forKey: @"@odata.type"];
 
     return dic;
@@ -109,14 +122,14 @@ root for authoritative license information.﻿
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"Name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+            }
     }
 	{id curVal = self.color;
     if([self.updatedValues containsObject:@"Color"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOutlookCalendarColorSerializer toString:curVal] forKey: @"Color"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookCalendarColorSerializer toString:curVal] forKey: @"Color"];
+            }
         else
     {
                 
@@ -131,36 +144,66 @@ root for authoritative license information.﻿
 	{id curVal = self.changeKey;
     if([self.updatedValues containsObject:@"ChangeKey"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];
+            }
     }
 	{id curVal = self.events;
     if([self.updatedValues containsObject:@"Events"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Events"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"Events"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.events) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Events"];
+        }
         
             }}
 	{id curVal = self.calendarView;
     if([self.updatedValues containsObject:@"CalendarView"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"CalendarView"];
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
     }
+    
+            [dic setValue: curArray forKey: @"CalendarView"];
+            }
         else
     {
                 
-        //Check collection change:
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.calendarView) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"CalendarView"];
+        }
         
             }}
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+            }
     }
     return dic;
 }

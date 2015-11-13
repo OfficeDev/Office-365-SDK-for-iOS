@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.file";
+		_odataType = @"#microsoft.graph.file";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.hashes toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"hashes"];}
-	{id curVal = [self.mimeType copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"mimeType"];}
-    [dic setValue: @"#Microsoft.Graph.file" forKey: @"@odata.type"];
+	{id curVal = [self.hashes toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"hashes"];}
+	{id curVal = [self.mimeType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"mimeType"];}
+    [dic setValue: @"#microsoft.graph.file" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.hashes;
     if([self.updatedValues containsObject:@"hashes"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"hashes"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"hashes"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.mimeType;
     if([self.updatedValues containsObject:@"mimeType"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mimeType"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mimeType"];
+            }
     }
     return dic;
 }

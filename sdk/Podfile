@@ -34,3 +34,7 @@ target :Outlook do
 xcodeproj 'Outlook/Outlook'
 pod 'orc', '=0.11.0'
 end
+target :SampleService do
+xcodeproj 'SampleService/SampleService'
+pod 'orc', '=0.11.0'
+end

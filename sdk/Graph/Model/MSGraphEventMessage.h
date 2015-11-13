@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSGRAPHEVENTMESSAGE_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphEvent;
 #import "MSGraphMeetingMessageType.h"

@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHPAGELINKS_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphExternalLink;
 #import "core/MSOrcBaseEntity.h"

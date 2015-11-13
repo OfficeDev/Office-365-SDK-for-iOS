@@ -19,6 +19,7 @@ root for authoritative license information.﻿
 
 #import "MSOutlookModels.h"
 #import "api/api.h"
+#import "core/core.h"
 #import "MSOutlookItemCollectionOperations.h"
 
 

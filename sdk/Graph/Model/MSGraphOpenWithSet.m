@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.openWithSet";
+		_odataType = @"#microsoft.graph.openWithSet";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.web toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"web"];}
-	{id curVal = [self.webEmbedded toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"webEmbedded"];}
-    [dic setValue: @"#Microsoft.Graph.openWithSet" forKey: @"@odata.type"];
+	{id curVal = [self.web toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"web"];}
+	{id curVal = [self.webEmbedded toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"webEmbedded"];}
+    [dic setValue: @"#microsoft.graph.openWithSet" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.web;
     if([self.updatedValues containsObject:@"web"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"web"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"web"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.webEmbedded;
     if([self.updatedValues containsObject:@"webEmbedded"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"webEmbedded"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"webEmbedded"];
+            }
         else
     {
                 

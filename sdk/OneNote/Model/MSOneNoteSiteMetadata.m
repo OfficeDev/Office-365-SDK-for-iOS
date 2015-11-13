@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.SiteMetadata";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.siteCollectionId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"siteCollectionId"];}
-	{id curVal = [self.siteId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"siteId"];}
+	{id curVal = [self.siteCollectionId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"siteCollectionId"];}
+	{id curVal = [self.siteId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"siteId"];}
     [dic setValue: @"#Microsoft.OneNote.Api.SiteMetadata" forKey: @"@odata.type"];
 
     return dic;
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.siteCollectionId;
     if([self.updatedValues containsObject:@"siteCollectionId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteCollectionId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteCollectionId"];
+            }
     }
 	{id curVal = self.siteId;
     if([self.updatedValues containsObject:@"siteId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"siteId"];
+            }
     }
     return dic;
 }

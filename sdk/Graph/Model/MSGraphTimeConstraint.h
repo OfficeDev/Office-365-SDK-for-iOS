@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHTIMECONSTRAINT_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphTimeSlot;
 #import "MSGraphActivityDomain.h"

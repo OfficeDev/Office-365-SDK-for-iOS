@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.CopyStatusModel";
 
-        
     }
 
 	return self;
@@ -69,9 +68,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self.status copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime]; if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self.status copy];if (curVal!=nil) [dic setValue: curVal forKey: @"status"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"createdDateTime"];}
     [dic setValue: @"#Microsoft.OneNote.Api.CopyStatusModel" forKey: @"@odata.type"];
 
     return dic;
@@ -84,20 +83,20 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.status;
     if([self.updatedValues containsObject:@"status"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"status"];
+            }
     }
 	{id curVal = self.createdDateTime;
     if([self.updatedValues containsObject:@"createdDateTime"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"createdDateTime"];
+            }
     }
     return dic;
 }

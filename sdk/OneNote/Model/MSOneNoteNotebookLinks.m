@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.NotebookLinks";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.oneNoteClientUrl toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteClientUrl"];}
-	{id curVal = [self.oneNoteWebUrl toDictionary]; if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteWebUrl"];}
+	{id curVal = [self.oneNoteClientUrl toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteClientUrl"];}
+	{id curVal = [self.oneNoteWebUrl toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"oneNoteWebUrl"];}
     [dic setValue: @"#Microsoft.OneNote.Api.NotebookLinks" forKey: @"@odata.type"];
 
     return dic;
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.oneNoteClientUrl;
     if([self.updatedValues containsObject:@"oneNoteClientUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteClientUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteClientUrl"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.oneNoteWebUrl;
     if([self.updatedValues containsObject:@"oneNoteWebUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteWebUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"oneNoteWebUrl"];
+            }
         else
     {
                 

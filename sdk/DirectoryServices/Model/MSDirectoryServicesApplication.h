@@ -17,7 +17,7 @@ root for authoritative license information.﻿
 #define MSDIRECTORYSERVICESAPPLICATION_H
 
 #import <Foundation/Foundation.h>
-#import "core/MSOrcObjectizer.h"
+#import "core/MSOrcChangesTrackingArray.h"
 
 @class MSDirectoryServicesAppRole;
 @class MSDirectoryServicesKeyCredential;

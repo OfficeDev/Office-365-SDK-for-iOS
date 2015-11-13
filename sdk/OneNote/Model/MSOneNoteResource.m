@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.Resource";
         
-        
     }
 
 	return self;
@@ -71,10 +70,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = [self._self copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
-	{id curVal = nil/*NSStream*/; if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
-	{id curVal = [self.contentUrl copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"contentUrl"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{id curVal = [self._self copy];if (curVal!=nil) [dic setValue: curVal forKey: @"self"];}
+	{id curVal = nil/*NSStream*/;if (curVal!=nil) [dic setValue: curVal forKey: @"content"];}
+	{id curVal = [self.contentUrl copy];if (curVal!=nil) [dic setValue: curVal forKey: @"contentUrl"];}
     [dic setValue: @"#Microsoft.OneNote.Api.Resource" forKey: @"@odata.type"];
 
     return dic;
@@ -87,26 +86,26 @@ root for authoritative license information.﻿
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self._self;
     if([self.updatedValues containsObject:@"self"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"self"];
+            }
     }
 	{id curVal = self.content;
     if([self.updatedValues containsObject:@"content"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:nil/*NSStream*/ forKey: @"content"];
+            }
     }
 	{id curVal = self.contentUrl;
     if([self.updatedValues containsObject:@"contentUrl"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"contentUrl"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"contentUrl"];
+            }
     }
     return dic;
 }

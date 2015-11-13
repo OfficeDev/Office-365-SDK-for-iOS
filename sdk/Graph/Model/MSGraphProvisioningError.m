@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ProvisioningError";
+		_odataType = @"#microsoft.graph.ProvisioningError";
 
-        
     }
 
 	return self;
@@ -70,11 +69,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.errorDetail copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"errorDetail"];}
-	{id curVal = (self.resolved?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"resolved"];}
-	{id curVal = [self.service copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.timestamp]; if (curVal!=nil) [dic setValue: curVal forKey: @"timestamp"];}
-    [dic setValue: @"#Microsoft.Graph.ProvisioningError" forKey: @"@odata.type"];
+	{id curVal = [self.errorDetail copy];if (curVal!=nil) [dic setValue: curVal forKey: @"errorDetail"];}
+	{[dic setValue: (self.resolved?@"true":@"false") forKey: @"resolved"];}
+	{id curVal = [self.service copy];if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.timestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"timestamp"];}
+    [dic setValue: @"#microsoft.graph.ProvisioningError" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -86,26 +85,26 @@ root for authoritative license information.﻿
 	{id curVal = self.errorDetail;
     if([self.updatedValues containsObject:@"errorDetail"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorDetail"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorDetail"];
+            }
     }
 	{id curVal = self.resolved;
     if([self.updatedValues containsObject:@"resolved"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"resolved"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"resolved"];
+            }
     }
 	{id curVal = self.service;
     if([self.updatedValues containsObject:@"service"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];
+            }
     }
 	{id curVal = self.timestamp;
     if([self.updatedValues containsObject:@"timestamp"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"timestamp"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"timestamp"];
+            }
     }
     return dic;
 }

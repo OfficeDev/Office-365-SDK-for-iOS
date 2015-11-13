@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.DirectoryServices.VerifiedDomain";
 
-        
     }
 
 	return self;
@@ -72,12 +71,12 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.capabilities copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"capabilities"];}
-	{id curVal = (self._default?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"default"];}
-	{id curVal = [self._id copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{id curVal = (self.initial?@"true":@"false"); if (curVal!=nil) [dic setValue: curVal forKey: @"initial"];}
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
-	{id curVal = [self.type copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
+	{id curVal = [self.capabilities copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilities"];}
+	{[dic setValue: (self._default?@"true":@"false") forKey: @"default"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+	{[dic setValue: (self.initial?@"true":@"false") forKey: @"initial"];}
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
+	{id curVal = [self.type copy];if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
     [dic setValue: @"#Microsoft.DirectoryServices.VerifiedDomain" forKey: @"@odata.type"];
 
     return dic;
@@ -90,38 +89,38 @@ root for authoritative license information.﻿
 	{id curVal = self.capabilities;
     if([self.updatedValues containsObject:@"capabilities"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilities"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilities"];
+            }
     }
 	{id curVal = self._default;
     if([self.updatedValues containsObject:@"default"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"default"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"default"];
+            }
     }
 	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
     }
 	{id curVal = self.initial;
     if([self.updatedValues containsObject:@"initial"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"initial"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"initial"];
+            }
     }
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];
+            }
     }
 	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];
+            }
     }
     return dic;
 }

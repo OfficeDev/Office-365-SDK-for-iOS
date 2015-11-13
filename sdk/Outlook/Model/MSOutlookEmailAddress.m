@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OutlookServices.EmailAddress";
 
-        
     }
 
 	return self;
@@ -68,8 +67,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.name copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
-	{id curVal = [self.address copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
+	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
+	{id curVal = [self.address copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
     [dic setValue: @"#Microsoft.OutlookServices.EmailAddress" forKey: @"@odata.type"];
 
     return dic;
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"Name"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
+            }
     }
 	{id curVal = self.address;
     if([self.updatedValues containsObject:@"Address"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Address"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Address"];
+            }
     }
     return dic;
 }

@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ResponseStatus";
+		_odataType = @"#microsoft.graph.ResponseStatus";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSGraphResponseTypeSerializer toString:self.response]; if (curVal!=nil) [dic setValue: curVal forKey: @"Response"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.time]; if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
-    [dic setValue: @"#Microsoft.Graph.ResponseStatus" forKey: @"@odata.type"];
+	{[dic setValue: [MSGraphResponseTypeSerializer toString:self.response] forKey: @"Response"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.time];if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
+    [dic setValue: @"#microsoft.graph.ResponseStatus" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,8 +81,8 @@ root for authoritative license information.﻿
 	{id curVal = self.response;
     if([self.updatedValues containsObject:@"Response"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSGraphResponseTypeSerializer toString:curVal] forKey: @"Response"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSGraphResponseTypeSerializer toString:curVal] forKey: @"Response"];
+            }
         else
     {
                 
@@ -98,8 +97,8 @@ root for authoritative license information.﻿
 	{id curVal = self.time;
     if([self.updatedValues containsObject:@"Time"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];
+            }
     }
     return dic;
 }

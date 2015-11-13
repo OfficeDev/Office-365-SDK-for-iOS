@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHRECURRENCERANGE_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphRecurrenceRangeType.h"
 #import "core/MSOrcBaseEntity.h"

@@ -45,7 +45,6 @@ root for authoritative license information.﻿
 
 		_odataType = @"#Microsoft.OneNote.Api.ExternalLink";
 
-        
     }
 
 	return self;
@@ -67,7 +66,7 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.href copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"href"];}
+	{id curVal = [self.href copy];if (curVal!=nil) [dic setValue: curVal forKey: @"href"];}
     [dic setValue: @"#Microsoft.OneNote.Api.ExternalLink" forKey: @"@odata.type"];
 
     return dic;
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.href;
     if([self.updatedValues containsObject:@"href"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"href"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"href"];
+            }
     }
     return dic;
 }

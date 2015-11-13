@@ -18,6 +18,7 @@ root for authoritative license information.﻿
 #define MSGRAPHPATCHCONTENTCOMMAND_H
 
 #import <Foundation/Foundation.h>
+#import "core/MSOrcChangesTrackingArray.h"
 
 #import "MSGraphPatchActionType.h"
 #import "MSGraphPatchInsertPosition.h"

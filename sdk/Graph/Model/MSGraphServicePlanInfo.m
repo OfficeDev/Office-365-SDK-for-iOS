@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.ServicePlanInfo";
+		_odataType = @"#microsoft.graph.ServicePlanInfo";
 
-        
     }
 
 	return self;
@@ -68,9 +67,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.servicePlanId copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
-	{id curVal = [self.servicePlanName copy]; if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanName"];}
-    [dic setValue: @"#Microsoft.Graph.ServicePlanInfo" forKey: @"@odata.type"];
+	{id curVal = [self.servicePlanId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
+	{id curVal = [self.servicePlanName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanName"];}
+    [dic setValue: @"#microsoft.graph.ServicePlanInfo" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,14 +81,14 @@ root for authoritative license information.﻿
 	{id curVal = self.servicePlanId;
     if([self.updatedValues containsObject:@"servicePlanId"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanId"];
+            }
     }
 	{id curVal = self.servicePlanName;
     if([self.updatedValues containsObject:@"servicePlanName"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanName"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanName"];
+            }
     }
     return dic;
 }

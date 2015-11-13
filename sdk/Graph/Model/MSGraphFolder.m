@@ -43,9 +43,8 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#Microsoft.Graph.folder";
+		_odataType = @"#microsoft.graph.folder";
 
-        
     }
 
 	return self;
@@ -67,8 +66,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [NSNumber numberWithInt: self.childCount]; if (curVal!=nil) [dic setValue: curVal forKey: @"childCount"];}
-    [dic setValue: @"#Microsoft.Graph.folder" forKey: @"@odata.type"];
+	{[dic setValue: [NSNumber numberWithInt: self.childCount] forKey: @"childCount"];}
+    [dic setValue: @"#microsoft.graph.folder" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -80,8 +79,8 @@ root for authoritative license information.﻿
 	{id curVal = self.childCount;
     if([self.updatedValues containsObject:@"childCount"])
     {
-        [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"childCount"];
-    }
+                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"childCount"];
+            }
     }
     return dic;
 }
