@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesUser
@@ -284,6 +284,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"assignedLicenses"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.assignedPlans) {
@@ -291,6 +292,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"assignedPlans"];}
 	{id curVal = [self.city copy];if (curVal!=nil) [dic setValue: curVal forKey: @"city"];}
 	{id curVal = [self.country copy];if (curVal!=nil) [dic setValue: curVal forKey: @"country"];}
 	{id curVal = [self.department copy];if (curVal!=nil) [dic setValue: curVal forKey: @"department"];}
@@ -312,6 +314,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"otherMails"];}
 	{id curVal = [self.passwordPolicies copy];if (curVal!=nil) [dic setValue: curVal forKey: @"passwordPolicies"];}
 	{id curVal = [self.passwordProfile toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"passwordProfile"];}
 	{id curVal = [self.physicalDeliveryOfficeName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"physicalDeliveryOfficeName"];}
@@ -324,6 +327,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"provisionedPlans"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.provisioningErrors) {
@@ -331,6 +335,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.proxyAddresses) {
@@ -338,6 +343,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"proxyAddresses"];}
 	{id curVal = [self.sipProxyAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"sipProxyAddress"];}
 	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
 	{id curVal = [self.streetAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"streetAddress"];}
@@ -354,6 +360,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignments"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.oauth2PermissionGrants) {
@@ -361,6 +368,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"oauth2PermissionGrants"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ownedDevices) {
@@ -368,6 +376,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ownedDevices"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.registeredDevices) {
@@ -375,6 +384,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"registeredDevices"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
 	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
@@ -386,6 +396,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
 	{id curVal = [self.manager toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -394,6 +405,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.members) {
@@ -401,6 +413,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -408,6 +421,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.owners) {
@@ -415,6 +429,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ownedObjects) {
@@ -422,6 +437,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
     [dic setValue: @"#Microsoft.DirectoryServices.User" forKey: @"@odata.type"];
 
     return dic;
@@ -431,13 +447,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.accountEnabled;
-    if([self.updatedValues containsObject:@"accountEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"accountEnabled"];
-            }
-    }
-	{id curVal = self.assignedLicenses;
+ if([self.updatedValues containsObject:@"accountEnabled"])
+            { [dic setValue: (self.accountEnabled?@"true":@"false") forKey: @"accountEnabled"];
+}	{id curVal = self.assignedLicenses;
     if([self.updatedValues containsObject:@"assignedLicenses"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];
@@ -507,13 +519,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"department"];
             }
     }
-	{id curVal = self.dirSyncEnabled;
-    if([self.updatedValues containsObject:@"dirSyncEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
-            }
-    }
-	{id curVal = self.displayName;
+ if([self.updatedValues containsObject:@"dirSyncEnabled"])
+            { [dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];
+}	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];

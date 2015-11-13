@@ -34,7 +34,7 @@ root for authoritative license information.﻿
         return [self dismissRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPrivilegedSecurityAlert  class]];
             callback(result, e);
         } 
         else {
@@ -74,7 +74,7 @@ root for authoritative license information.﻿
         return [self reactivateRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPrivilegedSecurityAlert  class]];
             callback(result, e);
         } 
         else {
@@ -116,7 +116,7 @@ root for authoritative license information.﻿
     return [self fixRawWithItemId:itemIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPrivilegedSecurityAlert * result = (MSGraphPrivilegedSecurityAlert *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPrivilegedSecurityAlert  class]];
             callback(result, e);
         } 
         else {

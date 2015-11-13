@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphCalendar
@@ -102,6 +102,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.calendarView) {
@@ -109,6 +110,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.Calendar" forKey: @"@odata.type"];
 
@@ -125,23 +127,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Name"];
             }
     }
-	{id curVal = self.color;
-    if([self.updatedValues containsObject:@"Color"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphCalendarColorSerializer toString:curVal] forKey: @"Color"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Color"];
-            }
-        
-            }}
-	{id curVal = self.changeKey;
+ if([self.updatedValues containsObject:@"Color"])
+            { [dic setValue: [MSGraphCalendarColorSerializer toString:self.color] forKey: @"Color"];
+}	{id curVal = self.changeKey;
     if([self.updatedValues containsObject:@"ChangeKey"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ChangeKey"];

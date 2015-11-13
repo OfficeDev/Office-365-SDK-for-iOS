@@ -78,19 +78,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.height;
-    if([self.updatedValues containsObject:@"height"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"height"];
-            }
-    }
-	{id curVal = self.width;
-    if([self.updatedValues containsObject:@"width"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"width"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"height"])
+            { [dic setValue: [NSNumber numberWithInt: self.height] forKey: @"height"];
+} if([self.updatedValues containsObject:@"width"])
+            { [dic setValue: [NSNumber numberWithInt: self.width] forKey: @"width"];
+}    return dic;
 }
 
 

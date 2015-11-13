@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPermission
@@ -95,6 +95,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
 	{id curVal = [self.shareId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"shareId"];}
     [dic setValue: @"#microsoft.graph.permission" forKey: @"@odata.type"];
 

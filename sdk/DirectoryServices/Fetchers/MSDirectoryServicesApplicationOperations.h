@@ -32,7 +32,6 @@ root for authoritative license information.﻿
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 - (void)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSDirectoryServicesApplication *, MSOrcError*))callback ;
-- (void)restoreRawWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

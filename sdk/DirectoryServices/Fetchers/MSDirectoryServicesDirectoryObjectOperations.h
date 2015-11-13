@@ -32,11 +32,8 @@ root for authoritative license information.﻿
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)checkMemberGroupsRawWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)getMemberGroupsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)getMemberGroupsRawWithSecurityEnabledOnly:(NSString *)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)getMemberObjectsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)getMemberObjectsRawWithSecurityEnabledOnly:(NSString *)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

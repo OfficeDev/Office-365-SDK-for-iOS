@@ -31,7 +31,7 @@ root for authoritative license information.﻿
     return [self restoreRawWithIdentifierUris:identifierUrisString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphApplication * result = (MSGraphApplication *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphApplication * result = (MSGraphApplication *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphApplication  class]];
             callback(result, e);
         } 
         else {

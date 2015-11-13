@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookEntity

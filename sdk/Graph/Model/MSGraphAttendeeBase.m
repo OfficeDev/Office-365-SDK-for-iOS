@@ -78,23 +78,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.type;
-    if([self.updatedValues containsObject:@"Type"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAttendeeTypeSerializer toString:curVal] forKey: @"Type"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Type"];
-            }
-        
-            }}
-	{id curVal = self.emailAddress;
+ if([self.updatedValues containsObject:@"Type"])
+            { [dic setValue: [MSGraphAttendeeTypeSerializer toString:self.type] forKey: @"Type"];
+}	{id curVal = self.emailAddress;
     if([self.updatedValues containsObject:@"EmailAddress"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"EmailAddress"];

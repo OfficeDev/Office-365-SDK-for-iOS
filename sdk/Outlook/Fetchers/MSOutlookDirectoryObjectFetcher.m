@@ -74,4 +74,9 @@ root for authoritative license information.﻿
 	return [[MSOutlookUserFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookUser class]];
 }
 
+- (MSOutlookGroupFetcher *)asGroup {
+
+	return [[MSOutlookGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookGroup class]];
+}
+
 @end

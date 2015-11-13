@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesFolder
@@ -97,6 +97,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"children"];}
 	{id curVal = [self.createdBy toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"createdBy"];}
 	{id curVal = [self.eTag copy];if (curVal!=nil) [dic setValue: curVal forKey: @"eTag"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
@@ -117,13 +118,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.childCount;
-    if([self.updatedValues containsObject:@"childCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"childCount"];
-            }
-    }
-	{id curVal = self.children;
+ if([self.updatedValues containsObject:@"childCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.childCount] forKey: @"childCount"];
+}	{id curVal = self.children;
     if([self.updatedValues containsObject:@"children"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];
@@ -215,13 +212,9 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"size"];
-            }
-    }
-	{id curVal = self.dateTimeCreated;
+ if([self.updatedValues containsObject:@"size"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.size] forKey: @"size"];
+}	{id curVal = self.dateTimeCreated;
     if([self.updatedValues containsObject:@"dateTimeCreated"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"dateTimeCreated"];

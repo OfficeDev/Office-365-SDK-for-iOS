@@ -102,6 +102,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"AttendeeAvailability"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.locations) {
@@ -109,6 +110,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Locations"];}
     [dic setValue: @"#microsoft.graph.MeetingTimeCandidate" forKey: @"@odata.type"];
 
     return dic;
@@ -134,35 +136,13 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.confidence;
-    if([self.updatedValues containsObject:@"Confidence"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Confidence"];
-            }
-    }
-	{id curVal = self.score;
-    if([self.updatedValues containsObject:@"Score"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Score"];
-            }
-    }
-	{id curVal = self.organizerAvailability;
-    if([self.updatedValues containsObject:@"OrganizerAvailability"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"OrganizerAvailability"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"OrganizerAvailability"];
-            }
-        
-            }}
-	{id curVal = self.attendeeAvailability;
+ if([self.updatedValues containsObject:@"Confidence"])
+            { [dic setValue: [NSNumber numberWithDouble: self.confidence] forKey: @"Confidence"];
+} if([self.updatedValues containsObject:@"Score"])
+            { [dic setValue: [NSNumber numberWithInt: self.score] forKey: @"Score"];
+} if([self.updatedValues containsObject:@"OrganizerAvailability"])
+            { [dic setValue: [MSGraphFreeBusyStatusSerializer toString:self.organizerAvailability] forKey: @"OrganizerAvailability"];
+}	{id curVal = self.attendeeAvailability;
     if([self.updatedValues containsObject:@"AttendeeAvailability"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

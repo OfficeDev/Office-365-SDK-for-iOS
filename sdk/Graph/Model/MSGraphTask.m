@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphTask
@@ -163,13 +163,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"assigneePriority"];
             }
     }
-	{id curVal = self.percentComplete;
-    if([self.updatedValues containsObject:@"percentComplete"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"percentComplete"];
-            }
-    }
-	{id curVal = self.startDateTime;
+ if([self.updatedValues containsObject:@"percentComplete"])
+            { [dic setValue: [NSNumber numberWithInt: self.percentComplete] forKey: @"percentComplete"];
+}	{id curVal = self.startDateTime;
     if([self.updatedValues containsObject:@"startDateTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"startDateTime"];
@@ -199,29 +195,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"dueDateTime"];
             }
     }
-	{id curVal = self.hasDescription;
-    if([self.updatedValues containsObject:@"hasDescription"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"hasDescription"];
-            }
-    }
-	{id curVal = self.previewType;
-    if([self.updatedValues containsObject:@"previewType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"previewType"];
-            }
-        
-            }}
-	{id curVal = self.completedDateTime;
+ if([self.updatedValues containsObject:@"hasDescription"])
+            { [dic setValue: (self.hasDescription?@"true":@"false") forKey: @"hasDescription"];
+} if([self.updatedValues containsObject:@"previewType"])
+            { [dic setValue: [MSGraphPreviewTypeSerializer toString:self.previewType] forKey: @"previewType"];
+}	{id curVal = self.completedDateTime;
     if([self.updatedValues containsObject:@"completedDateTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"completedDateTime"];

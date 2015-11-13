@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphSectionGroup
@@ -117,6 +117,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"sections"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.sectionGroups) {
@@ -124,6 +125,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"sectionGroups"];}
     [dic setValue: @"#microsoft.graph.SectionGroup" forKey: @"@odata.type"];
 
     return dic;

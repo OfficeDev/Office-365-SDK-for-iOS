@@ -23,6 +23,7 @@ root for authoritative license information.﻿
 #import "core/MSOrcEntityFetcher.h"
 
 @class MSOutlookUserFetcher;	
+@class MSOutlookGroupFetcher;	
 @class MSOutlookDirectoryObjectOperations;
 
 
@@ -42,6 +43,7 @@ root for authoritative license information.﻿
 - (MSOutlookDirectoryObjectFetcher *)select:(NSString *)params;
 - (MSOutlookDirectoryObjectFetcher *)expand:(NSString *)value;
 - (MSOutlookUserFetcher *)asUser;	
+- (MSOutlookGroupFetcher *)asGroup;	
 
 @end
 

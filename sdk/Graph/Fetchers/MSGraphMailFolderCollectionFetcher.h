@@ -30,6 +30,8 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
+- (void)readWithCallback:(void (^)(NSArray *, MSOrcError *))callback;
+
 - (MSGraphMailFolderFetcher *)getById: (id) identifier;
 - (void)add:(MSGraphMailFolder *)entity callback:(void (^)(MSGraphMailFolder *, MSOrcError *))callback;
 

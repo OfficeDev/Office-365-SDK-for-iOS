@@ -37,7 +37,7 @@ root for authoritative license information.﻿
     return [self selfActivateRawWithReason:reasonString duration:durationString ticketNumber:ticketNumberString ticketSystem:ticketSystemString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPrivilegedRoleAssignment  class]];
             callback(result, e);
         } 
         else {
@@ -80,7 +80,7 @@ root for authoritative license information.﻿
         return [self selfDeactivateRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPrivilegedRoleAssignment * result = (MSGraphPrivilegedRoleAssignment *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPrivilegedRoleAssignment  class]];
             callback(result, e);
         } 
         else {

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphMailFolder
@@ -106,6 +106,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Messages"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.childFolders) {
@@ -113,6 +114,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolders"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.MailFolder" forKey: @"@odata.type"];
 
@@ -135,25 +137,13 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
             }
     }
-	{id curVal = self.childFolderCount;
-    if([self.updatedValues containsObject:@"ChildFolderCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ChildFolderCount"];
-            }
-    }
-	{id curVal = self.unreadItemCount;
-    if([self.updatedValues containsObject:@"UnreadItemCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UnreadItemCount"];
-            }
-    }
-	{id curVal = self.totalItemCount;
-    if([self.updatedValues containsObject:@"TotalItemCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"TotalItemCount"];
-            }
-    }
-	{id curVal = self.messages;
+ if([self.updatedValues containsObject:@"ChildFolderCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.childFolderCount] forKey: @"ChildFolderCount"];
+} if([self.updatedValues containsObject:@"UnreadItemCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.unreadItemCount] forKey: @"UnreadItemCount"];
+} if([self.updatedValues containsObject:@"TotalItemCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.totalItemCount] forKey: @"TotalItemCount"];
+}	{id curVal = self.messages;
     if([self.updatedValues containsObject:@"Messages"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

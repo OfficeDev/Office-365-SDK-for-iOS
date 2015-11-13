@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesFile
@@ -189,13 +189,9 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"size"];
-            }
-    }
-	{id curVal = self.dateTimeCreated;
+ if([self.updatedValues containsObject:@"size"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.size] forKey: @"size"];
+}	{id curVal = self.dateTimeCreated;
     if([self.updatedValues containsObject:@"dateTimeCreated"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"dateTimeCreated"];

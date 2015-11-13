@@ -87,6 +87,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Locations"];}
     [dic setValue: @"#microsoft.graph.LocationConstraint" forKey: @"@odata.type"];
 
     return dic;
@@ -96,19 +97,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.isRequired;
-    if([self.updatedValues containsObject:@"IsRequired"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRequired"];
-            }
-    }
-	{id curVal = self.suggestLocation;
-    if([self.updatedValues containsObject:@"SuggestLocation"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"SuggestLocation"];
-            }
-    }
-	{id curVal = self.locations;
+ if([self.updatedValues containsObject:@"IsRequired"])
+            { [dic setValue: (self.isRequired?@"true":@"false") forKey: @"IsRequired"];
+} if([self.updatedValues containsObject:@"SuggestLocation"])
+            { [dic setValue: (self.suggestLocation?@"true":@"false") forKey: @"SuggestLocation"];
+}	{id curVal = self.locations;
     if([self.updatedValues containsObject:@"Locations"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

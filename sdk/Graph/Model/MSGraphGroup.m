@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphGroup
@@ -277,6 +277,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"creationOptions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.groupTypes) {
@@ -284,6 +285,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"groupTypes"];}
 	{[dic setValue: (self.isPublic?@"true":@"false") forKey: @"isPublic"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDirSyncTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastDirSyncTime"];}
 	{id curVal = [self.mail copy];if (curVal!=nil) [dic setValue: curVal forKey: @"mail"];}
@@ -297,6 +299,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.proxyAddresses) {
@@ -304,6 +307,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"proxyAddresses"];}
 	{[dic setValue: (self.securityEnabled?@"true":@"false") forKey: @"securityEnabled"];}
 	{[dic setValue: [MSGraphGroupAccessTypeSerializer toString:self.accessType] forKey: @"AccessType"];}
 	{[dic setValue: (self.allowExternalSenders?@"true":@"false") forKey: @"AllowExternalSenders"];}
@@ -319,6 +323,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"appRoleAssignments"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.members) {
@@ -326,6 +331,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -333,6 +339,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{id curVal = [self.createdOnBehalfOf toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"createdOnBehalfOf"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -341,6 +348,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.threads) {
@@ -348,6 +356,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
 	{id curVal = [self.calendar toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -356,6 +365,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.events) {
@@ -363,6 +373,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.conversations) {
@@ -370,6 +381,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Conversations"];}
 	{id curVal = [self.photo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -378,6 +390,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Photos"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.acceptedSenders) {
@@ -385,6 +398,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"AcceptedSenders"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.rejectedSenders) {
@@ -392,6 +406,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"RejectedSenders"];}
 	{id curVal = [self.drive toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"drive"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -400,6 +415,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"plans"];}
 	{id curVal = [self.notes toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"notes"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
 	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
@@ -419,13 +435,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
             }
     }
-	{id curVal = self.dirSyncEnabled;
-    if([self.updatedValues containsObject:@"dirSyncEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
-            }
-    }
-	{id curVal = self.displayName;
+ if([self.updatedValues containsObject:@"dirSyncEnabled"])
+            { [dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];
+}	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
@@ -483,13 +495,9 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.isPublic;
-    if([self.updatedValues containsObject:@"isPublic"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isPublic"];
-            }
-    }
-	{id curVal = self.lastDirSyncTime;
+ if([self.updatedValues containsObject:@"isPublic"])
+            { [dic setValue: (self.isPublic?@"true":@"false") forKey: @"isPublic"];
+}	{id curVal = self.lastDirSyncTime;
     if([self.updatedValues containsObject:@"lastDirSyncTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastDirSyncTime"];
@@ -507,13 +515,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"mailNickname"];
             }
     }
-	{id curVal = self.mailEnabled;
-    if([self.updatedValues containsObject:@"mailEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"mailEnabled"];
-            }
-    }
-	{id curVal = self.onPremisesSecurityIdentifier;
+ if([self.updatedValues containsObject:@"mailEnabled"])
+            { [dic setValue: (self.mailEnabled?@"true":@"false") forKey: @"mailEnabled"];
+}	{id curVal = self.onPremisesSecurityIdentifier;
     if([self.updatedValues containsObject:@"onPremisesSecurityIdentifier"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"onPremisesSecurityIdentifier"];
@@ -571,65 +575,27 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.securityEnabled;
-    if([self.updatedValues containsObject:@"securityEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"securityEnabled"];
-            }
-    }
-	{id curVal = self.accessType;
-    if([self.updatedValues containsObject:@"AccessType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphGroupAccessTypeSerializer toString:curVal] forKey: @"AccessType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"AccessType"];
-            }
-        
-            }}
-	{id curVal = self.allowExternalSenders;
-    if([self.updatedValues containsObject:@"AllowExternalSenders"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"AllowExternalSenders"];
-            }
-    }
-	{id curVal = self.autoSubscribeNewMembers;
-    if([self.updatedValues containsObject:@"AutoSubscribeNewMembers"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"AutoSubscribeNewMembers"];
-            }
-    }
-	{id curVal = self.emailAddress;
+ if([self.updatedValues containsObject:@"securityEnabled"])
+            { [dic setValue: (self.securityEnabled?@"true":@"false") forKey: @"securityEnabled"];
+} if([self.updatedValues containsObject:@"AccessType"])
+            { [dic setValue: [MSGraphGroupAccessTypeSerializer toString:self.accessType] forKey: @"AccessType"];
+} if([self.updatedValues containsObject:@"AllowExternalSenders"])
+            { [dic setValue: (self.allowExternalSenders?@"true":@"false") forKey: @"AllowExternalSenders"];
+} if([self.updatedValues containsObject:@"AutoSubscribeNewMembers"])
+            { [dic setValue: (self.autoSubscribeNewMembers?@"true":@"false") forKey: @"AutoSubscribeNewMembers"];
+}	{id curVal = self.emailAddress;
     if([self.updatedValues containsObject:@"EmailAddress"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"EmailAddress"];
             }
     }
-	{id curVal = self.isFavorite;
-    if([self.updatedValues containsObject:@"IsFavorite"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsFavorite"];
-            }
-    }
-	{id curVal = self.isSubscribedByMail;
-    if([self.updatedValues containsObject:@"IsSubscribedByMail"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsSubscribedByMail"];
-            }
-    }
-	{id curVal = self.unseenCount;
-    if([self.updatedValues containsObject:@"UnseenCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UnseenCount"];
-            }
-    }
-	{id curVal = self.appRoleAssignments;
+ if([self.updatedValues containsObject:@"IsFavorite"])
+            { [dic setValue: (self.isFavorite?@"true":@"false") forKey: @"IsFavorite"];
+} if([self.updatedValues containsObject:@"IsSubscribedByMail"])
+            { [dic setValue: (self.isSubscribedByMail?@"true":@"false") forKey: @"IsSubscribedByMail"];
+} if([self.updatedValues containsObject:@"UnseenCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.unseenCount] forKey: @"UnseenCount"];
+}	{id curVal = self.appRoleAssignments;
     if([self.updatedValues containsObject:@"appRoleAssignments"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

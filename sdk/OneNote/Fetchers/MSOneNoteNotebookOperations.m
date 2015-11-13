@@ -44,7 +44,7 @@ root for authoritative license information.﻿
     return [self copyNotebookRawWithSiteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString notebookFolder:notebookFolderString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSOneNoteCopyStatusModel  class]];
             callback(result, e);
         } 
         else {

@@ -25,10 +25,15 @@ root for authoritative license information.﻿
 @class MSOutlookAttachmentFetcher;	
 @class MSOutlookItemFetcher;	
 @class MSOutlookDirectoryObjectFetcher;	
-@class MSOutlookFolderFetcher;	
+@class MSOutlookMailFolderFetcher;	
 @class MSOutlookCalendarFetcher;	
 @class MSOutlookCalendarGroupFetcher;	
 @class MSOutlookContactFolderFetcher;	
+@class MSOutlookPhotoFetcher;	
+@class MSOutlookSubscriptionFetcher;	
+@class MSOutlookNotificationFetcher;	
+@class MSOutlookConversationFetcher;	
+@class MSOutlookConversationThreadFetcher;	
 @class MSOutlookEntityOperations;
 
 
@@ -50,10 +55,15 @@ root for authoritative license information.﻿
 - (MSOutlookAttachmentFetcher *)asAttachment;	
 - (MSOutlookItemFetcher *)asItem;	
 - (MSOutlookDirectoryObjectFetcher *)asDirectoryObject;	
-- (MSOutlookFolderFetcher *)asFolder;	
+- (MSOutlookMailFolderFetcher *)asMailFolder;	
 - (MSOutlookCalendarFetcher *)asCalendar;	
 - (MSOutlookCalendarGroupFetcher *)asCalendarGroup;	
 - (MSOutlookContactFolderFetcher *)asContactFolder;	
+- (MSOutlookPhotoFetcher *)asPhoto;	
+- (MSOutlookSubscriptionFetcher *)asSubscription;	
+- (MSOutlookNotificationFetcher *)asNotification;	
+- (MSOutlookConversationFetcher *)asConversation;	
+- (MSOutlookConversationThreadFetcher *)asConversationThread;	
 
 @end
 

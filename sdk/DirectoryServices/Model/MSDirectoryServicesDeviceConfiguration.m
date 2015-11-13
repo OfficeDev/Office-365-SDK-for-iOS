@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesDeviceConfiguration
@@ -168,6 +168,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"publicIssuerCertificates"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.cloudPublicIssuerCertificates) {
@@ -175,6 +176,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"cloudPublicIssuerCertificates"];}
 	{[dic setValue: [NSNumber numberWithInt: self.registrationQuota] forKey: @"registrationQuota"];}
 	{[dic setValue: [NSNumber numberWithInt: self.maximumRegistrationInactivityPeriod] forKey: @"maximumRegistrationInactivityPeriod"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
@@ -188,6 +190,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
 	{id curVal = [self.manager toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -196,6 +199,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.members) {
@@ -203,6 +207,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -210,6 +215,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.owners) {
@@ -217,6 +223,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ownedObjects) {
@@ -224,6 +231,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
     [dic setValue: @"#Microsoft.DirectoryServices.DeviceConfiguration" forKey: @"@odata.type"];
 
     return dic;
@@ -285,19 +293,11 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.registrationQuota;
-    if([self.updatedValues containsObject:@"registrationQuota"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"registrationQuota"];
-            }
-    }
-	{id curVal = self.maximumRegistrationInactivityPeriod;
-    if([self.updatedValues containsObject:@"maximumRegistrationInactivityPeriod"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"maximumRegistrationInactivityPeriod"];
-            }
-    }
-	{id curVal = self.objectType;
+ if([self.updatedValues containsObject:@"registrationQuota"])
+            { [dic setValue: [NSNumber numberWithInt: self.registrationQuota] forKey: @"registrationQuota"];
+} if([self.updatedValues containsObject:@"maximumRegistrationInactivityPeriod"])
+            { [dic setValue: [NSNumber numberWithInt: self.maximumRegistrationInactivityPeriod] forKey: @"maximumRegistrationInactivityPeriod"];
+}	{id curVal = self.objectType;
     if([self.updatedValues containsObject:@"objectType"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];

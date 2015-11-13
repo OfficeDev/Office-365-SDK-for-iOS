@@ -33,7 +33,6 @@ root for authoritative license information.﻿
 - (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId renameAs:(NSString *)renameAs callback:(void (^)(MSGraphCopySectionModel *, MSOrcError*))callback ;
 - (void)copyToSectionGroupRawWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId renameAs:(NSString *)renameAs callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)thumbnailWithCallback:(void (^)(NSStream *, MSOrcError*))callback ;
-- (void)thumbnailRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

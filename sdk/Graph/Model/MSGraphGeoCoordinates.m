@@ -80,25 +80,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.altitude;
-    if([self.updatedValues containsObject:@"altitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"altitude"];
-            }
-    }
-	{id curVal = self.latitude;
-    if([self.updatedValues containsObject:@"latitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"latitude"];
-            }
-    }
-	{id curVal = self.longitude;
-    if([self.updatedValues containsObject:@"longitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"longitude"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"altitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.altitude] forKey: @"altitude"];
+} if([self.updatedValues containsObject:@"latitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.latitude] forKey: @"latitude"];
+} if([self.updatedValues containsObject:@"longitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.longitude] forKey: @"longitude"];
+}    return dic;
 }
 
 

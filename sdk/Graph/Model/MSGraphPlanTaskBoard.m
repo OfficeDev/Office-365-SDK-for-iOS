@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPlanTaskBoard
@@ -79,23 +79,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.type;
-    if([self.updatedValues containsObject:@"type"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphTaskBoardTypeSerializer toString:curVal] forKey: @"type"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"type"];
-            }
-        
-            }}
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"type"])
+            { [dic setValue: [MSGraphTaskBoardTypeSerializer toString:self.type] forKey: @"type"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];

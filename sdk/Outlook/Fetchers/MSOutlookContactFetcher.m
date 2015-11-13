@@ -69,4 +69,9 @@ root for authoritative license information.﻿
     }];
 }
 
+- (MSOutlookPhotoFetcher *)photo {
+
+	 return [[MSOutlookPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSOutlookPhoto class]];
+}
+
 @end

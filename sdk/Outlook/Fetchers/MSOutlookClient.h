@@ -21,6 +21,7 @@ root for authoritative license information.﻿
 #import "MSOutlookModels.h"
 
 @class MSOutlookUserCollectionFetcher;
+@class MSOutlookGroupCollectionFetcher;
 @class MSOutlookUserFetcher;
 
 /** Client MSOutlookClient
@@ -30,6 +31,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
 @property (strong, nonatomic, readonly, getter=users) MSOutlookUserCollectionFetcher *users;
+@property (strong, nonatomic, readonly, getter=groups) MSOutlookGroupCollectionFetcher *groups;
 @property (strong, nonatomic, readonly, getter=me) MSOutlookUserFetcher *me;
 @end
 

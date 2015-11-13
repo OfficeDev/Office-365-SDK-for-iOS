@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSSampleServiceModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSSampleServiceSampleEntity
@@ -115,6 +115,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Navigations"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.items) {
@@ -122,6 +123,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Items"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.nestedSampleEntityCollection) {
@@ -129,6 +131,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"nestedSampleEntityCollection"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.SampleService.SampleEntity" forKey: @"@odata.type"];
 

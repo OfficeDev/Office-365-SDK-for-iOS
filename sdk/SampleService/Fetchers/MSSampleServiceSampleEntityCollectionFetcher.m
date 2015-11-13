@@ -31,6 +31,12 @@ root for authoritative license information.﻿
     }];
 }
 
+- (void)readWithCallback:(void (^)(NSArray *, MSOrcError *))callback {
+    [super readWithCallback:^(id response, MSOrcError *error) {
+        callback(response, error);
+    }];
+}
+
 - (MSSampleServiceSampleEntityFetcher *)getById:(id) identifier {
 
     return [[MSSampleServiceSampleEntityFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];

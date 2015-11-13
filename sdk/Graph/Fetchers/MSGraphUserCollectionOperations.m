@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     return [self assignLicenseRawWithAddLicenses:addLicensesString removeLicenses:removeLicensesString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphUser * result = (MSGraphUser *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphUser * result = (MSGraphUser *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphUser  class]];
             callback(result, e);
         } 
         else {
@@ -135,7 +135,7 @@ root for authoritative license information.﻿
     return [self findMeetingTimesRawWithAttendees:attendeesString locationConstraint:locationConstraintString timeConstraint:timeConstraintString meetingDuration:meetingDurationString maxCandidates:maxCandidatesString isOrganizerOptional:isOrganizerOptionalString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMeetingTimeCandidate * result = (MSGraphMeetingTimeCandidate *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMeetingTimeCandidate * result = (MSGraphMeetingTimeCandidate *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMeetingTimeCandidate  class]];
             callback(result, e);
         } 
         else {

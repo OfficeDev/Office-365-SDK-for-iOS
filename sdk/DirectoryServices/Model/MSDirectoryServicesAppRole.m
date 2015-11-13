@@ -88,6 +88,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"allowedMemberTypes"];}
 	{id curVal = [self._description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
 	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
@@ -146,13 +147,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
-	{id curVal = self.isEnabled;
-    if([self.updatedValues containsObject:@"isEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
-            }
-    }
-	{id curVal = self.value;
+ if([self.updatedValues containsObject:@"isEnabled"])
+            { [dic setValue: (self.isEnabled?@"true":@"false") forKey: @"isEnabled"];
+}	{id curVal = self.value;
     if([self.updatedValues containsObject:@"value"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"value"];

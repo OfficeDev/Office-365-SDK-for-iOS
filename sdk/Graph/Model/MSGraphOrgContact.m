@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphOrgContact
@@ -155,6 +155,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningErrors"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.proxyAddresses) {
@@ -162,6 +163,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"proxyAddresses"];}
 	{id curVal = [self.sipProxyAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"sipProxyAddress"];}
 	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"state"];}
 	{id curVal = [self.streetAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"streetAddress"];}
@@ -176,6 +178,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -183,6 +186,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
 	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
@@ -213,13 +217,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"department"];
             }
     }
-	{id curVal = self.dirSyncEnabled;
-    if([self.updatedValues containsObject:@"dirSyncEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
-            }
-    }
-	{id curVal = self.displayName;
+ if([self.updatedValues containsObject:@"dirSyncEnabled"])
+            { [dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];
+}	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];

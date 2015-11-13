@@ -26,6 +26,10 @@ root for authoritative license information.﻿
 
 	return [[MSOutlookUserCollectionFetcher alloc] initWithUrl:@"Users" parent:self];
 }
+- (MSOutlookGroupCollectionFetcher *)groups {
+
+	return [[MSOutlookGroupCollectionFetcher alloc] initWithUrl:@"Groups" parent:self];
+}
 
 - (MSOutlookUserFetcher *)me {
 

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphDeviceConfiguration
@@ -100,6 +100,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"publicIssuerCertificates"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.cloudPublicIssuerCertificates) {
@@ -107,6 +108,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"cloudPublicIssuerCertificates"];}
 	{[dic setValue: [NSNumber numberWithInt: self.registrationQuota] forKey: @"registrationQuota"];}
 	{[dic setValue: [NSNumber numberWithInt: self.maximumRegistrationInactivityPeriod] forKey: @"maximumRegistrationInactivityPeriod"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
@@ -173,19 +175,11 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.registrationQuota;
-    if([self.updatedValues containsObject:@"registrationQuota"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"registrationQuota"];
-            }
-    }
-	{id curVal = self.maximumRegistrationInactivityPeriod;
-    if([self.updatedValues containsObject:@"maximumRegistrationInactivityPeriod"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"maximumRegistrationInactivityPeriod"];
-            }
-    }
-	{id curVal = self.objectType;
+ if([self.updatedValues containsObject:@"registrationQuota"])
+            { [dic setValue: [NSNumber numberWithInt: self.registrationQuota] forKey: @"registrationQuota"];
+} if([self.updatedValues containsObject:@"maximumRegistrationInactivityPeriod"])
+            { [dic setValue: [NSNumber numberWithInt: self.maximumRegistrationInactivityPeriod] forKey: @"maximumRegistrationInactivityPeriod"];
+}	{id curVal = self.objectType;
     if([self.updatedValues containsObject:@"objectType"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphEvent
@@ -179,6 +179,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Attendees"];}
 	{id curVal = [self.organizer toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Organizer"];}
 	{id curVal = [self.webLink copy];if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
 	{id curVal = [self.calendar toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
@@ -189,6 +190,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Instances"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.extensions) {
@@ -196,6 +198,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.attachments) {
@@ -203,6 +206,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
@@ -213,6 +217,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.Event" forKey: @"@odata.type"];
 
@@ -245,13 +250,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"iCalUId"];
             }
     }
-	{id curVal = self.hasAttachments;
-    if([self.updatedValues containsObject:@"HasAttachments"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-            }
-    }
-	{id curVal = self.subject;
+ if([self.updatedValues containsObject:@"HasAttachments"])
+            { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
+}	{id curVal = self.subject;
     if([self.updatedValues containsObject:@"Subject"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
@@ -279,39 +280,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
             }
     }
-	{id curVal = self.importance;
-    if([self.updatedValues containsObject:@"Importance"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphImportanceSerializer toString:curVal] forKey: @"Importance"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Importance"];
-            }
-        
-            }}
-	{id curVal = self.sensitivity;
-    if([self.updatedValues containsObject:@"Sensitivity"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphSensitivitySerializer toString:curVal] forKey: @"Sensitivity"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Sensitivity"];
-            }
-        
-            }}
-	{id curVal = self.start;
+ if([self.updatedValues containsObject:@"Importance"])
+            { [dic setValue: [MSGraphImportanceSerializer toString:self.importance] forKey: @"Importance"];
+} if([self.updatedValues containsObject:@"Sensitivity"])
+            { [dic setValue: [MSGraphSensitivitySerializer toString:self.sensitivity] forKey: @"Sensitivity"];
+}	{id curVal = self.start;
     if([self.updatedValues containsObject:@"Start"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Start"];
@@ -357,25 +330,13 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.isAllDay;
-    if([self.updatedValues containsObject:@"IsAllDay"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsAllDay"];
-            }
-    }
-	{id curVal = self.isCancelled;
-    if([self.updatedValues containsObject:@"IsCancelled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsCancelled"];
-            }
-    }
-	{id curVal = self.isOrganizer;
-    if([self.updatedValues containsObject:@"IsOrganizer"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsOrganizer"];
-            }
-    }
-	{id curVal = self.recurrence;
+ if([self.updatedValues containsObject:@"IsAllDay"])
+            { [dic setValue: (self.isAllDay?@"true":@"false") forKey: @"IsAllDay"];
+} if([self.updatedValues containsObject:@"IsCancelled"])
+            { [dic setValue: (self.isCancelled?@"true":@"false") forKey: @"IsCancelled"];
+} if([self.updatedValues containsObject:@"IsOrganizer"])
+            { [dic setValue: (self.isOrganizer?@"true":@"false") forKey: @"IsOrganizer"];
+}	{id curVal = self.recurrence;
     if([self.updatedValues containsObject:@"Recurrence"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Recurrence"];
@@ -391,51 +352,19 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.responseRequested;
-    if([self.updatedValues containsObject:@"ResponseRequested"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"ResponseRequested"];
-            }
-    }
-	{id curVal = self.seriesMasterId;
+ if([self.updatedValues containsObject:@"ResponseRequested"])
+            { [dic setValue: (self.responseRequested?@"true":@"false") forKey: @"ResponseRequested"];
+}	{id curVal = self.seriesMasterId;
     if([self.updatedValues containsObject:@"SeriesMasterId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SeriesMasterId"];
             }
     }
-	{id curVal = self.showAs;
-    if([self.updatedValues containsObject:@"ShowAs"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"ShowAs"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"ShowAs"];
-            }
-        
-            }}
-	{id curVal = self.type;
-    if([self.updatedValues containsObject:@"Type"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphEventTypeSerializer toString:curVal] forKey: @"Type"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Type"];
-            }
-        
-            }}
-	{id curVal = self.attendees;
+ if([self.updatedValues containsObject:@"ShowAs"])
+            { [dic setValue: [MSGraphFreeBusyStatusSerializer toString:self.showAs] forKey: @"ShowAs"];
+} if([self.updatedValues containsObject:@"Type"])
+            { [dic setValue: [MSGraphEventTypeSerializer toString:self.type] forKey: @"Type"];
+}	{id curVal = self.attendees;
     if([self.updatedValues containsObject:@"Attendees"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

@@ -84,9 +84,9 @@ root for authoritative license information.﻿
 	return [[MSOutlookDirectoryObjectFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookDirectoryObject class]];
 }
 
-- (MSOutlookFolderFetcher *)asFolder {
+- (MSOutlookMailFolderFetcher *)asMailFolder {
 
-	return [[MSOutlookFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookFolder class]];
+	return [[MSOutlookMailFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookMailFolder class]];
 }
 
 - (MSOutlookCalendarFetcher *)asCalendar {
@@ -102,6 +102,31 @@ root for authoritative license information.﻿
 - (MSOutlookContactFolderFetcher *)asContactFolder {
 
 	return [[MSOutlookContactFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookContactFolder class]];
+}
+
+- (MSOutlookPhotoFetcher *)asPhoto {
+
+	return [[MSOutlookPhotoFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookPhoto class]];
+}
+
+- (MSOutlookSubscriptionFetcher *)asSubscription {
+
+	return [[MSOutlookSubscriptionFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookSubscription class]];
+}
+
+- (MSOutlookNotificationFetcher *)asNotification {
+
+	return [[MSOutlookNotificationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookNotification class]];
+}
+
+- (MSOutlookConversationFetcher *)asConversation {
+
+	return [[MSOutlookConversationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookConversation class]];
+}
+
+- (MSOutlookConversationThreadFetcher *)asConversationThread {
+
+	return [[MSOutlookConversationThreadFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookConversationThread class]];
 }
 
 @end

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPrivilegedRoleSettings
@@ -91,55 +91,27 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.minElevationDuration;
-    if([self.updatedValues containsObject:@"MinElevationDuration"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"MinElevationDuration"];
-            }
-    }
-	{id curVal = self.maxElavationDuration;
-    if([self.updatedValues containsObject:@"MaxElavationDuration"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"MaxElavationDuration"];
-            }
-    }
-	{id curVal = self.elevationDuration;
-    if([self.updatedValues containsObject:@"ElevationDuration"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ElevationDuration"];
-            }
-    }
-	{id curVal = self.roleId;
+ if([self.updatedValues containsObject:@"MinElevationDuration"])
+            { [dic setValue: [NSNumber numberWithInt: self.minElevationDuration] forKey: @"MinElevationDuration"];
+} if([self.updatedValues containsObject:@"MaxElavationDuration"])
+            { [dic setValue: [NSNumber numberWithInt: self.maxElavationDuration] forKey: @"MaxElavationDuration"];
+} if([self.updatedValues containsObject:@"ElevationDuration"])
+            { [dic setValue: [NSNumber numberWithInt: self.elevationDuration] forKey: @"ElevationDuration"];
+}	{id curVal = self.roleId;
     if([self.updatedValues containsObject:@"RoleId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
             }
     }
-	{id curVal = self.notificationToUserOnElevation;
-    if([self.updatedValues containsObject:@"NotificationToUserOnElevation"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"NotificationToUserOnElevation"];
-            }
-    }
-	{id curVal = self.ticketingInfoOnElevation;
-    if([self.updatedValues containsObject:@"TicketingInfoOnElevation"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"TicketingInfoOnElevation"];
-            }
-    }
-	{id curVal = self.mfaOnElevation;
-    if([self.updatedValues containsObject:@"MfaOnElevation"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"MfaOnElevation"];
-            }
-    }
-	{id curVal = self.lastGlobalAdmin;
-    if([self.updatedValues containsObject:@"LastGlobalAdmin"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"LastGlobalAdmin"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"NotificationToUserOnElevation"])
+            { [dic setValue: (self.notificationToUserOnElevation?@"true":@"false") forKey: @"NotificationToUserOnElevation"];
+} if([self.updatedValues containsObject:@"TicketingInfoOnElevation"])
+            { [dic setValue: (self.ticketingInfoOnElevation?@"true":@"false") forKey: @"TicketingInfoOnElevation"];
+} if([self.updatedValues containsObject:@"MfaOnElevation"])
+            { [dic setValue: (self.mfaOnElevation?@"true":@"false") forKey: @"MfaOnElevation"];
+} if([self.updatedValues containsObject:@"LastGlobalAdmin"])
+            { [dic setValue: (self.lastGlobalAdmin?@"true":@"false") forKey: @"LastGlobalAdmin"];
+}    return dic;
 }
 
 

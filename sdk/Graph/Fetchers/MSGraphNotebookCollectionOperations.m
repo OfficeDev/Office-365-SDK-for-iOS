@@ -35,7 +35,7 @@ root for authoritative license information.﻿
     return [self copyNotebookRawWithSiteCollectionId:siteCollectionIdString siteId:siteIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphCopyNotebookModel * result = (MSGraphCopyNotebookModel *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphCopyNotebookModel * result = (MSGraphCopyNotebookModel *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphCopyNotebookModel  class]];
             callback(result, e);
         } 
         else {

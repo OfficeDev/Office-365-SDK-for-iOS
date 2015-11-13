@@ -88,13 +88,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"errorDetail"];
             }
     }
-	{id curVal = self.resolved;
-    if([self.updatedValues containsObject:@"resolved"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"resolved"];
-            }
-    }
-	{id curVal = self.service;
+ if([self.updatedValues containsObject:@"resolved"])
+            { [dic setValue: (self.resolved?@"true":@"false") forKey: @"resolved"];
+}	{id curVal = self.service;
     if([self.updatedValues containsObject:@"service"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"service"];

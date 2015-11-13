@@ -31,6 +31,12 @@ root for authoritative license information.﻿
     }];
 }
 
+- (void)readWithCallback:(void (^)(NSArray *, MSOrcError *))callback {
+    [super readWithCallback:^(id response, MSOrcError *error) {
+        callback(response, error);
+    }];
+}
+
 - (MSGraphItemAttachmentFetcher *)getById:(id) identifier {
 
     return [[MSGraphItemAttachmentFetcher alloc] initWithUrl:[[NSString alloc] initWithFormat:@"('%@')" , identifier] parent:self];

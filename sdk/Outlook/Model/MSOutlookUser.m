@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookUser
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"Messages", @"messages", @"Folders", @"folders", @"Calendar", @"calendar", @"Calendars", @"calendars", @"CalendarGroups", @"calendarGroups", @"CalendarView", @"calendarView", @"Events", @"events", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"RootFolder", @"rootFolder", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"Subscriptions", @"subscriptions", @"Messages", @"messages", @"JoinedGroups", @"joinedGroups", @"MailFolders", @"mailFolders", @"Calendar", @"calendar", @"Calendars", @"calendars", @"CalendarGroups", @"calendarGroups", @"CalendarView", @"calendarView", @"Events", @"events", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"Photo", @"photo", @"Id", @"_id", nil];
     
     }
     
@@ -55,9 +55,21 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
+		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[dic objectForKey: @"EmailAddress"] copy] : _emailAddress;
 		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
 		_alias = [dic objectForKey: @"Alias"] != nil ? [[dic objectForKey: @"Alias"] copy] : _alias;
 		_mailboxGuid = [dic objectForKey: @"MailboxGuid"] != nil ? [[dic objectForKey: @"MailboxGuid"] copy] : _mailboxGuid;
+
+        if([dic objectForKey: @"Subscriptions"] != [NSNull null]){
+            _subscriptions = [[MSOrcChangesTrackingArray alloc] init];
+            
+            for (id object in [dic objectForKey: @"Subscriptions"]) {
+                [_subscriptions addObject:[[MSOutlookSubscription alloc] initWithDictionary: object]];
+            }
+            
+            [(MSOrcChangesTrackingArray *)_subscriptions resetChangedFlag];
+        }
+        
 
         if([dic objectForKey: @"Messages"] != [NSNull null]){
             _messages = [[MSOrcChangesTrackingArray alloc] init];
@@ -70,14 +82,25 @@ root for authoritative license information.﻿
         }
         
 
-        if([dic objectForKey: @"Folders"] != [NSNull null]){
-            _folders = [[MSOrcChangesTrackingArray alloc] init];
+        if([dic objectForKey: @"JoinedGroups"] != [NSNull null]){
+            _joinedGroups = [[MSOrcChangesTrackingArray alloc] init];
             
-            for (id object in [dic objectForKey: @"Folders"]) {
-                [_folders addObject:[[MSOutlookFolder alloc] initWithDictionary: object]];
+            for (id object in [dic objectForKey: @"JoinedGroups"]) {
+                [_joinedGroups addObject:[[MSOutlookGroup alloc] initWithDictionary: object]];
             }
             
-            [(MSOrcChangesTrackingArray *)_folders resetChangedFlag];
+            [(MSOrcChangesTrackingArray *)_joinedGroups resetChangedFlag];
+        }
+        
+
+        if([dic objectForKey: @"MailFolders"] != [NSNull null]){
+            _mailFolders = [[MSOrcChangesTrackingArray alloc] init];
+            
+            for (id object in [dic objectForKey: @"MailFolders"]) {
+                [_mailFolders addObject:[[MSOutlookMailFolder alloc] initWithDictionary: object]];
+            }
+            
+            [(MSOrcChangesTrackingArray *)_mailFolders resetChangedFlag];
         }
         
 		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
@@ -147,7 +170,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_contactFolders resetChangedFlag];
         }
         
-		_rootFolder = [dic objectForKey: @"RootFolder"] != nil ? [[MSOutlookFolder alloc] initWithDictionary: [dic objectForKey: @"RootFolder"]] : _rootFolder;
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
 		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
 
     [self.updatedValues removeAllObjects];
@@ -160,9 +183,18 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
+	{id curVal = [self.emailAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
 	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
 	{id curVal = [self.alias copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Alias"];}
 	{id curVal = [self.mailboxGuid copy];if (curVal!=nil) [dic setValue: curVal forKey: @"MailboxGuid"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.subscriptions) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Subscriptions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.messages) {
@@ -170,13 +202,23 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Messages"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
-    for(id obj in self.folders) {
+    for(id obj in self.joinedGroups) {
        [curVal addObject:[obj toDictionary]];
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"JoinedGroups"];}
+	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.mailFolders) {
+       [curVal addObject:[obj toDictionary]];
+    }
+    
+    if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"MailFolders"];}
 	{id curVal = [self.calendar toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Calendar"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -185,6 +227,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Calendars"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.calendarGroups) {
@@ -192,6 +235,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarGroups"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.calendarView) {
@@ -199,6 +243,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.events) {
@@ -206,6 +251,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.contacts) {
@@ -213,6 +259,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Contacts"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.contactFolders) {
@@ -220,7 +267,8 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
-	{id curVal = [self.rootFolder toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"RootFolder"];}
+if (curVal!=nil) [dic setValue: curVal forKey: @"ContactFolders"];}
+	{id curVal = [self.photo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.User" forKey: @"@odata.type"];
 
@@ -231,6 +279,12 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
+	{id curVal = self.emailAddress;
+    if([self.updatedValues containsObject:@"EmailAddress"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"EmailAddress"];
+            }
+    }
 	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"DisplayName"])
     {
@@ -249,6 +303,32 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"MailboxGuid"];
             }
     }
+	{id curVal = self.subscriptions;
+    if([self.updatedValues containsObject:@"Subscriptions"])
+    {
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+            [dic setValue: curArray forKey: @"Subscriptions"];
+            }
+        else
+    {
+                
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.subscriptions) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"Subscriptions"];
+        }
+        
+            }}
 	{id curVal = self.messages;
     if([self.updatedValues containsObject:@"Messages"])
     {
@@ -275,8 +355,8 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.folders;
-    if([self.updatedValues containsObject:@"Folders"])
+	{id curVal = self.joinedGroups;
+    if([self.updatedValues containsObject:@"JoinedGroups"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];
     
@@ -284,7 +364,7 @@ root for authoritative license information.﻿
        [curArray addObject:[obj toDictionary]];
     }
     
-            [dic setValue: curArray forKey: @"Folders"];
+            [dic setValue: curArray forKey: @"JoinedGroups"];
             }
         else
     {
@@ -293,11 +373,37 @@ root for authoritative license information.﻿
         {
                 NSMutableArray *curArray = [[NSMutableArray alloc] init];
     
-    for(id obj in self.folders) {
+    for(id obj in self.joinedGroups) {
        [curArray addObject:[obj toDictionary]];
     }
     
-                 [dic setValue: curArray forKey: @"Folders"];
+                 [dic setValue: curArray forKey: @"JoinedGroups"];
+        }
+        
+            }}
+	{id curVal = self.mailFolders;
+    if([self.updatedValues containsObject:@"MailFolders"])
+    {
+            NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in curVal) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+            [dic setValue: curArray forKey: @"MailFolders"];
+            }
+        else
+    {
+                
+        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
+        {
+                NSMutableArray *curArray = [[NSMutableArray alloc] init];
+    
+    for(id obj in self.mailFolders) {
+       [curArray addObject:[obj toDictionary]];
+    }
+    
+                 [dic setValue: curArray forKey: @"MailFolders"];
         }
         
             }}
@@ -473,10 +579,10 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.rootFolder;
-    if([self.updatedValues containsObject:@"RootFolder"])
+	{id curVal = self.photo;
+    if([self.updatedValues containsObject:@"Photo"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"RootFolder"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Photo"];
             }
         else
     {
@@ -485,7 +591,7 @@ root for authoritative license information.﻿
         
             if(updatedDic!=nil && [updatedDic count]>0)
             {
-                [dic setValue: [curVal toDictionary] forKey: @"RootFolder"];
+                [dic setValue: [curVal toDictionary] forKey: @"Photo"];
             }
         
             }}
@@ -499,6 +605,14 @@ root for authoritative license information.﻿
 }
 
 
+/** Setter implementation for property emailAddress
+ *
+ */
+- (void) setEmailAddress: (NSString *) value {
+    _emailAddress = value;
+    [self valueChangedFor:@"EmailAddress"];
+}
+       
 /** Setter implementation for property displayName
  *
  */
@@ -523,6 +637,14 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"MailboxGuid"];
 }
        
+/** Setter implementation for property subscriptions
+ *
+ */
+- (void) setSubscriptions: (NSMutableArray *) value {
+    _subscriptions = value;
+    [self valueChangedFor:@"Subscriptions"];
+}
+       
 /** Setter implementation for property messages
  *
  */
@@ -531,12 +653,20 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"Messages"];
 }
        
-/** Setter implementation for property folders
+/** Setter implementation for property joinedGroups
  *
  */
-- (void) setFolders: (NSMutableArray *) value {
-    _folders = value;
-    [self valueChangedFor:@"Folders"];
+- (void) setJoinedGroups: (NSMutableArray *) value {
+    _joinedGroups = value;
+    [self valueChangedFor:@"JoinedGroups"];
+}
+       
+/** Setter implementation for property mailFolders
+ *
+ */
+- (void) setMailFolders: (NSMutableArray *) value {
+    _mailFolders = value;
+    [self valueChangedFor:@"MailFolders"];
 }
        
 /** Setter implementation for property calendar
@@ -595,12 +725,12 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"ContactFolders"];
 }
        
-/** Setter implementation for property rootFolder
+/** Setter implementation for property photo
  *
  */
-- (void) setRootFolder: (MSOutlookFolder *) value {
-    _rootFolder = value;
-    [self valueChangedFor:@"RootFolder"];
+- (void) setPhoto: (MSOutlookPhoto *) value {
+    _photo = value;
+    [self valueChangedFor:@"Photo"];
 }
        
 

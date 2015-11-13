@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphTaskDetails
@@ -93,23 +93,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"description"];
             }
     }
-	{id curVal = self.previewType;
-    if([self.updatedValues containsObject:@"previewType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphPreviewTypeSerializer toString:curVal] forKey: @"previewType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"previewType"];
-            }
-        
-            }}
-	{id curVal = self.completedBy;
+ if([self.updatedValues containsObject:@"previewType"])
+            { [dic setValue: [MSGraphPreviewTypeSerializer toString:self.previewType] forKey: @"previewType"];
+}	{id curVal = self.completedBy;
     if([self.updatedValues containsObject:@"completedBy"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"completedBy"];

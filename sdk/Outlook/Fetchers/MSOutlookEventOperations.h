@@ -37,6 +37,10 @@ root for authoritative license information.﻿
 - (void)declineRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback ;
 - (void)tentativelyAcceptRawWithComment:(NSString *)comment sendResponse:(NSString *)sendResponse callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)snoozeReminderWithNewReminderTime:(MSOutlookDateTimeTimeZone *)newReminderTime callback:(void (^)(int, MSOrcError*))callback ;
+- (void)snoozeReminderRawWithNewReminderTime:(NSString *)newReminderTime callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)dismissReminderWithCallback:(void (^)(int, MSOrcError*))callback ;
+- (void)dismissReminderRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

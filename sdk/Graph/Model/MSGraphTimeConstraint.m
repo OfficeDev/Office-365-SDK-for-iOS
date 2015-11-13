@@ -85,6 +85,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Timeslots"];}
     [dic setValue: @"#microsoft.graph.TimeConstraint" forKey: @"@odata.type"];
 
     return dic;
@@ -94,23 +95,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.activityDomain;
-    if([self.updatedValues containsObject:@"ActivityDomain"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphActivityDomainSerializer toString:curVal] forKey: @"ActivityDomain"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"ActivityDomain"];
-            }
-        
-            }}
-	{id curVal = self.timeslots;
+ if([self.updatedValues containsObject:@"ActivityDomain"])
+            { [dic setValue: [MSGraphActivityDomainSerializer toString:self.activityDomain] forKey: @"ActivityDomain"];
+}	{id curVal = self.timeslots;
     if([self.updatedValues containsObject:@"Timeslots"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

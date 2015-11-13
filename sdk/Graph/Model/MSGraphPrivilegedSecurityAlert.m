@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPrivilegedSecurityAlert
@@ -115,13 +115,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AlertId"];
             }
     }
-	{id curVal = self.numberOfAffectedItems;
-    if([self.updatedValues containsObject:@"NumberOfAffectedItems"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"NumberOfAffectedItems"];
-            }
-    }
-	{id curVal = self.additionalData;
+ if([self.updatedValues containsObject:@"NumberOfAffectedItems"])
+            { [dic setValue: [NSNumber numberWithInt: self.numberOfAffectedItems] forKey: @"NumberOfAffectedItems"];
+}	{id curVal = self.additionalData;
     if([self.updatedValues containsObject:@"AdditionalData"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"AdditionalData"];
@@ -151,39 +147,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastScannedTime"];
             }
     }
-	{id curVal = self.severityLevel;
-    if([self.updatedValues containsObject:@"SeverityLevel"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertSeveritySerializer toString:curVal] forKey: @"SeverityLevel"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"SeverityLevel"];
-            }
-        
-            }}
-	{id curVal = self.alertType;
-    if([self.updatedValues containsObject:@"AlertType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertTypeSerializer toString:curVal] forKey: @"AlertType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"AlertType"];
-            }
-        
-            }}
-	{id curVal = self.securityImpact;
+ if([self.updatedValues containsObject:@"SeverityLevel"])
+            { [dic setValue: [MSGraphAlertSeveritySerializer toString:self.severityLevel] forKey: @"SeverityLevel"];
+} if([self.updatedValues containsObject:@"AlertType"])
+            { [dic setValue: [MSGraphAlertTypeSerializer toString:self.alertType] forKey: @"AlertType"];
+}	{id curVal = self.securityImpact;
     if([self.updatedValues containsObject:@"SecurityImpact"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"SecurityImpact"];
@@ -201,47 +169,17 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"HowToPrevent"];
             }
     }
-	{id curVal = self.wasDismissed;
-    if([self.updatedValues containsObject:@"WasDismissed"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"WasDismissed"];
-            }
-    }
-	{id curVal = self.isActive;
-    if([self.updatedValues containsObject:@"IsActive"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsActive"];
-            }
-    }
-	{id curVal = self.isResolvable;
-    if([self.updatedValues containsObject:@"IsResolvable"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsResolvable"];
-            }
-    }
-	{id curVal = self.isConfigurable;
-    if([self.updatedValues containsObject:@"IsConfigurable"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsConfigurable"];
-            }
-    }
-	{id curVal = self.status;
-    if([self.updatedValues containsObject:@"Status"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphAlertStatusSerializer toString:curVal] forKey: @"Status"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Status"];
-            }
-        
-            }}
-    return dic;
+ if([self.updatedValues containsObject:@"WasDismissed"])
+            { [dic setValue: (self.wasDismissed?@"true":@"false") forKey: @"WasDismissed"];
+} if([self.updatedValues containsObject:@"IsActive"])
+            { [dic setValue: (self.isActive?@"true":@"false") forKey: @"IsActive"];
+} if([self.updatedValues containsObject:@"IsResolvable"])
+            { [dic setValue: (self.isResolvable?@"true":@"false") forKey: @"IsResolvable"];
+} if([self.updatedValues containsObject:@"IsConfigurable"])
+            { [dic setValue: (self.isConfigurable?@"true":@"false") forKey: @"IsConfigurable"];
+} if([self.updatedValues containsObject:@"Status"])
+            { [dic setValue: [MSGraphAlertStatusSerializer toString:self.status] forKey: @"Status"];
+}    return dic;
 }
 
 

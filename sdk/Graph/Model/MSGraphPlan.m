@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPlan
@@ -107,6 +107,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"tasks"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.buckets) {
@@ -114,6 +115,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"buckets"];}
 	{id curVal = [self.details toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"details"];}
 	{id curVal = [self.assignedToTaskBoard toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"assignedToTaskBoard"];}
 	{id curVal = [self.progressTaskBoard toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"progressTaskBoard"];}

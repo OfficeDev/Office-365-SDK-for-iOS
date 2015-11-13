@@ -30,6 +30,8 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
+- (void)readWithCallback:(void (^)(NSArray *, MSOrcError *))callback;
+
 - (MSOutlookCalendarGroupFetcher *)getById: (id) identifier;
 - (void)add:(MSOutlookCalendarGroup *)entity callback:(void (^)(MSOutlookCalendarGroup *, MSOrcError *))callback;
 

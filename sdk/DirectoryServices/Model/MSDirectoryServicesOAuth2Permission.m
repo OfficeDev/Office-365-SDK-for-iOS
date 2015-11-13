@@ -108,13 +108,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
-	{id curVal = self.isEnabled;
-    if([self.updatedValues containsObject:@"isEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isEnabled"];
-            }
-    }
-	{id curVal = self.type;
+ if([self.updatedValues containsObject:@"isEnabled"])
+            { [dic setValue: (self.isEnabled?@"true":@"false") forKey: @"isEnabled"];
+}	{id curVal = self.type;
     if([self.updatedValues containsObject:@"type"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"type"];

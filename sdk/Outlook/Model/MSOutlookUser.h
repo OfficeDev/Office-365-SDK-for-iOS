@@ -19,13 +19,16 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 #import "core/MSOrcChangesTrackingArray.h"
 
+@class MSOutlookSubscription;
 @class MSOutlookMessage;
-@class MSOutlookFolder;
+@class MSOutlookGroup;
+@class MSOutlookMailFolder;
 @class MSOutlookCalendar;
 @class MSOutlookCalendarGroup;
 @class MSOutlookEvent;
 @class MSOutlookContact;
 @class MSOutlookContactFolder;
+@class MSOutlookPhoto;
 #import "MSOutlookDirectoryObject.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
@@ -33,6 +36,11 @@ root for authoritative license information.﻿
  *
  */
 @interface MSOutlookUser : MSOutlookDirectoryObject <MSOrcInteroperableWithDictionary>
+
+/** Property emailAddress
+ *
+ */
+@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
 
 /** Property displayName
  *
@@ -49,15 +57,25 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setMailboxGuid:, getter=mailboxGuid) NSString * mailboxGuid;
 
+/** Property subscriptions
+ *
+ */
+@property (nonatomic,  copy, setter=setSubscriptions:, getter=subscriptions) NSMutableArray * subscriptions;
+
 /** Property messages
  *
  */
 @property (nonatomic,  copy, setter=setMessages:, getter=messages) NSMutableArray * messages;
 
-/** Property folders
+/** Property joinedGroups
  *
  */
-@property (nonatomic,  copy, setter=setFolders:, getter=folders) NSMutableArray * folders;
+@property (nonatomic,  copy, setter=setJoinedGroups:, getter=joinedGroups) NSMutableArray * joinedGroups;
+
+/** Property mailFolders
+ *
+ */
+@property (nonatomic,  copy, setter=setMailFolders:, getter=mailFolders) NSMutableArray * mailFolders;
 
 /** Property calendar
  *
@@ -94,10 +112,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setContactFolders:, getter=contactFolders) NSMutableArray * contactFolders;
 
-/** Property rootFolder
+/** Property photo
  *
  */
-@property (nonatomic,  copy, setter=setRootFolder:, getter=rootFolder) MSOutlookFolder * rootFolder;
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSOutlookPhoto * photo;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

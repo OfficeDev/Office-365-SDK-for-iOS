@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphConversation
@@ -103,6 +103,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueSenders"];}
 	{id curVal = [self.preview copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Preview"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -111,6 +112,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.Conversation" forKey: @"@odata.type"];
 
@@ -127,13 +129,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Topic"];
             }
     }
-	{id curVal = self.hasAttachments;
-    if([self.updatedValues containsObject:@"HasAttachments"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-            }
-    }
-	{id curVal = self.lastDeliveredDateTime;
+ if([self.updatedValues containsObject:@"HasAttachments"])
+            { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
+}	{id curVal = self.lastDeliveredDateTime;
     if([self.updatedValues containsObject:@"LastDeliveredDateTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastDeliveredDateTime"];

@@ -84,13 +84,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"password"];
             }
     }
-	{id curVal = self.forceChangePasswordNextLogin;
-    if([self.updatedValues containsObject:@"forceChangePasswordNextLogin"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"forceChangePasswordNextLogin"])
+            { [dic setValue: (self.forceChangePasswordNextLogin?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];
+}    return dic;
 }
 
 

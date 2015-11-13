@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesDevice
@@ -200,6 +200,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"alternativeSecurityIds"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.approximateLastLogonTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"approximateLastLogonTimestamp"];}
 	{id curVal = [self.deviceId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceId"];}
 	{id curVal = [self.deviceMetadata copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceMetadata"];}
@@ -213,6 +214,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"devicePhysicalIds"];}
 	{id curVal = [self.deviceTrustType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceTrustType"];}
 	{[dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];}
 	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
@@ -224,6 +226,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"registeredOwners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.registeredUsers) {
@@ -231,6 +234,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
 	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
@@ -242,6 +246,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
 	{id curVal = [self.manager toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -250,6 +255,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.members) {
@@ -257,6 +263,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -264,6 +271,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.owners) {
@@ -271,6 +279,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ownedObjects) {
@@ -278,6 +287,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
     [dic setValue: @"#Microsoft.DirectoryServices.Device" forKey: @"@odata.type"];
 
     return dic;
@@ -287,13 +297,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.accountEnabled;
-    if([self.updatedValues containsObject:@"accountEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"accountEnabled"];
-            }
-    }
-	{id curVal = self.alternativeSecurityIds;
+ if([self.updatedValues containsObject:@"accountEnabled"])
+            { [dic setValue: (self.accountEnabled?@"true":@"false") forKey: @"accountEnabled"];
+}	{id curVal = self.alternativeSecurityIds;
     if([self.updatedValues containsObject:@"alternativeSecurityIds"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];
@@ -337,13 +343,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceMetadata"];
             }
     }
-	{id curVal = self.deviceObjectVersion;
-    if([self.updatedValues containsObject:@"deviceObjectVersion"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"deviceObjectVersion"];
-            }
-    }
-	{id curVal = self.deviceOSType;
+ if([self.updatedValues containsObject:@"deviceObjectVersion"])
+            { [dic setValue: [NSNumber numberWithInt: self.deviceObjectVersion] forKey: @"deviceObjectVersion"];
+}	{id curVal = self.deviceOSType;
     if([self.updatedValues containsObject:@"deviceOSType"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceOSType"];
@@ -387,13 +389,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceTrustType"];
             }
     }
-	{id curVal = self.dirSyncEnabled;
-    if([self.updatedValues containsObject:@"dirSyncEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"dirSyncEnabled"];
-            }
-    }
-	{id curVal = self.displayName;
+ if([self.updatedValues containsObject:@"dirSyncEnabled"])
+            { [dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];
+}	{id curVal = self.displayName;
     if([self.updatedValues containsObject:@"displayName"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];

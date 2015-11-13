@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphExtensionProperty
@@ -95,6 +95,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"targetObjects"];}
 	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
 	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
@@ -125,13 +126,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"dataType"];
             }
     }
-	{id curVal = self.isSyncedFromOnPremises;
-    if([self.updatedValues containsObject:@"isSyncedFromOnPremises"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isSyncedFromOnPremises"];
-            }
-    }
-	{id curVal = self.targetObjects;
+ if([self.updatedValues containsObject:@"isSyncedFromOnPremises"])
+            { [dic setValue: (self.isSyncedFromOnPremises?@"true":@"false") forKey: @"isSyncedFromOnPremises"];
+}	{id curVal = self.targetObjects;
     if([self.updatedValues containsObject:@"targetObjects"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

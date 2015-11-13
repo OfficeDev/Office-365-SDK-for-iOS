@@ -22,26 +22,32 @@ root for authoritative license information.﻿
 #import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
+@class MSOutlookSubscriptionCollectionFetcher;
 @class MSOutlookMessageCollectionFetcher;
-@class MSOutlookFolderCollectionFetcher;
+@class MSOutlookGroupCollectionFetcher;
+@class MSOutlookMailFolderCollectionFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookCalendarCollectionFetcher;
 @class MSOutlookCalendarGroupCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
-@class MSOutlookFolderFetcher;
+@class MSOutlookPhotoFetcher;
+@class MSOutlookSubscriptionCollectionFetcher;
 @class MSOutlookMessageCollectionFetcher;
-@class MSOutlookFolderCollectionFetcher;
+@class MSOutlookGroupCollectionFetcher;
+@class MSOutlookMailFolderCollectionFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookCalendarCollectionFetcher;
 @class MSOutlookCalendarGroupCollectionFetcher;
 @class MSOutlookEventCollectionFetcher;
 @class MSOutlookContactCollectionFetcher;
 @class MSOutlookContactFolderCollectionFetcher;
-@class MSOutlookFolderFetcher;
+@class MSOutlookPhotoFetcher;
+@class MSOutlookSubscriptionFetcher;
 @class MSOutlookMessageFetcher;
-@class MSOutlookFolderFetcher;
+@class MSOutlookGroupFetcher;
+@class MSOutlookMailFolderFetcher;
 @class MSOutlookCalendarFetcher;
 @class MSOutlookCalendarGroupFetcher;
 @class MSOutlookEventFetcher;
@@ -65,13 +71,21 @@ root for authoritative license information.﻿
 - (MSOutlookUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOutlookUserFetcher *)select:(NSString *)params;
 - (MSOutlookUserFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=subscriptions) MSOutlookSubscriptionCollectionFetcher *subscriptions;
+
+- (MSOutlookSubscriptionFetcher *)subscriptionsById:(id)identifier;
+
 @property (strong, nonatomic, readonly, getter=messages) MSOutlookMessageCollectionFetcher *messages;
 
 - (MSOutlookMessageFetcher *)messagesById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=folders) MSOutlookFolderCollectionFetcher *folders;
+@property (strong, nonatomic, readonly, getter=joinedGroups) MSOutlookGroupCollectionFetcher *joinedGroups;
 
-- (MSOutlookFolderFetcher *)foldersById:(id)identifier;
+- (MSOutlookGroupFetcher *)joinedGroupsById:(id)identifier;
+
+@property (strong, nonatomic, readonly, getter=mailFolders) MSOutlookMailFolderCollectionFetcher *mailFolders;
+
+- (MSOutlookMailFolderFetcher *)mailFoldersById:(id)identifier;
 
 
 @property (strong, nonatomic, readonly, getter=calendar) MSOutlookCalendarFetcher *calendar;
@@ -100,7 +114,7 @@ root for authoritative license information.﻿
 - (MSOutlookContactFolderFetcher *)contactFoldersById:(id)identifier;
 
 
-@property (strong, nonatomic, readonly, getter=rootFolder) MSOutlookFolderFetcher *rootFolder;
+@property (strong, nonatomic, readonly, getter=photo) MSOutlookPhotoFetcher *photo;
 
 @end
 

@@ -24,6 +24,8 @@ root for authoritative license information.﻿
 
 @class MSOutlookEmailAddressCollectionFetcher;
 @class MSOutlookPhysicalAddressFetcher;
+@class MSOutlookPhotoFetcher;
+@class MSOutlookPhotoFetcher;
 @class MSOutlookContactOperations;
 
 
@@ -42,6 +44,8 @@ root for authoritative license information.﻿
 - (MSOutlookContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOutlookContactFetcher *)select:(NSString *)params;
 - (MSOutlookContactFetcher *)expand:(NSString *)value;
+
+@property (strong, nonatomic, readonly, getter=photo) MSOutlookPhotoFetcher *photo;
 
 @end
 

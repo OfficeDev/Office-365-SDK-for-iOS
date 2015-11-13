@@ -31,15 +31,15 @@ root for authoritative license information.﻿
  */
 @interface MSOutlookMessage : MSOutlookItem <MSOrcInteroperableWithDictionary>
 
-/** Property dateTimeReceived
+/** Property receivedDateTime
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeReceived:, getter=dateTimeReceived) NSDate * dateTimeReceived;
+@property (nonatomic,  copy, setter=setReceivedDateTime:, getter=receivedDateTime) NSDate * receivedDateTime;
 
-/** Property dateTimeSent
+/** Property sentDateTime
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeSent:, getter=dateTimeSent) NSDate * dateTimeSent;
+@property (nonatomic,  copy, setter=setSentDateTime:, getter=sentDateTime) NSDate * sentDateTime;
 
 /** Property hasAttachments
  *

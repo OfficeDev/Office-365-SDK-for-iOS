@@ -92,13 +92,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.isDefault;
-    if([self.updatedValues containsObject:@"isDefault"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
-            }
-    }
-	{id curVal = self.pagesUrl;
+ if([self.updatedValues containsObject:@"isDefault"])
+            { [dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];
+}	{id curVal = self.pagesUrl;
     if([self.updatedValues containsObject:@"pagesUrl"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"pagesUrl"];

@@ -84,37 +84,17 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.altitude;
-    if([self.updatedValues containsObject:@"Altitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Altitude"];
-            }
-    }
-	{id curVal = self.latitude;
-    if([self.updatedValues containsObject:@"Latitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Latitude"];
-            }
-    }
-	{id curVal = self.longitude;
-    if([self.updatedValues containsObject:@"Longitude"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Longitude"];
-            }
-    }
-	{id curVal = self.accuracy;
-    if([self.updatedValues containsObject:@"Accuracy"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"Accuracy"];
-            }
-    }
-	{id curVal = self.altitudeAccuracy;
-    if([self.updatedValues containsObject:@"AltitudeAccuracy"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"AltitudeAccuracy"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"Altitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.altitude] forKey: @"Altitude"];
+} if([self.updatedValues containsObject:@"Latitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.latitude] forKey: @"Latitude"];
+} if([self.updatedValues containsObject:@"Longitude"])
+            { [dic setValue: [NSNumber numberWithDouble: self.longitude] forKey: @"Longitude"];
+} if([self.updatedValues containsObject:@"Accuracy"])
+            { [dic setValue: [NSNumber numberWithDouble: self.accuracy] forKey: @"Accuracy"];
+} if([self.updatedValues containsObject:@"AltitudeAccuracy"])
+            { [dic setValue: [NSNumber numberWithDouble: self.altitudeAccuracy] forKey: @"AltitudeAccuracy"];
+}    return dic;
 }
 
 

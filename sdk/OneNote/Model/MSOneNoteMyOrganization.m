@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteMyOrganization
@@ -97,6 +97,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"siteCollections"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.groups) {
@@ -104,6 +105,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"groups"];}
     [dic setValue: @"#Microsoft.OneNote.Api.MyOrganization" forKey: @"@odata.type"];
 
     return dic;

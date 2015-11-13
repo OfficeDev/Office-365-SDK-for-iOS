@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDirectoryServicesDirectoryRole
@@ -158,6 +158,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"createdObjects"];}
 	{id curVal = [self.manager toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"manager"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -166,6 +167,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"directReports"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.members) {
@@ -173,6 +175,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.memberOf) {
@@ -180,6 +183,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.owners) {
@@ -187,6 +191,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ownedObjects) {
@@ -194,6 +199,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
     [dic setValue: @"#Microsoft.DirectoryServices.DirectoryRole" forKey: @"@odata.type"];
 
     return dic;
@@ -215,19 +221,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
             }
     }
-	{id curVal = self.isSystem;
-    if([self.updatedValues containsObject:@"isSystem"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isSystem"];
-            }
-    }
-	{id curVal = self.roleDisabled;
-    if([self.updatedValues containsObject:@"roleDisabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"roleDisabled"];
-            }
-    }
-	{id curVal = self.roleTemplateId;
+ if([self.updatedValues containsObject:@"isSystem"])
+            { [dic setValue: (self.isSystem?@"true":@"false") forKey: @"isSystem"];
+} if([self.updatedValues containsObject:@"roleDisabled"])
+            { [dic setValue: (self.roleDisabled?@"true":@"false") forKey: @"roleDisabled"];
+}	{id curVal = self.roleTemplateId;
     if([self.updatedValues containsObject:@"roleTemplateId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"roleTemplateId"];

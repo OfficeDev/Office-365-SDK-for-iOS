@@ -36,7 +36,7 @@ root for authoritative license information.﻿
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMessage  class]];
             callback(result, e);
         } 
         else {
@@ -81,7 +81,7 @@ root for authoritative license information.﻿
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMessage  class]];
             callback(result, e);
         } 
         else {
@@ -124,7 +124,7 @@ root for authoritative license information.﻿
         return [self createReplyRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMessage  class]];
             callback(result, e);
         } 
         else {
@@ -164,7 +164,7 @@ root for authoritative license information.﻿
         return [self createReplyAllRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMessage  class]];
             callback(result, e);
         } 
         else {
@@ -204,7 +204,7 @@ root for authoritative license information.﻿
         return [self createForwardRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphMessage * result = (MSGraphMessage *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMessage  class]];
             callback(result, e);
         } 
         else {

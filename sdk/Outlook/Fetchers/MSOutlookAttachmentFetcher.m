@@ -79,4 +79,9 @@ root for authoritative license information.﻿
 	return [[MSOutlookItemAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookItemAttachment class]];
 }
 
+- (MSOutlookReferenceAttachmentFetcher *)asReferenceAttachment {
+
+	return [[MSOutlookReferenceAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookReferenceAttachment class]];
+}
+
 @end

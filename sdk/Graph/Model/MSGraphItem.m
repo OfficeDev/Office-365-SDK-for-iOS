@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphItem
@@ -175,6 +175,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"permissions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.versions) {
@@ -182,6 +183,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"versions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.children) {
@@ -189,6 +191,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"children"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.thumbnails) {
@@ -196,6 +199,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"thumbnails"];}
     [dic setValue: @"#microsoft.graph.item" forKey: @"@odata.type"];
 
     return dic;
@@ -301,13 +305,9 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"size"];
-            }
-    }
-	{id curVal = self.webDavUrl;
+ if([self.updatedValues containsObject:@"size"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.size] forKey: @"size"];
+}	{id curVal = self.webDavUrl;
     if([self.updatedValues containsObject:@"webDavUrl"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"webDavUrl"];

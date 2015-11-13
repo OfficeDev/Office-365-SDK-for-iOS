@@ -92,25 +92,17 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilities"];
             }
     }
-	{id curVal = self._default;
-    if([self.updatedValues containsObject:@"default"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"default"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"default"])
+            { [dic setValue: (self._default?@"true":@"false") forKey: @"default"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
-	{id curVal = self.initial;
-    if([self.updatedValues containsObject:@"initial"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"initial"];
-            }
-    }
-	{id curVal = self.name;
+ if([self.updatedValues containsObject:@"initial"])
+            { [dic setValue: (self.initial?@"true":@"false") forKey: @"initial"];
+}	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"name"];

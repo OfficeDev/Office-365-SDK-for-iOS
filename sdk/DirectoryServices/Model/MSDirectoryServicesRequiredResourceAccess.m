@@ -85,6 +85,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"resourceAccess"];}
     [dic setValue: @"#Microsoft.DirectoryServices.RequiredResourceAccess" forKey: @"@odata.type"];
 
     return dic;

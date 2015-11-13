@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNotePage
@@ -155,19 +155,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastModifiedTime"];
             }
     }
-	{id curVal = self.level;
-    if([self.updatedValues containsObject:@"level"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"level"];
-            }
-    }
-	{id curVal = self.order;
-    if([self.updatedValues containsObject:@"order"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"order"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"level"])
+            { [dic setValue: [NSNumber numberWithInt: self.level] forKey: @"level"];
+} if([self.updatedValues containsObject:@"order"])
+            { [dic setValue: [NSNumber numberWithInt: self.order] forKey: @"order"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];

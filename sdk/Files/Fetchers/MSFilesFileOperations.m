@@ -40,7 +40,7 @@ root for authoritative license information.﻿
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFile * result = (MSFilesFile *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSFilesFile * result = (MSFilesFile *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSFilesFile  class]];
             callback(result, e);
         } 
         else {

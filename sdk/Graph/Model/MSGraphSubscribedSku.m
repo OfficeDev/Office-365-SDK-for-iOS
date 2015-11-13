@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphSubscribedSku
@@ -94,6 +94,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
 	{id curVal = [self.skuId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
 	{id curVal = [self.skuPartNumber copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuPartNumber"];}
     [dic setValue: @"#microsoft.graph.SubscribedSku" forKey: @"@odata.type"];
@@ -111,13 +112,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilityStatus"];
             }
     }
-	{id curVal = self.consumedUnits;
-    if([self.updatedValues containsObject:@"consumedUnits"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"consumedUnits"];
-            }
-    }
-	{id curVal = self.objectId;
+ if([self.updatedValues containsObject:@"consumedUnits"])
+            { [dic setValue: [NSNumber numberWithInt: self.consumedUnits] forKey: @"consumedUnits"];
+}	{id curVal = self.objectId;
     if([self.updatedValues containsObject:@"objectId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];

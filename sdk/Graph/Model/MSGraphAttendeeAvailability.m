@@ -94,23 +94,9 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.availability;
-    if([self.updatedValues containsObject:@"Availability"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphFreeBusyStatusSerializer toString:curVal] forKey: @"Availability"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Availability"];
-            }
-        
-            }}
-    return dic;
+ if([self.updatedValues containsObject:@"Availability"])
+            { [dic setValue: [MSGraphFreeBusyStatusSerializer toString:self.availability] forKey: @"Availability"];
+}    return dic;
 }
 
 

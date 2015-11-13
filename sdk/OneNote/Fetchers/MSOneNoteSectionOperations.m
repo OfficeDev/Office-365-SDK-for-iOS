@@ -44,7 +44,7 @@ root for authoritative license information.﻿
     return [self copyToNotebookRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSOneNoteCopyStatusModel  class]];
             callback(result, e);
         } 
         else {
@@ -97,7 +97,7 @@ root for authoritative license information.﻿
     return [self copyToSectionGroupRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSOneNoteCopyStatusModel * result = (MSOneNoteCopyStatusModel *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSOneNoteCopyStatusModel  class]];
             callback(result, e);
         } 
         else {
@@ -137,43 +137,30 @@ root for authoritative license information.﻿
 - (void)thumbnailWithCallback:(void (^)(NSStream *, MSOrcError*))callback {
 
 
-        return [self thumbnailRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] init];
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
+
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"Thumbnail(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
+        if (e == nil) {
             NSStream * result = (NSStream *)nil/*NSStream*/;
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)thumbnailRawWithCallback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-        
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Thumbnail"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end
 

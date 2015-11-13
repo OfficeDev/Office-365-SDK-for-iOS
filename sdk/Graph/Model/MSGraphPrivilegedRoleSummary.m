@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPrivilegedRoleSummary
@@ -93,47 +93,17 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
             }
     }
-	{id curVal = self.status;
-    if([self.updatedValues containsObject:@"Status"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphRoleSummaryStatusSerializer toString:curVal] forKey: @"Status"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Status"];
-            }
-        
-            }}
-	{id curVal = self.usersCount;
-    if([self.updatedValues containsObject:@"UsersCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"UsersCount"];
-            }
-    }
-	{id curVal = self.managedCount;
-    if([self.updatedValues containsObject:@"ManagedCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ManagedCount"];
-            }
-    }
-	{id curVal = self.elevatedCount;
-    if([self.updatedValues containsObject:@"ElevatedCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"ElevatedCount"];
-            }
-    }
-	{id curVal = self.mfaEnabled;
-    if([self.updatedValues containsObject:@"MfaEnabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"MfaEnabled"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"Status"])
+            { [dic setValue: [MSGraphRoleSummaryStatusSerializer toString:self.status] forKey: @"Status"];
+} if([self.updatedValues containsObject:@"UsersCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.usersCount] forKey: @"UsersCount"];
+} if([self.updatedValues containsObject:@"ManagedCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.managedCount] forKey: @"ManagedCount"];
+} if([self.updatedValues containsObject:@"ElevatedCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.elevatedCount] forKey: @"ElevatedCount"];
+} if([self.updatedValues containsObject:@"MfaEnabled"])
+            { [dic setValue: (self.mfaEnabled?@"true":@"false") forKey: @"MfaEnabled"];
+}    return dic;
 }
 
 

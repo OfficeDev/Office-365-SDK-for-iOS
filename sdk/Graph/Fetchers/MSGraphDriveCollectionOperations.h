@@ -29,7 +29,6 @@ root for authoritative license information.﻿
 @interface MSGraphDriveCollectionOperations : MSOrcOperations
 
 - (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
-- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

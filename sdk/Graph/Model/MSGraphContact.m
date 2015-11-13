@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphContact
@@ -197,6 +197,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddresses"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.imAddresses) {
@@ -204,6 +205,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ImAddresses"];}
 	{id curVal = [self.jobTitle copy];if (curVal!=nil) [dic setValue: curVal forKey: @"JobTitle"];}
 	{id curVal = [self.companyName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"CompanyName"];}
 	{id curVal = [self.department copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Department"];}
@@ -219,6 +221,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"HomePhones"];}
 	{id curVal = [self.mobilePhone1 copy];if (curVal!=nil) [dic setValue: curVal forKey: @"MobilePhone1"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -227,6 +230,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessPhones"];}
 	{id curVal = [self.homeAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"HomeAddress"];}
 	{id curVal = [self.businessAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessAddress"];}
 	{id curVal = [self.otherAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"OtherAddress"];}
@@ -239,6 +243,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Children"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.extensions) {
@@ -246,6 +251,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{id curVal = [self.photo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
@@ -257,6 +263,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.Contact" forKey: @"@odata.type"];
 

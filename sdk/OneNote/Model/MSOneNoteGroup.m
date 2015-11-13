@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteGroup

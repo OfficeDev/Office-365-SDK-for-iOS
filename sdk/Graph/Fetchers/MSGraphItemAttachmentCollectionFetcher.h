@@ -30,6 +30,8 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
+- (void)readWithCallback:(void (^)(NSArray *, MSOrcError *))callback;
+
 - (MSGraphItemAttachmentFetcher *)getById: (id) identifier;
 - (void)add:(MSGraphItemAttachment *)entity callback:(void (^)(MSGraphItemAttachment *, MSOrcError *))callback;
 

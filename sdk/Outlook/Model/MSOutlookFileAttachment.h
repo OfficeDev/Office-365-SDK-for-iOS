@@ -42,11 +42,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setContentBytes:, getter=contentBytes) NSData * contentBytes;
 
-/** Property isContactPhoto
- *
- */
-@property (nonatomic,  setter=setIsContactPhoto:, getter=isContactPhoto) bool isContactPhoto;
-
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;
 

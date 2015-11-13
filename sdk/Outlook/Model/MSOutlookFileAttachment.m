@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookFileAttachment
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"ContentBytes", @"contentBytes", @"IsContactPhoto", @"isContactPhoto", @"DateTimeLastModified", @"dateTimeLastModified", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"ContentBytes", @"contentBytes", @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
     
     }
     
@@ -58,8 +58,7 @@ root for authoritative license information.﻿
 		_contentId = [dic objectForKey: @"ContentId"] != nil ? [[dic objectForKey: @"ContentId"] copy] : _contentId;
 		_contentLocation = [dic objectForKey: @"ContentLocation"] != nil ? [[dic objectForKey: @"ContentLocation"] copy] : _contentLocation;
 		_contentBytes = [dic objectForKey: @"ContentBytes"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"ContentBytes"]] : _contentBytes;
-		_isContactPhoto = [dic objectForKey: @"IsContactPhoto"] != nil ? [[dic objectForKey: @"IsContactPhoto"] boolValue] : _isContactPhoto;
-		self.dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : self.dateTimeLastModified;
+		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
 		self.name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : self.name;
 		self.contentType = [dic objectForKey: @"ContentType"] != nil ? [[dic objectForKey: @"ContentType"] copy] : self.contentType;
 		self.size = [dic objectForKey: @"Size"] != nil ? [[dic objectForKey: @"Size"] intValue] : self.size;
@@ -79,8 +78,7 @@ root for authoritative license information.﻿
 	{id curVal = [self.contentId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentId"];}
 	{id curVal = [self.contentLocation copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentLocation"];}
 	{id curVal = [MSOrcObjectizer stringFromData:self.contentBytes];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentBytes"];}
-	{[dic setValue: (self.isContactPhoto?@"true":@"false") forKey: @"IsContactPhoto"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
 	{id curVal = [self.contentType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
 	{[dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];}
@@ -113,16 +111,10 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromData:curVal] forKey: @"ContentBytes"];
             }
     }
-	{id curVal = self.isContactPhoto;
-    if([self.updatedValues containsObject:@"IsContactPhoto"])
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsContactPhoto"];
-            }
-    }
-	{id curVal = self.dateTimeLastModified;
-    if([self.updatedValues containsObject:@"DateTimeLastModified"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
             }
     }
 	{id curVal = self.name;
@@ -137,19 +129,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
             }
     }
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"Size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
-            }
-    }
-	{id curVal = self.isInline;
-    if([self.updatedValues containsObject:@"IsInline"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"Size"])
+            { [dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];
+} if([self.updatedValues containsObject:@"IsInline"])
+            { [dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
@@ -181,14 +165,6 @@ root for authoritative license information.﻿
 - (void) setContentBytes: (NSData *) value {
     _contentBytes = value;
     [self valueChangedFor:@"ContentBytes"];
-}
-       
-/** Setter implementation for property isContactPhoto
- *
- */
-- (void) setIsContactPhoto: (bool) value {
-    _isContactPhoto = value;
-    [self valueChangedFor:@"IsContactPhoto"];
 }
        
 

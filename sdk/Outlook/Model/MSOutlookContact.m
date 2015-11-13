@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookContact
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"Birthday", @"birthday", @"FileAs", @"fileAs", @"DisplayName", @"displayName", @"GivenName", @"givenName", @"Initials", @"initials", @"MiddleName", @"middleName", @"NickName", @"nickName", @"Surname", @"surname", @"Title", @"title", @"YomiGivenName", @"yomiGivenName", @"YomiSurname", @"yomiSurname", @"YomiCompanyName", @"yomiCompanyName", @"Generation", @"generation", @"EmailAddresses", @"emailAddresses", @"ImAddresses", @"imAddresses", @"JobTitle", @"jobTitle", @"CompanyName", @"companyName", @"Department", @"department", @"OfficeLocation", @"officeLocation", @"Profession", @"profession", @"BusinessHomePage", @"businessHomePage", @"AssistantName", @"assistantName", @"Manager", @"manager", @"HomePhones", @"homePhones", @"MobilePhone1", @"mobilePhone1", @"BusinessPhones", @"businessPhones", @"HomeAddress", @"homeAddress", @"BusinessAddress", @"businessAddress", @"OtherAddress", @"otherAddress", @"SpouseName", @"spouseName", @"PersonalNotes", @"personalNotes", @"Children", @"children", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"Birthday", @"birthday", @"FileAs", @"fileAs", @"DisplayName", @"displayName", @"GivenName", @"givenName", @"Initials", @"initials", @"MiddleName", @"middleName", @"NickName", @"nickName", @"Surname", @"surname", @"Title", @"title", @"YomiGivenName", @"yomiGivenName", @"YomiSurname", @"yomiSurname", @"YomiCompanyName", @"yomiCompanyName", @"Generation", @"generation", @"EmailAddresses", @"emailAddresses", @"ImAddresses", @"imAddresses", @"JobTitle", @"jobTitle", @"CompanyName", @"companyName", @"Department", @"department", @"OfficeLocation", @"officeLocation", @"Profession", @"profession", @"BusinessHomePage", @"businessHomePage", @"AssistantName", @"assistantName", @"Manager", @"manager", @"HomePhones", @"homePhones", @"MobilePhone1", @"mobilePhone1", @"BusinessPhones", @"businessPhones", @"HomeAddress", @"homeAddress", @"BusinessAddress", @"businessAddress", @"OtherAddress", @"otherAddress", @"SpouseName", @"spouseName", @"PersonalNotes", @"personalNotes", @"Children", @"children", @"Photo", @"photo", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -138,8 +138,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_children resetChangedFlag];
         }
         
-		self.dateTimeCreated = [dic objectForKey: @"DateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeCreated"]] : self.dateTimeCreated;
-		self.dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : self.dateTimeLastModified;
+		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
+		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
 		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
@@ -185,6 +186,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddresses"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.imAddresses) {
@@ -192,6 +194,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ImAddresses"];}
 	{id curVal = [self.jobTitle copy];if (curVal!=nil) [dic setValue: curVal forKey: @"JobTitle"];}
 	{id curVal = [self.companyName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"CompanyName"];}
 	{id curVal = [self.department copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Department"];}
@@ -207,6 +210,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"HomePhones"];}
 	{id curVal = [self.mobilePhone1 copy];if (curVal!=nil) [dic setValue: curVal forKey: @"MobilePhone1"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -215,6 +219,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessPhones"];}
 	{id curVal = [self.homeAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"HomeAddress"];}
 	{id curVal = [self.businessAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessAddress"];}
 	{id curVal = [self.otherAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"OtherAddress"];}
@@ -227,8 +232,10 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+if (curVal!=nil) [dic setValue: curVal forKey: @"Children"];}
+	{id curVal = [self.photo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -237,6 +244,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.Contact" forKey: @"@odata.type"];
 
@@ -575,16 +583,32 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.dateTimeCreated;
-    if([self.updatedValues containsObject:@"DateTimeCreated"])
+	{id curVal = self.photo;
+    if([self.updatedValues containsObject:@"Photo"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Photo"];
+            }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Photo"];
+            }
+        
+            }}
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"CreatedDateTime"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"CreatedDateTime"];
             }
     }
-	{id curVal = self.dateTimeLastModified;
-    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
             }
     }
 	{id curVal = self.changeKey;
@@ -891,6 +915,14 @@ root for authoritative license information.﻿
 - (void) setChildren: (NSMutableArray *) value {
     _children = value;
     [self valueChangedFor:@"Children"];
+}
+       
+/** Setter implementation for property photo
+ *
+ */
+- (void) setPhoto: (MSOutlookPhoto *) value {
+    _photo = value;
+    [self valueChangedFor:@"Photo"];
 }
        
 

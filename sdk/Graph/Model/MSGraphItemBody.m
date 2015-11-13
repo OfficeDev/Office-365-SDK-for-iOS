@@ -78,23 +78,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.contentType;
-    if([self.updatedValues containsObject:@"ContentType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphBodyTypeSerializer toString:curVal] forKey: @"ContentType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"ContentType"];
-            }
-        
-            }}
-	{id curVal = self.content;
+ if([self.updatedValues containsObject:@"ContentType"])
+            { [dic setValue: [MSGraphBodyTypeSerializer toString:self.contentType] forKey: @"ContentType"];
+}	{id curVal = self.content;
     if([self.updatedValues containsObject:@"Content"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Content"];

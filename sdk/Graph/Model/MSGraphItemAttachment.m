@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphItemAttachment
@@ -123,19 +123,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
             }
     }
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"Size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
-            }
-    }
-	{id curVal = self.isInline;
-    if([self.updatedValues containsObject:@"IsInline"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"Size"])
+            { [dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];
+} if([self.updatedValues containsObject:@"IsInline"])
+            { [dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];

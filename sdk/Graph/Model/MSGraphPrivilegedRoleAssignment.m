@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPrivilegedRoleAssignment
@@ -99,13 +99,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RoleId"];
             }
     }
-	{id curVal = self.isElevated;
-    if([self.updatedValues containsObject:@"IsElevated"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsElevated"];
-            }
-    }
-	{id curVal = self.expirationTime;
+ if([self.updatedValues containsObject:@"IsElevated"])
+            { [dic setValue: (self.isElevated?@"true":@"false") forKey: @"IsElevated"];
+}	{id curVal = self.expirationTime;
     if([self.updatedValues containsObject:@"ExpirationTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ExpirationTime"];

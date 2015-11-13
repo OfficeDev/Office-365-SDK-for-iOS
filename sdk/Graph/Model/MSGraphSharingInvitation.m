@@ -92,13 +92,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"redeemedBy"];
             }
     }
-	{id curVal = self.signInRequired;
-    if([self.updatedValues containsObject:@"signInRequired"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"signInRequired"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"signInRequired"])
+            { [dic setValue: (self.signInRequired?@"true":@"false") forKey: @"signInRequired"];
+}    return dic;
 }
 
 

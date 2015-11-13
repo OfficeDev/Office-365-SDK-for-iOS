@@ -87,6 +87,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"nextExpectedRanges"];}
     [dic setValue: @"#microsoft.graph.uploadSession" forKey: @"@odata.type"];
 
     return dic;

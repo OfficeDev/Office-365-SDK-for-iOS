@@ -39,7 +39,7 @@ root for authoritative license information.﻿
     return [self inviteRawWithRecipients:recipientsString message:messageString requireSignIn:requireSignInString sendInvitation:sendInvitationString roles:rolesString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPermission  class]];
             callback(result, e);
         } 
         else {
@@ -86,7 +86,7 @@ root for authoritative license information.﻿
     return [self copyRawWithParentReference:parentReferenceString name:nameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphItem  class]];
             callback(result, e);
         } 
         else {
@@ -131,7 +131,7 @@ root for authoritative license information.﻿
     return [self createLinkRawWithType:typeString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphPermission * result = (MSGraphPermission *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphPermission  class]];
             callback(result, e);
         } 
         else {
@@ -176,7 +176,7 @@ root for authoritative license information.﻿
     return [self createSessionRawWithItem:itemString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSGraphUploadSession * result = (MSGraphUploadSession *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSGraphUploadSession * result = (MSGraphUploadSession *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphUploadSession  class]];
             callback(result, e);
         } 
         else {
@@ -216,132 +216,83 @@ root for authoritative license information.﻿
 - (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-        return [self allPhotosRawWithCallback:^(NSString *returnValue, MSOrcError *e) {
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] init];
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
+
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"allPhotos(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
+        if (e == nil) {
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphItem  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-        
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"allPhotos"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 - (void)deltaWithToken:(NSString *)token callback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-      NSString *tokenString = [token copy];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  token, @"token", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self deltaRawWithToken:tokenString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"delta(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
+        if (e == nil) {
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphItem  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)deltaRawWithToken:(NSString *)token callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  token, @"token", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"delta"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 - (void)searchWithQ:(NSString *)q callback:(void (^)(MSGraphItem *, MSOrcError*))callback {
 
 
-      NSString *qString = [q copy];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  q, @"q", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self searchRawWithQ:qString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"search(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:returnValue];
+        if (e == nil) {
+            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphItem  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)searchRawWithQ:(NSString *)q callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  q, @"q", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"search"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end

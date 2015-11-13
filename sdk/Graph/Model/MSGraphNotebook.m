@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphNotebook
@@ -121,6 +121,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"sections"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.sectionGroups) {
@@ -128,6 +129,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"sectionGroups"];}
     [dic setValue: @"#microsoft.graph.Notebook" forKey: @"@odata.type"];
 
     return dic;
@@ -137,35 +139,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.isDefault;
-    if([self.updatedValues containsObject:@"isDefault"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
-            }
-    }
-	{id curVal = self.userRole;
-    if([self.updatedValues containsObject:@"userRole"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphUserRoleSerializer toString:curVal] forKey: @"userRole"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"userRole"];
-            }
-        
-            }}
-	{id curVal = self.isShared;
-    if([self.updatedValues containsObject:@"isShared"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isShared"];
-            }
-    }
-	{id curVal = self.sectionsUrl;
+ if([self.updatedValues containsObject:@"isDefault"])
+            { [dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];
+} if([self.updatedValues containsObject:@"userRole"])
+            { [dic setValue: [MSGraphUserRoleSerializer toString:self.userRole] forKey: @"userRole"];
+} if([self.updatedValues containsObject:@"isShared"])
+            { [dic setValue: (self.isShared?@"true":@"false") forKey: @"isShared"];
+}	{id curVal = self.sectionsUrl;
     if([self.updatedValues containsObject:@"sectionsUrl"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"sectionsUrl"];

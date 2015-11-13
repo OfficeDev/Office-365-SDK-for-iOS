@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphInferenceClassificationOverride
@@ -81,23 +81,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.classifyAs;
-    if([self.updatedValues containsObject:@"ClassifyAs"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphInferenceClassificationTypeSerializer toString:curVal] forKey: @"ClassifyAs"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"ClassifyAs"];
-            }
-        
-            }}
-	{id curVal = self.senderEmailAddress;
+ if([self.updatedValues containsObject:@"ClassifyAs"])
+            { [dic setValue: [MSGraphInferenceClassificationTypeSerializer toString:self.classifyAs] forKey: @"ClassifyAs"];
+}	{id curVal = self.senderEmailAddress;
     if([self.updatedValues containsObject:@"SenderEmailAddress"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"SenderEmailAddress"];

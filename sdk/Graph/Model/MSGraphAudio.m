@@ -124,13 +124,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"artist"];
             }
     }
-	{id curVal = self.bitrate;
-    if([self.updatedValues containsObject:@"bitrate"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"bitrate"];
-            }
-    }
-	{id curVal = self.composers;
+ if([self.updatedValues containsObject:@"bitrate"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.bitrate] forKey: @"bitrate"];
+}	{id curVal = self.composers;
     if([self.updatedValues containsObject:@"composers"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"composers"];
@@ -142,67 +138,35 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"copyright"];
             }
     }
-	{id curVal = self.disc;
-    if([self.updatedValues containsObject:@"disc"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"disc"];
-            }
-    }
-	{id curVal = self.discCount;
-    if([self.updatedValues containsObject:@"discCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"discCount"];
-            }
-    }
-	{id curVal = self.duration;
-    if([self.updatedValues containsObject:@"duration"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"duration"];
-            }
-    }
-	{id curVal = self.genre;
+ if([self.updatedValues containsObject:@"disc"])
+            { [dic setValue: [NSNumber numberWithInt: self.disc] forKey: @"disc"];
+} if([self.updatedValues containsObject:@"discCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.discCount] forKey: @"discCount"];
+} if([self.updatedValues containsObject:@"duration"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.duration] forKey: @"duration"];
+}	{id curVal = self.genre;
     if([self.updatedValues containsObject:@"genre"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"genre"];
             }
     }
-	{id curVal = self.hasDrm;
-    if([self.updatedValues containsObject:@"hasDrm"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"hasDrm"];
-            }
-    }
-	{id curVal = self.isVariableBitrate;
-    if([self.updatedValues containsObject:@"isVariableBitrate"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isVariableBitrate"];
-            }
-    }
-	{id curVal = self.title;
+ if([self.updatedValues containsObject:@"hasDrm"])
+            { [dic setValue: (self.hasDrm?@"true":@"false") forKey: @"hasDrm"];
+} if([self.updatedValues containsObject:@"isVariableBitrate"])
+            { [dic setValue: (self.isVariableBitrate?@"true":@"false") forKey: @"isVariableBitrate"];
+}	{id curVal = self.title;
     if([self.updatedValues containsObject:@"title"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];
             }
     }
-	{id curVal = self.track;
-    if([self.updatedValues containsObject:@"track"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"track"];
-            }
-    }
-	{id curVal = self.trackCount;
-    if([self.updatedValues containsObject:@"trackCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"trackCount"];
-            }
-    }
-	{id curVal = self.year;
-    if([self.updatedValues containsObject:@"year"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"year"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"track"])
+            { [dic setValue: [NSNumber numberWithInt: self.track] forKey: @"track"];
+} if([self.updatedValues containsObject:@"trackCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.trackCount] forKey: @"trackCount"];
+} if([self.updatedValues containsObject:@"year"])
+            { [dic setValue: [NSNumber numberWithInt: self.year] forKey: @"year"];
+}    return dic;
 }
 
 

@@ -82,31 +82,19 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.deleted;
-    if([self.updatedValues containsObject:@"deleted"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"deleted"];
-            }
-    }
-	{id curVal = self.remaining;
-    if([self.updatedValues containsObject:@"remaining"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"remaining"];
-            }
-    }
-	{id curVal = self.state;
+ if([self.updatedValues containsObject:@"deleted"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.deleted] forKey: @"deleted"];
+} if([self.updatedValues containsObject:@"remaining"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.remaining] forKey: @"remaining"];
+}	{id curVal = self.state;
     if([self.updatedValues containsObject:@"state"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"state"];
             }
     }
-	{id curVal = self.total;
-    if([self.updatedValues containsObject:@"total"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithLongLong: curVal] forKey: @"total"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"total"])
+            { [dic setValue: [NSNumber numberWithLongLong: self.total] forKey: @"total"];
+}    return dic;
 }
 
 

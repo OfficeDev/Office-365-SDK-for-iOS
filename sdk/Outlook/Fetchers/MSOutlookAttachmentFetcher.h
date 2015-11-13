@@ -24,6 +24,7 @@ root for authoritative license information.﻿
 
 @class MSOutlookFileAttachmentFetcher;	
 @class MSOutlookItemAttachmentFetcher;	
+@class MSOutlookReferenceAttachmentFetcher;	
 @class MSOutlookAttachmentOperations;
 
 
@@ -44,6 +45,7 @@ root for authoritative license information.﻿
 - (MSOutlookAttachmentFetcher *)expand:(NSString *)value;
 - (MSOutlookFileAttachmentFetcher *)asFileAttachment;	
 - (MSOutlookItemAttachmentFetcher *)asItemAttachment;	
+- (MSOutlookReferenceAttachmentFetcher *)asReferenceAttachment;	
 
 @end
 

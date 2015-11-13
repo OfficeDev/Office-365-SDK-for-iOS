@@ -26,47 +26,29 @@ root for authoritative license information.﻿
 - (void)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSDirectoryServicesApplication *, MSOrcError*))callback {
 
 
-      NSString *identifierUrisString = [identifierUris copy];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  identifierUris, @"identifierUris", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self restoreRawWithIdentifierUris:identifierUrisString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"restore(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSDirectoryServicesApplication * result = (MSDirectoryServicesApplication *)[MSOrcObjectizer objectizeFromString:returnValue];
+        if (e == nil) {
+            MSDirectoryServicesApplication * result = (MSDirectoryServicesApplication *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSDirectoryServicesApplication  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)restoreRawWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  identifierUris, @"identifierUris", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"restore"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end

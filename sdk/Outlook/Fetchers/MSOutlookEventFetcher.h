@@ -24,6 +24,7 @@ root for authoritative license information.﻿
 
 @class MSOutlookResponseStatusFetcher;
 @class MSOutlookItemBodyFetcher;
+@class MSOutlookDateTimeTimeZoneFetcher;
 @class MSOutlookLocationFetcher;
 @class MSOutlookPatternedRecurrenceFetcher;
 @class MSOutlookAttendeeCollectionFetcher;

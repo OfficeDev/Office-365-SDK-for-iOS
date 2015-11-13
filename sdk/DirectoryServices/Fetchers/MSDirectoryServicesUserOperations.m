@@ -31,50 +31,30 @@ root for authoritative license information.﻿
 - (void)assignLicenseWithAddLicenses:(MSDirectoryServicesAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSDirectoryServicesUser *, MSOrcError*))callback {
 
 
-      NSString *addLicensesString = [MSOrcObjectizer deobjectizeToString:addLicenses];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  addLicenses, @"addLicenses", removeLicenses, @"removeLicenses", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-  NSString *removeLicensesString = [removeLicenses copy];
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"assignLicense(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
 
-    return [self assignLicenseRawWithAddLicenses:addLicensesString removeLicenses:removeLicensesString callback:^(NSString *returnValue, MSOrcError *e) {
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSDirectoryServicesUser * result = (MSDirectoryServicesUser *)[MSOrcObjectizer objectizeFromString:returnValue];
+        if (e == nil) {
+            MSDirectoryServicesUser * result = (MSDirectoryServicesUser *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSDirectoryServicesUser  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)assignLicenseRawWithAddLicenses:(NSString *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  addLicenses, @"addLicenses", removeLicenses, @"removeLicenses", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"assignLicense"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end
 

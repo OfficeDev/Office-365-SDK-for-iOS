@@ -78,23 +78,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.response;
-    if([self.updatedValues containsObject:@"Response"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphResponseTypeSerializer toString:curVal] forKey: @"Response"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Response"];
-            }
-        
-            }}
-	{id curVal = self.time;
+ if([self.updatedValues containsObject:@"Response"])
+            { [dic setValue: [MSGraphResponseTypeSerializer toString:self.response] forKey: @"Response"];
+}	{id curVal = self.time;
     if([self.updatedValues containsObject:@"Time"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Time"];

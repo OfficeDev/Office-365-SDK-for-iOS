@@ -36,7 +36,6 @@ root for authoritative license information.﻿
 - (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback ;
 - (void)copyToSectionGroupRawWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)thumbnailWithCallback:(void (^)(NSStream *, MSOrcError*))callback ;
-- (void)thumbnailRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

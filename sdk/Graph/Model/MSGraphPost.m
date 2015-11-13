@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPost
@@ -135,6 +135,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"NewParticipants"];}
 	{id curVal = [self.conversationId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -143,6 +144,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{id curVal = [self.inReplyTo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"InReplyTo"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -151,6 +153,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
@@ -161,6 +164,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.Post" forKey: @"@odata.type"];
 
@@ -193,13 +197,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ReceivedDateTime"];
             }
     }
-	{id curVal = self.hasAttachments;
-    if([self.updatedValues containsObject:@"HasAttachments"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-            }
-    }
-	{id curVal = self.from;
+ if([self.updatedValues containsObject:@"HasAttachments"])
+            { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
+}	{id curVal = self.from;
     if([self.updatedValues containsObject:@"From"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"From"];

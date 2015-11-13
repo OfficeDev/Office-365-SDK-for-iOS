@@ -29,7 +29,6 @@ root for authoritative license information.﻿
 @interface MSDirectoryServicesUserCollectionOperations : MSDirectoryServicesDirectoryObjectCollectionOperations
 
 - (void)assignLicenseWithAddLicenses:(MSDirectoryServicesAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSDirectoryServicesUser *, MSOrcError*))callback ;
-- (void)assignLicenseRawWithAddLicenses:(NSString *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

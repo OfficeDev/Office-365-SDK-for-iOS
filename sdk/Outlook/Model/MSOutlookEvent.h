@@ -21,6 +21,7 @@ root for authoritative license information.﻿
 
 @class MSOutlookResponseStatus;
 @class MSOutlookItemBody;
+@class MSOutlookDateTimeTimeZone;
 @class MSOutlookLocation;
 @class MSOutlookPatternedRecurrence;
 @class MSOutlookAttendee;
@@ -39,15 +40,15 @@ root for authoritative license information.﻿
  */
 @interface MSOutlookEvent : MSOutlookItem <MSOrcInteroperableWithDictionary>
 
-/** Property startTimeZone
+/** Property originalStartTimeZone
  *
  */
-@property (nonatomic,  copy, setter=setStartTimeZone:, getter=startTimeZone) NSString * startTimeZone;
+@property (nonatomic,  copy, setter=setOriginalStartTimeZone:, getter=originalStartTimeZone) NSString * originalStartTimeZone;
 
-/** Property endTimeZone
+/** Property originalEndTimeZone
  *
  */
-@property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
+@property (nonatomic,  copy, setter=setOriginalEndTimeZone:, getter=originalEndTimeZone) NSString * originalEndTimeZone;
 
 /** Property responseStatus
  *
@@ -59,10 +60,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
 
-/** Property reminder
+/** Property reminderMinutesBeforeStart
  *
  */
-@property (nonatomic,  setter=setReminder:, getter=reminder) int reminder;
+@property (nonatomic,  setter=setReminderMinutesBeforeStart:, getter=reminderMinutesBeforeStart) int reminderMinutesBeforeStart;
+
+/** Property isReminderOn
+ *
+ */
+@property (nonatomic,  setter=setIsReminderOn:, getter=isReminderOn) bool isReminderOn;
 
 /** Property hasAttachments
  *
@@ -101,7 +107,7 @@ root for authoritative license information.﻿
 /** Property start
  *
  */
-@property (nonatomic,  copy, setter=setStart:, getter=start) NSDate * start;
+@property (nonatomic,  copy, setter=setStart:, getter=start) MSOutlookDateTimeTimeZone * start;
 
 /** Property originalStart
  *
@@ -111,7 +117,7 @@ root for authoritative license information.﻿
 /** Property end
  *
  */
-@property (nonatomic,  copy, setter=setEnd:, getter=end) NSDate * end;
+@property (nonatomic,  copy, setter=setEnd:, getter=end) MSOutlookDateTimeTimeZone * end;
 
 /** Property location
  *

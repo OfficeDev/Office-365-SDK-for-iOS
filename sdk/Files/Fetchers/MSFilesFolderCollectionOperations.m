@@ -35,7 +35,7 @@ root for authoritative license information.﻿
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        
        if (e == nil) {
-            MSFilesFolder * result = (MSFilesFolder *)[MSOrcObjectizer objectizeFromString:returnValue];
+            MSFilesFolder * result = (MSFilesFolder *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSFilesFolder  class]];
             callback(result, e);
         } 
         else {

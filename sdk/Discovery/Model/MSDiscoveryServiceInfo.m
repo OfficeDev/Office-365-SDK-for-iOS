@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDiscoveryModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSDiscoveryServiceInfo
@@ -119,13 +119,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"providerName"];
             }
     }
-	{id curVal = self.serviceAccountType;
-    if([self.updatedValues containsObject:@"serviceAccountType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"serviceAccountType"];
-            }
-    }
-	{id curVal = self.serviceApiVersion;
+ if([self.updatedValues containsObject:@"serviceAccountType"])
+            { [dic setValue: [NSNumber numberWithInt: self.serviceAccountType] forKey: @"serviceAccountType"];
+}	{id curVal = self.serviceApiVersion;
     if([self.updatedValues containsObject:@"serviceApiVersion"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"serviceApiVersion"];

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphPrivilegedSignupStatus
@@ -87,29 +87,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"TenantId"];
             }
     }
-	{id curVal = self.isRegistered;
-    if([self.updatedValues containsObject:@"IsRegistered"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRegistered"];
-            }
-    }
-	{id curVal = self.status;
-    if([self.updatedValues containsObject:@"Status"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphSetupStatusSerializer toString:curVal] forKey: @"Status"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Status"];
-            }
-        
-            }}
-    return dic;
+ if([self.updatedValues containsObject:@"IsRegistered"])
+            { [dic setValue: (self.isRegistered?@"true":@"false") forKey: @"IsRegistered"];
+} if([self.updatedValues containsObject:@"Status"])
+            { [dic setValue: [MSGraphSetupStatusSerializer toString:self.status] forKey: @"Status"];
+}    return dic;
 }
 
 

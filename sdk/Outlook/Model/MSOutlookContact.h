@@ -21,6 +21,7 @@ root for authoritative license information.﻿
 
 @class MSOutlookEmailAddress;
 @class MSOutlookPhysicalAddress;
+@class MSOutlookPhoto;
 #import "MSOutlookItem.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
@@ -193,6 +194,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setChildren:, getter=children) NSMutableArray * children;
+
+/** Property photo
+ *
+ */
+@property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSOutlookPhoto * photo;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

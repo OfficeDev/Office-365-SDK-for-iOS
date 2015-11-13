@@ -80,25 +80,13 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.enabled;
-    if([self.updatedValues containsObject:@"enabled"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"enabled"];
-            }
-    }
-	{id curVal = self.suspended;
-    if([self.updatedValues containsObject:@"suspended"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"suspended"];
-            }
-    }
-	{id curVal = self.warning;
-    if([self.updatedValues containsObject:@"warning"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"warning"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"enabled"])
+            { [dic setValue: [NSNumber numberWithInt: self.enabled] forKey: @"enabled"];
+} if([self.updatedValues containsObject:@"suspended"])
+            { [dic setValue: [NSNumber numberWithInt: self.suspended] forKey: @"suspended"];
+} if([self.updatedValues containsObject:@"warning"])
+            { [dic setValue: [NSNumber numberWithInt: self.warning] forKey: @"warning"];
+}    return dic;
 }
 
 

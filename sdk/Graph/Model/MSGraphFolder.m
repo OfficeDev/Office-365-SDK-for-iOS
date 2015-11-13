@@ -76,13 +76,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.childCount;
-    if([self.updatedValues containsObject:@"childCount"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"childCount"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"childCount"])
+            { [dic setValue: [NSNumber numberWithInt: self.childCount] forKey: @"childCount"];
+}    return dic;
 }
 
 

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookEventMessage
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"DateTimeReceived", @"dateTimeReceived", @"DateTimeSent", @"dateTimeSent", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -57,8 +57,8 @@ root for authoritative license information.﻿
     
 		_meetingMessageType = [dic objectForKey: @"MeetingMessageType"] != nil ? [MSOutlookMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]] : _meetingMessageType;
 		_event = [dic objectForKey: @"Event"] != nil ? [[MSOutlookEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]] : _event;
-		self.dateTimeReceived = [dic objectForKey: @"DateTimeReceived"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeReceived"]] : self.dateTimeReceived;
-		self.dateTimeSent = [dic objectForKey: @"DateTimeSent"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeSent"]] : self.dateTimeSent;
+		self.receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : self.receivedDateTime;
+		self.sentDateTime = [dic objectForKey: @"SentDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]] : self.sentDateTime;
 		self.hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : self.hasAttachments;
 		self.subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : self.subject;
 		self.body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : self.body;
@@ -129,8 +129,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.attachments resetChangedFlag];
         }
         
-		self.dateTimeCreated = [dic objectForKey: @"DateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeCreated"]] : self.dateTimeCreated;
-		self.dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : self.dateTimeLastModified;
+		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
+		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
 		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
@@ -157,8 +157,8 @@ root for authoritative license information.﻿
 
 	{[dic setValue: [MSOutlookMeetingMessageTypeSerializer toString:self.meetingMessageType] forKey: @"MeetingMessageType"];}
 	{id curVal = [self.event toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Event"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeReceived];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeReceived"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeSent];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeSent"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.receivedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"ReceivedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.sentDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"SentDateTime"];}
 	{[dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];}
 	{id curVal = [self.subject copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
 	{id curVal = [self.body toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
@@ -174,6 +174,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ToRecipients"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ccRecipients) {
@@ -181,6 +182,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CcRecipients"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.bccRecipients) {
@@ -188,6 +190,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"BccRecipients"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.replyTo) {
@@ -195,6 +198,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ReplyTo"];}
 	{id curVal = [self.conversationId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
 	{id curVal = [self.uniqueBody toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueBody"];}
 	{[dic setValue: (self.isDeliveryReceiptRequested?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];}
@@ -209,8 +213,9 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -219,6 +224,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.EventMessage" forKey: @"@odata.type"];
 
@@ -229,23 +235,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.meetingMessageType;
-    if([self.updatedValues containsObject:@"MeetingMessageType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookMeetingMessageTypeSerializer toString:curVal] forKey: @"MeetingMessageType"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"MeetingMessageType"];
-            }
-        
-            }}
-	{id curVal = self.event;
+ if([self.updatedValues containsObject:@"MeetingMessageType"])
+            { [dic setValue: [MSOutlookMeetingMessageTypeSerializer toString:self.meetingMessageType] forKey: @"MeetingMessageType"];
+}	{id curVal = self.event;
     if([self.updatedValues containsObject:@"Event"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Event"];
@@ -261,25 +253,21 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.dateTimeReceived;
-    if([self.updatedValues containsObject:@"DateTimeReceived"])
+	{id curVal = self.receivedDateTime;
+    if([self.updatedValues containsObject:@"ReceivedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeReceived"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"ReceivedDateTime"];
             }
     }
-	{id curVal = self.dateTimeSent;
-    if([self.updatedValues containsObject:@"DateTimeSent"])
+	{id curVal = self.sentDateTime;
+    if([self.updatedValues containsObject:@"SentDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeSent"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"SentDateTime"];
             }
     }
-	{id curVal = self.hasAttachments;
-    if([self.updatedValues containsObject:@"HasAttachments"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-            }
-    }
-	{id curVal = self.subject;
+ if([self.updatedValues containsObject:@"HasAttachments"])
+            { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
+}	{id curVal = self.subject;
     if([self.updatedValues containsObject:@"Subject"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Subject"];
@@ -307,23 +295,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"BodyPreview"];
             }
     }
-	{id curVal = self.importance;
-    if([self.updatedValues containsObject:@"Importance"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOutlookImportanceSerializer toString:curVal] forKey: @"Importance"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Importance"];
-            }
-        
-            }}
-	{id curVal = self.parentFolderId;
+ if([self.updatedValues containsObject:@"Importance"])
+            { [dic setValue: [MSOutlookImportanceSerializer toString:self.importance] forKey: @"Importance"];
+}	{id curVal = self.parentFolderId;
     if([self.updatedValues containsObject:@"ParentFolderId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ParentFolderId"];
@@ -487,31 +461,15 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.isDeliveryReceiptRequested;
-    if([self.updatedValues containsObject:@"IsDeliveryReceiptRequested"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];
-            }
-    }
-	{id curVal = self.isReadReceiptRequested;
-    if([self.updatedValues containsObject:@"IsReadReceiptRequested"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsReadReceiptRequested"];
-            }
-    }
-	{id curVal = self.isRead;
-    if([self.updatedValues containsObject:@"IsRead"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsRead"];
-            }
-    }
-	{id curVal = self.isDraft;
-    if([self.updatedValues containsObject:@"IsDraft"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsDraft"];
-            }
-    }
-	{id curVal = self.webLink;
+ if([self.updatedValues containsObject:@"IsDeliveryReceiptRequested"])
+            { [dic setValue: (self.isDeliveryReceiptRequested?@"true":@"false") forKey: @"IsDeliveryReceiptRequested"];
+} if([self.updatedValues containsObject:@"IsReadReceiptRequested"])
+            { [dic setValue: (self.isReadReceiptRequested?@"true":@"false") forKey: @"IsReadReceiptRequested"];
+} if([self.updatedValues containsObject:@"IsRead"])
+            { [dic setValue: (self.isRead?@"true":@"false") forKey: @"IsRead"];
+} if([self.updatedValues containsObject:@"IsDraft"])
+            { [dic setValue: (self.isDraft?@"true":@"false") forKey: @"IsDraft"];
+}	{id curVal = self.webLink;
     if([self.updatedValues containsObject:@"WebLink"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
@@ -543,16 +501,16 @@ root for authoritative license information.﻿
         }
         
             }}
-	{id curVal = self.dateTimeCreated;
-    if([self.updatedValues containsObject:@"DateTimeCreated"])
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"CreatedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"CreatedDateTime"];
             }
     }
-	{id curVal = self.dateTimeLastModified;
-    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
             }
     }
 	{id curVal = self.changeKey;

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookAttachment
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DateTimeLastModified", @"dateTimeLastModified", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
     
     }
     
@@ -55,7 +55,7 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
-		_dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : _dateTimeLastModified;
+		_lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : _lastModifiedDateTime;
 		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
 		_contentType = [dic objectForKey: @"ContentType"] != nil ? [[dic objectForKey: @"ContentType"] copy] : _contentType;
 		_size = [dic objectForKey: @"Size"] != nil ? [[dic objectForKey: @"Size"] intValue] : _size;
@@ -72,7 +72,7 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
 	{id curVal = [self.contentType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
 	{[dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];}
@@ -87,10 +87,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.dateTimeLastModified;
-    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
             }
     }
 	{id curVal = self.name;
@@ -105,19 +105,11 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ContentType"];
             }
     }
-	{id curVal = self.size;
-    if([self.updatedValues containsObject:@"Size"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Size"];
-            }
-    }
-	{id curVal = self.isInline;
-    if([self.updatedValues containsObject:@"IsInline"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsInline"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"Size"])
+            { [dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];
+} if([self.updatedValues containsObject:@"IsInline"])
+            { [dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
@@ -127,12 +119,12 @@ root for authoritative license information.﻿
 }
 
 
-/** Setter implementation for property dateTimeLastModified
+/** Setter implementation for property lastModifiedDateTime
  *
  */
-- (void) setDateTimeLastModified: (NSDate *) value {
-    _dateTimeLastModified = value;
-    [self valueChangedFor:@"DateTimeLastModified"];
+- (void) setLastModifiedDateTime: (NSDate *) value {
+    _lastModifiedDateTime = value;
+    [self valueChangedFor:@"LastModifiedDateTime"];
 }
        
 /** Setter implementation for property name

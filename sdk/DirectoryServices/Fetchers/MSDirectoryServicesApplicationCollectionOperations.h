@@ -29,7 +29,6 @@ root for authoritative license information.﻿
 @interface MSDirectoryServicesApplicationCollectionOperations : MSDirectoryServicesDirectoryObjectCollectionOperations
 
 - (void)restoreWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(MSDirectoryServicesApplication *, MSOrcError*))callback ;
-- (void)restoreRawWithIdentifierUris:(NSString *)identifierUris callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphConversationThread
@@ -123,6 +123,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"ToRecipients"];}
 	{id curVal = [self.topic copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Topic"];}
 	{[dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDeliveredDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastDeliveredDateTime"];}
@@ -133,6 +134,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueSenders"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.ccRecipients) {
@@ -140,6 +142,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"CcRecipients"];}
 	{id curVal = [self.preview copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Preview"];}
 	{[dic setValue: (self.isLocked?@"true":@"false") forKey: @"IsLocked"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
@@ -149,6 +152,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Posts"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#microsoft.graph.ConversationThread" forKey: @"@odata.type"];
 
@@ -191,13 +195,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Topic"];
             }
     }
-	{id curVal = self.hasAttachments;
-    if([self.updatedValues containsObject:@"HasAttachments"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"HasAttachments"];
-            }
-    }
-	{id curVal = self.lastDeliveredDateTime;
+ if([self.updatedValues containsObject:@"HasAttachments"])
+            { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
+}	{id curVal = self.lastDeliveredDateTime;
     if([self.updatedValues containsObject:@"LastDeliveredDateTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastDeliveredDateTime"];
@@ -261,13 +261,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Preview"];
             }
     }
-	{id curVal = self.isLocked;
-    if([self.updatedValues containsObject:@"IsLocked"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"IsLocked"];
-            }
-    }
-	{id curVal = self.posts;
+ if([self.updatedValues containsObject:@"IsLocked"])
+            { [dic setValue: (self.isLocked?@"true":@"false") forKey: @"IsLocked"];
+}	{id curVal = self.posts;
     if([self.updatedValues containsObject:@"Posts"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];

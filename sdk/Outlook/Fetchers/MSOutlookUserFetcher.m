@@ -69,6 +69,17 @@ root for authoritative license information.﻿
     }];
 }
 
+- (MSOutlookSubscriptionCollectionFetcher *)subscriptions {
+
+    return [[MSOutlookSubscriptionCollectionFetcher alloc] initWithUrl:@"Subscriptions" parent:self asClass:[MSOutlookSubscription class]];
+}
+
+- (MSOutlookSubscriptionFetcher *)subscriptionsById:(NSString *)identifier {
+
+    return [[[MSOutlookSubscriptionCollectionFetcher alloc] initWithUrl:@"Subscriptions" parent:self asClass:[MSOutlookSubscription class]] getById:identifier];
+
+}
+
 - (MSOutlookMessageCollectionFetcher *)messages {
 
     return [[MSOutlookMessageCollectionFetcher alloc] initWithUrl:@"Messages" parent:self asClass:[MSOutlookMessage class]];
@@ -80,14 +91,25 @@ root for authoritative license information.﻿
 
 }
 
-- (MSOutlookFolderCollectionFetcher *)folders {
+- (MSOutlookGroupCollectionFetcher *)joinedGroups {
 
-    return [[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"Folders" parent:self asClass:[MSOutlookFolder class]];
+    return [[MSOutlookGroupCollectionFetcher alloc] initWithUrl:@"JoinedGroups" parent:self asClass:[MSOutlookGroup class]];
 }
 
-- (MSOutlookFolderFetcher *)foldersById:(NSString *)identifier {
+- (MSOutlookGroupFetcher *)joinedGroupsById:(NSString *)identifier {
 
-    return [[[MSOutlookFolderCollectionFetcher alloc] initWithUrl:@"Folders" parent:self asClass:[MSOutlookFolder class]] getById:identifier];
+    return [[[MSOutlookGroupCollectionFetcher alloc] initWithUrl:@"JoinedGroups" parent:self asClass:[MSOutlookGroup class]] getById:identifier];
+
+}
+
+- (MSOutlookMailFolderCollectionFetcher *)mailFolders {
+
+    return [[MSOutlookMailFolderCollectionFetcher alloc] initWithUrl:@"MailFolders" parent:self asClass:[MSOutlookMailFolder class]];
+}
+
+- (MSOutlookMailFolderFetcher *)mailFoldersById:(NSString *)identifier {
+
+    return [[[MSOutlookMailFolderCollectionFetcher alloc] initWithUrl:@"MailFolders" parent:self asClass:[MSOutlookMailFolder class]] getById:identifier];
 
 }
 
@@ -162,9 +184,9 @@ root for authoritative license information.﻿
 
 }
 
-- (MSOutlookFolderFetcher *)rootFolder {
+- (MSOutlookPhotoFetcher *)photo {
 
-	 return [[MSOutlookFolderFetcher alloc] initWithUrl:@"RootFolder" parent:self asClass:[MSOutlookFolder class]];
+	 return [[MSOutlookPhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSOutlookPhoto class]];
 }
 
 @end

@@ -30,6 +30,7 @@ root for authoritative license information.﻿
 
 - (void)sendMailWithMessage:(MSOutlookMessage *)message saveToSentItems:(bool)saveToSentItems callback:(void (^)(int, MSOrcError*))callback ;
 - (void)sendMailRawWithMessage:(NSString *)message saveToSentItems:(NSString *)saveToSentItems callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSOutlookReminder *, MSOrcError*))callback ;
 
 @end
 

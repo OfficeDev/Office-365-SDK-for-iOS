@@ -40,11 +40,8 @@ root for authoritative license information.﻿
 - (void)createSessionWithItem:(MSGraphChunkedUploadSessionDescriptor *)item callback:(void (^)(MSGraphUploadSession *, MSOrcError*))callback ;
 - (void)createSessionRawWithItem:(NSString *)item callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
-- (void)allPhotosRawWithCallback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)deltaWithToken:(NSString *)token callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
-- (void)deltaRawWithToken:(NSString *)token callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)searchWithQ:(NSString *)q callback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
-- (void)searchRawWithQ:(NSString *)q callback:(void (^)(NSString *, MSOrcError*))callback ;
 
 @end
 

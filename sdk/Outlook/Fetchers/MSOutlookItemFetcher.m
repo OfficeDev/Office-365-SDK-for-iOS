@@ -84,4 +84,9 @@ root for authoritative license information.﻿
 	return [[MSOutlookContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookContact class]];
 }
 
+- (MSOutlookPostFetcher *)asPost {
+
+	return [[MSOutlookPostFetcher alloc] initWithUrl:@"" parent:self asClass:[MSOutlookPost class]];
+}
+
 @end

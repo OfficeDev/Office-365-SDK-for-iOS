@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphSiteCollection
@@ -86,6 +86,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"sites"];}
     [dic setValue: @"#microsoft.graph.SiteCollection" forKey: @"@odata.type"];
 
     return dic;

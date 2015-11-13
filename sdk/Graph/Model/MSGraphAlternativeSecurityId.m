@@ -80,13 +80,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.type;
-    if([self.updatedValues containsObject:@"type"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"type"];
-            }
-    }
-	{id curVal = self.identityProvider;
+ if([self.updatedValues containsObject:@"type"])
+            { [dic setValue: [NSNumber numberWithInt: self.type] forKey: @"type"];
+}	{id curVal = self.identityProvider;
     if([self.updatedValues containsObject:@"identityProvider"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"identityProvider"];

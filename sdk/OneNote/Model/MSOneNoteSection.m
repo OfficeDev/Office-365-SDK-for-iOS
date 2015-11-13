@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOneNoteSection
@@ -110,6 +110,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"pages"];}
     [dic setValue: @"#Microsoft.OneNote.Api.Section" forKey: @"@odata.type"];
 
     return dic;
@@ -119,13 +120,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.isDefault;
-    if([self.updatedValues containsObject:@"isDefault"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isDefault"];
-            }
-    }
-	{id curVal = self.pagesUrl;
+ if([self.updatedValues containsObject:@"isDefault"])
+            { [dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];
+}	{id curVal = self.pagesUrl;
     if([self.updatedValues containsObject:@"pagesUrl"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"pagesUrl"];

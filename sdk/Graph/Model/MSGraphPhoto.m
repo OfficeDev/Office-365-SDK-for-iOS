@@ -102,43 +102,23 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"cameraModel"];
             }
     }
-	{id curVal = self.exposureDenominator;
-    if([self.updatedValues containsObject:@"exposureDenominator"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureDenominator"];
-            }
-    }
-	{id curVal = self.exposureNumerator;
-    if([self.updatedValues containsObject:@"exposureNumerator"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"exposureNumerator"];
-            }
-    }
-	{id curVal = self.focalLength;
-    if([self.updatedValues containsObject:@"focalLength"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"focalLength"];
-            }
-    }
-	{id curVal = self.fNumber;
-    if([self.updatedValues containsObject:@"fNumber"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithDouble: curVal] forKey: @"fNumber"];
-            }
-    }
-	{id curVal = self.takenDateTime;
+ if([self.updatedValues containsObject:@"exposureDenominator"])
+            { [dic setValue: [NSNumber numberWithDouble: self.exposureDenominator] forKey: @"exposureDenominator"];
+} if([self.updatedValues containsObject:@"exposureNumerator"])
+            { [dic setValue: [NSNumber numberWithDouble: self.exposureNumerator] forKey: @"exposureNumerator"];
+} if([self.updatedValues containsObject:@"focalLength"])
+            { [dic setValue: [NSNumber numberWithDouble: self.focalLength] forKey: @"focalLength"];
+} if([self.updatedValues containsObject:@"fNumber"])
+            { [dic setValue: [NSNumber numberWithDouble: self.fNumber] forKey: @"fNumber"];
+}	{id curVal = self.takenDateTime;
     if([self.updatedValues containsObject:@"takenDateTime"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"takenDateTime"];
             }
     }
-	{id curVal = self.iso;
-    if([self.updatedValues containsObject:@"iso"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"iso"];
-            }
-    }
-    return dic;
+ if([self.updatedValues containsObject:@"iso"])
+            { [dic setValue: [NSNumber numberWithInt: self.iso] forKey: @"iso"];
+}    return dic;
 }
 
 

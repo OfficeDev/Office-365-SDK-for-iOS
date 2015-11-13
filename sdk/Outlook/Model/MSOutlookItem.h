@@ -27,15 +27,15 @@ root for authoritative license information.﻿
  */
 @interface MSOutlookItem : MSOutlookEntity <MSOrcInteroperableWithDictionary>
 
-/** Property dateTimeCreated
+/** Property createdDateTime
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeCreated:, getter=dateTimeCreated) NSDate * dateTimeCreated;
+@property (nonatomic,  copy, setter=setCreatedDateTime:, getter=createdDateTime) NSDate * createdDateTime;
 
-/** Property dateTimeLastModified
+/** Property lastModifiedDateTime
  *
  */
-@property (nonatomic,  copy, setter=setDateTimeLastModified:, getter=dateTimeLastModified) NSDate * dateTimeLastModified;
+@property (nonatomic,  copy, setter=setLastModifiedDateTime:, getter=lastModifiedDateTime) NSDate * lastModifiedDateTime;
 
 /** Property changeKey
  *

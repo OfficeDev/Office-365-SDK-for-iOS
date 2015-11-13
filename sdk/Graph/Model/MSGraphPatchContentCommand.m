@@ -82,23 +82,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.action;
-    if([self.updatedValues containsObject:@"action"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphPatchActionTypeSerializer toString:curVal] forKey: @"action"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"action"];
-            }
-        
-            }}
-	{id curVal = self.target;
+ if([self.updatedValues containsObject:@"action"])
+            { [dic setValue: [MSGraphPatchActionTypeSerializer toString:self.action] forKey: @"action"];
+}	{id curVal = self.target;
     if([self.updatedValues containsObject:@"target"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"target"];
@@ -110,23 +96,9 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"content"];
             }
     }
-	{id curVal = self.position;
-    if([self.updatedValues containsObject:@"position"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSGraphPatchInsertPositionSerializer toString:curVal] forKey: @"position"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"position"];
-            }
-        
-            }}
-    return dic;
+ if([self.updatedValues containsObject:@"position"])
+            { [dic setValue: [MSGraphPatchInsertPositionSerializer toString:self.position] forKey: @"position"];
+}    return dic;
 }
 
 

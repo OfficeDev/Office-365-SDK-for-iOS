@@ -25,6 +25,7 @@ root for authoritative license information.﻿
 @class MSOutlookMessageFetcher;	
 @class MSOutlookEventFetcher;	
 @class MSOutlookContactFetcher;	
+@class MSOutlookPostFetcher;	
 @class MSOutlookItemOperations;
 
 
@@ -46,6 +47,7 @@ root for authoritative license information.﻿
 - (MSOutlookMessageFetcher *)asMessage;	
 - (MSOutlookEventFetcher *)asEvent;	
 - (MSOutlookContactFetcher *)asContact;	
+- (MSOutlookPostFetcher *)asPost;	
 
 @end
 

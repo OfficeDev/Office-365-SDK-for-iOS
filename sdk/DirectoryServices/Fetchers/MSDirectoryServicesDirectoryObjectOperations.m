@@ -31,138 +31,84 @@ root for authoritative license information.﻿
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *groupIdsString = [groupIds copy];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  groupIds, @"groupIds", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self checkMemberGroupsRawWithGroupIds:groupIdsString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"checkMemberGroups(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            NSString * result = (NSString *)[returnValue copy];
+        if (e == nil) {
+            NSString * result = (NSString *)[[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] copy];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)checkMemberGroupsRawWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  groupIds, @"groupIds", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"checkMemberGroups"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 - (void)getMemberGroupsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *securityEnabledOnlyString = [MSOrcObjectizer stringFromBool:securityEnabledOnly];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly?@"true":@"false", @"securityEnabledOnly", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self getMemberGroupsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberGroups(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            NSString * result = (NSString *)[returnValue copy];
+        if (e == nil) {
+            NSString * result = (NSString *)[[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] copy];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)getMemberGroupsRawWithSecurityEnabledOnly:(NSString *)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly, @"securityEnabledOnly", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"getMemberGroups"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 - (void)getMemberObjectsWithSecurityEnabledOnly:(bool)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *securityEnabledOnlyString = [MSOrcObjectizer stringFromBool:securityEnabledOnly];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly?@"true":@"false", @"securityEnabledOnly", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-    return [self getMemberObjectsRawWithSecurityEnabledOnly:securityEnabledOnlyString callback:^(NSString *returnValue, MSOrcError *e) {
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"getMemberObjects(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            NSString * result = (NSString *)[returnValue copy];
+        if (e == nil) {
+            NSString * result = (NSString *)[[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] copy];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)getMemberObjectsRawWithSecurityEnabledOnly:(NSString *)securityEnabledOnly callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  securityEnabledOnly, @"securityEnabledOnly", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"getMemberObjects"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end
 

@@ -75,6 +75,33 @@ root for authoritative license information.﻿
     }];
     
     }
+- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSOutlookReminder *, MSOrcError*))callback {
+
+
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  startDateTime, @"StartDateTime", endDateTime, @"EndDateTime", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
+
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"ReminderView(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
+
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+       
+        if (e == nil) {
+            MSOutlookReminder * result = (MSOutlookReminder *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSOutlookReminder  class]];
+            callback(result, e);
+        }
+        else {
+
+            callback(nil, e);
+        }
+        
+    }];
+    
+        
+}
+
 
 @end
 

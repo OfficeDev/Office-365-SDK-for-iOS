@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSOutlookItem
@@ -32,7 +32,7 @@ root for authoritative license information.﻿
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
     if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DateTimeCreated", @"dateTimeCreated", @"DateTimeLastModified", @"dateTimeLastModified", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
     
     }
     
@@ -55,8 +55,8 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
     
-		_dateTimeCreated = [dic objectForKey: @"DateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeCreated"]] : _dateTimeCreated;
-		_dateTimeLastModified = [dic objectForKey: @"DateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"DateTimeLastModified"]] : _dateTimeLastModified;
+		_createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : _createdDateTime;
+		_lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : _lastModifiedDateTime;
 		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
@@ -81,8 +81,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeCreated];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeCreated"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.dateTimeLastModified];if (curVal!=nil) [dic setValue: curVal forKey: @"DateTimeLastModified"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
 	{id curVal = [self.changeKey copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ChangeKey"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -91,6 +91,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
     [dic setValue: @"#Microsoft.OutlookServices.Item" forKey: @"@odata.type"];
 
@@ -101,16 +102,16 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.dateTimeCreated;
-    if([self.updatedValues containsObject:@"DateTimeCreated"])
+	{id curVal = self.createdDateTime;
+    if([self.updatedValues containsObject:@"CreatedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeCreated"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"CreatedDateTime"];
             }
     }
-	{id curVal = self.dateTimeLastModified;
-    if([self.updatedValues containsObject:@"DateTimeLastModified"])
+	{id curVal = self.lastModifiedDateTime;
+    if([self.updatedValues containsObject:@"LastModifiedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"DateTimeLastModified"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"LastModifiedDateTime"];
             }
     }
 	{id curVal = self.changeKey;
@@ -155,20 +156,20 @@ root for authoritative license information.﻿
 }
 
 
-/** Setter implementation for property dateTimeCreated
+/** Setter implementation for property createdDateTime
  *
  */
-- (void) setDateTimeCreated: (NSDate *) value {
-    _dateTimeCreated = value;
-    [self valueChangedFor:@"DateTimeCreated"];
+- (void) setCreatedDateTime: (NSDate *) value {
+    _createdDateTime = value;
+    [self valueChangedFor:@"CreatedDateTime"];
 }
        
-/** Setter implementation for property dateTimeLastModified
+/** Setter implementation for property lastModifiedDateTime
  *
  */
-- (void) setDateTimeLastModified: (NSDate *) value {
-    _dateTimeLastModified = value;
-    [self valueChangedFor:@"DateTimeLastModified"];
+- (void) setLastModifiedDateTime: (NSDate *) value {
+    _lastModifiedDateTime = value;
+    [self valueChangedFor:@"LastModifiedDateTime"];
 }
        
 /** Setter implementation for property changeKey

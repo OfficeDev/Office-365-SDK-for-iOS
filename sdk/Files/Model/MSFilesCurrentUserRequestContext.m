@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSFilesCurrentUserRequestContext
@@ -88,6 +88,7 @@ root for authoritative license information.﻿
     }
     
     if([curVal count]==0) curVal=nil;
+if (curVal!=nil) [dic setValue: curVal forKey: @"files"];}
     [dic setValue: @"#Microsoft.CoreServices.CurrentUserRequestContext" forKey: @"@odata.type"];
 
     return dic;

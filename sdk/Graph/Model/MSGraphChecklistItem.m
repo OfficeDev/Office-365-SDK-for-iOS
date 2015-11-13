@@ -84,13 +84,9 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.isChecked;
-    if([self.updatedValues containsObject:@"isChecked"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:(curVal?@"true":@"false") forKey: @"isChecked"];
-            }
-    }
-	{id curVal = self.title;
+ if([self.updatedValues containsObject:@"isChecked"])
+            { [dic setValue: (self.isChecked?@"true":@"false") forKey: @"isChecked"];
+}	{id curVal = self.title;
     if([self.updatedValues containsObject:@"title"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"title"];

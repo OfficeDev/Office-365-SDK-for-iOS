@@ -15,7 +15,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphModels.h"
-
+#import "core/MSOrcObjectizer.h"
 
 
 /** Implementation for MSGraphProfilePhoto
@@ -81,19 +81,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.height;
-    if([self.updatedValues containsObject:@"Height"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Height"];
-            }
-    }
-	{id curVal = self.width;
-    if([self.updatedValues containsObject:@"Width"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[NSNumber numberWithInt: curVal] forKey: @"Width"];
-            }
-    }
-	{id curVal = self._id;
+ if([self.updatedValues containsObject:@"Height"])
+            { [dic setValue: [NSNumber numberWithInt: self.height] forKey: @"Height"];
+} if([self.updatedValues containsObject:@"Width"])
+            { [dic setValue: [NSNumber numberWithInt: self.width] forKey: @"Width"];
+}	{id curVal = self._id;
     if([self.updatedValues containsObject:@"Id"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
