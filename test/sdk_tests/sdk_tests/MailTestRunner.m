@@ -65,7 +65,7 @@
     if([testName isEqualToString:@"TestUpdateMessages"])return [self testUpdateMessages:result];
     if([testName isEqualToString:@"TestDeleteMessages"])return [self testDeleteMessages:result];
     if([testName isEqualToString:@"TestMoveMessages"])return [self testMoveMessages:result];
-    if([testName isEqualToString:@"TestCopyMessages"])return [self testMoveMessages:result];
+    if([testName isEqualToString:@"TestCopyMessages"])return [self testCopyMessages:result];
     if([testName isEqualToString:@"TestSendMessages"])return [self testSendMessages:result];
     if([testName isEqualToString:@"TestSendWithMessageOperations"])return [self testSendWithMessageOperations:result];
     if([testName isEqualToString:@"TestSendHtmlMessages"])return [self testSendHtmlMessages:result];
@@ -105,14 +105,6 @@
     if([testName isEqualToString:@"TestCreateEvents"])return [self testCreateEvents:result];
     if([testName isEqualToString:@"TestUpdateEvents"])return [self testUpdateEvents:result];
     if([testName isEqualToString:@"TestDeleteEvents"])return [self testDeleteEvents:result];
-    
-    
-    //UNIMPLEMENTED TEST
-    /*
-    if([testName isEqualToString:@"TestRetrieveConversation"])return [self testRetrieveConversation:result];
-     */
-    if([testName isEqualToString:@"TestRetrievePrivilegedRoleSettings"])return [self testRetrievePrivilegedRoleSettings:result];
-
     
     /*
      else{
@@ -1190,6 +1182,52 @@
     }];
 }
 
+- (void)testCopyMessages:(void(^)(Test *))result {
+    
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc:@""];
+    
+    //Create message
+    return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
+        
+        //Move message
+        [[_weakSelf.client.me.messages getById:addedMessage._id].operations copyWithDestinationId:@"Inbox" callback:^(MSOutlookMessage *copiedMessage, MSOrcError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.executionMessages = [NSMutableArray array];
+            
+            NSString* message = error == nil ? @"Ok - ": @"Not - ";
+            
+            if(copiedMessage!= nil && [copiedMessage.subject isEqualToString:newMessage.subject]){
+                passed = true;
+            }
+            
+            test.passed = passed;
+            
+            [test.executionMessages addObject:message];
+            
+            //Cleanup
+            if(copiedMessage!= nil) {
+                [[_weakSelf.client.me.messages getById:copiedMessage._id] delete:^(int status, MSOrcError *error) {
+                    
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }];
+                
+                [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
+                    
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }];
+            }
+            
+            result(test);
+        }];
+    }];
+}
+
 - (void)testSendMessages:(void(^)(Test *))result {
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc:@""];
     
@@ -1442,8 +1480,6 @@
 
 - (void)testReplyHtmlMessages:(void(^)(Test *))result {
     
-    /*
-     
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject to:self.testMail cc:@"" ];
@@ -1508,12 +1544,6 @@
         }];
     }];
      
-     */
-    
-    Test *test = [Test alloc];
-    test.executionMessages = [NSMutableArray array];
-    test.passed = FALSE;
-    result(test);
 }
 
 - (MSOutlookMessage *)getSampleMessage:(NSString*)subject to:(NSString*)to cc:(NSString*)cc {
@@ -2186,7 +2216,10 @@
     
     return[_weakSelf.client.me.events add:newEvent callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         
-        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.start] addCustomParametersWithName:@"enddatetime" value:newEvent.end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
+        NSDate *start = [MSOrcObjectizer dateFromString:addedEvent.start.dateTime];
+        NSDate *end = [MSOrcObjectizer dateFromString:addedEvent.end.dateTime];
+        
+        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:start] addCustomParametersWithName:@"enddatetime" value:end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2469,20 +2502,6 @@
             }];
         }
     }];
-}
-
-- (void)testRetrievePrivilegedRoleSettings:(void(^)(Test *))result {
-    //_weakSelf.client
-    //Not Working
-    
-    
-    Test *test = [Test alloc];
-    test.executionMessages = [NSMutableArray array];
-    test.passed = FALSE;
-    result(test);
-     
-     
-
 }
 
 

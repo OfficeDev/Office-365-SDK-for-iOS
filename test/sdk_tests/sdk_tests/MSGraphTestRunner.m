@@ -60,6 +60,9 @@
     if([testName isEqualToString: @"TestGetUserFiles"]) return [self TestGetUserFiles:result];
     if([testName isEqualToString: @"TestGetUserFilesById"]) return [self TestGetUserFilesById:result];
     if([testName isEqualToString: @"TestCreateFileWithContent"]) return [self TestCreateFileWithContent:result];
+    if([testName isEqualToString: @"TestPrivilegedRoleSettings"]) return [self TestPrivilegedRoleSettings:result];
+    
+
     /*Can create user's files
      Can update user's files
      Can delete user's files
@@ -112,6 +115,8 @@
     [array addObject:[[Test alloc] initWithData:self name:@"TestGetUserFiles" displayName:@"Get user's files" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestGetUserFilesById" displayName:@"Get user's files by Id" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestCreateFileWithContent" displayName:@"Create file with content" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestPrivilegedRoleSettings" displayName:@"Retrieve privileged role settings" ]];
+    
     
     return array;
 }
@@ -1335,7 +1340,7 @@
         
         NSString *itemId = items == nil ? @"" : [[items objectAtIndex:0] _id];
         
-        [[[self.Client.users getById:self.TestMail].drive.root.children getById:itemId] readWithCallback:^(MSGraphItem *item, MSOrcError *error) {
+        [[[self.Client.users getById:self.TestMail].drive.items getById:itemId] readWithCallback:^(MSGraphItem *item, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1417,6 +1422,47 @@
          test.executionMessages = [NSMutableArray array];
          test.passed = FALSE;
          result(test);
+}
+
+-(void)TestPrivilegedRoleSettings:(void (^) (Test*))result{
+    
+    return [[[self.Client privilegedRoles] top:1] readWithCallback:^(NSArray *roles, MSOrcError *error) {
+        
+        
+        if (error != nil) {
+            
+            result([self handleError:error]);
+            
+            return;
+        }
+        
+        NSString *itemId = roles == nil ? @"" : [[roles objectAtIndex:0] _id];
+        
+        [[[self.Client.privilegedRoles getById:itemId] settings] readWithCallback:^(MSGraphPrivilegedRoleSettings *settings, MSOrcError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.executionMessages = [NSMutableArray array];
+            NSString* message = @"";
+            if(error == nil && settings != nil)
+            {
+                passed = true;
+                message = @"Ok - ";
+            }else{
+                message = @"Not - ";
+                if(error!= nil)
+                    message = [message stringByAppendingString: [error localizedDescription]];
+            }
+            
+            test.passed = passed;
+            [test.executionMessages addObject:message];
+            
+            result(test);
+            
+        }];
+    }];
 }
 
 - (MSGraphMessage *)getSampleMessage:(NSString *)subject to:(NSString *)to cc:(NSString *)cc {
