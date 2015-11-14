@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"type", @"type", @"id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"type", @"type", @"id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_type = [dic objectForKey: @"type"] != nil ? [MSGraphTaskBoardTypeSerializer fromString:[dic objectForKey: @"type"]] : _type;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-
+        if(dic!=nil) {
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphTaskBoardTypeSerializer fromString:[dic objectForKey: @"type"]];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

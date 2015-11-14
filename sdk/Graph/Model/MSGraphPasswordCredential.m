@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"customKeyIdentifier", @"customKeyIdentifier", @"endDate", @"endDate", @"keyId", @"keyId", @"startDate", @"startDate", @"value", @"value", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"customKeyIdentifier", @"customKeyIdentifier", @"endDate", @"endDate", @"keyId", @"keyId", @"startDate", @"startDate", @"value", @"value", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_customKeyIdentifier = [dic objectForKey: @"customKeyIdentifier"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"customKeyIdentifier"]] : _customKeyIdentifier;
-		_endDate = [dic objectForKey: @"endDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"endDate"]] : _endDate;
-		_keyId = [dic objectForKey: @"keyId"] != nil ? [[dic objectForKey: @"keyId"] copy] : _keyId;
-		_startDate = [dic objectForKey: @"startDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startDate"]] : _startDate;
-		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
-
+        if(dic!=nil) {
+		_customKeyIdentifier = (![dic objectForKey: @"customKeyIdentifier"] || [ [dic objectForKey: @"customKeyIdentifier"] isKindOfClass:[NSNull class]] )?_customKeyIdentifier:[MSOrcObjectizer dataFromString:[dic objectForKey: @"customKeyIdentifier"]];
+		_endDate = (![dic objectForKey: @"endDate"] || [ [dic objectForKey: @"endDate"] isKindOfClass:[NSNull class]] )?_endDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"endDate"]];
+		_keyId = (![dic objectForKey: @"keyId"] || [ [dic objectForKey: @"keyId"] isKindOfClass:[NSNull class]] )?_keyId:[[dic objectForKey: @"keyId"] copy];
+		_startDate = (![dic objectForKey: @"startDate"] || [ [dic objectForKey: @"startDate"] isKindOfClass:[NSNull class]] )?_startDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"startDate"]];
+		_value = (![dic objectForKey: @"value"] || [ [dic objectForKey: @"value"] isKindOfClass:[NSNull class]] )?_value:[[dic objectForKey: @"value"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

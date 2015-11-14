@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"publicIssuerCertificates", @"publicIssuerCertificates", @"cloudPublicIssuerCertificates", @"cloudPublicIssuerCertificates", @"registrationQuota", @"registrationQuota", @"maximumRegistrationInactivityPeriod", @"maximumRegistrationInactivityPeriod", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"publicIssuerCertificates", @"publicIssuerCertificates", @"cloudPublicIssuerCertificates", @"cloudPublicIssuerCertificates", @"registrationQuota", @"registrationQuota", @"maximumRegistrationInactivityPeriod", @"maximumRegistrationInactivityPeriod", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,7 +55,7 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
+        if(dic!=nil) {
 
         if([dic objectForKey: @"publicIssuerCertificates"] != [NSNull null]){
             _publicIssuerCertificates = [[MSOrcChangesTrackingArray alloc] init];
@@ -77,12 +78,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_cloudPublicIssuerCertificates resetChangedFlag];
         }
         
-		_registrationQuota = [dic objectForKey: @"registrationQuota"] != nil ? [[dic objectForKey: @"registrationQuota"] intValue] : _registrationQuota;
-		_maximumRegistrationInactivityPeriod = [dic objectForKey: @"maximumRegistrationInactivityPeriod"] != nil ? [[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue] : _maximumRegistrationInactivityPeriod;
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-
+		_registrationQuota = (![dic objectForKey: @"registrationQuota"] || [ [dic objectForKey: @"registrationQuota"] isKindOfClass:[NSNull class]] )?_registrationQuota:[[dic objectForKey: @"registrationQuota"] intValue];
+		_maximumRegistrationInactivityPeriod = (![dic objectForKey: @"maximumRegistrationInactivityPeriod"] || [ [dic objectForKey: @"maximumRegistrationInactivityPeriod"] isKindOfClass:[NSNull class]] )?_maximumRegistrationInactivityPeriod:[[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue];
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

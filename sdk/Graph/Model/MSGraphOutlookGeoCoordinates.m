@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Altitude", @"altitude", @"Latitude", @"latitude", @"Longitude", @"longitude", @"Accuracy", @"accuracy", @"AltitudeAccuracy", @"altitudeAccuracy", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Altitude", @"altitude", @"Latitude", @"latitude", @"Longitude", @"longitude", @"Accuracy", @"accuracy", @"AltitudeAccuracy", @"altitudeAccuracy", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_altitude = [dic objectForKey: @"Altitude"] != nil ? [[dic objectForKey: @"Altitude"] doubleValue] : _altitude;
-		_latitude = [dic objectForKey: @"Latitude"] != nil ? [[dic objectForKey: @"Latitude"] doubleValue] : _latitude;
-		_longitude = [dic objectForKey: @"Longitude"] != nil ? [[dic objectForKey: @"Longitude"] doubleValue] : _longitude;
-		_accuracy = [dic objectForKey: @"Accuracy"] != nil ? [[dic objectForKey: @"Accuracy"] doubleValue] : _accuracy;
-		_altitudeAccuracy = [dic objectForKey: @"AltitudeAccuracy"] != nil ? [[dic objectForKey: @"AltitudeAccuracy"] doubleValue] : _altitudeAccuracy;
-
+        if(dic!=nil) {
+		_altitude = (![dic objectForKey: @"Altitude"] || [ [dic objectForKey: @"Altitude"] isKindOfClass:[NSNull class]] )?_altitude:[[dic objectForKey: @"Altitude"] doubleValue];
+		_latitude = (![dic objectForKey: @"Latitude"] || [ [dic objectForKey: @"Latitude"] isKindOfClass:[NSNull class]] )?_latitude:[[dic objectForKey: @"Latitude"] doubleValue];
+		_longitude = (![dic objectForKey: @"Longitude"] || [ [dic objectForKey: @"Longitude"] isKindOfClass:[NSNull class]] )?_longitude:[[dic objectForKey: @"Longitude"] doubleValue];
+		_accuracy = (![dic objectForKey: @"Accuracy"] || [ [dic objectForKey: @"Accuracy"] isKindOfClass:[NSNull class]] )?_accuracy:[[dic objectForKey: @"Accuracy"] doubleValue];
+		_altitudeAccuracy = (![dic objectForKey: @"AltitudeAccuracy"] || [ [dic objectForKey: @"AltitudeAccuracy"] isKindOfClass:[NSNull class]] )?_altitudeAccuracy:[[dic objectForKey: @"AltitudeAccuracy"] doubleValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

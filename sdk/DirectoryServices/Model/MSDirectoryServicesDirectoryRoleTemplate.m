@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,13 +55,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+        if(dic!=nil) {
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -72,7 +73,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -128,7 +129,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

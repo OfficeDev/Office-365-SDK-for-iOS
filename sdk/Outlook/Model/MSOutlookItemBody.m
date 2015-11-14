@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentType", @"contentType", @"Content", @"content", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentType", @"contentType", @"Content", @"content", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_contentType = [dic objectForKey: @"ContentType"] != nil ? [MSOutlookBodyTypeSerializer fromString:[dic objectForKey: @"ContentType"]] : _contentType;
-		_content = [dic objectForKey: @"Content"] != nil ? [[dic objectForKey: @"Content"] copy] : _content;
-
+        if(dic!=nil) {
+		_contentType = (![dic objectForKey: @"ContentType"] || [ [dic objectForKey: @"ContentType"] isKindOfClass:[NSNull class]] )?_contentType:[MSOutlookBodyTypeSerializer fromString:[dic objectForKey: @"ContentType"]];
+		_content = (![dic objectForKey: @"Content"] || [ [dic objectForKey: @"Content"] isKindOfClass:[NSNull class]] )?_content:[[dic objectForKey: @"Content"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

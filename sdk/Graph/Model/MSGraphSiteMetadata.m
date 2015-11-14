@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"siteCollectionId", @"siteCollectionId", @"siteId", @"siteId", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"siteCollectionId", @"siteCollectionId", @"siteId", @"siteId", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_siteCollectionId = [dic objectForKey: @"siteCollectionId"] != nil ? [[dic objectForKey: @"siteCollectionId"] copy] : _siteCollectionId;
-		_siteId = [dic objectForKey: @"siteId"] != nil ? [[dic objectForKey: @"siteId"] copy] : _siteId;
-
+        if(dic!=nil) {
+		_siteCollectionId = (![dic objectForKey: @"siteCollectionId"] || [ [dic objectForKey: @"siteCollectionId"] isKindOfClass:[NSNull class]] )?_siteCollectionId:[[dic objectForKey: @"siteCollectionId"] copy];
+		_siteId = (![dic objectForKey: @"siteId"] || [ [dic objectForKey: @"siteId"] isKindOfClass:[NSNull class]] )?_siteId:[[dic objectForKey: @"siteId"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

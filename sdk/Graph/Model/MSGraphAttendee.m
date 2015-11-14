@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Status", @"status", @"Type", @"type", @"EmailAddress", @"emailAddress", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Status", @"status", @"Type", @"type", @"EmailAddress", @"emailAddress", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_status = [dic objectForKey: @"Status"] != nil ? [[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]] : _status;
-		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
-		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : _emailAddress;
-
+        if(dic!=nil) {
+		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]];
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]];
+		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

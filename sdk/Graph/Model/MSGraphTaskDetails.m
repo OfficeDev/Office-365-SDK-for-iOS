@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"previewType", @"previewType", @"completedBy", @"completedBy", @"references", @"references", @"checklist", @"checklist", @"id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"previewType", @"previewType", @"completedBy", @"completedBy", @"references", @"references", @"checklist", @"checklist", @"id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,14 +55,14 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_previewType = [dic objectForKey: @"previewType"] != nil ? [MSGraphPreviewTypeSerializer fromString:[dic objectForKey: @"previewType"]] : _previewType;
-		_completedBy = [dic objectForKey: @"completedBy"] != nil ? [[dic objectForKey: @"completedBy"] copy] : _completedBy;
-		_references = [dic objectForKey: @"references"] != nil ? [[MSGraphExternalReferenceCollection alloc] initWithDictionary: [dic objectForKey: @"references"]] : _references;
-		_checklist = [dic objectForKey: @"checklist"] != nil ? [[MSGraphChecklistItemCollection alloc] initWithDictionary: [dic objectForKey: @"checklist"]] : _checklist;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-
+        if(dic!=nil) {
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_previewType = (![dic objectForKey: @"previewType"] || [ [dic objectForKey: @"previewType"] isKindOfClass:[NSNull class]] )?_previewType:[MSGraphPreviewTypeSerializer fromString:[dic objectForKey: @"previewType"]];
+		_completedBy = (![dic objectForKey: @"completedBy"] || [ [dic objectForKey: @"completedBy"] isKindOfClass:[NSNull class]] )?_completedBy:[[dic objectForKey: @"completedBy"] copy];
+		_references = (![dic objectForKey: @"references"] || [ [dic objectForKey: @"references"] isKindOfClass:[NSNull class]] )?_references:[[MSGraphExternalReferenceCollection alloc] initWithDictionary: [dic objectForKey: @"references"]];
+		_checklist = (![dic objectForKey: @"checklist"] || [ [dic objectForKey: @"checklist"] isKindOfClass:[NSNull class]] )?_checklist:[[MSGraphChecklistItemCollection alloc] initWithDictionary: [dic objectForKey: @"checklist"]];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

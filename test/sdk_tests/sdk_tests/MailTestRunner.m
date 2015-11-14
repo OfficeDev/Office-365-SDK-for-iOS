@@ -76,8 +76,8 @@
     
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self testGetFolders:result];
-    if([testName isEqualToString:@"TestGetFoldersById"])return [self testGetFoldersById:result];
-    if([testName isEqualToString:@"TestGetFoldersByIdOverload"])return [self testGetFoldersByIdOverload:result];
+    if([testName isEqualToString:@"TestGetmailFoldersById"])return [self testGetmailFoldersById:result];
+    if([testName isEqualToString:@"TestGetmailFoldersByIdOverload"])return [self testGetmailFoldersByIdOverload:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self testCreateFolder:result];
     if([testName isEqualToString:@"TestDeleteFolder"])return [self testDeleteFolder:result];
     if([testName isEqualToString:@"TestMoveFolder"])return [self testMoveFolder:result];
@@ -106,7 +106,11 @@
     if([testName isEqualToString:@"TestUpdateEvents"])return [self testUpdateEvents:result];
     if([testName isEqualToString:@"TestDeleteEvents"])return [self testDeleteEvents:result];
     
+    
+    //UNIMPLEMENTED TEST
+    /*
     if([testName isEqualToString:@"TestRetrieveConversation"])return [self testRetrieveConversation:result];
+     */
     if([testName isEqualToString:@"TestRetrievePrivilegedRoleSettings"])return [self testRetrievePrivilegedRoleSettings:result];
 
     
@@ -133,8 +137,8 @@
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self name:@"TestGetFolders" displayName:@"Get Folders" ]];
-    [array addObject:[[Test alloc] initWithData:self name:@"TestGetFoldersById" displayName:@"Get Folders by Id" ]];
-    [array addObject:[[Test alloc] initWithData:self name:@"TestGetFoldersByIdOverload" displayName:@"Get Folders by Id (overload)" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetmailFoldersById" displayName:@"Get Folders by Id" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetmailFoldersByIdOverload" displayName:@"Get Folders by Id (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestCreateFolder" displayName:@"Create Folder" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestDeleteFolder" displayName:@"Delete Folders" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestMoveFolder" displayName:@"Move Folders" ]];
@@ -220,7 +224,7 @@
 }
 
 - (void)testTop:(void(^)(Test *))result {
-    
+
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc: @""];
     
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
@@ -228,7 +232,7 @@
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
             
-            [[[_weakSelf.client.me foldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me mailFoldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -315,7 +319,7 @@
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[[_weakSelf.client.me.folders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            [[[[_weakSelf.client.me.mailFolders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -379,7 +383,7 @@
                 NSString* message = @"";
                 MSOutlookMessage *current =(messages!= nil && [messages count] == 1) ? [messages objectAtIndex:0] : nil;
                 
-                if(error==nil && messages!= nil && [messages count] == 1 && current.dateTimeReceived == nil){
+                if(error==nil && messages!= nil && [messages count] == 1 && current.receivedDateTime == nil){
                     passed = true;
                     message =@"Ok - ";
                 }
@@ -649,7 +653,7 @@
 
 - (void)testGetFolders:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.folders readWithCallback:^(NSArray *folders, MSOrcError *error) {
+    return [_weakSelf.client.me.mailFolders readWithCallback:^(NSArray *mailFolders, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -657,9 +661,9 @@
         
         test.executionMessages = [NSMutableArray array];
         
-        NSString* message = [folders count]>0  ? @"Ok - ": @"Not - ";
+        NSString* message = [mailFolders count]>0  ? @"Ok - ": @"Not - ";
         
-        if ([folders count] > 0) {
+        if ([mailFolders count] > 0) {
             
             passed = true;
         }
@@ -672,9 +676,9 @@
     }];
 }
 
-- (void)testGetFoldersById:(void(^)(Test *))result {
+- (void)testGetmailFoldersById:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"] readWithCallback:^(MSOutlookFolder *folder, MSOrcError *error) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"] readWithCallback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -701,9 +705,9 @@
     }];
 }
 
-- (void)testGetFoldersByIdOverload:(void(^)(Test *))result {
+- (void)testGetmailFoldersByIdOverload:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me foldersById:@"Inbox"] readWithCallback:^(MSOutlookFolder *folder, MSOrcError *error) {
+    return [[_weakSelf.client.me mailFoldersById:@"Inbox"] readWithCallback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -734,10 +738,10 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *folder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *folder, MSOrcError *e) {
         
         BOOL passed = false;
         
@@ -768,13 +772,13 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
     //Create folder
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *folder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *folder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:folder._id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:folder._id] delete:^(int status, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -803,12 +807,12 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:addedFolder._id].operations moveWithDestinationId:@"Drafts" callback:^(MSOutlookFolder *folder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id].operations moveWithDestinationId:@"Drafts" callback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -838,7 +842,7 @@
             
             //Cleanup
             if(folder!= nil)
-                [[_weakSelf.client.me.folders getById:folder._id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.mailFolders getById:folder._id] delete:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
@@ -854,12 +858,12 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:addedFolder._id].operations copyWithDestinationId:@"Drafts" callback:^(MSOutlookFolder *copiedFolder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id].operations copyWithDestinationId:@"Drafts" callback:^(MSOutlookMailFolder *copiedFolder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -889,13 +893,13 @@
             //Cleanup
             if(copiedFolder!= nil)
             {
-                [[_weakSelf.client.me.folders getById:copiedFolder._id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.mailFolders getById:copiedFolder._id] delete:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
             }
             
-            [[_weakSelf.client.me.folders getById:addedFolder._id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.mailFolders getById:addedFolder._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -912,15 +916,15 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
         NSString *updatedFolderName = [@"Updated" stringByAppendingString:folderName];
         newFolder.displayName = updatedFolderName;
         
-        [[_weakSelf.client.me.folders getById:addedFolder._id] update:newFolder callback:^(MSOutlookFolder *updatedFolder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id] update:newFolder callback:^(MSOutlookMailFolder *updatedFolder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1438,6 +1442,8 @@
 
 - (void)testReplyHtmlMessages:(void(^)(Test *))result {
     
+    /*
+     
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject to:self.testMail cc:@"" ];
@@ -1449,13 +1455,13 @@
     return[_weakSelf.client.me.operations sendMailWithMessage:message saveToSentItems:true callback:^(int returnValue, MSOrcError *error) {
         
         // Get sent mail
-        [[_weakSelf.client.me.folders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray *folders, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray *mailFolders, MSOrcError *error) {
             
-            MSOutlookFolder *sentItemsFolder = [folders objectAtIndex:0];
+            MSOutlookMailFolder *sentItemsFolder = [mailFolders objectAtIndex:0];
             
             NSString *filter = [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"];
             
-            [[[_weakSelf.client.me.folders getById:sentItemsFolder._id ].messages filter:filter] readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me.mailFolders getById:sentItemsFolder._id ].messages filter:filter] readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] body] contentType] == MSOutlookBodyTypeText){
                     MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
@@ -1501,6 +1507,13 @@
             }];
         }];
     }];
+     
+     */
+    
+    Test *test = [Test alloc];
+    test.executionMessages = [NSMutableArray array];
+    test.passed = FALSE;
+    result(test);
 }
 
 - (MSOutlookMessage *)getSampleMessage:(NSString*)subject to:(NSString*)to cc:(NSString*)cc {
@@ -2459,14 +2472,33 @@
 }
 
 - (void)testRetrievePrivilegedRoleSettings:(void(^)(Test *))result {
-    _weakSelf.client }
+    //_weakSelf.client
+    //Not Working
+    
+    
+    Test *test = [Test alloc];
+    test.executionMessages = [NSMutableArray array];
+    test.passed = FALSE;
+    result(test);
+     
+     
+
+}
+
 
 - (MSOutlookEvent *)getSampleEvent {
     
     MSOutlookEvent *event= [[MSOutlookEvent alloc]init];
     event.subject = @"Today's appointment";
-    event.start = [NSDate date];
-    event.end = [[NSDate date] dateByAddingTimeInterval: 3600];
+    
+    event.start = [[MSOutlookDateTimeTimeZone alloc] init];
+    event.start.dateTime = [MSOrcObjectizer stringFromDate:[NSDate date]];
+    event.start.timeZone = @"UTC";
+    
+    event.end = [[MSOutlookDateTimeTimeZone alloc] init];
+    event.end.dateTime = [MSOrcObjectizer stringFromDate:[[NSDate date] dateByAddingTimeInterval: 3600]];
+    event.end.timeZone = @"UTC";
+    
     MSOutlookImportance importance = MSOutlookImportanceHigh;
     event.importance = importance;
     
@@ -2491,6 +2523,7 @@
     event.attendees = (NSMutableArray *)attendees;
     
     return event;
+
 }
 
 @end

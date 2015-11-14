@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"content", @"content", @"createdBy", @"createdBy", @"createdDateTime", @"createdDateTime", @"cTag", @"cTag", @"description", @"_description", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"webDavUrl", @"webDavUrl", @"webUrl", @"webUrl", @"audio", @"audio", @"deleted", @"deleted", @"file", @"file", @"fileSystemInfo", @"fileSystemInfo", @"folder", @"folder", @"image", @"image", @"location", @"location", @"openWith", @"openWith", @"photo", @"photo", @"searchResult", @"searchResult", @"shared", @"shared", @"specialFolder", @"specialFolder", @"video", @"video", @"createdByUser", @"createdByUser", @"lastModifiedByUser", @"lastModifiedByUser", @"permissions", @"permissions", @"versions", @"versions", @"children", @"children", @"thumbnails", @"thumbnails", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"content", @"content", @"createdBy", @"createdBy", @"createdDateTime", @"createdDateTime", @"cTag", @"cTag", @"description", @"_description", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"webDavUrl", @"webDavUrl", @"webUrl", @"webUrl", @"audio", @"audio", @"deleted", @"deleted", @"file", @"file", @"fileSystemInfo", @"fileSystemInfo", @"folder", @"folder", @"image", @"image", @"location", @"location", @"openWith", @"openWith", @"photo", @"photo", @"searchResult", @"searchResult", @"shared", @"shared", @"specialFolder", @"specialFolder", @"video", @"video", @"createdByUser", @"createdByUser", @"lastModifiedByUser", @"lastModifiedByUser", @"permissions", @"permissions", @"versions", @"versions", @"children", @"children", @"thumbnails", @"thumbnails", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,36 +55,36 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
-		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdBy"]] : _createdBy;
-		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
-		_cTag = [dic objectForKey: @"cTag"] != nil ? [[dic objectForKey: @"cTag"] copy] : _cTag;
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_eTag = [dic objectForKey: @"eTag"] != nil ? [[dic objectForKey: @"eTag"] copy] : _eTag;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedBy"]] : _lastModifiedBy;
-		_lastModifiedDateTime = [dic objectForKey: @"lastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]] : _lastModifiedDateTime;
-		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
-		_parentReference = [dic objectForKey: @"parentReference"] != nil ? [[MSGraphItemReference alloc] initWithDictionary: [dic objectForKey: @"parentReference"]] : _parentReference;
-		_size = [dic objectForKey: @"size"] != nil ? [[dic objectForKey: @"size"] longLongValue] : _size;
-		_webDavUrl = [dic objectForKey: @"webDavUrl"] != nil ? [[dic objectForKey: @"webDavUrl"] copy] : _webDavUrl;
-		_webUrl = [dic objectForKey: @"webUrl"] != nil ? [[dic objectForKey: @"webUrl"] copy] : _webUrl;
-		_audio = [dic objectForKey: @"audio"] != nil ? [[MSGraphAudio alloc] initWithDictionary: [dic objectForKey: @"audio"]] : _audio;
-		_deleted = [dic objectForKey: @"deleted"] != nil ? [[MSGraphDeleted alloc] initWithDictionary: [dic objectForKey: @"deleted"]] : _deleted;
-		_file = [dic objectForKey: @"file"] != nil ? [[MSGraphFile alloc] initWithDictionary: [dic objectForKey: @"file"]] : _file;
-		_fileSystemInfo = [dic objectForKey: @"fileSystemInfo"] != nil ? [[MSGraphFileSystemInfo alloc] initWithDictionary: [dic objectForKey: @"fileSystemInfo"]] : _fileSystemInfo;
-		_folder = [dic objectForKey: @"folder"] != nil ? [[MSGraphFolder alloc] initWithDictionary: [dic objectForKey: @"folder"]] : _folder;
-		_image = [dic objectForKey: @"image"] != nil ? [[MSGraphImage alloc] initWithDictionary: [dic objectForKey: @"image"]] : _image;
-		_location = [dic objectForKey: @"location"] != nil ? [[MSGraphGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"location"]] : _location;
-		_openWith = [dic objectForKey: @"openWith"] != nil ? [[MSGraphOpenWithSet alloc] initWithDictionary: [dic objectForKey: @"openWith"]] : _openWith;
-		_photo = [dic objectForKey: @"photo"] != nil ? [[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"photo"]] : _photo;
-		_searchResult = [dic objectForKey: @"searchResult"] != nil ? [[MSGraphSearchResult alloc] initWithDictionary: [dic objectForKey: @"searchResult"]] : _searchResult;
-		_shared = [dic objectForKey: @"shared"] != nil ? [[MSGraphShared alloc] initWithDictionary: [dic objectForKey: @"shared"]] : _shared;
-		_specialFolder = [dic objectForKey: @"specialFolder"] != nil ? [[MSGraphSpecialFolder alloc] initWithDictionary: [dic objectForKey: @"specialFolder"]] : _specialFolder;
-		_video = [dic objectForKey: @"video"] != nil ? [[MSGraphVideo alloc] initWithDictionary: [dic objectForKey: @"video"]] : _video;
-		_createdByUser = [dic objectForKey: @"createdByUser"] != nil ? [[MSGraphUser alloc] initWithDictionary: [dic objectForKey: @"createdByUser"]] : _createdByUser;
-		_lastModifiedByUser = [dic objectForKey: @"lastModifiedByUser"] != nil ? [[MSGraphUser alloc] initWithDictionary: [dic objectForKey: @"lastModifiedByUser"]] : _lastModifiedByUser;
+        if(dic!=nil) {
+		_content = (![dic objectForKey: @"content"] || [ [dic objectForKey: @"content"] isKindOfClass:[NSNull class]] )?_content:nil/*NSStream*/;
+		_createdBy = (![dic objectForKey: @"createdBy"] || [ [dic objectForKey: @"createdBy"] isKindOfClass:[NSNull class]] )?_createdBy:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdBy"]];
+		_createdDateTime = (![dic objectForKey: @"createdDateTime"] || [ [dic objectForKey: @"createdDateTime"] isKindOfClass:[NSNull class]] )?_createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]];
+		_cTag = (![dic objectForKey: @"cTag"] || [ [dic objectForKey: @"cTag"] isKindOfClass:[NSNull class]] )?_cTag:[[dic objectForKey: @"cTag"] copy];
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_eTag = (![dic objectForKey: @"eTag"] || [ [dic objectForKey: @"eTag"] isKindOfClass:[NSNull class]] )?_eTag:[[dic objectForKey: @"eTag"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_lastModifiedBy = (![dic objectForKey: @"lastModifiedBy"] || [ [dic objectForKey: @"lastModifiedBy"] isKindOfClass:[NSNull class]] )?_lastModifiedBy:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedBy"]];
+		_lastModifiedDateTime = (![dic objectForKey: @"lastModifiedDateTime"] || [ [dic objectForKey: @"lastModifiedDateTime"] isKindOfClass:[NSNull class]] )?_lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]];
+		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
+		_parentReference = (![dic objectForKey: @"parentReference"] || [ [dic objectForKey: @"parentReference"] isKindOfClass:[NSNull class]] )?_parentReference:[[MSGraphItemReference alloc] initWithDictionary: [dic objectForKey: @"parentReference"]];
+		_size = (![dic objectForKey: @"size"] || [ [dic objectForKey: @"size"] isKindOfClass:[NSNull class]] )?_size:[[dic objectForKey: @"size"] longLongValue];
+		_webDavUrl = (![dic objectForKey: @"webDavUrl"] || [ [dic objectForKey: @"webDavUrl"] isKindOfClass:[NSNull class]] )?_webDavUrl:[[dic objectForKey: @"webDavUrl"] copy];
+		_webUrl = (![dic objectForKey: @"webUrl"] || [ [dic objectForKey: @"webUrl"] isKindOfClass:[NSNull class]] )?_webUrl:[[dic objectForKey: @"webUrl"] copy];
+		_audio = (![dic objectForKey: @"audio"] || [ [dic objectForKey: @"audio"] isKindOfClass:[NSNull class]] )?_audio:[[MSGraphAudio alloc] initWithDictionary: [dic objectForKey: @"audio"]];
+		_deleted = (![dic objectForKey: @"deleted"] || [ [dic objectForKey: @"deleted"] isKindOfClass:[NSNull class]] )?_deleted:[[MSGraphDeleted alloc] initWithDictionary: [dic objectForKey: @"deleted"]];
+		_file = (![dic objectForKey: @"file"] || [ [dic objectForKey: @"file"] isKindOfClass:[NSNull class]] )?_file:[[MSGraphFile alloc] initWithDictionary: [dic objectForKey: @"file"]];
+		_fileSystemInfo = (![dic objectForKey: @"fileSystemInfo"] || [ [dic objectForKey: @"fileSystemInfo"] isKindOfClass:[NSNull class]] )?_fileSystemInfo:[[MSGraphFileSystemInfo alloc] initWithDictionary: [dic objectForKey: @"fileSystemInfo"]];
+		_folder = (![dic objectForKey: @"folder"] || [ [dic objectForKey: @"folder"] isKindOfClass:[NSNull class]] )?_folder:[[MSGraphFolder alloc] initWithDictionary: [dic objectForKey: @"folder"]];
+		_image = (![dic objectForKey: @"image"] || [ [dic objectForKey: @"image"] isKindOfClass:[NSNull class]] )?_image:[[MSGraphImage alloc] initWithDictionary: [dic objectForKey: @"image"]];
+		_location = (![dic objectForKey: @"location"] || [ [dic objectForKey: @"location"] isKindOfClass:[NSNull class]] )?_location:[[MSGraphGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"location"]];
+		_openWith = (![dic objectForKey: @"openWith"] || [ [dic objectForKey: @"openWith"] isKindOfClass:[NSNull class]] )?_openWith:[[MSGraphOpenWithSet alloc] initWithDictionary: [dic objectForKey: @"openWith"]];
+		_photo = (![dic objectForKey: @"photo"] || [ [dic objectForKey: @"photo"] isKindOfClass:[NSNull class]] )?_photo:[[MSGraphPhoto alloc] initWithDictionary: [dic objectForKey: @"photo"]];
+		_searchResult = (![dic objectForKey: @"searchResult"] || [ [dic objectForKey: @"searchResult"] isKindOfClass:[NSNull class]] )?_searchResult:[[MSGraphSearchResult alloc] initWithDictionary: [dic objectForKey: @"searchResult"]];
+		_shared = (![dic objectForKey: @"shared"] || [ [dic objectForKey: @"shared"] isKindOfClass:[NSNull class]] )?_shared:[[MSGraphShared alloc] initWithDictionary: [dic objectForKey: @"shared"]];
+		_specialFolder = (![dic objectForKey: @"specialFolder"] || [ [dic objectForKey: @"specialFolder"] isKindOfClass:[NSNull class]] )?_specialFolder:[[MSGraphSpecialFolder alloc] initWithDictionary: [dic objectForKey: @"specialFolder"]];
+		_video = (![dic objectForKey: @"video"] || [ [dic objectForKey: @"video"] isKindOfClass:[NSNull class]] )?_video:[[MSGraphVideo alloc] initWithDictionary: [dic objectForKey: @"video"]];
+		_createdByUser = (![dic objectForKey: @"createdByUser"] || [ [dic objectForKey: @"createdByUser"] isKindOfClass:[NSNull class]] )?_createdByUser:[[MSGraphUser alloc] initWithDictionary: [dic objectForKey: @"createdByUser"]];
+		_lastModifiedByUser = (![dic objectForKey: @"lastModifiedByUser"] || [ [dic objectForKey: @"lastModifiedByUser"] isKindOfClass:[NSNull class]] )?_lastModifiedByUser:[[MSGraphUser alloc] initWithDictionary: [dic objectForKey: @"lastModifiedByUser"]];
 
         if([dic objectForKey: @"permissions"] != [NSNull null]){
             _permissions = [[MSOrcChangesTrackingArray alloc] init];
@@ -128,7 +129,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_thumbnails resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

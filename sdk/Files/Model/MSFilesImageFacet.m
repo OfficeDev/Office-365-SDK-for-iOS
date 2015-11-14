@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"dateTimeTaken", @"dateTimeTaken", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"dateTimeTaken", @"dateTimeTaken", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_dateTimeTaken = [dic objectForKey: @"dateTimeTaken"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeTaken"]] : _dateTimeTaken;
-
+        if(dic!=nil) {
+		_dateTimeTaken = (![dic objectForKey: @"dateTimeTaken"] || [ [dic objectForKey: @"dateTimeTaken"] isKindOfClass:[NSNull class]] )?_dateTimeTaken:[MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeTaken"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

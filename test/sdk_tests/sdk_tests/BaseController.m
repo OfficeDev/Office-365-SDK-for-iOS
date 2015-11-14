@@ -17,7 +17,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v2.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -33,7 +33,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSFilesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSFilesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v2.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -49,7 +49,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSDiscoveryClient alloc] initWithUrl:[hostName stringByAppendingString:@"/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSDiscoveryClient alloc] initWithUrl:[hostName stringByAppendingString:@"/v2.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");

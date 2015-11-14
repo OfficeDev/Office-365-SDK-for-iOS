@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"clientId", @"clientId", @"consentType", @"consentType", @"expiryTime", @"expiryTime", @"objectId", @"objectId", @"principalId", @"principalId", @"resourceId", @"resourceId", @"scope", @"scope", @"startTime", @"startTime", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"clientId", @"clientId", @"consentType", @"consentType", @"expiryTime", @"expiryTime", @"objectId", @"objectId", @"principalId", @"principalId", @"resourceId", @"resourceId", @"scope", @"scope", @"startTime", @"startTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,16 +55,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_clientId = [dic objectForKey: @"clientId"] != nil ? [[dic objectForKey: @"clientId"] copy] : _clientId;
-		_consentType = [dic objectForKey: @"consentType"] != nil ? [[dic objectForKey: @"consentType"] copy] : _consentType;
-		_expiryTime = [dic objectForKey: @"expiryTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"expiryTime"]] : _expiryTime;
-		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
-		_principalId = [dic objectForKey: @"principalId"] != nil ? [[dic objectForKey: @"principalId"] copy] : _principalId;
-		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
-		_scope = [dic objectForKey: @"scope"] != nil ? [[dic objectForKey: @"scope"] copy] : _scope;
-		_startTime = [dic objectForKey: @"startTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startTime"]] : _startTime;
-
+        if(dic!=nil) {
+		_clientId = (![dic objectForKey: @"clientId"] || [ [dic objectForKey: @"clientId"] isKindOfClass:[NSNull class]] )?_clientId:[[dic objectForKey: @"clientId"] copy];
+		_consentType = (![dic objectForKey: @"consentType"] || [ [dic objectForKey: @"consentType"] isKindOfClass:[NSNull class]] )?_consentType:[[dic objectForKey: @"consentType"] copy];
+		_expiryTime = (![dic objectForKey: @"expiryTime"] || [ [dic objectForKey: @"expiryTime"] isKindOfClass:[NSNull class]] )?_expiryTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"expiryTime"]];
+		_objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?_objectId:[[dic objectForKey: @"objectId"] copy];
+		_principalId = (![dic objectForKey: @"principalId"] || [ [dic objectForKey: @"principalId"] isKindOfClass:[NSNull class]] )?_principalId:[[dic objectForKey: @"principalId"] copy];
+		_resourceId = (![dic objectForKey: @"resourceId"] || [ [dic objectForKey: @"resourceId"] isKindOfClass:[NSNull class]] )?_resourceId:[[dic objectForKey: @"resourceId"] copy];
+		_scope = (![dic objectForKey: @"scope"] || [ [dic objectForKey: @"scope"] isKindOfClass:[NSNull class]] )?_scope:[[dic objectForKey: @"scope"] copy];
+		_startTime = (![dic objectForKey: @"startTime"] || [ [dic objectForKey: @"startTime"] isKindOfClass:[NSNull class]] )?_startTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"startTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Attendee", @"attendee", @"Availability", @"availability", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Attendee", @"attendee", @"Availability", @"availability", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_attendee = [dic objectForKey: @"Attendee"] != nil ? [[MSGraphAttendeeBase alloc] initWithDictionary: [dic objectForKey: @"Attendee"]] : _attendee;
-		_availability = [dic objectForKey: @"Availability"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"Availability"]] : _availability;
-
+        if(dic!=nil) {
+		_attendee = (![dic objectForKey: @"Attendee"] || [ [dic objectForKey: @"Attendee"] isKindOfClass:[NSNull class]] )?_attendee:[[MSGraphAttendeeBase alloc] initWithDictionary: [dic objectForKey: @"Attendee"]];
+		_availability = (![dic objectForKey: @"Availability"] || [ [dic objectForKey: @"Availability"] isKindOfClass:[NSNull class]] )?_availability:[MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"Availability"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

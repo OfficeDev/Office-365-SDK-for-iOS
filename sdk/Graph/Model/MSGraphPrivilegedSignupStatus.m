@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"TenantId", @"tenantId", @"IsRegistered", @"isRegistered", @"Status", @"status", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"TenantId", @"tenantId", @"IsRegistered", @"isRegistered", @"Status", @"status", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_tenantId = [dic objectForKey: @"TenantId"] != nil ? [[dic objectForKey: @"TenantId"] copy] : _tenantId;
-		_isRegistered = [dic objectForKey: @"IsRegistered"] != nil ? [[dic objectForKey: @"IsRegistered"] boolValue] : _isRegistered;
-		_status = [dic objectForKey: @"Status"] != nil ? [MSGraphSetupStatusSerializer fromString:[dic objectForKey: @"Status"]] : _status;
-
+        if(dic!=nil) {
+		_tenantId = (![dic objectForKey: @"TenantId"] || [ [dic objectForKey: @"TenantId"] isKindOfClass:[NSNull class]] )?_tenantId:[[dic objectForKey: @"TenantId"] copy];
+		_isRegistered = (![dic objectForKey: @"IsRegistered"] || [ [dic objectForKey: @"IsRegistered"] isKindOfClass:[NSNull class]] )?_isRegistered:[[dic objectForKey: @"IsRegistered"] boolValue];
+		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[MSGraphSetupStatusSerializer fromString:[dic objectForKey: @"Status"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DateTime", @"dateTime", @"TimeZone", @"timeZone", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DateTime", @"dateTime", @"TimeZone", @"timeZone", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_dateTime = [dic objectForKey: @"DateTime"] != nil ? [[dic objectForKey: @"DateTime"] copy] : _dateTime;
-		_timeZone = [dic objectForKey: @"TimeZone"] != nil ? [[dic objectForKey: @"TimeZone"] copy] : _timeZone;
-
+        if(dic!=nil) {
+		_dateTime = (![dic objectForKey: @"DateTime"] || [ [dic objectForKey: @"DateTime"] isKindOfClass:[NSNull class]] )?_dateTime:[[dic objectForKey: @"DateTime"] copy];
+		_timeZone = (![dic objectForKey: @"TimeZone"] || [ [dic objectForKey: @"TimeZone"] isKindOfClass:[NSNull class]] )?_timeZone:[[dic objectForKey: @"TimeZone"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : _emailAddress;
-
+        if(dic!=nil) {
+		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

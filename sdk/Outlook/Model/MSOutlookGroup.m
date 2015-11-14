@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"Description", @"_description", @"DisplayName", @"displayName", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Subscriptions", @"subscriptions", @"Photo", @"photo", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"Description", @"_description", @"DisplayName", @"displayName", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Subscriptions", @"subscriptions", @"Photo", @"photo", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,16 +55,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_accessType = [dic objectForKey: @"AccessType"] != nil ? [MSOutlookGroupAccessTypeSerializer fromString:[dic objectForKey: @"AccessType"]] : _accessType;
-		_allowExternalSenders = [dic objectForKey: @"AllowExternalSenders"] != nil ? [[dic objectForKey: @"AllowExternalSenders"] boolValue] : _allowExternalSenders;
-		_autoSubscribeNewMembers = [dic objectForKey: @"AutoSubscribeNewMembers"] != nil ? [[dic objectForKey: @"AutoSubscribeNewMembers"] boolValue] : _autoSubscribeNewMembers;
-		__description = [dic objectForKey: @"Description"] != nil ? [[dic objectForKey: @"Description"] copy] : __description;
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[dic objectForKey: @"EmailAddress"] copy] : _emailAddress;
-		_isFavorite = [dic objectForKey: @"IsFavorite"] != nil ? [[dic objectForKey: @"IsFavorite"] boolValue] : _isFavorite;
-		_isSubscribedByMail = [dic objectForKey: @"IsSubscribedByMail"] != nil ? [[dic objectForKey: @"IsSubscribedByMail"] boolValue] : _isSubscribedByMail;
-		_unseenCount = [dic objectForKey: @"UnseenCount"] != nil ? [[dic objectForKey: @"UnseenCount"] intValue] : _unseenCount;
+        if(dic!=nil) {
+		_accessType = (![dic objectForKey: @"AccessType"] || [ [dic objectForKey: @"AccessType"] isKindOfClass:[NSNull class]] )?_accessType:[MSOutlookGroupAccessTypeSerializer fromString:[dic objectForKey: @"AccessType"]];
+		_allowExternalSenders = (![dic objectForKey: @"AllowExternalSenders"] || [ [dic objectForKey: @"AllowExternalSenders"] isKindOfClass:[NSNull class]] )?_allowExternalSenders:[[dic objectForKey: @"AllowExternalSenders"] boolValue];
+		_autoSubscribeNewMembers = (![dic objectForKey: @"AutoSubscribeNewMembers"] || [ [dic objectForKey: @"AutoSubscribeNewMembers"] isKindOfClass:[NSNull class]] )?_autoSubscribeNewMembers:[[dic objectForKey: @"AutoSubscribeNewMembers"] boolValue];
+		__description = (![dic objectForKey: @"Description"] || [ [dic objectForKey: @"Description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"Description"] copy];
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[dic objectForKey: @"EmailAddress"] copy];
+		_isFavorite = (![dic objectForKey: @"IsFavorite"] || [ [dic objectForKey: @"IsFavorite"] isKindOfClass:[NSNull class]] )?_isFavorite:[[dic objectForKey: @"IsFavorite"] boolValue];
+		_isSubscribedByMail = (![dic objectForKey: @"IsSubscribedByMail"] || [ [dic objectForKey: @"IsSubscribedByMail"] isKindOfClass:[NSNull class]] )?_isSubscribedByMail:[[dic objectForKey: @"IsSubscribedByMail"] boolValue];
+		_unseenCount = (![dic objectForKey: @"UnseenCount"] || [ [dic objectForKey: @"UnseenCount"] isKindOfClass:[NSNull class]] )?_unseenCount:[[dic objectForKey: @"UnseenCount"] intValue];
 
         if([dic objectForKey: @"Threads"] != [NSNull null]){
             _threads = [[MSOrcChangesTrackingArray alloc] init];
@@ -75,7 +76,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_threads resetChangedFlag];
         }
         
-		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+		_calendar = (![dic objectForKey: @"Calendar"] || [ [dic objectForKey: @"Calendar"] isKindOfClass:[NSNull class]] )?_calendar:[[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]];
 
         if([dic objectForKey: @"CalendarView"] != [NSNull null]){
             _calendarView = [[MSOrcChangesTrackingArray alloc] init];
@@ -120,7 +121,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_subscriptions resetChangedFlag];
         }
         
-		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		_photo = (![dic objectForKey: @"Photo"] || [ [dic objectForKey: @"Photo"] isKindOfClass:[NSNull class]] )?_photo:[[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]];
 
         if([dic objectForKey: @"AcceptedSenders"] != [NSNull null]){
             _acceptedSenders = [[MSOrcChangesTrackingArray alloc] init];
@@ -143,8 +144,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_rejectedSenders resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

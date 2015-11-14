@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"RoleId", @"roleId", @"Status", @"status", @"UsersCount", @"usersCount", @"ManagedCount", @"managedCount", @"ElevatedCount", @"elevatedCount", @"MfaEnabled", @"mfaEnabled", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"RoleId", @"roleId", @"Status", @"status", @"UsersCount", @"usersCount", @"ManagedCount", @"managedCount", @"ElevatedCount", @"elevatedCount", @"MfaEnabled", @"mfaEnabled", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,14 +55,14 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_roleId = [dic objectForKey: @"RoleId"] != nil ? [[dic objectForKey: @"RoleId"] copy] : _roleId;
-		_status = [dic objectForKey: @"Status"] != nil ? [MSGraphRoleSummaryStatusSerializer fromString:[dic objectForKey: @"Status"]] : _status;
-		_usersCount = [dic objectForKey: @"UsersCount"] != nil ? [[dic objectForKey: @"UsersCount"] intValue] : _usersCount;
-		_managedCount = [dic objectForKey: @"ManagedCount"] != nil ? [[dic objectForKey: @"ManagedCount"] intValue] : _managedCount;
-		_elevatedCount = [dic objectForKey: @"ElevatedCount"] != nil ? [[dic objectForKey: @"ElevatedCount"] intValue] : _elevatedCount;
-		_mfaEnabled = [dic objectForKey: @"MfaEnabled"] != nil ? [[dic objectForKey: @"MfaEnabled"] boolValue] : _mfaEnabled;
-
+        if(dic!=nil) {
+		_roleId = (![dic objectForKey: @"RoleId"] || [ [dic objectForKey: @"RoleId"] isKindOfClass:[NSNull class]] )?_roleId:[[dic objectForKey: @"RoleId"] copy];
+		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[MSGraphRoleSummaryStatusSerializer fromString:[dic objectForKey: @"Status"]];
+		_usersCount = (![dic objectForKey: @"UsersCount"] || [ [dic objectForKey: @"UsersCount"] isKindOfClass:[NSNull class]] )?_usersCount:[[dic objectForKey: @"UsersCount"] intValue];
+		_managedCount = (![dic objectForKey: @"ManagedCount"] || [ [dic objectForKey: @"ManagedCount"] isKindOfClass:[NSNull class]] )?_managedCount:[[dic objectForKey: @"ManagedCount"] intValue];
+		_elevatedCount = (![dic objectForKey: @"ElevatedCount"] || [ [dic objectForKey: @"ElevatedCount"] isKindOfClass:[NSNull class]] )?_elevatedCount:[[dic objectForKey: @"ElevatedCount"] intValue];
+		_mfaEnabled = (![dic objectForKey: @"MfaEnabled"] || [ [dic objectForKey: @"MfaEnabled"] isKindOfClass:[NSNull class]] )?_mfaEnabled:[[dic objectForKey: @"MfaEnabled"] boolValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"Subscriptions", @"subscriptions", @"Messages", @"messages", @"JoinedGroups", @"joinedGroups", @"MailFolders", @"mailFolders", @"Calendar", @"calendar", @"Calendars", @"calendars", @"CalendarGroups", @"calendarGroups", @"CalendarView", @"calendarView", @"Events", @"events", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"Photo", @"photo", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EmailAddress", @"emailAddress", @"DisplayName", @"displayName", @"Alias", @"alias", @"MailboxGuid", @"mailboxGuid", @"Subscriptions", @"subscriptions", @"Messages", @"messages", @"JoinedGroups", @"joinedGroups", @"MailFolders", @"mailFolders", @"Calendar", @"calendar", @"Calendars", @"calendars", @"CalendarGroups", @"calendarGroups", @"CalendarView", @"calendarView", @"Events", @"events", @"Contacts", @"contacts", @"ContactFolders", @"contactFolders", @"Photo", @"photo", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[dic objectForKey: @"EmailAddress"] copy] : _emailAddress;
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_alias = [dic objectForKey: @"Alias"] != nil ? [[dic objectForKey: @"Alias"] copy] : _alias;
-		_mailboxGuid = [dic objectForKey: @"MailboxGuid"] != nil ? [[dic objectForKey: @"MailboxGuid"] copy] : _mailboxGuid;
+        if(dic!=nil) {
+		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[dic objectForKey: @"EmailAddress"] copy];
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_alias = (![dic objectForKey: @"Alias"] || [ [dic objectForKey: @"Alias"] isKindOfClass:[NSNull class]] )?_alias:[[dic objectForKey: @"Alias"] copy];
+		_mailboxGuid = (![dic objectForKey: @"MailboxGuid"] || [ [dic objectForKey: @"MailboxGuid"] isKindOfClass:[NSNull class]] )?_mailboxGuid:[[dic objectForKey: @"MailboxGuid"] copy];
 
         if([dic objectForKey: @"Subscriptions"] != [NSNull null]){
             _subscriptions = [[MSOrcChangesTrackingArray alloc] init];
@@ -103,7 +104,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_mailFolders resetChangedFlag];
         }
         
-		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+		_calendar = (![dic objectForKey: @"Calendar"] || [ [dic objectForKey: @"Calendar"] isKindOfClass:[NSNull class]] )?_calendar:[[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]];
 
         if([dic objectForKey: @"Calendars"] != [NSNull null]){
             _calendars = [[MSOrcChangesTrackingArray alloc] init];
@@ -170,9 +171,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_contactFolders resetChangedFlag];
         }
         
-		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		_photo = (![dic objectForKey: @"Photo"] || [ [dic objectForKey: @"Photo"] isKindOfClass:[NSNull class]] )?_photo:[[MSOutlookPhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

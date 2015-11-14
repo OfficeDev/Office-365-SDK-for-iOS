@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"ContentBytes", @"contentBytes", @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ContentId", @"contentId", @"ContentLocation", @"contentLocation", @"ContentBytes", @"contentBytes", @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,17 +55,17 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_contentId = [dic objectForKey: @"ContentId"] != nil ? [[dic objectForKey: @"ContentId"] copy] : _contentId;
-		_contentLocation = [dic objectForKey: @"ContentLocation"] != nil ? [[dic objectForKey: @"ContentLocation"] copy] : _contentLocation;
-		_contentBytes = [dic objectForKey: @"ContentBytes"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"ContentBytes"]] : _contentBytes;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : self.name;
-		self.contentType = [dic objectForKey: @"ContentType"] != nil ? [[dic objectForKey: @"ContentType"] copy] : self.contentType;
-		self.size = [dic objectForKey: @"Size"] != nil ? [[dic objectForKey: @"Size"] intValue] : self.size;
-		self.isInline = [dic objectForKey: @"IsInline"] != nil ? [[dic objectForKey: @"IsInline"] boolValue] : self.isInline;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_contentId = (![dic objectForKey: @"ContentId"] || [ [dic objectForKey: @"ContentId"] isKindOfClass:[NSNull class]] )?_contentId:[[dic objectForKey: @"ContentId"] copy];
+		_contentLocation = (![dic objectForKey: @"ContentLocation"] || [ [dic objectForKey: @"ContentLocation"] isKindOfClass:[NSNull class]] )?_contentLocation:[[dic objectForKey: @"ContentLocation"] copy];
+		_contentBytes = (![dic objectForKey: @"ContentBytes"] || [ [dic objectForKey: @"ContentBytes"] isKindOfClass:[NSNull class]] )?_contentBytes:[MSOrcObjectizer dataFromString:[dic objectForKey: @"ContentBytes"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.name = (![dic objectForKey: @"Name"] || [ [dic objectForKey: @"Name"] isKindOfClass:[NSNull class]] )?self.name:[[dic objectForKey: @"Name"] copy];
+		self.contentType = (![dic objectForKey: @"ContentType"] || [ [dic objectForKey: @"ContentType"] isKindOfClass:[NSNull class]] )?self.contentType:[[dic objectForKey: @"ContentType"] copy];
+		self.size = (![dic objectForKey: @"Size"] || [ [dic objectForKey: @"Size"] isKindOfClass:[NSNull class]] )?self.size:[[dic objectForKey: @"Size"] intValue];
+		self.isInline = (![dic objectForKey: @"IsInline"] || [ [dic objectForKey: @"IsInline"] isKindOfClass:[NSNull class]] )?self.isInline:[[dic objectForKey: @"IsInline"] boolValue];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ExtensionName", @"extensionName", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ExtensionName", @"extensionName", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_extensionName = [dic objectForKey: @"ExtensionName"] != nil ? [[dic objectForKey: @"ExtensionName"] copy] : _extensionName;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_extensionName = (![dic objectForKey: @"ExtensionName"] || [ [dic objectForKey: @"ExtensionName"] isKindOfClass:[NSNull class]] )?_extensionName:[[dic objectForKey: @"ExtensionName"] copy];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

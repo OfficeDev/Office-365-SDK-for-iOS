@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", @"children", @"children", @"createdBy", @"createdBy", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"dateTimeCreated", @"dateTimeCreated", @"dateTimeLastModified", @"dateTimeLastModified", @"type", @"type", @"webUrl", @"webUrl", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", @"children", @"children", @"createdBy", @"createdBy", @"eTag", @"eTag", @"id", @"_id", @"lastModifiedBy", @"lastModifiedBy", @"name", @"name", @"parentReference", @"parentReference", @"size", @"size", @"dateTimeCreated", @"dateTimeCreated", @"dateTimeLastModified", @"dateTimeLastModified", @"type", @"type", @"webUrl", @"webUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,8 +55,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_childCount = [dic objectForKey: @"childCount"] != nil ? [[dic objectForKey: @"childCount"] intValue] : _childCount;
+        if(dic!=nil) {
+		_childCount = (![dic objectForKey: @"childCount"] || [ [dic objectForKey: @"childCount"] isKindOfClass:[NSNull class]] )?_childCount:[[dic objectForKey: @"childCount"] intValue];
 
         if([dic objectForKey: @"children"] != [NSNull null]){
             _children = [[MSOrcChangesTrackingArray alloc] init];
@@ -67,18 +68,18 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_children resetChangedFlag];
         }
         
-		self.createdBy = [dic objectForKey: @"createdBy"] != nil ? [[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdBy"]] : self.createdBy;
-		self.eTag = [dic objectForKey: @"eTag"] != nil ? [[dic objectForKey: @"eTag"] copy] : self.eTag;
-		self._id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : self._id;
-		self.lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedBy"]] : self.lastModifiedBy;
-		self.name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : self.name;
-		self.parentReference = [dic objectForKey: @"parentReference"] != nil ? [[MSFilesItemReference alloc] initWithDictionary: [dic objectForKey: @"parentReference"]] : self.parentReference;
-		self.size = [dic objectForKey: @"size"] != nil ? [[dic objectForKey: @"size"] longLongValue] : self.size;
-		self.dateTimeCreated = [dic objectForKey: @"dateTimeCreated"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeCreated"]] : self.dateTimeCreated;
-		self.dateTimeLastModified = [dic objectForKey: @"dateTimeLastModified"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeLastModified"]] : self.dateTimeLastModified;
-		self.type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : self.type;
-		self.webUrl = [dic objectForKey: @"webUrl"] != nil ? [[dic objectForKey: @"webUrl"] copy] : self.webUrl;
-
+		self.createdBy = (![dic objectForKey: @"createdBy"] || [ [dic objectForKey: @"createdBy"] isKindOfClass:[NSNull class]] )?self.createdBy:[[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"createdBy"]];
+		self.eTag = (![dic objectForKey: @"eTag"] || [ [dic objectForKey: @"eTag"] isKindOfClass:[NSNull class]] )?self.eTag:[[dic objectForKey: @"eTag"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
+		self.lastModifiedBy = (![dic objectForKey: @"lastModifiedBy"] || [ [dic objectForKey: @"lastModifiedBy"] isKindOfClass:[NSNull class]] )?self.lastModifiedBy:[[MSFilesIdentitySet alloc] initWithDictionary: [dic objectForKey: @"lastModifiedBy"]];
+		self.name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?self.name:[[dic objectForKey: @"name"] copy];
+		self.parentReference = (![dic objectForKey: @"parentReference"] || [ [dic objectForKey: @"parentReference"] isKindOfClass:[NSNull class]] )?self.parentReference:[[MSFilesItemReference alloc] initWithDictionary: [dic objectForKey: @"parentReference"]];
+		self.size = (![dic objectForKey: @"size"] || [ [dic objectForKey: @"size"] isKindOfClass:[NSNull class]] )?self.size:[[dic objectForKey: @"size"] longLongValue];
+		self.dateTimeCreated = (![dic objectForKey: @"dateTimeCreated"] || [ [dic objectForKey: @"dateTimeCreated"] isKindOfClass:[NSNull class]] )?self.dateTimeCreated:[MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeCreated"]];
+		self.dateTimeLastModified = (![dic objectForKey: @"dateTimeLastModified"] || [ [dic objectForKey: @"dateTimeLastModified"] isKindOfClass:[NSNull class]] )?self.dateTimeLastModified:[MSOrcObjectizer dateFromString:[dic objectForKey: @"dateTimeLastModified"]];
+		self.type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?self.type:[[dic objectForKey: @"type"] copy];
+		self.webUrl = (![dic objectForKey: @"webUrl"] || [ [dic objectForKey: @"webUrl"] isKindOfClass:[NSNull class]] )?self.webUrl:[[dic objectForKey: @"webUrl"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

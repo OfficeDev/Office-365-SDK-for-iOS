@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Start", @"start", @"End", @"end", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Start", @"start", @"End", @"end", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_start = [dic objectForKey: @"Start"] != nil ? [[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"Start"]] : _start;
-		_end = [dic objectForKey: @"End"] != nil ? [[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"End"]] : _end;
-
+        if(dic!=nil) {
+		_start = (![dic objectForKey: @"Start"] || [ [dic objectForKey: @"Start"] isKindOfClass:[NSNull class]] )?_start:[[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"Start"]];
+		_end = (![dic objectForKey: @"End"] || [ [dic objectForKey: @"End"] isKindOfClass:[NSNull class]] )?_end:[[MSGraphTimeStamp alloc] initWithDictionary: [dic objectForKey: @"End"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

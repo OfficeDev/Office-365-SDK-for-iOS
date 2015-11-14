@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_topic = [dic objectForKey: @"Topic"] != nil ? [[dic objectForKey: @"Topic"] copy] : _topic;
-		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
-		_lastDeliveredDateTime = [dic objectForKey: @"LastDeliveredDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastDeliveredDateTime"]] : _lastDeliveredDateTime;
+        if(dic!=nil) {
+		_topic = (![dic objectForKey: @"Topic"] || [ [dic objectForKey: @"Topic"] isKindOfClass:[NSNull class]] )?_topic:[[dic objectForKey: @"Topic"] copy];
+		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		_lastDeliveredDateTime = (![dic objectForKey: @"LastDeliveredDateTime"] || [ [dic objectForKey: @"LastDeliveredDateTime"] isKindOfClass:[NSNull class]] )?_lastDeliveredDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastDeliveredDateTime"]];
 
         if([dic objectForKey: @"UniqueSenders"] != [NSNull null]){
             _uniqueSenders = [[MSOrcChangesTrackingArray alloc] init];
@@ -69,7 +70,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_uniqueSenders resetChangedFlag];
         }
         
-		_preview = [dic objectForKey: @"Preview"] != nil ? [[dic objectForKey: @"Preview"] copy] : _preview;
+		_preview = (![dic objectForKey: @"Preview"] || [ [dic objectForKey: @"Preview"] isKindOfClass:[NSNull class]] )?_preview:[[dic objectForKey: @"Preview"] copy];
 
         if([dic objectForKey: @"Threads"] != [NSNull null]){
             _threads = [[MSOrcChangesTrackingArray alloc] init];
@@ -81,8 +82,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_threads resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

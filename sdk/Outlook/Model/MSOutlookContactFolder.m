@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"DisplayName", @"displayName", @"Contacts", @"contacts", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"DisplayName", @"displayName", @"Contacts", @"contacts", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,9 +55,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
+        if(dic!=nil) {
+		_parentFolderId = (![dic objectForKey: @"ParentFolderId"] || [ [dic objectForKey: @"ParentFolderId"] isKindOfClass:[NSNull class]] )?_parentFolderId:[[dic objectForKey: @"ParentFolderId"] copy];
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
 
         if([dic objectForKey: @"Contacts"] != [NSNull null]){
             _contacts = [[MSOrcChangesTrackingArray alloc] init];
@@ -79,8 +80,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_childFolders resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

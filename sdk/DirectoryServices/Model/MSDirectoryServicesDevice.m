@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"alternativeSecurityIds", @"alternativeSecurityIds", @"approximateLastLogonTimestamp", @"approximateLastLogonTimestamp", @"deviceId", @"deviceId", @"deviceMetadata", @"deviceMetadata", @"deviceObjectVersion", @"deviceObjectVersion", @"deviceOSType", @"deviceOSType", @"deviceOSVersion", @"deviceOSVersion", @"devicePhysicalIds", @"devicePhysicalIds", @"deviceTrustType", @"deviceTrustType", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"lastDirSyncTime", @"lastDirSyncTime", @"registeredOwners", @"registeredOwners", @"registeredUsers", @"registeredUsers", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"alternativeSecurityIds", @"alternativeSecurityIds", @"approximateLastLogonTimestamp", @"approximateLastLogonTimestamp", @"deviceId", @"deviceId", @"deviceMetadata", @"deviceMetadata", @"deviceObjectVersion", @"deviceObjectVersion", @"deviceOSType", @"deviceOSType", @"deviceOSVersion", @"deviceOSVersion", @"devicePhysicalIds", @"devicePhysicalIds", @"deviceTrustType", @"deviceTrustType", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"lastDirSyncTime", @"lastDirSyncTime", @"registeredOwners", @"registeredOwners", @"registeredUsers", @"registeredUsers", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,8 +55,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_accountEnabled = [dic objectForKey: @"accountEnabled"] != nil ? [[dic objectForKey: @"accountEnabled"] boolValue] : _accountEnabled;
+        if(dic!=nil) {
+		_accountEnabled = (![dic objectForKey: @"accountEnabled"] || [ [dic objectForKey: @"accountEnabled"] isKindOfClass:[NSNull class]] )?_accountEnabled:[[dic objectForKey: @"accountEnabled"] boolValue];
 
         if([dic objectForKey: @"alternativeSecurityIds"] != [NSNull null]){
             _alternativeSecurityIds = [[MSOrcChangesTrackingArray alloc] init];
@@ -67,12 +68,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_alternativeSecurityIds resetChangedFlag];
         }
         
-		_approximateLastLogonTimestamp = [dic objectForKey: @"approximateLastLogonTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"approximateLastLogonTimestamp"]] : _approximateLastLogonTimestamp;
-		_deviceId = [dic objectForKey: @"deviceId"] != nil ? [[dic objectForKey: @"deviceId"] copy] : _deviceId;
-		_deviceMetadata = [dic objectForKey: @"deviceMetadata"] != nil ? [[dic objectForKey: @"deviceMetadata"] copy] : _deviceMetadata;
-		_deviceObjectVersion = [dic objectForKey: @"deviceObjectVersion"] != nil ? [[dic objectForKey: @"deviceObjectVersion"] intValue] : _deviceObjectVersion;
-		_deviceOSType = [dic objectForKey: @"deviceOSType"] != nil ? [[dic objectForKey: @"deviceOSType"] copy] : _deviceOSType;
-		_deviceOSVersion = [dic objectForKey: @"deviceOSVersion"] != nil ? [[dic objectForKey: @"deviceOSVersion"] copy] : _deviceOSVersion;
+		_approximateLastLogonTimestamp = (![dic objectForKey: @"approximateLastLogonTimestamp"] || [ [dic objectForKey: @"approximateLastLogonTimestamp"] isKindOfClass:[NSNull class]] )?_approximateLastLogonTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"approximateLastLogonTimestamp"]];
+		_deviceId = (![dic objectForKey: @"deviceId"] || [ [dic objectForKey: @"deviceId"] isKindOfClass:[NSNull class]] )?_deviceId:[[dic objectForKey: @"deviceId"] copy];
+		_deviceMetadata = (![dic objectForKey: @"deviceMetadata"] || [ [dic objectForKey: @"deviceMetadata"] isKindOfClass:[NSNull class]] )?_deviceMetadata:[[dic objectForKey: @"deviceMetadata"] copy];
+		_deviceObjectVersion = (![dic objectForKey: @"deviceObjectVersion"] || [ [dic objectForKey: @"deviceObjectVersion"] isKindOfClass:[NSNull class]] )?_deviceObjectVersion:[[dic objectForKey: @"deviceObjectVersion"] intValue];
+		_deviceOSType = (![dic objectForKey: @"deviceOSType"] || [ [dic objectForKey: @"deviceOSType"] isKindOfClass:[NSNull class]] )?_deviceOSType:[[dic objectForKey: @"deviceOSType"] copy];
+		_deviceOSVersion = (![dic objectForKey: @"deviceOSVersion"] || [ [dic objectForKey: @"deviceOSVersion"] isKindOfClass:[NSNull class]] )?_deviceOSVersion:[[dic objectForKey: @"deviceOSVersion"] copy];
 
         if([dic objectForKey: @"devicePhysicalIds"] != [NSNull null]){
             _devicePhysicalIds = [[MSOrcChangesTrackingArray alloc] init];
@@ -84,10 +85,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_devicePhysicalIds resetChangedFlag];
         }
         
-		_deviceTrustType = [dic objectForKey: @"deviceTrustType"] != nil ? [[dic objectForKey: @"deviceTrustType"] copy] : _deviceTrustType;
-		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
+		_deviceTrustType = (![dic objectForKey: @"deviceTrustType"] || [ [dic objectForKey: @"deviceTrustType"] isKindOfClass:[NSNull class]] )?_deviceTrustType:[[dic objectForKey: @"deviceTrustType"] copy];
+		_dirSyncEnabled = (![dic objectForKey: @"dirSyncEnabled"] || [ [dic objectForKey: @"dirSyncEnabled"] isKindOfClass:[NSNull class]] )?_dirSyncEnabled:[[dic objectForKey: @"dirSyncEnabled"] boolValue];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		_lastDirSyncTime = (![dic objectForKey: @"lastDirSyncTime"] || [ [dic objectForKey: @"lastDirSyncTime"] isKindOfClass:[NSNull class]] )?_lastDirSyncTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]];
 
         if([dic objectForKey: @"registeredOwners"] != [NSNull null]){
             _registeredOwners = [[MSOrcChangesTrackingArray alloc] init];
@@ -110,10 +111,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_registeredUsers resetChangedFlag];
         }
         
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -125,7 +126,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -181,7 +182,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"deleted", @"deleted", @"remaining", @"remaining", @"state", @"state", @"total", @"total", @"used", @"used", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"deleted", @"deleted", @"remaining", @"remaining", @"state", @"state", @"total", @"total", @"used", @"used", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_deleted = [dic objectForKey: @"deleted"] != nil ? [[dic objectForKey: @"deleted"] longLongValue] : _deleted;
-		_remaining = [dic objectForKey: @"remaining"] != nil ? [[dic objectForKey: @"remaining"] longLongValue] : _remaining;
-		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
-		_total = [dic objectForKey: @"total"] != nil ? [[dic objectForKey: @"total"] longLongValue] : _total;
-		_used = [dic objectForKey: @"used"] != nil ? [[dic objectForKey: @"used"] longLongValue] : _used;
-
+        if(dic!=nil) {
+		_deleted = (![dic objectForKey: @"deleted"] || [ [dic objectForKey: @"deleted"] isKindOfClass:[NSNull class]] )?_deleted:[[dic objectForKey: @"deleted"] longLongValue];
+		_remaining = (![dic objectForKey: @"remaining"] || [ [dic objectForKey: @"remaining"] isKindOfClass:[NSNull class]] )?_remaining:[[dic objectForKey: @"remaining"] longLongValue];
+		_state = (![dic objectForKey: @"state"] || [ [dic objectForKey: @"state"] isKindOfClass:[NSNull class]] )?_state:[[dic objectForKey: @"state"] copy];
+		_total = (![dic objectForKey: @"total"] || [ [dic objectForKey: @"total"] isKindOfClass:[NSNull class]] )?_total:[[dic objectForKey: @"total"] longLongValue];
+		_used = (![dic objectForKey: @"used"] || [ [dic objectForKey: @"used"] isKindOfClass:[NSNull class]] )?_used:[[dic objectForKey: @"used"] longLongValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

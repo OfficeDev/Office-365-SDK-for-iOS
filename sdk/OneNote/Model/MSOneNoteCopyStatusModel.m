@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"status", @"status", @"createdDateTime", @"createdDateTime", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"status", @"status", @"createdDateTime", @"createdDateTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_status = [dic objectForKey: @"status"] != nil ? [[dic objectForKey: @"status"] copy] : _status;
-		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_status = (![dic objectForKey: @"status"] || [ [dic objectForKey: @"status"] isKindOfClass:[NSNull class]] )?_status:[[dic objectForKey: @"status"] copy];
+		_createdDateTime = (![dic objectForKey: @"createdDateTime"] || [ [dic objectForKey: @"createdDateTime"] isKindOfClass:[NSNull class]] )?_createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"name", @"name", @"planId", @"planId", @"orderHint", @"orderHint", @"id", @"_id", @"tasks", @"tasks", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"name", @"name", @"planId", @"planId", @"orderHint", @"orderHint", @"id", @"_id", @"tasks", @"tasks", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
-		_planId = [dic objectForKey: @"planId"] != nil ? [[dic objectForKey: @"planId"] copy] : _planId;
-		_orderHint = [dic objectForKey: @"orderHint"] != nil ? [[dic objectForKey: @"orderHint"] copy] : _orderHint;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+        if(dic!=nil) {
+		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
+		_planId = (![dic objectForKey: @"planId"] || [ [dic objectForKey: @"planId"] isKindOfClass:[NSNull class]] )?_planId:[[dic objectForKey: @"planId"] copy];
+		_orderHint = (![dic objectForKey: @"orderHint"] || [ [dic objectForKey: @"orderHint"] isKindOfClass:[NSNull class]] )?_orderHint:[[dic objectForKey: @"orderHint"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 
         if([dic objectForKey: @"tasks"] != [NSNull null]){
             _tasks = [[MSOrcChangesTrackingArray alloc] init];
@@ -70,7 +71,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_tasks resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

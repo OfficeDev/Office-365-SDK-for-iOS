@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Resource", @"resource", @"ChangeType", @"changeType", @"ClientState", @"clientState", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Resource", @"resource", @"ChangeType", @"changeType", @"ClientState", @"clientState", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_resource = [dic objectForKey: @"Resource"] != nil ? [[dic objectForKey: @"Resource"] copy] : _resource;
-		_changeType = [dic objectForKey: @"ChangeType"] != nil ? [MSOutlookChangeTypeSerializer fromString:[dic objectForKey: @"ChangeType"]] : _changeType;
-		_clientState = [dic objectForKey: @"ClientState"] != nil ? [[dic objectForKey: @"ClientState"] copy] : _clientState;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_resource = (![dic objectForKey: @"Resource"] || [ [dic objectForKey: @"Resource"] isKindOfClass:[NSNull class]] )?_resource:[[dic objectForKey: @"Resource"] copy];
+		_changeType = (![dic objectForKey: @"ChangeType"] || [ [dic objectForKey: @"ChangeType"] isKindOfClass:[NSNull class]] )?_changeType:[MSOutlookChangeTypeSerializer fromString:[dic objectForKey: @"ChangeType"]];
+		_clientState = (![dic objectForKey: @"ClientState"] || [ [dic objectForKey: @"ClientState"] isKindOfClass:[NSNull class]] )?_clientState:[[dic objectForKey: @"ClientState"] copy];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

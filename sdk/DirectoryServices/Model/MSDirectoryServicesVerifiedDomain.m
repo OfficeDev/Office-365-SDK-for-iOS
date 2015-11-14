@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilities", @"capabilities", @"default", @"_default", @"id", @"_id", @"initial", @"initial", @"name", @"name", @"type", @"type", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilities", @"capabilities", @"default", @"_default", @"id", @"_id", @"initial", @"initial", @"name", @"name", @"type", @"type", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,14 +54,14 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_capabilities = [dic objectForKey: @"capabilities"] != nil ? [[dic objectForKey: @"capabilities"] copy] : _capabilities;
-		__default = [dic objectForKey: @"default"] != nil ? [[dic objectForKey: @"default"] boolValue] : __default;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_initial = [dic objectForKey: @"initial"] != nil ? [[dic objectForKey: @"initial"] boolValue] : _initial;
-		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
-		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
-
+        if(dic!=nil) {
+		_capabilities = (![dic objectForKey: @"capabilities"] || [ [dic objectForKey: @"capabilities"] isKindOfClass:[NSNull class]] )?_capabilities:[[dic objectForKey: @"capabilities"] copy];
+		__default = (![dic objectForKey: @"default"] || [ [dic objectForKey: @"default"] isKindOfClass:[NSNull class]] )?__default:[[dic objectForKey: @"default"] boolValue];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_initial = (![dic objectForKey: @"initial"] || [ [dic objectForKey: @"initial"] isKindOfClass:[NSNull class]] )?_initial:[[dic objectForKey: @"initial"] boolValue];
+		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

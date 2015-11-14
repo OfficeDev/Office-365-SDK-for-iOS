@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"self", @"_self", @"content", @"content", @"contentUrl", @"contentUrl", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"self", @"_self", @"content", @"content", @"contentUrl", @"contentUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
-		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
-		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		__self = (![dic objectForKey: @"self"] || [ [dic objectForKey: @"self"] isKindOfClass:[NSNull class]] )?__self:[[dic objectForKey: @"self"] copy];
+		_content = (![dic objectForKey: @"content"] || [ [dic objectForKey: @"content"] isKindOfClass:[NSNull class]] )?_content:nil/*NSStream*/;
+		_contentUrl = (![dic objectForKey: @"contentUrl"] || [ [dic objectForKey: @"contentUrl"] isKindOfClass:[NSNull class]] )?_contentUrl:[[dic objectForKey: @"contentUrl"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

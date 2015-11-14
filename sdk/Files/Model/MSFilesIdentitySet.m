@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"user", @"user", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"user", @"user", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_application = [dic objectForKey: @"application"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
-		_user = [dic objectForKey: @"user"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
-
+        if(dic!=nil) {
+		_application = (![dic objectForKey: @"application"] || [ [dic objectForKey: @"application"] isKindOfClass:[NSNull class]] )?_application:[[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]];
+		_user = (![dic objectForKey: @"user"] || [ [dic objectForKey: @"user"] isKindOfClass:[NSNull class]] )?_user:[[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

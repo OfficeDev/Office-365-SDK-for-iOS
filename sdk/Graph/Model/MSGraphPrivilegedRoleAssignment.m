@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"UserId", @"userId", @"RoleId", @"roleId", @"IsElevated", @"isElevated", @"ExpirationTime", @"expirationTime", @"ResultMessage", @"resultMessage", @"RoleInfo", @"roleInfo", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"UserId", @"userId", @"RoleId", @"roleId", @"IsElevated", @"isElevated", @"ExpirationTime", @"expirationTime", @"ResultMessage", @"resultMessage", @"RoleInfo", @"roleInfo", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,14 +55,14 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_userId = [dic objectForKey: @"UserId"] != nil ? [[dic objectForKey: @"UserId"] copy] : _userId;
-		_roleId = [dic objectForKey: @"RoleId"] != nil ? [[dic objectForKey: @"RoleId"] copy] : _roleId;
-		_isElevated = [dic objectForKey: @"IsElevated"] != nil ? [[dic objectForKey: @"IsElevated"] boolValue] : _isElevated;
-		_expirationTime = [dic objectForKey: @"ExpirationTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ExpirationTime"]] : _expirationTime;
-		_resultMessage = [dic objectForKey: @"ResultMessage"] != nil ? [[dic objectForKey: @"ResultMessage"] copy] : _resultMessage;
-		_roleInfo = [dic objectForKey: @"RoleInfo"] != nil ? [[MSGraphPrivilegedRole alloc] initWithDictionary: [dic objectForKey: @"RoleInfo"]] : _roleInfo;
-
+        if(dic!=nil) {
+		_userId = (![dic objectForKey: @"UserId"] || [ [dic objectForKey: @"UserId"] isKindOfClass:[NSNull class]] )?_userId:[[dic objectForKey: @"UserId"] copy];
+		_roleId = (![dic objectForKey: @"RoleId"] || [ [dic objectForKey: @"RoleId"] isKindOfClass:[NSNull class]] )?_roleId:[[dic objectForKey: @"RoleId"] copy];
+		_isElevated = (![dic objectForKey: @"IsElevated"] || [ [dic objectForKey: @"IsElevated"] isKindOfClass:[NSNull class]] )?_isElevated:[[dic objectForKey: @"IsElevated"] boolValue];
+		_expirationTime = (![dic objectForKey: @"ExpirationTime"] || [ [dic objectForKey: @"ExpirationTime"] isKindOfClass:[NSNull class]] )?_expirationTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"ExpirationTime"]];
+		_resultMessage = (![dic objectForKey: @"ResultMessage"] || [ [dic objectForKey: @"ResultMessage"] isKindOfClass:[NSNull class]] )?_resultMessage:[[dic objectForKey: @"ResultMessage"] copy];
+		_roleInfo = (![dic objectForKey: @"RoleInfo"] || [ [dic objectForKey: @"RoleInfo"] isKindOfClass:[NSNull class]] )?_roleInfo:[[MSGraphPrivilegedRole alloc] initWithDictionary: [dic objectForKey: @"RoleInfo"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"OriginalStartTimeZone", @"originalStartTimeZone", @"OriginalEndTimeZone", @"originalEndTimeZone", @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"ReminderMinutesBeforeStart", @"reminderMinutesBeforeStart", @"IsReminderOn", @"isReminderOn", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"End", @"end", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"OriginalStartTimeZone", @"originalStartTimeZone", @"OriginalEndTimeZone", @"originalEndTimeZone", @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"ReminderMinutesBeforeStart", @"reminderMinutesBeforeStart", @"IsReminderOn", @"isReminderOn", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"End", @"end", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,31 +55,31 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_originalStartTimeZone = [dic objectForKey: @"OriginalStartTimeZone"] != nil ? [[dic objectForKey: @"OriginalStartTimeZone"] copy] : _originalStartTimeZone;
-		_originalEndTimeZone = [dic objectForKey: @"OriginalEndTimeZone"] != nil ? [[dic objectForKey: @"OriginalEndTimeZone"] copy] : _originalEndTimeZone;
-		_responseStatus = [dic objectForKey: @"ResponseStatus"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]] : _responseStatus;
-		_iCalUId = [dic objectForKey: @"iCalUId"] != nil ? [[dic objectForKey: @"iCalUId"] copy] : _iCalUId;
-		_reminderMinutesBeforeStart = [dic objectForKey: @"ReminderMinutesBeforeStart"] != nil ? [[dic objectForKey: @"ReminderMinutesBeforeStart"] intValue] : _reminderMinutesBeforeStart;
-		_isReminderOn = [dic objectForKey: @"IsReminderOn"] != nil ? [[dic objectForKey: @"IsReminderOn"] boolValue] : _isReminderOn;
-		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
-		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
-		_body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
-		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
-		_importance = [dic objectForKey: @"Importance"] != nil ? [MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
-		_sensitivity = [dic objectForKey: @"Sensitivity"] != nil ? [MSOutlookSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]] : _sensitivity;
-		_start = [dic objectForKey: @"Start"] != nil ? [[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"Start"]] : _start;
-		_originalStart = [dic objectForKey: @"OriginalStart"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]] : _originalStart;
-		_end = [dic objectForKey: @"End"] != nil ? [[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"End"]] : _end;
-		_location = [dic objectForKey: @"Location"] != nil ? [[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]] : _location;
-		_isAllDay = [dic objectForKey: @"IsAllDay"] != nil ? [[dic objectForKey: @"IsAllDay"] boolValue] : _isAllDay;
-		_isCancelled = [dic objectForKey: @"IsCancelled"] != nil ? [[dic objectForKey: @"IsCancelled"] boolValue] : _isCancelled;
-		_isOrganizer = [dic objectForKey: @"IsOrganizer"] != nil ? [[dic objectForKey: @"IsOrganizer"] boolValue] : _isOrganizer;
-		_recurrence = [dic objectForKey: @"Recurrence"] != nil ? [[MSOutlookPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]] : _recurrence;
-		_responseRequested = [dic objectForKey: @"ResponseRequested"] != nil ? [[dic objectForKey: @"ResponseRequested"] boolValue] : _responseRequested;
-		_seriesMasterId = [dic objectForKey: @"SeriesMasterId"] != nil ? [[dic objectForKey: @"SeriesMasterId"] copy] : _seriesMasterId;
-		_showAs = [dic objectForKey: @"ShowAs"] != nil ? [MSOutlookFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]] : _showAs;
-		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookEventTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+        if(dic!=nil) {
+		_originalStartTimeZone = (![dic objectForKey: @"OriginalStartTimeZone"] || [ [dic objectForKey: @"OriginalStartTimeZone"] isKindOfClass:[NSNull class]] )?_originalStartTimeZone:[[dic objectForKey: @"OriginalStartTimeZone"] copy];
+		_originalEndTimeZone = (![dic objectForKey: @"OriginalEndTimeZone"] || [ [dic objectForKey: @"OriginalEndTimeZone"] isKindOfClass:[NSNull class]] )?_originalEndTimeZone:[[dic objectForKey: @"OriginalEndTimeZone"] copy];
+		_responseStatus = (![dic objectForKey: @"ResponseStatus"] || [ [dic objectForKey: @"ResponseStatus"] isKindOfClass:[NSNull class]] )?_responseStatus:[[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]];
+		_iCalUId = (![dic objectForKey: @"iCalUId"] || [ [dic objectForKey: @"iCalUId"] isKindOfClass:[NSNull class]] )?_iCalUId:[[dic objectForKey: @"iCalUId"] copy];
+		_reminderMinutesBeforeStart = (![dic objectForKey: @"ReminderMinutesBeforeStart"] || [ [dic objectForKey: @"ReminderMinutesBeforeStart"] isKindOfClass:[NSNull class]] )?_reminderMinutesBeforeStart:[[dic objectForKey: @"ReminderMinutesBeforeStart"] intValue];
+		_isReminderOn = (![dic objectForKey: @"IsReminderOn"] || [ [dic objectForKey: @"IsReminderOn"] isKindOfClass:[NSNull class]] )?_isReminderOn:[[dic objectForKey: @"IsReminderOn"] boolValue];
+		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		_subject = (![dic objectForKey: @"Subject"] || [ [dic objectForKey: @"Subject"] isKindOfClass:[NSNull class]] )?_subject:[[dic objectForKey: @"Subject"] copy];
+		_body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?_body:[[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
+		_bodyPreview = (![dic objectForKey: @"BodyPreview"] || [ [dic objectForKey: @"BodyPreview"] isKindOfClass:[NSNull class]] )?_bodyPreview:[[dic objectForKey: @"BodyPreview"] copy];
+		_importance = (![dic objectForKey: @"Importance"] || [ [dic objectForKey: @"Importance"] isKindOfClass:[NSNull class]] )?_importance:[MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]];
+		_sensitivity = (![dic objectForKey: @"Sensitivity"] || [ [dic objectForKey: @"Sensitivity"] isKindOfClass:[NSNull class]] )?_sensitivity:[MSOutlookSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]];
+		_start = (![dic objectForKey: @"Start"] || [ [dic objectForKey: @"Start"] isKindOfClass:[NSNull class]] )?_start:[[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"Start"]];
+		_originalStart = (![dic objectForKey: @"OriginalStart"] || [ [dic objectForKey: @"OriginalStart"] isKindOfClass:[NSNull class]] )?_originalStart:[MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]];
+		_end = (![dic objectForKey: @"End"] || [ [dic objectForKey: @"End"] isKindOfClass:[NSNull class]] )?_end:[[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"End"]];
+		_location = (![dic objectForKey: @"Location"] || [ [dic objectForKey: @"Location"] isKindOfClass:[NSNull class]] )?_location:[[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]];
+		_isAllDay = (![dic objectForKey: @"IsAllDay"] || [ [dic objectForKey: @"IsAllDay"] isKindOfClass:[NSNull class]] )?_isAllDay:[[dic objectForKey: @"IsAllDay"] boolValue];
+		_isCancelled = (![dic objectForKey: @"IsCancelled"] || [ [dic objectForKey: @"IsCancelled"] isKindOfClass:[NSNull class]] )?_isCancelled:[[dic objectForKey: @"IsCancelled"] boolValue];
+		_isOrganizer = (![dic objectForKey: @"IsOrganizer"] || [ [dic objectForKey: @"IsOrganizer"] isKindOfClass:[NSNull class]] )?_isOrganizer:[[dic objectForKey: @"IsOrganizer"] boolValue];
+		_recurrence = (![dic objectForKey: @"Recurrence"] || [ [dic objectForKey: @"Recurrence"] isKindOfClass:[NSNull class]] )?_recurrence:[[MSOutlookPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]];
+		_responseRequested = (![dic objectForKey: @"ResponseRequested"] || [ [dic objectForKey: @"ResponseRequested"] isKindOfClass:[NSNull class]] )?_responseRequested:[[dic objectForKey: @"ResponseRequested"] boolValue];
+		_seriesMasterId = (![dic objectForKey: @"SeriesMasterId"] || [ [dic objectForKey: @"SeriesMasterId"] isKindOfClass:[NSNull class]] )?_seriesMasterId:[[dic objectForKey: @"SeriesMasterId"] copy];
+		_showAs = (![dic objectForKey: @"ShowAs"] || [ [dic objectForKey: @"ShowAs"] isKindOfClass:[NSNull class]] )?_showAs:[MSOutlookFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]];
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSOutlookEventTypeSerializer fromString:[dic objectForKey: @"Type"]];
 
         if([dic objectForKey: @"Attendees"] != [NSNull null]){
             _attendees = [[MSOrcChangesTrackingArray alloc] init];
@@ -90,9 +91,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attendees resetChangedFlag];
         }
         
-		_organizer = [dic objectForKey: @"Organizer"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]] : _organizer;
-		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
-		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+		_organizer = (![dic objectForKey: @"Organizer"] || [ [dic objectForKey: @"Organizer"] isKindOfClass:[NSNull class]] )?_organizer:[[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]];
+		_webLink = (![dic objectForKey: @"WebLink"] || [ [dic objectForKey: @"WebLink"] isKindOfClass:[NSNull class]] )?_webLink:[[dic objectForKey: @"WebLink"] copy];
+		_calendar = (![dic objectForKey: @"Calendar"] || [ [dic objectForKey: @"Calendar"] isKindOfClass:[NSNull class]] )?_calendar:[[MSOutlookCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]];
 
         if([dic objectForKey: @"Instances"] != [NSNull null]){
             _instances = [[MSOrcChangesTrackingArray alloc] init];
@@ -115,9 +116,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attachments resetChangedFlag];
         }
         
-		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?self.changeKey:[[dic objectForKey: @"ChangeKey"] copy];
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
             self.categories = [[MSOrcChangesTrackingArray alloc] init];
@@ -129,8 +130,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

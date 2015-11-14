@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"type", @"type", @"identityProvider", @"identityProvider", @"key", @"key", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"type", @"type", @"identityProvider", @"identityProvider", @"key", @"key", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] intValue] : _type;
-		_identityProvider = [dic objectForKey: @"identityProvider"] != nil ? [[dic objectForKey: @"identityProvider"] copy] : _identityProvider;
-		_key = [dic objectForKey: @"key"] != nil ? [MSOrcObjectizer dataFromString:[dic objectForKey: @"key"]] : _key;
-
+        if(dic!=nil) {
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] intValue];
+		_identityProvider = (![dic objectForKey: @"identityProvider"] || [ [dic objectForKey: @"identityProvider"] isKindOfClass:[NSNull class]] )?_identityProvider:[[dic objectForKey: @"identityProvider"] copy];
+		_key = (![dic objectForKey: @"key"] || [ [dic objectForKey: @"key"] isKindOfClass:[NSNull class]] )?_key:[MSOrcObjectizer dataFromString:[dic objectForKey: @"key"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

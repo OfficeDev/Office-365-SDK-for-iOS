@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"alias", @"alias", @"type", @"type", @"previewPriority", @"previewPriority", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"alias", @"alias", @"type", @"type", @"previewPriority", @"previewPriority", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_alias = [dic objectForKey: @"alias"] != nil ? [[dic objectForKey: @"alias"] copy] : _alias;
-		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
-		_previewPriority = [dic objectForKey: @"previewPriority"] != nil ? [[dic objectForKey: @"previewPriority"] copy] : _previewPriority;
-		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
-		_lastModifiedDateTime = [dic objectForKey: @"lastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]] : _lastModifiedDateTime;
-
+        if(dic!=nil) {
+		_alias = (![dic objectForKey: @"alias"] || [ [dic objectForKey: @"alias"] isKindOfClass:[NSNull class]] )?_alias:[[dic objectForKey: @"alias"] copy];
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] copy];
+		_previewPriority = (![dic objectForKey: @"previewPriority"] || [ [dic objectForKey: @"previewPriority"] isKindOfClass:[NSNull class]] )?_previewPriority:[[dic objectForKey: @"previewPriority"] copy];
+		_lastModifiedBy = (![dic objectForKey: @"lastModifiedBy"] || [ [dic objectForKey: @"lastModifiedBy"] isKindOfClass:[NSNull class]] )?_lastModifiedBy:[[dic objectForKey: @"lastModifiedBy"] copy];
+		_lastModifiedDateTime = (![dic objectForKey: @"lastModifiedDateTime"] || [ [dic objectForKey: @"lastModifiedDateTime"] isKindOfClass:[NSNull class]] )?_lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

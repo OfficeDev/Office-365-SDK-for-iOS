@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"adminConsentDescription", @"adminConsentDescription", @"adminConsentDisplayName", @"adminConsentDisplayName", @"id", @"_id", @"isEnabled", @"isEnabled", @"type", @"type", @"userConsentDescription", @"userConsentDescription", @"userConsentDisplayName", @"userConsentDisplayName", @"value", @"value", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"adminConsentDescription", @"adminConsentDescription", @"adminConsentDisplayName", @"adminConsentDisplayName", @"id", @"_id", @"isEnabled", @"isEnabled", @"type", @"type", @"userConsentDescription", @"userConsentDescription", @"userConsentDisplayName", @"userConsentDisplayName", @"value", @"value", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,16 +54,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_adminConsentDescription = [dic objectForKey: @"adminConsentDescription"] != nil ? [[dic objectForKey: @"adminConsentDescription"] copy] : _adminConsentDescription;
-		_adminConsentDisplayName = [dic objectForKey: @"adminConsentDisplayName"] != nil ? [[dic objectForKey: @"adminConsentDisplayName"] copy] : _adminConsentDisplayName;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_isEnabled = [dic objectForKey: @"isEnabled"] != nil ? [[dic objectForKey: @"isEnabled"] boolValue] : _isEnabled;
-		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
-		_userConsentDescription = [dic objectForKey: @"userConsentDescription"] != nil ? [[dic objectForKey: @"userConsentDescription"] copy] : _userConsentDescription;
-		_userConsentDisplayName = [dic objectForKey: @"userConsentDisplayName"] != nil ? [[dic objectForKey: @"userConsentDisplayName"] copy] : _userConsentDisplayName;
-		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
-
+        if(dic!=nil) {
+		_adminConsentDescription = (![dic objectForKey: @"adminConsentDescription"] || [ [dic objectForKey: @"adminConsentDescription"] isKindOfClass:[NSNull class]] )?_adminConsentDescription:[[dic objectForKey: @"adminConsentDescription"] copy];
+		_adminConsentDisplayName = (![dic objectForKey: @"adminConsentDisplayName"] || [ [dic objectForKey: @"adminConsentDisplayName"] isKindOfClass:[NSNull class]] )?_adminConsentDisplayName:[[dic objectForKey: @"adminConsentDisplayName"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_isEnabled = (![dic objectForKey: @"isEnabled"] || [ [dic objectForKey: @"isEnabled"] isKindOfClass:[NSNull class]] )?_isEnabled:[[dic objectForKey: @"isEnabled"] boolValue];
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] copy];
+		_userConsentDescription = (![dic objectForKey: @"userConsentDescription"] || [ [dic objectForKey: @"userConsentDescription"] isKindOfClass:[NSNull class]] )?_userConsentDescription:[[dic objectForKey: @"userConsentDescription"] copy];
+		_userConsentDisplayName = (![dic objectForKey: @"userConsentDisplayName"] || [ [dic objectForKey: @"userConsentDisplayName"] isKindOfClass:[NSNull class]] )?_userConsentDisplayName:[[dic objectForKey: @"userConsentDisplayName"] copy];
+		_value = (![dic objectForKey: @"value"] || [ [dic objectForKey: @"value"] isKindOfClass:[NSNull class]] )?_value:[[dic objectForKey: @"value"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"name", @"name", @"owner", @"owner", @"items", @"items", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"name", @"name", @"owner", @"owner", @"items", @"items", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
-		_owner = [dic objectForKey: @"owner"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
+		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]];
 
         if([dic objectForKey: @"items"] != [NSNull null]){
             _items = [[MSOrcChangesTrackingArray alloc] init];
@@ -69,7 +70,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_items resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

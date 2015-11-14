@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"publicIssuerCertificates", @"publicIssuerCertificates", @"cloudPublicIssuerCertificates", @"cloudPublicIssuerCertificates", @"registrationQuota", @"registrationQuota", @"maximumRegistrationInactivityPeriod", @"maximumRegistrationInactivityPeriod", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"publicIssuerCertificates", @"publicIssuerCertificates", @"cloudPublicIssuerCertificates", @"cloudPublicIssuerCertificates", @"registrationQuota", @"registrationQuota", @"maximumRegistrationInactivityPeriod", @"maximumRegistrationInactivityPeriod", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,7 +55,7 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
+        if(dic!=nil) {
 
         if([dic objectForKey: @"publicIssuerCertificates"] != [NSNull null]){
             _publicIssuerCertificates = [[MSOrcChangesTrackingArray alloc] init];
@@ -77,12 +78,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_cloudPublicIssuerCertificates resetChangedFlag];
         }
         
-		_registrationQuota = [dic objectForKey: @"registrationQuota"] != nil ? [[dic objectForKey: @"registrationQuota"] intValue] : _registrationQuota;
-		_maximumRegistrationInactivityPeriod = [dic objectForKey: @"maximumRegistrationInactivityPeriod"] != nil ? [[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue] : _maximumRegistrationInactivityPeriod;
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+		_registrationQuota = (![dic objectForKey: @"registrationQuota"] || [ [dic objectForKey: @"registrationQuota"] isKindOfClass:[NSNull class]] )?_registrationQuota:[[dic objectForKey: @"registrationQuota"] intValue];
+		_maximumRegistrationInactivityPeriod = (![dic objectForKey: @"maximumRegistrationInactivityPeriod"] || [ [dic objectForKey: @"maximumRegistrationInactivityPeriod"] isKindOfClass:[NSNull class]] )?_maximumRegistrationInactivityPeriod:[[dic objectForKey: @"maximumRegistrationInactivityPeriod"] intValue];
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -94,7 +95,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -150,7 +151,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

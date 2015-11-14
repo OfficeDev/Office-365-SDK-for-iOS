@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"oneNoteEmbedUrl", @"oneNoteEmbedUrl", @"oneNoteClientUrl", @"oneNoteClientUrl", @"oneNoteWebUrl", @"oneNoteWebUrl", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"oneNoteEmbedUrl", @"oneNoteEmbedUrl", @"oneNoteClientUrl", @"oneNoteClientUrl", @"oneNoteWebUrl", @"oneNoteWebUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_oneNoteEmbedUrl = [dic objectForKey: @"oneNoteEmbedUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteEmbedUrl"]] : _oneNoteEmbedUrl;
-		_oneNoteClientUrl = [dic objectForKey: @"oneNoteClientUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]] : _oneNoteClientUrl;
-		_oneNoteWebUrl = [dic objectForKey: @"oneNoteWebUrl"] != nil ? [[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]] : _oneNoteWebUrl;
-
+        if(dic!=nil) {
+		_oneNoteEmbedUrl = (![dic objectForKey: @"oneNoteEmbedUrl"] || [ [dic objectForKey: @"oneNoteEmbedUrl"] isKindOfClass:[NSNull class]] )?_oneNoteEmbedUrl:[[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteEmbedUrl"]];
+		_oneNoteClientUrl = (![dic objectForKey: @"oneNoteClientUrl"] || [ [dic objectForKey: @"oneNoteClientUrl"] isKindOfClass:[NSNull class]] )?_oneNoteClientUrl:[[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]];
+		_oneNoteWebUrl = (![dic objectForKey: @"oneNoteWebUrl"] || [ [dic objectForKey: @"oneNoteWebUrl"] isKindOfClass:[NSNull class]] )?_oneNoteWebUrl:[[MSOneNoteExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

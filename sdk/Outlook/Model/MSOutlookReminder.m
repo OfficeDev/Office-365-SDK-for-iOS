@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EventId", @"eventId", @"EventStartTime", @"eventStartTime", @"EventEndTime", @"eventEndTime", @"ChangeKey", @"changeKey", @"EventSubject", @"eventSubject", @"EventLocation", @"eventLocation", @"EventWebLink", @"eventWebLink", @"ReminderFireTime", @"reminderFireTime", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"EventId", @"eventId", @"EventStartTime", @"eventStartTime", @"EventEndTime", @"eventEndTime", @"ChangeKey", @"changeKey", @"EventSubject", @"eventSubject", @"EventLocation", @"eventLocation", @"EventWebLink", @"eventWebLink", @"ReminderFireTime", @"reminderFireTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,16 +54,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_eventId = [dic objectForKey: @"EventId"] != nil ? [[dic objectForKey: @"EventId"] copy] : _eventId;
-		_eventStartTime = [dic objectForKey: @"EventStartTime"] != nil ? [[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"EventStartTime"]] : _eventStartTime;
-		_eventEndTime = [dic objectForKey: @"EventEndTime"] != nil ? [[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"EventEndTime"]] : _eventEndTime;
-		_changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : _changeKey;
-		_eventSubject = [dic objectForKey: @"EventSubject"] != nil ? [[dic objectForKey: @"EventSubject"] copy] : _eventSubject;
-		_eventLocation = [dic objectForKey: @"EventLocation"] != nil ? [[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"EventLocation"]] : _eventLocation;
-		_eventWebLink = [dic objectForKey: @"EventWebLink"] != nil ? [[dic objectForKey: @"EventWebLink"] copy] : _eventWebLink;
-		_reminderFireTime = [dic objectForKey: @"ReminderFireTime"] != nil ? [[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"ReminderFireTime"]] : _reminderFireTime;
-
+        if(dic!=nil) {
+		_eventId = (![dic objectForKey: @"EventId"] || [ [dic objectForKey: @"EventId"] isKindOfClass:[NSNull class]] )?_eventId:[[dic objectForKey: @"EventId"] copy];
+		_eventStartTime = (![dic objectForKey: @"EventStartTime"] || [ [dic objectForKey: @"EventStartTime"] isKindOfClass:[NSNull class]] )?_eventStartTime:[[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"EventStartTime"]];
+		_eventEndTime = (![dic objectForKey: @"EventEndTime"] || [ [dic objectForKey: @"EventEndTime"] isKindOfClass:[NSNull class]] )?_eventEndTime:[[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"EventEndTime"]];
+		_changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?_changeKey:[[dic objectForKey: @"ChangeKey"] copy];
+		_eventSubject = (![dic objectForKey: @"EventSubject"] || [ [dic objectForKey: @"EventSubject"] isKindOfClass:[NSNull class]] )?_eventSubject:[[dic objectForKey: @"EventSubject"] copy];
+		_eventLocation = (![dic objectForKey: @"EventLocation"] || [ [dic objectForKey: @"EventLocation"] isKindOfClass:[NSNull class]] )?_eventLocation:[[MSOutlookLocation alloc] initWithDictionary: [dic objectForKey: @"EventLocation"]];
+		_eventWebLink = (![dic objectForKey: @"EventWebLink"] || [ [dic objectForKey: @"EventWebLink"] isKindOfClass:[NSNull class]] )?_eventWebLink:[[dic objectForKey: @"EventWebLink"] copy];
+		_reminderFireTime = (![dic objectForKey: @"ReminderFireTime"] || [ [dic objectForKey: @"ReminderFireTime"] isKindOfClass:[NSNull class]] )?_reminderFireTime:[[MSOutlookDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"ReminderFireTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

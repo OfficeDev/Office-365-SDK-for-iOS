@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"createdBy", @"createdBy", @"assignedTo", @"assignedTo", @"planId", @"planId", @"bucketId", @"bucketId", @"title", @"title", @"orderHint", @"orderHint", @"assigneePriority", @"assigneePriority", @"percentComplete", @"percentComplete", @"startDateTime", @"startDateTime", @"assignedDateTime", @"assignedDateTime", @"createdDateTime", @"createdDateTime", @"assignedBy", @"assignedBy", @"dueDateTime", @"dueDateTime", @"hasDescription", @"hasDescription", @"previewType", @"previewType", @"completedDateTime", @"completedDateTime", @"appliedCategories", @"appliedCategories", @"conversationThreadId", @"conversationThreadId", @"id", @"_id", @"details", @"details", @"assignedToTaskBoardFormat", @"assignedToTaskBoardFormat", @"progressTaskBoardFormat", @"progressTaskBoardFormat", @"bucketTaskBoardFormat", @"bucketTaskBoardFormat", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"createdBy", @"createdBy", @"assignedTo", @"assignedTo", @"planId", @"planId", @"bucketId", @"bucketId", @"title", @"title", @"orderHint", @"orderHint", @"assigneePriority", @"assigneePriority", @"percentComplete", @"percentComplete", @"startDateTime", @"startDateTime", @"assignedDateTime", @"assignedDateTime", @"createdDateTime", @"createdDateTime", @"assignedBy", @"assignedBy", @"dueDateTime", @"dueDateTime", @"hasDescription", @"hasDescription", @"previewType", @"previewType", @"completedDateTime", @"completedDateTime", @"appliedCategories", @"appliedCategories", @"conversationThreadId", @"conversationThreadId", @"id", @"_id", @"details", @"details", @"assignedToTaskBoardFormat", @"assignedToTaskBoardFormat", @"progressTaskBoardFormat", @"progressTaskBoardFormat", @"bucketTaskBoardFormat", @"bucketTaskBoardFormat", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,31 +55,31 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[dic objectForKey: @"createdBy"] copy] : _createdBy;
-		_assignedTo = [dic objectForKey: @"assignedTo"] != nil ? [[dic objectForKey: @"assignedTo"] copy] : _assignedTo;
-		_planId = [dic objectForKey: @"planId"] != nil ? [[dic objectForKey: @"planId"] copy] : _planId;
-		_bucketId = [dic objectForKey: @"bucketId"] != nil ? [[dic objectForKey: @"bucketId"] copy] : _bucketId;
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		_orderHint = [dic objectForKey: @"orderHint"] != nil ? [[dic objectForKey: @"orderHint"] copy] : _orderHint;
-		_assigneePriority = [dic objectForKey: @"assigneePriority"] != nil ? [[dic objectForKey: @"assigneePriority"] copy] : _assigneePriority;
-		_percentComplete = [dic objectForKey: @"percentComplete"] != nil ? [[dic objectForKey: @"percentComplete"] intValue] : _percentComplete;
-		_startDateTime = [dic objectForKey: @"startDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"startDateTime"]] : _startDateTime;
-		_assignedDateTime = [dic objectForKey: @"assignedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"assignedDateTime"]] : _assignedDateTime;
-		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
-		_assignedBy = [dic objectForKey: @"assignedBy"] != nil ? [[dic objectForKey: @"assignedBy"] copy] : _assignedBy;
-		_dueDateTime = [dic objectForKey: @"dueDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"dueDateTime"]] : _dueDateTime;
-		_hasDescription = [dic objectForKey: @"hasDescription"] != nil ? [[dic objectForKey: @"hasDescription"] boolValue] : _hasDescription;
-		_previewType = [dic objectForKey: @"previewType"] != nil ? [MSGraphPreviewTypeSerializer fromString:[dic objectForKey: @"previewType"]] : _previewType;
-		_completedDateTime = [dic objectForKey: @"completedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"completedDateTime"]] : _completedDateTime;
-		_appliedCategories = [dic objectForKey: @"appliedCategories"] != nil ? [[MSGraphAppliedCategoriesCollection alloc] initWithDictionary: [dic objectForKey: @"appliedCategories"]] : _appliedCategories;
-		_conversationThreadId = [dic objectForKey: @"conversationThreadId"] != nil ? [[dic objectForKey: @"conversationThreadId"] copy] : _conversationThreadId;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_details = [dic objectForKey: @"details"] != nil ? [[MSGraphTaskDetails alloc] initWithDictionary: [dic objectForKey: @"details"]] : _details;
-		_assignedToTaskBoardFormat = [dic objectForKey: @"assignedToTaskBoardFormat"] != nil ? [[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"assignedToTaskBoardFormat"]] : _assignedToTaskBoardFormat;
-		_progressTaskBoardFormat = [dic objectForKey: @"progressTaskBoardFormat"] != nil ? [[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"progressTaskBoardFormat"]] : _progressTaskBoardFormat;
-		_bucketTaskBoardFormat = [dic objectForKey: @"bucketTaskBoardFormat"] != nil ? [[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"bucketTaskBoardFormat"]] : _bucketTaskBoardFormat;
-
+        if(dic!=nil) {
+		_createdBy = (![dic objectForKey: @"createdBy"] || [ [dic objectForKey: @"createdBy"] isKindOfClass:[NSNull class]] )?_createdBy:[[dic objectForKey: @"createdBy"] copy];
+		_assignedTo = (![dic objectForKey: @"assignedTo"] || [ [dic objectForKey: @"assignedTo"] isKindOfClass:[NSNull class]] )?_assignedTo:[[dic objectForKey: @"assignedTo"] copy];
+		_planId = (![dic objectForKey: @"planId"] || [ [dic objectForKey: @"planId"] isKindOfClass:[NSNull class]] )?_planId:[[dic objectForKey: @"planId"] copy];
+		_bucketId = (![dic objectForKey: @"bucketId"] || [ [dic objectForKey: @"bucketId"] isKindOfClass:[NSNull class]] )?_bucketId:[[dic objectForKey: @"bucketId"] copy];
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		_orderHint = (![dic objectForKey: @"orderHint"] || [ [dic objectForKey: @"orderHint"] isKindOfClass:[NSNull class]] )?_orderHint:[[dic objectForKey: @"orderHint"] copy];
+		_assigneePriority = (![dic objectForKey: @"assigneePriority"] || [ [dic objectForKey: @"assigneePriority"] isKindOfClass:[NSNull class]] )?_assigneePriority:[[dic objectForKey: @"assigneePriority"] copy];
+		_percentComplete = (![dic objectForKey: @"percentComplete"] || [ [dic objectForKey: @"percentComplete"] isKindOfClass:[NSNull class]] )?_percentComplete:[[dic objectForKey: @"percentComplete"] intValue];
+		_startDateTime = (![dic objectForKey: @"startDateTime"] || [ [dic objectForKey: @"startDateTime"] isKindOfClass:[NSNull class]] )?_startDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"startDateTime"]];
+		_assignedDateTime = (![dic objectForKey: @"assignedDateTime"] || [ [dic objectForKey: @"assignedDateTime"] isKindOfClass:[NSNull class]] )?_assignedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"assignedDateTime"]];
+		_createdDateTime = (![dic objectForKey: @"createdDateTime"] || [ [dic objectForKey: @"createdDateTime"] isKindOfClass:[NSNull class]] )?_createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]];
+		_assignedBy = (![dic objectForKey: @"assignedBy"] || [ [dic objectForKey: @"assignedBy"] isKindOfClass:[NSNull class]] )?_assignedBy:[[dic objectForKey: @"assignedBy"] copy];
+		_dueDateTime = (![dic objectForKey: @"dueDateTime"] || [ [dic objectForKey: @"dueDateTime"] isKindOfClass:[NSNull class]] )?_dueDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"dueDateTime"]];
+		_hasDescription = (![dic objectForKey: @"hasDescription"] || [ [dic objectForKey: @"hasDescription"] isKindOfClass:[NSNull class]] )?_hasDescription:[[dic objectForKey: @"hasDescription"] boolValue];
+		_previewType = (![dic objectForKey: @"previewType"] || [ [dic objectForKey: @"previewType"] isKindOfClass:[NSNull class]] )?_previewType:[MSGraphPreviewTypeSerializer fromString:[dic objectForKey: @"previewType"]];
+		_completedDateTime = (![dic objectForKey: @"completedDateTime"] || [ [dic objectForKey: @"completedDateTime"] isKindOfClass:[NSNull class]] )?_completedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"completedDateTime"]];
+		_appliedCategories = (![dic objectForKey: @"appliedCategories"] || [ [dic objectForKey: @"appliedCategories"] isKindOfClass:[NSNull class]] )?_appliedCategories:[[MSGraphAppliedCategoriesCollection alloc] initWithDictionary: [dic objectForKey: @"appliedCategories"]];
+		_conversationThreadId = (![dic objectForKey: @"conversationThreadId"] || [ [dic objectForKey: @"conversationThreadId"] isKindOfClass:[NSNull class]] )?_conversationThreadId:[[dic objectForKey: @"conversationThreadId"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_details = (![dic objectForKey: @"details"] || [ [dic objectForKey: @"details"] isKindOfClass:[NSNull class]] )?_details:[[MSGraphTaskDetails alloc] initWithDictionary: [dic objectForKey: @"details"]];
+		_assignedToTaskBoardFormat = (![dic objectForKey: @"assignedToTaskBoardFormat"] || [ [dic objectForKey: @"assignedToTaskBoardFormat"] isKindOfClass:[NSNull class]] )?_assignedToTaskBoardFormat:[[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"assignedToTaskBoardFormat"]];
+		_progressTaskBoardFormat = (![dic objectForKey: @"progressTaskBoardFormat"] || [ [dic objectForKey: @"progressTaskBoardFormat"] isKindOfClass:[NSNull class]] )?_progressTaskBoardFormat:[[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"progressTaskBoardFormat"]];
+		_bucketTaskBoardFormat = (![dic objectForKey: @"bucketTaskBoardFormat"] || [ [dic objectForKey: @"bucketTaskBoardFormat"] isKindOfClass:[NSNull class]] )?_bucketTaskBoardFormat:[[MSGraphTaskBoardTaskFormat alloc] initWithDictionary: [dic objectForKey: @"bucketTaskBoardFormat"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

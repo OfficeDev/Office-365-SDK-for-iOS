@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"consumedUnits", @"consumedUnits", @"objectId", @"objectId", @"prepaidUnits", @"prepaidUnits", @"servicePlans", @"servicePlans", @"skuId", @"skuId", @"skuPartNumber", @"skuPartNumber", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"consumedUnits", @"consumedUnits", @"objectId", @"objectId", @"prepaidUnits", @"prepaidUnits", @"servicePlans", @"servicePlans", @"skuId", @"skuId", @"skuPartNumber", @"skuPartNumber", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_capabilityStatus = [dic objectForKey: @"capabilityStatus"] != nil ? [[dic objectForKey: @"capabilityStatus"] copy] : _capabilityStatus;
-		_consumedUnits = [dic objectForKey: @"consumedUnits"] != nil ? [[dic objectForKey: @"consumedUnits"] intValue] : _consumedUnits;
-		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
-		_prepaidUnits = [dic objectForKey: @"prepaidUnits"] != nil ? [[MSGraphLicenseUnitsDetail alloc] initWithDictionary: [dic objectForKey: @"prepaidUnits"]] : _prepaidUnits;
+        if(dic!=nil) {
+		_capabilityStatus = (![dic objectForKey: @"capabilityStatus"] || [ [dic objectForKey: @"capabilityStatus"] isKindOfClass:[NSNull class]] )?_capabilityStatus:[[dic objectForKey: @"capabilityStatus"] copy];
+		_consumedUnits = (![dic objectForKey: @"consumedUnits"] || [ [dic objectForKey: @"consumedUnits"] isKindOfClass:[NSNull class]] )?_consumedUnits:[[dic objectForKey: @"consumedUnits"] intValue];
+		_objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?_objectId:[[dic objectForKey: @"objectId"] copy];
+		_prepaidUnits = (![dic objectForKey: @"prepaidUnits"] || [ [dic objectForKey: @"prepaidUnits"] isKindOfClass:[NSNull class]] )?_prepaidUnits:[[MSGraphLicenseUnitsDetail alloc] initWithDictionary: [dic objectForKey: @"prepaidUnits"]];
 
         if([dic objectForKey: @"servicePlans"] != [NSNull null]){
             _servicePlans = [[MSOrcChangesTrackingArray alloc] init];
@@ -70,9 +71,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_servicePlans resetChangedFlag];
         }
         
-		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
-		_skuPartNumber = [dic objectForKey: @"skuPartNumber"] != nil ? [[dic objectForKey: @"skuPartNumber"] copy] : _skuPartNumber;
-
+		_skuId = (![dic objectForKey: @"skuId"] || [ [dic objectForKey: @"skuId"] isKindOfClass:[NSNull class]] )?_skuId:[[dic objectForKey: @"skuId"] copy];
+		_skuPartNumber = (![dic objectForKey: @"skuPartNumber"] || [ [dic objectForKey: @"skuPartNumber"] isKindOfClass:[NSNull class]] )?_skuPartNumber:[[dic objectForKey: @"skuPartNumber"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

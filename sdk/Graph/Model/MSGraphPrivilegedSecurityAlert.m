@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"AlertId", @"alertId", @"NumberOfAffectedItems", @"numberOfAffectedItems", @"AdditionalData", @"additionalData", @"AlertName", @"alertName", @"AlertDescription", @"alertDescription", @"LastModifiedTime", @"lastModifiedTime", @"LastScannedTime", @"lastScannedTime", @"SeverityLevel", @"severityLevel", @"AlertType", @"alertType", @"SecurityImpact", @"securityImpact", @"MitigationSteps", @"mitigationSteps", @"HowToPrevent", @"howToPrevent", @"WasDismissed", @"wasDismissed", @"IsActive", @"isActive", @"IsResolvable", @"isResolvable", @"IsConfigurable", @"isConfigurable", @"Status", @"status", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"AlertId", @"alertId", @"NumberOfAffectedItems", @"numberOfAffectedItems", @"AdditionalData", @"additionalData", @"AlertName", @"alertName", @"AlertDescription", @"alertDescription", @"LastModifiedTime", @"lastModifiedTime", @"LastScannedTime", @"lastScannedTime", @"SeverityLevel", @"severityLevel", @"AlertType", @"alertType", @"SecurityImpact", @"securityImpact", @"MitigationSteps", @"mitigationSteps", @"HowToPrevent", @"howToPrevent", @"WasDismissed", @"wasDismissed", @"IsActive", @"isActive", @"IsResolvable", @"isResolvable", @"IsConfigurable", @"isConfigurable", @"Status", @"status", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,25 +55,25 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_alertId = [dic objectForKey: @"AlertId"] != nil ? [[dic objectForKey: @"AlertId"] copy] : _alertId;
-		_numberOfAffectedItems = [dic objectForKey: @"NumberOfAffectedItems"] != nil ? [[dic objectForKey: @"NumberOfAffectedItems"] intValue] : _numberOfAffectedItems;
-		_additionalData = [dic objectForKey: @"AdditionalData"] != nil ? [[dic objectForKey: @"AdditionalData"] copy] : _additionalData;
-		_alertName = [dic objectForKey: @"AlertName"] != nil ? [[dic objectForKey: @"AlertName"] copy] : _alertName;
-		_alertDescription = [dic objectForKey: @"AlertDescription"] != nil ? [[dic objectForKey: @"AlertDescription"] copy] : _alertDescription;
-		_lastModifiedTime = [dic objectForKey: @"LastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedTime"]] : _lastModifiedTime;
-		_lastScannedTime = [dic objectForKey: @"LastScannedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastScannedTime"]] : _lastScannedTime;
-		_severityLevel = [dic objectForKey: @"SeverityLevel"] != nil ? [MSGraphAlertSeveritySerializer fromString:[dic objectForKey: @"SeverityLevel"]] : _severityLevel;
-		_alertType = [dic objectForKey: @"AlertType"] != nil ? [MSGraphAlertTypeSerializer fromString:[dic objectForKey: @"AlertType"]] : _alertType;
-		_securityImpact = [dic objectForKey: @"SecurityImpact"] != nil ? [[dic objectForKey: @"SecurityImpact"] copy] : _securityImpact;
-		_mitigationSteps = [dic objectForKey: @"MitigationSteps"] != nil ? [[dic objectForKey: @"MitigationSteps"] copy] : _mitigationSteps;
-		_howToPrevent = [dic objectForKey: @"HowToPrevent"] != nil ? [[dic objectForKey: @"HowToPrevent"] copy] : _howToPrevent;
-		_wasDismissed = [dic objectForKey: @"WasDismissed"] != nil ? [[dic objectForKey: @"WasDismissed"] boolValue] : _wasDismissed;
-		_isActive = [dic objectForKey: @"IsActive"] != nil ? [[dic objectForKey: @"IsActive"] boolValue] : _isActive;
-		_isResolvable = [dic objectForKey: @"IsResolvable"] != nil ? [[dic objectForKey: @"IsResolvable"] boolValue] : _isResolvable;
-		_isConfigurable = [dic objectForKey: @"IsConfigurable"] != nil ? [[dic objectForKey: @"IsConfigurable"] boolValue] : _isConfigurable;
-		_status = [dic objectForKey: @"Status"] != nil ? [MSGraphAlertStatusSerializer fromString:[dic objectForKey: @"Status"]] : _status;
-
+        if(dic!=nil) {
+		_alertId = (![dic objectForKey: @"AlertId"] || [ [dic objectForKey: @"AlertId"] isKindOfClass:[NSNull class]] )?_alertId:[[dic objectForKey: @"AlertId"] copy];
+		_numberOfAffectedItems = (![dic objectForKey: @"NumberOfAffectedItems"] || [ [dic objectForKey: @"NumberOfAffectedItems"] isKindOfClass:[NSNull class]] )?_numberOfAffectedItems:[[dic objectForKey: @"NumberOfAffectedItems"] intValue];
+		_additionalData = (![dic objectForKey: @"AdditionalData"] || [ [dic objectForKey: @"AdditionalData"] isKindOfClass:[NSNull class]] )?_additionalData:[[dic objectForKey: @"AdditionalData"] copy];
+		_alertName = (![dic objectForKey: @"AlertName"] || [ [dic objectForKey: @"AlertName"] isKindOfClass:[NSNull class]] )?_alertName:[[dic objectForKey: @"AlertName"] copy];
+		_alertDescription = (![dic objectForKey: @"AlertDescription"] || [ [dic objectForKey: @"AlertDescription"] isKindOfClass:[NSNull class]] )?_alertDescription:[[dic objectForKey: @"AlertDescription"] copy];
+		_lastModifiedTime = (![dic objectForKey: @"LastModifiedTime"] || [ [dic objectForKey: @"LastModifiedTime"] isKindOfClass:[NSNull class]] )?_lastModifiedTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedTime"]];
+		_lastScannedTime = (![dic objectForKey: @"LastScannedTime"] || [ [dic objectForKey: @"LastScannedTime"] isKindOfClass:[NSNull class]] )?_lastScannedTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastScannedTime"]];
+		_severityLevel = (![dic objectForKey: @"SeverityLevel"] || [ [dic objectForKey: @"SeverityLevel"] isKindOfClass:[NSNull class]] )?_severityLevel:[MSGraphAlertSeveritySerializer fromString:[dic objectForKey: @"SeverityLevel"]];
+		_alertType = (![dic objectForKey: @"AlertType"] || [ [dic objectForKey: @"AlertType"] isKindOfClass:[NSNull class]] )?_alertType:[MSGraphAlertTypeSerializer fromString:[dic objectForKey: @"AlertType"]];
+		_securityImpact = (![dic objectForKey: @"SecurityImpact"] || [ [dic objectForKey: @"SecurityImpact"] isKindOfClass:[NSNull class]] )?_securityImpact:[[dic objectForKey: @"SecurityImpact"] copy];
+		_mitigationSteps = (![dic objectForKey: @"MitigationSteps"] || [ [dic objectForKey: @"MitigationSteps"] isKindOfClass:[NSNull class]] )?_mitigationSteps:[[dic objectForKey: @"MitigationSteps"] copy];
+		_howToPrevent = (![dic objectForKey: @"HowToPrevent"] || [ [dic objectForKey: @"HowToPrevent"] isKindOfClass:[NSNull class]] )?_howToPrevent:[[dic objectForKey: @"HowToPrevent"] copy];
+		_wasDismissed = (![dic objectForKey: @"WasDismissed"] || [ [dic objectForKey: @"WasDismissed"] isKindOfClass:[NSNull class]] )?_wasDismissed:[[dic objectForKey: @"WasDismissed"] boolValue];
+		_isActive = (![dic objectForKey: @"IsActive"] || [ [dic objectForKey: @"IsActive"] isKindOfClass:[NSNull class]] )?_isActive:[[dic objectForKey: @"IsActive"] boolValue];
+		_isResolvable = (![dic objectForKey: @"IsResolvable"] || [ [dic objectForKey: @"IsResolvable"] isKindOfClass:[NSNull class]] )?_isResolvable:[[dic objectForKey: @"IsResolvable"] boolValue];
+		_isConfigurable = (![dic objectForKey: @"IsConfigurable"] || [ [dic objectForKey: @"IsConfigurable"] isKindOfClass:[NSNull class]] )?_isConfigurable:[[dic objectForKey: @"IsConfigurable"] boolValue];
+		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[MSGraphAlertStatusSerializer fromString:[dic objectForKey: @"Status"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

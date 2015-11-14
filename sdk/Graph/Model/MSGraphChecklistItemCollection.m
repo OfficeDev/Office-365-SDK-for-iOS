@@ -29,12 +29,8 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
-    
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  nil];
-    
-    }
-    
+
+        
     return _$$$_$$$propertiesNamesMappings;
 }
 
@@ -53,8 +49,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-
+        if(dic!=nil) {
+    }
     [self.updatedValues removeAllObjects];
     }
     

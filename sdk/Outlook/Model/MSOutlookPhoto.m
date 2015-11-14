@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_height = [dic objectForKey: @"Height"] != nil ? [[dic objectForKey: @"Height"] intValue] : _height;
-		_width = [dic objectForKey: @"Width"] != nil ? [[dic objectForKey: @"Width"] intValue] : _width;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_height = (![dic objectForKey: @"Height"] || [ [dic objectForKey: @"Height"] isKindOfClass:[NSNull class]] )?_height:[[dic objectForKey: @"Height"] intValue];
+		_width = (![dic objectForKey: @"Width"] || [ [dic objectForKey: @"Width"] isKindOfClass:[NSNull class]] )?_width:[[dic objectForKey: @"Width"] intValue];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

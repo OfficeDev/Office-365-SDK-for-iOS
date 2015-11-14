@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"owner", @"owner", @"scope", @"scope", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"owner", @"owner", @"scope", @"scope", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_owner = [dic objectForKey: @"owner"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
-		_scope = [dic objectForKey: @"scope"] != nil ? [[dic objectForKey: @"scope"] copy] : _scope;
-
+        if(dic!=nil) {
+		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]];
+		_scope = (![dic objectForKey: @"scope"] || [ [dic objectForKey: @"scope"] isKindOfClass:[NSNull class]] )?_scope:[[dic objectForKey: @"scope"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"resourceAppId", @"resourceAppId", @"resourceAccess", @"resourceAccess", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"resourceAppId", @"resourceAppId", @"resourceAccess", @"resourceAccess", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,8 +54,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_resourceAppId = [dic objectForKey: @"resourceAppId"] != nil ? [[dic objectForKey: @"resourceAppId"] copy] : _resourceAppId;
+        if(dic!=nil) {
+		_resourceAppId = (![dic objectForKey: @"resourceAppId"] || [ [dic objectForKey: @"resourceAppId"] isKindOfClass:[NSNull class]] )?_resourceAppId:[[dic objectForKey: @"resourceAppId"] copy];
 
         if([dic objectForKey: @"resourceAccess"] != [NSNull null]){
             _resourceAccess = [[MSOrcChangesTrackingArray alloc] init];
@@ -66,7 +67,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_resourceAccess resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

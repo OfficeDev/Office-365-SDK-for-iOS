@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"altitude", @"altitude", @"latitude", @"latitude", @"longitude", @"longitude", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"altitude", @"altitude", @"latitude", @"latitude", @"longitude", @"longitude", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_altitude = [dic objectForKey: @"altitude"] != nil ? [[dic objectForKey: @"altitude"] doubleValue] : _altitude;
-		_latitude = [dic objectForKey: @"latitude"] != nil ? [[dic objectForKey: @"latitude"] doubleValue] : _latitude;
-		_longitude = [dic objectForKey: @"longitude"] != nil ? [[dic objectForKey: @"longitude"] doubleValue] : _longitude;
-
+        if(dic!=nil) {
+		_altitude = (![dic objectForKey: @"altitude"] || [ [dic objectForKey: @"altitude"] isKindOfClass:[NSNull class]] )?_altitude:[[dic objectForKey: @"altitude"] doubleValue];
+		_latitude = (![dic objectForKey: @"latitude"] || [ [dic objectForKey: @"latitude"] isKindOfClass:[NSNull class]] )?_latitude:[[dic objectForKey: @"latitude"] doubleValue];
+		_longitude = (![dic objectForKey: @"longitude"] || [ [dic objectForKey: @"longitude"] isKindOfClass:[NSNull class]] )?_longitude:[[dic objectForKey: @"longitude"] doubleValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

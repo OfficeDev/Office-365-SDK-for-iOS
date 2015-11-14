@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Date", @"date", @"Time", @"time", @"TimeZone", @"timeZone", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Date", @"date", @"Time", @"time", @"TimeZone", @"timeZone", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_date = [dic objectForKey: @"Date"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Date"]] : _date;
-		_time = [dic objectForKey: @"Time"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]] : _time;
-		_timeZone = [dic objectForKey: @"TimeZone"] != nil ? [[dic objectForKey: @"TimeZone"] copy] : _timeZone;
-
+        if(dic!=nil) {
+		_date = (![dic objectForKey: @"Date"] || [ [dic objectForKey: @"Date"] isKindOfClass:[NSNull class]] )?_date:[MSOrcObjectizer dateFromString:[dic objectForKey: @"Date"]];
+		_time = (![dic objectForKey: @"Time"] || [ [dic objectForKey: @"Time"] isKindOfClass:[NSNull class]] )?_time:[MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]];
+		_timeZone = (![dic objectForKey: @"TimeZone"] || [ [dic objectForKey: @"TimeZone"] isKindOfClass:[NSNull class]] )?_timeZone:[[dic objectForKey: @"TimeZone"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

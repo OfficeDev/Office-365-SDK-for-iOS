@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Street", @"street", @"City", @"city", @"State", @"state", @"CountryOrRegion", @"countryOrRegion", @"PostalCode", @"postalCode", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Street", @"street", @"City", @"city", @"State", @"state", @"CountryOrRegion", @"countryOrRegion", @"PostalCode", @"postalCode", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_street = [dic objectForKey: @"Street"] != nil ? [[dic objectForKey: @"Street"] copy] : _street;
-		_city = [dic objectForKey: @"City"] != nil ? [[dic objectForKey: @"City"] copy] : _city;
-		_state = [dic objectForKey: @"State"] != nil ? [[dic objectForKey: @"State"] copy] : _state;
-		_countryOrRegion = [dic objectForKey: @"CountryOrRegion"] != nil ? [[dic objectForKey: @"CountryOrRegion"] copy] : _countryOrRegion;
-		_postalCode = [dic objectForKey: @"PostalCode"] != nil ? [[dic objectForKey: @"PostalCode"] copy] : _postalCode;
-
+        if(dic!=nil) {
+		_street = (![dic objectForKey: @"Street"] || [ [dic objectForKey: @"Street"] isKindOfClass:[NSNull class]] )?_street:[[dic objectForKey: @"Street"] copy];
+		_city = (![dic objectForKey: @"City"] || [ [dic objectForKey: @"City"] isKindOfClass:[NSNull class]] )?_city:[[dic objectForKey: @"City"] copy];
+		_state = (![dic objectForKey: @"State"] || [ [dic objectForKey: @"State"] isKindOfClass:[NSNull class]] )?_state:[[dic objectForKey: @"State"] copy];
+		_countryOrRegion = (![dic objectForKey: @"CountryOrRegion"] || [ [dic objectForKey: @"CountryOrRegion"] isKindOfClass:[NSNull class]] )?_countryOrRegion:[[dic objectForKey: @"CountryOrRegion"] copy];
+		_postalCode = (![dic objectForKey: @"PostalCode"] || [ [dic objectForKey: @"PostalCode"] isKindOfClass:[NSNull class]] )?_postalCode:[[dic objectForKey: @"PostalCode"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

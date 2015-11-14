@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"Name", @"name", @"Summary", @"summary", @"Settings", @"settings", @"Assignments", @"assignments", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"Name", @"name", @"Summary", @"summary", @"Settings", @"settings", @"Assignments", @"assignments", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : __id;
-		_name = [dic objectForKey: @"Name"] != nil ? [[dic objectForKey: @"Name"] copy] : _name;
-		_summary = [dic objectForKey: @"Summary"] != nil ? [[MSGraphPrivilegedRoleSummary alloc] initWithDictionary: [dic objectForKey: @"Summary"]] : _summary;
-		_settings = [dic objectForKey: @"Settings"] != nil ? [[MSGraphPrivilegedRoleSettings alloc] initWithDictionary: [dic objectForKey: @"Settings"]] : _settings;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"Id"] copy];
+		_name = (![dic objectForKey: @"Name"] || [ [dic objectForKey: @"Name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"Name"] copy];
+		_summary = (![dic objectForKey: @"Summary"] || [ [dic objectForKey: @"Summary"] isKindOfClass:[NSNull class]] )?_summary:[[MSGraphPrivilegedRoleSummary alloc] initWithDictionary: [dic objectForKey: @"Summary"]];
+		_settings = (![dic objectForKey: @"Settings"] || [ [dic objectForKey: @"Settings"] isKindOfClass:[NSNull class]] )?_settings:[[MSGraphPrivilegedRoleSettings alloc] initWithDictionary: [dic objectForKey: @"Settings"]];
 
         if([dic objectForKey: @"Assignments"] != [NSNull null]){
             _assignments = [[MSOrcChangesTrackingArray alloc] init];
@@ -70,7 +71,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_assignments resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

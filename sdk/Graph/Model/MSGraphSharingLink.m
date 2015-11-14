@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"type", @"type", @"webUrl", @"webUrl", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"type", @"type", @"webUrl", @"webUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_application = [dic objectForKey: @"application"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
-		_type = [dic objectForKey: @"type"] != nil ? [[dic objectForKey: @"type"] copy] : _type;
-		_webUrl = [dic objectForKey: @"webUrl"] != nil ? [[dic objectForKey: @"webUrl"] copy] : _webUrl;
-
+        if(dic!=nil) {
+		_application = (![dic objectForKey: @"application"] || [ [dic objectForKey: @"application"] isKindOfClass:[NSNull class]] )?_application:[[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]];
+		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] copy];
+		_webUrl = (![dic objectForKey: @"webUrl"] || [ [dic objectForKey: @"webUrl"] isKindOfClass:[NSNull class]] )?_webUrl:[[dic objectForKey: @"webUrl"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

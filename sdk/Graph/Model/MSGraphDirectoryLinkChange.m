@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"associationType", @"associationType", @"sourceObjectId", @"sourceObjectId", @"sourceObjectType", @"sourceObjectType", @"sourceObjectUri", @"sourceObjectUri", @"targetObjectId", @"targetObjectId", @"targetObjectType", @"targetObjectType", @"targetObjectUri", @"targetObjectUri", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"associationType", @"associationType", @"sourceObjectId", @"sourceObjectId", @"sourceObjectType", @"sourceObjectType", @"sourceObjectUri", @"sourceObjectUri", @"targetObjectId", @"targetObjectId", @"targetObjectType", @"targetObjectType", @"targetObjectUri", @"targetObjectUri", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,18 +55,18 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_associationType = [dic objectForKey: @"associationType"] != nil ? [[dic objectForKey: @"associationType"] copy] : _associationType;
-		_sourceObjectId = [dic objectForKey: @"sourceObjectId"] != nil ? [[dic objectForKey: @"sourceObjectId"] copy] : _sourceObjectId;
-		_sourceObjectType = [dic objectForKey: @"sourceObjectType"] != nil ? [[dic objectForKey: @"sourceObjectType"] copy] : _sourceObjectType;
-		_sourceObjectUri = [dic objectForKey: @"sourceObjectUri"] != nil ? [[dic objectForKey: @"sourceObjectUri"] copy] : _sourceObjectUri;
-		_targetObjectId = [dic objectForKey: @"targetObjectId"] != nil ? [[dic objectForKey: @"targetObjectId"] copy] : _targetObjectId;
-		_targetObjectType = [dic objectForKey: @"targetObjectType"] != nil ? [[dic objectForKey: @"targetObjectType"] copy] : _targetObjectType;
-		_targetObjectUri = [dic objectForKey: @"targetObjectUri"] != nil ? [[dic objectForKey: @"targetObjectUri"] copy] : _targetObjectUri;
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-
+        if(dic!=nil) {
+		_associationType = (![dic objectForKey: @"associationType"] || [ [dic objectForKey: @"associationType"] isKindOfClass:[NSNull class]] )?_associationType:[[dic objectForKey: @"associationType"] copy];
+		_sourceObjectId = (![dic objectForKey: @"sourceObjectId"] || [ [dic objectForKey: @"sourceObjectId"] isKindOfClass:[NSNull class]] )?_sourceObjectId:[[dic objectForKey: @"sourceObjectId"] copy];
+		_sourceObjectType = (![dic objectForKey: @"sourceObjectType"] || [ [dic objectForKey: @"sourceObjectType"] isKindOfClass:[NSNull class]] )?_sourceObjectType:[[dic objectForKey: @"sourceObjectType"] copy];
+		_sourceObjectUri = (![dic objectForKey: @"sourceObjectUri"] || [ [dic objectForKey: @"sourceObjectUri"] isKindOfClass:[NSNull class]] )?_sourceObjectUri:[[dic objectForKey: @"sourceObjectUri"] copy];
+		_targetObjectId = (![dic objectForKey: @"targetObjectId"] || [ [dic objectForKey: @"targetObjectId"] isKindOfClass:[NSNull class]] )?_targetObjectId:[[dic objectForKey: @"targetObjectId"] copy];
+		_targetObjectType = (![dic objectForKey: @"targetObjectType"] || [ [dic objectForKey: @"targetObjectType"] isKindOfClass:[NSNull class]] )?_targetObjectType:[[dic objectForKey: @"targetObjectType"] copy];
+		_targetObjectUri = (![dic objectForKey: @"targetObjectUri"] || [ [dic objectForKey: @"targetObjectUri"] isKindOfClass:[NSNull class]] )?_targetObjectUri:[[dic objectForKey: @"targetObjectUri"] copy];
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

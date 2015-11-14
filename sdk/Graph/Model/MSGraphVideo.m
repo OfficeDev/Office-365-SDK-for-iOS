@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"bitrate", @"bitrate", @"duration", @"duration", @"height", @"height", @"width", @"width", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"bitrate", @"bitrate", @"duration", @"duration", @"height", @"height", @"width", @"width", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_bitrate = [dic objectForKey: @"bitrate"] != nil ? [[dic objectForKey: @"bitrate"] intValue] : _bitrate;
-		_duration = [dic objectForKey: @"duration"] != nil ? [[dic objectForKey: @"duration"] longLongValue] : _duration;
-		_height = [dic objectForKey: @"height"] != nil ? [[dic objectForKey: @"height"] intValue] : _height;
-		_width = [dic objectForKey: @"width"] != nil ? [[dic objectForKey: @"width"] intValue] : _width;
-
+        if(dic!=nil) {
+		_bitrate = (![dic objectForKey: @"bitrate"] || [ [dic objectForKey: @"bitrate"] isKindOfClass:[NSNull class]] )?_bitrate:[[dic objectForKey: @"bitrate"] intValue];
+		_duration = (![dic objectForKey: @"duration"] || [ [dic objectForKey: @"duration"] isKindOfClass:[NSNull class]] )?_duration:[[dic objectForKey: @"duration"] longLongValue];
+		_height = (![dic objectForKey: @"height"] || [ [dic objectForKey: @"height"] isKindOfClass:[NSNull class]] )?_height:[[dic objectForKey: @"height"] intValue];
+		_width = (![dic objectForKey: @"width"] || [ [dic objectForKey: @"width"] isKindOfClass:[NSNull class]] )?_width:[[dic objectForKey: @"width"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

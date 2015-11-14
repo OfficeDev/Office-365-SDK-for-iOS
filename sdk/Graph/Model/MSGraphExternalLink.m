@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"href", @"href", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"href", @"href", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_href = [dic objectForKey: @"href"] != nil ? [[dic objectForKey: @"href"] copy] : _href;
-
+        if(dic!=nil) {
+		_href = (![dic objectForKey: @"href"] || [ [dic objectForKey: @"href"] isKindOfClass:[NSNull class]] )?_href:[[dic objectForKey: @"href"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

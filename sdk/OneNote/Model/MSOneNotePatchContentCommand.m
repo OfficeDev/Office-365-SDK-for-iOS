@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"action", @"action", @"target", @"target", @"content", @"content", @"position", @"position", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"action", @"action", @"target", @"target", @"content", @"content", @"position", @"position", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_action = [dic objectForKey: @"action"] != nil ? [MSOneNotePatchActionTypeSerializer fromString:[dic objectForKey: @"action"]] : _action;
-		_target = [dic objectForKey: @"target"] != nil ? [[dic objectForKey: @"target"] copy] : _target;
-		_content = [dic objectForKey: @"content"] != nil ? [[dic objectForKey: @"content"] copy] : _content;
-		_position = [dic objectForKey: @"position"] != nil ? [MSOneNotePatchInsertPositionSerializer fromString:[dic objectForKey: @"position"]] : _position;
-
+        if(dic!=nil) {
+		_action = (![dic objectForKey: @"action"] || [ [dic objectForKey: @"action"] isKindOfClass:[NSNull class]] )?_action:[MSOneNotePatchActionTypeSerializer fromString:[dic objectForKey: @"action"]];
+		_target = (![dic objectForKey: @"target"] || [ [dic objectForKey: @"target"] isKindOfClass:[NSNull class]] )?_target:[[dic objectForKey: @"target"] copy];
+		_content = (![dic objectForKey: @"content"] || [ [dic objectForKey: @"content"] isKindOfClass:[NSNull class]] )?_content:[[dic objectForKey: @"content"] copy];
+		_position = (![dic objectForKey: @"position"] || [ [dic objectForKey: @"position"] isKindOfClass:[NSNull class]] )?_position:[MSOneNotePatchInsertPositionSerializer fromString:[dic objectForKey: @"position"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

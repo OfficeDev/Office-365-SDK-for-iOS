@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"NotificationURL", @"notificationURL", @"SubscriptionExpirationDateTime", @"subscriptionExpirationDateTime", @"Resource", @"resource", @"ChangeType", @"changeType", @"ClientState", @"clientState", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"NotificationURL", @"notificationURL", @"SubscriptionExpirationDateTime", @"subscriptionExpirationDateTime", @"Resource", @"resource", @"ChangeType", @"changeType", @"ClientState", @"clientState", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,14 +55,14 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_notificationURL = [dic objectForKey: @"NotificationURL"] != nil ? [[dic objectForKey: @"NotificationURL"] copy] : _notificationURL;
-		_subscriptionExpirationDateTime = [dic objectForKey: @"SubscriptionExpirationDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"SubscriptionExpirationDateTime"]] : _subscriptionExpirationDateTime;
-		self.resource = [dic objectForKey: @"Resource"] != nil ? [[dic objectForKey: @"Resource"] copy] : self.resource;
-		self.changeType = [dic objectForKey: @"ChangeType"] != nil ? [MSOutlookChangeTypeSerializer fromString:[dic objectForKey: @"ChangeType"]] : self.changeType;
-		self.clientState = [dic objectForKey: @"ClientState"] != nil ? [[dic objectForKey: @"ClientState"] copy] : self.clientState;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_notificationURL = (![dic objectForKey: @"NotificationURL"] || [ [dic objectForKey: @"NotificationURL"] isKindOfClass:[NSNull class]] )?_notificationURL:[[dic objectForKey: @"NotificationURL"] copy];
+		_subscriptionExpirationDateTime = (![dic objectForKey: @"SubscriptionExpirationDateTime"] || [ [dic objectForKey: @"SubscriptionExpirationDateTime"] isKindOfClass:[NSNull class]] )?_subscriptionExpirationDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"SubscriptionExpirationDateTime"]];
+		self.resource = (![dic objectForKey: @"Resource"] || [ [dic objectForKey: @"Resource"] isKindOfClass:[NSNull class]] )?self.resource:[[dic objectForKey: @"Resource"] copy];
+		self.changeType = (![dic objectForKey: @"ChangeType"] || [ [dic objectForKey: @"ChangeType"] isKindOfClass:[NSNull class]] )?self.changeType:[MSOutlookChangeTypeSerializer fromString:[dic objectForKey: @"ChangeType"]];
+		self.clientState = (![dic objectForKey: @"ClientState"] || [ [dic objectForKey: @"ClientState"] isKindOfClass:[NSNull class]] )?self.clientState:[[dic objectForKey: @"ClientState"] copy];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

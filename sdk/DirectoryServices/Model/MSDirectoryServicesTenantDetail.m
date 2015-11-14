@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"assignedPlans", @"assignedPlans", @"city", @"city", @"companyLastDirSyncTime", @"companyLastDirSyncTime", @"country", @"country", @"countryLetterCode", @"countryLetterCode", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"marketingNotificationEmails", @"marketingNotificationEmails", @"postalCode", @"postalCode", @"preferredLanguage", @"preferredLanguage", @"provisionedPlans", @"provisionedPlans", @"provisioningErrors", @"provisioningErrors", @"state", @"state", @"street", @"street", @"technicalNotificationMails", @"technicalNotificationMails", @"telephoneNumber", @"telephoneNumber", @"verifiedDomains", @"verifiedDomains", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"assignedPlans", @"assignedPlans", @"city", @"city", @"companyLastDirSyncTime", @"companyLastDirSyncTime", @"country", @"country", @"countryLetterCode", @"countryLetterCode", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"marketingNotificationEmails", @"marketingNotificationEmails", @"postalCode", @"postalCode", @"preferredLanguage", @"preferredLanguage", @"provisionedPlans", @"provisionedPlans", @"provisioningErrors", @"provisioningErrors", @"state", @"state", @"street", @"street", @"technicalNotificationMails", @"technicalNotificationMails", @"telephoneNumber", @"telephoneNumber", @"verifiedDomains", @"verifiedDomains", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,7 +55,7 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
+        if(dic!=nil) {
 
         if([dic objectForKey: @"assignedPlans"] != [NSNull null]){
             _assignedPlans = [[MSOrcChangesTrackingArray alloc] init];
@@ -66,12 +67,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_assignedPlans resetChangedFlag];
         }
         
-		_city = [dic objectForKey: @"city"] != nil ? [[dic objectForKey: @"city"] copy] : _city;
-		_companyLastDirSyncTime = [dic objectForKey: @"companyLastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"companyLastDirSyncTime"]] : _companyLastDirSyncTime;
-		_country = [dic objectForKey: @"country"] != nil ? [[dic objectForKey: @"country"] copy] : _country;
-		_countryLetterCode = [dic objectForKey: @"countryLetterCode"] != nil ? [[dic objectForKey: @"countryLetterCode"] copy] : _countryLetterCode;
-		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+		_city = (![dic objectForKey: @"city"] || [ [dic objectForKey: @"city"] isKindOfClass:[NSNull class]] )?_city:[[dic objectForKey: @"city"] copy];
+		_companyLastDirSyncTime = (![dic objectForKey: @"companyLastDirSyncTime"] || [ [dic objectForKey: @"companyLastDirSyncTime"] isKindOfClass:[NSNull class]] )?_companyLastDirSyncTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"companyLastDirSyncTime"]];
+		_country = (![dic objectForKey: @"country"] || [ [dic objectForKey: @"country"] isKindOfClass:[NSNull class]] )?_country:[[dic objectForKey: @"country"] copy];
+		_countryLetterCode = (![dic objectForKey: @"countryLetterCode"] || [ [dic objectForKey: @"countryLetterCode"] isKindOfClass:[NSNull class]] )?_countryLetterCode:[[dic objectForKey: @"countryLetterCode"] copy];
+		_dirSyncEnabled = (![dic objectForKey: @"dirSyncEnabled"] || [ [dic objectForKey: @"dirSyncEnabled"] isKindOfClass:[NSNull class]] )?_dirSyncEnabled:[[dic objectForKey: @"dirSyncEnabled"] boolValue];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
 
         if([dic objectForKey: @"marketingNotificationEmails"] != [NSNull null]){
             _marketingNotificationEmails = [[MSOrcChangesTrackingArray alloc] init];
@@ -83,8 +84,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_marketingNotificationEmails resetChangedFlag];
         }
         
-		_postalCode = [dic objectForKey: @"postalCode"] != nil ? [[dic objectForKey: @"postalCode"] copy] : _postalCode;
-		_preferredLanguage = [dic objectForKey: @"preferredLanguage"] != nil ? [[dic objectForKey: @"preferredLanguage"] copy] : _preferredLanguage;
+		_postalCode = (![dic objectForKey: @"postalCode"] || [ [dic objectForKey: @"postalCode"] isKindOfClass:[NSNull class]] )?_postalCode:[[dic objectForKey: @"postalCode"] copy];
+		_preferredLanguage = (![dic objectForKey: @"preferredLanguage"] || [ [dic objectForKey: @"preferredLanguage"] isKindOfClass:[NSNull class]] )?_preferredLanguage:[[dic objectForKey: @"preferredLanguage"] copy];
 
         if([dic objectForKey: @"provisionedPlans"] != [NSNull null]){
             _provisionedPlans = [[MSOrcChangesTrackingArray alloc] init];
@@ -107,8 +108,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_provisioningErrors resetChangedFlag];
         }
         
-		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
-		_street = [dic objectForKey: @"street"] != nil ? [[dic objectForKey: @"street"] copy] : _street;
+		_state = (![dic objectForKey: @"state"] || [ [dic objectForKey: @"state"] isKindOfClass:[NSNull class]] )?_state:[[dic objectForKey: @"state"] copy];
+		_street = (![dic objectForKey: @"street"] || [ [dic objectForKey: @"street"] isKindOfClass:[NSNull class]] )?_street:[[dic objectForKey: @"street"] copy];
 
         if([dic objectForKey: @"technicalNotificationMails"] != [NSNull null]){
             _technicalNotificationMails = [[MSOrcChangesTrackingArray alloc] init];
@@ -120,7 +121,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_technicalNotificationMails resetChangedFlag];
         }
         
-		_telephoneNumber = [dic objectForKey: @"telephoneNumber"] != nil ? [[dic objectForKey: @"telephoneNumber"] copy] : _telephoneNumber;
+		_telephoneNumber = (![dic objectForKey: @"telephoneNumber"] || [ [dic objectForKey: @"telephoneNumber"] isKindOfClass:[NSNull class]] )?_telephoneNumber:[[dic objectForKey: @"telephoneNumber"] copy];
 
         if([dic objectForKey: @"verifiedDomains"] != [NSNull null]){
             _verifiedDomains = [[MSOrcChangesTrackingArray alloc] init];
@@ -132,10 +133,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_verifiedDomains resetChangedFlag];
         }
         
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -147,7 +148,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -203,7 +204,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

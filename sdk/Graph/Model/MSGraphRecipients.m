@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"email", @"email", @"alias", @"alias", @"objectId", @"objectId", @"permissionIdentityType", @"permissionIdentityType", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"email", @"email", @"alias", @"alias", @"objectId", @"objectId", @"permissionIdentityType", @"permissionIdentityType", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_email = [dic objectForKey: @"email"] != nil ? [[dic objectForKey: @"email"] copy] : _email;
-		_alias = [dic objectForKey: @"alias"] != nil ? [[dic objectForKey: @"alias"] copy] : _alias;
-		_objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : _objectId;
-		_permissionIdentityType = [dic objectForKey: @"permissionIdentityType"] != nil ? [[dic objectForKey: @"permissionIdentityType"] copy] : _permissionIdentityType;
-
+        if(dic!=nil) {
+		_email = (![dic objectForKey: @"email"] || [ [dic objectForKey: @"email"] isKindOfClass:[NSNull class]] )?_email:[[dic objectForKey: @"email"] copy];
+		_alias = (![dic objectForKey: @"alias"] || [ [dic objectForKey: @"alias"] isKindOfClass:[NSNull class]] )?_alias:[[dic objectForKey: @"alias"] copy];
+		_objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?_objectId:[[dic objectForKey: @"objectId"] copy];
+		_permissionIdentityType = (![dic objectForKey: @"permissionIdentityType"] || [ [dic objectForKey: @"permissionIdentityType"] isKindOfClass:[NSNull class]] )?_permissionIdentityType:[[dic objectForKey: @"permissionIdentityType"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

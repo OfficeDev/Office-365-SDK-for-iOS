@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"LocationEmailAddress", @"locationEmailAddress", @"Address", @"address", @"Coordinates", @"coordinates", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"LocationEmailAddress", @"locationEmailAddress", @"Address", @"address", @"Coordinates", @"coordinates", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_locationEmailAddress = [dic objectForKey: @"LocationEmailAddress"] != nil ? [[dic objectForKey: @"LocationEmailAddress"] copy] : _locationEmailAddress;
-		_address = [dic objectForKey: @"Address"] != nil ? [[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]] : _address;
-		_coordinates = [dic objectForKey: @"Coordinates"] != nil ? [[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]] : _coordinates;
-
+        if(dic!=nil) {
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_locationEmailAddress = (![dic objectForKey: @"LocationEmailAddress"] || [ [dic objectForKey: @"LocationEmailAddress"] isKindOfClass:[NSNull class]] )?_locationEmailAddress:[[dic objectForKey: @"LocationEmailAddress"] copy];
+		_address = (![dic objectForKey: @"Address"] || [ [dic objectForKey: @"Address"] isKindOfClass:[NSNull class]] )?_address:[[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]];
+		_coordinates = (![dic objectForKey: @"Coordinates"] || [ [dic objectForKey: @"Coordinates"] isKindOfClass:[NSNull class]] )?_coordinates:[[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

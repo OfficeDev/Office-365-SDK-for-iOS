@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ClassifyAs", @"classifyAs", @"SenderEmailAddress", @"senderEmailAddress", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ClassifyAs", @"classifyAs", @"SenderEmailAddress", @"senderEmailAddress", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_classifyAs = [dic objectForKey: @"ClassifyAs"] != nil ? [MSGraphInferenceClassificationTypeSerializer fromString:[dic objectForKey: @"ClassifyAs"]] : _classifyAs;
-		_senderEmailAddress = [dic objectForKey: @"SenderEmailAddress"] != nil ? [[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"SenderEmailAddress"]] : _senderEmailAddress;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_classifyAs = (![dic objectForKey: @"ClassifyAs"] || [ [dic objectForKey: @"ClassifyAs"] isKindOfClass:[NSNull class]] )?_classifyAs:[MSGraphInferenceClassificationTypeSerializer fromString:[dic objectForKey: @"ClassifyAs"]];
+		_senderEmailAddress = (![dic objectForKey: @"SenderEmailAddress"] || [ [dic objectForKey: @"SenderEmailAddress"] isKindOfClass:[NSNull class]] )?_senderEmailAddress:[[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"SenderEmailAddress"]];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

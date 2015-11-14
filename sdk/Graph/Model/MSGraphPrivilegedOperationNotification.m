@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"DisplayName", @"displayName", @"NotificationType", @"notificationType", @"NotificationTarget", @"notificationTarget", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"DisplayName", @"displayName", @"NotificationType", @"notificationType", @"NotificationTarget", @"notificationTarget", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : __id;
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_notificationType = [dic objectForKey: @"NotificationType"] != nil ? [[dic objectForKey: @"NotificationType"] copy] : _notificationType;
-		_notificationTarget = [dic objectForKey: @"NotificationTarget"] != nil ? [[dic objectForKey: @"NotificationTarget"] copy] : _notificationTarget;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"Id"] copy];
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_notificationType = (![dic objectForKey: @"NotificationType"] || [ [dic objectForKey: @"NotificationType"] isKindOfClass:[NSNull class]] )?_notificationType:[[dic objectForKey: @"NotificationType"] copy];
+		_notificationTarget = (![dic objectForKey: @"NotificationTarget"] || [ [dic objectForKey: @"NotificationTarget"] isKindOfClass:[NSNull class]] )?_notificationTarget:[[dic objectForKey: @"NotificationTarget"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

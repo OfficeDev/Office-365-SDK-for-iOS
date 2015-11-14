@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"PropertyA", @"propertyA", @"ItemName", @"itemName", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"PropertyA", @"propertyA", @"ItemName", @"itemName", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_propertyA = [dic objectForKey: @"PropertyA"] != nil ? [[dic objectForKey: @"PropertyA"] copy] : _propertyA;
-		self.itemName = [dic objectForKey: @"ItemName"] != nil ? [[dic objectForKey: @"ItemName"] copy] : self.itemName;
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+        if(dic!=nil) {
+		_propertyA = (![dic objectForKey: @"PropertyA"] || [ [dic objectForKey: @"PropertyA"] isKindOfClass:[NSNull class]] )?_propertyA:[[dic objectForKey: @"PropertyA"] copy];
+		self.itemName = (![dic objectForKey: @"ItemName"] || [ [dic objectForKey: @"ItemName"] isKindOfClass:[NSNull class]] )?self.itemName:[[dic objectForKey: @"ItemName"] copy];
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

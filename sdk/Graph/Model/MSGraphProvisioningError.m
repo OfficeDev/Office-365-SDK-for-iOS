@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"errorDetail", @"errorDetail", @"resolved", @"resolved", @"service", @"service", @"timestamp", @"timestamp", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"errorDetail", @"errorDetail", @"resolved", @"resolved", @"service", @"service", @"timestamp", @"timestamp", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_errorDetail = [dic objectForKey: @"errorDetail"] != nil ? [[dic objectForKey: @"errorDetail"] copy] : _errorDetail;
-		_resolved = [dic objectForKey: @"resolved"] != nil ? [[dic objectForKey: @"resolved"] boolValue] : _resolved;
-		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
-		_timestamp = [dic objectForKey: @"timestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"timestamp"]] : _timestamp;
-
+        if(dic!=nil) {
+		_errorDetail = (![dic objectForKey: @"errorDetail"] || [ [dic objectForKey: @"errorDetail"] isKindOfClass:[NSNull class]] )?_errorDetail:[[dic objectForKey: @"errorDetail"] copy];
+		_resolved = (![dic objectForKey: @"resolved"] || [ [dic objectForKey: @"resolved"] isKindOfClass:[NSNull class]] )?_resolved:[[dic objectForKey: @"resolved"] boolValue];
+		_service = (![dic objectForKey: @"service"] || [ [dic objectForKey: @"service"] isKindOfClass:[NSNull class]] )?_service:[[dic objectForKey: @"service"] copy];
+		_timestamp = (![dic objectForKey: @"timestamp"] || [ [dic objectForKey: @"timestamp"] isKindOfClass:[NSNull class]] )?_timestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"timestamp"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"lastModifiedTime", @"lastModifiedTime", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"lastModifiedTime", @"lastModifiedTime", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,18 +54,18 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_parentSection = [dic objectForKey: @"parentSection"] != nil ? [[MSGraphCopySectionModel alloc] initWithDictionary: [dic objectForKey: @"parentSection"]] : _parentSection;
-		_parentNotebook = [dic objectForKey: @"parentNotebook"] != nil ? [[MSGraphCopyNotebookModel alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]] : _parentNotebook;
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		_createdByAppId = [dic objectForKey: @"createdByAppId"] != nil ? [[dic objectForKey: @"createdByAppId"] copy] : _createdByAppId;
-		_links = [dic objectForKey: @"links"] != nil ? [[MSGraphPageLinks alloc] initWithDictionary: [dic objectForKey: @"links"]] : _links;
-		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
-		_lastModifiedTime = [dic objectForKey: @"lastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]] : _lastModifiedTime;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
-		_createdTime = [dic objectForKey: @"createdTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]] : _createdTime;
-
+        if(dic!=nil) {
+		_parentSection = (![dic objectForKey: @"parentSection"] || [ [dic objectForKey: @"parentSection"] isKindOfClass:[NSNull class]] )?_parentSection:[[MSGraphCopySectionModel alloc] initWithDictionary: [dic objectForKey: @"parentSection"]];
+		_parentNotebook = (![dic objectForKey: @"parentNotebook"] || [ [dic objectForKey: @"parentNotebook"] isKindOfClass:[NSNull class]] )?_parentNotebook:[[MSGraphCopyNotebookModel alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]];
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		_createdByAppId = (![dic objectForKey: @"createdByAppId"] || [ [dic objectForKey: @"createdByAppId"] isKindOfClass:[NSNull class]] )?_createdByAppId:[[dic objectForKey: @"createdByAppId"] copy];
+		_links = (![dic objectForKey: @"links"] || [ [dic objectForKey: @"links"] isKindOfClass:[NSNull class]] )?_links:[[MSGraphPageLinks alloc] initWithDictionary: [dic objectForKey: @"links"]];
+		_contentUrl = (![dic objectForKey: @"contentUrl"] || [ [dic objectForKey: @"contentUrl"] isKindOfClass:[NSNull class]] )?_contentUrl:[[dic objectForKey: @"contentUrl"] copy];
+		_lastModifiedTime = (![dic objectForKey: @"lastModifiedTime"] || [ [dic objectForKey: @"lastModifiedTime"] isKindOfClass:[NSNull class]] )?_lastModifiedTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		__self = (![dic objectForKey: @"self"] || [ [dic objectForKey: @"self"] isKindOfClass:[NSNull class]] )?__self:[[dic objectForKey: @"self"] copy];
+		_createdTime = (![dic objectForKey: @"createdTime"] || [ [dic objectForKey: @"createdTime"] isKindOfClass:[NSNull class]] )?_createdTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

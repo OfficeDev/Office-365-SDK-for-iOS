@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"password", @"password", @"forceChangePasswordNextLogin", @"forceChangePasswordNextLogin", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"password", @"password", @"forceChangePasswordNextLogin", @"forceChangePasswordNextLogin", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_password = [dic objectForKey: @"password"] != nil ? [[dic objectForKey: @"password"] copy] : _password;
-		_forceChangePasswordNextLogin = [dic objectForKey: @"forceChangePasswordNextLogin"] != nil ? [[dic objectForKey: @"forceChangePasswordNextLogin"] boolValue] : _forceChangePasswordNextLogin;
-
+        if(dic!=nil) {
+		_password = (![dic objectForKey: @"password"] || [ [dic objectForKey: @"password"] isKindOfClass:[NSNull class]] )?_password:[[dic objectForKey: @"password"] copy];
+		_forceChangePasswordNextLogin = (![dic objectForKey: @"forceChangePasswordNextLogin"] || [ [dic objectForKey: @"forceChangePasswordNextLogin"] isKindOfClass:[NSNull class]] )?_forceChangePasswordNextLogin:[[dic objectForKey: @"forceChangePasswordNextLogin"] boolValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

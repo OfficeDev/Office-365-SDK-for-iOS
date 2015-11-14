@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Response", @"response", @"Time", @"time", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Response", @"response", @"Time", @"time", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_response = [dic objectForKey: @"Response"] != nil ? [MSGraphResponseTypeSerializer fromString:[dic objectForKey: @"Response"]] : _response;
-		_time = [dic objectForKey: @"Time"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]] : _time;
-
+        if(dic!=nil) {
+		_response = (![dic objectForKey: @"Response"] || [ [dic objectForKey: @"Response"] isKindOfClass:[NSNull class]] )?_response:[MSGraphResponseTypeSerializer fromString:[dic objectForKey: @"Response"]];
+		_time = (![dic objectForKey: @"Time"] || [ [dic objectForKey: @"Time"] isKindOfClass:[NSNull class]] )?_time:[MSOrcObjectizer dateFromString:[dic objectForKey: @"Time"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

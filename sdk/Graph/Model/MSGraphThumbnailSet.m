@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"large", @"large", @"medium", @"medium", @"small", @"small", @"source", @"source", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"large", @"large", @"medium", @"medium", @"small", @"small", @"source", @"source", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,13 +55,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_large = [dic objectForKey: @"large"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"large"]] : _large;
-		_medium = [dic objectForKey: @"medium"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"medium"]] : _medium;
-		_small = [dic objectForKey: @"small"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"small"]] : _small;
-		_source = [dic objectForKey: @"source"] != nil ? [[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"source"]] : _source;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_large = (![dic objectForKey: @"large"] || [ [dic objectForKey: @"large"] isKindOfClass:[NSNull class]] )?_large:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"large"]];
+		_medium = (![dic objectForKey: @"medium"] || [ [dic objectForKey: @"medium"] isKindOfClass:[NSNull class]] )?_medium:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"medium"]];
+		_small = (![dic objectForKey: @"small"] || [ [dic objectForKey: @"small"] isKindOfClass:[NSNull class]] )?_small:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"small"]];
+		_source = (![dic objectForKey: @"source"] || [ [dic objectForKey: @"source"] isKindOfClass:[NSNull class]] )?_source:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"source"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

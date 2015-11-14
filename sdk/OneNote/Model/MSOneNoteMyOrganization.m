@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"siteCollections", @"siteCollections", @"groups", @"groups", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"siteCollections", @"siteCollections", @"groups", @"groups", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,8 +55,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 
         if([dic objectForKey: @"siteCollections"] != [NSNull null]){
             _siteCollections = [[MSOrcChangesTrackingArray alloc] init];
@@ -78,7 +79,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_groups resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

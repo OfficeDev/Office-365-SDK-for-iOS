@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Address", @"address", @"Coordinates", @"coordinates", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Address", @"address", @"Coordinates", @"coordinates", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_address = [dic objectForKey: @"Address"] != nil ? [[MSOutlookPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]] : _address;
-		_coordinates = [dic objectForKey: @"Coordinates"] != nil ? [[MSOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]] : _coordinates;
-
+        if(dic!=nil) {
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_address = (![dic objectForKey: @"Address"] || [ [dic objectForKey: @"Address"] isKindOfClass:[NSNull class]] )?_address:[[MSOutlookPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]];
+		_coordinates = (![dic objectForKey: @"Coordinates"] || [ [dic objectForKey: @"Coordinates"] isKindOfClass:[NSNull class]] )?_coordinates:[[MSOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

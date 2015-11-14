@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"status", @"status", @"createdDateTime", @"createdDateTime", @"lastActionDateTime", @"lastActionDateTime", @"resourceLocation", @"resourceLocation", @"resourceId", @"resourceId", @"error", @"error", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"status", @"status", @"createdDateTime", @"createdDateTime", @"lastActionDateTime", @"lastActionDateTime", @"resourceLocation", @"resourceLocation", @"resourceId", @"resourceId", @"error", @"error", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,15 +55,15 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_status = [dic objectForKey: @"status"] != nil ? [[dic objectForKey: @"status"] copy] : _status;
-		_createdDateTime = [dic objectForKey: @"createdDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]] : _createdDateTime;
-		_lastActionDateTime = [dic objectForKey: @"lastActionDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastActionDateTime"]] : _lastActionDateTime;
-		_resourceLocation = [dic objectForKey: @"resourceLocation"] != nil ? [[dic objectForKey: @"resourceLocation"] copy] : _resourceLocation;
-		_resourceId = [dic objectForKey: @"resourceId"] != nil ? [[dic objectForKey: @"resourceId"] copy] : _resourceId;
-		_error = [dic objectForKey: @"error"] != nil ? [[MSOneNoteOperationError alloc] initWithDictionary: [dic objectForKey: @"error"]] : _error;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_status = (![dic objectForKey: @"status"] || [ [dic objectForKey: @"status"] isKindOfClass:[NSNull class]] )?_status:[[dic objectForKey: @"status"] copy];
+		_createdDateTime = (![dic objectForKey: @"createdDateTime"] || [ [dic objectForKey: @"createdDateTime"] isKindOfClass:[NSNull class]] )?_createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdDateTime"]];
+		_lastActionDateTime = (![dic objectForKey: @"lastActionDateTime"] || [ [dic objectForKey: @"lastActionDateTime"] isKindOfClass:[NSNull class]] )?_lastActionDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastActionDateTime"]];
+		_resourceLocation = (![dic objectForKey: @"resourceLocation"] || [ [dic objectForKey: @"resourceLocation"] isKindOfClass:[NSNull class]] )?_resourceLocation:[[dic objectForKey: @"resourceLocation"] copy];
+		_resourceId = (![dic objectForKey: @"resourceId"] || [ [dic objectForKey: @"resourceId"] isKindOfClass:[NSNull class]] )?_resourceId:[[dic objectForKey: @"resourceId"] copy];
+		_error = (![dic objectForKey: @"error"] || [ [dic objectForKey: @"error"] isKindOfClass:[NSNull class]] )?_error:[[MSOneNoteOperationError alloc] initWithDictionary: [dic objectForKey: @"error"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

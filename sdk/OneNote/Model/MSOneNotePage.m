@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"content", @"content", @"thumbnailUrl", @"thumbnailUrl", @"lastModifiedTime", @"lastModifiedTime", @"level", @"level", @"order", @"order", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"title", @"title", @"createdByAppId", @"createdByAppId", @"links", @"links", @"contentUrl", @"contentUrl", @"content", @"content", @"thumbnailUrl", @"thumbnailUrl", @"lastModifiedTime", @"lastModifiedTime", @"level", @"level", @"order", @"order", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"parentSection", @"parentSection", @"parentNotebook", @"parentNotebook", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,22 +55,22 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		_createdByAppId = [dic objectForKey: @"createdByAppId"] != nil ? [[dic objectForKey: @"createdByAppId"] copy] : _createdByAppId;
-		_links = [dic objectForKey: @"links"] != nil ? [[MSOneNotePageLinks alloc] initWithDictionary: [dic objectForKey: @"links"]] : _links;
-		_contentUrl = [dic objectForKey: @"contentUrl"] != nil ? [[dic objectForKey: @"contentUrl"] copy] : _contentUrl;
-		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
-		_thumbnailUrl = [dic objectForKey: @"thumbnailUrl"] != nil ? [[dic objectForKey: @"thumbnailUrl"] copy] : _thumbnailUrl;
-		_lastModifiedTime = [dic objectForKey: @"lastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]] : _lastModifiedTime;
-		_level = [dic objectForKey: @"level"] != nil ? [[dic objectForKey: @"level"] intValue] : _level;
-		_order = [dic objectForKey: @"order"] != nil ? [[dic objectForKey: @"order"] intValue] : _order;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
-		_createdTime = [dic objectForKey: @"createdTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]] : _createdTime;
-		_parentSection = [dic objectForKey: @"parentSection"] != nil ? [[MSOneNoteSection alloc] initWithDictionary: [dic objectForKey: @"parentSection"]] : _parentSection;
-		_parentNotebook = [dic objectForKey: @"parentNotebook"] != nil ? [[MSOneNoteNotebook alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]] : _parentNotebook;
-
+        if(dic!=nil) {
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		_createdByAppId = (![dic objectForKey: @"createdByAppId"] || [ [dic objectForKey: @"createdByAppId"] isKindOfClass:[NSNull class]] )?_createdByAppId:[[dic objectForKey: @"createdByAppId"] copy];
+		_links = (![dic objectForKey: @"links"] || [ [dic objectForKey: @"links"] isKindOfClass:[NSNull class]] )?_links:[[MSOneNotePageLinks alloc] initWithDictionary: [dic objectForKey: @"links"]];
+		_contentUrl = (![dic objectForKey: @"contentUrl"] || [ [dic objectForKey: @"contentUrl"] isKindOfClass:[NSNull class]] )?_contentUrl:[[dic objectForKey: @"contentUrl"] copy];
+		_content = (![dic objectForKey: @"content"] || [ [dic objectForKey: @"content"] isKindOfClass:[NSNull class]] )?_content:nil/*NSStream*/;
+		_thumbnailUrl = (![dic objectForKey: @"thumbnailUrl"] || [ [dic objectForKey: @"thumbnailUrl"] isKindOfClass:[NSNull class]] )?_thumbnailUrl:[[dic objectForKey: @"thumbnailUrl"] copy];
+		_lastModifiedTime = (![dic objectForKey: @"lastModifiedTime"] || [ [dic objectForKey: @"lastModifiedTime"] isKindOfClass:[NSNull class]] )?_lastModifiedTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]];
+		_level = (![dic objectForKey: @"level"] || [ [dic objectForKey: @"level"] isKindOfClass:[NSNull class]] )?_level:[[dic objectForKey: @"level"] intValue];
+		_order = (![dic objectForKey: @"order"] || [ [dic objectForKey: @"order"] isKindOfClass:[NSNull class]] )?_order:[[dic objectForKey: @"order"] intValue];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		__self = (![dic objectForKey: @"self"] || [ [dic objectForKey: @"self"] isKindOfClass:[NSNull class]] )?__self:[[dic objectForKey: @"self"] copy];
+		_createdTime = (![dic objectForKey: @"createdTime"] || [ [dic objectForKey: @"createdTime"] isKindOfClass:[NSNull class]] )?_createdTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]];
+		_parentSection = (![dic objectForKey: @"parentSection"] || [ [dic objectForKey: @"parentSection"] isKindOfClass:[NSNull class]] )?_parentSection:[[MSOneNoteSection alloc] initWithDictionary: [dic objectForKey: @"parentSection"]];
+		_parentNotebook = (![dic objectForKey: @"parentNotebook"] || [ [dic objectForKey: @"parentNotebook"] isKindOfClass:[NSNull class]] )?_parentNotebook:[[MSOneNoteNotebook alloc] initWithDictionary: [dic objectForKey: @"parentNotebook"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

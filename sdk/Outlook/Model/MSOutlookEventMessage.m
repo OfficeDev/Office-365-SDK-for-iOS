@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingMessageType", @"meetingMessageType", @"Event", @"event", @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,19 +55,19 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_meetingMessageType = [dic objectForKey: @"MeetingMessageType"] != nil ? [MSOutlookMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]] : _meetingMessageType;
-		_event = [dic objectForKey: @"Event"] != nil ? [[MSOutlookEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]] : _event;
-		self.receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : self.receivedDateTime;
-		self.sentDateTime = [dic objectForKey: @"SentDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]] : self.sentDateTime;
-		self.hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : self.hasAttachments;
-		self.subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : self.subject;
-		self.body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : self.body;
-		self.bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : self.bodyPreview;
-		self.importance = [dic objectForKey: @"Importance"] != nil ? [MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : self.importance;
-		self.parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : self.parentFolderId;
-		self.sender = [dic objectForKey: @"Sender"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : self.sender;
-		self.from = [dic objectForKey: @"From"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : self.from;
+        if(dic!=nil) {
+		_meetingMessageType = (![dic objectForKey: @"MeetingMessageType"] || [ [dic objectForKey: @"MeetingMessageType"] isKindOfClass:[NSNull class]] )?_meetingMessageType:[MSOutlookMeetingMessageTypeSerializer fromString:[dic objectForKey: @"MeetingMessageType"]];
+		_event = (![dic objectForKey: @"Event"] || [ [dic objectForKey: @"Event"] isKindOfClass:[NSNull class]] )?_event:[[MSOutlookEvent alloc] initWithDictionary: [dic objectForKey: @"Event"]];
+		self.receivedDateTime = (![dic objectForKey: @"ReceivedDateTime"] || [ [dic objectForKey: @"ReceivedDateTime"] isKindOfClass:[NSNull class]] )?self.receivedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]];
+		self.sentDateTime = (![dic objectForKey: @"SentDateTime"] || [ [dic objectForKey: @"SentDateTime"] isKindOfClass:[NSNull class]] )?self.sentDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]];
+		self.hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?self.hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		self.subject = (![dic objectForKey: @"Subject"] || [ [dic objectForKey: @"Subject"] isKindOfClass:[NSNull class]] )?self.subject:[[dic objectForKey: @"Subject"] copy];
+		self.body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?self.body:[[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
+		self.bodyPreview = (![dic objectForKey: @"BodyPreview"] || [ [dic objectForKey: @"BodyPreview"] isKindOfClass:[NSNull class]] )?self.bodyPreview:[[dic objectForKey: @"BodyPreview"] copy];
+		self.importance = (![dic objectForKey: @"Importance"] || [ [dic objectForKey: @"Importance"] isKindOfClass:[NSNull class]] )?self.importance:[MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]];
+		self.parentFolderId = (![dic objectForKey: @"ParentFolderId"] || [ [dic objectForKey: @"ParentFolderId"] isKindOfClass:[NSNull class]] )?self.parentFolderId:[[dic objectForKey: @"ParentFolderId"] copy];
+		self.sender = (![dic objectForKey: @"Sender"] || [ [dic objectForKey: @"Sender"] isKindOfClass:[NSNull class]] )?self.sender:[[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]];
+		self.from = (![dic objectForKey: @"From"] || [ [dic objectForKey: @"From"] isKindOfClass:[NSNull class]] )?self.from:[[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]];
 
         if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
             self.toRecipients = [[MSOrcChangesTrackingArray alloc] init];
@@ -111,13 +112,13 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.replyTo resetChangedFlag];
         }
         
-		self.conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : self.conversationId;
-		self.uniqueBody = [dic objectForKey: @"UniqueBody"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]] : self.uniqueBody;
-		self.isDeliveryReceiptRequested = [dic objectForKey: @"IsDeliveryReceiptRequested"] != nil ? [[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue] : self.isDeliveryReceiptRequested;
-		self.isReadReceiptRequested = [dic objectForKey: @"IsReadReceiptRequested"] != nil ? [[dic objectForKey: @"IsReadReceiptRequested"] boolValue] : self.isReadReceiptRequested;
-		self.isRead = [dic objectForKey: @"IsRead"] != nil ? [[dic objectForKey: @"IsRead"] boolValue] : self.isRead;
-		self.isDraft = [dic objectForKey: @"IsDraft"] != nil ? [[dic objectForKey: @"IsDraft"] boolValue] : self.isDraft;
-		self.webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : self.webLink;
+		self.conversationId = (![dic objectForKey: @"ConversationId"] || [ [dic objectForKey: @"ConversationId"] isKindOfClass:[NSNull class]] )?self.conversationId:[[dic objectForKey: @"ConversationId"] copy];
+		self.uniqueBody = (![dic objectForKey: @"UniqueBody"] || [ [dic objectForKey: @"UniqueBody"] isKindOfClass:[NSNull class]] )?self.uniqueBody:[[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]];
+		self.isDeliveryReceiptRequested = (![dic objectForKey: @"IsDeliveryReceiptRequested"] || [ [dic objectForKey: @"IsDeliveryReceiptRequested"] isKindOfClass:[NSNull class]] )?self.isDeliveryReceiptRequested:[[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue];
+		self.isReadReceiptRequested = (![dic objectForKey: @"IsReadReceiptRequested"] || [ [dic objectForKey: @"IsReadReceiptRequested"] isKindOfClass:[NSNull class]] )?self.isReadReceiptRequested:[[dic objectForKey: @"IsReadReceiptRequested"] boolValue];
+		self.isRead = (![dic objectForKey: @"IsRead"] || [ [dic objectForKey: @"IsRead"] isKindOfClass:[NSNull class]] )?self.isRead:[[dic objectForKey: @"IsRead"] boolValue];
+		self.isDraft = (![dic objectForKey: @"IsDraft"] || [ [dic objectForKey: @"IsDraft"] isKindOfClass:[NSNull class]] )?self.isDraft:[[dic objectForKey: @"IsDraft"] boolValue];
+		self.webLink = (![dic objectForKey: @"WebLink"] || [ [dic objectForKey: @"WebLink"] isKindOfClass:[NSNull class]] )?self.webLink:[[dic objectForKey: @"WebLink"] copy];
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
             self.attachments = [[MSOrcChangesTrackingArray alloc] init];
@@ -129,9 +130,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.attachments resetChangedFlag];
         }
         
-		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?self.changeKey:[[dic objectForKey: @"ChangeKey"] copy];
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
             self.categories = [[MSOrcChangesTrackingArray alloc] init];
@@ -143,8 +144,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"oneNoteClientUrl", @"oneNoteClientUrl", @"oneNoteWebUrl", @"oneNoteWebUrl", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"oneNoteClientUrl", @"oneNoteClientUrl", @"oneNoteWebUrl", @"oneNoteWebUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_oneNoteClientUrl = [dic objectForKey: @"oneNoteClientUrl"] != nil ? [[MSGraphExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]] : _oneNoteClientUrl;
-		_oneNoteWebUrl = [dic objectForKey: @"oneNoteWebUrl"] != nil ? [[MSGraphExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]] : _oneNoteWebUrl;
-
+        if(dic!=nil) {
+		_oneNoteClientUrl = (![dic objectForKey: @"oneNoteClientUrl"] || [ [dic objectForKey: @"oneNoteClientUrl"] isKindOfClass:[NSNull class]] )?_oneNoteClientUrl:[[MSGraphExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteClientUrl"]];
+		_oneNoteWebUrl = (![dic objectForKey: @"oneNoteWebUrl"] || [ [dic objectForKey: @"oneNoteWebUrl"] isKindOfClass:[NSNull class]] )?_oneNoteWebUrl:[[MSGraphExternalLink alloc] initWithDictionary: [dic objectForKey: @"oneNoteWebUrl"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"servicePlanId", @"servicePlanId", @"servicePlanName", @"servicePlanName", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"servicePlanId", @"servicePlanId", @"servicePlanName", @"servicePlanName", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_servicePlanId = [dic objectForKey: @"servicePlanId"] != nil ? [[dic objectForKey: @"servicePlanId"] copy] : _servicePlanId;
-		_servicePlanName = [dic objectForKey: @"servicePlanName"] != nil ? [[dic objectForKey: @"servicePlanName"] copy] : _servicePlanName;
-
+        if(dic!=nil) {
+		_servicePlanId = (![dic objectForKey: @"servicePlanId"] || [ [dic objectForKey: @"servicePlanId"] isKindOfClass:[NSNull class]] )?_servicePlanId:[[dic objectForKey: @"servicePlanId"] copy];
+		_servicePlanName = (![dic objectForKey: @"servicePlanName"] || [ [dic objectForKey: @"servicePlanName"] isKindOfClass:[NSNull class]] )?_servicePlanName:[[dic objectForKey: @"servicePlanName"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

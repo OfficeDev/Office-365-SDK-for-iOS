@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"UserName", @"userName", @"UserId", @"userId", @"RoleName", @"roleName", @"RoleId", @"roleId", @"NotificationId", @"notificationId", @"NotificationName", @"notificationName", @"Event", @"event", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"UserName", @"userName", @"UserId", @"userId", @"RoleName", @"roleName", @"RoleId", @"roleId", @"NotificationId", @"notificationId", @"NotificationName", @"notificationName", @"Event", @"event", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,16 +55,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : __id;
-		_userName = [dic objectForKey: @"UserName"] != nil ? [[dic objectForKey: @"UserName"] copy] : _userName;
-		_userId = [dic objectForKey: @"UserId"] != nil ? [[dic objectForKey: @"UserId"] copy] : _userId;
-		_roleName = [dic objectForKey: @"RoleName"] != nil ? [[dic objectForKey: @"RoleName"] copy] : _roleName;
-		_roleId = [dic objectForKey: @"RoleId"] != nil ? [[dic objectForKey: @"RoleId"] copy] : _roleId;
-		_notificationId = [dic objectForKey: @"NotificationId"] != nil ? [[dic objectForKey: @"NotificationId"] copy] : _notificationId;
-		_notificationName = [dic objectForKey: @"NotificationName"] != nil ? [[dic objectForKey: @"NotificationName"] copy] : _notificationName;
-		_event = [dic objectForKey: @"Event"] != nil ? [[dic objectForKey: @"Event"] copy] : _event;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"Id"] copy];
+		_userName = (![dic objectForKey: @"UserName"] || [ [dic objectForKey: @"UserName"] isKindOfClass:[NSNull class]] )?_userName:[[dic objectForKey: @"UserName"] copy];
+		_userId = (![dic objectForKey: @"UserId"] || [ [dic objectForKey: @"UserId"] isKindOfClass:[NSNull class]] )?_userId:[[dic objectForKey: @"UserId"] copy];
+		_roleName = (![dic objectForKey: @"RoleName"] || [ [dic objectForKey: @"RoleName"] isKindOfClass:[NSNull class]] )?_roleName:[[dic objectForKey: @"RoleName"] copy];
+		_roleId = (![dic objectForKey: @"RoleId"] || [ [dic objectForKey: @"RoleId"] isKindOfClass:[NSNull class]] )?_roleId:[[dic objectForKey: @"RoleId"] copy];
+		_notificationId = (![dic objectForKey: @"NotificationId"] || [ [dic objectForKey: @"NotificationId"] isKindOfClass:[NSNull class]] )?_notificationId:[[dic objectForKey: @"NotificationId"] copy];
+		_notificationName = (![dic objectForKey: @"NotificationName"] || [ [dic objectForKey: @"NotificationName"] isKindOfClass:[NSNull class]] )?_notificationName:[[dic objectForKey: @"NotificationName"] copy];
+		_event = (![dic objectForKey: @"Event"] || [ [dic objectForKey: @"Event"] isKindOfClass:[NSNull class]] )?_event:[[dic objectForKey: @"Event"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

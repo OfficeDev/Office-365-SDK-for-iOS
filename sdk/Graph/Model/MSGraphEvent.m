@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,29 +55,29 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_responseStatus = [dic objectForKey: @"ResponseStatus"] != nil ? [[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]] : _responseStatus;
-		_iCalUId = [dic objectForKey: @"iCalUId"] != nil ? [[dic objectForKey: @"iCalUId"] copy] : _iCalUId;
-		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
-		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
-		_body = [dic objectForKey: @"Body"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
-		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
-		_importance = [dic objectForKey: @"Importance"] != nil ? [MSGraphImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
-		_sensitivity = [dic objectForKey: @"Sensitivity"] != nil ? [MSGraphSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]] : _sensitivity;
-		_start = [dic objectForKey: @"Start"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"Start"]] : _start;
-		_originalStart = [dic objectForKey: @"OriginalStart"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]] : _originalStart;
-		_startTimeZone = [dic objectForKey: @"StartTimeZone"] != nil ? [[dic objectForKey: @"StartTimeZone"] copy] : _startTimeZone;
-		_end = [dic objectForKey: @"End"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"End"]] : _end;
-		_endTimeZone = [dic objectForKey: @"EndTimeZone"] != nil ? [[dic objectForKey: @"EndTimeZone"] copy] : _endTimeZone;
-		_location = [dic objectForKey: @"Location"] != nil ? [[MSGraphLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]] : _location;
-		_isAllDay = [dic objectForKey: @"IsAllDay"] != nil ? [[dic objectForKey: @"IsAllDay"] boolValue] : _isAllDay;
-		_isCancelled = [dic objectForKey: @"IsCancelled"] != nil ? [[dic objectForKey: @"IsCancelled"] boolValue] : _isCancelled;
-		_isOrganizer = [dic objectForKey: @"IsOrganizer"] != nil ? [[dic objectForKey: @"IsOrganizer"] boolValue] : _isOrganizer;
-		_recurrence = [dic objectForKey: @"Recurrence"] != nil ? [[MSGraphPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]] : _recurrence;
-		_responseRequested = [dic objectForKey: @"ResponseRequested"] != nil ? [[dic objectForKey: @"ResponseRequested"] boolValue] : _responseRequested;
-		_seriesMasterId = [dic objectForKey: @"SeriesMasterId"] != nil ? [[dic objectForKey: @"SeriesMasterId"] copy] : _seriesMasterId;
-		_showAs = [dic objectForKey: @"ShowAs"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]] : _showAs;
-		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphEventTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
+        if(dic!=nil) {
+		_responseStatus = (![dic objectForKey: @"ResponseStatus"] || [ [dic objectForKey: @"ResponseStatus"] isKindOfClass:[NSNull class]] )?_responseStatus:[[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]];
+		_iCalUId = (![dic objectForKey: @"iCalUId"] || [ [dic objectForKey: @"iCalUId"] isKindOfClass:[NSNull class]] )?_iCalUId:[[dic objectForKey: @"iCalUId"] copy];
+		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		_subject = (![dic objectForKey: @"Subject"] || [ [dic objectForKey: @"Subject"] isKindOfClass:[NSNull class]] )?_subject:[[dic objectForKey: @"Subject"] copy];
+		_body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?_body:[[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
+		_bodyPreview = (![dic objectForKey: @"BodyPreview"] || [ [dic objectForKey: @"BodyPreview"] isKindOfClass:[NSNull class]] )?_bodyPreview:[[dic objectForKey: @"BodyPreview"] copy];
+		_importance = (![dic objectForKey: @"Importance"] || [ [dic objectForKey: @"Importance"] isKindOfClass:[NSNull class]] )?_importance:[MSGraphImportanceSerializer fromString:[dic objectForKey: @"Importance"]];
+		_sensitivity = (![dic objectForKey: @"Sensitivity"] || [ [dic objectForKey: @"Sensitivity"] isKindOfClass:[NSNull class]] )?_sensitivity:[MSGraphSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]];
+		_start = (![dic objectForKey: @"Start"] || [ [dic objectForKey: @"Start"] isKindOfClass:[NSNull class]] )?_start:[MSOrcObjectizer dateFromString:[dic objectForKey: @"Start"]];
+		_originalStart = (![dic objectForKey: @"OriginalStart"] || [ [dic objectForKey: @"OriginalStart"] isKindOfClass:[NSNull class]] )?_originalStart:[MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]];
+		_startTimeZone = (![dic objectForKey: @"StartTimeZone"] || [ [dic objectForKey: @"StartTimeZone"] isKindOfClass:[NSNull class]] )?_startTimeZone:[[dic objectForKey: @"StartTimeZone"] copy];
+		_end = (![dic objectForKey: @"End"] || [ [dic objectForKey: @"End"] isKindOfClass:[NSNull class]] )?_end:[MSOrcObjectizer dateFromString:[dic objectForKey: @"End"]];
+		_endTimeZone = (![dic objectForKey: @"EndTimeZone"] || [ [dic objectForKey: @"EndTimeZone"] isKindOfClass:[NSNull class]] )?_endTimeZone:[[dic objectForKey: @"EndTimeZone"] copy];
+		_location = (![dic objectForKey: @"Location"] || [ [dic objectForKey: @"Location"] isKindOfClass:[NSNull class]] )?_location:[[MSGraphLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]];
+		_isAllDay = (![dic objectForKey: @"IsAllDay"] || [ [dic objectForKey: @"IsAllDay"] isKindOfClass:[NSNull class]] )?_isAllDay:[[dic objectForKey: @"IsAllDay"] boolValue];
+		_isCancelled = (![dic objectForKey: @"IsCancelled"] || [ [dic objectForKey: @"IsCancelled"] isKindOfClass:[NSNull class]] )?_isCancelled:[[dic objectForKey: @"IsCancelled"] boolValue];
+		_isOrganizer = (![dic objectForKey: @"IsOrganizer"] || [ [dic objectForKey: @"IsOrganizer"] isKindOfClass:[NSNull class]] )?_isOrganizer:[[dic objectForKey: @"IsOrganizer"] boolValue];
+		_recurrence = (![dic objectForKey: @"Recurrence"] || [ [dic objectForKey: @"Recurrence"] isKindOfClass:[NSNull class]] )?_recurrence:[[MSGraphPatternedRecurrence alloc] initWithDictionary: [dic objectForKey: @"Recurrence"]];
+		_responseRequested = (![dic objectForKey: @"ResponseRequested"] || [ [dic objectForKey: @"ResponseRequested"] isKindOfClass:[NSNull class]] )?_responseRequested:[[dic objectForKey: @"ResponseRequested"] boolValue];
+		_seriesMasterId = (![dic objectForKey: @"SeriesMasterId"] || [ [dic objectForKey: @"SeriesMasterId"] isKindOfClass:[NSNull class]] )?_seriesMasterId:[[dic objectForKey: @"SeriesMasterId"] copy];
+		_showAs = (![dic objectForKey: @"ShowAs"] || [ [dic objectForKey: @"ShowAs"] isKindOfClass:[NSNull class]] )?_showAs:[MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"ShowAs"]];
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphEventTypeSerializer fromString:[dic objectForKey: @"Type"]];
 
         if([dic objectForKey: @"Attendees"] != [NSNull null]){
             _attendees = [[MSOrcChangesTrackingArray alloc] init];
@@ -88,9 +89,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attendees resetChangedFlag];
         }
         
-		_organizer = [dic objectForKey: @"Organizer"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]] : _organizer;
-		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
-		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+		_organizer = (![dic objectForKey: @"Organizer"] || [ [dic objectForKey: @"Organizer"] isKindOfClass:[NSNull class]] )?_organizer:[[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Organizer"]];
+		_webLink = (![dic objectForKey: @"WebLink"] || [ [dic objectForKey: @"WebLink"] isKindOfClass:[NSNull class]] )?_webLink:[[dic objectForKey: @"WebLink"] copy];
+		_calendar = (![dic objectForKey: @"Calendar"] || [ [dic objectForKey: @"Calendar"] isKindOfClass:[NSNull class]] )?_calendar:[[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]];
 
         if([dic objectForKey: @"Instances"] != [NSNull null]){
             _instances = [[MSOrcChangesTrackingArray alloc] init];
@@ -124,9 +125,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attachments resetChangedFlag];
         }
         
-		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?self.changeKey:[[dic objectForKey: @"ChangeKey"] copy];
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
             self.categories = [[MSOrcChangesTrackingArray alloc] init];
@@ -138,8 +139,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"enabled", @"enabled", @"suspended", @"suspended", @"warning", @"warning", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"enabled", @"enabled", @"suspended", @"suspended", @"warning", @"warning", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_enabled = [dic objectForKey: @"enabled"] != nil ? [[dic objectForKey: @"enabled"] intValue] : _enabled;
-		_suspended = [dic objectForKey: @"suspended"] != nil ? [[dic objectForKey: @"suspended"] intValue] : _suspended;
-		_warning = [dic objectForKey: @"warning"] != nil ? [[dic objectForKey: @"warning"] intValue] : _warning;
-
+        if(dic!=nil) {
+		_enabled = (![dic objectForKey: @"enabled"] || [ [dic objectForKey: @"enabled"] isKindOfClass:[NSNull class]] )?_enabled:[[dic objectForKey: @"enabled"] intValue];
+		_suspended = (![dic objectForKey: @"suspended"] || [ [dic objectForKey: @"suspended"] isKindOfClass:[NSNull class]] )?_suspended:[[dic objectForKey: @"suspended"] intValue];
+		_warning = (![dic objectForKey: @"warning"] || [ [dic objectForKey: @"warning"] isKindOfClass:[NSNull class]] )?_warning:[[dic objectForKey: @"warning"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"sharedWith", @"sharedWith", @"category0Description", @"category0Description", @"category1Description", @"category1Description", @"category2Description", @"category2Description", @"category3Description", @"category3Description", @"category4Description", @"category4Description", @"category5Description", @"category5Description", @"id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"sharedWith", @"sharedWith", @"category0Description", @"category0Description", @"category1Description", @"category1Description", @"category2Description", @"category2Description", @"category3Description", @"category3Description", @"category4Description", @"category4Description", @"category5Description", @"category5Description", @"id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,16 +55,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_sharedWith = [dic objectForKey: @"sharedWith"] != nil ? [[MSGraphUserIdCollection alloc] initWithDictionary: [dic objectForKey: @"sharedWith"]] : _sharedWith;
-		_category0Description = [dic objectForKey: @"category0Description"] != nil ? [[dic objectForKey: @"category0Description"] copy] : _category0Description;
-		_category1Description = [dic objectForKey: @"category1Description"] != nil ? [[dic objectForKey: @"category1Description"] copy] : _category1Description;
-		_category2Description = [dic objectForKey: @"category2Description"] != nil ? [[dic objectForKey: @"category2Description"] copy] : _category2Description;
-		_category3Description = [dic objectForKey: @"category3Description"] != nil ? [[dic objectForKey: @"category3Description"] copy] : _category3Description;
-		_category4Description = [dic objectForKey: @"category4Description"] != nil ? [[dic objectForKey: @"category4Description"] copy] : _category4Description;
-		_category5Description = [dic objectForKey: @"category5Description"] != nil ? [[dic objectForKey: @"category5Description"] copy] : _category5Description;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-
+        if(dic!=nil) {
+		_sharedWith = (![dic objectForKey: @"sharedWith"] || [ [dic objectForKey: @"sharedWith"] isKindOfClass:[NSNull class]] )?_sharedWith:[[MSGraphUserIdCollection alloc] initWithDictionary: [dic objectForKey: @"sharedWith"]];
+		_category0Description = (![dic objectForKey: @"category0Description"] || [ [dic objectForKey: @"category0Description"] isKindOfClass:[NSNull class]] )?_category0Description:[[dic objectForKey: @"category0Description"] copy];
+		_category1Description = (![dic objectForKey: @"category1Description"] || [ [dic objectForKey: @"category1Description"] isKindOfClass:[NSNull class]] )?_category1Description:[[dic objectForKey: @"category1Description"] copy];
+		_category2Description = (![dic objectForKey: @"category2Description"] || [ [dic objectForKey: @"category2Description"] isKindOfClass:[NSNull class]] )?_category2Description:[[dic objectForKey: @"category2Description"] copy];
+		_category3Description = (![dic objectForKey: @"category3Description"] || [ [dic objectForKey: @"category3Description"] isKindOfClass:[NSNull class]] )?_category3Description:[[dic objectForKey: @"category3Description"] copy];
+		_category4Description = (![dic objectForKey: @"category4Description"] || [ [dic objectForKey: @"category4Description"] isKindOfClass:[NSNull class]] )?_category4Description:[[dic objectForKey: @"category4Description"] copy];
+		_category5Description = (![dic objectForKey: @"category5Description"] || [ [dic objectForKey: @"category5Description"] isKindOfClass:[NSNull class]] )?_category5Description:[[dic objectForKey: @"category5Description"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

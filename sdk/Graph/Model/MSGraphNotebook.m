@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"isDefault", @"isDefault", @"userRole", @"userRole", @"isShared", @"isShared", @"sectionsUrl", @"sectionsUrl", @"sectionGroupsUrl", @"sectionGroupsUrl", @"links", @"links", @"name", @"name", @"createdBy", @"createdBy", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedTime", @"lastModifiedTime", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"sections", @"sections", @"sectionGroups", @"sectionGroups", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"isDefault", @"isDefault", @"userRole", @"userRole", @"isShared", @"isShared", @"sectionsUrl", @"sectionsUrl", @"sectionGroupsUrl", @"sectionGroupsUrl", @"links", @"links", @"name", @"name", @"createdBy", @"createdBy", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedTime", @"lastModifiedTime", @"id", @"_id", @"self", @"_self", @"createdTime", @"createdTime", @"sections", @"sections", @"sectionGroups", @"sectionGroups", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,20 +55,20 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_isDefault = [dic objectForKey: @"isDefault"] != nil ? [[dic objectForKey: @"isDefault"] boolValue] : _isDefault;
-		_userRole = [dic objectForKey: @"userRole"] != nil ? [MSGraphUserRoleSerializer fromString:[dic objectForKey: @"userRole"]] : _userRole;
-		_isShared = [dic objectForKey: @"isShared"] != nil ? [[dic objectForKey: @"isShared"] boolValue] : _isShared;
-		_sectionsUrl = [dic objectForKey: @"sectionsUrl"] != nil ? [[dic objectForKey: @"sectionsUrl"] copy] : _sectionsUrl;
-		_sectionGroupsUrl = [dic objectForKey: @"sectionGroupsUrl"] != nil ? [[dic objectForKey: @"sectionGroupsUrl"] copy] : _sectionGroupsUrl;
-		_links = [dic objectForKey: @"links"] != nil ? [[MSGraphNotebookLinks alloc] initWithDictionary: [dic objectForKey: @"links"]] : _links;
-		_name = [dic objectForKey: @"name"] != nil ? [[dic objectForKey: @"name"] copy] : _name;
-		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[dic objectForKey: @"createdBy"] copy] : _createdBy;
-		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
-		_lastModifiedTime = [dic objectForKey: @"lastModifiedTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]] : _lastModifiedTime;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		__self = [dic objectForKey: @"self"] != nil ? [[dic objectForKey: @"self"] copy] : __self;
-		_createdTime = [dic objectForKey: @"createdTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]] : _createdTime;
+        if(dic!=nil) {
+		_isDefault = (![dic objectForKey: @"isDefault"] || [ [dic objectForKey: @"isDefault"] isKindOfClass:[NSNull class]] )?_isDefault:[[dic objectForKey: @"isDefault"] boolValue];
+		_userRole = (![dic objectForKey: @"userRole"] || [ [dic objectForKey: @"userRole"] isKindOfClass:[NSNull class]] )?_userRole:[MSGraphUserRoleSerializer fromString:[dic objectForKey: @"userRole"]];
+		_isShared = (![dic objectForKey: @"isShared"] || [ [dic objectForKey: @"isShared"] isKindOfClass:[NSNull class]] )?_isShared:[[dic objectForKey: @"isShared"] boolValue];
+		_sectionsUrl = (![dic objectForKey: @"sectionsUrl"] || [ [dic objectForKey: @"sectionsUrl"] isKindOfClass:[NSNull class]] )?_sectionsUrl:[[dic objectForKey: @"sectionsUrl"] copy];
+		_sectionGroupsUrl = (![dic objectForKey: @"sectionGroupsUrl"] || [ [dic objectForKey: @"sectionGroupsUrl"] isKindOfClass:[NSNull class]] )?_sectionGroupsUrl:[[dic objectForKey: @"sectionGroupsUrl"] copy];
+		_links = (![dic objectForKey: @"links"] || [ [dic objectForKey: @"links"] isKindOfClass:[NSNull class]] )?_links:[[MSGraphNotebookLinks alloc] initWithDictionary: [dic objectForKey: @"links"]];
+		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
+		_createdBy = (![dic objectForKey: @"createdBy"] || [ [dic objectForKey: @"createdBy"] isKindOfClass:[NSNull class]] )?_createdBy:[[dic objectForKey: @"createdBy"] copy];
+		_lastModifiedBy = (![dic objectForKey: @"lastModifiedBy"] || [ [dic objectForKey: @"lastModifiedBy"] isKindOfClass:[NSNull class]] )?_lastModifiedBy:[[dic objectForKey: @"lastModifiedBy"] copy];
+		_lastModifiedTime = (![dic objectForKey: @"lastModifiedTime"] || [ [dic objectForKey: @"lastModifiedTime"] isKindOfClass:[NSNull class]] )?_lastModifiedTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedTime"]];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		__self = (![dic objectForKey: @"self"] || [ [dic objectForKey: @"self"] isKindOfClass:[NSNull class]] )?__self:[[dic objectForKey: @"self"] copy];
+		_createdTime = (![dic objectForKey: @"createdTime"] || [ [dic objectForKey: @"createdTime"] isKindOfClass:[NSNull class]] )?_createdTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"createdTime"]];
 
         if([dic objectForKey: @"sections"] != [NSNull null]){
             _sections = [[MSOrcChangesTrackingArray alloc] init];
@@ -90,7 +91,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_sectionGroups resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

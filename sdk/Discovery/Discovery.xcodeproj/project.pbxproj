@@ -7,148 +7,148 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		076579EBEBDEBFA5FC1E37BF /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 247D7B10395939A79A8CB5F7 /* MSDiscoveryServiceInfo.h */; };
-		2C3CDB9A03C733B393BAD19D /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FDD8DBA23979EB39425E71B /* MSDiscoveryServiceInfoCollectionOperations.h */; };
-		2C43AE0D1A6FAA94A8E451DD /* MSDiscoveryServiceInfoOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B53ED97F105FFBBC73ECAA /* MSDiscoveryServiceInfoOperations.m */; };
-		406BE4C147E04F37C4AAC4F6 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = B7E6C62622DF6A89B0A062B9 /* MSDiscoveryModels.h */; };
-		4B4E4A97A21E16D0E3FD2470 /* MSDiscoveryServiceInfoOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = E857CDFC5ADA82AF16619DAB /* MSDiscoveryServiceInfoOperations.h */; };
-		50998E3CE9347526A66A2222 /* MSDiscoveryServiceInfoCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A9B5B6AAE44087446F9D21 /* MSDiscoveryServiceInfoCollectionFetcher.m */; };
-		5368C2AB17563F6419F23F99 /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7B99D24532CD5818EBCC76 /* MSDiscoveryServiceInfo.m */; };
-		70241E52B6AF9EAF1ED57FA3 /* MSDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = CCD2545DCC5BFC843E1FAD2E /* MSDiscovery.h */; };
-		70C61C421A979DC5F9E7CCE3 /* MSDiscoveryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = C8059E4C5EBF340F8B9E51EF /* MSDiscoveryFetchers.h */; };
-		758F805695B4409BB93E880C /* MSDiscoveryServiceInfoCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 19E01CEB330FCF687CF324DE /* MSDiscoveryServiceInfoCollectionOperations.m */; };
-		78DE26D8A473569234E9EC50 /* MSDiscoveryServiceInfoFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A542190710D812202038F6 /* MSDiscoveryServiceInfoFetcher.h */; };
-		7FC7EFF02D93844A6D110BDD /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 485E4259BC7344A39589FDBF /* MSDiscoveryServiceInfoCollectionFetcher.h */; };
-		A0B4F88A10615C7C1C6F74B6 /* MSDiscoveryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F71939AFC9E8A46DB8AC6C /* MSDiscoveryClient.m */; };
-		AAB8CFF5C27F545A6924D895 /* MSDiscoveryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C9553A0FA1F4FCC150D6477 /* MSDiscoveryClient.h */; };
-		D2A4F837C49347A232B34112 /* MSDiscoveryServiceInfoFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DF15ED797D39582149DC1F8A /* MSDiscoveryServiceInfoFetcher.m */; };
-		DBF64EAF1EC3DE08C55A14B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91C7378ECB7CF068D314DFE /* Foundation.framework */; };
+		148D304711EC42561CC8B8BC /* MSDiscoveryServiceInfoFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD921900E8D9A785ADCBD29 /* MSDiscoveryServiceInfoFetcher.m */; };
+		15204065C52CFBFFEDD9090C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DBFE97F172A1C92F15AD443 /* MSDiscoveryServiceInfoCollectionFetcher.h */; };
+		19AF0341C320FDCE0EBA76A7 /* MSDiscoveryClient.h in Headers */ = {isa = PBXBuildFile; fileRef = F7AC7BD185E0E5618D737373 /* MSDiscoveryClient.h */; };
+		35FDF9A9285F2922DC47AC79 /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 2625A55B6D5C89F0903BA7EA /* MSDiscoveryServiceInfoCollectionOperations.h */; };
+		7A85814C04FD16CFB902FDCB /* MSDiscoveryServiceInfoOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = D83B7CFCEBD0F28AC6A511F2 /* MSDiscoveryServiceInfoOperations.h */; };
+		86B35D6F0DE69355B3B526D1 /* MSDiscoveryServiceInfoOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 0673CCF9E248B80B0B9AB757 /* MSDiscoveryServiceInfoOperations.m */; };
+		9F2E8DC296CCB64D5AA84C97 /* MSDiscoveryServiceInfoCollectionFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE1CEE271650FCC73473A76 /* MSDiscoveryServiceInfoCollectionFetcher.m */; };
+		B7160BF2656BA9F03C6B6DD6 /* MSDiscoveryServiceInfoCollectionOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A86CB710461F954EF7ED71 /* MSDiscoveryServiceInfoCollectionOperations.m */; };
+		BC6E0853769B0F48F509088D /* MSDiscoveryFetchers.h in Headers */ = {isa = PBXBuildFile; fileRef = BC0E32CA78008A42BEA0EDED /* MSDiscoveryFetchers.h */; };
+		BFE5EDBA6DF23369E3FE337F /* MSDiscovery.h in Headers */ = {isa = PBXBuildFile; fileRef = FCA999FCA4FBCBB52D46305C /* MSDiscovery.h */; };
+		C2424C29B559C3ADAA5D747B /* MSDiscoveryServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9DEC708A90B3E9F133B202 /* MSDiscoveryServiceInfo.m */; };
+		C89F14E4B4E5934FEDF5A35A /* MSDiscoveryServiceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0916D44D56181E648731C4E3 /* MSDiscoveryServiceInfo.h */; };
+		DB3056DA1022F5DA5F60E13F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F1566F391EE464E1333571 /* Foundation.framework */; };
+		E28CF15912892470B93A62E5 /* MSDiscoveryServiceInfoFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = E2FA606CD3ED30BC6B12D47B /* MSDiscoveryServiceInfoFetcher.h */; };
+		F811D894AA05AB2FE074BB35 /* MSDiscoveryModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BB19C2576933BD1A9E8731B /* MSDiscoveryModels.h */; };
+		FDA57C3BFF88F590EC3F665D /* MSDiscoveryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E938FC832A4A2A4F7B08B3 /* MSDiscoveryClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		02B53ED97F105FFBBC73ECAA /* MSDiscoveryServiceInfoOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoOperations.m; path = ./Fetchers/MSDiscoveryServiceInfoOperations.m; sourceTree = "<group>"; };
-		11F71939AFC9E8A46DB8AC6C /* MSDiscoveryClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryClient.m; path = ./Fetchers/MSDiscoveryClient.m; sourceTree = "<group>"; };
-		150D5168AD315B457F037C5C /* libDiscovery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDiscovery.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		19E01CEB330FCF687CF324DE /* MSDiscoveryServiceInfoCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoCollectionOperations.m; path = ./Fetchers/MSDiscoveryServiceInfoCollectionOperations.m; sourceTree = "<group>"; };
-		21A542190710D812202038F6 /* MSDiscoveryServiceInfoFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoFetcher.h; path = ./Fetchers/MSDiscoveryServiceInfoFetcher.h; sourceTree = "<group>"; };
-		247D7B10395939A79A8CB5F7 /* MSDiscoveryServiceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfo.h; path = ./Model/MSDiscoveryServiceInfo.h; sourceTree = "<group>"; };
-		485E4259BC7344A39589FDBF /* MSDiscoveryServiceInfoCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoCollectionFetcher.h; path = ./Fetchers/MSDiscoveryServiceInfoCollectionFetcher.h; sourceTree = "<group>"; };
-		5C9553A0FA1F4FCC150D6477 /* MSDiscoveryClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryClient.h; path = ./Fetchers/MSDiscoveryClient.h; sourceTree = "<group>"; };
-		5FDD8DBA23979EB39425E71B /* MSDiscoveryServiceInfoCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoCollectionOperations.h; path = ./Fetchers/MSDiscoveryServiceInfoCollectionOperations.h; sourceTree = "<group>"; };
-		7B7B99D24532CD5818EBCC76 /* MSDiscoveryServiceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfo.m; path = ./Model/MSDiscoveryServiceInfo.m; sourceTree = "<group>"; };
-		B5A9B5B6AAE44087446F9D21 /* MSDiscoveryServiceInfoCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoCollectionFetcher.m; path = ./Fetchers/MSDiscoveryServiceInfoCollectionFetcher.m; sourceTree = "<group>"; };
-		B7E6C62622DF6A89B0A062B9 /* MSDiscoveryModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryModels.h; path = ./Model/MSDiscoveryModels.h; sourceTree = "<group>"; };
-		C8059E4C5EBF340F8B9E51EF /* MSDiscoveryFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryFetchers.h; path = ./Fetchers/MSDiscoveryFetchers.h; sourceTree = "<group>"; };
-		C91C7378ECB7CF068D314DFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CCD2545DCC5BFC843E1FAD2E /* MSDiscovery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscovery.h; path = ./MSDiscovery.h; sourceTree = "<group>"; };
-		DF15ED797D39582149DC1F8A /* MSDiscoveryServiceInfoFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoFetcher.m; path = ./Fetchers/MSDiscoveryServiceInfoFetcher.m; sourceTree = "<group>"; };
-		E857CDFC5ADA82AF16619DAB /* MSDiscoveryServiceInfoOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoOperations.h; path = ./Fetchers/MSDiscoveryServiceInfoOperations.h; sourceTree = "<group>"; };
+		0673CCF9E248B80B0B9AB757 /* MSDiscoveryServiceInfoOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoOperations.m; path = ./Fetchers/MSDiscoveryServiceInfoOperations.m; sourceTree = "<group>"; };
+		0916D44D56181E648731C4E3 /* MSDiscoveryServiceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfo.h; path = ./Model/MSDiscoveryServiceInfo.h; sourceTree = "<group>"; };
+		2358941F70667ECD90FD0C36 /* libDiscovery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDiscovery.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2625A55B6D5C89F0903BA7EA /* MSDiscoveryServiceInfoCollectionOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoCollectionOperations.h; path = ./Fetchers/MSDiscoveryServiceInfoCollectionOperations.h; sourceTree = "<group>"; };
+		34A86CB710461F954EF7ED71 /* MSDiscoveryServiceInfoCollectionOperations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoCollectionOperations.m; path = ./Fetchers/MSDiscoveryServiceInfoCollectionOperations.m; sourceTree = "<group>"; };
+		3DBFE97F172A1C92F15AD443 /* MSDiscoveryServiceInfoCollectionFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoCollectionFetcher.h; path = ./Fetchers/MSDiscoveryServiceInfoCollectionFetcher.h; sourceTree = "<group>"; };
+		3E9DEC708A90B3E9F133B202 /* MSDiscoveryServiceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfo.m; path = ./Model/MSDiscoveryServiceInfo.m; sourceTree = "<group>"; };
+		9BB19C2576933BD1A9E8731B /* MSDiscoveryModels.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryModels.h; path = ./Model/MSDiscoveryModels.h; sourceTree = "<group>"; };
+		9CE1CEE271650FCC73473A76 /* MSDiscoveryServiceInfoCollectionFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoCollectionFetcher.m; path = ./Fetchers/MSDiscoveryServiceInfoCollectionFetcher.m; sourceTree = "<group>"; };
+		ADD921900E8D9A785ADCBD29 /* MSDiscoveryServiceInfoFetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryServiceInfoFetcher.m; path = ./Fetchers/MSDiscoveryServiceInfoFetcher.m; sourceTree = "<group>"; };
+		B1E938FC832A4A2A4F7B08B3 /* MSDiscoveryClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSDiscoveryClient.m; path = ./Fetchers/MSDiscoveryClient.m; sourceTree = "<group>"; };
+		BC0E32CA78008A42BEA0EDED /* MSDiscoveryFetchers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryFetchers.h; path = ./Fetchers/MSDiscoveryFetchers.h; sourceTree = "<group>"; };
+		C0F1566F391EE464E1333571 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D83B7CFCEBD0F28AC6A511F2 /* MSDiscoveryServiceInfoOperations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoOperations.h; path = ./Fetchers/MSDiscoveryServiceInfoOperations.h; sourceTree = "<group>"; };
+		E2FA606CD3ED30BC6B12D47B /* MSDiscoveryServiceInfoFetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryServiceInfoFetcher.h; path = ./Fetchers/MSDiscoveryServiceInfoFetcher.h; sourceTree = "<group>"; };
+		F7AC7BD185E0E5618D737373 /* MSDiscoveryClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscoveryClient.h; path = ./Fetchers/MSDiscoveryClient.h; sourceTree = "<group>"; };
+		FCA999FCA4FBCBB52D46305C /* MSDiscovery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSDiscovery.h; path = ./MSDiscovery.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ED1CCBC087C4004941D67486 /* Frameworks */ = {
+		6F7989952E40624069B88213 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF64EAF1EC3DE08C55A14B8 /* Foundation.framework in Frameworks */,
+				DB3056DA1022F5DA5F60E13F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1FB67F20C7F9347BDAC53F76 /* Frameworks */ = {
+		390D96EB875891424F877D74 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7F9DD83017791BE502F19C59 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2268E93304ADAA29A9FEB4ED /* Fetchers */ = {
-			isa = PBXGroup;
-			children = (
-				5C9553A0FA1F4FCC150D6477 /* MSDiscoveryClient.h */,
-				11F71939AFC9E8A46DB8AC6C /* MSDiscoveryClient.m */,
-				C8059E4C5EBF340F8B9E51EF /* MSDiscoveryFetchers.h */,
-				485E4259BC7344A39589FDBF /* MSDiscoveryServiceInfoCollectionFetcher.h */,
-				B5A9B5B6AAE44087446F9D21 /* MSDiscoveryServiceInfoCollectionFetcher.m */,
-				5FDD8DBA23979EB39425E71B /* MSDiscoveryServiceInfoCollectionOperations.h */,
-				19E01CEB330FCF687CF324DE /* MSDiscoveryServiceInfoCollectionOperations.m */,
-				21A542190710D812202038F6 /* MSDiscoveryServiceInfoFetcher.h */,
-				DF15ED797D39582149DC1F8A /* MSDiscoveryServiceInfoFetcher.m */,
-				E857CDFC5ADA82AF16619DAB /* MSDiscoveryServiceInfoOperations.h */,
-				02B53ED97F105FFBBC73ECAA /* MSDiscoveryServiceInfoOperations.m */,
-			);
-			name = Fetchers;
-			sourceTree = "<group>";
-		};
-		232D1E51146CBEBC229E9E5A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B7E6C62622DF6A89B0A062B9 /* MSDiscoveryModels.h */,
-				247D7B10395939A79A8CB5F7 /* MSDiscoveryServiceInfo.h */,
-				7B7B99D24532CD5818EBCC76 /* MSDiscoveryServiceInfo.m */,
+				9BB19C2576933BD1A9E8731B /* MSDiscoveryModels.h */,
+				0916D44D56181E648731C4E3 /* MSDiscoveryServiceInfo.h */,
+				3E9DEC708A90B3E9F133B202 /* MSDiscoveryServiceInfo.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
-		64877819698E77FE12F0A629 = {
+		398D4CB5D9430ACC46A58AD9 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				F10BDDF349B28C9C922998A6 /* Products */,
-				1FB67F20C7F9347BDAC53F76 /* Frameworks */,
-				2268E93304ADAA29A9FEB4ED /* Fetchers */,
-				232D1E51146CBEBC229E9E5A /* Model */,
-				CCD2545DCC5BFC843E1FAD2E /* MSDiscovery.h */,
-			);
-			sourceTree = "<group>";
-		};
-		7F9DD83017791BE502F19C59 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				C91C7378ECB7CF068D314DFE /* Foundation.framework */,
+				C0F1566F391EE464E1333571 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F10BDDF349B28C9C922998A6 /* Products */ = {
+		3E4BF499238EB5771A6732ED /* Fetchers */ = {
 			isa = PBXGroup;
 			children = (
-				150D5168AD315B457F037C5C /* libDiscovery.a */,
+				F7AC7BD185E0E5618D737373 /* MSDiscoveryClient.h */,
+				B1E938FC832A4A2A4F7B08B3 /* MSDiscoveryClient.m */,
+				BC0E32CA78008A42BEA0EDED /* MSDiscoveryFetchers.h */,
+				3DBFE97F172A1C92F15AD443 /* MSDiscoveryServiceInfoCollectionFetcher.h */,
+				9CE1CEE271650FCC73473A76 /* MSDiscoveryServiceInfoCollectionFetcher.m */,
+				2625A55B6D5C89F0903BA7EA /* MSDiscoveryServiceInfoCollectionOperations.h */,
+				34A86CB710461F954EF7ED71 /* MSDiscoveryServiceInfoCollectionOperations.m */,
+				E2FA606CD3ED30BC6B12D47B /* MSDiscoveryServiceInfoFetcher.h */,
+				ADD921900E8D9A785ADCBD29 /* MSDiscoveryServiceInfoFetcher.m */,
+				D83B7CFCEBD0F28AC6A511F2 /* MSDiscoveryServiceInfoOperations.h */,
+				0673CCF9E248B80B0B9AB757 /* MSDiscoveryServiceInfoOperations.m */,
+			);
+			name = Fetchers;
+			sourceTree = "<group>";
+		};
+		3FC149CAC0D5EFA925AC2424 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2358941F70667ECD90FD0C36 /* libDiscovery.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6C4F2137F7EE379D322F466C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				398D4CB5D9430ACC46A58AD9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		90D2B4597C1119A3F0DD0DB4 = {
+			isa = PBXGroup;
+			children = (
+				3FC149CAC0D5EFA925AC2424 /* Products */,
+				6C4F2137F7EE379D322F466C /* Frameworks */,
+				3E4BF499238EB5771A6732ED /* Fetchers */,
+				390D96EB875891424F877D74 /* Model */,
+				FCA999FCA4FBCBB52D46305C /* MSDiscovery.h */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DCED5890FB3640DA3F4E6C32 /* Headers */ = {
+		FE7EF7952F8AA3643F64C210 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAB8CFF5C27F545A6924D895 /* MSDiscoveryClient.h in Headers */,
-				70C61C421A979DC5F9E7CCE3 /* MSDiscoveryFetchers.h in Headers */,
-				7FC7EFF02D93844A6D110BDD /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
-				2C3CDB9A03C733B393BAD19D /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */,
-				78DE26D8A473569234E9EC50 /* MSDiscoveryServiceInfoFetcher.h in Headers */,
-				4B4E4A97A21E16D0E3FD2470 /* MSDiscoveryServiceInfoOperations.h in Headers */,
-				406BE4C147E04F37C4AAC4F6 /* MSDiscoveryModels.h in Headers */,
-				076579EBEBDEBFA5FC1E37BF /* MSDiscoveryServiceInfo.h in Headers */,
-				70241E52B6AF9EAF1ED57FA3 /* MSDiscovery.h in Headers */,
+				19AF0341C320FDCE0EBA76A7 /* MSDiscoveryClient.h in Headers */,
+				BC6E0853769B0F48F509088D /* MSDiscoveryFetchers.h in Headers */,
+				15204065C52CFBFFEDD9090C /* MSDiscoveryServiceInfoCollectionFetcher.h in Headers */,
+				35FDF9A9285F2922DC47AC79 /* MSDiscoveryServiceInfoCollectionOperations.h in Headers */,
+				E28CF15912892470B93A62E5 /* MSDiscoveryServiceInfoFetcher.h in Headers */,
+				7A85814C04FD16CFB902FDCB /* MSDiscoveryServiceInfoOperations.h in Headers */,
+				F811D894AA05AB2FE074BB35 /* MSDiscoveryModels.h in Headers */,
+				C89F14E4B4E5934FEDF5A35A /* MSDiscoveryServiceInfo.h in Headers */,
+				BFE5EDBA6DF23369E3FE337F /* MSDiscovery.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		22BC147D84ED2B50F7EF3F29 /* Discovery */ = {
+		C7FF87324A2B91C66F4DF071 /* Discovery */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F9250F6AEB66B8132ADB6F8A /* Build configuration list for PBXNativeTarget "Discovery" */;
+			buildConfigurationList = 6E5948DDB8CC41B63D8BB10D /* Build configuration list for PBXNativeTarget "Discovery" */;
 			buildPhases = (
-				141B284D4387A3AD05D1D8A3 /* Sources */,
-				ED1CCBC087C4004941D67486 /* Frameworks */,
-				DCED5890FB3640DA3F4E6C32 /* Headers */,
+				07F12971A1190B4DBB06D181 /* Sources */,
+				6F7989952E40624069B88213 /* Frameworks */,
+				FE7EF7952F8AA3643F64C210 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -156,53 +156,53 @@
 			);
 			name = Discovery;
 			productName = Discovery;
-			productReference = 150D5168AD315B457F037C5C /* libDiscovery.a */;
+			productReference = 2358941F70667ECD90FD0C36 /* libDiscovery.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AAAD8BF93A35914F78D138E6 /* Project object */ = {
+		EFC330D4446C024FAFCBB98F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 			};
-			buildConfigurationList = 08BB38C32C5AF69D462AA5BE /* Build configuration list for PBXProject "Discovery" */;
+			buildConfigurationList = 21F4243D4A8E90E80D23B6F6 /* Build configuration list for PBXProject "Discovery" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 64877819698E77FE12F0A629;
-			productRefGroup = F10BDDF349B28C9C922998A6 /* Products */;
+			mainGroup = 90D2B4597C1119A3F0DD0DB4;
+			productRefGroup = 3FC149CAC0D5EFA925AC2424 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				22BC147D84ED2B50F7EF3F29 /* Discovery */,
+				C7FF87324A2B91C66F4DF071 /* Discovery */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		141B284D4387A3AD05D1D8A3 /* Sources */ = {
+		07F12971A1190B4DBB06D181 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B4F88A10615C7C1C6F74B6 /* MSDiscoveryClient.m in Sources */,
-				50998E3CE9347526A66A2222 /* MSDiscoveryServiceInfoCollectionFetcher.m in Sources */,
-				758F805695B4409BB93E880C /* MSDiscoveryServiceInfoCollectionOperations.m in Sources */,
-				D2A4F837C49347A232B34112 /* MSDiscoveryServiceInfoFetcher.m in Sources */,
-				2C43AE0D1A6FAA94A8E451DD /* MSDiscoveryServiceInfoOperations.m in Sources */,
-				5368C2AB17563F6419F23F99 /* MSDiscoveryServiceInfo.m in Sources */,
+				FDA57C3BFF88F590EC3F665D /* MSDiscoveryClient.m in Sources */,
+				9F2E8DC296CCB64D5AA84C97 /* MSDiscoveryServiceInfoCollectionFetcher.m in Sources */,
+				B7160BF2656BA9F03C6B6DD6 /* MSDiscoveryServiceInfoCollectionOperations.m in Sources */,
+				148D304711EC42561CC8B8BC /* MSDiscoveryServiceInfoFetcher.m in Sources */,
+				86B35D6F0DE69355B3B526D1 /* MSDiscoveryServiceInfoOperations.m in Sources */,
+				C2424C29B559C3ADAA5D747B /* MSDiscoveryServiceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		12BF03A724D2AEADC0300182 /* Debug */ = {
+		76E76B4193BA747178B4D9DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -215,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		6EFEEAF9A98F9B3C28A367BC /* Debug */ = {
+		77CD785E3FE3035777D0D11A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,20 +251,7 @@
 			};
 			name = Debug;
 		};
-		C528CB822BAC1F691E881272 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		CC5DB501BA3E62A7EB11FCB9 /* Release */ = {
+		8E1C608865984D78B6498747 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -294,28 +281,41 @@
 			};
 			name = Release;
 		};
+		CC3B124DE18FF0E269B424CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08BB38C32C5AF69D462AA5BE /* Build configuration list for PBXProject "Discovery" */ = {
+		21F4243D4A8E90E80D23B6F6 /* Build configuration list for PBXProject "Discovery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6EFEEAF9A98F9B3C28A367BC /* Debug */,
-				CC5DB501BA3E62A7EB11FCB9 /* Release */,
+				77CD785E3FE3035777D0D11A /* Debug */,
+				8E1C608865984D78B6498747 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F9250F6AEB66B8132ADB6F8A /* Build configuration list for PBXNativeTarget "Discovery" */ = {
+		6E5948DDB8CC41B63D8BB10D /* Build configuration list for PBXNativeTarget "Discovery" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C528CB822BAC1F691E881272 /* Release */,
-				12BF03A724D2AEADC0300182 /* Debug */,
+				CC3B124DE18FF0E269B424CE /* Release */,
+				76E76B4193BA747178B4D9DF /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AAAD8BF93A35914F78D138E6 /* Project object */;
+	rootObject = EFC330D4446C024FAFCBB98F /* Project object */;
 }

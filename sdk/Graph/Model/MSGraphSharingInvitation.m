@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"email", @"email", @"redeemedBy", @"redeemedBy", @"signInRequired", @"signInRequired", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"email", @"email", @"redeemedBy", @"redeemedBy", @"signInRequired", @"signInRequired", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_email = [dic objectForKey: @"email"] != nil ? [[dic objectForKey: @"email"] copy] : _email;
-		_redeemedBy = [dic objectForKey: @"redeemedBy"] != nil ? [[dic objectForKey: @"redeemedBy"] copy] : _redeemedBy;
-		_signInRequired = [dic objectForKey: @"signInRequired"] != nil ? [[dic objectForKey: @"signInRequired"] boolValue] : _signInRequired;
-
+        if(dic!=nil) {
+		_email = (![dic objectForKey: @"email"] || [ [dic objectForKey: @"email"] isKindOfClass:[NSNull class]] )?_email:[[dic objectForKey: @"email"] copy];
+		_redeemedBy = (![dic objectForKey: @"redeemedBy"] || [ [dic objectForKey: @"redeemedBy"] isKindOfClass:[NSNull class]] )?_redeemedBy:[[dic objectForKey: @"redeemedBy"] copy];
+		_signInRequired = (![dic objectForKey: @"signInRequired"] || [ [dic objectForKey: @"signInRequired"] isKindOfClass:[NSNull class]] )?_signInRequired:[[dic objectForKey: @"signInRequired"] boolValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"Interval", @"interval", @"Month", @"month", @"DayOfMonth", @"dayOfMonth", @"DaysOfWeek", @"daysOfWeek", @"FirstDayOfWeek", @"firstDayOfWeek", @"Index", @"index", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"Interval", @"interval", @"Month", @"month", @"DayOfMonth", @"dayOfMonth", @"DaysOfWeek", @"daysOfWeek", @"FirstDayOfWeek", @"firstDayOfWeek", @"Index", @"index", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_type = [dic objectForKey: @"Type"] != nil ? [MSGraphRecurrencePatternTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
-		_interval = [dic objectForKey: @"Interval"] != nil ? [[dic objectForKey: @"Interval"] intValue] : _interval;
-		_month = [dic objectForKey: @"Month"] != nil ? [[dic objectForKey: @"Month"] intValue] : _month;
-		_dayOfMonth = [dic objectForKey: @"DayOfMonth"] != nil ? [[dic objectForKey: @"DayOfMonth"] intValue] : _dayOfMonth;
+        if(dic!=nil) {
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphRecurrencePatternTypeSerializer fromString:[dic objectForKey: @"Type"]];
+		_interval = (![dic objectForKey: @"Interval"] || [ [dic objectForKey: @"Interval"] isKindOfClass:[NSNull class]] )?_interval:[[dic objectForKey: @"Interval"] intValue];
+		_month = (![dic objectForKey: @"Month"] || [ [dic objectForKey: @"Month"] isKindOfClass:[NSNull class]] )?_month:[[dic objectForKey: @"Month"] intValue];
+		_dayOfMonth = (![dic objectForKey: @"DayOfMonth"] || [ [dic objectForKey: @"DayOfMonth"] isKindOfClass:[NSNull class]] )?_dayOfMonth:[[dic objectForKey: @"DayOfMonth"] intValue];
 
         if([dic objectForKey: @"DaysOfWeek"] != [NSNull null]){
             _daysOfWeek = [[MSOrcChangesTrackingArray alloc] init];
@@ -69,9 +70,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_daysOfWeek resetChangedFlag];
         }
         
-		_firstDayOfWeek = [dic objectForKey: @"FirstDayOfWeek"] != nil ? [MSGraphDayOfWeekSerializer fromString:[dic objectForKey: @"FirstDayOfWeek"]] : _firstDayOfWeek;
-		_index = [dic objectForKey: @"Index"] != nil ? [MSGraphWeekIndexSerializer fromString:[dic objectForKey: @"Index"]] : _index;
-
+		_firstDayOfWeek = (![dic objectForKey: @"FirstDayOfWeek"] || [ [dic objectForKey: @"FirstDayOfWeek"] isKindOfClass:[NSNull class]] )?_firstDayOfWeek:[MSGraphDayOfWeekSerializer fromString:[dic objectForKey: @"FirstDayOfWeek"]];
+		_index = (![dic objectForKey: @"Index"] || [ [dic objectForKey: @"Index"] isKindOfClass:[NSNull class]] )?_index:[MSGraphWeekIndexSerializer fromString:[dic objectForKey: @"Index"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

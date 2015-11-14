@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,17 +55,17 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : _receivedDateTime;
-		_sentDateTime = [dic objectForKey: @"SentDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]] : _sentDateTime;
-		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
-		_subject = [dic objectForKey: @"Subject"] != nil ? [[dic objectForKey: @"Subject"] copy] : _subject;
-		_body = [dic objectForKey: @"Body"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
-		_bodyPreview = [dic objectForKey: @"BodyPreview"] != nil ? [[dic objectForKey: @"BodyPreview"] copy] : _bodyPreview;
-		_importance = [dic objectForKey: @"Importance"] != nil ? [MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]] : _importance;
-		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
-		_sender = [dic objectForKey: @"Sender"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : _sender;
-		_from = [dic objectForKey: @"From"] != nil ? [[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : _from;
+        if(dic!=nil) {
+		_receivedDateTime = (![dic objectForKey: @"ReceivedDateTime"] || [ [dic objectForKey: @"ReceivedDateTime"] isKindOfClass:[NSNull class]] )?_receivedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]];
+		_sentDateTime = (![dic objectForKey: @"SentDateTime"] || [ [dic objectForKey: @"SentDateTime"] isKindOfClass:[NSNull class]] )?_sentDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"SentDateTime"]];
+		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		_subject = (![dic objectForKey: @"Subject"] || [ [dic objectForKey: @"Subject"] isKindOfClass:[NSNull class]] )?_subject:[[dic objectForKey: @"Subject"] copy];
+		_body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?_body:[[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
+		_bodyPreview = (![dic objectForKey: @"BodyPreview"] || [ [dic objectForKey: @"BodyPreview"] isKindOfClass:[NSNull class]] )?_bodyPreview:[[dic objectForKey: @"BodyPreview"] copy];
+		_importance = (![dic objectForKey: @"Importance"] || [ [dic objectForKey: @"Importance"] isKindOfClass:[NSNull class]] )?_importance:[MSOutlookImportanceSerializer fromString:[dic objectForKey: @"Importance"]];
+		_parentFolderId = (![dic objectForKey: @"ParentFolderId"] || [ [dic objectForKey: @"ParentFolderId"] isKindOfClass:[NSNull class]] )?_parentFolderId:[[dic objectForKey: @"ParentFolderId"] copy];
+		_sender = (![dic objectForKey: @"Sender"] || [ [dic objectForKey: @"Sender"] isKindOfClass:[NSNull class]] )?_sender:[[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]];
+		_from = (![dic objectForKey: @"From"] || [ [dic objectForKey: @"From"] isKindOfClass:[NSNull class]] )?_from:[[MSOutlookRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]];
 
         if([dic objectForKey: @"ToRecipients"] != [NSNull null]){
             _toRecipients = [[MSOrcChangesTrackingArray alloc] init];
@@ -109,13 +110,13 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_replyTo resetChangedFlag];
         }
         
-		_conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : _conversationId;
-		_uniqueBody = [dic objectForKey: @"UniqueBody"] != nil ? [[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]] : _uniqueBody;
-		_isDeliveryReceiptRequested = [dic objectForKey: @"IsDeliveryReceiptRequested"] != nil ? [[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue] : _isDeliveryReceiptRequested;
-		_isReadReceiptRequested = [dic objectForKey: @"IsReadReceiptRequested"] != nil ? [[dic objectForKey: @"IsReadReceiptRequested"] boolValue] : _isReadReceiptRequested;
-		_isRead = [dic objectForKey: @"IsRead"] != nil ? [[dic objectForKey: @"IsRead"] boolValue] : _isRead;
-		_isDraft = [dic objectForKey: @"IsDraft"] != nil ? [[dic objectForKey: @"IsDraft"] boolValue] : _isDraft;
-		_webLink = [dic objectForKey: @"WebLink"] != nil ? [[dic objectForKey: @"WebLink"] copy] : _webLink;
+		_conversationId = (![dic objectForKey: @"ConversationId"] || [ [dic objectForKey: @"ConversationId"] isKindOfClass:[NSNull class]] )?_conversationId:[[dic objectForKey: @"ConversationId"] copy];
+		_uniqueBody = (![dic objectForKey: @"UniqueBody"] || [ [dic objectForKey: @"UniqueBody"] isKindOfClass:[NSNull class]] )?_uniqueBody:[[MSOutlookItemBody alloc] initWithDictionary: [dic objectForKey: @"UniqueBody"]];
+		_isDeliveryReceiptRequested = (![dic objectForKey: @"IsDeliveryReceiptRequested"] || [ [dic objectForKey: @"IsDeliveryReceiptRequested"] isKindOfClass:[NSNull class]] )?_isDeliveryReceiptRequested:[[dic objectForKey: @"IsDeliveryReceiptRequested"] boolValue];
+		_isReadReceiptRequested = (![dic objectForKey: @"IsReadReceiptRequested"] || [ [dic objectForKey: @"IsReadReceiptRequested"] isKindOfClass:[NSNull class]] )?_isReadReceiptRequested:[[dic objectForKey: @"IsReadReceiptRequested"] boolValue];
+		_isRead = (![dic objectForKey: @"IsRead"] || [ [dic objectForKey: @"IsRead"] isKindOfClass:[NSNull class]] )?_isRead:[[dic objectForKey: @"IsRead"] boolValue];
+		_isDraft = (![dic objectForKey: @"IsDraft"] || [ [dic objectForKey: @"IsDraft"] isKindOfClass:[NSNull class]] )?_isDraft:[[dic objectForKey: @"IsDraft"] boolValue];
+		_webLink = (![dic objectForKey: @"WebLink"] || [ [dic objectForKey: @"WebLink"] isKindOfClass:[NSNull class]] )?_webLink:[[dic objectForKey: @"WebLink"] copy];
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
             _attachments = [[MSOrcChangesTrackingArray alloc] init];
@@ -127,9 +128,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attachments resetChangedFlag];
         }
         
-		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?self.changeKey:[[dic objectForKey: @"ChangeKey"] copy];
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
             self.categories = [[MSOrcChangesTrackingArray alloc] init];
@@ -141,8 +142,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

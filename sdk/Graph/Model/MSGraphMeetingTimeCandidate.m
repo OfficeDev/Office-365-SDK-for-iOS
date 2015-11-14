@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingTimeSlot", @"meetingTimeSlot", @"Confidence", @"confidence", @"Score", @"score", @"OrganizerAvailability", @"organizerAvailability", @"AttendeeAvailability", @"attendeeAvailability", @"Locations", @"locations", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MeetingTimeSlot", @"meetingTimeSlot", @"Confidence", @"confidence", @"Score", @"score", @"OrganizerAvailability", @"organizerAvailability", @"AttendeeAvailability", @"attendeeAvailability", @"Locations", @"locations", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_meetingTimeSlot = [dic objectForKey: @"MeetingTimeSlot"] != nil ? [[MSGraphTimeSlot alloc] initWithDictionary: [dic objectForKey: @"MeetingTimeSlot"]] : _meetingTimeSlot;
-		_confidence = [dic objectForKey: @"Confidence"] != nil ? [[dic objectForKey: @"Confidence"] doubleValue] : _confidence;
-		_score = [dic objectForKey: @"Score"] != nil ? [[dic objectForKey: @"Score"] intValue] : _score;
-		_organizerAvailability = [dic objectForKey: @"OrganizerAvailability"] != nil ? [MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"OrganizerAvailability"]] : _organizerAvailability;
+        if(dic!=nil) {
+		_meetingTimeSlot = (![dic objectForKey: @"MeetingTimeSlot"] || [ [dic objectForKey: @"MeetingTimeSlot"] isKindOfClass:[NSNull class]] )?_meetingTimeSlot:[[MSGraphTimeSlot alloc] initWithDictionary: [dic objectForKey: @"MeetingTimeSlot"]];
+		_confidence = (![dic objectForKey: @"Confidence"] || [ [dic objectForKey: @"Confidence"] isKindOfClass:[NSNull class]] )?_confidence:[[dic objectForKey: @"Confidence"] doubleValue];
+		_score = (![dic objectForKey: @"Score"] || [ [dic objectForKey: @"Score"] isKindOfClass:[NSNull class]] )?_score:[[dic objectForKey: @"Score"] intValue];
+		_organizerAvailability = (![dic objectForKey: @"OrganizerAvailability"] || [ [dic objectForKey: @"OrganizerAvailability"] isKindOfClass:[NSNull class]] )?_organizerAvailability:[MSGraphFreeBusyStatusSerializer fromString:[dic objectForKey: @"OrganizerAvailability"]];
 
         if([dic objectForKey: @"AttendeeAvailability"] != [NSNull null]){
             _attendeeAvailability = [[MSOrcChangesTrackingArray alloc] init];
@@ -80,7 +81,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_locations resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

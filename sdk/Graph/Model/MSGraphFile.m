@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"hashes", @"hashes", @"mimeType", @"mimeType", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"hashes", @"hashes", @"mimeType", @"mimeType", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_hashes = [dic objectForKey: @"hashes"] != nil ? [[MSGraphHashes alloc] initWithDictionary: [dic objectForKey: @"hashes"]] : _hashes;
-		_mimeType = [dic objectForKey: @"mimeType"] != nil ? [[dic objectForKey: @"mimeType"] copy] : _mimeType;
-
+        if(dic!=nil) {
+		_hashes = (![dic objectForKey: @"hashes"] || [ [dic objectForKey: @"hashes"] isKindOfClass:[NSNull class]] )?_hashes:[[MSGraphHashes alloc] initWithDictionary: [dic objectForKey: @"hashes"]];
+		_mimeType = (![dic objectForKey: @"mimeType"] || [ [dic objectForKey: @"mimeType"] isKindOfClass:[NSNull class]] )?_mimeType:[[dic objectForKey: @"mimeType"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

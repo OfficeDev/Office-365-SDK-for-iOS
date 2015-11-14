@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"entityKey", @"entityKey", @"nestedSampleEntity", @"nestedSampleEntity", @"Content", @"content", @"Navigations", @"navigations", @"Items", @"items", @"nestedSampleEntityCollection", @"nestedSampleEntityCollection", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"entityKey", @"entityKey", @"nestedSampleEntity", @"nestedSampleEntity", @"Content", @"content", @"Navigations", @"navigations", @"Items", @"items", @"nestedSampleEntityCollection", @"nestedSampleEntityCollection", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_entityKey = [dic objectForKey: @"entityKey"] != nil ? [[dic objectForKey: @"entityKey"] copy] : _entityKey;
-		_nestedSampleEntity = [dic objectForKey: @"nestedSampleEntity"] != nil ? [[MSSampleServiceSampleEntity alloc] initWithDictionary: [dic objectForKey: @"nestedSampleEntity"]] : _nestedSampleEntity;
-		_content = [dic objectForKey: @"Content"] != nil ? nil/*NSStream*/ : _content;
+        if(dic!=nil) {
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_entityKey = (![dic objectForKey: @"entityKey"] || [ [dic objectForKey: @"entityKey"] isKindOfClass:[NSNull class]] )?_entityKey:[[dic objectForKey: @"entityKey"] copy];
+		_nestedSampleEntity = (![dic objectForKey: @"nestedSampleEntity"] || [ [dic objectForKey: @"nestedSampleEntity"] isKindOfClass:[NSNull class]] )?_nestedSampleEntity:[[MSSampleServiceSampleEntity alloc] initWithDictionary: [dic objectForKey: @"nestedSampleEntity"]];
+		_content = (![dic objectForKey: @"Content"] || [ [dic objectForKey: @"Content"] isKindOfClass:[NSNull class]] )?_content:nil/*NSStream*/;
 
         if([dic objectForKey: @"Navigations"] != [NSNull null]){
             _navigations = [[MSOrcChangesTrackingArray alloc] init];
@@ -92,8 +93,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_nestedSampleEntityCollection resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

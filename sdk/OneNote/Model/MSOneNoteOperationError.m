@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"code", @"code", @"message", @"message", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"code", @"code", @"message", @"message", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_code = [dic objectForKey: @"code"] != nil ? [[dic objectForKey: @"code"] copy] : _code;
-		_message = [dic objectForKey: @"message"] != nil ? [[dic objectForKey: @"message"] copy] : _message;
-
+        if(dic!=nil) {
+		_code = (![dic objectForKey: @"code"] || [ [dic objectForKey: @"code"] isKindOfClass:[NSNull class]] )?_code:[[dic objectForKey: @"code"] copy];
+		_message = (![dic objectForKey: @"message"] || [ [dic objectForKey: @"message"] isKindOfClass:[NSNull class]] )?_message:[[dic objectForKey: @"message"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"app", @"app", @"viewUrl", @"viewUrl", @"editUrl", @"editUrl", @"viewPostParameters", @"viewPostParameters", @"editPostParameters", @"editPostParameters", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"app", @"app", @"viewUrl", @"viewUrl", @"editUrl", @"editUrl", @"viewPostParameters", @"viewPostParameters", @"editPostParameters", @"editPostParameters", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_app = [dic objectForKey: @"app"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"app"]] : _app;
-		_viewUrl = [dic objectForKey: @"viewUrl"] != nil ? [[dic objectForKey: @"viewUrl"] copy] : _viewUrl;
-		_editUrl = [dic objectForKey: @"editUrl"] != nil ? [[dic objectForKey: @"editUrl"] copy] : _editUrl;
-		_viewPostParameters = [dic objectForKey: @"viewPostParameters"] != nil ? [[dic objectForKey: @"viewPostParameters"] copy] : _viewPostParameters;
-		_editPostParameters = [dic objectForKey: @"editPostParameters"] != nil ? [[dic objectForKey: @"editPostParameters"] copy] : _editPostParameters;
-
+        if(dic!=nil) {
+		_app = (![dic objectForKey: @"app"] || [ [dic objectForKey: @"app"] isKindOfClass:[NSNull class]] )?_app:[[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"app"]];
+		_viewUrl = (![dic objectForKey: @"viewUrl"] || [ [dic objectForKey: @"viewUrl"] isKindOfClass:[NSNull class]] )?_viewUrl:[[dic objectForKey: @"viewUrl"] copy];
+		_editUrl = (![dic objectForKey: @"editUrl"] || [ [dic objectForKey: @"editUrl"] isKindOfClass:[NSNull class]] )?_editUrl:[[dic objectForKey: @"editUrl"] copy];
+		_viewPostParameters = (![dic objectForKey: @"viewPostParameters"] || [ [dic objectForKey: @"viewPostParameters"] isKindOfClass:[NSNull class]] )?_viewPostParameters:[[dic objectForKey: @"viewPostParameters"] copy];
+		_editPostParameters = (![dic objectForKey: @"editPostParameters"] || [ [dic objectForKey: @"editPostParameters"] isKindOfClass:[NSNull class]] )?_editPostParameters:[[dic objectForKey: @"editPostParameters"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

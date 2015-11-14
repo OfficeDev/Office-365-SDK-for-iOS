@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"onClickTelemetryUrl", @"onClickTelemetryUrl", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"onClickTelemetryUrl", @"onClickTelemetryUrl", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_onClickTelemetryUrl = [dic objectForKey: @"onClickTelemetryUrl"] != nil ? [[dic objectForKey: @"onClickTelemetryUrl"] copy] : _onClickTelemetryUrl;
-
+        if(dic!=nil) {
+		_onClickTelemetryUrl = (![dic objectForKey: @"onClickTelemetryUrl"] || [ [dic objectForKey: @"onClickTelemetryUrl"] isKindOfClass:[NSNull class]] )?_onClickTelemetryUrl:[[dic objectForKey: @"onClickTelemetryUrl"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

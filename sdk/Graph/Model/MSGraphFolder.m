@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"childCount", @"childCount", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_childCount = [dic objectForKey: @"childCount"] != nil ? [[dic objectForKey: @"childCount"] intValue] : _childCount;
-
+        if(dic!=nil) {
+		_childCount = (![dic objectForKey: @"childCount"] || [ [dic objectForKey: @"childCount"] isKindOfClass:[NSNull class]] )?_childCount:[[dic objectForKey: @"childCount"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

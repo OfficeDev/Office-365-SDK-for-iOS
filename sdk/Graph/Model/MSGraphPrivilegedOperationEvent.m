@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"UserId", @"userId", @"UserName", @"userName", @"UserMail", @"userMail", @"RoleId", @"roleId", @"RoleName", @"roleName", @"ExpirationTime", @"expirationTime", @"CreationTime", @"creationTime", @"RequestorId", @"requestorId", @"RequestorName", @"requestorName", @"TenantId", @"tenantId", @"RequestType", @"requestType", @"AdditionalInformation", @"additionalInformation", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Id", @"_id", @"UserId", @"userId", @"UserName", @"userName", @"UserMail", @"userMail", @"RoleId", @"roleId", @"RoleName", @"roleName", @"ExpirationTime", @"expirationTime", @"CreationTime", @"creationTime", @"RequestorId", @"requestorId", @"RequestorName", @"requestorName", @"TenantId", @"tenantId", @"RequestType", @"requestType", @"AdditionalInformation", @"additionalInformation", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,21 +55,21 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : __id;
-		_userId = [dic objectForKey: @"UserId"] != nil ? [[dic objectForKey: @"UserId"] copy] : _userId;
-		_userName = [dic objectForKey: @"UserName"] != nil ? [[dic objectForKey: @"UserName"] copy] : _userName;
-		_userMail = [dic objectForKey: @"UserMail"] != nil ? [[dic objectForKey: @"UserMail"] copy] : _userMail;
-		_roleId = [dic objectForKey: @"RoleId"] != nil ? [[dic objectForKey: @"RoleId"] copy] : _roleId;
-		_roleName = [dic objectForKey: @"RoleName"] != nil ? [[dic objectForKey: @"RoleName"] copy] : _roleName;
-		_expirationTime = [dic objectForKey: @"ExpirationTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ExpirationTime"]] : _expirationTime;
-		_creationTime = [dic objectForKey: @"CreationTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreationTime"]] : _creationTime;
-		_requestorId = [dic objectForKey: @"RequestorId"] != nil ? [[dic objectForKey: @"RequestorId"] copy] : _requestorId;
-		_requestorName = [dic objectForKey: @"RequestorName"] != nil ? [[dic objectForKey: @"RequestorName"] copy] : _requestorName;
-		_tenantId = [dic objectForKey: @"TenantId"] != nil ? [[dic objectForKey: @"TenantId"] copy] : _tenantId;
-		_requestType = [dic objectForKey: @"RequestType"] != nil ? [[dic objectForKey: @"RequestType"] copy] : _requestType;
-		_additionalInformation = [dic objectForKey: @"AdditionalInformation"] != nil ? [[dic objectForKey: @"AdditionalInformation"] copy] : _additionalInformation;
-
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"Id"] copy];
+		_userId = (![dic objectForKey: @"UserId"] || [ [dic objectForKey: @"UserId"] isKindOfClass:[NSNull class]] )?_userId:[[dic objectForKey: @"UserId"] copy];
+		_userName = (![dic objectForKey: @"UserName"] || [ [dic objectForKey: @"UserName"] isKindOfClass:[NSNull class]] )?_userName:[[dic objectForKey: @"UserName"] copy];
+		_userMail = (![dic objectForKey: @"UserMail"] || [ [dic objectForKey: @"UserMail"] isKindOfClass:[NSNull class]] )?_userMail:[[dic objectForKey: @"UserMail"] copy];
+		_roleId = (![dic objectForKey: @"RoleId"] || [ [dic objectForKey: @"RoleId"] isKindOfClass:[NSNull class]] )?_roleId:[[dic objectForKey: @"RoleId"] copy];
+		_roleName = (![dic objectForKey: @"RoleName"] || [ [dic objectForKey: @"RoleName"] isKindOfClass:[NSNull class]] )?_roleName:[[dic objectForKey: @"RoleName"] copy];
+		_expirationTime = (![dic objectForKey: @"ExpirationTime"] || [ [dic objectForKey: @"ExpirationTime"] isKindOfClass:[NSNull class]] )?_expirationTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"ExpirationTime"]];
+		_creationTime = (![dic objectForKey: @"CreationTime"] || [ [dic objectForKey: @"CreationTime"] isKindOfClass:[NSNull class]] )?_creationTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreationTime"]];
+		_requestorId = (![dic objectForKey: @"RequestorId"] || [ [dic objectForKey: @"RequestorId"] isKindOfClass:[NSNull class]] )?_requestorId:[[dic objectForKey: @"RequestorId"] copy];
+		_requestorName = (![dic objectForKey: @"RequestorName"] || [ [dic objectForKey: @"RequestorName"] isKindOfClass:[NSNull class]] )?_requestorName:[[dic objectForKey: @"RequestorName"] copy];
+		_tenantId = (![dic objectForKey: @"TenantId"] || [ [dic objectForKey: @"TenantId"] isKindOfClass:[NSNull class]] )?_tenantId:[[dic objectForKey: @"TenantId"] copy];
+		_requestType = (![dic objectForKey: @"RequestType"] || [ [dic objectForKey: @"RequestType"] isKindOfClass:[NSNull class]] )?_requestType:[[dic objectForKey: @"RequestType"] copy];
+		_additionalInformation = (![dic objectForKey: @"AdditionalInformation"] || [ [dic objectForKey: @"AdditionalInformation"] isKindOfClass:[NSNull class]] )?_additionalInformation:[[dic objectForKey: @"AdditionalInformation"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

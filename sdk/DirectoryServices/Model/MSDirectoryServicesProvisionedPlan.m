@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"provisioningStatus", @"provisioningStatus", @"service", @"service", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"provisioningStatus", @"provisioningStatus", @"service", @"service", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_capabilityStatus = [dic objectForKey: @"capabilityStatus"] != nil ? [[dic objectForKey: @"capabilityStatus"] copy] : _capabilityStatus;
-		_provisioningStatus = [dic objectForKey: @"provisioningStatus"] != nil ? [[dic objectForKey: @"provisioningStatus"] copy] : _provisioningStatus;
-		_service = [dic objectForKey: @"service"] != nil ? [[dic objectForKey: @"service"] copy] : _service;
-
+        if(dic!=nil) {
+		_capabilityStatus = (![dic objectForKey: @"capabilityStatus"] || [ [dic objectForKey: @"capabilityStatus"] isKindOfClass:[NSNull class]] )?_capabilityStatus:[[dic objectForKey: @"capabilityStatus"] copy];
+		_provisioningStatus = (![dic objectForKey: @"provisioningStatus"] || [ [dic objectForKey: @"provisioningStatus"] isKindOfClass:[NSNull class]] )?_provisioningStatus:[[dic objectForKey: @"provisioningStatus"] copy];
+		_service = (![dic objectForKey: @"service"] || [ [dic objectForKey: @"service"] isKindOfClass:[NSNull class]] )?_service:[[dic objectForKey: @"service"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Pattern", @"pattern", @"Range", @"range", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Pattern", @"pattern", @"Range", @"range", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_pattern = [dic objectForKey: @"Pattern"] != nil ? [[MSGraphRecurrencePattern alloc] initWithDictionary: [dic objectForKey: @"Pattern"]] : _pattern;
-		_range = [dic objectForKey: @"Range"] != nil ? [[MSGraphRecurrenceRange alloc] initWithDictionary: [dic objectForKey: @"Range"]] : _range;
-
+        if(dic!=nil) {
+		_pattern = (![dic objectForKey: @"Pattern"] || [ [dic objectForKey: @"Pattern"] isKindOfClass:[NSNull class]] )?_pattern:[[MSGraphRecurrencePattern alloc] initWithDictionary: [dic objectForKey: @"Pattern"]];
+		_range = (![dic objectForKey: @"Range"] || [ [dic objectForKey: @"Range"] isKindOfClass:[NSNull class]] )?_range:[[MSGraphRecurrenceRange alloc] initWithDictionary: [dic objectForKey: @"Range"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

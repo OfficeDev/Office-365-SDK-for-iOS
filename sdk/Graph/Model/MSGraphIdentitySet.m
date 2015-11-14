@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"device", @"device", @"user", @"user", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"application", @"application", @"device", @"device", @"user", @"user", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_application = [dic objectForKey: @"application"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]] : _application;
-		_device = [dic objectForKey: @"device"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"device"]] : _device;
-		_user = [dic objectForKey: @"user"] != nil ? [[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
-
+        if(dic!=nil) {
+		_application = (![dic objectForKey: @"application"] || [ [dic objectForKey: @"application"] isKindOfClass:[NSNull class]] )?_application:[[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"application"]];
+		_device = (![dic objectForKey: @"device"] || [ [dic objectForKey: @"device"] isKindOfClass:[NSNull class]] )?_device:[[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"device"]];
+		_user = (![dic objectForKey: @"user"] || [ [dic objectForKey: @"user"] isKindOfClass:[NSNull class]] )?_user:[[MSGraphIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

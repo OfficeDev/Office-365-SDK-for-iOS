@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"appDisplayName", @"appDisplayName", @"appId", @"appId", @"appOwnerTenantId", @"appOwnerTenantId", @"appRoleAssignmentRequired", @"appRoleAssignmentRequired", @"appRoles", @"appRoles", @"displayName", @"displayName", @"errorUrl", @"errorUrl", @"homepage", @"homepage", @"keyCredentials", @"keyCredentials", @"logoutUrl", @"logoutUrl", @"oauth2Permissions", @"oauth2Permissions", @"passwordCredentials", @"passwordCredentials", @"preferredTokenSigningKeyThumbprint", @"preferredTokenSigningKeyThumbprint", @"publisherName", @"publisherName", @"replyUrls", @"replyUrls", @"samlMetadataUrl", @"samlMetadataUrl", @"servicePrincipalNames", @"servicePrincipalNames", @"tags", @"tags", @"appRoleAssignedTo", @"appRoleAssignedTo", @"appRoleAssignments", @"appRoleAssignments", @"oauth2PermissionGrants", @"oauth2PermissionGrants", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"appDisplayName", @"appDisplayName", @"appId", @"appId", @"appOwnerTenantId", @"appOwnerTenantId", @"appRoleAssignmentRequired", @"appRoleAssignmentRequired", @"appRoles", @"appRoles", @"displayName", @"displayName", @"errorUrl", @"errorUrl", @"homepage", @"homepage", @"keyCredentials", @"keyCredentials", @"logoutUrl", @"logoutUrl", @"oauth2Permissions", @"oauth2Permissions", @"passwordCredentials", @"passwordCredentials", @"preferredTokenSigningKeyThumbprint", @"preferredTokenSigningKeyThumbprint", @"publisherName", @"publisherName", @"replyUrls", @"replyUrls", @"samlMetadataUrl", @"samlMetadataUrl", @"servicePrincipalNames", @"servicePrincipalNames", @"tags", @"tags", @"appRoleAssignedTo", @"appRoleAssignedTo", @"appRoleAssignments", @"appRoleAssignments", @"oauth2PermissionGrants", @"oauth2PermissionGrants", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_accountEnabled = [dic objectForKey: @"accountEnabled"] != nil ? [[dic objectForKey: @"accountEnabled"] boolValue] : _accountEnabled;
-		_appDisplayName = [dic objectForKey: @"appDisplayName"] != nil ? [[dic objectForKey: @"appDisplayName"] copy] : _appDisplayName;
-		_appId = [dic objectForKey: @"appId"] != nil ? [[dic objectForKey: @"appId"] copy] : _appId;
-		_appOwnerTenantId = [dic objectForKey: @"appOwnerTenantId"] != nil ? [[dic objectForKey: @"appOwnerTenantId"] copy] : _appOwnerTenantId;
-		_appRoleAssignmentRequired = [dic objectForKey: @"appRoleAssignmentRequired"] != nil ? [[dic objectForKey: @"appRoleAssignmentRequired"] boolValue] : _appRoleAssignmentRequired;
+        if(dic!=nil) {
+		_accountEnabled = (![dic objectForKey: @"accountEnabled"] || [ [dic objectForKey: @"accountEnabled"] isKindOfClass:[NSNull class]] )?_accountEnabled:[[dic objectForKey: @"accountEnabled"] boolValue];
+		_appDisplayName = (![dic objectForKey: @"appDisplayName"] || [ [dic objectForKey: @"appDisplayName"] isKindOfClass:[NSNull class]] )?_appDisplayName:[[dic objectForKey: @"appDisplayName"] copy];
+		_appId = (![dic objectForKey: @"appId"] || [ [dic objectForKey: @"appId"] isKindOfClass:[NSNull class]] )?_appId:[[dic objectForKey: @"appId"] copy];
+		_appOwnerTenantId = (![dic objectForKey: @"appOwnerTenantId"] || [ [dic objectForKey: @"appOwnerTenantId"] isKindOfClass:[NSNull class]] )?_appOwnerTenantId:[[dic objectForKey: @"appOwnerTenantId"] copy];
+		_appRoleAssignmentRequired = (![dic objectForKey: @"appRoleAssignmentRequired"] || [ [dic objectForKey: @"appRoleAssignmentRequired"] isKindOfClass:[NSNull class]] )?_appRoleAssignmentRequired:[[dic objectForKey: @"appRoleAssignmentRequired"] boolValue];
 
         if([dic objectForKey: @"appRoles"] != [NSNull null]){
             _appRoles = [[MSOrcChangesTrackingArray alloc] init];
@@ -71,9 +72,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_appRoles resetChangedFlag];
         }
         
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		_errorUrl = [dic objectForKey: @"errorUrl"] != nil ? [[dic objectForKey: @"errorUrl"] copy] : _errorUrl;
-		_homepage = [dic objectForKey: @"homepage"] != nil ? [[dic objectForKey: @"homepage"] copy] : _homepage;
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		_errorUrl = (![dic objectForKey: @"errorUrl"] || [ [dic objectForKey: @"errorUrl"] isKindOfClass:[NSNull class]] )?_errorUrl:[[dic objectForKey: @"errorUrl"] copy];
+		_homepage = (![dic objectForKey: @"homepage"] || [ [dic objectForKey: @"homepage"] isKindOfClass:[NSNull class]] )?_homepage:[[dic objectForKey: @"homepage"] copy];
 
         if([dic objectForKey: @"keyCredentials"] != [NSNull null]){
             _keyCredentials = [[MSOrcChangesTrackingArray alloc] init];
@@ -85,7 +86,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_keyCredentials resetChangedFlag];
         }
         
-		_logoutUrl = [dic objectForKey: @"logoutUrl"] != nil ? [[dic objectForKey: @"logoutUrl"] copy] : _logoutUrl;
+		_logoutUrl = (![dic objectForKey: @"logoutUrl"] || [ [dic objectForKey: @"logoutUrl"] isKindOfClass:[NSNull class]] )?_logoutUrl:[[dic objectForKey: @"logoutUrl"] copy];
 
         if([dic objectForKey: @"oauth2Permissions"] != [NSNull null]){
             _oauth2Permissions = [[MSOrcChangesTrackingArray alloc] init];
@@ -108,8 +109,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_passwordCredentials resetChangedFlag];
         }
         
-		_preferredTokenSigningKeyThumbprint = [dic objectForKey: @"preferredTokenSigningKeyThumbprint"] != nil ? [[dic objectForKey: @"preferredTokenSigningKeyThumbprint"] copy] : _preferredTokenSigningKeyThumbprint;
-		_publisherName = [dic objectForKey: @"publisherName"] != nil ? [[dic objectForKey: @"publisherName"] copy] : _publisherName;
+		_preferredTokenSigningKeyThumbprint = (![dic objectForKey: @"preferredTokenSigningKeyThumbprint"] || [ [dic objectForKey: @"preferredTokenSigningKeyThumbprint"] isKindOfClass:[NSNull class]] )?_preferredTokenSigningKeyThumbprint:[[dic objectForKey: @"preferredTokenSigningKeyThumbprint"] copy];
+		_publisherName = (![dic objectForKey: @"publisherName"] || [ [dic objectForKey: @"publisherName"] isKindOfClass:[NSNull class]] )?_publisherName:[[dic objectForKey: @"publisherName"] copy];
 
         if([dic objectForKey: @"replyUrls"] != [NSNull null]){
             _replyUrls = [[MSOrcChangesTrackingArray alloc] init];
@@ -121,7 +122,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_replyUrls resetChangedFlag];
         }
         
-		_samlMetadataUrl = [dic objectForKey: @"samlMetadataUrl"] != nil ? [[dic objectForKey: @"samlMetadataUrl"] copy] : _samlMetadataUrl;
+		_samlMetadataUrl = (![dic objectForKey: @"samlMetadataUrl"] || [ [dic objectForKey: @"samlMetadataUrl"] isKindOfClass:[NSNull class]] )?_samlMetadataUrl:[[dic objectForKey: @"samlMetadataUrl"] copy];
 
         if([dic objectForKey: @"servicePrincipalNames"] != [NSNull null]){
             _servicePrincipalNames = [[MSOrcChangesTrackingArray alloc] init];
@@ -177,10 +178,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_oauth2PermissionGrants resetChangedFlag];
         }
         
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -192,7 +193,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -248,7 +249,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

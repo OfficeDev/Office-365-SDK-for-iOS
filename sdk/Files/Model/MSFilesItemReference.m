@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"driveId", @"driveId", @"id", @"_id", @"path", @"path", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"driveId", @"driveId", @"id", @"_id", @"path", @"path", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_driveId = [dic objectForKey: @"driveId"] != nil ? [[dic objectForKey: @"driveId"] copy] : _driveId;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_path = [dic objectForKey: @"path"] != nil ? [[dic objectForKey: @"path"] copy] : _path;
-
+        if(dic!=nil) {
+		_driveId = (![dic objectForKey: @"driveId"] || [ [dic objectForKey: @"driveId"] isKindOfClass:[NSNull class]] )?_driveId:[[dic objectForKey: @"driveId"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_path = (![dic objectForKey: @"path"] || [ [dic objectForKey: @"path"] isKindOfClass:[NSNull class]] )?_path:[[dic objectForKey: @"path"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

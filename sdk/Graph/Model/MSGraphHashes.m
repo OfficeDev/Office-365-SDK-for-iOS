@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"crc32Hash", @"crc32Hash", @"sha1Hash", @"sha1Hash", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"crc32Hash", @"crc32Hash", @"sha1Hash", @"sha1Hash", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_crc32Hash = [dic objectForKey: @"crc32Hash"] != nil ? [[dic objectForKey: @"crc32Hash"] copy] : _crc32Hash;
-		_sha1Hash = [dic objectForKey: @"sha1Hash"] != nil ? [[dic objectForKey: @"sha1Hash"] copy] : _sha1Hash;
-
+        if(dic!=nil) {
+		_crc32Hash = (![dic objectForKey: @"crc32Hash"] || [ [dic objectForKey: @"crc32Hash"] isKindOfClass:[NSNull class]] )?_crc32Hash:[[dic objectForKey: @"crc32Hash"] copy];
+		_sha1Hash = (![dic objectForKey: @"sha1Hash"] || [ [dic objectForKey: @"sha1Hash"] isKindOfClass:[NSNull class]] )?_sha1Hash:[[dic objectForKey: @"sha1Hash"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

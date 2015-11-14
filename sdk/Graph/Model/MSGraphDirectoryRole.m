@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"isSystem", @"isSystem", @"roleDisabled", @"roleDisabled", @"roleTemplateId", @"roleTemplateId", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"isSystem", @"isSystem", @"roleDisabled", @"roleDisabled", @"roleTemplateId", @"roleTemplateId", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		_isSystem = [dic objectForKey: @"isSystem"] != nil ? [[dic objectForKey: @"isSystem"] boolValue] : _isSystem;
-		_roleDisabled = [dic objectForKey: @"roleDisabled"] != nil ? [[dic objectForKey: @"roleDisabled"] boolValue] : _roleDisabled;
-		_roleTemplateId = [dic objectForKey: @"roleTemplateId"] != nil ? [[dic objectForKey: @"roleTemplateId"] copy] : _roleTemplateId;
+        if(dic!=nil) {
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		_isSystem = (![dic objectForKey: @"isSystem"] || [ [dic objectForKey: @"isSystem"] isKindOfClass:[NSNull class]] )?_isSystem:[[dic objectForKey: @"isSystem"] boolValue];
+		_roleDisabled = (![dic objectForKey: @"roleDisabled"] || [ [dic objectForKey: @"roleDisabled"] isKindOfClass:[NSNull class]] )?_roleDisabled:[[dic objectForKey: @"roleDisabled"] boolValue];
+		_roleTemplateId = (![dic objectForKey: @"roleTemplateId"] || [ [dic objectForKey: @"roleTemplateId"] isKindOfClass:[NSNull class]] )?_roleTemplateId:[[dic objectForKey: @"roleTemplateId"] copy];
 
         if([dic objectForKey: @"members"] != [NSNull null]){
             _members = [[MSOrcChangesTrackingArray alloc] init];
@@ -104,10 +105,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_ownedObjects resetChangedFlag];
         }
         
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

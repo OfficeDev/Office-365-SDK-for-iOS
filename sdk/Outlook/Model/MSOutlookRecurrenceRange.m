@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"StartDate", @"startDate", @"EndDate", @"endDate", @"RecurrenceTimeZone", @"recurrenceTimeZone", @"NumberOfOccurrences", @"numberOfOccurrences", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"StartDate", @"startDate", @"EndDate", @"endDate", @"RecurrenceTimeZone", @"recurrenceTimeZone", @"NumberOfOccurrences", @"numberOfOccurrences", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
-		_startDate = [dic objectForKey: @"StartDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"StartDate"]] : _startDate;
-		_endDate = [dic objectForKey: @"EndDate"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]] : _endDate;
-		_recurrenceTimeZone = [dic objectForKey: @"RecurrenceTimeZone"] != nil ? [[dic objectForKey: @"RecurrenceTimeZone"] copy] : _recurrenceTimeZone;
-		_numberOfOccurrences = [dic objectForKey: @"NumberOfOccurrences"] != nil ? [[dic objectForKey: @"NumberOfOccurrences"] intValue] : _numberOfOccurrences;
-
+        if(dic!=nil) {
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSOutlookRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]];
+		_startDate = (![dic objectForKey: @"StartDate"] || [ [dic objectForKey: @"StartDate"] isKindOfClass:[NSNull class]] )?_startDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"StartDate"]];
+		_endDate = (![dic objectForKey: @"EndDate"] || [ [dic objectForKey: @"EndDate"] isKindOfClass:[NSNull class]] )?_endDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]];
+		_recurrenceTimeZone = (![dic objectForKey: @"RecurrenceTimeZone"] || [ [dic objectForKey: @"RecurrenceTimeZone"] isKindOfClass:[NSNull class]] )?_recurrenceTimeZone:[[dic objectForKey: @"RecurrenceTimeZone"] copy];
+		_numberOfOccurrences = (![dic objectForKey: @"NumberOfOccurrences"] || [ [dic objectForKey: @"NumberOfOccurrences"] isKindOfClass:[NSNull class]] )?_numberOfOccurrences:[[dic objectForKey: @"NumberOfOccurrences"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

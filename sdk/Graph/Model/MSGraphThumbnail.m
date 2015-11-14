@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"content", @"content", @"height", @"height", @"url", @"url", @"width", @"width", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"content", @"content", @"height", @"height", @"url", @"url", @"width", @"width", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,12 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_content = [dic objectForKey: @"content"] != nil ? nil/*NSStream*/ : _content;
-		_height = [dic objectForKey: @"height"] != nil ? [[dic objectForKey: @"height"] intValue] : _height;
-		_url = [dic objectForKey: @"url"] != nil ? [[dic objectForKey: @"url"] copy] : _url;
-		_width = [dic objectForKey: @"width"] != nil ? [[dic objectForKey: @"width"] intValue] : _width;
-
+        if(dic!=nil) {
+		_content = (![dic objectForKey: @"content"] || [ [dic objectForKey: @"content"] isKindOfClass:[NSNull class]] )?_content:nil/*NSStream*/;
+		_height = (![dic objectForKey: @"height"] || [ [dic objectForKey: @"height"] isKindOfClass:[NSNull class]] )?_height:[[dic objectForKey: @"height"] intValue];
+		_url = (![dic objectForKey: @"url"] || [ [dic objectForKey: @"url"] isKindOfClass:[NSNull class]] )?_url:[[dic objectForKey: @"url"] copy];
+		_width = (![dic objectForKey: @"width"] || [ [dic objectForKey: @"width"] isKindOfClass:[NSNull class]] )?_width:[[dic objectForKey: @"width"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

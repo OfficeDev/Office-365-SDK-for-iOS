@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"user", @"user", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"user", @"user", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_user = [dic objectForKey: @"user"] != nil ? [[MSOneNoteIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]] : _user;
-
+        if(dic!=nil) {
+		_user = (![dic objectForKey: @"user"] || [ [dic objectForKey: @"user"] isKindOfClass:[NSNull class]] )?_user:[[MSOneNoteIdentity alloc] initWithDictionary: [dic objectForKey: @"user"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

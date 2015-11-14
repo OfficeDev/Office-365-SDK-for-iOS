@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"drive", @"drive", @"files", @"files", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"drive", @"drive", @"files", @"files", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,9 +55,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_drive = [dic objectForKey: @"drive"] != nil ? [[MSFilesDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]] : _drive;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_drive = (![dic objectForKey: @"drive"] || [ [dic objectForKey: @"drive"] isKindOfClass:[NSNull class]] )?_drive:[[MSFilesDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]];
 
         if([dic objectForKey: @"files"] != [NSNull null]){
             _files = [[MSOrcChangesTrackingArray alloc] init];
@@ -68,7 +69,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_files resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

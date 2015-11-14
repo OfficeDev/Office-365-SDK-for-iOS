@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"web", @"web", @"webEmbedded", @"webEmbedded", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"web", @"web", @"webEmbedded", @"webEmbedded", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_web = [dic objectForKey: @"web"] != nil ? [[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"web"]] : _web;
-		_webEmbedded = [dic objectForKey: @"webEmbedded"] != nil ? [[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"webEmbedded"]] : _webEmbedded;
-
+        if(dic!=nil) {
+		_web = (![dic objectForKey: @"web"] || [ [dic objectForKey: @"web"] isKindOfClass:[NSNull class]] )?_web:[[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"web"]];
+		_webEmbedded = (![dic objectForKey: @"webEmbedded"] || [ [dic objectForKey: @"webEmbedded"] isKindOfClass:[NSNull class]] )?_webEmbedded:[[MSGraphOpenWithApp alloc] initWithDictionary: [dic objectForKey: @"webEmbedded"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

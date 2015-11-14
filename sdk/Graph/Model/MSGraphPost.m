@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"ReceivedDateTime", @"receivedDateTime", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"NewParticipants", @"newParticipants", @"ConversationId", @"conversationId", @"Extensions", @"extensions", @"InReplyTo", @"inReplyTo", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"ReceivedDateTime", @"receivedDateTime", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"NewParticipants", @"newParticipants", @"ConversationId", @"conversationId", @"Extensions", @"extensions", @"InReplyTo", @"inReplyTo", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,13 +55,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_body = [dic objectForKey: @"Body"] != nil ? [[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]] : _body;
-		_receivedDateTime = [dic objectForKey: @"ReceivedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]] : _receivedDateTime;
-		_hasAttachments = [dic objectForKey: @"HasAttachments"] != nil ? [[dic objectForKey: @"HasAttachments"] boolValue] : _hasAttachments;
-		_from = [dic objectForKey: @"From"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]] : _from;
-		_sender = [dic objectForKey: @"Sender"] != nil ? [[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]] : _sender;
-		_conversationThreadId = [dic objectForKey: @"ConversationThreadId"] != nil ? [[dic objectForKey: @"ConversationThreadId"] copy] : _conversationThreadId;
+        if(dic!=nil) {
+		_body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?_body:[[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
+		_receivedDateTime = (![dic objectForKey: @"ReceivedDateTime"] || [ [dic objectForKey: @"ReceivedDateTime"] isKindOfClass:[NSNull class]] )?_receivedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"ReceivedDateTime"]];
+		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
+		_from = (![dic objectForKey: @"From"] || [ [dic objectForKey: @"From"] isKindOfClass:[NSNull class]] )?_from:[[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"From"]];
+		_sender = (![dic objectForKey: @"Sender"] || [ [dic objectForKey: @"Sender"] isKindOfClass:[NSNull class]] )?_sender:[[MSGraphRecipient alloc] initWithDictionary: [dic objectForKey: @"Sender"]];
+		_conversationThreadId = (![dic objectForKey: @"ConversationThreadId"] || [ [dic objectForKey: @"ConversationThreadId"] isKindOfClass:[NSNull class]] )?_conversationThreadId:[[dic objectForKey: @"ConversationThreadId"] copy];
 
         if([dic objectForKey: @"NewParticipants"] != [NSNull null]){
             _newParticipants = [[MSOrcChangesTrackingArray alloc] init];
@@ -72,7 +73,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_newParticipants resetChangedFlag];
         }
         
-		_conversationId = [dic objectForKey: @"ConversationId"] != nil ? [[dic objectForKey: @"ConversationId"] copy] : _conversationId;
+		_conversationId = (![dic objectForKey: @"ConversationId"] || [ [dic objectForKey: @"ConversationId"] isKindOfClass:[NSNull class]] )?_conversationId:[[dic objectForKey: @"ConversationId"] copy];
 
         if([dic objectForKey: @"Extensions"] != [NSNull null]){
             _extensions = [[MSOrcChangesTrackingArray alloc] init];
@@ -84,7 +85,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_extensions resetChangedFlag];
         }
         
-		_inReplyTo = [dic objectForKey: @"InReplyTo"] != nil ? [[MSGraphPost alloc] initWithDictionary: [dic objectForKey: @"InReplyTo"]] : _inReplyTo;
+		_inReplyTo = (![dic objectForKey: @"InReplyTo"] || [ [dic objectForKey: @"InReplyTo"] isKindOfClass:[NSNull class]] )?_inReplyTo:[[MSGraphPost alloc] initWithDictionary: [dic objectForKey: @"InReplyTo"]];
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
             _attachments = [[MSOrcChangesTrackingArray alloc] init];
@@ -96,9 +97,9 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_attachments resetChangedFlag];
         }
         
-		self.createdDateTime = [dic objectForKey: @"CreatedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]] : self.createdDateTime;
-		self.lastModifiedDateTime = [dic objectForKey: @"LastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]] : self.lastModifiedDateTime;
-		self.changeKey = [dic objectForKey: @"ChangeKey"] != nil ? [[dic objectForKey: @"ChangeKey"] copy] : self.changeKey;
+		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
+		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
+		self.changeKey = (![dic objectForKey: @"ChangeKey"] || [ [dic objectForKey: @"ChangeKey"] isKindOfClass:[NSNull class]] )?self.changeKey:[[dic objectForKey: @"ChangeKey"] copy];
 
         if([dic objectForKey: @"Categories"] != [NSNull null]){
             self.categories = [[MSOrcChangesTrackingArray alloc] init];
@@ -110,8 +111,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

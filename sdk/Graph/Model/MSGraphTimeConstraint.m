@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ActivityDomain", @"activityDomain", @"Timeslots", @"timeslots", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ActivityDomain", @"activityDomain", @"Timeslots", @"timeslots", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,8 +54,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_activityDomain = [dic objectForKey: @"ActivityDomain"] != nil ? [MSGraphActivityDomainSerializer fromString:[dic objectForKey: @"ActivityDomain"]] : _activityDomain;
+        if(dic!=nil) {
+		_activityDomain = (![dic objectForKey: @"ActivityDomain"] || [ [dic objectForKey: @"ActivityDomain"] isKindOfClass:[NSNull class]] )?_activityDomain:[MSGraphActivityDomainSerializer fromString:[dic objectForKey: @"ActivityDomain"]];
 
         if([dic objectForKey: @"Timeslots"] != [NSNull null]){
             _timeslots = [[MSOrcChangesTrackingArray alloc] init];
@@ -66,7 +67,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_timeslots resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

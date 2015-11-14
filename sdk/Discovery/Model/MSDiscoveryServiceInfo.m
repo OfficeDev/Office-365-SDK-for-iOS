@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capability", @"capability", @"entityKey", @"entityKey", @"providerId", @"providerId", @"providerName", @"providerName", @"serviceAccountType", @"serviceAccountType", @"serviceApiVersion", @"serviceApiVersion", @"serviceEndpointUri", @"serviceEndpointUri", @"serviceId", @"serviceId", @"serviceName", @"serviceName", @"serviceResourceId", @"serviceResourceId", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capability", @"capability", @"entityKey", @"entityKey", @"providerId", @"providerId", @"providerName", @"providerName", @"serviceAccountType", @"serviceAccountType", @"serviceApiVersion", @"serviceApiVersion", @"serviceEndpointUri", @"serviceEndpointUri", @"serviceId", @"serviceId", @"serviceName", @"serviceName", @"serviceResourceId", @"serviceResourceId", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,18 +55,18 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_capability = [dic objectForKey: @"capability"] != nil ? [[dic objectForKey: @"capability"] copy] : _capability;
-		_entityKey = [dic objectForKey: @"entityKey"] != nil ? [[dic objectForKey: @"entityKey"] copy] : _entityKey;
-		_providerId = [dic objectForKey: @"providerId"] != nil ? [[dic objectForKey: @"providerId"] copy] : _providerId;
-		_providerName = [dic objectForKey: @"providerName"] != nil ? [[dic objectForKey: @"providerName"] copy] : _providerName;
-		_serviceAccountType = [dic objectForKey: @"serviceAccountType"] != nil ? [[dic objectForKey: @"serviceAccountType"] intValue] : _serviceAccountType;
-		_serviceApiVersion = [dic objectForKey: @"serviceApiVersion"] != nil ? [[dic objectForKey: @"serviceApiVersion"] copy] : _serviceApiVersion;
-		_serviceEndpointUri = [dic objectForKey: @"serviceEndpointUri"] != nil ? [[dic objectForKey: @"serviceEndpointUri"] copy] : _serviceEndpointUri;
-		_serviceId = [dic objectForKey: @"serviceId"] != nil ? [[dic objectForKey: @"serviceId"] copy] : _serviceId;
-		_serviceName = [dic objectForKey: @"serviceName"] != nil ? [[dic objectForKey: @"serviceName"] copy] : _serviceName;
-		_serviceResourceId = [dic objectForKey: @"serviceResourceId"] != nil ? [[dic objectForKey: @"serviceResourceId"] copy] : _serviceResourceId;
-
+        if(dic!=nil) {
+		_capability = (![dic objectForKey: @"capability"] || [ [dic objectForKey: @"capability"] isKindOfClass:[NSNull class]] )?_capability:[[dic objectForKey: @"capability"] copy];
+		_entityKey = (![dic objectForKey: @"entityKey"] || [ [dic objectForKey: @"entityKey"] isKindOfClass:[NSNull class]] )?_entityKey:[[dic objectForKey: @"entityKey"] copy];
+		_providerId = (![dic objectForKey: @"providerId"] || [ [dic objectForKey: @"providerId"] isKindOfClass:[NSNull class]] )?_providerId:[[dic objectForKey: @"providerId"] copy];
+		_providerName = (![dic objectForKey: @"providerName"] || [ [dic objectForKey: @"providerName"] isKindOfClass:[NSNull class]] )?_providerName:[[dic objectForKey: @"providerName"] copy];
+		_serviceAccountType = (![dic objectForKey: @"serviceAccountType"] || [ [dic objectForKey: @"serviceAccountType"] isKindOfClass:[NSNull class]] )?_serviceAccountType:[[dic objectForKey: @"serviceAccountType"] intValue];
+		_serviceApiVersion = (![dic objectForKey: @"serviceApiVersion"] || [ [dic objectForKey: @"serviceApiVersion"] isKindOfClass:[NSNull class]] )?_serviceApiVersion:[[dic objectForKey: @"serviceApiVersion"] copy];
+		_serviceEndpointUri = (![dic objectForKey: @"serviceEndpointUri"] || [ [dic objectForKey: @"serviceEndpointUri"] isKindOfClass:[NSNull class]] )?_serviceEndpointUri:[[dic objectForKey: @"serviceEndpointUri"] copy];
+		_serviceId = (![dic objectForKey: @"serviceId"] || [ [dic objectForKey: @"serviceId"] isKindOfClass:[NSNull class]] )?_serviceId:[[dic objectForKey: @"serviceId"] copy];
+		_serviceName = (![dic objectForKey: @"serviceName"] || [ [dic objectForKey: @"serviceName"] isKindOfClass:[NSNull class]] )?_serviceName:[[dic objectForKey: @"serviceName"] copy];
+		_serviceResourceId = (![dic objectForKey: @"serviceResourceId"] || [ [dic objectForKey: @"serviceResourceId"] isKindOfClass:[NSNull class]] )?_serviceResourceId:[[dic objectForKey: @"serviceResourceId"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

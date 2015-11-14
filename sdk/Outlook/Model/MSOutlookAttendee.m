@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Status", @"status", @"Type", @"type", @"EmailAddress", @"emailAddress", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Status", @"status", @"Type", @"type", @"EmailAddress", @"emailAddress", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,11 +54,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_status = [dic objectForKey: @"Status"] != nil ? [[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]] : _status;
-		_type = [dic objectForKey: @"Type"] != nil ? [MSOutlookAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]] : _type;
-		self.emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[MSOutlookEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]] : self.emailAddress;
-
+        if(dic!=nil) {
+		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[[MSOutlookResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]];
+		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSOutlookAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]];
+		self.emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?self.emailAddress:[[MSOutlookEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

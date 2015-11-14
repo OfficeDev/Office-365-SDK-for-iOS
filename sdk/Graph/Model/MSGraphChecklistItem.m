@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"isChecked", @"isChecked", @"title", @"title", @"orderHint", @"orderHint", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"isChecked", @"isChecked", @"title", @"title", @"orderHint", @"orderHint", @"lastModifiedBy", @"lastModifiedBy", @"lastModifiedDateTime", @"lastModifiedDateTime", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,13 +54,13 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_isChecked = [dic objectForKey: @"isChecked"] != nil ? [[dic objectForKey: @"isChecked"] boolValue] : _isChecked;
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		_orderHint = [dic objectForKey: @"orderHint"] != nil ? [[dic objectForKey: @"orderHint"] copy] : _orderHint;
-		_lastModifiedBy = [dic objectForKey: @"lastModifiedBy"] != nil ? [[dic objectForKey: @"lastModifiedBy"] copy] : _lastModifiedBy;
-		_lastModifiedDateTime = [dic objectForKey: @"lastModifiedDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]] : _lastModifiedDateTime;
-
+        if(dic!=nil) {
+		_isChecked = (![dic objectForKey: @"isChecked"] || [ [dic objectForKey: @"isChecked"] isKindOfClass:[NSNull class]] )?_isChecked:[[dic objectForKey: @"isChecked"] boolValue];
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		_orderHint = (![dic objectForKey: @"orderHint"] || [ [dic objectForKey: @"orderHint"] isKindOfClass:[NSNull class]] )?_orderHint:[[dic objectForKey: @"orderHint"] copy];
+		_lastModifiedBy = (![dic objectForKey: @"lastModifiedBy"] || [ [dic objectForKey: @"lastModifiedBy"] isKindOfClass:[NSNull class]] )?_lastModifiedBy:[[dic objectForKey: @"lastModifiedBy"] copy];
+		_lastModifiedDateTime = (![dic objectForKey: @"lastModifiedDateTime"] || [ [dic objectForKey: @"lastModifiedDateTime"] isKindOfClass:[NSNull class]] )?_lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastModifiedDateTime"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"uploadUrl", @"uploadUrl", @"expirationDateTime", @"expirationDateTime", @"nextExpectedRanges", @"nextExpectedRanges", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"uploadUrl", @"uploadUrl", @"expirationDateTime", @"expirationDateTime", @"nextExpectedRanges", @"nextExpectedRanges", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_uploadUrl = [dic objectForKey: @"uploadUrl"] != nil ? [[dic objectForKey: @"uploadUrl"] copy] : _uploadUrl;
-		_expirationDateTime = [dic objectForKey: @"expirationDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"expirationDateTime"]] : _expirationDateTime;
+        if(dic!=nil) {
+		_uploadUrl = (![dic objectForKey: @"uploadUrl"] || [ [dic objectForKey: @"uploadUrl"] isKindOfClass:[NSNull class]] )?_uploadUrl:[[dic objectForKey: @"uploadUrl"] copy];
+		_expirationDateTime = (![dic objectForKey: @"expirationDateTime"] || [ [dic objectForKey: @"expirationDateTime"] isKindOfClass:[NSNull class]] )?_expirationDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"expirationDateTime"]];
 
         if([dic objectForKey: @"nextExpectedRanges"] != [NSNull null]){
             _nextExpectedRanges = [[MSOrcChangesTrackingArray alloc] init];
@@ -67,7 +68,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_nextExpectedRanges resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

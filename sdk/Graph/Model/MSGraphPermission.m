@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"grantedTo", @"grantedTo", @"id", @"_id", @"invitation", @"invitation", @"inheritedFrom", @"inheritedFrom", @"link", @"link", @"roles", @"roles", @"shareId", @"shareId", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"grantedTo", @"grantedTo", @"id", @"_id", @"invitation", @"invitation", @"inheritedFrom", @"inheritedFrom", @"link", @"link", @"roles", @"roles", @"shareId", @"shareId", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_grantedTo = [dic objectForKey: @"grantedTo"] != nil ? [[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"grantedTo"]] : _grantedTo;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_invitation = [dic objectForKey: @"invitation"] != nil ? [[MSGraphSharingInvitation alloc] initWithDictionary: [dic objectForKey: @"invitation"]] : _invitation;
-		_inheritedFrom = [dic objectForKey: @"inheritedFrom"] != nil ? [[MSGraphItemReference alloc] initWithDictionary: [dic objectForKey: @"inheritedFrom"]] : _inheritedFrom;
-		_link = [dic objectForKey: @"link"] != nil ? [[MSGraphSharingLink alloc] initWithDictionary: [dic objectForKey: @"link"]] : _link;
+        if(dic!=nil) {
+		_grantedTo = (![dic objectForKey: @"grantedTo"] || [ [dic objectForKey: @"grantedTo"] isKindOfClass:[NSNull class]] )?_grantedTo:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"grantedTo"]];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_invitation = (![dic objectForKey: @"invitation"] || [ [dic objectForKey: @"invitation"] isKindOfClass:[NSNull class]] )?_invitation:[[MSGraphSharingInvitation alloc] initWithDictionary: [dic objectForKey: @"invitation"]];
+		_inheritedFrom = (![dic objectForKey: @"inheritedFrom"] || [ [dic objectForKey: @"inheritedFrom"] isKindOfClass:[NSNull class]] )?_inheritedFrom:[[MSGraphItemReference alloc] initWithDictionary: [dic objectForKey: @"inheritedFrom"]];
+		_link = (![dic objectForKey: @"link"] || [ [dic objectForKey: @"link"] isKindOfClass:[NSNull class]] )?_link:[[MSGraphSharingLink alloc] initWithDictionary: [dic objectForKey: @"link"]];
 
         if([dic objectForKey: @"roles"] != [NSNull null]){
             _roles = [[MSOrcChangesTrackingArray alloc] init];
@@ -71,8 +72,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_roles resetChangedFlag];
         }
         
-		_shareId = [dic objectForKey: @"shareId"] != nil ? [[dic objectForKey: @"shareId"] copy] : _shareId;
-
+		_shareId = (![dic objectForKey: @"shareId"] || [ [dic objectForKey: @"shareId"] isKindOfClass:[NSNull class]] )?_shareId:[[dic objectForKey: @"shareId"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"notebooks", @"notebooks", @"sections", @"sections", @"sectionGroups", @"sectionGroups", @"pages", @"pages", @"resources", @"resources", @"operations", @"_operations", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"notebooks", @"notebooks", @"sections", @"sections", @"sectionGroups", @"sectionGroups", @"pages", @"pages", @"resources", @"resources", @"operations", @"_operations", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,8 +55,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 
         if([dic objectForKey: @"notebooks"] != [NSNull null]){
             _notebooks = [[MSOrcChangesTrackingArray alloc] init];
@@ -122,7 +123,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)__operations resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

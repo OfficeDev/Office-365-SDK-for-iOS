@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"createdBy", @"createdBy", @"owner", @"owner", @"title", @"title", @"id", @"_id", @"tasks", @"tasks", @"buckets", @"buckets", @"details", @"details", @"assignedToTaskBoard", @"assignedToTaskBoard", @"progressTaskBoard", @"progressTaskBoard", @"bucketTaskBoard", @"bucketTaskBoard", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"createdBy", @"createdBy", @"owner", @"owner", @"title", @"title", @"id", @"_id", @"tasks", @"tasks", @"buckets", @"buckets", @"details", @"details", @"assignedToTaskBoard", @"assignedToTaskBoard", @"progressTaskBoard", @"progressTaskBoard", @"bucketTaskBoard", @"bucketTaskBoard", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,11 +55,11 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_createdBy = [dic objectForKey: @"createdBy"] != nil ? [[dic objectForKey: @"createdBy"] copy] : _createdBy;
-		_owner = [dic objectForKey: @"owner"] != nil ? [[dic objectForKey: @"owner"] copy] : _owner;
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
+        if(dic!=nil) {
+		_createdBy = (![dic objectForKey: @"createdBy"] || [ [dic objectForKey: @"createdBy"] isKindOfClass:[NSNull class]] )?_createdBy:[[dic objectForKey: @"createdBy"] copy];
+		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[dic objectForKey: @"owner"] copy];
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 
         if([dic objectForKey: @"tasks"] != [NSNull null]){
             _tasks = [[MSOrcChangesTrackingArray alloc] init];
@@ -81,11 +82,11 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_buckets resetChangedFlag];
         }
         
-		_details = [dic objectForKey: @"details"] != nil ? [[MSGraphPlanDetails alloc] initWithDictionary: [dic objectForKey: @"details"]] : _details;
-		_assignedToTaskBoard = [dic objectForKey: @"assignedToTaskBoard"] != nil ? [[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"assignedToTaskBoard"]] : _assignedToTaskBoard;
-		_progressTaskBoard = [dic objectForKey: @"progressTaskBoard"] != nil ? [[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"progressTaskBoard"]] : _progressTaskBoard;
-		_bucketTaskBoard = [dic objectForKey: @"bucketTaskBoard"] != nil ? [[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"bucketTaskBoard"]] : _bucketTaskBoard;
-
+		_details = (![dic objectForKey: @"details"] || [ [dic objectForKey: @"details"] isKindOfClass:[NSNull class]] )?_details:[[MSGraphPlanDetails alloc] initWithDictionary: [dic objectForKey: @"details"]];
+		_assignedToTaskBoard = (![dic objectForKey: @"assignedToTaskBoard"] || [ [dic objectForKey: @"assignedToTaskBoard"] isKindOfClass:[NSNull class]] )?_assignedToTaskBoard:[[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"assignedToTaskBoard"]];
+		_progressTaskBoard = (![dic objectForKey: @"progressTaskBoard"] || [ [dic objectForKey: @"progressTaskBoard"] isKindOfClass:[NSNull class]] )?_progressTaskBoard:[[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"progressTaskBoard"]];
+		_bucketTaskBoard = (![dic objectForKey: @"bucketTaskBoard"] || [ [dic objectForKey: @"bucketTaskBoard"] isKindOfClass:[NSNull class]] )?_bucketTaskBoard:[[MSGraphPlanTaskBoard alloc] initWithDictionary: [dic objectForKey: @"bucketTaskBoard"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

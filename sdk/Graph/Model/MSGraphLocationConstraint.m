@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"IsRequired", @"isRequired", @"SuggestLocation", @"suggestLocation", @"Locations", @"locations", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"IsRequired", @"isRequired", @"SuggestLocation", @"suggestLocation", @"Locations", @"locations", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,9 +54,9 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_isRequired = [dic objectForKey: @"IsRequired"] != nil ? [[dic objectForKey: @"IsRequired"] boolValue] : _isRequired;
-		_suggestLocation = [dic objectForKey: @"SuggestLocation"] != nil ? [[dic objectForKey: @"SuggestLocation"] boolValue] : _suggestLocation;
+        if(dic!=nil) {
+		_isRequired = (![dic objectForKey: @"IsRequired"] || [ [dic objectForKey: @"IsRequired"] isKindOfClass:[NSNull class]] )?_isRequired:[[dic objectForKey: @"IsRequired"] boolValue];
+		_suggestLocation = (![dic objectForKey: @"SuggestLocation"] || [ [dic objectForKey: @"SuggestLocation"] isKindOfClass:[NSNull class]] )?_suggestLocation:[[dic objectForKey: @"SuggestLocation"] boolValue];
 
         if([dic objectForKey: @"Locations"] != [NSNull null]){
             _locations = [[MSOrcChangesTrackingArray alloc] init];
@@ -67,7 +68,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_locations resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

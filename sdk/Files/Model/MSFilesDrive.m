@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"owner", @"owner", @"quota", @"quota", @"files", @"files", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"owner", @"owner", @"quota", @"quota", @"files", @"files", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_owner = [dic objectForKey: @"owner"] != nil ? [[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"owner"]] : _owner;
-		_quota = [dic objectForKey: @"quota"] != nil ? [[MSFilesDriveQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]] : _quota;
+        if(dic!=nil) {
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[MSFilesIdentity alloc] initWithDictionary: [dic objectForKey: @"owner"]];
+		_quota = (![dic objectForKey: @"quota"] || [ [dic objectForKey: @"quota"] isKindOfClass:[NSNull class]] )?_quota:[[MSFilesDriveQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]];
 
         if([dic objectForKey: @"files"] != [NSNull null]){
             _files = [[MSOrcChangesTrackingArray alloc] init];
@@ -69,7 +70,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_files resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     

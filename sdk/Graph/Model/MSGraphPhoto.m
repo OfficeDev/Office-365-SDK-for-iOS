@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"cameraMake", @"cameraMake", @"cameraModel", @"cameraModel", @"exposureDenominator", @"exposureDenominator", @"exposureNumerator", @"exposureNumerator", @"focalLength", @"focalLength", @"fNumber", @"fNumber", @"takenDateTime", @"takenDateTime", @"iso", @"iso", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"cameraMake", @"cameraMake", @"cameraModel", @"cameraModel", @"exposureDenominator", @"exposureDenominator", @"exposureNumerator", @"exposureNumerator", @"focalLength", @"focalLength", @"fNumber", @"fNumber", @"takenDateTime", @"takenDateTime", @"iso", @"iso", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,16 +54,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_cameraMake = [dic objectForKey: @"cameraMake"] != nil ? [[dic objectForKey: @"cameraMake"] copy] : _cameraMake;
-		_cameraModel = [dic objectForKey: @"cameraModel"] != nil ? [[dic objectForKey: @"cameraModel"] copy] : _cameraModel;
-		_exposureDenominator = [dic objectForKey: @"exposureDenominator"] != nil ? [[dic objectForKey: @"exposureDenominator"] doubleValue] : _exposureDenominator;
-		_exposureNumerator = [dic objectForKey: @"exposureNumerator"] != nil ? [[dic objectForKey: @"exposureNumerator"] doubleValue] : _exposureNumerator;
-		_focalLength = [dic objectForKey: @"focalLength"] != nil ? [[dic objectForKey: @"focalLength"] doubleValue] : _focalLength;
-		_fNumber = [dic objectForKey: @"fNumber"] != nil ? [[dic objectForKey: @"fNumber"] doubleValue] : _fNumber;
-		_takenDateTime = [dic objectForKey: @"takenDateTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"takenDateTime"]] : _takenDateTime;
-		_iso = [dic objectForKey: @"iso"] != nil ? [[dic objectForKey: @"iso"] intValue] : _iso;
-
+        if(dic!=nil) {
+		_cameraMake = (![dic objectForKey: @"cameraMake"] || [ [dic objectForKey: @"cameraMake"] isKindOfClass:[NSNull class]] )?_cameraMake:[[dic objectForKey: @"cameraMake"] copy];
+		_cameraModel = (![dic objectForKey: @"cameraModel"] || [ [dic objectForKey: @"cameraModel"] isKindOfClass:[NSNull class]] )?_cameraModel:[[dic objectForKey: @"cameraModel"] copy];
+		_exposureDenominator = (![dic objectForKey: @"exposureDenominator"] || [ [dic objectForKey: @"exposureDenominator"] isKindOfClass:[NSNull class]] )?_exposureDenominator:[[dic objectForKey: @"exposureDenominator"] doubleValue];
+		_exposureNumerator = (![dic objectForKey: @"exposureNumerator"] || [ [dic objectForKey: @"exposureNumerator"] isKindOfClass:[NSNull class]] )?_exposureNumerator:[[dic objectForKey: @"exposureNumerator"] doubleValue];
+		_focalLength = (![dic objectForKey: @"focalLength"] || [ [dic objectForKey: @"focalLength"] isKindOfClass:[NSNull class]] )?_focalLength:[[dic objectForKey: @"focalLength"] doubleValue];
+		_fNumber = (![dic objectForKey: @"fNumber"] || [ [dic objectForKey: @"fNumber"] isKindOfClass:[NSNull class]] )?_fNumber:[[dic objectForKey: @"fNumber"] doubleValue];
+		_takenDateTime = (![dic objectForKey: @"takenDateTime"] || [ [dic objectForKey: @"takenDateTime"] isKindOfClass:[NSNull class]] )?_takenDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"takenDateTime"]];
+		_iso = (![dic objectForKey: @"iso"] || [ [dic objectForKey: @"iso"] isKindOfClass:[NSNull class]] )?_iso:[[dic objectForKey: @"iso"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

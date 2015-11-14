@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"album", @"album", @"albumArtist", @"albumArtist", @"artist", @"artist", @"bitrate", @"bitrate", @"composers", @"composers", @"copyright", @"copyright", @"disc", @"disc", @"discCount", @"discCount", @"duration", @"duration", @"genre", @"genre", @"hasDrm", @"hasDrm", @"isVariableBitrate", @"isVariableBitrate", @"title", @"title", @"track", @"track", @"trackCount", @"trackCount", @"year", @"year", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"album", @"album", @"albumArtist", @"albumArtist", @"artist", @"artist", @"bitrate", @"bitrate", @"composers", @"composers", @"copyright", @"copyright", @"disc", @"disc", @"discCount", @"discCount", @"duration", @"duration", @"genre", @"genre", @"hasDrm", @"hasDrm", @"isVariableBitrate", @"isVariableBitrate", @"title", @"title", @"track", @"track", @"trackCount", @"trackCount", @"year", @"year", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,24 +54,24 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_album = [dic objectForKey: @"album"] != nil ? [[dic objectForKey: @"album"] copy] : _album;
-		_albumArtist = [dic objectForKey: @"albumArtist"] != nil ? [[dic objectForKey: @"albumArtist"] copy] : _albumArtist;
-		_artist = [dic objectForKey: @"artist"] != nil ? [[dic objectForKey: @"artist"] copy] : _artist;
-		_bitrate = [dic objectForKey: @"bitrate"] != nil ? [[dic objectForKey: @"bitrate"] longLongValue] : _bitrate;
-		_composers = [dic objectForKey: @"composers"] != nil ? [[dic objectForKey: @"composers"] copy] : _composers;
-		_copyright = [dic objectForKey: @"copyright"] != nil ? [[dic objectForKey: @"copyright"] copy] : _copyright;
-		_disc = [dic objectForKey: @"disc"] != nil ? [[dic objectForKey: @"disc"] intValue] : _disc;
-		_discCount = [dic objectForKey: @"discCount"] != nil ? [[dic objectForKey: @"discCount"] intValue] : _discCount;
-		_duration = [dic objectForKey: @"duration"] != nil ? [[dic objectForKey: @"duration"] longLongValue] : _duration;
-		_genre = [dic objectForKey: @"genre"] != nil ? [[dic objectForKey: @"genre"] copy] : _genre;
-		_hasDrm = [dic objectForKey: @"hasDrm"] != nil ? [[dic objectForKey: @"hasDrm"] boolValue] : _hasDrm;
-		_isVariableBitrate = [dic objectForKey: @"isVariableBitrate"] != nil ? [[dic objectForKey: @"isVariableBitrate"] boolValue] : _isVariableBitrate;
-		_title = [dic objectForKey: @"title"] != nil ? [[dic objectForKey: @"title"] copy] : _title;
-		_track = [dic objectForKey: @"track"] != nil ? [[dic objectForKey: @"track"] intValue] : _track;
-		_trackCount = [dic objectForKey: @"trackCount"] != nil ? [[dic objectForKey: @"trackCount"] intValue] : _trackCount;
-		_year = [dic objectForKey: @"year"] != nil ? [[dic objectForKey: @"year"] intValue] : _year;
-
+        if(dic!=nil) {
+		_album = (![dic objectForKey: @"album"] || [ [dic objectForKey: @"album"] isKindOfClass:[NSNull class]] )?_album:[[dic objectForKey: @"album"] copy];
+		_albumArtist = (![dic objectForKey: @"albumArtist"] || [ [dic objectForKey: @"albumArtist"] isKindOfClass:[NSNull class]] )?_albumArtist:[[dic objectForKey: @"albumArtist"] copy];
+		_artist = (![dic objectForKey: @"artist"] || [ [dic objectForKey: @"artist"] isKindOfClass:[NSNull class]] )?_artist:[[dic objectForKey: @"artist"] copy];
+		_bitrate = (![dic objectForKey: @"bitrate"] || [ [dic objectForKey: @"bitrate"] isKindOfClass:[NSNull class]] )?_bitrate:[[dic objectForKey: @"bitrate"] longLongValue];
+		_composers = (![dic objectForKey: @"composers"] || [ [dic objectForKey: @"composers"] isKindOfClass:[NSNull class]] )?_composers:[[dic objectForKey: @"composers"] copy];
+		_copyright = (![dic objectForKey: @"copyright"] || [ [dic objectForKey: @"copyright"] isKindOfClass:[NSNull class]] )?_copyright:[[dic objectForKey: @"copyright"] copy];
+		_disc = (![dic objectForKey: @"disc"] || [ [dic objectForKey: @"disc"] isKindOfClass:[NSNull class]] )?_disc:[[dic objectForKey: @"disc"] intValue];
+		_discCount = (![dic objectForKey: @"discCount"] || [ [dic objectForKey: @"discCount"] isKindOfClass:[NSNull class]] )?_discCount:[[dic objectForKey: @"discCount"] intValue];
+		_duration = (![dic objectForKey: @"duration"] || [ [dic objectForKey: @"duration"] isKindOfClass:[NSNull class]] )?_duration:[[dic objectForKey: @"duration"] longLongValue];
+		_genre = (![dic objectForKey: @"genre"] || [ [dic objectForKey: @"genre"] isKindOfClass:[NSNull class]] )?_genre:[[dic objectForKey: @"genre"] copy];
+		_hasDrm = (![dic objectForKey: @"hasDrm"] || [ [dic objectForKey: @"hasDrm"] isKindOfClass:[NSNull class]] )?_hasDrm:[[dic objectForKey: @"hasDrm"] boolValue];
+		_isVariableBitrate = (![dic objectForKey: @"isVariableBitrate"] || [ [dic objectForKey: @"isVariableBitrate"] isKindOfClass:[NSNull class]] )?_isVariableBitrate:[[dic objectForKey: @"isVariableBitrate"] boolValue];
+		_title = (![dic objectForKey: @"title"] || [ [dic objectForKey: @"title"] isKindOfClass:[NSNull class]] )?_title:[[dic objectForKey: @"title"] copy];
+		_track = (![dic objectForKey: @"track"] || [ [dic objectForKey: @"track"] isKindOfClass:[NSNull class]] )?_track:[[dic objectForKey: @"track"] intValue];
+		_trackCount = (![dic objectForKey: @"trackCount"] || [ [dic objectForKey: @"trackCount"] isKindOfClass:[NSNull class]] )?_trackCount:[[dic objectForKey: @"trackCount"] intValue];
+		_year = (![dic objectForKey: @"year"] || [ [dic objectForKey: @"year"] isKindOfClass:[NSNull class]] )?_year:[[dic objectForKey: @"year"] intValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

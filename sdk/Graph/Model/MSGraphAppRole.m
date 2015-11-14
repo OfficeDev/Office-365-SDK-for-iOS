@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"allowedMemberTypes", @"allowedMemberTypes", @"description", @"_description", @"displayName", @"displayName", @"id", @"_id", @"isEnabled", @"isEnabled", @"value", @"value", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"allowedMemberTypes", @"allowedMemberTypes", @"description", @"_description", @"displayName", @"displayName", @"id", @"_id", @"isEnabled", @"isEnabled", @"value", @"value", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,7 +54,7 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
+        if(dic!=nil) {
 
         if([dic objectForKey: @"allowedMemberTypes"] != [NSNull null]){
             _allowedMemberTypes = [[MSOrcChangesTrackingArray alloc] init];
@@ -65,12 +66,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_allowedMemberTypes resetChangedFlag];
         }
         
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		__id = [dic objectForKey: @"id"] != nil ? [[dic objectForKey: @"id"] copy] : __id;
-		_isEnabled = [dic objectForKey: @"isEnabled"] != nil ? [[dic objectForKey: @"isEnabled"] boolValue] : _isEnabled;
-		_value = [dic objectForKey: @"value"] != nil ? [[dic objectForKey: @"value"] copy] : _value;
-
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
+		_isEnabled = (![dic objectForKey: @"isEnabled"] || [ [dic objectForKey: @"isEnabled"] isKindOfClass:[NSNull class]] )?_isEnabled:[[dic objectForKey: @"isEnabled"] boolValue];
+		_value = (![dic objectForKey: @"value"] || [ [dic objectForKey: @"value"] isKindOfClass:[NSNull class]] )?_value:[[dic objectForKey: @"value"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

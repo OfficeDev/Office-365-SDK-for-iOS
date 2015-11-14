@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"disabledPlans", @"disabledPlans", @"skuId", @"skuId", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"disabledPlans", @"disabledPlans", @"skuId", @"skuId", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,7 +54,7 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
+        if(dic!=nil) {
 
         if([dic objectForKey: @"disabledPlans"] != [NSNull null]){
             _disabledPlans = [[MSOrcChangesTrackingArray alloc] init];
@@ -65,8 +66,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_disabledPlans resetChangedFlag];
         }
         
-		_skuId = [dic objectForKey: @"skuId"] != nil ? [[dic objectForKey: @"skuId"] copy] : _skuId;
-
+		_skuId = (![dic objectForKey: @"skuId"] || [ [dic objectForKey: @"skuId"] isKindOfClass:[NSNull class]] )?_skuId:[[dic objectForKey: @"skuId"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

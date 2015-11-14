@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MinElevationDuration", @"minElevationDuration", @"MaxElavationDuration", @"maxElavationDuration", @"ElevationDuration", @"elevationDuration", @"RoleId", @"roleId", @"NotificationToUserOnElevation", @"notificationToUserOnElevation", @"TicketingInfoOnElevation", @"ticketingInfoOnElevation", @"MfaOnElevation", @"mfaOnElevation", @"LastGlobalAdmin", @"lastGlobalAdmin", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"MinElevationDuration", @"minElevationDuration", @"MaxElavationDuration", @"maxElavationDuration", @"ElevationDuration", @"elevationDuration", @"RoleId", @"roleId", @"NotificationToUserOnElevation", @"notificationToUserOnElevation", @"TicketingInfoOnElevation", @"ticketingInfoOnElevation", @"MfaOnElevation", @"mfaOnElevation", @"LastGlobalAdmin", @"lastGlobalAdmin", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,16 +55,16 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_minElevationDuration = [dic objectForKey: @"MinElevationDuration"] != nil ? [[dic objectForKey: @"MinElevationDuration"] intValue] : _minElevationDuration;
-		_maxElavationDuration = [dic objectForKey: @"MaxElavationDuration"] != nil ? [[dic objectForKey: @"MaxElavationDuration"] intValue] : _maxElavationDuration;
-		_elevationDuration = [dic objectForKey: @"ElevationDuration"] != nil ? [[dic objectForKey: @"ElevationDuration"] intValue] : _elevationDuration;
-		_roleId = [dic objectForKey: @"RoleId"] != nil ? [[dic objectForKey: @"RoleId"] copy] : _roleId;
-		_notificationToUserOnElevation = [dic objectForKey: @"NotificationToUserOnElevation"] != nil ? [[dic objectForKey: @"NotificationToUserOnElevation"] boolValue] : _notificationToUserOnElevation;
-		_ticketingInfoOnElevation = [dic objectForKey: @"TicketingInfoOnElevation"] != nil ? [[dic objectForKey: @"TicketingInfoOnElevation"] boolValue] : _ticketingInfoOnElevation;
-		_mfaOnElevation = [dic objectForKey: @"MfaOnElevation"] != nil ? [[dic objectForKey: @"MfaOnElevation"] boolValue] : _mfaOnElevation;
-		_lastGlobalAdmin = [dic objectForKey: @"LastGlobalAdmin"] != nil ? [[dic objectForKey: @"LastGlobalAdmin"] boolValue] : _lastGlobalAdmin;
-
+        if(dic!=nil) {
+		_minElevationDuration = (![dic objectForKey: @"MinElevationDuration"] || [ [dic objectForKey: @"MinElevationDuration"] isKindOfClass:[NSNull class]] )?_minElevationDuration:[[dic objectForKey: @"MinElevationDuration"] intValue];
+		_maxElavationDuration = (![dic objectForKey: @"MaxElavationDuration"] || [ [dic objectForKey: @"MaxElavationDuration"] isKindOfClass:[NSNull class]] )?_maxElavationDuration:[[dic objectForKey: @"MaxElavationDuration"] intValue];
+		_elevationDuration = (![dic objectForKey: @"ElevationDuration"] || [ [dic objectForKey: @"ElevationDuration"] isKindOfClass:[NSNull class]] )?_elevationDuration:[[dic objectForKey: @"ElevationDuration"] intValue];
+		_roleId = (![dic objectForKey: @"RoleId"] || [ [dic objectForKey: @"RoleId"] isKindOfClass:[NSNull class]] )?_roleId:[[dic objectForKey: @"RoleId"] copy];
+		_notificationToUserOnElevation = (![dic objectForKey: @"NotificationToUserOnElevation"] || [ [dic objectForKey: @"NotificationToUserOnElevation"] isKindOfClass:[NSNull class]] )?_notificationToUserOnElevation:[[dic objectForKey: @"NotificationToUserOnElevation"] boolValue];
+		_ticketingInfoOnElevation = (![dic objectForKey: @"TicketingInfoOnElevation"] || [ [dic objectForKey: @"TicketingInfoOnElevation"] isKindOfClass:[NSNull class]] )?_ticketingInfoOnElevation:[[dic objectForKey: @"TicketingInfoOnElevation"] boolValue];
+		_mfaOnElevation = (![dic objectForKey: @"MfaOnElevation"] || [ [dic objectForKey: @"MfaOnElevation"] isKindOfClass:[NSNull class]] )?_mfaOnElevation:[[dic objectForKey: @"MfaOnElevation"] boolValue];
+		_lastGlobalAdmin = (![dic objectForKey: @"LastGlobalAdmin"] || [ [dic objectForKey: @"LastGlobalAdmin"] isKindOfClass:[NSNull class]] )?_lastGlobalAdmin:[[dic objectForKey: @"LastGlobalAdmin"] boolValue];
+    }
     [self.updatedValues removeAllObjects];
     }
     

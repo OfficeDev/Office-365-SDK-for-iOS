@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"ParentFolderId", @"parentFolderId", @"ChildFolderCount", @"childFolderCount", @"UnreadItemCount", @"unreadItemCount", @"TotalItemCount", @"totalItemCount", @"Messages", @"messages", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"ParentFolderId", @"parentFolderId", @"ChildFolderCount", @"childFolderCount", @"UnreadItemCount", @"unreadItemCount", @"TotalItemCount", @"totalItemCount", @"Messages", @"messages", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,12 +55,12 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_displayName = [dic objectForKey: @"DisplayName"] != nil ? [[dic objectForKey: @"DisplayName"] copy] : _displayName;
-		_parentFolderId = [dic objectForKey: @"ParentFolderId"] != nil ? [[dic objectForKey: @"ParentFolderId"] copy] : _parentFolderId;
-		_childFolderCount = [dic objectForKey: @"ChildFolderCount"] != nil ? [[dic objectForKey: @"ChildFolderCount"] intValue] : _childFolderCount;
-		_unreadItemCount = [dic objectForKey: @"UnreadItemCount"] != nil ? [[dic objectForKey: @"UnreadItemCount"] intValue] : _unreadItemCount;
-		_totalItemCount = [dic objectForKey: @"TotalItemCount"] != nil ? [[dic objectForKey: @"TotalItemCount"] intValue] : _totalItemCount;
+        if(dic!=nil) {
+		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
+		_parentFolderId = (![dic objectForKey: @"ParentFolderId"] || [ [dic objectForKey: @"ParentFolderId"] isKindOfClass:[NSNull class]] )?_parentFolderId:[[dic objectForKey: @"ParentFolderId"] copy];
+		_childFolderCount = (![dic objectForKey: @"ChildFolderCount"] || [ [dic objectForKey: @"ChildFolderCount"] isKindOfClass:[NSNull class]] )?_childFolderCount:[[dic objectForKey: @"ChildFolderCount"] intValue];
+		_unreadItemCount = (![dic objectForKey: @"UnreadItemCount"] || [ [dic objectForKey: @"UnreadItemCount"] isKindOfClass:[NSNull class]] )?_unreadItemCount:[[dic objectForKey: @"UnreadItemCount"] intValue];
+		_totalItemCount = (![dic objectForKey: @"TotalItemCount"] || [ [dic objectForKey: @"TotalItemCount"] isKindOfClass:[NSNull class]] )?_totalItemCount:[[dic objectForKey: @"TotalItemCount"] intValue];
 
         if([dic objectForKey: @"Messages"] != [NSNull null]){
             _messages = [[MSOrcChangesTrackingArray alloc] init];
@@ -82,8 +83,8 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_childFolders resetChangedFlag];
         }
         
-		self._id = [dic objectForKey: @"Id"] != nil ? [[dic objectForKey: @"Id"] copy] : self._id;
-
+		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

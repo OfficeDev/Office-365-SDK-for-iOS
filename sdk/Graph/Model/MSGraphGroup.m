@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Photo", @"photo", @"Photos", @"photos", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"drive", @"drive", @"plans", @"plans", @"notes", @"notes", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"creationOptions", @"creationOptions", @"groupTypes", @"groupTypes", @"isPublic", @"isPublic", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mailEnabled", @"mailEnabled", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"securityEnabled", @"securityEnabled", @"AccessType", @"accessType", @"AllowExternalSenders", @"allowExternalSenders", @"AutoSubscribeNewMembers", @"autoSubscribeNewMembers", @"EmailAddress", @"emailAddress", @"IsFavorite", @"isFavorite", @"IsSubscribedByMail", @"isSubscribedByMail", @"UnseenCount", @"unseenCount", @"appRoleAssignments", @"appRoleAssignments", @"members", @"members", @"memberOf", @"memberOf", @"createdOnBehalfOf", @"createdOnBehalfOf", @"owners", @"owners", @"Threads", @"threads", @"Calendar", @"calendar", @"CalendarView", @"calendarView", @"Events", @"events", @"Conversations", @"conversations", @"Photo", @"photo", @"Photos", @"photos", @"AcceptedSenders", @"acceptedSenders", @"RejectedSenders", @"rejectedSenders", @"drive", @"drive", @"plans", @"plans", @"notes", @"notes", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,10 +55,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		__description = [dic objectForKey: @"description"] != nil ? [[dic objectForKey: @"description"] copy] : __description;
-		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
+        if(dic!=nil) {
+		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
+		_dirSyncEnabled = (![dic objectForKey: @"dirSyncEnabled"] || [ [dic objectForKey: @"dirSyncEnabled"] isKindOfClass:[NSNull class]] )?_dirSyncEnabled:[[dic objectForKey: @"dirSyncEnabled"] boolValue];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
 
         if([dic objectForKey: @"creationOptions"] != [NSNull null]){
             _creationOptions = [[MSOrcChangesTrackingArray alloc] init];
@@ -80,12 +81,12 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_groupTypes resetChangedFlag];
         }
         
-		_isPublic = [dic objectForKey: @"isPublic"] != nil ? [[dic objectForKey: @"isPublic"] boolValue] : _isPublic;
-		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
-		_mail = [dic objectForKey: @"mail"] != nil ? [[dic objectForKey: @"mail"] copy] : _mail;
-		_mailNickname = [dic objectForKey: @"mailNickname"] != nil ? [[dic objectForKey: @"mailNickname"] copy] : _mailNickname;
-		_mailEnabled = [dic objectForKey: @"mailEnabled"] != nil ? [[dic objectForKey: @"mailEnabled"] boolValue] : _mailEnabled;
-		_onPremisesSecurityIdentifier = [dic objectForKey: @"onPremisesSecurityIdentifier"] != nil ? [[dic objectForKey: @"onPremisesSecurityIdentifier"] copy] : _onPremisesSecurityIdentifier;
+		_isPublic = (![dic objectForKey: @"isPublic"] || [ [dic objectForKey: @"isPublic"] isKindOfClass:[NSNull class]] )?_isPublic:[[dic objectForKey: @"isPublic"] boolValue];
+		_lastDirSyncTime = (![dic objectForKey: @"lastDirSyncTime"] || [ [dic objectForKey: @"lastDirSyncTime"] isKindOfClass:[NSNull class]] )?_lastDirSyncTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]];
+		_mail = (![dic objectForKey: @"mail"] || [ [dic objectForKey: @"mail"] isKindOfClass:[NSNull class]] )?_mail:[[dic objectForKey: @"mail"] copy];
+		_mailNickname = (![dic objectForKey: @"mailNickname"] || [ [dic objectForKey: @"mailNickname"] isKindOfClass:[NSNull class]] )?_mailNickname:[[dic objectForKey: @"mailNickname"] copy];
+		_mailEnabled = (![dic objectForKey: @"mailEnabled"] || [ [dic objectForKey: @"mailEnabled"] isKindOfClass:[NSNull class]] )?_mailEnabled:[[dic objectForKey: @"mailEnabled"] boolValue];
+		_onPremisesSecurityIdentifier = (![dic objectForKey: @"onPremisesSecurityIdentifier"] || [ [dic objectForKey: @"onPremisesSecurityIdentifier"] isKindOfClass:[NSNull class]] )?_onPremisesSecurityIdentifier:[[dic objectForKey: @"onPremisesSecurityIdentifier"] copy];
 
         if([dic objectForKey: @"provisioningErrors"] != [NSNull null]){
             _provisioningErrors = [[MSOrcChangesTrackingArray alloc] init];
@@ -108,14 +109,14 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_proxyAddresses resetChangedFlag];
         }
         
-		_securityEnabled = [dic objectForKey: @"securityEnabled"] != nil ? [[dic objectForKey: @"securityEnabled"] boolValue] : _securityEnabled;
-		_accessType = [dic objectForKey: @"AccessType"] != nil ? [MSGraphGroupAccessTypeSerializer fromString:[dic objectForKey: @"AccessType"]] : _accessType;
-		_allowExternalSenders = [dic objectForKey: @"AllowExternalSenders"] != nil ? [[dic objectForKey: @"AllowExternalSenders"] boolValue] : _allowExternalSenders;
-		_autoSubscribeNewMembers = [dic objectForKey: @"AutoSubscribeNewMembers"] != nil ? [[dic objectForKey: @"AutoSubscribeNewMembers"] boolValue] : _autoSubscribeNewMembers;
-		_emailAddress = [dic objectForKey: @"EmailAddress"] != nil ? [[dic objectForKey: @"EmailAddress"] copy] : _emailAddress;
-		_isFavorite = [dic objectForKey: @"IsFavorite"] != nil ? [[dic objectForKey: @"IsFavorite"] boolValue] : _isFavorite;
-		_isSubscribedByMail = [dic objectForKey: @"IsSubscribedByMail"] != nil ? [[dic objectForKey: @"IsSubscribedByMail"] boolValue] : _isSubscribedByMail;
-		_unseenCount = [dic objectForKey: @"UnseenCount"] != nil ? [[dic objectForKey: @"UnseenCount"] intValue] : _unseenCount;
+		_securityEnabled = (![dic objectForKey: @"securityEnabled"] || [ [dic objectForKey: @"securityEnabled"] isKindOfClass:[NSNull class]] )?_securityEnabled:[[dic objectForKey: @"securityEnabled"] boolValue];
+		_accessType = (![dic objectForKey: @"AccessType"] || [ [dic objectForKey: @"AccessType"] isKindOfClass:[NSNull class]] )?_accessType:[MSGraphGroupAccessTypeSerializer fromString:[dic objectForKey: @"AccessType"]];
+		_allowExternalSenders = (![dic objectForKey: @"AllowExternalSenders"] || [ [dic objectForKey: @"AllowExternalSenders"] isKindOfClass:[NSNull class]] )?_allowExternalSenders:[[dic objectForKey: @"AllowExternalSenders"] boolValue];
+		_autoSubscribeNewMembers = (![dic objectForKey: @"AutoSubscribeNewMembers"] || [ [dic objectForKey: @"AutoSubscribeNewMembers"] isKindOfClass:[NSNull class]] )?_autoSubscribeNewMembers:[[dic objectForKey: @"AutoSubscribeNewMembers"] boolValue];
+		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[dic objectForKey: @"EmailAddress"] copy];
+		_isFavorite = (![dic objectForKey: @"IsFavorite"] || [ [dic objectForKey: @"IsFavorite"] isKindOfClass:[NSNull class]] )?_isFavorite:[[dic objectForKey: @"IsFavorite"] boolValue];
+		_isSubscribedByMail = (![dic objectForKey: @"IsSubscribedByMail"] || [ [dic objectForKey: @"IsSubscribedByMail"] isKindOfClass:[NSNull class]] )?_isSubscribedByMail:[[dic objectForKey: @"IsSubscribedByMail"] boolValue];
+		_unseenCount = (![dic objectForKey: @"UnseenCount"] || [ [dic objectForKey: @"UnseenCount"] isKindOfClass:[NSNull class]] )?_unseenCount:[[dic objectForKey: @"UnseenCount"] intValue];
 
         if([dic objectForKey: @"appRoleAssignments"] != [NSNull null]){
             _appRoleAssignments = [[MSOrcChangesTrackingArray alloc] init];
@@ -149,7 +150,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_memberOf resetChangedFlag];
         }
         
-		_createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSGraphDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : _createdOnBehalfOf;
+		_createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?_createdOnBehalfOf:[[MSGraphDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"owners"] != [NSNull null]){
             _owners = [[MSOrcChangesTrackingArray alloc] init];
@@ -172,7 +173,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_threads resetChangedFlag];
         }
         
-		_calendar = [dic objectForKey: @"Calendar"] != nil ? [[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]] : _calendar;
+		_calendar = (![dic objectForKey: @"Calendar"] || [ [dic objectForKey: @"Calendar"] isKindOfClass:[NSNull class]] )?_calendar:[[MSGraphCalendar alloc] initWithDictionary: [dic objectForKey: @"Calendar"]];
 
         if([dic objectForKey: @"CalendarView"] != [NSNull null]){
             _calendarView = [[MSOrcChangesTrackingArray alloc] init];
@@ -206,7 +207,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_conversations resetChangedFlag];
         }
         
-		_photo = [dic objectForKey: @"Photo"] != nil ? [[MSGraphProfilePhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]] : _photo;
+		_photo = (![dic objectForKey: @"Photo"] || [ [dic objectForKey: @"Photo"] isKindOfClass:[NSNull class]] )?_photo:[[MSGraphProfilePhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]];
 
         if([dic objectForKey: @"Photos"] != [NSNull null]){
             _photos = [[MSOrcChangesTrackingArray alloc] init];
@@ -240,7 +241,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_rejectedSenders resetChangedFlag];
         }
         
-		_drive = [dic objectForKey: @"drive"] != nil ? [[MSGraphDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]] : _drive;
+		_drive = (![dic objectForKey: @"drive"] || [ [dic objectForKey: @"drive"] isKindOfClass:[NSNull class]] )?_drive:[[MSGraphDrive alloc] initWithDictionary: [dic objectForKey: @"drive"]];
 
         if([dic objectForKey: @"plans"] != [NSNull null]){
             _plans = [[MSOrcChangesTrackingArray alloc] init];
@@ -252,11 +253,11 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_plans resetChangedFlag];
         }
         
-		_notes = [dic objectForKey: @"notes"] != nil ? [[MSGraphNotes alloc] initWithDictionary: [dic objectForKey: @"notes"]] : _notes;
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-
+		_notes = (![dic objectForKey: @"notes"] || [ [dic objectForKey: @"notes"] isKindOfClass:[NSNull class]] )?_notes:[[MSGraphNotes alloc] initWithDictionary: [dic objectForKey: @"notes"]];
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+    }
     [self.updatedValues removeAllObjects];
     }
     

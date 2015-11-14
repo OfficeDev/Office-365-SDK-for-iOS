@@ -29,10 +29,11 @@ root for authoritative license information.﻿
 + (NSDictionary *) $$$_$$$propertiesNamesMappings
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
+
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"message", @"message", @"url", @"url", nil];
-    
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"message", @"message", @"url", @"url", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -53,10 +54,10 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_message = [dic objectForKey: @"message"] != nil ? [[dic objectForKey: @"message"] copy] : _message;
-		_url = [dic objectForKey: @"url"] != nil ? [[dic objectForKey: @"url"] copy] : _url;
-
+        if(dic!=nil) {
+		_message = (![dic objectForKey: @"message"] || [ [dic objectForKey: @"message"] isKindOfClass:[NSNull class]] )?_message:[[dic objectForKey: @"message"] copy];
+		_url = (![dic objectForKey: @"url"] || [ [dic objectForKey: @"url"] isKindOfClass:[NSNull class]] )?_url:[[dic objectForKey: @"url"] copy];
+    }
     [self.updatedValues removeAllObjects];
     }
     

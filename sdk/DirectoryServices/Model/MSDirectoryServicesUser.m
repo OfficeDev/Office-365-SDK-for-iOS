@@ -31,9 +31,10 @@ root for authoritative license information.﻿
 {
     static NSDictionary *_$$$_$$$propertiesNamesMappings=nil; 
     
-    if(_$$$_$$$propertiesNamesMappings==nil){
-    _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"assignedLicenses", @"assignedLicenses", @"assignedPlans", @"assignedPlans", @"city", @"city", @"country", @"country", @"department", @"department", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"facsimileTelephoneNumber", @"facsimileTelephoneNumber", @"givenName", @"givenName", @"immutableId", @"immutableId", @"jobTitle", @"jobTitle", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mobile", @"mobile", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"otherMails", @"otherMails", @"passwordPolicies", @"passwordPolicies", @"passwordProfile", @"passwordProfile", @"physicalDeliveryOfficeName", @"physicalDeliveryOfficeName", @"postalCode", @"postalCode", @"preferredLanguage", @"preferredLanguage", @"provisionedPlans", @"provisionedPlans", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"sipProxyAddress", @"sipProxyAddress", @"state", @"state", @"streetAddress", @"streetAddress", @"surname", @"surname", @"telephoneNumber", @"telephoneNumber", @"thumbnailPhoto", @"thumbnailPhoto", @"usageLocation", @"usageLocation", @"userPrincipalName", @"userPrincipalName", @"userType", @"userType", @"appRoleAssignments", @"appRoleAssignments", @"oauth2PermissionGrants", @"oauth2PermissionGrants", @"ownedDevices", @"ownedDevices", @"registeredDevices", @"registeredDevices", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        if(_$$$_$$$propertiesNamesMappings==nil) {
     
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"assignedLicenses", @"assignedLicenses", @"assignedPlans", @"assignedPlans", @"city", @"city", @"country", @"country", @"department", @"department", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"facsimileTelephoneNumber", @"facsimileTelephoneNumber", @"givenName", @"givenName", @"immutableId", @"immutableId", @"jobTitle", @"jobTitle", @"lastDirSyncTime", @"lastDirSyncTime", @"mail", @"mail", @"mailNickname", @"mailNickname", @"mobile", @"mobile", @"onPremisesSecurityIdentifier", @"onPremisesSecurityIdentifier", @"otherMails", @"otherMails", @"passwordPolicies", @"passwordPolicies", @"passwordProfile", @"passwordProfile", @"physicalDeliveryOfficeName", @"physicalDeliveryOfficeName", @"postalCode", @"postalCode", @"preferredLanguage", @"preferredLanguage", @"provisionedPlans", @"provisionedPlans", @"provisioningErrors", @"provisioningErrors", @"proxyAddresses", @"proxyAddresses", @"sipProxyAddress", @"sipProxyAddress", @"state", @"state", @"streetAddress", @"streetAddress", @"surname", @"surname", @"telephoneNumber", @"telephoneNumber", @"thumbnailPhoto", @"thumbnailPhoto", @"usageLocation", @"usageLocation", @"userPrincipalName", @"userPrincipalName", @"userType", @"userType", @"appRoleAssignments", @"appRoleAssignments", @"oauth2PermissionGrants", @"oauth2PermissionGrants", @"ownedDevices", @"ownedDevices", @"registeredDevices", @"registeredDevices", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", @"createdOnBehalfOf", @"createdOnBehalfOf", @"createdObjects", @"createdObjects", @"manager", @"manager", @"directReports", @"directReports", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", nil];
+        
     }
     
     return _$$$_$$$propertiesNamesMappings;
@@ -54,8 +55,8 @@ root for authoritative license information.﻿
 
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
-    
-		_accountEnabled = [dic objectForKey: @"accountEnabled"] != nil ? [[dic objectForKey: @"accountEnabled"] boolValue] : _accountEnabled;
+        if(dic!=nil) {
+		_accountEnabled = (![dic objectForKey: @"accountEnabled"] || [ [dic objectForKey: @"accountEnabled"] isKindOfClass:[NSNull class]] )?_accountEnabled:[[dic objectForKey: @"accountEnabled"] boolValue];
 
         if([dic objectForKey: @"assignedLicenses"] != [NSNull null]){
             _assignedLicenses = [[MSOrcChangesTrackingArray alloc] init];
@@ -78,20 +79,20 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_assignedPlans resetChangedFlag];
         }
         
-		_city = [dic objectForKey: @"city"] != nil ? [[dic objectForKey: @"city"] copy] : _city;
-		_country = [dic objectForKey: @"country"] != nil ? [[dic objectForKey: @"country"] copy] : _country;
-		_department = [dic objectForKey: @"department"] != nil ? [[dic objectForKey: @"department"] copy] : _department;
-		_dirSyncEnabled = [dic objectForKey: @"dirSyncEnabled"] != nil ? [[dic objectForKey: @"dirSyncEnabled"] boolValue] : _dirSyncEnabled;
-		_displayName = [dic objectForKey: @"displayName"] != nil ? [[dic objectForKey: @"displayName"] copy] : _displayName;
-		_facsimileTelephoneNumber = [dic objectForKey: @"facsimileTelephoneNumber"] != nil ? [[dic objectForKey: @"facsimileTelephoneNumber"] copy] : _facsimileTelephoneNumber;
-		_givenName = [dic objectForKey: @"givenName"] != nil ? [[dic objectForKey: @"givenName"] copy] : _givenName;
-		_immutableId = [dic objectForKey: @"immutableId"] != nil ? [[dic objectForKey: @"immutableId"] copy] : _immutableId;
-		_jobTitle = [dic objectForKey: @"jobTitle"] != nil ? [[dic objectForKey: @"jobTitle"] copy] : _jobTitle;
-		_lastDirSyncTime = [dic objectForKey: @"lastDirSyncTime"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]] : _lastDirSyncTime;
-		_mail = [dic objectForKey: @"mail"] != nil ? [[dic objectForKey: @"mail"] copy] : _mail;
-		_mailNickname = [dic objectForKey: @"mailNickname"] != nil ? [[dic objectForKey: @"mailNickname"] copy] : _mailNickname;
-		_mobile = [dic objectForKey: @"mobile"] != nil ? [[dic objectForKey: @"mobile"] copy] : _mobile;
-		_onPremisesSecurityIdentifier = [dic objectForKey: @"onPremisesSecurityIdentifier"] != nil ? [[dic objectForKey: @"onPremisesSecurityIdentifier"] copy] : _onPremisesSecurityIdentifier;
+		_city = (![dic objectForKey: @"city"] || [ [dic objectForKey: @"city"] isKindOfClass:[NSNull class]] )?_city:[[dic objectForKey: @"city"] copy];
+		_country = (![dic objectForKey: @"country"] || [ [dic objectForKey: @"country"] isKindOfClass:[NSNull class]] )?_country:[[dic objectForKey: @"country"] copy];
+		_department = (![dic objectForKey: @"department"] || [ [dic objectForKey: @"department"] isKindOfClass:[NSNull class]] )?_department:[[dic objectForKey: @"department"] copy];
+		_dirSyncEnabled = (![dic objectForKey: @"dirSyncEnabled"] || [ [dic objectForKey: @"dirSyncEnabled"] isKindOfClass:[NSNull class]] )?_dirSyncEnabled:[[dic objectForKey: @"dirSyncEnabled"] boolValue];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		_facsimileTelephoneNumber = (![dic objectForKey: @"facsimileTelephoneNumber"] || [ [dic objectForKey: @"facsimileTelephoneNumber"] isKindOfClass:[NSNull class]] )?_facsimileTelephoneNumber:[[dic objectForKey: @"facsimileTelephoneNumber"] copy];
+		_givenName = (![dic objectForKey: @"givenName"] || [ [dic objectForKey: @"givenName"] isKindOfClass:[NSNull class]] )?_givenName:[[dic objectForKey: @"givenName"] copy];
+		_immutableId = (![dic objectForKey: @"immutableId"] || [ [dic objectForKey: @"immutableId"] isKindOfClass:[NSNull class]] )?_immutableId:[[dic objectForKey: @"immutableId"] copy];
+		_jobTitle = (![dic objectForKey: @"jobTitle"] || [ [dic objectForKey: @"jobTitle"] isKindOfClass:[NSNull class]] )?_jobTitle:[[dic objectForKey: @"jobTitle"] copy];
+		_lastDirSyncTime = (![dic objectForKey: @"lastDirSyncTime"] || [ [dic objectForKey: @"lastDirSyncTime"] isKindOfClass:[NSNull class]] )?_lastDirSyncTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]];
+		_mail = (![dic objectForKey: @"mail"] || [ [dic objectForKey: @"mail"] isKindOfClass:[NSNull class]] )?_mail:[[dic objectForKey: @"mail"] copy];
+		_mailNickname = (![dic objectForKey: @"mailNickname"] || [ [dic objectForKey: @"mailNickname"] isKindOfClass:[NSNull class]] )?_mailNickname:[[dic objectForKey: @"mailNickname"] copy];
+		_mobile = (![dic objectForKey: @"mobile"] || [ [dic objectForKey: @"mobile"] isKindOfClass:[NSNull class]] )?_mobile:[[dic objectForKey: @"mobile"] copy];
+		_onPremisesSecurityIdentifier = (![dic objectForKey: @"onPremisesSecurityIdentifier"] || [ [dic objectForKey: @"onPremisesSecurityIdentifier"] isKindOfClass:[NSNull class]] )?_onPremisesSecurityIdentifier:[[dic objectForKey: @"onPremisesSecurityIdentifier"] copy];
 
         if([dic objectForKey: @"otherMails"] != [NSNull null]){
             _otherMails = [[MSOrcChangesTrackingArray alloc] init];
@@ -103,11 +104,11 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_otherMails resetChangedFlag];
         }
         
-		_passwordPolicies = [dic objectForKey: @"passwordPolicies"] != nil ? [[dic objectForKey: @"passwordPolicies"] copy] : _passwordPolicies;
-		_passwordProfile = [dic objectForKey: @"passwordProfile"] != nil ? [[MSDirectoryServicesPasswordProfile alloc] initWithDictionary: [dic objectForKey: @"passwordProfile"]] : _passwordProfile;
-		_physicalDeliveryOfficeName = [dic objectForKey: @"physicalDeliveryOfficeName"] != nil ? [[dic objectForKey: @"physicalDeliveryOfficeName"] copy] : _physicalDeliveryOfficeName;
-		_postalCode = [dic objectForKey: @"postalCode"] != nil ? [[dic objectForKey: @"postalCode"] copy] : _postalCode;
-		_preferredLanguage = [dic objectForKey: @"preferredLanguage"] != nil ? [[dic objectForKey: @"preferredLanguage"] copy] : _preferredLanguage;
+		_passwordPolicies = (![dic objectForKey: @"passwordPolicies"] || [ [dic objectForKey: @"passwordPolicies"] isKindOfClass:[NSNull class]] )?_passwordPolicies:[[dic objectForKey: @"passwordPolicies"] copy];
+		_passwordProfile = (![dic objectForKey: @"passwordProfile"] || [ [dic objectForKey: @"passwordProfile"] isKindOfClass:[NSNull class]] )?_passwordProfile:[[MSDirectoryServicesPasswordProfile alloc] initWithDictionary: [dic objectForKey: @"passwordProfile"]];
+		_physicalDeliveryOfficeName = (![dic objectForKey: @"physicalDeliveryOfficeName"] || [ [dic objectForKey: @"physicalDeliveryOfficeName"] isKindOfClass:[NSNull class]] )?_physicalDeliveryOfficeName:[[dic objectForKey: @"physicalDeliveryOfficeName"] copy];
+		_postalCode = (![dic objectForKey: @"postalCode"] || [ [dic objectForKey: @"postalCode"] isKindOfClass:[NSNull class]] )?_postalCode:[[dic objectForKey: @"postalCode"] copy];
+		_preferredLanguage = (![dic objectForKey: @"preferredLanguage"] || [ [dic objectForKey: @"preferredLanguage"] isKindOfClass:[NSNull class]] )?_preferredLanguage:[[dic objectForKey: @"preferredLanguage"] copy];
 
         if([dic objectForKey: @"provisionedPlans"] != [NSNull null]){
             _provisionedPlans = [[MSOrcChangesTrackingArray alloc] init];
@@ -141,15 +142,15 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_proxyAddresses resetChangedFlag];
         }
         
-		_sipProxyAddress = [dic objectForKey: @"sipProxyAddress"] != nil ? [[dic objectForKey: @"sipProxyAddress"] copy] : _sipProxyAddress;
-		_state = [dic objectForKey: @"state"] != nil ? [[dic objectForKey: @"state"] copy] : _state;
-		_streetAddress = [dic objectForKey: @"streetAddress"] != nil ? [[dic objectForKey: @"streetAddress"] copy] : _streetAddress;
-		_surname = [dic objectForKey: @"surname"] != nil ? [[dic objectForKey: @"surname"] copy] : _surname;
-		_telephoneNumber = [dic objectForKey: @"telephoneNumber"] != nil ? [[dic objectForKey: @"telephoneNumber"] copy] : _telephoneNumber;
-		_thumbnailPhoto = [dic objectForKey: @"thumbnailPhoto"] != nil ? nil/*NSStream*/ : _thumbnailPhoto;
-		_usageLocation = [dic objectForKey: @"usageLocation"] != nil ? [[dic objectForKey: @"usageLocation"] copy] : _usageLocation;
-		_userPrincipalName = [dic objectForKey: @"userPrincipalName"] != nil ? [[dic objectForKey: @"userPrincipalName"] copy] : _userPrincipalName;
-		_userType = [dic objectForKey: @"userType"] != nil ? [[dic objectForKey: @"userType"] copy] : _userType;
+		_sipProxyAddress = (![dic objectForKey: @"sipProxyAddress"] || [ [dic objectForKey: @"sipProxyAddress"] isKindOfClass:[NSNull class]] )?_sipProxyAddress:[[dic objectForKey: @"sipProxyAddress"] copy];
+		_state = (![dic objectForKey: @"state"] || [ [dic objectForKey: @"state"] isKindOfClass:[NSNull class]] )?_state:[[dic objectForKey: @"state"] copy];
+		_streetAddress = (![dic objectForKey: @"streetAddress"] || [ [dic objectForKey: @"streetAddress"] isKindOfClass:[NSNull class]] )?_streetAddress:[[dic objectForKey: @"streetAddress"] copy];
+		_surname = (![dic objectForKey: @"surname"] || [ [dic objectForKey: @"surname"] isKindOfClass:[NSNull class]] )?_surname:[[dic objectForKey: @"surname"] copy];
+		_telephoneNumber = (![dic objectForKey: @"telephoneNumber"] || [ [dic objectForKey: @"telephoneNumber"] isKindOfClass:[NSNull class]] )?_telephoneNumber:[[dic objectForKey: @"telephoneNumber"] copy];
+		_thumbnailPhoto = (![dic objectForKey: @"thumbnailPhoto"] || [ [dic objectForKey: @"thumbnailPhoto"] isKindOfClass:[NSNull class]] )?_thumbnailPhoto:nil/*NSStream*/;
+		_usageLocation = (![dic objectForKey: @"usageLocation"] || [ [dic objectForKey: @"usageLocation"] isKindOfClass:[NSNull class]] )?_usageLocation:[[dic objectForKey: @"usageLocation"] copy];
+		_userPrincipalName = (![dic objectForKey: @"userPrincipalName"] || [ [dic objectForKey: @"userPrincipalName"] isKindOfClass:[NSNull class]] )?_userPrincipalName:[[dic objectForKey: @"userPrincipalName"] copy];
+		_userType = (![dic objectForKey: @"userType"] || [ [dic objectForKey: @"userType"] isKindOfClass:[NSNull class]] )?_userType:[[dic objectForKey: @"userType"] copy];
 
         if([dic objectForKey: @"appRoleAssignments"] != [NSNull null]){
             _appRoleAssignments = [[MSOrcChangesTrackingArray alloc] init];
@@ -194,10 +195,10 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_registeredDevices resetChangedFlag];
         }
         
-		self.objectType = [dic objectForKey: @"objectType"] != nil ? [[dic objectForKey: @"objectType"] copy] : self.objectType;
-		self.objectId = [dic objectForKey: @"objectId"] != nil ? [[dic objectForKey: @"objectId"] copy] : self.objectId;
-		self.deletionTimestamp = [dic objectForKey: @"deletionTimestamp"] != nil ? [MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]] : self.deletionTimestamp;
-		self.createdOnBehalfOf = [dic objectForKey: @"createdOnBehalfOf"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]] : self.createdOnBehalfOf;
+		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
+		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
+		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self.createdOnBehalfOf = (![dic objectForKey: @"createdOnBehalfOf"] || [ [dic objectForKey: @"createdOnBehalfOf"] isKindOfClass:[NSNull class]] )?self.createdOnBehalfOf:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"createdOnBehalfOf"]];
 
         if([dic objectForKey: @"createdObjects"] != [NSNull null]){
             self.createdObjects = [[MSOrcChangesTrackingArray alloc] init];
@@ -209,7 +210,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.createdObjects resetChangedFlag];
         }
         
-		self.manager = [dic objectForKey: @"manager"] != nil ? [[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]] : self.manager;
+		self.manager = (![dic objectForKey: @"manager"] || [ [dic objectForKey: @"manager"] isKindOfClass:[NSNull class]] )?self.manager:[[MSDirectoryServicesDirectoryObject alloc] initWithDictionary: [dic objectForKey: @"manager"]];
 
         if([dic objectForKey: @"directReports"] != [NSNull null]){
             self.directReports = [[MSOrcChangesTrackingArray alloc] init];
@@ -265,7 +266,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.ownedObjects resetChangedFlag];
         }
         
-
+    }
     [self.updatedValues removeAllObjects];
     }
     
