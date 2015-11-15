@@ -24,18 +24,16 @@ root for authoritative license information.﻿
 
 @class MSGraphResponseStatusFetcher;
 @class MSGraphItemBodyFetcher;
+@class MSGraphDateTimeTimeZoneFetcher;
 @class MSGraphLocationFetcher;
 @class MSGraphPatternedRecurrenceFetcher;
 @class MSGraphAttendeeCollectionFetcher;
 @class MSGraphRecipientFetcher;
 @class MSGraphCalendarFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
 @class MSGraphCalendarFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
 @class MSGraphEventFetcher;
-@class MSGraphExtensionFetcher;
 @class MSGraphAttachmentFetcher;
 @class MSGraphEventOperations;
 
@@ -49,7 +47,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphEvent *, MSOrcError *))callback;
-- (void)update:(MSGraphEvent *)Event callback:(void (^)(MSGraphEvent *, MSOrcError*))callback ;
+- (void)update:(MSGraphEvent *)event callback:(void (^)(MSGraphEvent *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphEventFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphEventFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
@@ -60,10 +58,6 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=instances) MSGraphEventCollectionFetcher *instances;
 
 - (MSGraphEventFetcher *)instancesById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
-
-- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
 
 @property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;
 

@@ -38,7 +38,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphMailFolder *, MSOrcError *))callback;
-- (void)update:(MSGraphMailFolder *)MailFolder callback:(void (^)(MSGraphMailFolder *, MSOrcError*))callback ;
+- (void)update:(MSGraphMailFolder *)mailFolder callback:(void (^)(MSGraphMailFolder *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphMailFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphMailFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

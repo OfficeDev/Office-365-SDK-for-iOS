@@ -21,10 +21,8 @@ root for authoritative license information.﻿
 
 @class MSGraphItemBody;
 @class MSGraphRecipient;
-@class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphImportance.h"
-#import "MSGraphInferenceClassificationType.h"
 #import "MSGraphOutlookItem.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
@@ -139,18 +137,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setWebLink:, getter=webLink) NSString * webLink;
-
-/** Property inferenceClassification
- *
- */
-@property (nonatomic,  setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassificationType inferenceClassification;
-
-- (void)setInferenceClassificationString:(NSString *)string;
-
-/** Property extensions
- *
- */
-@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property attachments
  *

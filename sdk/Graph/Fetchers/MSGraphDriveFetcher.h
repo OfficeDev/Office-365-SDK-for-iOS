@@ -24,11 +24,11 @@ root for authoritative license information.﻿
 
 @class MSGraphIdentitySetFetcher;
 @class MSGraphQuotaFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphItemFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphItemFetcher;
-@class MSGraphItemFetcher;
+@class MSGraphDriveItemCollectionFetcher;
+@class MSGraphDriveItemFetcher;
+@class MSGraphDriveItemCollectionFetcher;
+@class MSGraphDriveItemFetcher;
+@class MSGraphDriveItemFetcher;
 @class MSGraphDriveOperations;
 
 
@@ -47,20 +47,20 @@ root for authoritative license information.﻿
 - (MSGraphDriveFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphDriveFetcher *)select:(NSString *)params;
 - (MSGraphDriveFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=items) MSGraphItemCollectionFetcher *items;
+@property (strong, nonatomic, readonly, getter=items) MSGraphDriveItemCollectionFetcher *items;
 
-- (MSGraphItemFetcher *)itemsById:(id)identifier;
+- (MSGraphDriveItemFetcher *)itemsById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=shared) MSGraphItemCollectionFetcher *shared;
+@property (strong, nonatomic, readonly, getter=shared) MSGraphDriveItemCollectionFetcher *shared;
 
-- (MSGraphItemFetcher *)sharedById:(id)identifier;
+- (MSGraphDriveItemFetcher *)sharedById:(id)identifier;
 
-@property (strong, nonatomic, readonly, getter=special) MSGraphItemCollectionFetcher *special;
+@property (strong, nonatomic, readonly, getter=special) MSGraphDriveItemCollectionFetcher *special;
 
-- (MSGraphItemFetcher *)specialById:(id)identifier;
+- (MSGraphDriveItemFetcher *)specialById:(id)identifier;
 
 
-@property (strong, nonatomic, readonly, getter=root) MSGraphItemFetcher *root;
+@property (strong, nonatomic, readonly, getter=root) MSGraphDriveItemFetcher *root;
 
 @end
 

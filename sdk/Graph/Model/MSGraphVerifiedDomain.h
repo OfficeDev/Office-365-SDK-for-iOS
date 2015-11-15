@@ -33,20 +33,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setCapabilities:, getter=capabilities) NSString * capabilities;
 
-/** Property _default
+/** Property isDefault
  *
  */
-@property (nonatomic,  setter=setDefault:, getter=_default) bool _default;
+@property (nonatomic,  setter=setIsDefault:, getter=isDefault) bool isDefault;
 
-/** Property _id
+/** Property isInitial
  *
  */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
-
-/** Property initial
- *
- */
-@property (nonatomic,  setter=setInitial:, getter=initial) bool initial;
+@property (nonatomic,  setter=setIsInitial:, getter=isInitial) bool isInitial;
 
 /** Property name
  *

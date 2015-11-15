@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"isSystem", @"isSystem", @"roleDisabled", @"roleDisabled", @"roleTemplateId", @"roleTemplateId", @"members", @"members", @"memberOf", @"memberOf", @"owners", @"owners", @"ownedObjects", @"ownedObjects", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"description", @"_description", @"displayName", @"displayName", @"roleTemplateId", @"roleTemplateId", @"members", @"members", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.DirectoryRole";
+		_odataType = @"#microsoft.graph.directoryRole";
         
     }
 
@@ -58,8 +58,6 @@ root for authoritative license information.﻿
         if(dic!=nil) {
 		__description = (![dic objectForKey: @"description"] || [ [dic objectForKey: @"description"] isKindOfClass:[NSNull class]] )?__description:[[dic objectForKey: @"description"] copy];
 		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
-		_isSystem = (![dic objectForKey: @"isSystem"] || [ [dic objectForKey: @"isSystem"] isKindOfClass:[NSNull class]] )?_isSystem:[[dic objectForKey: @"isSystem"] boolValue];
-		_roleDisabled = (![dic objectForKey: @"roleDisabled"] || [ [dic objectForKey: @"roleDisabled"] isKindOfClass:[NSNull class]] )?_roleDisabled:[[dic objectForKey: @"roleDisabled"] boolValue];
 		_roleTemplateId = (![dic objectForKey: @"roleTemplateId"] || [ [dic objectForKey: @"roleTemplateId"] isKindOfClass:[NSNull class]] )?_roleTemplateId:[[dic objectForKey: @"roleTemplateId"] copy];
 
         if([dic objectForKey: @"members"] != [NSNull null]){
@@ -72,42 +70,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_members resetChangedFlag];
         }
         
-
-        if([dic objectForKey: @"memberOf"] != [NSNull null]){
-            _memberOf = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"memberOf"]) {
-                [_memberOf addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_memberOf resetChangedFlag];
-        }
-        
-
-        if([dic objectForKey: @"owners"] != [NSNull null]){
-            _owners = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"owners"]) {
-                [_owners addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_owners resetChangedFlag];
-        }
-        
-
-        if([dic objectForKey: @"ownedObjects"] != [NSNull null]){
-            _ownedObjects = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"ownedObjects"]) {
-                [_ownedObjects addObject:[[MSGraphDirectoryObject alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_ownedObjects resetChangedFlag];
-        }
-        
-		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
-		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
-		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -121,8 +84,6 @@ root for authoritative license information.﻿
 
 	{id curVal = [self._description copy];if (curVal!=nil) [dic setValue: curVal forKey: @"description"];}
 	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
-	{[dic setValue: (self.isSystem?@"true":@"false") forKey: @"isSystem"];}
-	{[dic setValue: (self.roleDisabled?@"true":@"false") forKey: @"roleDisabled"];}
 	{id curVal = [self.roleTemplateId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"roleTemplateId"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -132,34 +93,8 @@ root for authoritative license information.﻿
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"members"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.memberOf) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"memberOf"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.owners) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"owners"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.ownedObjects) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
-	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
-	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
-    [dic setValue: @"#microsoft.graph.DirectoryRole" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.directoryRole" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -180,11 +115,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
             }
     }
- if([self.updatedValues containsObject:@"isSystem"])
-            { [dic setValue: (self.isSystem?@"true":@"false") forKey: @"isSystem"];
-} if([self.updatedValues containsObject:@"roleDisabled"])
-            { [dic setValue: (self.roleDisabled?@"true":@"false") forKey: @"roleDisabled"];
-}	{id curVal = self.roleTemplateId;
+	{id curVal = self.roleTemplateId;
     if([self.updatedValues containsObject:@"roleTemplateId"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"roleTemplateId"];
@@ -216,100 +147,10 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
         }
         
             }}
-	{id curVal = self.memberOf;
-    if([self.updatedValues containsObject:@"memberOf"])
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
     {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"memberOf"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.memberOf) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"memberOf"];
-        }
-        
-            }}
-	{id curVal = self.owners;
-    if([self.updatedValues containsObject:@"owners"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"owners"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.owners) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"owners"];
-        }
-        
-            }}
-	{id curVal = self.ownedObjects;
-    if([self.updatedValues containsObject:@"ownedObjects"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"ownedObjects"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.ownedObjects) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"ownedObjects"];
-        }
-        
-            }}
-	{id curVal = self.objectType;
-    if([self.updatedValues containsObject:@"objectType"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
-            }
-    }
-	{id curVal = self.objectId;
-    if([self.updatedValues containsObject:@"objectId"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-            }
-    }
-	{id curVal = self.deletionTimestamp;
-    if([self.updatedValues containsObject:@"deletionTimestamp"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
@@ -332,22 +173,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
     [self valueChangedFor:@"displayName"];
 }
        
-/** Setter implementation for property isSystem
- *
- */
-- (void) setIsSystem: (bool) value {
-    _isSystem = value;
-    [self valueChangedFor:@"isSystem"];
-}
-       
-/** Setter implementation for property roleDisabled
- *
- */
-- (void) setRoleDisabled: (bool) value {
-    _roleDisabled = value;
-    [self valueChangedFor:@"roleDisabled"];
-}
-       
 /** Setter implementation for property roleTemplateId
  *
  */
@@ -362,30 +187,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ownedObjects"];}
 - (void) setMembers: (NSMutableArray *) value {
     _members = value;
     [self valueChangedFor:@"members"];
-}
-       
-/** Setter implementation for property memberOf
- *
- */
-- (void) setMemberOf: (NSMutableArray *) value {
-    _memberOf = value;
-    [self valueChangedFor:@"memberOf"];
-}
-       
-/** Setter implementation for property owners
- *
- */
-- (void) setOwners: (NSMutableArray *) value {
-    _owners = value;
-    [self valueChangedFor:@"owners"];
-}
-       
-/** Setter implementation for property ownedObjects
- *
- */
-- (void) setOwnedObjects: (NSMutableArray *) value {
-    _ownedObjects = value;
-    [self valueChangedFor:@"ownedObjects"];
 }
        
 

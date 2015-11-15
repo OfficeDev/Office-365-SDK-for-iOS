@@ -22,8 +22,8 @@ root for authoritative license information.﻿
 #import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
-@class MSGraphMessageFetcher;	
 @class MSGraphEventFetcher;	
+@class MSGraphMessageFetcher;	
 @class MSGraphContactFetcher;	
 @class MSGraphPostFetcher;	
 @class MSGraphOutlookItemOperations;
@@ -38,14 +38,14 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphOutlookItem *, MSOrcError *))callback;
-- (void)update:(MSGraphOutlookItem *)OutlookItem callback:(void (^)(MSGraphOutlookItem *, MSOrcError*))callback ;
+- (void)update:(MSGraphOutlookItem *)outlookItem callback:(void (^)(MSGraphOutlookItem *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphOutlookItemFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphOutlookItemFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphOutlookItemFetcher *)select:(NSString *)params;
 - (MSGraphOutlookItemFetcher *)expand:(NSString *)value;
-- (MSGraphMessageFetcher *)asMessage;	
 - (MSGraphEventFetcher *)asEvent;	
+- (MSGraphMessageFetcher *)asMessage;	
 - (MSGraphContactFetcher *)asContact;	
 - (MSGraphPostFetcher *)asPost;	
 

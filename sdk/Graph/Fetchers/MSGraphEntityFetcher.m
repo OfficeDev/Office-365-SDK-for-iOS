@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphEntityFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphEntity *Entity, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphEntity *entity, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,10 +64,25 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphEntity *Entity, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphEntity *entity, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
+}
+
+- (MSGraphDirectoryObjectFetcher *)asDirectoryObject {
+
+	return [[MSGraphDirectoryObjectFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDirectoryObject class]];
+}
+
+- (MSGraphConversationThreadFetcher *)asConversationThread {
+
+	return [[MSGraphConversationThreadFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphConversationThread class]];
+}
+
+- (MSGraphCalendarFetcher *)asCalendar {
+
+	return [[MSGraphCalendarFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphCalendar class]];
 }
 
 - (MSGraphOutlookItemFetcher *)asOutlookItem {
@@ -74,14 +90,29 @@ root for authoritative license information.﻿
 	return [[MSGraphOutlookItemFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphOutlookItem class]];
 }
 
+- (MSGraphConversationFetcher *)asConversation {
+
+	return [[MSGraphConversationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphConversation class]];
+}
+
+- (MSGraphProfilePhotoFetcher *)asProfilePhoto {
+
+	return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphProfilePhoto class]];
+}
+
+- (MSGraphDriveFetcher *)asDrive {
+
+	return [[MSGraphDriveFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDrive class]];
+}
+
+- (MSGraphSubscribedSkuFetcher *)asSubscribedSku {
+
+	return [[MSGraphSubscribedSkuFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphSubscribedSku class]];
+}
+
 - (MSGraphMailFolderFetcher *)asMailFolder {
 
 	return [[MSGraphMailFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphMailFolder class]];
-}
-
-- (MSGraphCalendarFetcher *)asCalendar {
-
-	return [[MSGraphCalendarFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphCalendar class]];
 }
 
 - (MSGraphCalendarGroupFetcher *)asCalendarGroup {
@@ -94,39 +125,29 @@ root for authoritative license information.﻿
 	return [[MSGraphContactFolderFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphContactFolder class]];
 }
 
-- (MSGraphInferenceClassificationFetcher *)asInferenceClassification {
-
-	return [[MSGraphInferenceClassificationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphInferenceClassification class]];
-}
-
-- (MSGraphProfilePhotoFetcher *)asProfilePhoto {
-
-	return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphProfilePhoto class]];
-}
-
-- (MSGraphConversationThreadFetcher *)asConversationThread {
-
-	return [[MSGraphConversationThreadFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphConversationThread class]];
-}
-
-- (MSGraphConversationFetcher *)asConversation {
-
-	return [[MSGraphConversationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphConversation class]];
-}
-
 - (MSGraphAttachmentFetcher *)asAttachment {
 
 	return [[MSGraphAttachmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphAttachment class]];
 }
 
-- (MSGraphExtensionFetcher *)asExtension {
+- (MSGraphDriveItemFetcher *)asDriveItem {
 
-	return [[MSGraphExtensionFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphExtension class]];
+	return [[MSGraphDriveItemFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDriveItem class]];
 }
 
-- (MSGraphInferenceClassificationOverrideFetcher *)asInferenceClassificationOverride {
+- (MSGraphShareFetcher *)asShare {
 
-	return [[MSGraphInferenceClassificationOverrideFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphInferenceClassificationOverride class]];
+	return [[MSGraphShareFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphShare class]];
+}
+
+- (MSGraphPermissionFetcher *)asPermission {
+
+	return [[MSGraphPermissionFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphPermission class]];
+}
+
+- (MSGraphThumbnailSetFetcher *)asThumbnailSet {
+
+	return [[MSGraphThumbnailSetFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphThumbnailSet class]];
 }
 
 @end

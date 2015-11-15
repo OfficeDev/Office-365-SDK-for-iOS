@@ -90,7 +90,6 @@
     
     for (int i = 0; i < [self.Tests count]; i++) {
         @try {
-            
             [[self.Tests objectAtIndex:i] run:^(Test *result) {
                 
                 Test *test = [self.Tests objectAtIndex:i];
@@ -101,6 +100,7 @@
                 [self.tableView reloadData];
                 
                 if(executed >= [self.Tests count]) [spinner stopAnimating];
+
             }];
         }
         @catch (NSException *e) {
@@ -122,31 +122,33 @@
     __block int toExecute = 0;
     
     for (NSUInteger i = 0; i < [self.Tests count]; i++) {
-        
+
         __block Test *test = [self.Tests objectAtIndex:i];
         
         if(test.selected){
-            
             toExecute++;
             @try {
+                
                 [test run:^(Test *result) {
-                    
+                    ;
                     test.passed = result.passed;
                     test.executionMessages = result.executionMessages;
                     
                     executed++;
                     
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self.tableView reloadData];
+                    [self.tableView reloadData];
                         
-                        if(executed >= toExecute) [spinner stopAnimating];
-                    });
+                    if(executed >= toExecute) [spinner stopAnimating];
+                    
+
                 }];
             }
             @catch (NSException *e) {
                 NSLog(@"Exception: %@", e);
                 
                 if(executed >= toExecute) [spinner stopAnimating];
+                
+
             }
         }
     }

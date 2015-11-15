@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphPostFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphPost *Post, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphPost *post, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,21 +64,10 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphPost *Post, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphPost *post, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
-}
-
-- (MSGraphExtensionCollectionFetcher *)extensions {
-
-    return [[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]];
-}
-
-- (MSGraphExtensionFetcher *)extensionsById:(NSString *)identifier {
-
-    return [[[MSGraphExtensionCollectionFetcher alloc] initWithUrl:@"Extensions" parent:self asClass:[MSGraphExtension class]] getById:identifier];
-
 }
 
 - (MSGraphPostFetcher *)inReplyTo {

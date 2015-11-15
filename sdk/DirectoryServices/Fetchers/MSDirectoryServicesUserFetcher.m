@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesFetchers.h"
+#import "core/core.h"
 
 @implementation MSDirectoryServicesUserFetcher
 
@@ -67,6 +68,10 @@ root for authoritative license information.﻿
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
+}
+- (MSOrcStreamFetcher *)thumbnailPhoto {
+
+    return [[MSOrcStreamFetcher alloc] initWithUrl:@"thumbnailPhoto" parent:self];
 }
 
 - (MSDirectoryServicesAppRoleAssignmentCollectionFetcher *)appRoleAssignments {

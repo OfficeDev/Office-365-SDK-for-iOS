@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"DisplayName", @"displayName", @"Contacts", @"contacts", @"ChildFolders", @"childFolders", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"DisplayName", @"displayName", @"Contacts", @"contacts", @"ChildFolders", @"childFolders", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ContactFolder";
+		_odataType = @"#microsoft.graph.contactFolder";
         
     }
 
@@ -80,7 +80,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_childFolders resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -110,8 +110,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Contacts"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolders"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.ContactFolder" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.contactFolder" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -185,9 +185,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ChildFolders"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;

@@ -20,15 +20,15 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "api/api.h"
 #import "core/core.h"
-#import "core/MSOrcOperations.h"
+#import "MSGraphEntityCollectionOperations.h"
 
 
 /** MSGraphDriveCollectionOperations
  *
  */
-@interface MSGraphDriveCollectionOperations : MSOrcOperations
+@interface MSGraphDriveCollectionOperations : MSGraphEntityCollectionOperations
 
-- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)allPhotosWithCallback:(void (^)(MSGraphDriveItem *, MSOrcError*))callback ;
 
 @end
 

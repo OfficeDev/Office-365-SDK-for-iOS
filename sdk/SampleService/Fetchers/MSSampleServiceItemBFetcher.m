@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSSampleServiceFetchers.h"
+#import "core/core.h"
 
 @implementation MSSampleServiceItemBFetcher
 

@@ -22,18 +22,22 @@ root for authoritative license information.﻿
 #import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
-@class MSGraphOutlookItemFetcher;	
-@class MSGraphMailFolderFetcher;	
+@class MSGraphDirectoryObjectFetcher;	
+@class MSGraphConversationThreadFetcher;	
 @class MSGraphCalendarFetcher;	
+@class MSGraphOutlookItemFetcher;	
+@class MSGraphConversationFetcher;	
+@class MSGraphProfilePhotoFetcher;	
+@class MSGraphDriveFetcher;	
+@class MSGraphSubscribedSkuFetcher;	
+@class MSGraphMailFolderFetcher;	
 @class MSGraphCalendarGroupFetcher;	
 @class MSGraphContactFolderFetcher;	
-@class MSGraphInferenceClassificationFetcher;	
-@class MSGraphProfilePhotoFetcher;	
-@class MSGraphConversationThreadFetcher;	
-@class MSGraphConversationFetcher;	
 @class MSGraphAttachmentFetcher;	
-@class MSGraphExtensionFetcher;	
-@class MSGraphInferenceClassificationOverrideFetcher;	
+@class MSGraphDriveItemFetcher;	
+@class MSGraphShareFetcher;	
+@class MSGraphPermissionFetcher;	
+@class MSGraphThumbnailSetFetcher;	
 @class MSGraphEntityOperations;
 
 
@@ -46,24 +50,28 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphEntity *, MSOrcError *))callback;
-- (void)update:(MSGraphEntity *)Entity callback:(void (^)(MSGraphEntity *, MSOrcError*))callback ;
+- (void)update:(MSGraphEntity *)entity callback:(void (^)(MSGraphEntity *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphEntityFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphEntityFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphEntityFetcher *)select:(NSString *)params;
 - (MSGraphEntityFetcher *)expand:(NSString *)value;
-- (MSGraphOutlookItemFetcher *)asOutlookItem;	
-- (MSGraphMailFolderFetcher *)asMailFolder;	
+- (MSGraphDirectoryObjectFetcher *)asDirectoryObject;	
+- (MSGraphConversationThreadFetcher *)asConversationThread;	
 - (MSGraphCalendarFetcher *)asCalendar;	
+- (MSGraphOutlookItemFetcher *)asOutlookItem;	
+- (MSGraphConversationFetcher *)asConversation;	
+- (MSGraphProfilePhotoFetcher *)asProfilePhoto;	
+- (MSGraphDriveFetcher *)asDrive;	
+- (MSGraphSubscribedSkuFetcher *)asSubscribedSku;	
+- (MSGraphMailFolderFetcher *)asMailFolder;	
 - (MSGraphCalendarGroupFetcher *)asCalendarGroup;	
 - (MSGraphContactFolderFetcher *)asContactFolder;	
-- (MSGraphInferenceClassificationFetcher *)asInferenceClassification;	
-- (MSGraphProfilePhotoFetcher *)asProfilePhoto;	
-- (MSGraphConversationThreadFetcher *)asConversationThread;	
-- (MSGraphConversationFetcher *)asConversation;	
 - (MSGraphAttachmentFetcher *)asAttachment;	
-- (MSGraphExtensionFetcher *)asExtension;	
-- (MSGraphInferenceClassificationOverrideFetcher *)asInferenceClassificationOverride;	
+- (MSGraphDriveItemFetcher *)asDriveItem;	
+- (MSGraphShareFetcher *)asShare;	
+- (MSGraphPermissionFetcher *)asPermission;	
+- (MSGraphThumbnailSetFetcher *)asThumbnailSet;	
 
 @end
 

@@ -23,9 +23,9 @@ root for authoritative license information.﻿
 #import "core/MSOrcEntityFetcher.h"
 
 @class MSGraphIdentitySetFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphItemFetcher;
+@class MSGraphDriveItemCollectionFetcher;
+@class MSGraphDriveItemCollectionFetcher;
+@class MSGraphDriveItemFetcher;
 @class MSGraphShareOperations;
 
 
@@ -44,9 +44,9 @@ root for authoritative license information.﻿
 - (MSGraphShareFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphShareFetcher *)select:(NSString *)params;
 - (MSGraphShareFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=items) MSGraphItemCollectionFetcher *items;
+@property (strong, nonatomic, readonly, getter=items) MSGraphDriveItemCollectionFetcher *items;
 
-- (MSGraphItemFetcher *)itemsById:(id)identifier;
+- (MSGraphDriveItemFetcher *)itemsById:(id)identifier;
 
 
 @end

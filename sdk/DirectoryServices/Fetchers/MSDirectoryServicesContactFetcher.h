@@ -41,6 +41,7 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSDirectoryServicesContactFetcher *)select:(NSString *)params;
 - (MSDirectoryServicesContactFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=thumbnailPhoto) MSOrcStreamFetcher *thumbnailPhoto;
 
 @end
 

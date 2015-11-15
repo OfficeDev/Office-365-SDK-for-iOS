@@ -33,10 +33,11 @@ root for authoritative license information.﻿
 
 - (void)assignLicenseWithAddLicenses:(MSGraphAssignedLicense *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(MSGraphUser *, MSOrcError*))callback ;
 - (void)assignLicenseRawWithAddLicenses:(NSString *)addLicenses removeLicenses:(NSString *)removeLicenses callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)changePasswordWithCurrentPassword:(NSString *)currentPassword newPassword:(NSString *)newPassword callback:(void (^)(int, MSOrcError*))callback ;
+- (void)changePasswordRawWithCurrentPassword:(NSString *)currentPassword newPassword:(NSString *)newPassword callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)sendMailWithMessage:(MSGraphMessage *)message saveToSentItems:(bool)saveToSentItems callback:(void (^)(int, MSOrcError*))callback ;
 - (void)sendMailRawWithMessage:(NSString *)message saveToSentItems:(NSString *)saveToSentItems callback:(void (^)(NSString *, MSOrcError*))callback ;
-- (void)findMeetingTimesWithAttendees:(MSGraphAttendeeBase *)attendees locationConstraint:(MSGraphLocationConstraint *)locationConstraint timeConstraint:(MSGraphTimeConstraint *)timeConstraint meetingDuration:(NSTimeInterval)meetingDuration maxCandidates:(int)maxCandidates isOrganizerOptional:(bool)isOrganizerOptional callback:(void (^)(MSGraphMeetingTimeCandidate *, MSOrcError*))callback ;
-- (void)findMeetingTimesRawWithAttendees:(NSString *)attendees locationConstraint:(NSString *)locationConstraint timeConstraint:(NSString *)timeConstraint meetingDuration:(NSString *)meetingDuration maxCandidates:(NSString *)maxCandidates isOrganizerOptional:(NSString *)isOrganizerOptional callback:(void (^)(NSString *, MSOrcError*))callback ;
+- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSGraphReminder *, MSOrcError*))callback ;
 
 @end
 

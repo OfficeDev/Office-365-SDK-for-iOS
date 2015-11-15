@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphShareFetcher
 
@@ -69,14 +70,14 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphItemCollectionFetcher *)items {
+- (MSGraphDriveItemCollectionFetcher *)items {
 
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphDriveItem class]];
 }
 
-- (MSGraphItemFetcher *)itemsById:(NSString *)identifier {
+- (MSGraphDriveItemFetcher *)itemsById:(NSString *)identifier {
 
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]] getById:identifier];
+    return [[[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphDriveItem class]] getById:identifier];
 
 }
 

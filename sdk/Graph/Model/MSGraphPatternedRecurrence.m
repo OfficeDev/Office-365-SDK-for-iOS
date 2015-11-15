@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.PatternedRecurrence";
+		_odataType = @"#microsoft.graph.patternedRecurrence";
 
     }
 
@@ -70,7 +70,7 @@ root for authoritative license information.﻿
 
 	{id curVal = [self.pattern toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Pattern"];}
 	{id curVal = [self.range toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Range"];}
-    [dic setValue: @"#microsoft.graph.PatternedRecurrence" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.patternedRecurrence" forKey: @"@odata.type"];
 
     return dic;
 }

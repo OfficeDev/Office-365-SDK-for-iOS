@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"Color", @"color", @"ChangeKey", @"changeKey", @"Events", @"events", @"CalendarView", @"calendarView", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Name", @"name", @"Color", @"color", @"ChangeKey", @"changeKey", @"Events", @"events", @"CalendarView", @"calendarView", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Calendar";
+		_odataType = @"#microsoft.graph.calendar";
         
     }
 
@@ -81,7 +81,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_calendarView resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -112,8 +112,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Events"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Calendar" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.calendar" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -189,9 +189,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"CalendarView"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;

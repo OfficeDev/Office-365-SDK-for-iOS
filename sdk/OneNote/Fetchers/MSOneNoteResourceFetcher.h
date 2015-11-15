@@ -40,6 +40,7 @@ root for authoritative license information.﻿
 - (MSOneNoteResourceFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOneNoteResourceFetcher *)select:(NSString *)params;
 - (MSOneNoteResourceFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=content) MSOrcStreamFetcher *content;
 
 @end
 

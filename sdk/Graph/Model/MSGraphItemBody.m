@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ItemBody";
+		_odataType = @"#microsoft.graph.itemBody";
 
     }
 
@@ -70,7 +70,7 @@ root for authoritative license information.﻿
 
 	{[dic setValue: [MSGraphBodyTypeSerializer toString:self.contentType] forKey: @"ContentType"];}
 	{id curVal = [self.content copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Content"];}
-    [dic setValue: @"#microsoft.graph.ItemBody" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.itemBody" forKey: @"@odata.type"];
 
     return dic;
 }

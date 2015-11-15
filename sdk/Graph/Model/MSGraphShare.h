@@ -20,19 +20,14 @@ root for authoritative license information.﻿
 #import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphIdentitySet;
-@class MSGraphItem;
-#import "core/MSOrcBaseEntity.h"
+@class MSGraphDriveItem;
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphShare
  *
  */
-@interface MSGraphShare : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphShare : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property name
  *

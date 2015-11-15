@@ -26,18 +26,6 @@ root for authoritative license information.﻿
 
 	return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"directoryObjects" parent:self];
 }
-- (MSGraphApplicationCollectionFetcher *)applications {
-
-	return [[MSGraphApplicationCollectionFetcher alloc] initWithUrl:@"applications" parent:self];
-}
-- (MSGraphOrgContactCollectionFetcher *)contacts {
-
-	return [[MSGraphOrgContactCollectionFetcher alloc] initWithUrl:@"contacts" parent:self];
-}
-- (MSGraphDeviceConfigurationCollectionFetcher *)deviceConfiguration {
-
-	return [[MSGraphDeviceConfigurationCollectionFetcher alloc] initWithUrl:@"deviceConfiguration" parent:self];
-}
 - (MSGraphDeviceCollectionFetcher *)devices {
 
 	return [[MSGraphDeviceCollectionFetcher alloc] initWithUrl:@"devices" parent:self];
@@ -54,25 +42,17 @@ root for authoritative license information.﻿
 
 	return [[MSGraphDirectoryRoleTemplateCollectionFetcher alloc] initWithUrl:@"directoryRoleTemplates" parent:self];
 }
-- (MSGraphServicePrincipalCollectionFetcher *)servicePrincipals {
+- (MSGraphOrganizationCollectionFetcher *)organization {
 
-	return [[MSGraphServicePrincipalCollectionFetcher alloc] initWithUrl:@"servicePrincipals" parent:self];
-}
-- (MSGraphTenantDetailCollectionFetcher *)tenantDetails {
-
-	return [[MSGraphTenantDetailCollectionFetcher alloc] initWithUrl:@"tenantDetails" parent:self];
-}
-- (MSGraphUserCollectionFetcher *)users {
-
-	return [[MSGraphUserCollectionFetcher alloc] initWithUrl:@"users" parent:self];
-}
-- (MSGraphOAuth2PermissionGrantCollectionFetcher *)oauth2PermissionGrants {
-
-	return [[MSGraphOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self];
+	return [[MSGraphOrganizationCollectionFetcher alloc] initWithUrl:@"organization" parent:self];
 }
 - (MSGraphSubscribedSkuCollectionFetcher *)subscribedSkus {
 
 	return [[MSGraphSubscribedSkuCollectionFetcher alloc] initWithUrl:@"subscribedSkus" parent:self];
+}
+- (MSGraphUserCollectionFetcher *)users {
+
+	return [[MSGraphUserCollectionFetcher alloc] initWithUrl:@"users" parent:self];
 }
 - (MSGraphDriveCollectionFetcher *)drives {
 
@@ -82,49 +62,10 @@ root for authoritative license information.﻿
 
 	return [[MSGraphShareCollectionFetcher alloc] initWithUrl:@"shares" parent:self];
 }
-- (MSGraphTaskCollectionFetcher *)tasks {
 
-	return [[MSGraphTaskCollectionFetcher alloc] initWithUrl:@"tasks" parent:self];
-}
-- (MSGraphPlanCollectionFetcher *)plans {
+- (MSGraphUserFetcher *)me {
 
-	return [[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self];
-}
-- (MSGraphBucketCollectionFetcher *)buckets {
-
-	return [[MSGraphBucketCollectionFetcher alloc] initWithUrl:@"buckets" parent:self];
-}
-- (MSGraphSiteCollection_CollectionFetcher *)siteCollections {
-
-	return [[MSGraphSiteCollection_CollectionFetcher alloc] initWithUrl:@"siteCollections" parent:self];
-}
-- (MSGraphPrivilegedRoleCollectionFetcher *)privilegedRoles {
-
-	return [[MSGraphPrivilegedRoleCollectionFetcher alloc] initWithUrl:@"PrivilegedRoles" parent:self];
-}
-- (MSGraphPrivilegedSecurityAlertCollectionFetcher *)privilegedSecurityAlerts {
-
-	return [[MSGraphPrivilegedSecurityAlertCollectionFetcher alloc] initWithUrl:@"PrivilegedSecurityAlerts" parent:self];
-}
-- (MSGraphPrivilegedRoleAssignmentCollectionFetcher *)privilegedRoleAssignments {
-
-	return [[MSGraphPrivilegedRoleAssignmentCollectionFetcher alloc] initWithUrl:@"PrivilegedRoleAssignments" parent:self];
-}
-- (MSGraphPrivilegedOperationEventCollectionFetcher *)privilegedOperationEvents {
-
-	return [[MSGraphPrivilegedOperationEventCollectionFetcher alloc] initWithUrl:@"PrivilegedOperationEvents" parent:self];
-}
-- (MSGraphPrivilegedSignupStatusCollectionFetcher *)privilegedSignupStatus {
-
-	return [[MSGraphPrivilegedSignupStatusCollectionFetcher alloc] initWithUrl:@"PrivilegedSignupStatus" parent:self];
-}
-- (MSGraphPrivilegedOperationNotificationCollectionFetcher *)privilegedOperationNotifications {
-
-	return [[MSGraphPrivilegedOperationNotificationCollectionFetcher alloc] initWithUrl:@"PrivilegedOperationNotifications" parent:self];
-}
-- (MSGraphPrivilegedOperationNotificationRuleCollectionFetcher *)privilegedOperationNotificationRules {
-
-	return [[MSGraphPrivilegedOperationNotificationRuleCollectionFetcher alloc] initWithUrl:@"PrivilegedOperationNotificationRules" parent:self];
+	return [[MSGraphUserFetcher alloc] initWithUrl:@"me" parent:self];
 }
 
 - (MSGraphDriveFetcher *)drive {

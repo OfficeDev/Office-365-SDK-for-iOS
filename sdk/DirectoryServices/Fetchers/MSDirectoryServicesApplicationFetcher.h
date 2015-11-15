@@ -48,6 +48,7 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesApplicationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSDirectoryServicesApplicationFetcher *)select:(NSString *)params;
 - (MSDirectoryServicesApplicationFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=mainLogo) MSOrcStreamFetcher *mainLogo;
 @property (strong, nonatomic, readonly, getter=extensionProperties) MSDirectoryServicesExtensionPropertyCollectionFetcher *extensionProperties;
 
 - (MSDirectoryServicesExtensionPropertyFetcher *)extensionPropertiesById:(id)identifier;

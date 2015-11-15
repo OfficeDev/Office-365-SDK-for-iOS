@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOutlookFetchers.h"
+#import "core/core.h"
 
 @implementation MSOutlookNotificationFetcher
 

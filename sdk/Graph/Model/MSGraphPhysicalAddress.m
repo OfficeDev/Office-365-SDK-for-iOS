@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.PhysicalAddress";
+		_odataType = @"#microsoft.graph.physicalAddress";
 
     }
 
@@ -76,7 +76,7 @@ root for authoritative license information.﻿
 	{id curVal = [self.state copy];if (curVal!=nil) [dic setValue: curVal forKey: @"State"];}
 	{id curVal = [self.countryOrRegion copy];if (curVal!=nil) [dic setValue: curVal forKey: @"CountryOrRegion"];}
 	{id curVal = [self.postalCode copy];if (curVal!=nil) [dic setValue: curVal forKey: @"PostalCode"];}
-    [dic setValue: @"#microsoft.graph.PhysicalAddress" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.physicalAddress" forKey: @"@odata.type"];
 
     return dic;
 }

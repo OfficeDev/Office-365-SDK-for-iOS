@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"ReceivedDateTime", @"receivedDateTime", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"NewParticipants", @"newParticipants", @"ConversationId", @"conversationId", @"Extensions", @"extensions", @"InReplyTo", @"inReplyTo", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Body", @"body", @"ReceivedDateTime", @"receivedDateTime", @"HasAttachments", @"hasAttachments", @"From", @"from", @"Sender", @"sender", @"ConversationThreadId", @"conversationThreadId", @"NewParticipants", @"newParticipants", @"ConversationId", @"conversationId", @"InReplyTo", @"inReplyTo", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Post";
+		_odataType = @"#microsoft.graph.post";
         
     }
 
@@ -74,17 +74,6 @@ root for authoritative license information.﻿
         }
         
 		_conversationId = (![dic objectForKey: @"ConversationId"] || [ [dic objectForKey: @"ConversationId"] isKindOfClass:[NSNull class]] )?_conversationId:[[dic objectForKey: @"ConversationId"] copy];
-
-        if([dic objectForKey: @"Extensions"] != [NSNull null]){
-            _extensions = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"Extensions"]) {
-                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_extensions resetChangedFlag];
-        }
-        
 		_inReplyTo = (![dic objectForKey: @"InReplyTo"] || [ [dic objectForKey: @"InReplyTo"] isKindOfClass:[NSNull class]] )?_inReplyTo:[[MSGraphPost alloc] initWithDictionary: [dic objectForKey: @"InReplyTo"]];
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
@@ -111,7 +100,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -138,14 +127,6 @@ root for authoritative license information.﻿
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"NewParticipants"];}
 	{id curVal = [self.conversationId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ConversationId"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{id curVal = [self.inReplyTo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"InReplyTo"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -166,8 +147,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Post" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.post" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -270,32 +251,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"ConversationId"];
             }
     }
-	{id curVal = self.extensions;
-    if([self.updatedValues containsObject:@"Extensions"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"Extensions"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"Extensions"];
-        }
-        
-            }}
 	{id curVal = self.inReplyTo;
     if([self.updatedValues containsObject:@"InReplyTo"])
     {
@@ -383,9 +338,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
@@ -454,14 +409,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 - (void) setConversationId: (NSString *) value {
     _conversationId = value;
     [self valueChangedFor:@"ConversationId"];
-}
-       
-/** Setter implementation for property extensions
- *
- */
-- (void) setExtensions: (NSMutableArray *) value {
-    _extensions = value;
-    [self valueChangedFor:@"Extensions"];
 }
        
 /** Setter implementation for property inReplyTo

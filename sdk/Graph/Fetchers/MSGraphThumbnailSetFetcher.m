@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphThumbnailSetFetcher
 

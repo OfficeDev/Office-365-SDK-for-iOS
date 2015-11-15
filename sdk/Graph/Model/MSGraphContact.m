@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"Birthday", @"birthday", @"FileAs", @"fileAs", @"DisplayName", @"displayName", @"GivenName", @"givenName", @"Initials", @"initials", @"MiddleName", @"middleName", @"NickName", @"nickName", @"Surname", @"surname", @"Title", @"title", @"YomiGivenName", @"yomiGivenName", @"YomiSurname", @"yomiSurname", @"YomiCompanyName", @"yomiCompanyName", @"Generation", @"generation", @"EmailAddresses", @"emailAddresses", @"ImAddresses", @"imAddresses", @"JobTitle", @"jobTitle", @"CompanyName", @"companyName", @"Department", @"department", @"OfficeLocation", @"officeLocation", @"Profession", @"profession", @"BusinessHomePage", @"businessHomePage", @"AssistantName", @"assistantName", @"Manager", @"manager", @"HomePhones", @"homePhones", @"MobilePhone1", @"mobilePhone1", @"BusinessPhones", @"businessPhones", @"HomeAddress", @"homeAddress", @"BusinessAddress", @"businessAddress", @"OtherAddress", @"otherAddress", @"SpouseName", @"spouseName", @"PersonalNotes", @"personalNotes", @"Children", @"children", @"Extensions", @"extensions", @"Photo", @"photo", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ParentFolderId", @"parentFolderId", @"Birthday", @"birthday", @"FileAs", @"fileAs", @"DisplayName", @"displayName", @"GivenName", @"givenName", @"Initials", @"initials", @"MiddleName", @"middleName", @"NickName", @"nickName", @"Surname", @"surname", @"Title", @"title", @"YomiGivenName", @"yomiGivenName", @"YomiSurname", @"yomiSurname", @"YomiCompanyName", @"yomiCompanyName", @"Generation", @"generation", @"EmailAddresses", @"emailAddresses", @"ImAddresses", @"imAddresses", @"JobTitle", @"jobTitle", @"CompanyName", @"companyName", @"Department", @"department", @"OfficeLocation", @"officeLocation", @"Profession", @"profession", @"BusinessHomePage", @"businessHomePage", @"AssistantName", @"assistantName", @"Manager", @"manager", @"HomePhones", @"homePhones", @"MobilePhone1", @"mobilePhone1", @"BusinessPhones", @"businessPhones", @"HomeAddress", @"homeAddress", @"BusinessAddress", @"businessAddress", @"OtherAddress", @"otherAddress", @"SpouseName", @"spouseName", @"PersonalNotes", @"personalNotes", @"Children", @"children", @"Photo", @"photo", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Contact";
+		_odataType = @"#microsoft.graph.contact";
         
     }
 
@@ -139,17 +139,6 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_children resetChangedFlag];
         }
         
-
-        if([dic objectForKey: @"Extensions"] != [NSNull null]){
-            _extensions = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"Extensions"]) {
-                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_extensions resetChangedFlag];
-        }
-        
 		_photo = (![dic objectForKey: @"Photo"] || [ [dic objectForKey: @"Photo"] isKindOfClass:[NSNull class]] )?_photo:[[MSGraphProfilePhoto alloc] initWithDictionary: [dic objectForKey: @"Photo"]];
 		self.createdDateTime = (![dic objectForKey: @"CreatedDateTime"] || [ [dic objectForKey: @"CreatedDateTime"] isKindOfClass:[NSNull class]] )?self.createdDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"CreatedDateTime"]];
 		self.lastModifiedDateTime = (![dic objectForKey: @"LastModifiedDateTime"] || [ [dic objectForKey: @"LastModifiedDateTime"] isKindOfClass:[NSNull class]] )?self.lastModifiedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"LastModifiedDateTime"]];
@@ -165,7 +154,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -245,14 +234,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"BusinessPhones"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Children"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{id curVal = [self.photo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Photo"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.createdDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"CreatedDateTime"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.lastModifiedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"LastModifiedDateTime"];}
@@ -265,8 +246,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Contact" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.contact" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -603,32 +584,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         }
         
             }}
-	{id curVal = self.extensions;
-    if([self.updatedValues containsObject:@"Extensions"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"Extensions"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"Extensions"];
-        }
-        
-            }}
 	{id curVal = self.photo;
     if([self.updatedValues containsObject:@"Photo"])
     {
@@ -690,9 +645,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
@@ -961,14 +916,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 - (void) setChildren: (NSMutableArray *) value {
     _children = value;
     [self valueChangedFor:@"Children"];
-}
-       
-/** Setter implementation for property extensions
- *
- */
-- (void) setExtensions: (NSMutableArray *) value {
-    _extensions = value;
-    [self valueChangedFor:@"Extensions"];
 }
        
 /** Setter implementation for property photo

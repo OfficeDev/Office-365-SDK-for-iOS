@@ -36,7 +36,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphSubscribedSku *, MSOrcError *))callback;
-- (void)update:(MSGraphSubscribedSku *)SubscribedSku callback:(void (^)(MSGraphSubscribedSku *, MSOrcError*))callback ;
+- (void)update:(MSGraphSubscribedSku *)subscribedSku callback:(void (^)(MSGraphSubscribedSku *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphSubscribedSkuFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphSubscribedSkuFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

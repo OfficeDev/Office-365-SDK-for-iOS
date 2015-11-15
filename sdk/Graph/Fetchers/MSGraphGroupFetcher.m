@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphGroupFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphGroup *Group, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphGroup *group, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,21 +64,10 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphGroup *Group, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphGroup *group, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
-}
-
-- (MSGraphAppRoleAssignmentCollectionFetcher *)appRoleAssignments {
-
-    return [[MSGraphAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self asClass:[MSGraphAppRoleAssignment class]];
-}
-
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString *)identifier {
-
-    return [[[MSGraphAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self asClass:[MSGraphAppRoleAssignment class]] getById:identifier];
-
 }
 
 - (MSGraphDirectoryObjectCollectionFetcher *)members {
@@ -172,17 +162,6 @@ root for authoritative license information.﻿
 	 return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
-- (MSGraphProfilePhotoCollectionFetcher *)photos {
-
-    return [[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]];
-}
-
-- (MSGraphProfilePhotoFetcher *)photosById:(NSString *)identifier {
-
-    return [[[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]] getById:identifier];
-
-}
-
 - (MSGraphDirectoryObjectCollectionFetcher *)acceptedSenders {
 
     return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"AcceptedSenders" parent:self asClass:[MSGraphDirectoryObject class]];
@@ -208,22 +187,6 @@ root for authoritative license information.﻿
 - (MSGraphDriveFetcher *)drive {
 
 	 return [[MSGraphDriveFetcher alloc] initWithUrl:@"drive" parent:self asClass:[MSGraphDrive class]];
-}
-
-- (MSGraphPlanCollectionFetcher *)plans {
-
-    return [[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]];
-}
-
-- (MSGraphPlanFetcher *)plansById:(NSString *)identifier {
-
-    return [[[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]] getById:identifier];
-
-}
-
-- (MSGraphNotesFetcher *)notes {
-
-	 return [[MSGraphNotesFetcher alloc] initWithUrl:@"notes" parent:self asClass:[MSGraphNotes class]];
 }
 
 @end

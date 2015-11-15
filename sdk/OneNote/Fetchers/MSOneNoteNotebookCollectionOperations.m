@@ -26,15 +26,15 @@ root for authoritative license information.﻿
 - (void)copyNotebookWithSiteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs notebookFolder:(NSString *)notebookFolder callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *siteCollectionIdString = [siteCollectionId copy];
+      NSString *siteCollectionIdString = [NSString stringWithFormat:@"\"%@\"", siteCollectionId];
 
-  NSString *siteIdString = [siteId copy];
+  NSString *siteIdString = [NSString stringWithFormat:@"\"%@\"", siteId];
 
-  NSString *groupIdString = [groupId copy];
+  NSString *groupIdString = [NSString stringWithFormat:@"\"%@\"", groupId];
 
-  NSString *renameAsString = [renameAs copy];
+  NSString *renameAsString = [NSString stringWithFormat:@"\"%@\"", renameAs];
 
-  NSString *notebookFolderString = [notebookFolder copy];
+  NSString *notebookFolderString = [NSString stringWithFormat:@"\"%@\"", notebookFolder];
 
     return [self copyNotebookRawWithSiteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString notebookFolder:notebookFolderString callback:^(NSString *returnValue, MSOrcError *e) {
        

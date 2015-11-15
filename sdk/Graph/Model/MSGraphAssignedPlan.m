@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"assignedTimestamp", @"assignedTimestamp", @"capabilityStatus", @"capabilityStatus", @"service", @"service", @"servicePlanId", @"servicePlanId", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"assignedDateTime", @"assignedDateTime", @"capabilityStatus", @"capabilityStatus", @"service", @"service", @"servicePlanId", @"servicePlanId", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.AssignedPlan";
+		_odataType = @"#microsoft.graph.assignedPlan";
 
     }
 
@@ -55,7 +55,7 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
-		_assignedTimestamp = (![dic objectForKey: @"assignedTimestamp"] || [ [dic objectForKey: @"assignedTimestamp"] isKindOfClass:[NSNull class]] )?_assignedTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"assignedTimestamp"]];
+		_assignedDateTime = (![dic objectForKey: @"assignedDateTime"] || [ [dic objectForKey: @"assignedDateTime"] isKindOfClass:[NSNull class]] )?_assignedDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"assignedDateTime"]];
 		_capabilityStatus = (![dic objectForKey: @"capabilityStatus"] || [ [dic objectForKey: @"capabilityStatus"] isKindOfClass:[NSNull class]] )?_capabilityStatus:[[dic objectForKey: @"capabilityStatus"] copy];
 		_service = (![dic objectForKey: @"service"] || [ [dic objectForKey: @"service"] isKindOfClass:[NSNull class]] )?_service:[[dic objectForKey: @"service"] copy];
 		_servicePlanId = (![dic objectForKey: @"servicePlanId"] || [ [dic objectForKey: @"servicePlanId"] isKindOfClass:[NSNull class]] )?_servicePlanId:[[dic objectForKey: @"servicePlanId"] copy];
@@ -70,11 +70,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"assignedTimestamp"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.assignedDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"assignedDateTime"];}
 	{id curVal = [self.capabilityStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
 	{id curVal = [self.service copy];if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
 	{id curVal = [self.servicePlanId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
-    [dic setValue: @"#microsoft.graph.AssignedPlan" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.assignedPlan" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -83,10 +83,10 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.assignedTimestamp;
-    if([self.updatedValues containsObject:@"assignedTimestamp"])
+	{id curVal = self.assignedDateTime;
+    if([self.updatedValues containsObject:@"assignedDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedTimestamp"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"assignedDateTime"];
             }
     }
 	{id curVal = self.capabilityStatus;
@@ -111,12 +111,12 @@ root for authoritative license information.﻿
 }
 
 
-/** Setter implementation for property assignedTimestamp
+/** Setter implementation for property assignedDateTime
  *
  */
-- (void) setAssignedTimestamp: (NSDate *) value {
-    _assignedTimestamp = value;
-    [self valueChangedFor:@"assignedTimestamp"];
+- (void) setAssignedDateTime: (NSDate *) value {
+    _assignedDateTime = value;
+    [self valueChangedFor:@"assignedDateTime"];
 }
        
 /** Setter implementation for property capabilityStatus

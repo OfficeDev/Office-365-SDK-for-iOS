@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Height", @"height", @"Width", @"width", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ProfilePhoto";
+		_odataType = @"#microsoft.graph.profilePhoto";
         
     }
 
@@ -58,7 +58,7 @@ root for authoritative license information.﻿
         if(dic!=nil) {
 		_height = (![dic objectForKey: @"Height"] || [ [dic objectForKey: @"Height"] isKindOfClass:[NSNull class]] )?_height:[[dic objectForKey: @"Height"] intValue];
 		_width = (![dic objectForKey: @"Width"] || [ [dic objectForKey: @"Width"] isKindOfClass:[NSNull class]] )?_width:[[dic objectForKey: @"Width"] intValue];
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -72,8 +72,8 @@ root for authoritative license information.﻿
 
 	{[dic setValue: [NSNumber numberWithInt: self.height] forKey: @"Height"];}
 	{[dic setValue: [NSNumber numberWithInt: self.width] forKey: @"Width"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.ProfilePhoto" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.profilePhoto" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -87,9 +87,9 @@ root for authoritative license information.﻿
 } if([self.updatedValues containsObject:@"Width"])
             { [dic setValue: [NSNumber numberWithInt: self.width] forKey: @"Width"];
 }	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;

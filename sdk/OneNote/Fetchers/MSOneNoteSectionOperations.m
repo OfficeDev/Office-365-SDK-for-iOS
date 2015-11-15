@@ -31,15 +31,15 @@ root for authoritative license information.﻿
 - (void)copyToNotebookWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *_idString = [_id copy];
+      NSString *_idString = [NSString stringWithFormat:@"\"%@\"", _id];
 
-  NSString *siteCollectionIdString = [siteCollectionId copy];
+  NSString *siteCollectionIdString = [NSString stringWithFormat:@"\"%@\"", siteCollectionId];
 
-  NSString *siteIdString = [siteId copy];
+  NSString *siteIdString = [NSString stringWithFormat:@"\"%@\"", siteId];
 
-  NSString *groupIdString = [groupId copy];
+  NSString *groupIdString = [NSString stringWithFormat:@"\"%@\"", groupId];
 
-  NSString *renameAsString = [renameAs copy];
+  NSString *renameAsString = [NSString stringWithFormat:@"\"%@\"", renameAs];
 
     return [self copyToNotebookRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -84,15 +84,15 @@ root for authoritative license information.﻿
 - (void)copyToSectionGroupWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId renameAs:(NSString *)renameAs callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *_idString = [_id copy];
+      NSString *_idString = [NSString stringWithFormat:@"\"%@\"", _id];
 
-  NSString *siteCollectionIdString = [siteCollectionId copy];
+  NSString *siteCollectionIdString = [NSString stringWithFormat:@"\"%@\"", siteCollectionId];
 
-  NSString *siteIdString = [siteId copy];
+  NSString *siteIdString = [NSString stringWithFormat:@"\"%@\"", siteId];
 
-  NSString *groupIdString = [groupId copy];
+  NSString *groupIdString = [NSString stringWithFormat:@"\"%@\"", groupId];
 
-  NSString *renameAsString = [renameAs copy];
+  NSString *renameAsString = [NSString stringWithFormat:@"\"%@\"", renameAs];
 
     return [self copyToSectionGroupRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString renameAs:renameAsString callback:^(NSString *returnValue, MSOrcError *e) {
        

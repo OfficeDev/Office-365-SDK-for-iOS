@@ -37,7 +37,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphConversation *, MSOrcError *))callback;
-- (void)update:(MSGraphConversation *)Conversation callback:(void (^)(MSGraphConversation *, MSOrcError*))callback ;
+- (void)update:(MSGraphConversation *)conversation callback:(void (^)(MSGraphConversation *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphConversationFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphConversationFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

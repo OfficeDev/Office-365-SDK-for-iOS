@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphDirectoryObjectFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphDirectoryObject *DirectoryObject, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphDirectoryObject *directoryObject, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,55 +64,15 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphDirectoryObject *DirectoryObject, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphDirectoryObject *directoryObject, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
 }
 
-- (MSGraphApplicationFetcher *)asApplication {
-
-	return [[MSGraphApplicationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphApplication class]];
-}
-
-- (MSGraphExtensionPropertyFetcher *)asExtensionProperty {
-
-	return [[MSGraphExtensionPropertyFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphExtensionProperty class]];
-}
-
-- (MSGraphUserFetcher *)asUser {
-
-	return [[MSGraphUserFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphUser class]];
-}
-
-- (MSGraphAppRoleAssignmentFetcher *)asAppRoleAssignment {
-
-	return [[MSGraphAppRoleAssignmentFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphAppRoleAssignment class]];
-}
-
-- (MSGraphGroupFetcher *)asGroup {
-
-	return [[MSGraphGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphGroup class]];
-}
-
-- (MSGraphOrgContactFetcher *)asOrgContact {
-
-	return [[MSGraphOrgContactFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphOrgContact class]];
-}
-
 - (MSGraphDeviceFetcher *)asDevice {
 
 	return [[MSGraphDeviceFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDevice class]];
-}
-
-- (MSGraphDeviceConfigurationFetcher *)asDeviceConfiguration {
-
-	return [[MSGraphDeviceConfigurationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDeviceConfiguration class]];
-}
-
-- (MSGraphDirectoryLinkChangeFetcher *)asDirectoryLinkChange {
-
-	return [[MSGraphDirectoryLinkChangeFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDirectoryLinkChange class]];
 }
 
 - (MSGraphDirectoryRoleFetcher *)asDirectoryRole {
@@ -124,14 +85,19 @@ root for authoritative license information.﻿
 	return [[MSGraphDirectoryRoleTemplateFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphDirectoryRoleTemplate class]];
 }
 
-- (MSGraphServicePrincipalFetcher *)asServicePrincipal {
+- (MSGraphGroupFetcher *)asGroup {
 
-	return [[MSGraphServicePrincipalFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphServicePrincipal class]];
+	return [[MSGraphGroupFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphGroup class]];
 }
 
-- (MSGraphTenantDetailFetcher *)asTenantDetail {
+- (MSGraphOrganizationFetcher *)asOrganization {
 
-	return [[MSGraphTenantDetailFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphTenantDetail class]];
+	return [[MSGraphOrganizationFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphOrganization class]];
+}
+
+- (MSGraphUserFetcher *)asUser {
+
+	return [[MSGraphUserFetcher alloc] initWithUrl:@"" parent:self asClass:[MSGraphUser class]];
 }
 
 @end

@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Recipient";
+		_odataType = @"#microsoft.graph.recipient";
 
     }
 
@@ -68,7 +68,7 @@ root for authoritative license information.﻿
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
 	{id curVal = [self.emailAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
-    [dic setValue: @"#microsoft.graph.Recipient" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.recipient" forKey: @"@odata.type"];
 
     return dic;
 }

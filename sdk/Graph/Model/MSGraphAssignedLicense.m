@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.AssignedLicense";
+		_odataType = @"#microsoft.graph.assignedLicense";
 
     }
 
@@ -87,7 +87,7 @@ root for authoritative license information.﻿
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"disabledPlans"];}
 	{id curVal = [self.skuId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
-    [dic setValue: @"#microsoft.graph.AssignedLicense" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.assignedLicense" forKey: @"@odata.type"];
 
     return dic;
 }

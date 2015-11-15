@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"InferenceClassification", @"inferenceClassification", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ReceivedDateTime", @"receivedDateTime", @"SentDateTime", @"sentDateTime", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"ParentFolderId", @"parentFolderId", @"Sender", @"sender", @"From", @"from", @"ToRecipients", @"toRecipients", @"CcRecipients", @"ccRecipients", @"BccRecipients", @"bccRecipients", @"ReplyTo", @"replyTo", @"ConversationId", @"conversationId", @"UniqueBody", @"uniqueBody", @"IsDeliveryReceiptRequested", @"isDeliveryReceiptRequested", @"IsReadReceiptRequested", @"isReadReceiptRequested", @"IsRead", @"isRead", @"IsDraft", @"isDraft", @"WebLink", @"webLink", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Message";
+		_odataType = @"#microsoft.graph.message";
         
     }
 
@@ -117,18 +117,6 @@ root for authoritative license information.﻿
 		_isRead = (![dic objectForKey: @"IsRead"] || [ [dic objectForKey: @"IsRead"] isKindOfClass:[NSNull class]] )?_isRead:[[dic objectForKey: @"IsRead"] boolValue];
 		_isDraft = (![dic objectForKey: @"IsDraft"] || [ [dic objectForKey: @"IsDraft"] isKindOfClass:[NSNull class]] )?_isDraft:[[dic objectForKey: @"IsDraft"] boolValue];
 		_webLink = (![dic objectForKey: @"WebLink"] || [ [dic objectForKey: @"WebLink"] isKindOfClass:[NSNull class]] )?_webLink:[[dic objectForKey: @"WebLink"] copy];
-		_inferenceClassification = (![dic objectForKey: @"InferenceClassification"] || [ [dic objectForKey: @"InferenceClassification"] isKindOfClass:[NSNull class]] )?_inferenceClassification:[MSGraphInferenceClassificationTypeSerializer fromString:[dic objectForKey: @"InferenceClassification"]];
-
-        if([dic objectForKey: @"Extensions"] != [NSNull null]){
-            _extensions = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"Extensions"]) {
-                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_extensions resetChangedFlag];
-        }
-        
 
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
             _attachments = [[MSOrcChangesTrackingArray alloc] init];
@@ -154,7 +142,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -215,15 +203,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"ReplyTo"];}
 	{[dic setValue: (self.isRead?@"true":@"false") forKey: @"IsRead"];}
 	{[dic setValue: (self.isDraft?@"true":@"false") forKey: @"IsDraft"];}
 	{id curVal = [self.webLink copy];if (curVal!=nil) [dic setValue: curVal forKey: @"WebLink"];}
-	{[dic setValue: [MSGraphInferenceClassificationTypeSerializer toString:self.inferenceClassification] forKey: @"InferenceClassification"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.attachments) {
@@ -243,8 +222,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Message" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.message" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -475,34 +454,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"WebLink"];
             }
     }
- if([self.updatedValues containsObject:@"InferenceClassification"])
-            { [dic setValue: [MSGraphInferenceClassificationTypeSerializer toString:self.inferenceClassification] forKey: @"InferenceClassification"];
-}	{id curVal = self.extensions;
-    if([self.updatedValues containsObject:@"Extensions"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"Extensions"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"Extensions"];
-        }
-        
-            }}
 	{id curVal = self.attachments;
     if([self.updatedValues containsObject:@"Attachments"])
     {
@@ -574,9 +525,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
@@ -756,29 +707,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 - (void) setWebLink: (NSString *) value {
     _webLink = value;
     [self valueChangedFor:@"WebLink"];
-}
-       
-/** Setter implementation for property inferenceClassification
- *
- */
-- (void) setInferenceClassification: (MSGraphInferenceClassificationType) value {
-    _inferenceClassification = value;
-    [self valueChangedFor:@"InferenceClassification"];
-}
-       
-
-- (void)setInferenceClassificationString:(NSString *)string {
-        
-    _inferenceClassification = [MSGraphInferenceClassificationTypeSerializer fromString:string];
-    [self valueChangedFor:@"InferenceClassification"]; 
-}
-
-/** Setter implementation for property extensions
- *
- */
-- (void) setExtensions: (NSMutableArray *) value {
-    _extensions = value;
-    [self valueChangedFor:@"Extensions"];
 }
        
 /** Setter implementation for property attachments

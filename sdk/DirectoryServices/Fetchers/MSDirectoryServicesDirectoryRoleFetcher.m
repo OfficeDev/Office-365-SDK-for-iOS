@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDirectoryServicesFetchers.h"
+#import "core/core.h"
 
 @implementation MSDirectoryServicesDirectoryRoleFetcher
 

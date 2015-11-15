@@ -20,18 +20,13 @@ root for authoritative license information.﻿
 #import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphThumbnail;
-#import "core/MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphThumbnailSet
  *
  */
-@interface MSGraphThumbnailSet : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphThumbnailSet : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property large
  *

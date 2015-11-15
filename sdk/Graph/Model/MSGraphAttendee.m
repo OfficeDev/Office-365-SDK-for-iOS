@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Attendee";
+		_odataType = @"#microsoft.graph.attendee";
 
     }
 
@@ -57,7 +57,7 @@ root for authoritative license information.﻿
         if(dic!=nil) {
 		_status = (![dic objectForKey: @"Status"] || [ [dic objectForKey: @"Status"] isKindOfClass:[NSNull class]] )?_status:[[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"Status"]];
 		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphAttendeeTypeSerializer fromString:[dic objectForKey: @"Type"]];
-		_emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?_emailAddress:[[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]];
+		self.emailAddress = (![dic objectForKey: @"EmailAddress"] || [ [dic objectForKey: @"EmailAddress"] isKindOfClass:[NSNull class]] )?self.emailAddress:[[MSGraphEmailAddress alloc] initWithDictionary: [dic objectForKey: @"EmailAddress"]];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -72,7 +72,7 @@ root for authoritative license information.﻿
 	{id curVal = [self.status toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Status"];}
 	{[dic setValue: [MSGraphAttendeeTypeSerializer toString:self.type] forKey: @"Type"];}
 	{id curVal = [self.emailAddress toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"EmailAddress"];}
-    [dic setValue: @"#microsoft.graph.Attendee" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.attendee" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -142,13 +142,5 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"Type"]; 
 }
 
-/** Setter implementation for property emailAddress
- *
- */
-- (void) setEmailAddress: (MSGraphEmailAddress *) value {
-    _emailAddress = value;
-    [self valueChangedFor:@"EmailAddress"];
-}
-       
 
 @end

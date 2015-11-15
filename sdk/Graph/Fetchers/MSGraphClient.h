@@ -21,31 +21,16 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 
 @class MSGraphDirectoryObjectCollectionFetcher;
-@class MSGraphApplicationCollectionFetcher;
-@class MSGraphOrgContactCollectionFetcher;
-@class MSGraphDeviceConfigurationCollectionFetcher;
 @class MSGraphDeviceCollectionFetcher;
 @class MSGraphGroupCollectionFetcher;
 @class MSGraphDirectoryRoleCollectionFetcher;
 @class MSGraphDirectoryRoleTemplateCollectionFetcher;
-@class MSGraphServicePrincipalCollectionFetcher;
-@class MSGraphTenantDetailCollectionFetcher;
-@class MSGraphUserCollectionFetcher;
-@class MSGraphOAuth2PermissionGrantCollectionFetcher;
+@class MSGraphOrganizationCollectionFetcher;
 @class MSGraphSubscribedSkuCollectionFetcher;
+@class MSGraphUserCollectionFetcher;
 @class MSGraphDriveCollectionFetcher;
 @class MSGraphShareCollectionFetcher;
-@class MSGraphTaskCollectionFetcher;
-@class MSGraphPlanCollectionFetcher;
-@class MSGraphBucketCollectionFetcher;
-@class MSGraphSiteCollection_CollectionFetcher;
-@class MSGraphPrivilegedRoleCollectionFetcher;
-@class MSGraphPrivilegedSecurityAlertCollectionFetcher;
-@class MSGraphPrivilegedRoleAssignmentCollectionFetcher;
-@class MSGraphPrivilegedOperationEventCollectionFetcher;
-@class MSGraphPrivilegedSignupStatusCollectionFetcher;
-@class MSGraphPrivilegedOperationNotificationCollectionFetcher;
-@class MSGraphPrivilegedOperationNotificationRuleCollectionFetcher;
+@class MSGraphUserFetcher;
 @class MSGraphDriveFetcher;
 
 /** Client MSGraphClient
@@ -55,31 +40,16 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString *)url  dependencyResolver:(id<MSOrcDependencyResolver>)resolver;
 @property (strong, nonatomic, readonly, getter=directoryObjects) MSGraphDirectoryObjectCollectionFetcher *directoryObjects;
-@property (strong, nonatomic, readonly, getter=applications) MSGraphApplicationCollectionFetcher *applications;
-@property (strong, nonatomic, readonly, getter=contacts) MSGraphOrgContactCollectionFetcher *contacts;
-@property (strong, nonatomic, readonly, getter=deviceConfiguration) MSGraphDeviceConfigurationCollectionFetcher *deviceConfiguration;
 @property (strong, nonatomic, readonly, getter=devices) MSGraphDeviceCollectionFetcher *devices;
 @property (strong, nonatomic, readonly, getter=groups) MSGraphGroupCollectionFetcher *groups;
 @property (strong, nonatomic, readonly, getter=directoryRoles) MSGraphDirectoryRoleCollectionFetcher *directoryRoles;
 @property (strong, nonatomic, readonly, getter=directoryRoleTemplates) MSGraphDirectoryRoleTemplateCollectionFetcher *directoryRoleTemplates;
-@property (strong, nonatomic, readonly, getter=servicePrincipals) MSGraphServicePrincipalCollectionFetcher *servicePrincipals;
-@property (strong, nonatomic, readonly, getter=tenantDetails) MSGraphTenantDetailCollectionFetcher *tenantDetails;
-@property (strong, nonatomic, readonly, getter=users) MSGraphUserCollectionFetcher *users;
-@property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
+@property (strong, nonatomic, readonly, getter=organization) MSGraphOrganizationCollectionFetcher *organization;
 @property (strong, nonatomic, readonly, getter=subscribedSkus) MSGraphSubscribedSkuCollectionFetcher *subscribedSkus;
+@property (strong, nonatomic, readonly, getter=users) MSGraphUserCollectionFetcher *users;
 @property (strong, nonatomic, readonly, getter=drives) MSGraphDriveCollectionFetcher *drives;
 @property (strong, nonatomic, readonly, getter=shares) MSGraphShareCollectionFetcher *shares;
-@property (strong, nonatomic, readonly, getter=tasks) MSGraphTaskCollectionFetcher *tasks;
-@property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
-@property (strong, nonatomic, readonly, getter=buckets) MSGraphBucketCollectionFetcher *buckets;
-@property (strong, nonatomic, readonly, getter=siteCollections) MSGraphSiteCollection_CollectionFetcher *siteCollections;
-@property (strong, nonatomic, readonly, getter=privilegedRoles) MSGraphPrivilegedRoleCollectionFetcher *privilegedRoles;
-@property (strong, nonatomic, readonly, getter=privilegedSecurityAlerts) MSGraphPrivilegedSecurityAlertCollectionFetcher *privilegedSecurityAlerts;
-@property (strong, nonatomic, readonly, getter=privilegedRoleAssignments) MSGraphPrivilegedRoleAssignmentCollectionFetcher *privilegedRoleAssignments;
-@property (strong, nonatomic, readonly, getter=privilegedOperationEvents) MSGraphPrivilegedOperationEventCollectionFetcher *privilegedOperationEvents;
-@property (strong, nonatomic, readonly, getter=privilegedSignupStatus) MSGraphPrivilegedSignupStatusCollectionFetcher *privilegedSignupStatus;
-@property (strong, nonatomic, readonly, getter=privilegedOperationNotifications) MSGraphPrivilegedOperationNotificationCollectionFetcher *privilegedOperationNotifications;
-@property (strong, nonatomic, readonly, getter=privilegedOperationNotificationRules) MSGraphPrivilegedOperationNotificationRuleCollectionFetcher *privilegedOperationNotificationRules;
+@property (strong, nonatomic, readonly, getter=me) MSGraphUserFetcher *me;
 @property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
 @end
 

@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSOneNoteFetchers.h"
+#import "core/core.h"
 
 @implementation MSOneNoteOperationFetcher
 

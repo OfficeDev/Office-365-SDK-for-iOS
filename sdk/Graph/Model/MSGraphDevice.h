@@ -39,10 +39,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setAlternativeSecurityIds:, getter=alternativeSecurityIds) NSMutableArray * alternativeSecurityIds;
 
-/** Property approximateLastLogonTimestamp
+/** Property approximateLastSignInDateTime
  *
  */
-@property (nonatomic,  copy, setter=setApproximateLastLogonTimestamp:, getter=approximateLastLogonTimestamp) NSDate * approximateLastLogonTimestamp;
+@property (nonatomic,  copy, setter=setApproximateLastSignInDateTime:, getter=approximateLastSignInDateTime) NSDate * approximateLastSignInDateTime;
 
 /** Property deviceId
  *
@@ -54,45 +54,55 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setDeviceMetadata:, getter=deviceMetadata) NSString * deviceMetadata;
 
-/** Property deviceObjectVersion
+/** Property deviceVersion
  *
  */
-@property (nonatomic,  setter=setDeviceObjectVersion:, getter=deviceObjectVersion) int deviceObjectVersion;
-
-/** Property deviceOSType
- *
- */
-@property (nonatomic,  copy, setter=setDeviceOSType:, getter=deviceOSType) NSString * deviceOSType;
-
-/** Property deviceOSVersion
- *
- */
-@property (nonatomic,  copy, setter=setDeviceOSVersion:, getter=deviceOSVersion) NSString * deviceOSVersion;
-
-/** Property devicePhysicalIds
- *
- */
-@property (nonatomic,  copy, setter=setDevicePhysicalIds:, getter=devicePhysicalIds) NSMutableArray * devicePhysicalIds;
-
-/** Property deviceTrustType
- *
- */
-@property (nonatomic,  copy, setter=setDeviceTrustType:, getter=deviceTrustType) NSString * deviceTrustType;
-
-/** Property dirSyncEnabled
- *
- */
-@property (nonatomic,  setter=setDirSyncEnabled:, getter=dirSyncEnabled) bool dirSyncEnabled;
+@property (nonatomic,  setter=setDeviceVersion:, getter=deviceVersion) int deviceVersion;
 
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
 
-/** Property lastDirSyncTime
+/** Property isCompliant
  *
  */
-@property (nonatomic,  copy, setter=setLastDirSyncTime:, getter=lastDirSyncTime) NSDate * lastDirSyncTime;
+@property (nonatomic,  setter=setIsCompliant:, getter=isCompliant) bool isCompliant;
+
+/** Property isManaged
+ *
+ */
+@property (nonatomic,  setter=setIsManaged:, getter=isManaged) bool isManaged;
+
+/** Property onPremisesLastSyncDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate * onPremisesLastSyncDateTime;
+
+/** Property onPremisesSyncEnabled
+ *
+ */
+@property (nonatomic,  setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) bool onPremisesSyncEnabled;
+
+/** Property operatingSystem
+ *
+ */
+@property (nonatomic,  copy, setter=setOperatingSystem:, getter=operatingSystem) NSString * operatingSystem;
+
+/** Property operatingSystemVersion
+ *
+ */
+@property (nonatomic,  copy, setter=setOperatingSystemVersion:, getter=operatingSystemVersion) NSString * operatingSystemVersion;
+
+/** Property physicalIds
+ *
+ */
+@property (nonatomic,  copy, setter=setPhysicalIds:, getter=physicalIds) NSMutableArray * physicalIds;
+
+/** Property trustType
+ *
+ */
+@property (nonatomic,  copy, setter=setTrustType:, getter=trustType) NSString * trustType;
 
 /** Property registeredOwners
  *

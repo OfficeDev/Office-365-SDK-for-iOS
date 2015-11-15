@@ -45,6 +45,7 @@ root for authoritative license information.﻿
 - (MSOneNotePageFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSOneNotePageFetcher *)select:(NSString *)params;
 - (MSOneNotePageFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=content) MSOrcStreamFetcher *content;
 
 @property (strong, nonatomic, readonly, getter=parentSection) MSOneNoteSectionFetcher *parentSection;
 

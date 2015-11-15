@@ -4,6 +4,7 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "core/MSOCalendarSerializer.h"
 #import "MailTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
@@ -2216,8 +2217,8 @@
     
     return[_weakSelf.client.me.events add:newEvent callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         
-        NSDate *start = [MSOrcObjectizer dateFromString:addedEvent.start.dateTime];
-        NSDate *end = [MSOrcObjectizer dateFromString:addedEvent.end.dateTime];
+        NSDate *start = [MSOCalendarSerializer deserialize:addedEvent.start.dateTime];
+        NSDate *end = [MSOCalendarSerializer deserialize:addedEvent.end.dateTime];
         
         [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:start] addCustomParametersWithName:@"enddatetime" value:end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
             

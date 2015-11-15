@@ -65,7 +65,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSGraphClient alloc] initWithUrl:@"https://graph.microsoft.com/alpha/myOrganization/" dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSGraphClient alloc] initWithUrl:@"https://graph.microsoft.com/v1.0/myOrganization/" dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");

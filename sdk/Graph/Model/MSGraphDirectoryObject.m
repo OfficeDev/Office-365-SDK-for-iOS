@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.DirectoryObject";
+		_odataType = @"#microsoft.graph.directoryObject";
         
     }
 
@@ -56,9 +56,7 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
-		_objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?_objectType:[[dic objectForKey: @"objectType"] copy];
-		_objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?_objectId:[[dic objectForKey: @"objectId"] copy];
-		_deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?_deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -70,10 +68,8 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
-	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
-    [dic setValue: @"#microsoft.graph.DirectoryObject" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.directoryObject" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -82,51 +78,15 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self.objectType;
-    if([self.updatedValues containsObject:@"objectType"])
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
-            }
-    }
-	{id curVal = self.objectId;
-    if([self.updatedValues containsObject:@"objectId"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-            }
-    }
-	{id curVal = self.deletionTimestamp;
-    if([self.updatedValues containsObject:@"deletionTimestamp"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
 }
 
 
-/** Setter implementation for property objectType
- *
- */
-- (void) setObjectType: (NSString *) value {
-    _objectType = value;
-    [self valueChangedFor:@"objectType"];
-}
-       
-/** Setter implementation for property objectId
- *
- */
-- (void) setObjectId: (NSString *) value {
-    _objectId = value;
-    [self valueChangedFor:@"objectId"];
-}
-       
-/** Setter implementation for property deletionTimestamp
- *
- */
-- (void) setDeletionTimestamp: (NSDate *) value {
-    _deletionTimestamp = value;
-    [self valueChangedFor:@"deletionTimestamp"];
-}
-       
 
 @end

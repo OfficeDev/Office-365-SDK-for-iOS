@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphDriveFetcher
 
@@ -69,42 +70,42 @@ root for authoritative license information.﻿
     }];
 }
 
-- (MSGraphItemCollectionFetcher *)items {
+- (MSGraphDriveItemCollectionFetcher *)items {
 
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphDriveItem class]];
 }
 
-- (MSGraphItemFetcher *)itemsById:(NSString *)identifier {
+- (MSGraphDriveItemFetcher *)itemsById:(NSString *)identifier {
 
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphItem class]] getById:identifier];
-
-}
-
-- (MSGraphItemCollectionFetcher *)shared {
-
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphItem class]];
-}
-
-- (MSGraphItemFetcher *)sharedById:(NSString *)identifier {
-
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphItem class]] getById:identifier];
+    return [[[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"items" parent:self asClass:[MSGraphDriveItem class]] getById:identifier];
 
 }
 
-- (MSGraphItemCollectionFetcher *)special {
+- (MSGraphDriveItemCollectionFetcher *)shared {
 
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphDriveItem class]];
 }
 
-- (MSGraphItemFetcher *)specialById:(NSString *)identifier {
+- (MSGraphDriveItemFetcher *)sharedById:(NSString *)identifier {
 
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphItem class]] getById:identifier];
+    return [[[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"shared" parent:self asClass:[MSGraphDriveItem class]] getById:identifier];
 
 }
 
-- (MSGraphItemFetcher *)root {
+- (MSGraphDriveItemCollectionFetcher *)special {
 
-	 return [[MSGraphItemFetcher alloc] initWithUrl:@"root" parent:self asClass:[MSGraphItem class]];
+    return [[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphDriveItem class]];
+}
+
+- (MSGraphDriveItemFetcher *)specialById:(NSString *)identifier {
+
+    return [[[MSGraphDriveItemCollectionFetcher alloc] initWithUrl:@"special" parent:self asClass:[MSGraphDriveItem class]] getById:identifier];
+
+}
+
+- (MSGraphDriveItemFetcher *)root {
+
+	 return [[MSGraphDriveItemFetcher alloc] initWithUrl:@"root" parent:self asClass:[MSGraphDriveItem class]];
 }
 
 @end

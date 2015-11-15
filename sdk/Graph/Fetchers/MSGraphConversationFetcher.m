@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphConversationFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphConversation *Conversation, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphConversation *conversation, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,7 +64,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphConversation *Conversation, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphConversation *conversation, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];

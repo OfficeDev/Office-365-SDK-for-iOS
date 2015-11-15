@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilities", @"capabilities", @"default", @"_default", @"id", @"_id", @"initial", @"initial", @"name", @"name", @"type", @"type", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilities", @"capabilities", @"isDefault", @"isDefault", @"isInitial", @"isInitial", @"name", @"name", @"type", @"type", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.VerifiedDomain";
+		_odataType = @"#microsoft.graph.verifiedDomain";
 
     }
 
@@ -56,9 +56,8 @@ root for authoritative license information.﻿
     if((self = [self init])) {
         if(dic!=nil) {
 		_capabilities = (![dic objectForKey: @"capabilities"] || [ [dic objectForKey: @"capabilities"] isKindOfClass:[NSNull class]] )?_capabilities:[[dic objectForKey: @"capabilities"] copy];
-		__default = (![dic objectForKey: @"default"] || [ [dic objectForKey: @"default"] isKindOfClass:[NSNull class]] )?__default:[[dic objectForKey: @"default"] boolValue];
-		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
-		_initial = (![dic objectForKey: @"initial"] || [ [dic objectForKey: @"initial"] isKindOfClass:[NSNull class]] )?_initial:[[dic objectForKey: @"initial"] boolValue];
+		_isDefault = (![dic objectForKey: @"isDefault"] || [ [dic objectForKey: @"isDefault"] isKindOfClass:[NSNull class]] )?_isDefault:[[dic objectForKey: @"isDefault"] boolValue];
+		_isInitial = (![dic objectForKey: @"isInitial"] || [ [dic objectForKey: @"isInitial"] isKindOfClass:[NSNull class]] )?_isInitial:[[dic objectForKey: @"isInitial"] boolValue];
 		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
 		_type = (![dic objectForKey: @"type"] || [ [dic objectForKey: @"type"] isKindOfClass:[NSNull class]] )?_type:[[dic objectForKey: @"type"] copy];
     }
@@ -73,12 +72,11 @@ root for authoritative license information.﻿
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
 	{id curVal = [self.capabilities copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilities"];}
-	{[dic setValue: (self._default?@"true":@"false") forKey: @"default"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
-	{[dic setValue: (self.initial?@"true":@"false") forKey: @"initial"];}
+	{[dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];}
+	{[dic setValue: (self.isInitial?@"true":@"false") forKey: @"isInitial"];}
 	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
 	{id curVal = [self.type copy];if (curVal!=nil) [dic setValue: curVal forKey: @"type"];}
-    [dic setValue: @"#microsoft.graph.VerifiedDomain" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.verifiedDomain" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -93,16 +91,10 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"capabilities"];
             }
     }
- if([self.updatedValues containsObject:@"default"])
-            { [dic setValue: (self._default?@"true":@"false") forKey: @"default"];
-}	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"id"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-            }
-    }
- if([self.updatedValues containsObject:@"initial"])
-            { [dic setValue: (self.initial?@"true":@"false") forKey: @"initial"];
+ if([self.updatedValues containsObject:@"isDefault"])
+            { [dic setValue: (self.isDefault?@"true":@"false") forKey: @"isDefault"];
+} if([self.updatedValues containsObject:@"isInitial"])
+            { [dic setValue: (self.isInitial?@"true":@"false") forKey: @"isInitial"];
 }	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
@@ -127,28 +119,20 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"capabilities"];
 }
        
-/** Setter implementation for property _default
+/** Setter implementation for property isDefault
  *
  */
-- (void) setDefault: (bool) value {
-    __default = value;
-    [self valueChangedFor:@"default"];
+- (void) setIsDefault: (bool) value {
+    _isDefault = value;
+    [self valueChangedFor:@"isDefault"];
 }
        
-/** Setter implementation for property _id
+/** Setter implementation for property isInitial
  *
  */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChangedFor:@"id"];
-}
-       
-/** Setter implementation for property initial
- *
- */
-- (void) setInitial: (bool) value {
-    _initial = value;
-    [self valueChangedFor:@"initial"];
+- (void) setIsInitial: (bool) value {
+    _isInitial = value;
+    [self valueChangedFor:@"isInitial"];
 }
        
 /** Setter implementation for property name

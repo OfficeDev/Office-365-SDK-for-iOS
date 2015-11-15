@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"servicePlanId", @"servicePlanId", @"servicePlanName", @"servicePlanName", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"servicePlanId", @"servicePlanId", @"servicePlanName", @"servicePlanName", @"provisioningStatus", @"provisioningStatus", @"appliesTo", @"appliesTo", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ServicePlanInfo";
+		_odataType = @"#microsoft.graph.servicePlanInfo";
 
     }
 
@@ -57,6 +57,8 @@ root for authoritative license information.﻿
         if(dic!=nil) {
 		_servicePlanId = (![dic objectForKey: @"servicePlanId"] || [ [dic objectForKey: @"servicePlanId"] isKindOfClass:[NSNull class]] )?_servicePlanId:[[dic objectForKey: @"servicePlanId"] copy];
 		_servicePlanName = (![dic objectForKey: @"servicePlanName"] || [ [dic objectForKey: @"servicePlanName"] isKindOfClass:[NSNull class]] )?_servicePlanName:[[dic objectForKey: @"servicePlanName"] copy];
+		_provisioningStatus = (![dic objectForKey: @"provisioningStatus"] || [ [dic objectForKey: @"provisioningStatus"] isKindOfClass:[NSNull class]] )?_provisioningStatus:[[dic objectForKey: @"provisioningStatus"] copy];
+		_appliesTo = (![dic objectForKey: @"appliesTo"] || [ [dic objectForKey: @"appliesTo"] isKindOfClass:[NSNull class]] )?_appliesTo:[[dic objectForKey: @"appliesTo"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -70,7 +72,9 @@ root for authoritative license information.﻿
 
 	{id curVal = [self.servicePlanId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanId"];}
 	{id curVal = [self.servicePlanName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlanName"];}
-    [dic setValue: @"#microsoft.graph.ServicePlanInfo" forKey: @"@odata.type"];
+	{id curVal = [self.provisioningStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningStatus"];}
+	{id curVal = [self.appliesTo copy];if (curVal!=nil) [dic setValue: curVal forKey: @"appliesTo"];}
+    [dic setValue: @"#microsoft.graph.servicePlanInfo" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -91,6 +95,18 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"servicePlanName"];
             }
     }
+	{id curVal = self.provisioningStatus;
+    if([self.updatedValues containsObject:@"provisioningStatus"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"provisioningStatus"];
+            }
+    }
+	{id curVal = self.appliesTo;
+    if([self.updatedValues containsObject:@"appliesTo"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appliesTo"];
+            }
+    }
     return dic;
 }
 
@@ -109,6 +125,22 @@ root for authoritative license information.﻿
 - (void) setServicePlanName: (NSString *) value {
     _servicePlanName = value;
     [self valueChangedFor:@"servicePlanName"];
+}
+       
+/** Setter implementation for property provisioningStatus
+ *
+ */
+- (void) setProvisioningStatus: (NSString *) value {
+    _provisioningStatus = value;
+    [self valueChangedFor:@"provisioningStatus"];
+}
+       
+/** Setter implementation for property appliesTo
+ *
+ */
+- (void) setAppliesTo: (NSString *) value {
+    _appliesTo = value;
+    [self valueChangedFor:@"appliesTo"];
 }
        
 

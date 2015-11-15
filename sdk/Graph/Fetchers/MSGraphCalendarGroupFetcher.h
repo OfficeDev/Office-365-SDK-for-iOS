@@ -37,7 +37,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphCalendarGroup *, MSOrcError *))callback;
-- (void)update:(MSGraphCalendarGroup *)CalendarGroup callback:(void (^)(MSGraphCalendarGroup *, MSOrcError*))callback ;
+- (void)update:(MSGraphCalendarGroup *)calendarGroup callback:(void (^)(MSGraphCalendarGroup *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphCalendarGroupFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphCalendarGroupFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

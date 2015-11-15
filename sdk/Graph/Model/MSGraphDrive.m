@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"driveType", @"driveType", @"owner", @"owner", @"quota", @"quota", @"items", @"items", @"shared", @"shared", @"special", @"special", @"root", @"root", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"driveType", @"driveType", @"owner", @"owner", @"quota", @"quota", @"items", @"items", @"shared", @"shared", @"special", @"special", @"root", @"root", @"id", @"_id", nil];
         
     }
     
@@ -56,7 +56,6 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
-		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 		_driveType = (![dic objectForKey: @"driveType"] || [ [dic objectForKey: @"driveType"] isKindOfClass:[NSNull class]] )?_driveType:[[dic objectForKey: @"driveType"] copy];
 		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]];
 		_quota = (![dic objectForKey: @"quota"] || [ [dic objectForKey: @"quota"] isKindOfClass:[NSNull class]] )?_quota:[[MSGraphQuota alloc] initWithDictionary: [dic objectForKey: @"quota"]];
@@ -65,7 +64,7 @@ root for authoritative license information.﻿
             _items = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"items"]) {
-                [_items addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+                [_items addObject:[[MSGraphDriveItem alloc] initWithDictionary: object]];
             }
             
             [(MSOrcChangesTrackingArray *)_items resetChangedFlag];
@@ -76,7 +75,7 @@ root for authoritative license information.﻿
             _shared = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"shared"]) {
-                [_shared addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+                [_shared addObject:[[MSGraphDriveItem alloc] initWithDictionary: object]];
             }
             
             [(MSOrcChangesTrackingArray *)_shared resetChangedFlag];
@@ -87,13 +86,14 @@ root for authoritative license information.﻿
             _special = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"special"]) {
-                [_special addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+                [_special addObject:[[MSGraphDriveItem alloc] initWithDictionary: object]];
             }
             
             [(MSOrcChangesTrackingArray *)_special resetChangedFlag];
         }
         
-		_root = (![dic objectForKey: @"root"] || [ [dic objectForKey: @"root"] isKindOfClass:[NSNull class]] )?_root:[[MSGraphItem alloc] initWithDictionary: [dic objectForKey: @"root"]];
+		_root = (![dic objectForKey: @"root"] || [ [dic objectForKey: @"root"] isKindOfClass:[NSNull class]] )?_root:[[MSGraphDriveItem alloc] initWithDictionary: [dic objectForKey: @"root"]];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -105,7 +105,6 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
 	{id curVal = [self.driveType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"driveType"];}
 	{id curVal = [self.owner toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
 	{id curVal = [self.quota toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"quota"];}
@@ -134,6 +133,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"shared"];}
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"special"];}
 	{id curVal = [self.root toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"root"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
     [dic setValue: @"#microsoft.graph.drive" forKey: @"@odata.type"];
 
     return dic;
@@ -143,12 +143,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"special"];}
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"id"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-            }
-    }
 	{id curVal = self.driveType;
     if([self.updatedValues containsObject:@"driveType"])
     {
@@ -281,18 +275,16 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"special"];}
             }
         
             }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
+    }
     return dic;
 }
 
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChangedFor:@"id"];
-}
-       
 /** Setter implementation for property driveType
  *
  */
@@ -344,7 +336,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"special"];}
 /** Setter implementation for property root
  *
  */
-- (void) setRoot: (MSGraphItem *) value {
+- (void) setRoot: (MSGraphDriveItem *) value {
     _root = value;
     [self valueChangedFor:@"root"];
 }

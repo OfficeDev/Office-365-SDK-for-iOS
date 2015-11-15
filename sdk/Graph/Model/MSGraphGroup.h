@@ -19,8 +19,6 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 #import "core/MSOrcChangesTrackingArray.h"
 
-@class MSGraphProvisioningError;
-@class MSGraphAppRoleAssignment;
 @class MSGraphDirectoryObject;
 @class MSGraphConversationThread;
 @class MSGraphCalendar;
@@ -28,8 +26,6 @@ root for authoritative license information.﻿
 @class MSGraphConversation;
 @class MSGraphProfilePhoto;
 @class MSGraphDrive;
-@class MSGraphPlan;
-@class MSGraphNotes;
 #import "MSGraphGroupAccessType.h"
 #import "MSGraphDirectoryObject.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
@@ -44,60 +40,45 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setDescription:, getter=_description) NSString * _description;
 
-/** Property dirSyncEnabled
- *
- */
-@property (nonatomic,  setter=setDirSyncEnabled:, getter=dirSyncEnabled) bool dirSyncEnabled;
-
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
-
-/** Property creationOptions
- *
- */
-@property (nonatomic,  copy, setter=setCreationOptions:, getter=creationOptions) NSMutableArray * creationOptions;
 
 /** Property groupTypes
  *
  */
 @property (nonatomic,  copy, setter=setGroupTypes:, getter=groupTypes) NSMutableArray * groupTypes;
 
-/** Property isPublic
- *
- */
-@property (nonatomic,  setter=setIsPublic:, getter=isPublic) bool isPublic;
-
-/** Property lastDirSyncTime
- *
- */
-@property (nonatomic,  copy, setter=setLastDirSyncTime:, getter=lastDirSyncTime) NSDate * lastDirSyncTime;
-
 /** Property mail
  *
  */
 @property (nonatomic,  copy, setter=setMail:, getter=mail) NSString * mail;
-
-/** Property mailNickname
- *
- */
-@property (nonatomic,  copy, setter=setMailNickname:, getter=mailNickname) NSString * mailNickname;
 
 /** Property mailEnabled
  *
  */
 @property (nonatomic,  setter=setMailEnabled:, getter=mailEnabled) bool mailEnabled;
 
+/** Property mailNickname
+ *
+ */
+@property (nonatomic,  copy, setter=setMailNickname:, getter=mailNickname) NSString * mailNickname;
+
+/** Property onPremisesLastSyncDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate * onPremisesLastSyncDateTime;
+
 /** Property onPremisesSecurityIdentifier
  *
  */
 @property (nonatomic,  copy, setter=setOnPremisesSecurityIdentifier:, getter=onPremisesSecurityIdentifier) NSString * onPremisesSecurityIdentifier;
 
-/** Property provisioningErrors
+/** Property onPremisesSyncEnabled
  *
  */
-@property (nonatomic,  copy, setter=setProvisioningErrors:, getter=provisioningErrors) NSMutableArray * provisioningErrors;
+@property (nonatomic,  setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) bool onPremisesSyncEnabled;
 
 /** Property proxyAddresses
  *
@@ -108,6 +89,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setSecurityEnabled:, getter=securityEnabled) bool securityEnabled;
+
+/** Property visibility
+ *
+ */
+@property (nonatomic,  copy, setter=setVisibility:, getter=visibility) NSString * visibility;
 
 /** Property accessType
  *
@@ -126,11 +112,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  setter=setAutoSubscribeNewMembers:, getter=autoSubscribeNewMembers) bool autoSubscribeNewMembers;
 
-/** Property emailAddress
- *
- */
-@property (nonatomic,  copy, setter=setEmailAddress:, getter=emailAddress) NSString * emailAddress;
-
 /** Property isFavorite
  *
  */
@@ -145,11 +126,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setUnseenCount:, getter=unseenCount) int unseenCount;
-
-/** Property appRoleAssignments
- *
- */
-@property (nonatomic,  copy, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSMutableArray * appRoleAssignments;
 
 /** Property members
  *
@@ -201,11 +177,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphProfilePhoto * photo;
 
-/** Property photos
- *
- */
-@property (nonatomic,  copy, setter=setPhotos:, getter=photos) NSMutableArray * photos;
-
 /** Property acceptedSenders
  *
  */
@@ -220,16 +191,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setDrive:, getter=drive) MSGraphDrive * drive;
-
-/** Property plans
- *
- */
-@property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
-
-/** Property notes
- *
- */
-@property (nonatomic,  copy, setter=setNotes:, getter=notes) MSGraphNotes * notes;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

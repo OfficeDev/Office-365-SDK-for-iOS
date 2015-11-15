@@ -21,19 +21,14 @@ root for authoritative license information.﻿
 
 @class MSGraphIdentitySet;
 @class MSGraphQuota;
-@class MSGraphItem;
-#import "core/MSOrcBaseEntity.h"
+@class MSGraphDriveItem;
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphDrive
  *
  */
-@interface MSGraphDrive : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
+@interface MSGraphDrive : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property driveType
  *
@@ -68,7 +63,7 @@ root for authoritative license information.﻿
 /** Property root
  *
  */
-@property (nonatomic,  copy, setter=setRoot:, getter=root) MSGraphItem * root;
+@property (nonatomic,  copy, setter=setRoot:, getter=root) MSGraphDriveItem * root;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

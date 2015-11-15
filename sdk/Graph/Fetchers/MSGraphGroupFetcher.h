@@ -22,8 +22,6 @@ root for authoritative license information.﻿
 #import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
-@class MSGraphProvisioningErrorCollectionFetcher;
-@class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphConversationThreadCollectionFetcher;
@@ -31,11 +29,7 @@ root for authoritative license information.﻿
 @class MSGraphEventCollectionFetcher;
 @class MSGraphConversationCollectionFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
-@class MSGraphPlanCollectionFetcher;
-@class MSGraphNotesFetcher;
-@class MSGraphAppRoleAssignmentCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphConversationThreadCollectionFetcher;
@@ -43,17 +37,11 @@ root for authoritative license information.﻿
 @class MSGraphEventCollectionFetcher;
 @class MSGraphConversationCollectionFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
-@class MSGraphPlanCollectionFetcher;
-@class MSGraphNotesFetcher;
-@class MSGraphAppRoleAssignmentFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphConversationThreadFetcher;
 @class MSGraphEventFetcher;
 @class MSGraphConversationFetcher;
-@class MSGraphProfilePhotoFetcher;
-@class MSGraphPlanFetcher;
 @class MSGraphGroupOperations;
 
 
@@ -66,16 +54,12 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphGroup *, MSOrcError *))callback;
-- (void)update:(MSGraphGroup *)Group callback:(void (^)(MSGraphGroup *, MSOrcError*))callback ;
+- (void)update:(MSGraphGroup *)group callback:(void (^)(MSGraphGroup *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphGroupFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphGroupFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphGroupFetcher *)select:(NSString *)params;
 - (MSGraphGroupFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
-
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
-
 @property (strong, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
 
 - (MSGraphDirectoryObjectFetcher *)membersById:(id)identifier;
@@ -110,10 +94,6 @@ root for authoritative license information.﻿
 
 
 @property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
-@property (strong, nonatomic, readonly, getter=photos) MSGraphProfilePhotoCollectionFetcher *photos;
-
-- (MSGraphProfilePhotoFetcher *)photosById:(id)identifier;
-
 @property (strong, nonatomic, readonly, getter=acceptedSenders) MSGraphDirectoryObjectCollectionFetcher *acceptedSenders;
 
 - (MSGraphDirectoryObjectFetcher *)acceptedSendersById:(id)identifier;
@@ -124,12 +104,6 @@ root for authoritative license information.﻿
 
 
 @property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
-@property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
-
-- (MSGraphPlanFetcher *)plansById:(id)identifier;
-
-
-@property (strong, nonatomic, readonly, getter=notes) MSGraphNotesFetcher *notes;
 
 @end
 

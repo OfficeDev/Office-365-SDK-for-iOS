@@ -31,7 +31,7 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSGraphRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
   NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString:toRecipients];
 

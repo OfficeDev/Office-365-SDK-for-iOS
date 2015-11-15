@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"StartTimeZone", @"startTimeZone", @"End", @"end", @"EndTimeZone", @"endTimeZone", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Extensions", @"extensions", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"OriginalStartTimeZone", @"originalStartTimeZone", @"OriginalEndTimeZone", @"originalEndTimeZone", @"ResponseStatus", @"responseStatus", @"iCalUId", @"iCalUId", @"ReminderMinutesBeforeStart", @"reminderMinutesBeforeStart", @"IsReminderOn", @"isReminderOn", @"HasAttachments", @"hasAttachments", @"Subject", @"subject", @"Body", @"body", @"BodyPreview", @"bodyPreview", @"Importance", @"importance", @"Sensitivity", @"sensitivity", @"Start", @"start", @"OriginalStart", @"originalStart", @"End", @"end", @"Location", @"location", @"IsAllDay", @"isAllDay", @"IsCancelled", @"isCancelled", @"IsOrganizer", @"isOrganizer", @"Recurrence", @"recurrence", @"ResponseRequested", @"responseRequested", @"SeriesMasterId", @"seriesMasterId", @"ShowAs", @"showAs", @"Type", @"type", @"Attendees", @"attendees", @"Organizer", @"organizer", @"WebLink", @"webLink", @"Calendar", @"calendar", @"Instances", @"instances", @"Attachments", @"attachments", @"CreatedDateTime", @"createdDateTime", @"LastModifiedDateTime", @"lastModifiedDateTime", @"ChangeKey", @"changeKey", @"Categories", @"categories", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Event";
+		_odataType = @"#microsoft.graph.event";
         
     }
 
@@ -56,19 +56,21 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
+		_originalStartTimeZone = (![dic objectForKey: @"OriginalStartTimeZone"] || [ [dic objectForKey: @"OriginalStartTimeZone"] isKindOfClass:[NSNull class]] )?_originalStartTimeZone:[[dic objectForKey: @"OriginalStartTimeZone"] copy];
+		_originalEndTimeZone = (![dic objectForKey: @"OriginalEndTimeZone"] || [ [dic objectForKey: @"OriginalEndTimeZone"] isKindOfClass:[NSNull class]] )?_originalEndTimeZone:[[dic objectForKey: @"OriginalEndTimeZone"] copy];
 		_responseStatus = (![dic objectForKey: @"ResponseStatus"] || [ [dic objectForKey: @"ResponseStatus"] isKindOfClass:[NSNull class]] )?_responseStatus:[[MSGraphResponseStatus alloc] initWithDictionary: [dic objectForKey: @"ResponseStatus"]];
 		_iCalUId = (![dic objectForKey: @"iCalUId"] || [ [dic objectForKey: @"iCalUId"] isKindOfClass:[NSNull class]] )?_iCalUId:[[dic objectForKey: @"iCalUId"] copy];
+		_reminderMinutesBeforeStart = (![dic objectForKey: @"ReminderMinutesBeforeStart"] || [ [dic objectForKey: @"ReminderMinutesBeforeStart"] isKindOfClass:[NSNull class]] )?_reminderMinutesBeforeStart:[[dic objectForKey: @"ReminderMinutesBeforeStart"] intValue];
+		_isReminderOn = (![dic objectForKey: @"IsReminderOn"] || [ [dic objectForKey: @"IsReminderOn"] isKindOfClass:[NSNull class]] )?_isReminderOn:[[dic objectForKey: @"IsReminderOn"] boolValue];
 		_hasAttachments = (![dic objectForKey: @"HasAttachments"] || [ [dic objectForKey: @"HasAttachments"] isKindOfClass:[NSNull class]] )?_hasAttachments:[[dic objectForKey: @"HasAttachments"] boolValue];
 		_subject = (![dic objectForKey: @"Subject"] || [ [dic objectForKey: @"Subject"] isKindOfClass:[NSNull class]] )?_subject:[[dic objectForKey: @"Subject"] copy];
 		_body = (![dic objectForKey: @"Body"] || [ [dic objectForKey: @"Body"] isKindOfClass:[NSNull class]] )?_body:[[MSGraphItemBody alloc] initWithDictionary: [dic objectForKey: @"Body"]];
 		_bodyPreview = (![dic objectForKey: @"BodyPreview"] || [ [dic objectForKey: @"BodyPreview"] isKindOfClass:[NSNull class]] )?_bodyPreview:[[dic objectForKey: @"BodyPreview"] copy];
 		_importance = (![dic objectForKey: @"Importance"] || [ [dic objectForKey: @"Importance"] isKindOfClass:[NSNull class]] )?_importance:[MSGraphImportanceSerializer fromString:[dic objectForKey: @"Importance"]];
 		_sensitivity = (![dic objectForKey: @"Sensitivity"] || [ [dic objectForKey: @"Sensitivity"] isKindOfClass:[NSNull class]] )?_sensitivity:[MSGraphSensitivitySerializer fromString:[dic objectForKey: @"Sensitivity"]];
-		_start = (![dic objectForKey: @"Start"] || [ [dic objectForKey: @"Start"] isKindOfClass:[NSNull class]] )?_start:[MSOrcObjectizer dateFromString:[dic objectForKey: @"Start"]];
+		_start = (![dic objectForKey: @"Start"] || [ [dic objectForKey: @"Start"] isKindOfClass:[NSNull class]] )?_start:[[MSGraphDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"Start"]];
 		_originalStart = (![dic objectForKey: @"OriginalStart"] || [ [dic objectForKey: @"OriginalStart"] isKindOfClass:[NSNull class]] )?_originalStart:[MSOrcObjectizer dateFromString:[dic objectForKey: @"OriginalStart"]];
-		_startTimeZone = (![dic objectForKey: @"StartTimeZone"] || [ [dic objectForKey: @"StartTimeZone"] isKindOfClass:[NSNull class]] )?_startTimeZone:[[dic objectForKey: @"StartTimeZone"] copy];
-		_end = (![dic objectForKey: @"End"] || [ [dic objectForKey: @"End"] isKindOfClass:[NSNull class]] )?_end:[MSOrcObjectizer dateFromString:[dic objectForKey: @"End"]];
-		_endTimeZone = (![dic objectForKey: @"EndTimeZone"] || [ [dic objectForKey: @"EndTimeZone"] isKindOfClass:[NSNull class]] )?_endTimeZone:[[dic objectForKey: @"EndTimeZone"] copy];
+		_end = (![dic objectForKey: @"End"] || [ [dic objectForKey: @"End"] isKindOfClass:[NSNull class]] )?_end:[[MSGraphDateTimeTimeZone alloc] initWithDictionary: [dic objectForKey: @"End"]];
 		_location = (![dic objectForKey: @"Location"] || [ [dic objectForKey: @"Location"] isKindOfClass:[NSNull class]] )?_location:[[MSGraphLocation alloc] initWithDictionary: [dic objectForKey: @"Location"]];
 		_isAllDay = (![dic objectForKey: @"IsAllDay"] || [ [dic objectForKey: @"IsAllDay"] isKindOfClass:[NSNull class]] )?_isAllDay:[[dic objectForKey: @"IsAllDay"] boolValue];
 		_isCancelled = (![dic objectForKey: @"IsCancelled"] || [ [dic objectForKey: @"IsCancelled"] isKindOfClass:[NSNull class]] )?_isCancelled:[[dic objectForKey: @"IsCancelled"] boolValue];
@@ -104,17 +106,6 @@ root for authoritative license information.﻿
         }
         
 
-        if([dic objectForKey: @"Extensions"] != [NSNull null]){
-            _extensions = [[MSOrcChangesTrackingArray alloc] init];
-            
-            for (id object in [dic objectForKey: @"Extensions"]) {
-                [_extensions addObject:[[MSGraphExtension alloc] initWithDictionary: object]];
-            }
-            
-            [(MSOrcChangesTrackingArray *)_extensions resetChangedFlag];
-        }
-        
-
         if([dic objectForKey: @"Attachments"] != [NSNull null]){
             _attachments = [[MSOrcChangesTrackingArray alloc] init];
             
@@ -139,7 +130,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)self.categories resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -151,19 +142,21 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
+	{id curVal = [self.originalStartTimeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"OriginalStartTimeZone"];}
+	{id curVal = [self.originalEndTimeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"OriginalEndTimeZone"];}
 	{id curVal = [self.responseStatus toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"ResponseStatus"];}
 	{id curVal = [self.iCalUId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"iCalUId"];}
+	{[dic setValue: [NSNumber numberWithInt: self.reminderMinutesBeforeStart] forKey: @"ReminderMinutesBeforeStart"];}
+	{[dic setValue: (self.isReminderOn?@"true":@"false") forKey: @"IsReminderOn"];}
 	{[dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];}
 	{id curVal = [self.subject copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Subject"];}
 	{id curVal = [self.body toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Body"];}
 	{id curVal = [self.bodyPreview copy];if (curVal!=nil) [dic setValue: curVal forKey: @"BodyPreview"];}
 	{[dic setValue: [MSGraphImportanceSerializer toString:self.importance] forKey: @"Importance"];}
 	{[dic setValue: [MSGraphSensitivitySerializer toString:self.sensitivity] forKey: @"Sensitivity"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.start];if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
+	{id curVal = [self.start toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Start"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.originalStart];if (curVal!=nil) [dic setValue: curVal forKey: @"OriginalStart"];}
-	{id curVal = [self.startTimeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"StartTimeZone"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.end];if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
-	{id curVal = [self.endTimeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"EndTimeZone"];}
+	{id curVal = [self.end toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"End"];}
 	{id curVal = [self.location toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Location"];}
 	{[dic setValue: (self.isAllDay?@"true":@"false") forKey: @"IsAllDay"];}
 	{[dic setValue: (self.isCancelled?@"true":@"false") forKey: @"IsCancelled"];}
@@ -194,14 +187,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Attendees"];}
 if (curVal!=nil) [dic setValue: curVal forKey: @"Instances"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
-    for(id obj in self.extensions) {
-       [curVal addObject:[obj toDictionary]];
-    }
-    
-    if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"Extensions"];}
-	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
-    
     for(id obj in self.attachments) {
        [curVal addObject:[obj toDictionary]];
     }
@@ -219,8 +204,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Attachments"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Event" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.event" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -229,6 +214,18 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
+	{id curVal = self.originalStartTimeZone;
+    if([self.updatedValues containsObject:@"OriginalStartTimeZone"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"OriginalStartTimeZone"];
+            }
+    }
+	{id curVal = self.originalEndTimeZone;
+    if([self.updatedValues containsObject:@"OriginalEndTimeZone"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"OriginalEndTimeZone"];
+            }
+    }
 	{id curVal = self.responseStatus;
     if([self.updatedValues containsObject:@"ResponseStatus"])
     {
@@ -251,7 +248,11 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"iCalUId"];
             }
     }
- if([self.updatedValues containsObject:@"HasAttachments"])
+ if([self.updatedValues containsObject:@"ReminderMinutesBeforeStart"])
+            { [dic setValue: [NSNumber numberWithInt: self.reminderMinutesBeforeStart] forKey: @"ReminderMinutesBeforeStart"];
+} if([self.updatedValues containsObject:@"IsReminderOn"])
+            { [dic setValue: (self.isReminderOn?@"true":@"false") forKey: @"IsReminderOn"];
+} if([self.updatedValues containsObject:@"HasAttachments"])
             { [dic setValue: (self.hasAttachments?@"true":@"false") forKey: @"HasAttachments"];
 }	{id curVal = self.subject;
     if([self.updatedValues containsObject:@"Subject"])
@@ -288,33 +289,41 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 }	{id curVal = self.start;
     if([self.updatedValues containsObject:@"Start"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"Start"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Start"];
             }
-    }
+        else
+    {
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"Start"];
+            }
+        
+            }}
 	{id curVal = self.originalStart;
     if([self.updatedValues containsObject:@"OriginalStart"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"OriginalStart"];
             }
     }
-	{id curVal = self.startTimeZone;
-    if([self.updatedValues containsObject:@"StartTimeZone"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"StartTimeZone"];
-            }
-    }
 	{id curVal = self.end;
     if([self.updatedValues containsObject:@"End"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"End"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"End"];
             }
-    }
-	{id curVal = self.endTimeZone;
-    if([self.updatedValues containsObject:@"EndTimeZone"])
+        else
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"EndTimeZone"];
+                
+        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
+        
+            if(updatedDic!=nil && [updatedDic count]>0)
+            {
+                [dic setValue: [curVal toDictionary] forKey: @"End"];
             }
-    }
+        
+            }}
 	{id curVal = self.location;
     if([self.updatedValues containsObject:@"Location"])
     {
@@ -455,32 +464,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         }
         
             }}
-	{id curVal = self.extensions;
-    if([self.updatedValues containsObject:@"Extensions"])
-    {
-            NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in curVal) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-            [dic setValue: curArray forKey: @"Extensions"];
-            }
-        else
-    {
-                
-        if(![curVal isKindOfClass:[MSOrcChangesTrackingArray class]] || [(MSOrcChangesTrackingArray *)curVal hasChanged])
-        {
-                NSMutableArray *curArray = [[NSMutableArray alloc] init];
-    
-    for(id obj in self.extensions) {
-       [curArray addObject:[obj toDictionary]];
-    }
-    
-                 [dic setValue: curArray forKey: @"Extensions"];
-        }
-        
-            }}
 	{id curVal = self.attachments;
     if([self.updatedValues containsObject:@"Attachments"])
     {
@@ -552,15 +535,31 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
 }
 
 
+/** Setter implementation for property originalStartTimeZone
+ *
+ */
+- (void) setOriginalStartTimeZone: (NSString *) value {
+    _originalStartTimeZone = value;
+    [self valueChangedFor:@"OriginalStartTimeZone"];
+}
+       
+/** Setter implementation for property originalEndTimeZone
+ *
+ */
+- (void) setOriginalEndTimeZone: (NSString *) value {
+    _originalEndTimeZone = value;
+    [self valueChangedFor:@"OriginalEndTimeZone"];
+}
+       
 /** Setter implementation for property responseStatus
  *
  */
@@ -575,6 +574,22 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 - (void) setICalUId: (NSString *) value {
     _iCalUId = value;
     [self valueChangedFor:@"iCalUId"];
+}
+       
+/** Setter implementation for property reminderMinutesBeforeStart
+ *
+ */
+- (void) setReminderMinutesBeforeStart: (int) value {
+    _reminderMinutesBeforeStart = value;
+    [self valueChangedFor:@"ReminderMinutesBeforeStart"];
+}
+       
+/** Setter implementation for property isReminderOn
+ *
+ */
+- (void) setIsReminderOn: (bool) value {
+    _isReminderOn = value;
+    [self valueChangedFor:@"IsReminderOn"];
 }
        
 /** Setter implementation for property hasAttachments
@@ -642,7 +657,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 /** Setter implementation for property start
  *
  */
-- (void) setStart: (NSDate *) value {
+- (void) setStart: (MSGraphDateTimeTimeZone *) value {
     _start = value;
     [self valueChangedFor:@"Start"];
 }
@@ -655,28 +670,12 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
     [self valueChangedFor:@"OriginalStart"];
 }
        
-/** Setter implementation for property startTimeZone
- *
- */
-- (void) setStartTimeZone: (NSString *) value {
-    _startTimeZone = value;
-    [self valueChangedFor:@"StartTimeZone"];
-}
-       
 /** Setter implementation for property end
  *
  */
-- (void) setEnd: (NSDate *) value {
+- (void) setEnd: (MSGraphDateTimeTimeZone *) value {
     _end = value;
     [self valueChangedFor:@"End"];
-}
-       
-/** Setter implementation for property endTimeZone
- *
- */
-- (void) setEndTimeZone: (NSString *) value {
-    _endTimeZone = value;
-    [self valueChangedFor:@"EndTimeZone"];
 }
        
 /** Setter implementation for property location
@@ -803,14 +802,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Categories"];}
 - (void) setInstances: (NSMutableArray *) value {
     _instances = value;
     [self valueChangedFor:@"Instances"];
-}
-       
-/** Setter implementation for property extensions
- *
- */
-- (void) setExtensions: (NSMutableArray *) value {
-    _extensions = value;
-    [self valueChangedFor:@"Extensions"];
 }
        
 /** Setter implementation for property attachments

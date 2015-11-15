@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"LocationEmailAddress", @"locationEmailAddress", @"Address", @"address", @"Coordinates", @"coordinates", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"DisplayName", @"displayName", @"Address", @"address", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Location";
+		_odataType = @"#microsoft.graph.location";
 
     }
 
@@ -56,9 +56,7 @@ root for authoritative license information.﻿
     if((self = [self init])) {
         if(dic!=nil) {
 		_displayName = (![dic objectForKey: @"DisplayName"] || [ [dic objectForKey: @"DisplayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"DisplayName"] copy];
-		_locationEmailAddress = (![dic objectForKey: @"LocationEmailAddress"] || [ [dic objectForKey: @"LocationEmailAddress"] isKindOfClass:[NSNull class]] )?_locationEmailAddress:[[dic objectForKey: @"LocationEmailAddress"] copy];
 		_address = (![dic objectForKey: @"Address"] || [ [dic objectForKey: @"Address"] isKindOfClass:[NSNull class]] )?_address:[[MSGraphPhysicalAddress alloc] initWithDictionary: [dic objectForKey: @"Address"]];
-		_coordinates = (![dic objectForKey: @"Coordinates"] || [ [dic objectForKey: @"Coordinates"] isKindOfClass:[NSNull class]] )?_coordinates:[[MSGraphOutlookGeoCoordinates alloc] initWithDictionary: [dic objectForKey: @"Coordinates"]];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -71,10 +69,8 @@ root for authoritative license information.﻿
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
 	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"DisplayName"];}
-	{id curVal = [self.locationEmailAddress copy];if (curVal!=nil) [dic setValue: curVal forKey: @"LocationEmailAddress"];}
 	{id curVal = [self.address toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
-	{id curVal = [self.coordinates toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"Coordinates"];}
-    [dic setValue: @"#microsoft.graph.Location" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.location" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -87,12 +83,6 @@ root for authoritative license information.﻿
     if([self.updatedValues containsObject:@"DisplayName"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"DisplayName"];
-            }
-    }
-	{id curVal = self.locationEmailAddress;
-    if([self.updatedValues containsObject:@"LocationEmailAddress"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"LocationEmailAddress"];
             }
     }
 	{id curVal = self.address;
@@ -111,22 +101,6 @@ root for authoritative license information.﻿
             }
         
             }}
-	{id curVal = self.coordinates;
-    if([self.updatedValues containsObject:@"Coordinates"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"Coordinates"];
-            }
-        else
-    {
-                
-        NSDictionary *updatedDic=[curVal toUpdatedValuesDictionary];
-        
-            if(updatedDic!=nil && [updatedDic count]>0)
-            {
-                [dic setValue: [curVal toDictionary] forKey: @"Coordinates"];
-            }
-        
-            }}
     return dic;
 }
 
@@ -139,28 +113,12 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"DisplayName"];
 }
        
-/** Setter implementation for property locationEmailAddress
- *
- */
-- (void) setLocationEmailAddress: (NSString *) value {
-    _locationEmailAddress = value;
-    [self valueChangedFor:@"LocationEmailAddress"];
-}
-       
 /** Setter implementation for property address
  *
  */
 - (void) setAddress: (MSGraphPhysicalAddress *) value {
     _address = value;
     [self valueChangedFor:@"Address"];
-}
-       
-/** Setter implementation for property coordinates
- *
- */
-- (void) setCoordinates: (MSGraphOutlookGeoCoordinates *) value {
-    _coordinates = value;
-    [self valueChangedFor:@"Coordinates"];
 }
        
 

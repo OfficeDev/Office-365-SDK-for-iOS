@@ -71,13 +71,13 @@ root for authoritative license information.﻿
 - (void)copyToSectionWithId:(NSString *)_id siteCollectionId:(NSString *)siteCollectionId siteId:(NSString *)siteId groupId:(NSString *)groupId callback:(void (^)(MSOneNoteCopyStatusModel *, MSOrcError*))callback {
 
 
-      NSString *_idString = [_id copy];
+      NSString *_idString = [NSString stringWithFormat:@"\"%@\"", _id];
 
-  NSString *siteCollectionIdString = [siteCollectionId copy];
+  NSString *siteCollectionIdString = [NSString stringWithFormat:@"\"%@\"", siteCollectionId];
 
-  NSString *siteIdString = [siteId copy];
+  NSString *siteIdString = [NSString stringWithFormat:@"\"%@\"", siteId];
 
-  NSString *groupIdString = [groupId copy];
+  NSString *groupIdString = [NSString stringWithFormat:@"\"%@\"", groupId];
 
     return [self copyToSectionRawWithId:_idString siteCollectionId:siteCollectionIdString siteId:siteIdString groupId:groupIdString callback:^(NSString *returnValue, MSOrcError *e) {
        

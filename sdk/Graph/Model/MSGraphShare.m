@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"name", @"name", @"owner", @"owner", @"items", @"items", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"name", @"name", @"owner", @"owner", @"items", @"items", @"id", @"_id", nil];
         
     }
     
@@ -56,7 +56,6 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
-		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 		_name = (![dic objectForKey: @"name"] || [ [dic objectForKey: @"name"] isKindOfClass:[NSNull class]] )?_name:[[dic objectForKey: @"name"] copy];
 		_owner = (![dic objectForKey: @"owner"] || [ [dic objectForKey: @"owner"] isKindOfClass:[NSNull class]] )?_owner:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"owner"]];
 
@@ -64,12 +63,13 @@ root for authoritative license information.﻿
             _items = [[MSOrcChangesTrackingArray alloc] init];
             
             for (id object in [dic objectForKey: @"items"]) {
-                [_items addObject:[[MSGraphItem alloc] initWithDictionary: object]];
+                [_items addObject:[[MSGraphDriveItem alloc] initWithDictionary: object]];
             }
             
             [(MSOrcChangesTrackingArray *)_items resetChangedFlag];
         }
         
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -81,7 +81,6 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
 	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"name"];}
 	{id curVal = [self.owner toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"owner"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
@@ -92,6 +91,7 @@ root for authoritative license information.﻿
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"items"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
     [dic setValue: @"#microsoft.graph.share" forKey: @"@odata.type"];
 
     return dic;
@@ -101,12 +101,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"items"];}
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"id"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-            }
-    }
 	{id curVal = self.name;
     if([self.updatedValues containsObject:@"name"])
     {
@@ -155,18 +149,16 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"items"];}
         }
         
             }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
+    }
     return dic;
 }
 
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChangedFor:@"id"];
-}
-       
 /** Setter implementation for property name
  *
  */

@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"consumedUnits", @"consumedUnits", @"objectId", @"objectId", @"prepaidUnits", @"prepaidUnits", @"servicePlans", @"servicePlans", @"skuId", @"skuId", @"skuPartNumber", @"skuPartNumber", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"capabilityStatus", @"capabilityStatus", @"consumedUnits", @"consumedUnits", @"prepaidUnits", @"prepaidUnits", @"servicePlans", @"servicePlans", @"skuId", @"skuId", @"skuPartNumber", @"skuPartNumber", @"appliesTo", @"appliesTo", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.SubscribedSku";
+		_odataType = @"#microsoft.graph.subscribedSku";
         
     }
 
@@ -58,7 +58,6 @@ root for authoritative license information.﻿
         if(dic!=nil) {
 		_capabilityStatus = (![dic objectForKey: @"capabilityStatus"] || [ [dic objectForKey: @"capabilityStatus"] isKindOfClass:[NSNull class]] )?_capabilityStatus:[[dic objectForKey: @"capabilityStatus"] copy];
 		_consumedUnits = (![dic objectForKey: @"consumedUnits"] || [ [dic objectForKey: @"consumedUnits"] isKindOfClass:[NSNull class]] )?_consumedUnits:[[dic objectForKey: @"consumedUnits"] intValue];
-		_objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?_objectId:[[dic objectForKey: @"objectId"] copy];
 		_prepaidUnits = (![dic objectForKey: @"prepaidUnits"] || [ [dic objectForKey: @"prepaidUnits"] isKindOfClass:[NSNull class]] )?_prepaidUnits:[[MSGraphLicenseUnitsDetail alloc] initWithDictionary: [dic objectForKey: @"prepaidUnits"]];
 
         if([dic objectForKey: @"servicePlans"] != [NSNull null]){
@@ -73,6 +72,8 @@ root for authoritative license information.﻿
         
 		_skuId = (![dic objectForKey: @"skuId"] || [ [dic objectForKey: @"skuId"] isKindOfClass:[NSNull class]] )?_skuId:[[dic objectForKey: @"skuId"] copy];
 		_skuPartNumber = (![dic objectForKey: @"skuPartNumber"] || [ [dic objectForKey: @"skuPartNumber"] isKindOfClass:[NSNull class]] )?_skuPartNumber:[[dic objectForKey: @"skuPartNumber"] copy];
+		_appliesTo = (![dic objectForKey: @"appliesTo"] || [ [dic objectForKey: @"appliesTo"] isKindOfClass:[NSNull class]] )?_appliesTo:[[dic objectForKey: @"appliesTo"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -86,7 +87,6 @@ root for authoritative license information.﻿
 
 	{id curVal = [self.capabilityStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
 	{[dic setValue: [NSNumber numberWithInt: self.consumedUnits] forKey: @"consumedUnits"];}
-	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
 	{id curVal = [self.prepaidUnits toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"prepaidUnits"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
@@ -98,7 +98,9 @@ root for authoritative license information.﻿
 if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
 	{id curVal = [self.skuId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuId"];}
 	{id curVal = [self.skuPartNumber copy];if (curVal!=nil) [dic setValue: curVal forKey: @"skuPartNumber"];}
-    [dic setValue: @"#microsoft.graph.SubscribedSku" forKey: @"@odata.type"];
+	{id curVal = [self.appliesTo copy];if (curVal!=nil) [dic setValue: curVal forKey: @"appliesTo"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.subscribedSku" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -115,13 +117,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
     }
  if([self.updatedValues containsObject:@"consumedUnits"])
             { [dic setValue: [NSNumber numberWithInt: self.consumedUnits] forKey: @"consumedUnits"];
-}	{id curVal = self.objectId;
-    if([self.updatedValues containsObject:@"objectId"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-            }
-    }
-	{id curVal = self.prepaidUnits;
+}	{id curVal = self.prepaidUnits;
     if([self.updatedValues containsObject:@"prepaidUnits"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[curVal toDictionary] forKey: @"prepaidUnits"];
@@ -175,6 +171,18 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"skuPartNumber"];
             }
     }
+	{id curVal = self.appliesTo;
+    if([self.updatedValues containsObject:@"appliesTo"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"appliesTo"];
+            }
+    }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
+    }
     return dic;
 }
 
@@ -193,14 +201,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
 - (void) setConsumedUnits: (int) value {
     _consumedUnits = value;
     [self valueChangedFor:@"consumedUnits"];
-}
-       
-/** Setter implementation for property objectId
- *
- */
-- (void) setObjectId: (NSString *) value {
-    _objectId = value;
-    [self valueChangedFor:@"objectId"];
 }
        
 /** Setter implementation for property prepaidUnits
@@ -233,6 +233,14 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"servicePlans"];}
 - (void) setSkuPartNumber: (NSString *) value {
     _skuPartNumber = value;
     [self valueChangedFor:@"skuPartNumber"];
+}
+       
+/** Setter implementation for property appliesTo
+ *
+ */
+- (void) setAppliesTo: (NSString *) value {
+    _appliesTo = value;
+    [self valueChangedFor:@"appliesTo"];
 }
        
 

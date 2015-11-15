@@ -20,13 +20,13 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "api/api.h"
 #import "core/core.h"
-#import "core/MSOrcOperations.h"
+#import "MSGraphEntityCollectionOperations.h"
 
 
 /** MSGraphPermissionCollectionOperations
  *
  */
-@interface MSGraphPermissionCollectionOperations : MSOrcOperations
+@interface MSGraphPermissionCollectionOperations : MSGraphEntityCollectionOperations
 
 
 @end

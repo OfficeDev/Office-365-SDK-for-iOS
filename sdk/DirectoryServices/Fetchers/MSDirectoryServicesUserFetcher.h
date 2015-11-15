@@ -54,6 +54,7 @@ root for authoritative license information.﻿
 - (MSDirectoryServicesUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSDirectoryServicesUserFetcher *)select:(NSString *)params;
 - (MSDirectoryServicesUserFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=thumbnailPhoto) MSOrcStreamFetcher *thumbnailPhoto;
 @property (strong, nonatomic, readonly, getter=appRoleAssignments) MSDirectoryServicesAppRoleAssignmentCollectionFetcher *appRoleAssignments;
 
 - (MSDirectoryServicesAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;

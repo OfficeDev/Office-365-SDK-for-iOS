@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"LastModifiedDateTime", @"lastModifiedDateTime", @"Name", @"name", @"ContentType", @"contentType", @"Size", @"size", @"IsInline", @"isInline", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Attachment";
+		_odataType = @"#microsoft.graph.attachment";
         
     }
 
@@ -61,7 +61,7 @@ root for authoritative license information.﻿
 		_contentType = (![dic objectForKey: @"ContentType"] || [ [dic objectForKey: @"ContentType"] isKindOfClass:[NSNull class]] )?_contentType:[[dic objectForKey: @"ContentType"] copy];
 		_size = (![dic objectForKey: @"Size"] || [ [dic objectForKey: @"Size"] isKindOfClass:[NSNull class]] )?_size:[[dic objectForKey: @"Size"] intValue];
 		_isInline = (![dic objectForKey: @"IsInline"] || [ [dic objectForKey: @"IsInline"] isKindOfClass:[NSNull class]] )?_isInline:[[dic objectForKey: @"IsInline"] boolValue];
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -78,8 +78,8 @@ root for authoritative license information.﻿
 	{id curVal = [self.contentType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"ContentType"];}
 	{[dic setValue: [NSNumber numberWithInt: self.size] forKey: @"Size"];}
 	{[dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Attachment" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.attachment" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -111,9 +111,9 @@ root for authoritative license information.﻿
 } if([self.updatedValues containsObject:@"IsInline"])
             { [dic setValue: (self.isInline?@"true":@"false") forKey: @"IsInline"];
 }	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;

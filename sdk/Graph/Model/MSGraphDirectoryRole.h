@@ -38,16 +38,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
 
-/** Property isSystem
- *
- */
-@property (nonatomic,  setter=setIsSystem:, getter=isSystem) bool isSystem;
-
-/** Property roleDisabled
- *
- */
-@property (nonatomic,  setter=setRoleDisabled:, getter=roleDisabled) bool roleDisabled;
-
 /** Property roleTemplateId
  *
  */
@@ -57,21 +47,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setMembers:, getter=members) NSMutableArray * members;
-
-/** Property memberOf
- *
- */
-@property (nonatomic,  copy, setter=setMemberOf:, getter=memberOf) NSMutableArray * memberOf;
-
-/** Property owners
- *
- */
-@property (nonatomic,  copy, setter=setOwners:, getter=owners) NSMutableArray * owners;
-
-/** Property ownedObjects
- *
- */
-@property (nonatomic,  copy, setter=setOwnedObjects:, getter=ownedObjects) NSMutableArray * ownedObjects;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

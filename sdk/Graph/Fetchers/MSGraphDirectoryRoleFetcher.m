@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphDirectoryRoleFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphDirectoryRole *DirectoryRole, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphDirectoryRole *directoryRole, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,7 +64,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphDirectoryRole *DirectoryRole, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphDirectoryRole *directoryRole, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
@@ -77,39 +78,6 @@ root for authoritative license information.﻿
 - (MSGraphDirectoryObjectFetcher *)membersById:(NSString *)identifier {
 
     return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"members" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
-
-}
-
-- (MSGraphDirectoryObjectCollectionFetcher *)memberOf {
-
-    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self asClass:[MSGraphDirectoryObject class]];
-}
-
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(NSString *)identifier {
-
-    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"memberOf" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
-
-}
-
-- (MSGraphDirectoryObjectCollectionFetcher *)owners {
-
-    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"owners" parent:self asClass:[MSGraphDirectoryObject class]];
-}
-
-- (MSGraphDirectoryObjectFetcher *)ownersById:(NSString *)identifier {
-
-    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"owners" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
-
-}
-
-- (MSGraphDirectoryObjectCollectionFetcher *)ownedObjects {
-
-    return [[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedObjects" parent:self asClass:[MSGraphDirectoryObject class]];
-}
-
-- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(NSString *)identifier {
-
-    return [[[MSGraphDirectoryObjectCollectionFetcher alloc] initWithUrl:@"ownedObjects" parent:self asClass:[MSGraphDirectoryObject class]] getById:identifier];
 
 }
 

@@ -31,7 +31,7 @@ root for authoritative license information.﻿
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback {
 
 
-      NSString *groupIdsString = [groupIds copy];
+      NSString *groupIdsString = [NSString stringWithFormat:@"\"%@\"", groupIds];
 
     return [self checkMemberGroupsRawWithGroupIds:groupIdsString callback:^(NSString *returnValue, MSOrcError *e) {
        

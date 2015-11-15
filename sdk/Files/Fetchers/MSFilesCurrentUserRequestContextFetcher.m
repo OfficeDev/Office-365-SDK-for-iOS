@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSFilesFetchers.h"
+#import "core/core.h"
 
 @implementation MSFilesCurrentUserRequestContextFetcher
 

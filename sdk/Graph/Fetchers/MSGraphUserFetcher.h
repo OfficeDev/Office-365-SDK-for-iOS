@@ -26,9 +26,6 @@ root for authoritative license information.﻿
 @class MSGraphAssignedPlanCollectionFetcher;
 @class MSGraphPasswordProfileFetcher;
 @class MSGraphProvisionedPlanCollectionFetcher;
-@class MSGraphProvisioningErrorCollectionFetcher;
-@class MSGraphAppRoleAssignmentCollectionFetcher;
-@class MSGraphOAuth2PermissionGrantCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphMessageCollectionFetcher;
@@ -40,17 +37,8 @@ root for authoritative license information.﻿
 @class MSGraphEventCollectionFetcher;
 @class MSGraphContactCollectionFetcher;
 @class MSGraphContactFolderCollectionFetcher;
-@class MSGraphInferenceClassificationFetcher;
-@class MSGraphMailFolderFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphTaskCollectionFetcher;
-@class MSGraphPlanCollectionFetcher;
-@class MSGraphNotesFetcher;
-@class MSGraphAppRoleAssignmentCollectionFetcher;
-@class MSGraphOAuth2PermissionGrantCollectionFetcher;
 @class MSGraphDirectoryObjectCollectionFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphMessageCollectionFetcher;
@@ -62,17 +50,8 @@ root for authoritative license information.﻿
 @class MSGraphEventCollectionFetcher;
 @class MSGraphContactCollectionFetcher;
 @class MSGraphContactFolderCollectionFetcher;
-@class MSGraphInferenceClassificationFetcher;
-@class MSGraphMailFolderFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphProfilePhotoCollectionFetcher;
 @class MSGraphDriveFetcher;
-@class MSGraphItemCollectionFetcher;
-@class MSGraphTaskCollectionFetcher;
-@class MSGraphPlanCollectionFetcher;
-@class MSGraphNotesFetcher;
-@class MSGraphAppRoleAssignmentFetcher;
-@class MSGraphOAuth2PermissionGrantFetcher;
 @class MSGraphDirectoryObjectFetcher;
 @class MSGraphMessageFetcher;
 @class MSGraphGroupFetcher;
@@ -82,11 +61,6 @@ root for authoritative license information.﻿
 @class MSGraphEventFetcher;
 @class MSGraphContactFetcher;
 @class MSGraphContactFolderFetcher;
-@class MSGraphProfilePhotoFetcher;
-@class MSGraphItemFetcher;
-@class MSGraphUserFetcher;
-@class MSGraphTaskFetcher;
-@class MSGraphPlanFetcher;
 @class MSGraphUserOperations;
 
 
@@ -99,20 +73,12 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphUser *, MSOrcError *))callback;
-- (void)update:(MSGraphUser *)User callback:(void (^)(MSGraphUser *, MSOrcError*))callback ;
+- (void)update:(MSGraphUser *)user callback:(void (^)(MSGraphUser *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphUserFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphUserFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphUserFetcher *)select:(NSString *)params;
 - (MSGraphUserFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=appRoleAssignments) MSGraphAppRoleAssignmentCollectionFetcher *appRoleAssignments;
-
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=oauth2PermissionGrants) MSGraphOAuth2PermissionGrantCollectionFetcher *oauth2PermissionGrants;
-
-- (MSGraphOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(id)identifier;
-
 @property (strong, nonatomic, readonly, getter=ownedDevices) MSGraphDirectoryObjectCollectionFetcher *ownedDevices;
 
 - (MSGraphDirectoryObjectFetcher *)ownedDevicesById:(id)identifier;
@@ -178,35 +144,9 @@ root for authoritative license information.﻿
 - (MSGraphContactFolderFetcher *)contactFoldersById:(id)identifier;
 
 
-@property (strong, nonatomic, readonly, getter=inferenceClassification) MSGraphInferenceClassificationFetcher *inferenceClassification;
-
-@property (strong, nonatomic, readonly, getter=rootFolder) MSGraphMailFolderFetcher *rootFolder;
-
 @property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
-@property (strong, nonatomic, readonly, getter=photos) MSGraphProfilePhotoCollectionFetcher *photos;
-
-- (MSGraphProfilePhotoFetcher *)photosById:(id)identifier;
-
 
 @property (strong, nonatomic, readonly, getter=drive) MSGraphDriveFetcher *drive;
-@property (strong, nonatomic, readonly, getter=trendingAround) MSGraphItemCollectionFetcher *trendingAround;
-
-- (MSGraphItemFetcher *)trendingAroundById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=workingWith) MSGraphUserCollectionFetcher *workingWith;
-
-- (MSGraphUserFetcher *)workingWithById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=tasks) MSGraphTaskCollectionFetcher *tasks;
-
-- (MSGraphTaskFetcher *)tasksById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=plans) MSGraphPlanCollectionFetcher *plans;
-
-- (MSGraphPlanFetcher *)plansById:(id)identifier;
-
-
-@property (strong, nonatomic, readonly, getter=notes) MSGraphNotesFetcher *notes;
 
 @end
 

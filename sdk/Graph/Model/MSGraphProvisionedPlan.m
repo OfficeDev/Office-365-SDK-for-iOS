@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ProvisionedPlan";
+		_odataType = @"#microsoft.graph.provisionedPlan";
 
     }
 
@@ -72,7 +72,7 @@ root for authoritative license information.﻿
 	{id curVal = [self.capabilityStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"capabilityStatus"];}
 	{id curVal = [self.provisioningStatus copy];if (curVal!=nil) [dic setValue: curVal forKey: @"provisioningStatus"];}
 	{id curVal = [self.service copy];if (curVal!=nil) [dic setValue: curVal forKey: @"service"];}
-    [dic setValue: @"#microsoft.graph.ProvisionedPlan" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.provisionedPlan" forKey: @"@odata.type"];
 
     return dic;
 }

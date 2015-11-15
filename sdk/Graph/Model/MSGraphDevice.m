@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"alternativeSecurityIds", @"alternativeSecurityIds", @"approximateLastLogonTimestamp", @"approximateLastLogonTimestamp", @"deviceId", @"deviceId", @"deviceMetadata", @"deviceMetadata", @"deviceObjectVersion", @"deviceObjectVersion", @"deviceOSType", @"deviceOSType", @"deviceOSVersion", @"deviceOSVersion", @"devicePhysicalIds", @"devicePhysicalIds", @"deviceTrustType", @"deviceTrustType", @"dirSyncEnabled", @"dirSyncEnabled", @"displayName", @"displayName", @"lastDirSyncTime", @"lastDirSyncTime", @"registeredOwners", @"registeredOwners", @"registeredUsers", @"registeredUsers", @"objectType", @"objectType", @"objectId", @"objectId", @"deletionTimestamp", @"deletionTimestamp", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"accountEnabled", @"accountEnabled", @"alternativeSecurityIds", @"alternativeSecurityIds", @"approximateLastSignInDateTime", @"approximateLastSignInDateTime", @"deviceId", @"deviceId", @"deviceMetadata", @"deviceMetadata", @"deviceVersion", @"deviceVersion", @"displayName", @"displayName", @"isCompliant", @"isCompliant", @"isManaged", @"isManaged", @"onPremisesLastSyncDateTime", @"onPremisesLastSyncDateTime", @"onPremisesSyncEnabled", @"onPremisesSyncEnabled", @"operatingSystem", @"operatingSystem", @"operatingSystemVersion", @"operatingSystemVersion", @"physicalIds", @"physicalIds", @"trustType", @"trustType", @"registeredOwners", @"registeredOwners", @"registeredUsers", @"registeredUsers", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Device";
+		_odataType = @"#microsoft.graph.device";
         
     }
 
@@ -68,27 +68,29 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_alternativeSecurityIds resetChangedFlag];
         }
         
-		_approximateLastLogonTimestamp = (![dic objectForKey: @"approximateLastLogonTimestamp"] || [ [dic objectForKey: @"approximateLastLogonTimestamp"] isKindOfClass:[NSNull class]] )?_approximateLastLogonTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"approximateLastLogonTimestamp"]];
+		_approximateLastSignInDateTime = (![dic objectForKey: @"approximateLastSignInDateTime"] || [ [dic objectForKey: @"approximateLastSignInDateTime"] isKindOfClass:[NSNull class]] )?_approximateLastSignInDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"approximateLastSignInDateTime"]];
 		_deviceId = (![dic objectForKey: @"deviceId"] || [ [dic objectForKey: @"deviceId"] isKindOfClass:[NSNull class]] )?_deviceId:[[dic objectForKey: @"deviceId"] copy];
 		_deviceMetadata = (![dic objectForKey: @"deviceMetadata"] || [ [dic objectForKey: @"deviceMetadata"] isKindOfClass:[NSNull class]] )?_deviceMetadata:[[dic objectForKey: @"deviceMetadata"] copy];
-		_deviceObjectVersion = (![dic objectForKey: @"deviceObjectVersion"] || [ [dic objectForKey: @"deviceObjectVersion"] isKindOfClass:[NSNull class]] )?_deviceObjectVersion:[[dic objectForKey: @"deviceObjectVersion"] intValue];
-		_deviceOSType = (![dic objectForKey: @"deviceOSType"] || [ [dic objectForKey: @"deviceOSType"] isKindOfClass:[NSNull class]] )?_deviceOSType:[[dic objectForKey: @"deviceOSType"] copy];
-		_deviceOSVersion = (![dic objectForKey: @"deviceOSVersion"] || [ [dic objectForKey: @"deviceOSVersion"] isKindOfClass:[NSNull class]] )?_deviceOSVersion:[[dic objectForKey: @"deviceOSVersion"] copy];
+		_deviceVersion = (![dic objectForKey: @"deviceVersion"] || [ [dic objectForKey: @"deviceVersion"] isKindOfClass:[NSNull class]] )?_deviceVersion:[[dic objectForKey: @"deviceVersion"] intValue];
+		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
+		_isCompliant = (![dic objectForKey: @"isCompliant"] || [ [dic objectForKey: @"isCompliant"] isKindOfClass:[NSNull class]] )?_isCompliant:[[dic objectForKey: @"isCompliant"] boolValue];
+		_isManaged = (![dic objectForKey: @"isManaged"] || [ [dic objectForKey: @"isManaged"] isKindOfClass:[NSNull class]] )?_isManaged:[[dic objectForKey: @"isManaged"] boolValue];
+		_onPremisesLastSyncDateTime = (![dic objectForKey: @"onPremisesLastSyncDateTime"] || [ [dic objectForKey: @"onPremisesLastSyncDateTime"] isKindOfClass:[NSNull class]] )?_onPremisesLastSyncDateTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"onPremisesLastSyncDateTime"]];
+		_onPremisesSyncEnabled = (![dic objectForKey: @"onPremisesSyncEnabled"] || [ [dic objectForKey: @"onPremisesSyncEnabled"] isKindOfClass:[NSNull class]] )?_onPremisesSyncEnabled:[[dic objectForKey: @"onPremisesSyncEnabled"] boolValue];
+		_operatingSystem = (![dic objectForKey: @"operatingSystem"] || [ [dic objectForKey: @"operatingSystem"] isKindOfClass:[NSNull class]] )?_operatingSystem:[[dic objectForKey: @"operatingSystem"] copy];
+		_operatingSystemVersion = (![dic objectForKey: @"operatingSystemVersion"] || [ [dic objectForKey: @"operatingSystemVersion"] isKindOfClass:[NSNull class]] )?_operatingSystemVersion:[[dic objectForKey: @"operatingSystemVersion"] copy];
 
-        if([dic objectForKey: @"devicePhysicalIds"] != [NSNull null]){
-            _devicePhysicalIds = [[MSOrcChangesTrackingArray alloc] init];
+        if([dic objectForKey: @"physicalIds"] != [NSNull null]){
+            _physicalIds = [[MSOrcChangesTrackingArray alloc] init];
             
-            for (id object in [dic objectForKey: @"devicePhysicalIds"]) {
-                [_devicePhysicalIds addObject:[object copy]];
+            for (id object in [dic objectForKey: @"physicalIds"]) {
+                [_physicalIds addObject:[object copy]];
             }
             
-            [(MSOrcChangesTrackingArray *)_devicePhysicalIds resetChangedFlag];
+            [(MSOrcChangesTrackingArray *)_physicalIds resetChangedFlag];
         }
         
-		_deviceTrustType = (![dic objectForKey: @"deviceTrustType"] || [ [dic objectForKey: @"deviceTrustType"] isKindOfClass:[NSNull class]] )?_deviceTrustType:[[dic objectForKey: @"deviceTrustType"] copy];
-		_dirSyncEnabled = (![dic objectForKey: @"dirSyncEnabled"] || [ [dic objectForKey: @"dirSyncEnabled"] isKindOfClass:[NSNull class]] )?_dirSyncEnabled:[[dic objectForKey: @"dirSyncEnabled"] boolValue];
-		_displayName = (![dic objectForKey: @"displayName"] || [ [dic objectForKey: @"displayName"] isKindOfClass:[NSNull class]] )?_displayName:[[dic objectForKey: @"displayName"] copy];
-		_lastDirSyncTime = (![dic objectForKey: @"lastDirSyncTime"] || [ [dic objectForKey: @"lastDirSyncTime"] isKindOfClass:[NSNull class]] )?_lastDirSyncTime:[MSOrcObjectizer dateFromString:[dic objectForKey: @"lastDirSyncTime"]];
+		_trustType = (![dic objectForKey: @"trustType"] || [ [dic objectForKey: @"trustType"] isKindOfClass:[NSNull class]] )?_trustType:[[dic objectForKey: @"trustType"] copy];
 
         if([dic objectForKey: @"registeredOwners"] != [NSNull null]){
             _registeredOwners = [[MSOrcChangesTrackingArray alloc] init];
@@ -111,9 +113,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_registeredUsers resetChangedFlag];
         }
         
-		self.objectType = (![dic objectForKey: @"objectType"] || [ [dic objectForKey: @"objectType"] isKindOfClass:[NSNull class]] )?self.objectType:[[dic objectForKey: @"objectType"] copy];
-		self.objectId = (![dic objectForKey: @"objectId"] || [ [dic objectForKey: @"objectId"] isKindOfClass:[NSNull class]] )?self.objectId:[[dic objectForKey: @"objectId"] copy];
-		self.deletionTimestamp = (![dic objectForKey: @"deletionTimestamp"] || [ [dic objectForKey: @"deletionTimestamp"] isKindOfClass:[NSNull class]] )?self.deletionTimestamp:[MSOrcObjectizer dateFromString:[dic objectForKey: @"deletionTimestamp"]];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -134,24 +134,26 @@ root for authoritative license information.﻿
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"alternativeSecurityIds"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.approximateLastLogonTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"approximateLastLogonTimestamp"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.approximateLastSignInDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"approximateLastSignInDateTime"];}
 	{id curVal = [self.deviceId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceId"];}
 	{id curVal = [self.deviceMetadata copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceMetadata"];}
-	{[dic setValue: [NSNumber numberWithInt: self.deviceObjectVersion] forKey: @"deviceObjectVersion"];}
-	{id curVal = [self.deviceOSType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceOSType"];}
-	{id curVal = [self.deviceOSVersion copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceOSVersion"];}
+	{[dic setValue: [NSNumber numberWithInt: self.deviceVersion] forKey: @"deviceVersion"];}
+	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
+	{[dic setValue: (self.isCompliant?@"true":@"false") forKey: @"isCompliant"];}
+	{[dic setValue: (self.isManaged?@"true":@"false") forKey: @"isManaged"];}
+	{id curVal = [MSOrcObjectizer stringFromDate:self.onPremisesLastSyncDateTime];if (curVal!=nil) [dic setValue: curVal forKey: @"onPremisesLastSyncDateTime"];}
+	{[dic setValue: (self.onPremisesSyncEnabled?@"true":@"false") forKey: @"onPremisesSyncEnabled"];}
+	{id curVal = [self.operatingSystem copy];if (curVal!=nil) [dic setValue: curVal forKey: @"operatingSystem"];}
+	{id curVal = [self.operatingSystemVersion copy];if (curVal!=nil) [dic setValue: curVal forKey: @"operatingSystemVersion"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
-    for(id obj in self.devicePhysicalIds) {
+    for(id obj in self.physicalIds) {
        [curVal addObject:[obj copy]];
     }
     
     if([curVal count]==0) curVal=nil;
-if (curVal!=nil) [dic setValue: curVal forKey: @"devicePhysicalIds"];}
-	{id curVal = [self.deviceTrustType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"deviceTrustType"];}
-	{[dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];}
-	{id curVal = [self.displayName copy];if (curVal!=nil) [dic setValue: curVal forKey: @"displayName"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.lastDirSyncTime];if (curVal!=nil) [dic setValue: curVal forKey: @"lastDirSyncTime"];}
+if (curVal!=nil) [dic setValue: curVal forKey: @"physicalIds"];}
+	{id curVal = [self.trustType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"trustType"];}
 	{    NSMutableArray *curVal = [[NSMutableArray alloc] init];
     
     for(id obj in self.registeredOwners) {
@@ -168,10 +170,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredOwners"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
-	{id curVal = [self.objectType copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectType"];}
-	{id curVal = [self.objectId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"objectId"];}
-	{id curVal = [MSOrcObjectizer stringFromDate:self.deletionTimestamp];if (curVal!=nil) [dic setValue: curVal forKey: @"deletionTimestamp"];}
-    [dic setValue: @"#microsoft.graph.Device" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.device" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -208,10 +208,10 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
         }
         
             }}
-	{id curVal = self.approximateLastLogonTimestamp;
-    if([self.updatedValues containsObject:@"approximateLastLogonTimestamp"])
+	{id curVal = self.approximateLastSignInDateTime;
+    if([self.updatedValues containsObject:@"approximateLastSignInDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"approximateLastLogonTimestamp"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"approximateLastSignInDateTime"];
             }
     }
 	{id curVal = self.deviceId;
@@ -226,22 +226,40 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceMetadata"];
             }
     }
- if([self.updatedValues containsObject:@"deviceObjectVersion"])
-            { [dic setValue: [NSNumber numberWithInt: self.deviceObjectVersion] forKey: @"deviceObjectVersion"];
-}	{id curVal = self.deviceOSType;
-    if([self.updatedValues containsObject:@"deviceOSType"])
+ if([self.updatedValues containsObject:@"deviceVersion"])
+            { [dic setValue: [NSNumber numberWithInt: self.deviceVersion] forKey: @"deviceVersion"];
+}	{id curVal = self.displayName;
+    if([self.updatedValues containsObject:@"displayName"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceOSType"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
             }
     }
-	{id curVal = self.deviceOSVersion;
-    if([self.updatedValues containsObject:@"deviceOSVersion"])
+ if([self.updatedValues containsObject:@"isCompliant"])
+            { [dic setValue: (self.isCompliant?@"true":@"false") forKey: @"isCompliant"];
+} if([self.updatedValues containsObject:@"isManaged"])
+            { [dic setValue: (self.isManaged?@"true":@"false") forKey: @"isManaged"];
+}	{id curVal = self.onPremisesLastSyncDateTime;
+    if([self.updatedValues containsObject:@"onPremisesLastSyncDateTime"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceOSVersion"];
+                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"onPremisesLastSyncDateTime"];
             }
     }
-	{id curVal = self.devicePhysicalIds;
-    if([self.updatedValues containsObject:@"devicePhysicalIds"])
+ if([self.updatedValues containsObject:@"onPremisesSyncEnabled"])
+            { [dic setValue: (self.onPremisesSyncEnabled?@"true":@"false") forKey: @"onPremisesSyncEnabled"];
+}	{id curVal = self.operatingSystem;
+    if([self.updatedValues containsObject:@"operatingSystem"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"operatingSystem"];
+            }
+    }
+	{id curVal = self.operatingSystemVersion;
+    if([self.updatedValues containsObject:@"operatingSystemVersion"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"operatingSystemVersion"];
+            }
+    }
+	{id curVal = self.physicalIds;
+    if([self.updatedValues containsObject:@"physicalIds"])
     {
             NSMutableArray *curArray = [[NSMutableArray alloc] init];
     
@@ -249,7 +267,7 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
        [curArray addObject:[obj copy]];
     }
     
-            [dic setValue: curArray forKey: @"devicePhysicalIds"];
+            [dic setValue: curArray forKey: @"physicalIds"];
             }
         else
     {
@@ -258,32 +276,18 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
         {
                 NSMutableArray *curArray = [[NSMutableArray alloc] init];
     
-    for(id obj in self.devicePhysicalIds) {
+    for(id obj in self.physicalIds) {
        [curArray addObject:[obj copy]];
     }
     
-                 [dic setValue: curArray forKey: @"devicePhysicalIds"];
+                 [dic setValue: curArray forKey: @"physicalIds"];
         }
         
             }}
-	{id curVal = self.deviceTrustType;
-    if([self.updatedValues containsObject:@"deviceTrustType"])
+	{id curVal = self.trustType;
+    if([self.updatedValues containsObject:@"trustType"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"deviceTrustType"];
-            }
-    }
- if([self.updatedValues containsObject:@"dirSyncEnabled"])
-            { [dic setValue: (self.dirSyncEnabled?@"true":@"false") forKey: @"dirSyncEnabled"];
-}	{id curVal = self.displayName;
-    if([self.updatedValues containsObject:@"displayName"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"displayName"];
-            }
-    }
-	{id curVal = self.lastDirSyncTime;
-    if([self.updatedValues containsObject:@"lastDirSyncTime"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"lastDirSyncTime"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"trustType"];
             }
     }
 	{id curVal = self.registeredOwners;
@@ -338,22 +342,10 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
         }
         
             }}
-	{id curVal = self.objectType;
-    if([self.updatedValues containsObject:@"objectType"])
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectType"];
-            }
-    }
-	{id curVal = self.objectId;
-    if([self.updatedValues containsObject:@"objectId"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"objectId"];
-            }
-    }
-	{id curVal = self.deletionTimestamp;
-    if([self.updatedValues containsObject:@"deletionTimestamp"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"deletionTimestamp"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;
@@ -376,12 +368,12 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
     [self valueChangedFor:@"alternativeSecurityIds"];
 }
        
-/** Setter implementation for property approximateLastLogonTimestamp
+/** Setter implementation for property approximateLastSignInDateTime
  *
  */
-- (void) setApproximateLastLogonTimestamp: (NSDate *) value {
-    _approximateLastLogonTimestamp = value;
-    [self valueChangedFor:@"approximateLastLogonTimestamp"];
+- (void) setApproximateLastSignInDateTime: (NSDate *) value {
+    _approximateLastSignInDateTime = value;
+    [self valueChangedFor:@"approximateLastSignInDateTime"];
 }
        
 /** Setter implementation for property deviceId
@@ -400,52 +392,12 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
     [self valueChangedFor:@"deviceMetadata"];
 }
        
-/** Setter implementation for property deviceObjectVersion
+/** Setter implementation for property deviceVersion
  *
  */
-- (void) setDeviceObjectVersion: (int) value {
-    _deviceObjectVersion = value;
-    [self valueChangedFor:@"deviceObjectVersion"];
-}
-       
-/** Setter implementation for property deviceOSType
- *
- */
-- (void) setDeviceOSType: (NSString *) value {
-    _deviceOSType = value;
-    [self valueChangedFor:@"deviceOSType"];
-}
-       
-/** Setter implementation for property deviceOSVersion
- *
- */
-- (void) setDeviceOSVersion: (NSString *) value {
-    _deviceOSVersion = value;
-    [self valueChangedFor:@"deviceOSVersion"];
-}
-       
-/** Setter implementation for property devicePhysicalIds
- *
- */
-- (void) setDevicePhysicalIds: (NSMutableArray *) value {
-    _devicePhysicalIds = value;
-    [self valueChangedFor:@"devicePhysicalIds"];
-}
-       
-/** Setter implementation for property deviceTrustType
- *
- */
-- (void) setDeviceTrustType: (NSString *) value {
-    _deviceTrustType = value;
-    [self valueChangedFor:@"deviceTrustType"];
-}
-       
-/** Setter implementation for property dirSyncEnabled
- *
- */
-- (void) setDirSyncEnabled: (bool) value {
-    _dirSyncEnabled = value;
-    [self valueChangedFor:@"dirSyncEnabled"];
+- (void) setDeviceVersion: (int) value {
+    _deviceVersion = value;
+    [self valueChangedFor:@"deviceVersion"];
 }
        
 /** Setter implementation for property displayName
@@ -456,12 +408,68 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"registeredUsers"];}
     [self valueChangedFor:@"displayName"];
 }
        
-/** Setter implementation for property lastDirSyncTime
+/** Setter implementation for property isCompliant
  *
  */
-- (void) setLastDirSyncTime: (NSDate *) value {
-    _lastDirSyncTime = value;
-    [self valueChangedFor:@"lastDirSyncTime"];
+- (void) setIsCompliant: (bool) value {
+    _isCompliant = value;
+    [self valueChangedFor:@"isCompliant"];
+}
+       
+/** Setter implementation for property isManaged
+ *
+ */
+- (void) setIsManaged: (bool) value {
+    _isManaged = value;
+    [self valueChangedFor:@"isManaged"];
+}
+       
+/** Setter implementation for property onPremisesLastSyncDateTime
+ *
+ */
+- (void) setOnPremisesLastSyncDateTime: (NSDate *) value {
+    _onPremisesLastSyncDateTime = value;
+    [self valueChangedFor:@"onPremisesLastSyncDateTime"];
+}
+       
+/** Setter implementation for property onPremisesSyncEnabled
+ *
+ */
+- (void) setOnPremisesSyncEnabled: (bool) value {
+    _onPremisesSyncEnabled = value;
+    [self valueChangedFor:@"onPremisesSyncEnabled"];
+}
+       
+/** Setter implementation for property operatingSystem
+ *
+ */
+- (void) setOperatingSystem: (NSString *) value {
+    _operatingSystem = value;
+    [self valueChangedFor:@"operatingSystem"];
+}
+       
+/** Setter implementation for property operatingSystemVersion
+ *
+ */
+- (void) setOperatingSystemVersion: (NSString *) value {
+    _operatingSystemVersion = value;
+    [self valueChangedFor:@"operatingSystemVersion"];
+}
+       
+/** Setter implementation for property physicalIds
+ *
+ */
+- (void) setPhysicalIds: (NSMutableArray *) value {
+    _physicalIds = value;
+    [self valueChangedFor:@"physicalIds"];
+}
+       
+/** Setter implementation for property trustType
+ *
+ */
+- (void) setTrustType: (NSString *) value {
+    _trustType = value;
+    [self valueChangedFor:@"trustType"];
 }
        
 /** Setter implementation for property registeredOwners

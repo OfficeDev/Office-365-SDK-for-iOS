@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", @"Id", @"_id", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Topic", @"topic", @"HasAttachments", @"hasAttachments", @"LastDeliveredDateTime", @"lastDeliveredDateTime", @"UniqueSenders", @"uniqueSenders", @"Preview", @"preview", @"Threads", @"threads", @"id", @"_id", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.Conversation";
+		_odataType = @"#microsoft.graph.conversation";
         
     }
 
@@ -82,7 +82,7 @@ root for authoritative license information.﻿
             [(MSOrcChangesTrackingArray *)_threads resetChangedFlag];
         }
         
-		self._id = (![dic objectForKey: @"Id"] || [ [dic objectForKey: @"Id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"Id"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -114,8 +114,8 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"UniqueSenders"];}
     
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Id"];}
-    [dic setValue: @"#microsoft.graph.Conversation" forKey: @"@odata.type"];
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
+    [dic setValue: @"#microsoft.graph.conversation" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -197,9 +197,9 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"Threads"];}
         
             }}
 	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"Id"])
+    if([self.updatedValues containsObject:@"id"])
     {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"Id"];
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
             }
     }
     return dic;

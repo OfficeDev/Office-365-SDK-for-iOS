@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphCalendarGroupFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphCalendarGroup *CalendarGroup, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphCalendarGroup *calendarGroup, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,7 +64,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphCalendarGroup *CalendarGroup, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphCalendarGroup *calendarGroup, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];

@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookMessage *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [destinationId copy];
+      NSString *destinationIdString = [NSString stringWithFormat:@"\"%@\"", destinationId];
 
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -71,7 +71,7 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSOutlookMessage *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [destinationId copy];
+      NSString *destinationIdString = [NSString stringWithFormat:@"\"%@\"", destinationId];
 
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -236,7 +236,7 @@ root for authoritative license information.﻿
 - (void)replyWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
     return [self replyRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -281,7 +281,7 @@ root for authoritative license information.﻿
 - (void)replyAllWithComment:(NSString *)comment callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
     return [self replyAllRawWithComment:commentString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -326,7 +326,7 @@ root for authoritative license information.﻿
 - (void)forwardWithComment:(NSString *)comment toRecipients:(MSOutlookRecipient *)toRecipients callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
   NSString *toRecipientsString = [MSOrcObjectizer deobjectizeToString:toRecipients];
 

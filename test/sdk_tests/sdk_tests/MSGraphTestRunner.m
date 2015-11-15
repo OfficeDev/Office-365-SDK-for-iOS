@@ -122,7 +122,8 @@
 }
 
 -(void)TestGetApplications:(void (^) (Test*))result{
-    
+    //Not running in V1
+    /*
     [self.Client.applications readWithCallback:^(NSArray *applications, MSOrcError *error) {
         
         BOOL passed = false;
@@ -148,10 +149,17 @@
         
         result(test);
     }];
+     */
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetContacts:(void (^) (Test*))result{
-    
+  /*
     return [self.Client.contacts readWithCallback:^(NSArray *contacts, MSOrcError *error) {
         
         BOOL passed = false;
@@ -175,10 +183,17 @@
         
         result(test);
     }];
+   */
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetDeviceConfiguration:(void (^) (Test*))result{
-    
+    /*
     return [self.Client.deviceConfiguration readWithCallback:^(NSArray *deviceConfigurations, MSOrcError *error) {
         
         BOOL passed = false;
@@ -201,7 +216,13 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetDevices:(void (^) (Test *))result{
@@ -314,7 +335,7 @@
 }
 
 -(void)TestGetServicePrincipals:(void (^) (Test*))result{
-    
+    /*
     return [self.Client.servicePrincipals readWithCallback:^(NSArray *servicePrincipals, MSOrcError *error) {
         
         BOOL passed = false;
@@ -337,11 +358,17 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 - (void)TestGetTenantDetails:(void (^) (Test*))result {
-    
+    /*
     return [self.Client.tenantDetails readWithCallback:^(NSArray *tenantDetails, MSOrcError *error) {
         
         BOOL passed = false;
@@ -364,7 +391,13 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 - (void)TestGetUsers:(void (^) (Test *))result {
@@ -423,7 +456,7 @@
 }
 
 -(void)TestGetUserAppRoleAssignments:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].appRoleAssignments
                       readWithCallback:^(NSArray *appRoleAssignments, MSOrcError *error) {
         
@@ -451,11 +484,17 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 - (void)TestGetOauth2PermissionGrants:(void (^) (Test *))result {
-    
+    /*
     return [[self.Client.users getById:self.TestMail].oauth2PermissionGrants
                       readWithCallback:^(NSArray *oAuth2PermissionGrants, MSOrcError *error) {
         
@@ -482,7 +521,13 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetOwnedDevices:(void (^) (Test*))result{
@@ -571,7 +616,7 @@
 }
 
 -(void)TestGetMemberOfById:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].memberOf readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         if (error != nil) {
@@ -607,7 +652,13 @@
             result(test);
             
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetCreatedObjects:(void (^) (Test*))result{
@@ -665,7 +716,7 @@
 }
 
 -(void)TestGetOwnedObjectsById:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].ownedObjects readWithCallback:^(NSArray *directoryObjects, MSOrcError *error) {
         
         if (error != nil) {
@@ -701,7 +752,13 @@
             result(test);
             
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetMessages:(void (^) (Test*))result{
@@ -1029,6 +1086,7 @@
 }
 
 -(void)TestCreateEvents:(void (^) (Test*))result{
+    /*
     MSGraphEvent *event = [self getSampleEvent];
     //Create Event
     
@@ -1061,10 +1119,17 @@
         }];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestUpdateEvents:(void (^) (Test*))result{
+    /*
     MSGraphEvent *event = [self getSampleEvent];
     //Create Event
     return [[self.Client.users getById:self.TestMail].events add:event callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
@@ -1102,10 +1167,17 @@
             
             result(test);
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestDeleteEvents:(void (^) (Test*))result{
+    /*
     MSGraphEvent *event = [self getSampleEvent];
     //Create Event
     return [[self.Client.users getById:self.TestMail].events add:event callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
@@ -1137,9 +1209,17 @@
         }];
         
     }];
+    */
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetCalendarView:(void (^) (Test*))result{
+    /*
     MSGraphEvent *newEvent = [self getSampleEvent];
     
     return [[self.Client.users getById:self.TestMail].events add:newEvent callback:^(MSGraphEvent *addedEvent, MSOrcError *e) {
@@ -1176,11 +1256,18 @@
             
             result(test);
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
+    
 }
 
 -(void)TestGetUserPhotos:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].photos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         BOOL passed = false;
@@ -1203,11 +1290,17 @@
         [test.executionMessages addObject:message];
         
         result(test);
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetUserPhotoById:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].photos readWithCallback:^(NSArray *photos, MSOrcError *error) {
         
         if (error != nil) {
@@ -1243,7 +1336,13 @@
             result(test);
             
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestGetUserPhoto:(void (^) (Test*))result{
@@ -1328,7 +1427,7 @@
 }
 
 -(void)TestGetUserFilesById:(void (^) (Test*))result{
-    
+    /*
     return [[self.Client.users getById:self.TestMail].drive.root.children readWithCallback:^(NSArray *items, MSOrcError *error) {
         
         if (error != nil) {
@@ -1364,22 +1463,29 @@
             result(test);
             
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
--(void)TestCreateFileWithContent:(void (^) (Test*))result{
+-(void)TestCreateFileWithContent:(void (^) (Test*))result {
     /*
     MSGraphItem *itemToAdd = [self getFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
     NSInputStream* contentStream = [NSInputStream inputStreamWithData:content];
+    
     //Create file
     return [[self.Client.users getById:self.TestMail].drive.root.children add:itemToAdd callback:^(MSGraphItem *addedItem, MSOrcError *error) {
+        
         //Put content to file
-       
-        [[[[self.Client.users getById:self.TestMail].drive.root.children getById:addedItem._id].content putContent: contentStream callback:^(int returnValue, MSOrcError *error) {
+        [[[[self.Client.users getById:self.TestMail].drive.root.children getById:addedItem._id].content putContent: content callback:^(NSInteger returnValue, MSOrcError *error) {
             
             //Get file content
-            [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id].content stream contentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
+            [[[[self.Client.users getById:self.TestMail].files getById:addedItem._id].content getStreamedContentWithCallback:^(NSStream *addedContent, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1417,15 +1523,16 @@
             }];
         }];
     }];*/
-         
-         Test *test = [Test alloc];
-         test.executionMessages = [NSMutableArray array];
-         test.passed = FALSE;
-         result(test);
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 -(void)TestPrivilegedRoleSettings:(void (^) (Test*))result{
-    
+    /*
     return [[[self.Client privilegedRoles] top:1] readWithCallback:^(NSArray *roles, MSOrcError *error) {
         
         
@@ -1462,7 +1569,13 @@
             result(test);
             
         }];
-    }];
+    }];*/
+    Test *test = [Test alloc];
+    
+    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
+    test.passed = false;
+    
+    result(test);
 }
 
 - (MSGraphMessage *)getSampleMessage:(NSString *)subject to:(NSString *)to cc:(NSString *)cc {
@@ -1530,6 +1643,8 @@
     return event;
 }
 
+//Not defined in V1
+/*
 - (MSGraphItem *)getFileItem {
     
     NSString *fileName = [[[NSUUID UUID] UUIDString] stringByAppendingString:@".txt"];
@@ -1540,7 +1655,7 @@
     [item setFile:file];
     [item setName:fileName];
     return item;
-}
+}*/
 
 - (Test *)handleError:(MSOrcError *)error {
     

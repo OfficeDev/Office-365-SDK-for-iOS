@@ -21,12 +21,12 @@ root for authoritative license information.﻿
 
 @class MSGraphResponseStatus;
 @class MSGraphItemBody;
+@class MSGraphDateTimeTimeZone;
 @class MSGraphLocation;
 @class MSGraphPatternedRecurrence;
 @class MSGraphAttendee;
 @class MSGraphRecipient;
 @class MSGraphCalendar;
-@class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphImportance.h"
 #import "MSGraphSensitivity.h"
@@ -40,6 +40,16 @@ root for authoritative license information.﻿
  */
 @interface MSGraphEvent : MSGraphOutlookItem <MSOrcInteroperableWithDictionary>
 
+/** Property originalStartTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setOriginalStartTimeZone:, getter=originalStartTimeZone) NSString * originalStartTimeZone;
+
+/** Property originalEndTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setOriginalEndTimeZone:, getter=originalEndTimeZone) NSString * originalEndTimeZone;
+
 /** Property responseStatus
  *
  */
@@ -49,6 +59,16 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setICalUId:, getter=iCalUId) NSString * iCalUId;
+
+/** Property reminderMinutesBeforeStart
+ *
+ */
+@property (nonatomic,  setter=setReminderMinutesBeforeStart:, getter=reminderMinutesBeforeStart) int reminderMinutesBeforeStart;
+
+/** Property isReminderOn
+ *
+ */
+@property (nonatomic,  setter=setIsReminderOn:, getter=isReminderOn) bool isReminderOn;
 
 /** Property hasAttachments
  *
@@ -87,27 +107,17 @@ root for authoritative license information.﻿
 /** Property start
  *
  */
-@property (nonatomic,  copy, setter=setStart:, getter=start) NSDate * start;
+@property (nonatomic,  copy, setter=setStart:, getter=start) MSGraphDateTimeTimeZone * start;
 
 /** Property originalStart
  *
  */
 @property (nonatomic,  copy, setter=setOriginalStart:, getter=originalStart) NSDate * originalStart;
 
-/** Property startTimeZone
- *
- */
-@property (nonatomic,  copy, setter=setStartTimeZone:, getter=startTimeZone) NSString * startTimeZone;
-
 /** Property end
  *
  */
-@property (nonatomic,  copy, setter=setEnd:, getter=end) NSDate * end;
-
-/** Property endTimeZone
- *
- */
-@property (nonatomic,  copy, setter=setEndTimeZone:, getter=endTimeZone) NSString * endTimeZone;
+@property (nonatomic,  copy, setter=setEnd:, getter=end) MSGraphDateTimeTimeZone * end;
 
 /** Property location
  *
@@ -182,11 +192,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setInstances:, getter=instances) NSMutableArray * instances;
-
-/** Property extensions
- *
- */
-@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property attachments
  *

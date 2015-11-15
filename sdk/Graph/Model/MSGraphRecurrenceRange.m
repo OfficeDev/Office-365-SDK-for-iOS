@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"StartDate", @"startDate", @"EndDate", @"endDate", @"NumberOfOccurrences", @"numberOfOccurrences", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"Type", @"type", @"StartDate", @"startDate", @"EndDate", @"endDate", @"RecurrenceTimeZone", @"recurrenceTimeZone", @"NumberOfOccurrences", @"numberOfOccurrences", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.RecurrenceRange";
+		_odataType = @"#microsoft.graph.recurrenceRange";
 
     }
 
@@ -58,6 +58,7 @@ root for authoritative license information.﻿
 		_type = (![dic objectForKey: @"Type"] || [ [dic objectForKey: @"Type"] isKindOfClass:[NSNull class]] )?_type:[MSGraphRecurrenceRangeTypeSerializer fromString:[dic objectForKey: @"Type"]];
 		_startDate = (![dic objectForKey: @"StartDate"] || [ [dic objectForKey: @"StartDate"] isKindOfClass:[NSNull class]] )?_startDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"StartDate"]];
 		_endDate = (![dic objectForKey: @"EndDate"] || [ [dic objectForKey: @"EndDate"] isKindOfClass:[NSNull class]] )?_endDate:[MSOrcObjectizer dateFromString:[dic objectForKey: @"EndDate"]];
+		_recurrenceTimeZone = (![dic objectForKey: @"RecurrenceTimeZone"] || [ [dic objectForKey: @"RecurrenceTimeZone"] isKindOfClass:[NSNull class]] )?_recurrenceTimeZone:[[dic objectForKey: @"RecurrenceTimeZone"] copy];
 		_numberOfOccurrences = (![dic objectForKey: @"NumberOfOccurrences"] || [ [dic objectForKey: @"NumberOfOccurrences"] isKindOfClass:[NSNull class]] )?_numberOfOccurrences:[[dic objectForKey: @"NumberOfOccurrences"] intValue];
     }
     [self.updatedValues removeAllObjects];
@@ -73,8 +74,9 @@ root for authoritative license information.﻿
 	{[dic setValue: [MSGraphRecurrenceRangeTypeSerializer toString:self.type] forKey: @"Type"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.startDate];if (curVal!=nil) [dic setValue: curVal forKey: @"StartDate"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.endDate];if (curVal!=nil) [dic setValue: curVal forKey: @"EndDate"];}
+	{id curVal = [self.recurrenceTimeZone copy];if (curVal!=nil) [dic setValue: curVal forKey: @"RecurrenceTimeZone"];}
 	{[dic setValue: [NSNumber numberWithInt: self.numberOfOccurrences] forKey: @"NumberOfOccurrences"];}
-    [dic setValue: @"#microsoft.graph.RecurrenceRange" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.recurrenceRange" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -95,6 +97,12 @@ root for authoritative license information.﻿
     if([self.updatedValues containsObject:@"EndDate"])
     {
                 [dic setValue: curVal==nil?[NSNull null]:[MSOrcObjectizer stringFromDate:curVal] forKey: @"EndDate"];
+            }
+    }
+	{id curVal = self.recurrenceTimeZone;
+    if([self.updatedValues containsObject:@"RecurrenceTimeZone"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"RecurrenceTimeZone"];
             }
     }
  if([self.updatedValues containsObject:@"NumberOfOccurrences"])
@@ -132,6 +140,14 @@ root for authoritative license information.﻿
 - (void) setEndDate: (NSDate *) value {
     _endDate = value;
     [self valueChangedFor:@"EndDate"];
+}
+       
+/** Setter implementation for property recurrenceTimeZone
+ *
+ */
+- (void) setRecurrenceTimeZone: (NSString *) value {
+    _recurrenceTimeZone = value;
+    [self valueChangedFor:@"RecurrenceTimeZone"];
 }
        
 /** Setter implementation for property numberOfOccurrences

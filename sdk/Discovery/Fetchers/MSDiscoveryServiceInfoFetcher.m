@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSDiscoveryFetchers.h"
+#import "core/core.h"
 
 @implementation MSDiscoveryServiceInfoFetcher
 

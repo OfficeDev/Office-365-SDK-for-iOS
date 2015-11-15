@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphUserFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphUser *User, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphUser *user, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,32 +64,10 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphUser *User, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphUser *user, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
-}
-
-- (MSGraphAppRoleAssignmentCollectionFetcher *)appRoleAssignments {
-
-    return [[MSGraphAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self asClass:[MSGraphAppRoleAssignment class]];
-}
-
-- (MSGraphAppRoleAssignmentFetcher *)appRoleAssignmentsById:(NSString *)identifier {
-
-    return [[[MSGraphAppRoleAssignmentCollectionFetcher alloc] initWithUrl:@"appRoleAssignments" parent:self asClass:[MSGraphAppRoleAssignment class]] getById:identifier];
-
-}
-
-- (MSGraphOAuth2PermissionGrantCollectionFetcher *)oauth2PermissionGrants {
-
-    return [[MSGraphOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self asClass:[MSGraphOAuth2PermissionGrant class]];
-}
-
-- (MSGraphOAuth2PermissionGrantFetcher *)oauth2PermissionGrantsById:(NSString *)identifier {
-
-    return [[[MSGraphOAuth2PermissionGrantCollectionFetcher alloc] initWithUrl:@"oauth2PermissionGrants" parent:self asClass:[MSGraphOAuth2PermissionGrant class]] getById:identifier];
-
 }
 
 - (MSGraphDirectoryObjectCollectionFetcher *)ownedDevices {
@@ -266,84 +245,14 @@ root for authoritative license information.﻿
 
 }
 
-- (MSGraphInferenceClassificationFetcher *)inferenceClassification {
-
-	 return [[MSGraphInferenceClassificationFetcher alloc] initWithUrl:@"InferenceClassification" parent:self asClass:[MSGraphInferenceClassification class]];
-}
-
-- (MSGraphMailFolderFetcher *)rootFolder {
-
-	 return [[MSGraphMailFolderFetcher alloc] initWithUrl:@"RootFolder" parent:self asClass:[MSGraphMailFolder class]];
-}
-
 - (MSGraphProfilePhotoFetcher *)photo {
 
 	 return [[MSGraphProfilePhotoFetcher alloc] initWithUrl:@"Photo" parent:self asClass:[MSGraphProfilePhoto class]];
 }
 
-- (MSGraphProfilePhotoCollectionFetcher *)photos {
-
-    return [[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]];
-}
-
-- (MSGraphProfilePhotoFetcher *)photosById:(NSString *)identifier {
-
-    return [[[MSGraphProfilePhotoCollectionFetcher alloc] initWithUrl:@"Photos" parent:self asClass:[MSGraphProfilePhoto class]] getById:identifier];
-
-}
-
 - (MSGraphDriveFetcher *)drive {
 
 	 return [[MSGraphDriveFetcher alloc] initWithUrl:@"drive" parent:self asClass:[MSGraphDrive class]];
-}
-
-- (MSGraphItemCollectionFetcher *)trendingAround {
-
-    return [[MSGraphItemCollectionFetcher alloc] initWithUrl:@"TrendingAround" parent:self asClass:[MSGraphItem class]];
-}
-
-- (MSGraphItemFetcher *)trendingAroundById:(NSString *)identifier {
-
-    return [[[MSGraphItemCollectionFetcher alloc] initWithUrl:@"TrendingAround" parent:self asClass:[MSGraphItem class]] getById:identifier];
-
-}
-
-- (MSGraphUserCollectionFetcher *)workingWith {
-
-    return [[MSGraphUserCollectionFetcher alloc] initWithUrl:@"WorkingWith" parent:self asClass:[MSGraphUser class]];
-}
-
-- (MSGraphUserFetcher *)workingWithById:(NSString *)identifier {
-
-    return [[[MSGraphUserCollectionFetcher alloc] initWithUrl:@"WorkingWith" parent:self asClass:[MSGraphUser class]] getById:identifier];
-
-}
-
-- (MSGraphTaskCollectionFetcher *)tasks {
-
-    return [[MSGraphTaskCollectionFetcher alloc] initWithUrl:@"tasks" parent:self asClass:[MSGraphTask class]];
-}
-
-- (MSGraphTaskFetcher *)tasksById:(NSString *)identifier {
-
-    return [[[MSGraphTaskCollectionFetcher alloc] initWithUrl:@"tasks" parent:self asClass:[MSGraphTask class]] getById:identifier];
-
-}
-
-- (MSGraphPlanCollectionFetcher *)plans {
-
-    return [[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]];
-}
-
-- (MSGraphPlanFetcher *)plansById:(NSString *)identifier {
-
-    return [[[MSGraphPlanCollectionFetcher alloc] initWithUrl:@"plans" parent:self asClass:[MSGraphPlan class]] getById:identifier];
-
-}
-
-- (MSGraphNotesFetcher *)notes {
-
-	 return [[MSGraphNotesFetcher alloc] initWithUrl:@"notes" parent:self asClass:[MSGraphNotes class]];
 }
 
 @end

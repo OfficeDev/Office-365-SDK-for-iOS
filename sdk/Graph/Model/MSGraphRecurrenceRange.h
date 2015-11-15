@@ -46,6 +46,11 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setEndDate:, getter=endDate) NSDate * endDate;
 
+/** Property recurrenceTimeZone
+ *
+ */
+@property (nonatomic,  copy, setter=setRecurrenceTimeZone:, getter=recurrenceTimeZone) NSString * recurrenceTimeZone;
+
 /** Property numberOfOccurrences
  *
  */

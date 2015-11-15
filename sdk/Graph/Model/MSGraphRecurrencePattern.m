@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.RecurrencePattern";
+		_odataType = @"#microsoft.graph.recurrencePattern";
 
     }
 
@@ -97,7 +97,7 @@ root for authoritative license information.﻿
 if (curVal!=nil) [dic setValue: curVal forKey: @"DaysOfWeek"];}
 	{[dic setValue: [MSGraphDayOfWeekSerializer toString:self.firstDayOfWeek] forKey: @"FirstDayOfWeek"];}
 	{[dic setValue: [MSGraphWeekIndexSerializer toString:self.index] forKey: @"Index"];}
-    [dic setValue: @"#microsoft.graph.RecurrencePattern" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.recurrencePattern" forKey: @"@odata.type"];
 
     return dic;
 }

@@ -21,7 +21,6 @@ root for authoritative license information.﻿
 
 @class MSGraphEmailAddress;
 @class MSGraphPhysicalAddress;
-@class MSGraphExtension;
 @class MSGraphProfilePhoto;
 #import "MSGraphOutlookItem.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
@@ -195,11 +194,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setChildren:, getter=children) NSMutableArray * children;
-
-/** Property extensions
- *
- */
-@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property photo
  *

@@ -37,7 +37,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphDirectoryRole *, MSOrcError *))callback;
-- (void)update:(MSGraphDirectoryRole *)DirectoryRole callback:(void (^)(MSGraphDirectoryRole *, MSOrcError*))callback ;
+- (void)update:(MSGraphDirectoryRole *)directoryRole callback:(void (^)(MSGraphDirectoryRole *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphDirectoryRoleFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphDirectoryRoleFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
@@ -46,18 +46,6 @@ root for authoritative license information.﻿
 @property (strong, nonatomic, readonly, getter=members) MSGraphDirectoryObjectCollectionFetcher *members;
 
 - (MSGraphDirectoryObjectFetcher *)membersById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=memberOf) MSGraphDirectoryObjectCollectionFetcher *memberOf;
-
-- (MSGraphDirectoryObjectFetcher *)memberOfById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=owners) MSGraphDirectoryObjectCollectionFetcher *owners;
-
-- (MSGraphDirectoryObjectFetcher *)ownersById:(id)identifier;
-
-@property (strong, nonatomic, readonly, getter=ownedObjects) MSGraphDirectoryObjectCollectionFetcher *ownedObjects;
-
-- (MSGraphDirectoryObjectFetcher *)ownedObjectsById:(id)identifier;
 
 
 @end

@@ -47,6 +47,7 @@ root for authoritative license information.﻿
 - (MSSampleServiceSampleEntityFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSSampleServiceSampleEntityFetcher *)select:(NSString *)params;
 - (MSSampleServiceSampleEntityFetcher *)expand:(NSString *)value;
+@property (strong, nonatomic, readonly, getter=content) MSOrcStreamFetcher *content;
 
 @property (strong, nonatomic, readonly, getter=nestedSampleEntity) MSSampleServiceSampleEntityFetcher *nestedSampleEntity;
 @property (strong, nonatomic, readonly, getter=navigations) MSSampleServiceAnotherEntityCollectionFetcher *navigations;

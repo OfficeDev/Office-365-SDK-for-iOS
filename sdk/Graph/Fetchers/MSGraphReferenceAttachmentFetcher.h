@@ -34,7 +34,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphReferenceAttachment *, MSOrcError *))callback;
-- (void)update:(MSGraphReferenceAttachment *)ReferenceAttachment callback:(void (^)(MSGraphReferenceAttachment *, MSOrcError*))callback ;
+- (void)update:(MSGraphReferenceAttachment *)referenceAttachment callback:(void (^)(MSGraphReferenceAttachment *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphReferenceAttachmentFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphReferenceAttachmentFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

@@ -38,6 +38,16 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setServicePlanName:, getter=servicePlanName) NSString * servicePlanName;
 
+/** Property provisioningStatus
+ *
+ */
+@property (nonatomic,  copy, setter=setProvisioningStatus:, getter=provisioningStatus) NSString * provisioningStatus;
+
+/** Property appliesTo
+ *
+ */
+@property (nonatomic,  copy, setter=setAppliesTo:, getter=appliesTo) NSString * appliesTo;
+
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;
 

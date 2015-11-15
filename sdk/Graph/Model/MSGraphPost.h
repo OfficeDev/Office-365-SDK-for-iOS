@@ -21,7 +21,6 @@ root for authoritative license information.﻿
 
 @class MSGraphItemBody;
 @class MSGraphRecipient;
-@class MSGraphExtension;
 @class MSGraphAttachment;
 #import "MSGraphOutlookItem.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
@@ -70,11 +69,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setConversationId:, getter=conversationId) NSString * conversationId;
-
-/** Property extensions
- *
- */
-@property (nonatomic,  copy, setter=setExtensions:, getter=extensions) NSMutableArray * extensions;
 
 /** Property inReplyTo
  *

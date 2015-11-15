@@ -38,7 +38,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphContactFolder *, MSOrcError *))callback;
-- (void)update:(MSGraphContactFolder *)ContactFolder callback:(void (^)(MSGraphContactFolder *, MSOrcError*))callback ;
+- (void)update:(MSGraphContactFolder *)contactFolder callback:(void (^)(MSGraphContactFolder *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphContactFolderFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphContactFolderFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

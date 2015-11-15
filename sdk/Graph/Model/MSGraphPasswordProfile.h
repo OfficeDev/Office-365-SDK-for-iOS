@@ -33,10 +33,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setPassword:, getter=password) NSString * password;
 
-/** Property forceChangePasswordNextLogin
+/** Property forceChangePasswordNextSignIn
  *
  */
-@property (nonatomic,  setter=setForceChangePasswordNextLogin:, getter=forceChangePasswordNextLogin) bool forceChangePasswordNextLogin;
+@property (nonatomic,  setter=setForceChangePasswordNextSignIn:, getter=forceChangePasswordNextSignIn) bool forceChangePasswordNextSignIn;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

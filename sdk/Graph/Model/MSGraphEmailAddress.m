@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.EmailAddress";
+		_odataType = @"#microsoft.graph.emailAddress";
 
     }
 
@@ -70,7 +70,7 @@ root for authoritative license information.﻿
 
 	{id curVal = [self.name copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Name"];}
 	{id curVal = [self.address copy];if (curVal!=nil) [dic setValue: curVal forKey: @"Address"];}
-    [dic setValue: @"#microsoft.graph.EmailAddress" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.emailAddress" forKey: @"@odata.type"];
 
     return dic;
 }

@@ -23,7 +23,7 @@ root for authoritative license information.﻿
  */
 @implementation MSGraphDriveCollectionOperations
 
-- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback {
+- (void)allPhotosWithCallback:(void (^)(MSGraphDriveItem *, MSOrcError*))callback {
 
 
 	id<MSOrcRequest> request = [self.resolver createOrcRequest];
@@ -37,7 +37,7 @@ root for authoritative license information.﻿
 	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
         if (e == nil) {
-            MSGraphItem * result = (MSGraphItem *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphItem  class]];
+            MSGraphDriveItem * result = (MSGraphDriveItem *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphDriveItem  class]];
             callback(result, e);
         }
         else {

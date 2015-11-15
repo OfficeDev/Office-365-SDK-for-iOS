@@ -31,7 +31,7 @@ root for authoritative license information.﻿
 - (void)acceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
   NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 
@@ -78,7 +78,7 @@ root for authoritative license information.﻿
 - (void)declineWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
   NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 
@@ -125,7 +125,7 @@ root for authoritative license information.﻿
 - (void)tentativelyAcceptWithComment:(NSString *)comment sendResponse:(bool)sendResponse callback:(void (^)(int, MSOrcError*))callback {
 
 
-      NSString *commentString = [comment copy];
+      NSString *commentString = [NSString stringWithFormat:@"\"%@\"", comment];
 
   NSString *sendResponseString = [MSOrcObjectizer stringFromBool:sendResponse];
 

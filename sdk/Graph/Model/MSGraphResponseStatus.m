@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.ResponseStatus";
+		_odataType = @"#microsoft.graph.responseStatus";
 
     }
 
@@ -70,7 +70,7 @@ root for authoritative license information.﻿
 
 	{[dic setValue: [MSGraphResponseTypeSerializer toString:self.response] forKey: @"Response"];}
 	{id curVal = [MSOrcObjectizer stringFromDate:self.time];if (curVal!=nil) [dic setValue: curVal forKey: @"Time"];}
-    [dic setValue: @"#microsoft.graph.ResponseStatus" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.responseStatus" forKey: @"@odata.type"];
 
     return dic;
 }

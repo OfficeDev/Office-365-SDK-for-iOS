@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"grantedTo", @"grantedTo", @"id", @"_id", @"invitation", @"invitation", @"inheritedFrom", @"inheritedFrom", @"link", @"link", @"roles", @"roles", @"shareId", @"shareId", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"grantedTo", @"grantedTo", @"invitation", @"invitation", @"inheritedFrom", @"inheritedFrom", @"link", @"link", @"roles", @"roles", @"shareId", @"shareId", @"id", @"_id", nil];
         
     }
     
@@ -57,7 +57,6 @@ root for authoritative license information.﻿
     if((self = [self init])) {
         if(dic!=nil) {
 		_grantedTo = (![dic objectForKey: @"grantedTo"] || [ [dic objectForKey: @"grantedTo"] isKindOfClass:[NSNull class]] )?_grantedTo:[[MSGraphIdentitySet alloc] initWithDictionary: [dic objectForKey: @"grantedTo"]];
-		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 		_invitation = (![dic objectForKey: @"invitation"] || [ [dic objectForKey: @"invitation"] isKindOfClass:[NSNull class]] )?_invitation:[[MSGraphSharingInvitation alloc] initWithDictionary: [dic objectForKey: @"invitation"]];
 		_inheritedFrom = (![dic objectForKey: @"inheritedFrom"] || [ [dic objectForKey: @"inheritedFrom"] isKindOfClass:[NSNull class]] )?_inheritedFrom:[[MSGraphItemReference alloc] initWithDictionary: [dic objectForKey: @"inheritedFrom"]];
 		_link = (![dic objectForKey: @"link"] || [ [dic objectForKey: @"link"] isKindOfClass:[NSNull class]] )?_link:[[MSGraphSharingLink alloc] initWithDictionary: [dic objectForKey: @"link"]];
@@ -73,6 +72,7 @@ root for authoritative license information.﻿
         }
         
 		_shareId = (![dic objectForKey: @"shareId"] || [ [dic objectForKey: @"shareId"] isKindOfClass:[NSNull class]] )?_shareId:[[dic objectForKey: @"shareId"] copy];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -85,7 +85,6 @@ root for authoritative license information.﻿
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
 	{id curVal = [self.grantedTo toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"grantedTo"];}
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
 	{id curVal = [self.invitation toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"invitation"];}
 	{id curVal = [self.inheritedFrom toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"inheritedFrom"];}
 	{id curVal = [self.link toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"link"];}
@@ -98,6 +97,7 @@ root for authoritative license information.﻿
     if([curVal count]==0) curVal=nil;
 if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
 	{id curVal = [self.shareId copy];if (curVal!=nil) [dic setValue: curVal forKey: @"shareId"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
     [dic setValue: @"#microsoft.graph.permission" forKey: @"@odata.type"];
 
     return dic;
@@ -123,12 +123,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
             }
         
             }}
-	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"id"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-            }
-    }
 	{id curVal = self.invitation;
     if([self.updatedValues containsObject:@"invitation"])
     {
@@ -209,6 +203,12 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"shareId"];
             }
     }
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
+    }
     return dic;
 }
 
@@ -219,14 +219,6 @@ if (curVal!=nil) [dic setValue: curVal forKey: @"roles"];}
 - (void) setGrantedTo: (MSGraphIdentitySet *) value {
     _grantedTo = value;
     [self valueChangedFor:@"grantedTo"];
-}
-       
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChangedFor:@"id"];
 }
        
 /** Setter implementation for property invitation

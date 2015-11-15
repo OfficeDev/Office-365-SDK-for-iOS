@@ -21,13 +21,13 @@ root for authoritative license information.﻿
 
 @class MSGraphLicenseUnitsDetail;
 @class MSGraphServicePlanInfo;
-#import "core/MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphSubscribedSku
  *
  */
-@interface MSGraphSubscribedSku : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
+@interface MSGraphSubscribedSku : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property capabilityStatus
  *
@@ -38,11 +38,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  setter=setConsumedUnits:, getter=consumedUnits) int consumedUnits;
-
-/** Property objectId
- *
- */
-@property (nonatomic,  copy, setter=setObjectId:, getter=objectId) NSString * objectId;
 
 /** Property prepaidUnits
  *
@@ -63,6 +58,11 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setSkuPartNumber:, getter=skuPartNumber) NSString * skuPartNumber;
+
+/** Property appliesTo
+ *
+ */
+@property (nonatomic,  copy, setter=setAppliesTo:, getter=appliesTo) NSString * appliesTo;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

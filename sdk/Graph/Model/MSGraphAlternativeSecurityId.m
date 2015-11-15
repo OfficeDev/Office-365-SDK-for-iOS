@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.AlternativeSecurityId";
+		_odataType = @"#microsoft.graph.alternativeSecurityId";
 
     }
 
@@ -72,7 +72,7 @@ root for authoritative license information.﻿
 	{[dic setValue: [NSNumber numberWithInt: self.type] forKey: @"type"];}
 	{id curVal = [self.identityProvider copy];if (curVal!=nil) [dic setValue: curVal forKey: @"identityProvider"];}
 	{id curVal = [MSOrcObjectizer stringFromData:self.key];if (curVal!=nil) [dic setValue: curVal forKey: @"key"];}
-    [dic setValue: @"#microsoft.graph.AlternativeSecurityId" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.alternativeSecurityId" forKey: @"@odata.type"];
 
     return dic;
 }

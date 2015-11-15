@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSSampleServiceFetchers.h"
+#import "core/core.h"
 
 @implementation MSSampleServiceSampleEntityFetcher
 
@@ -67,6 +68,10 @@ root for authoritative license information.﻿
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];
+}
+- (MSOrcStreamFetcher *)content {
+
+    return [[MSOrcStreamFetcher alloc] initWithUrl:@"Content" parent:self];
 }
 
 - (MSSampleServiceSampleEntityFetcher *)nestedSampleEntity {

@@ -19,28 +19,13 @@ root for authoritative license information.﻿
 #import <Foundation/Foundation.h>
 #import "core/MSOrcChangesTrackingArray.h"
 
-#import "core/MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphDirectoryObject
  *
  */
-@interface MSGraphDirectoryObject : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
-
-/** Property objectType
- *
- */
-@property (nonatomic,  copy, setter=setObjectType:, getter=objectType) NSString * objectType;
-
-/** Property objectId
- *
- */
-@property (nonatomic,  copy, setter=setObjectId:, getter=objectId) NSString * objectId;
-
-/** Property deletionTimestamp
- *
- */
-@property (nonatomic,  copy, setter=setDeletionTimestamp:, getter=deletionTimestamp) NSDate * deletionTimestamp;
+@interface MSGraphDirectoryObject : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

@@ -26,11 +26,11 @@ root for authoritative license information.﻿
 - (void)copyWithDestFolderId:(NSString *)destFolderId destFolderPath:(NSString *)destFolderPath newName:(NSString *)newName callback:(void (^)(MSFilesFile *, MSOrcError*))callback {
 
 
-      NSString *destFolderIdString = [destFolderId copy];
+      NSString *destFolderIdString = [NSString stringWithFormat:@"\"%@\"", destFolderId];
 
-  NSString *destFolderPathString = [destFolderPath copy];
+  NSString *destFolderPathString = [NSString stringWithFormat:@"\"%@\"", destFolderPath];
 
-  NSString *newNameString = [newName copy];
+  NSString *newNameString = [NSString stringWithFormat:@"\"%@\"", newName];
 
     return [self copyRawWithDestFolderId:destFolderIdString destFolderPath:destFolderPathString newName:newNameString callback:^(NSString *returnValue, MSOrcError *e) {
        

@@ -34,7 +34,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphDirectoryRoleTemplate *, MSOrcError *))callback;
-- (void)update:(MSGraphDirectoryRoleTemplate *)DirectoryRoleTemplate callback:(void (^)(MSGraphDirectoryRoleTemplate *, MSOrcError*))callback ;
+- (void)update:(MSGraphDirectoryRoleTemplate *)directoryRoleTemplate callback:(void (^)(MSGraphDirectoryRoleTemplate *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphDirectoryRoleTemplateFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphDirectoryRoleTemplateFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

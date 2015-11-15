@@ -14,6 +14,7 @@ root for authoritative license information.﻿
 
 
 #import "MSGraphFetchers.h"
+#import "core/core.h"
 
 @implementation MSGraphSubscribedSkuFetcher
 
@@ -29,7 +30,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void)update:(id)entity callback:(void (^)(MSGraphSubscribedSku *SubscribedSku, MSOrcError *e))callback {
+- (void)update:(id)entity callback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSOrcError *e))callback {
 
 	return [super update:entity callback:callback];
 }
@@ -63,7 +64,7 @@ root for authoritative license information.﻿
     return self;
 }
 
-- (void) readWithCallback:(void (^)(MSGraphSubscribedSku *SubscribedSku, MSOrcError *error))callback {
+- (void) readWithCallback:(void (^)(MSGraphSubscribedSku *subscribedSku, MSOrcError *error))callback {
     [super readWithCallback:^(id response, MSOrcError *error) {
         callback(response, error);
     }];

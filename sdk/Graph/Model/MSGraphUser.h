@@ -23,9 +23,6 @@ root for authoritative license information.﻿
 @class MSGraphAssignedPlan;
 @class MSGraphPasswordProfile;
 @class MSGraphProvisionedPlan;
-@class MSGraphProvisioningError;
-@class MSGraphAppRoleAssignment;
-@class MSGraphOAuth2PermissionGrant;
 @class MSGraphDirectoryObject;
 @class MSGraphMessage;
 @class MSGraphGroup;
@@ -35,13 +32,8 @@ root for authoritative license information.﻿
 @class MSGraphEvent;
 @class MSGraphContact;
 @class MSGraphContactFolder;
-@class MSGraphInferenceClassification;
 @class MSGraphProfilePhoto;
 @class MSGraphDrive;
-@class MSGraphItem;
-@class MSGraphTask;
-@class MSGraphPlan;
-@class MSGraphNotes;
 #import "MSGraphDirectoryObject.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
@@ -65,10 +57,20 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setAssignedPlans:, getter=assignedPlans) NSMutableArray * assignedPlans;
 
+/** Property businessPhones
+ *
+ */
+@property (nonatomic,  copy, setter=setBusinessPhones:, getter=businessPhones) NSMutableArray * businessPhones;
+
 /** Property city
  *
  */
 @property (nonatomic,  copy, setter=setCity:, getter=city) NSString * city;
+
+/** Property companyName
+ *
+ */
+@property (nonatomic,  copy, setter=setCompanyName:, getter=companyName) NSString * companyName;
 
 /** Property country
  *
@@ -80,40 +82,20 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setDepartment:, getter=department) NSString * department;
 
-/** Property dirSyncEnabled
- *
- */
-@property (nonatomic,  setter=setDirSyncEnabled:, getter=dirSyncEnabled) bool dirSyncEnabled;
-
 /** Property displayName
  *
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
-
-/** Property facsimileTelephoneNumber
- *
- */
-@property (nonatomic,  copy, setter=setFacsimileTelephoneNumber:, getter=facsimileTelephoneNumber) NSString * facsimileTelephoneNumber;
 
 /** Property givenName
  *
  */
 @property (nonatomic,  copy, setter=setGivenName:, getter=givenName) NSString * givenName;
 
-/** Property immutableId
- *
- */
-@property (nonatomic,  copy, setter=setImmutableId:, getter=immutableId) NSString * immutableId;
-
 /** Property jobTitle
  *
  */
 @property (nonatomic,  copy, setter=setJobTitle:, getter=jobTitle) NSString * jobTitle;
-
-/** Property lastDirSyncTime
- *
- */
-@property (nonatomic,  copy, setter=setLastDirSyncTime:, getter=lastDirSyncTime) NSDate * lastDirSyncTime;
 
 /** Property mail
  *
@@ -125,20 +107,30 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setMailNickname:, getter=mailNickname) NSString * mailNickname;
 
-/** Property mobile
+/** Property mobilePhone
  *
  */
-@property (nonatomic,  copy, setter=setMobile:, getter=mobile) NSString * mobile;
+@property (nonatomic,  copy, setter=setMobilePhone:, getter=mobilePhone) NSString * mobilePhone;
+
+/** Property onPremisesImmutableId
+ *
+ */
+@property (nonatomic,  copy, setter=setOnPremisesImmutableId:, getter=onPremisesImmutableId) NSString * onPremisesImmutableId;
+
+/** Property onPremisesLastSyncDateTime
+ *
+ */
+@property (nonatomic,  copy, setter=setOnPremisesLastSyncDateTime:, getter=onPremisesLastSyncDateTime) NSDate * onPremisesLastSyncDateTime;
 
 /** Property onPremisesSecurityIdentifier
  *
  */
 @property (nonatomic,  copy, setter=setOnPremisesSecurityIdentifier:, getter=onPremisesSecurityIdentifier) NSString * onPremisesSecurityIdentifier;
 
-/** Property otherMails
+/** Property onPremisesSyncEnabled
  *
  */
-@property (nonatomic,  copy, setter=setOtherMails:, getter=otherMails) NSMutableArray * otherMails;
+@property (nonatomic,  setter=setOnPremisesSyncEnabled:, getter=onPremisesSyncEnabled) bool onPremisesSyncEnabled;
 
 /** Property passwordPolicies
  *
@@ -150,10 +142,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setPasswordProfile:, getter=passwordProfile) MSGraphPasswordProfile * passwordProfile;
 
-/** Property physicalDeliveryOfficeName
+/** Property officeLocation
  *
  */
-@property (nonatomic,  copy, setter=setPhysicalDeliveryOfficeName:, getter=physicalDeliveryOfficeName) NSString * physicalDeliveryOfficeName;
+@property (nonatomic,  copy, setter=setOfficeLocation:, getter=officeLocation) NSString * officeLocation;
 
 /** Property postalCode
  *
@@ -170,20 +162,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setProvisionedPlans:, getter=provisionedPlans) NSMutableArray * provisionedPlans;
 
-/** Property provisioningErrors
- *
- */
-@property (nonatomic,  copy, setter=setProvisioningErrors:, getter=provisioningErrors) NSMutableArray * provisioningErrors;
-
 /** Property proxyAddresses
  *
  */
 @property (nonatomic,  copy, setter=setProxyAddresses:, getter=proxyAddresses) NSMutableArray * proxyAddresses;
-
-/** Property sipProxyAddress
- *
- */
-@property (nonatomic,  copy, setter=setSipProxyAddress:, getter=sipProxyAddress) NSString * sipProxyAddress;
 
 /** Property state
  *
@@ -200,16 +182,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setSurname:, getter=surname) NSString * surname;
 
-/** Property telephoneNumber
- *
- */
-@property (nonatomic,  copy, setter=setTelephoneNumber:, getter=telephoneNumber) NSString * telephoneNumber;
-
-/** Property thumbnailPhoto
- *
- */
-@property (nonatomic,  copy, setter=setThumbnailPhoto:, getter=thumbnailPhoto) NSStream * thumbnailPhoto;
-
 /** Property usageLocation
  *
  */
@@ -225,20 +197,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setUserType:, getter=userType) NSString * userType;
 
-/** Property mailboxGuid
- *
- */
-@property (nonatomic,  copy, setter=setMailboxGuid:, getter=mailboxGuid) NSString * mailboxGuid;
-
 /** Property aboutMe
  *
  */
 @property (nonatomic,  copy, setter=setAboutMe:, getter=aboutMe) NSString * aboutMe;
-
-/** Property alias
- *
- */
-@property (nonatomic,  copy, setter=setAlias:, getter=alias) NSString * alias;
 
 /** Property birthday
  *
@@ -270,11 +232,6 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setPreferredName:, getter=preferredName) NSString * preferredName;
 
-/** Property principalName
- *
- */
-@property (nonatomic,  copy, setter=setPrincipalName:, getter=principalName) NSString * principalName;
-
 /** Property responsibilities
  *
  */
@@ -289,21 +246,6 @@ root for authoritative license information.﻿
  *
  */
 @property (nonatomic,  copy, setter=setSkills:, getter=skills) NSMutableArray * skills;
-
-/** Property tags
- *
- */
-@property (nonatomic,  copy, setter=setTags:, getter=tags) NSMutableArray * tags;
-
-/** Property appRoleAssignments
- *
- */
-@property (nonatomic,  copy, setter=setAppRoleAssignments:, getter=appRoleAssignments) NSMutableArray * appRoleAssignments;
-
-/** Property oauth2PermissionGrants
- *
- */
-@property (nonatomic,  copy, setter=setOauth2PermissionGrants:, getter=oauth2PermissionGrants) NSMutableArray * oauth2PermissionGrants;
 
 /** Property ownedDevices
  *
@@ -390,55 +332,15 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setContactFolders:, getter=contactFolders) NSMutableArray * contactFolders;
 
-/** Property inferenceClassification
- *
- */
-@property (nonatomic,  copy, setter=setInferenceClassification:, getter=inferenceClassification) MSGraphInferenceClassification * inferenceClassification;
-
-/** Property rootFolder
- *
- */
-@property (nonatomic,  copy, setter=setRootFolder:, getter=rootFolder) MSGraphMailFolder * rootFolder;
-
 /** Property photo
  *
  */
 @property (nonatomic,  copy, setter=setPhoto:, getter=photo) MSGraphProfilePhoto * photo;
 
-/** Property photos
- *
- */
-@property (nonatomic,  copy, setter=setPhotos:, getter=photos) NSMutableArray * photos;
-
 /** Property drive
  *
  */
 @property (nonatomic,  copy, setter=setDrive:, getter=drive) MSGraphDrive * drive;
-
-/** Property trendingAround
- *
- */
-@property (nonatomic,  copy, setter=setTrendingAround:, getter=trendingAround) NSMutableArray * trendingAround;
-
-/** Property workingWith
- *
- */
-@property (nonatomic,  copy, setter=setWorkingWith:, getter=workingWith) NSMutableArray * workingWith;
-
-/** Property tasks
- *
- */
-@property (nonatomic,  copy, setter=setTasks:, getter=tasks) NSMutableArray * tasks;
-
-/** Property plans
- *
- */
-@property (nonatomic,  copy, setter=setPlans:, getter=plans) NSMutableArray * plans;
-
-/** Property notes
- *
- */
-@property (nonatomic,  copy, setter=setNotes:, getter=notes) MSGraphNotes * notes;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

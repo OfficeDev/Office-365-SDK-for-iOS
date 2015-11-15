@@ -20,13 +20,13 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "api/api.h"
 #import "core/core.h"
-#import "core/MSOrcOperations.h"
+#import "MSGraphEntityCollectionOperations.h"
 
 
 /** MSGraphDirectoryObjectCollectionOperations
  *
  */
-@interface MSGraphDirectoryObjectCollectionOperations : MSOrcOperations
+@interface MSGraphDirectoryObjectCollectionOperations : MSGraphEntityCollectionOperations
 
 - (void)checkMemberGroupsWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback ;
 - (void)checkMemberGroupsRawWithGroupIds:(NSString *)groupIds callback:(void (^)(NSString *, MSOrcError*))callback ;

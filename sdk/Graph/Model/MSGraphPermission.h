@@ -23,23 +23,18 @@ root for authoritative license information.﻿
 @class MSGraphSharingInvitation;
 @class MSGraphItemReference;
 @class MSGraphSharingLink;
-#import "core/MSOrcBaseEntity.h"
+#import "MSGraphEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
 /** Interface MSGraphPermission
  *
  */
-@interface MSGraphPermission : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
+@interface MSGraphPermission : MSGraphEntity <MSOrcInteroperableWithDictionary>
 
 /** Property grantedTo
  *
  */
 @property (nonatomic,  copy, setter=setGrantedTo:, getter=grantedTo) MSGraphIdentitySet * grantedTo;
-
-/** Property _id
- *
- */
-@property (nonatomic,  copy, setter=setId:, getter=_id) NSString * _id;
 
 /** Property invitation
  *

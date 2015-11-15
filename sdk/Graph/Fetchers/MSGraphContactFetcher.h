@@ -24,11 +24,8 @@ root for authoritative license information.﻿
 
 @class MSGraphEmailAddressCollectionFetcher;
 @class MSGraphPhysicalAddressFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphProfilePhotoFetcher;
-@class MSGraphExtensionFetcher;
 @class MSGraphContactOperations;
 
 
@@ -41,16 +38,12 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphContact *, MSOrcError *))callback;
-- (void)update:(MSGraphContact *)Contact callback:(void (^)(MSGraphContact *, MSOrcError*))callback ;
+- (void)update:(MSGraphContact *)contact callback:(void (^)(MSGraphContact *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphContactFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphContactFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphContactFetcher *)select:(NSString *)params;
 - (MSGraphContactFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
-
-- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
-
 
 @property (strong, nonatomic, readonly, getter=photo) MSGraphProfilePhotoFetcher *photo;
 

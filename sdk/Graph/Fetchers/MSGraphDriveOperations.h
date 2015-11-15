@@ -21,17 +21,17 @@ root for authoritative license information.﻿
 #import "MSGraphModels.h"
 #import "api/api.h"
 #import "core/core.h"
-#import "core/MSOrcOperations.h"
+#import "MSGraphEntityOperations.h"
 
 
 /** MSGraphDriveOperations
  *
  */
-@interface MSGraphDriveOperations : MSOrcOperations
+@interface MSGraphDriveOperations : MSGraphEntityOperations
 
 - (instancetype)initOperationWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
-- (void)allPhotosWithCallback:(void (^)(MSGraphItem *, MSOrcError*))callback ;
+- (void)allPhotosWithCallback:(void (^)(MSGraphDriveItem *, MSOrcError*))callback ;
 
 @end
 

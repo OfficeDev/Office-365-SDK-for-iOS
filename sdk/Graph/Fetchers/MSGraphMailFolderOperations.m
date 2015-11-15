@@ -31,7 +31,7 @@ root for authoritative license information.﻿
 - (void)copyWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphMailFolder *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [destinationId copy];
+      NSString *destinationIdString = [NSString stringWithFormat:@"\"%@\"", destinationId];
 
     return [self copyRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -76,7 +76,7 @@ root for authoritative license information.﻿
 - (void)moveWithDestinationId:(NSString *)destinationId callback:(void (^)(MSGraphMailFolder *, MSOrcError*))callback {
 
 
-      NSString *destinationIdString = [destinationId copy];
+      NSString *destinationIdString = [NSString stringWithFormat:@"\"%@\"", destinationId];
 
     return [self moveRawWithDestinationId:destinationIdString callback:^(NSString *returnValue, MSOrcError *e) {
        

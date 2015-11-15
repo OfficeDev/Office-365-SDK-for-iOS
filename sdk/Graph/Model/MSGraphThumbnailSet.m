@@ -33,7 +33,7 @@ root for authoritative license information.﻿
     
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"id", @"_id", @"large", @"large", @"medium", @"medium", @"small", @"small", @"source", @"source", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"large", @"large", @"medium", @"medium", @"small", @"small", @"source", @"source", @"id", @"_id", nil];
         
     }
     
@@ -56,11 +56,11 @@ root for authoritative license information.﻿
 - (instancetype) initWithDictionary: (NSDictionary *) dic {
     if((self = [self init])) {
         if(dic!=nil) {
-		__id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?__id:[[dic objectForKey: @"id"] copy];
 		_large = (![dic objectForKey: @"large"] || [ [dic objectForKey: @"large"] isKindOfClass:[NSNull class]] )?_large:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"large"]];
 		_medium = (![dic objectForKey: @"medium"] || [ [dic objectForKey: @"medium"] isKindOfClass:[NSNull class]] )?_medium:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"medium"]];
 		_small = (![dic objectForKey: @"small"] || [ [dic objectForKey: @"small"] isKindOfClass:[NSNull class]] )?_small:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"small"]];
 		_source = (![dic objectForKey: @"source"] || [ [dic objectForKey: @"source"] isKindOfClass:[NSNull class]] )?_source:[[MSGraphThumbnail alloc] initWithDictionary: [dic objectForKey: @"source"]];
+		self._id = (![dic objectForKey: @"id"] || [ [dic objectForKey: @"id"] isKindOfClass:[NSNull class]] )?self._id:[[dic objectForKey: @"id"] copy];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -72,11 +72,11 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
 	{id curVal = [self.large toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"large"];}
 	{id curVal = [self.medium toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"medium"];}
 	{id curVal = [self.small toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"small"];}
 	{id curVal = [self.source toDictionary];if (curVal!=nil) [dic setValue: curVal forKey: @"source"];}
+	{id curVal = [self._id copy];if (curVal!=nil) [dic setValue: curVal forKey: @"id"];}
     [dic setValue: @"#microsoft.graph.thumbnailSet" forKey: @"@odata.type"];
 
     return dic;
@@ -86,12 +86,6 @@ root for authoritative license information.﻿
     
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
-	{id curVal = self._id;
-    if([self.updatedValues containsObject:@"id"])
-    {
-                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
-            }
-    }
 	{id curVal = self.large;
     if([self.updatedValues containsObject:@"large"])
     {
@@ -156,18 +150,16 @@ root for authoritative license information.﻿
             }
         
             }}
+	{id curVal = self._id;
+    if([self.updatedValues containsObject:@"id"])
+    {
+                [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"id"];
+            }
+    }
     return dic;
 }
 
 
-/** Setter implementation for property _id
- *
- */
-- (void) setId: (NSString *) value {
-    __id = value;
-    [self valueChangedFor:@"id"];
-}
-       
 /** Setter implementation for property large
  *
  */

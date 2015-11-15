@@ -28,10 +28,10 @@ root for authoritative license information.﻿
  */
 @interface MSGraphAssignedPlan : MSOrcBaseEntity <MSOrcInteroperableWithDictionary>
 
-/** Property assignedTimestamp
+/** Property assignedDateTime
  *
  */
-@property (nonatomic,  copy, setter=setAssignedTimestamp:, getter=assignedTimestamp) NSDate * assignedTimestamp;
+@property (nonatomic,  copy, setter=setAssignedDateTime:, getter=assignedDateTime) NSDate * assignedDateTime;
 
 /** Property capabilityStatus
  *

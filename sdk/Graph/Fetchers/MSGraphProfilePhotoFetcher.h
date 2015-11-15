@@ -34,7 +34,7 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphProfilePhoto *, MSOrcError *))callback;
-- (void)update:(MSGraphProfilePhoto *)ProfilePhoto callback:(void (^)(MSGraphProfilePhoto *, MSOrcError*))callback ;
+- (void)update:(MSGraphProfilePhoto *)profilePhoto callback:(void (^)(MSGraphProfilePhoto *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphProfilePhotoFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphProfilePhotoFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;

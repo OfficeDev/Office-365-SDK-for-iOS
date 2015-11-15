@@ -22,19 +22,12 @@ root for authoritative license information.﻿
 #import "core/core.h"
 #import "core/MSOrcEntityFetcher.h"
 
-@class MSGraphApplicationFetcher;	
-@class MSGraphExtensionPropertyFetcher;	
-@class MSGraphUserFetcher;	
-@class MSGraphAppRoleAssignmentFetcher;	
-@class MSGraphGroupFetcher;	
-@class MSGraphOrgContactFetcher;	
 @class MSGraphDeviceFetcher;	
-@class MSGraphDeviceConfigurationFetcher;	
-@class MSGraphDirectoryLinkChangeFetcher;	
 @class MSGraphDirectoryRoleFetcher;	
 @class MSGraphDirectoryRoleTemplateFetcher;	
-@class MSGraphServicePrincipalFetcher;	
-@class MSGraphTenantDetailFetcher;	
+@class MSGraphGroupFetcher;	
+@class MSGraphOrganizationFetcher;	
+@class MSGraphUserFetcher;	
 @class MSGraphDirectoryObjectOperations;
 
 
@@ -47,25 +40,18 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphDirectoryObject *, MSOrcError *))callback;
-- (void)update:(MSGraphDirectoryObject *)DirectoryObject callback:(void (^)(MSGraphDirectoryObject *, MSOrcError*))callback ;
+- (void)update:(MSGraphDirectoryObject *)directoryObject callback:(void (^)(MSGraphDirectoryObject *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphDirectoryObjectFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphDirectoryObjectFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphDirectoryObjectFetcher *)select:(NSString *)params;
 - (MSGraphDirectoryObjectFetcher *)expand:(NSString *)value;
-- (MSGraphApplicationFetcher *)asApplication;	
-- (MSGraphExtensionPropertyFetcher *)asExtensionProperty;	
-- (MSGraphUserFetcher *)asUser;	
-- (MSGraphAppRoleAssignmentFetcher *)asAppRoleAssignment;	
-- (MSGraphGroupFetcher *)asGroup;	
-- (MSGraphOrgContactFetcher *)asOrgContact;	
 - (MSGraphDeviceFetcher *)asDevice;	
-- (MSGraphDeviceConfigurationFetcher *)asDeviceConfiguration;	
-- (MSGraphDirectoryLinkChangeFetcher *)asDirectoryLinkChange;	
 - (MSGraphDirectoryRoleFetcher *)asDirectoryRole;	
 - (MSGraphDirectoryRoleTemplateFetcher *)asDirectoryRoleTemplate;	
-- (MSGraphServicePrincipalFetcher *)asServicePrincipal;	
-- (MSGraphTenantDetailFetcher *)asTenantDetail;	
+- (MSGraphGroupFetcher *)asGroup;	
+- (MSGraphOrganizationFetcher *)asOrganization;	
+- (MSGraphUserFetcher *)asUser;	
 
 @end
 

@@ -32,7 +32,7 @@ root for authoritative license information.﻿
 
         if(_$$$_$$$propertiesNamesMappings==nil) {
     
-        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"password", @"password", @"forceChangePasswordNextLogin", @"forceChangePasswordNextLogin", nil];
+        _$$$_$$$propertiesNamesMappings=[[NSDictionary alloc] initWithObjectsAndKeys:  @"password", @"password", @"forceChangePasswordNextSignIn", @"forceChangePasswordNextSignIn", nil];
         
     }
     
@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.PasswordProfile";
+		_odataType = @"#microsoft.graph.passwordProfile";
 
     }
 
@@ -56,7 +56,7 @@ root for authoritative license information.﻿
     if((self = [self init])) {
         if(dic!=nil) {
 		_password = (![dic objectForKey: @"password"] || [ [dic objectForKey: @"password"] isKindOfClass:[NSNull class]] )?_password:[[dic objectForKey: @"password"] copy];
-		_forceChangePasswordNextLogin = (![dic objectForKey: @"forceChangePasswordNextLogin"] || [ [dic objectForKey: @"forceChangePasswordNextLogin"] isKindOfClass:[NSNull class]] )?_forceChangePasswordNextLogin:[[dic objectForKey: @"forceChangePasswordNextLogin"] boolValue];
+		_forceChangePasswordNextSignIn = (![dic objectForKey: @"forceChangePasswordNextSignIn"] || [ [dic objectForKey: @"forceChangePasswordNextSignIn"] isKindOfClass:[NSNull class]] )?_forceChangePasswordNextSignIn:[[dic objectForKey: @"forceChangePasswordNextSignIn"] boolValue];
     }
     [self.updatedValues removeAllObjects];
     }
@@ -69,8 +69,8 @@ root for authoritative license information.﻿
     NSMutableDictionary *dic=[[NSMutableDictionary alloc] init];
 
 	{id curVal = [self.password copy];if (curVal!=nil) [dic setValue: curVal forKey: @"password"];}
-	{[dic setValue: (self.forceChangePasswordNextLogin?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];}
-    [dic setValue: @"#microsoft.graph.PasswordProfile" forKey: @"@odata.type"];
+	{[dic setValue: (self.forceChangePasswordNextSignIn?@"true":@"false") forKey: @"forceChangePasswordNextSignIn"];}
+    [dic setValue: @"#microsoft.graph.passwordProfile" forKey: @"@odata.type"];
 
     return dic;
 }
@@ -85,8 +85,8 @@ root for authoritative license information.﻿
                 [dic setValue: curVal==nil?[NSNull null]:[curVal copy] forKey: @"password"];
             }
     }
- if([self.updatedValues containsObject:@"forceChangePasswordNextLogin"])
-            { [dic setValue: (self.forceChangePasswordNextLogin?@"true":@"false") forKey: @"forceChangePasswordNextLogin"];
+ if([self.updatedValues containsObject:@"forceChangePasswordNextSignIn"])
+            { [dic setValue: (self.forceChangePasswordNextSignIn?@"true":@"false") forKey: @"forceChangePasswordNextSignIn"];
 }    return dic;
 }
 
@@ -99,12 +99,12 @@ root for authoritative license information.﻿
     [self valueChangedFor:@"password"];
 }
        
-/** Setter implementation for property forceChangePasswordNextLogin
+/** Setter implementation for property forceChangePasswordNextSignIn
  *
  */
-- (void) setForceChangePasswordNextLogin: (bool) value {
-    _forceChangePasswordNextLogin = value;
-    [self valueChangedFor:@"forceChangePasswordNextLogin"];
+- (void) setForceChangePasswordNextSignIn: (bool) value {
+    _forceChangePasswordNextSignIn = value;
+    [self valueChangedFor:@"forceChangePasswordNextSignIn"];
 }
        
 

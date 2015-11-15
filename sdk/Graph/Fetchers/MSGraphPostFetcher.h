@@ -25,11 +25,8 @@ root for authoritative license information.﻿
 @class MSGraphItemBodyFetcher;
 @class MSGraphRecipientFetcher;
 @class MSGraphRecipientCollectionFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
-@class MSGraphExtensionCollectionFetcher;
 @class MSGraphAttachmentCollectionFetcher;
-@class MSGraphExtensionFetcher;
 @class MSGraphAttachmentFetcher;
 @class MSGraphPostOperations;
 
@@ -43,16 +40,12 @@ root for authoritative license information.﻿
 
 - (instancetype)initWithUrl:(NSString*)urlComponent parent:(id<MSOrcExecutable>)parent;
 - (void)readWithCallback:(void (^)(MSGraphPost *, MSOrcError *))callback;
-- (void)update:(MSGraphPost *)Post callback:(void (^)(MSGraphPost *, MSOrcError*))callback ;
+- (void)update:(MSGraphPost *)post callback:(void (^)(MSGraphPost *, MSOrcError*))callback ;
 - (void)delete:(void(^)(int status, MSOrcError *))callback;
 - (MSGraphPostFetcher *)addCustomParametersWithName:(NSString *)name value:(id)value;
 - (MSGraphPostFetcher *)addCustomHeaderWithName:(NSString *)name value:(NSString *)value;
 - (MSGraphPostFetcher *)select:(NSString *)params;
 - (MSGraphPostFetcher *)expand:(NSString *)value;
-@property (strong, nonatomic, readonly, getter=extensions) MSGraphExtensionCollectionFetcher *extensions;
-
-- (MSGraphExtensionFetcher *)extensionsById:(id)identifier;
-
 
 @property (strong, nonatomic, readonly, getter=inReplyTo) MSGraphPostFetcher *inReplyTo;
 @property (strong, nonatomic, readonly, getter=attachments) MSGraphAttachmentCollectionFetcher *attachments;

@@ -21,7 +21,6 @@ root for authoritative license information.﻿
 #import "core/MSOrcChangesTrackingArray.h"
 
 @class MSGraphPhysicalAddress;
-@class MSGraphOutlookGeoCoordinates;
 #import "core/MSOrcBaseEntity.h"
 #import "api/MSOrcInteroperableWithDictionary.h"
 
@@ -35,20 +34,10 @@ root for authoritative license information.﻿
  */
 @property (nonatomic,  copy, setter=setDisplayName:, getter=displayName) NSString * displayName;
 
-/** Property locationEmailAddress
- *
- */
-@property (nonatomic,  copy, setter=setLocationEmailAddress:, getter=locationEmailAddress) NSString * locationEmailAddress;
-
 /** Property address
  *
  */
 @property (nonatomic,  copy, setter=setAddress:, getter=address) MSGraphPhysicalAddress * address;
-
-/** Property coordinates
- *
- */
-@property (nonatomic,  copy, setter=setCoordinates:, getter=coordinates) MSGraphOutlookGeoCoordinates * coordinates;
 
 
 + (NSDictionary *) $$$_$$$propertiesNamesMappings;

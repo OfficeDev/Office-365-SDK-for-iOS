@@ -44,7 +44,7 @@ root for authoritative license information.﻿
 
 	if (self = [super init]) {
 
-		_odataType = @"#microsoft.graph.LicenseUnitsDetail";
+		_odataType = @"#microsoft.graph.licenseUnitsDetail";
 
     }
 
@@ -72,7 +72,7 @@ root for authoritative license information.﻿
 	{[dic setValue: [NSNumber numberWithInt: self.enabled] forKey: @"enabled"];}
 	{[dic setValue: [NSNumber numberWithInt: self.suspended] forKey: @"suspended"];}
 	{[dic setValue: [NSNumber numberWithInt: self.warning] forKey: @"warning"];}
-    [dic setValue: @"#microsoft.graph.LicenseUnitsDetail" forKey: @"@odata.type"];
+    [dic setValue: @"#microsoft.graph.licenseUnitsDetail" forKey: @"@odata.type"];
 
     return dic;
 }

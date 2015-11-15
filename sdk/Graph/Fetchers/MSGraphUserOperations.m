@@ -33,7 +33,7 @@ root for authoritative license information.﻿
 
       NSString *addLicensesString = [MSOrcObjectizer deobjectizeToString:addLicenses];
 
-  NSString *removeLicensesString = [removeLicenses copy];
+  NSString *removeLicensesString = [NSString stringWithFormat:@"\"%@\"", removeLicenses];
 
     return [self assignLicenseRawWithAddLicenses:addLicensesString removeLicenses:removeLicensesString callback:^(NSString *returnValue, MSOrcError *e) {
        
@@ -61,6 +61,53 @@ root for authoritative license information.﻿
     [request setVerb:HTTP_VERB_POST];
 	     
 	[request.url appendPathComponent:@"assignLicense"];
+        	
+    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
+        
+		if (e == nil) {
+            
+			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
+        }
+        else {
+
+            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
+        }
+    }];
+    
+    }
+- (void)changePasswordWithCurrentPassword:(NSString *)currentPassword newPassword:(NSString *)newPassword callback:(void (^)(int, MSOrcError*))callback {
+
+
+      NSString *currentPasswordString = [NSString stringWithFormat:@"\"%@\"", currentPassword];
+
+  NSString *newPasswordString = [NSString stringWithFormat:@"\"%@\"", newPassword];
+
+    return [self changePasswordRawWithCurrentPassword:currentPasswordString newPassword:newPasswordString callback:^(NSString *returnValue, MSOrcError *e) {
+       
+       if (e == nil) {
+            int result = (int)[MSOrcObjectizer intFromString:returnValue];
+            callback(result, e);
+        } 
+        else {
+
+            callback((int)[returnValue integerValue], e);
+        }
+    }];    
+    
+        
+}
+
+- (void)changePasswordRawWithCurrentPassword:(NSString *)currentPassword newPassword:(NSString *)newPassword callback:(void (^)(NSString *, MSOrcError*))callback {
+        
+    id<MSOrcRequest> request = [super.resolver createOrcRequest];
+    
+    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  currentPassword, @"currentPassword", newPassword, @"newPassword", nil ] , nil];
+    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
+    [request setContent:payload];
+    
+    [request setVerb:HTTP_VERB_POST];
+	     
+	[request.url appendPathComponent:@"changePassword"];
         	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
@@ -122,61 +169,33 @@ root for authoritative license information.﻿
     }];
     
     }
-- (void)findMeetingTimesWithAttendees:(MSGraphAttendeeBase *)attendees locationConstraint:(MSGraphLocationConstraint *)locationConstraint timeConstraint:(MSGraphTimeConstraint *)timeConstraint meetingDuration:(NSTimeInterval)meetingDuration maxCandidates:(int)maxCandidates isOrganizerOptional:(bool)isOrganizerOptional callback:(void (^)(MSGraphMeetingTimeCandidate *, MSOrcError*))callback {
+- (void)reminderViewWithStartDateTime:(NSString *)startDateTime endDateTime:(NSString *)endDateTime callback:(void (^)(MSGraphReminder *, MSOrcError*))callback {
 
 
-      NSString *attendeesString = [MSOrcObjectizer deobjectizeToString:attendees];
+	id<MSOrcRequest> request = [self.resolver createOrcRequest];
+	NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:  startDateTime, @"StartDateTime", endDateTime, @"EndDateTime", nil ] ;
+	
+	NSString *parameters = [MSOrcBaseContainer getFunctionParameters:params];
 
-  NSString *locationConstraintString = [MSOrcObjectizer deobjectizeToString:locationConstraint];
+	[request.url appendPathComponent:[[NSString alloc] initWithFormat:@"ReminderView(%@)",parameters]];
+	[request setVerb:HTTP_VERB_POST];
 
-  NSString *timeConstraintString = [MSOrcObjectizer deobjectizeToString:timeConstraint];
-
-  NSString *meetingDurationString = [MSOrcObjectizer stringFromInt:meetingDuration];
-
-  NSString *maxCandidatesString = [MSOrcObjectizer stringFromInt:maxCandidates];
-
-  NSString *isOrganizerOptionalString = [MSOrcObjectizer stringFromBool:isOrganizerOptional];
-
-    return [self findMeetingTimesRawWithAttendees:attendeesString locationConstraint:locationConstraintString timeConstraint:timeConstraintString meetingDuration:meetingDurationString maxCandidates:maxCandidatesString isOrganizerOptional:isOrganizerOptionalString callback:^(NSString *returnValue, MSOrcError *e) {
+	return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
        
-       if (e == nil) {
-            MSGraphMeetingTimeCandidate * result = (MSGraphMeetingTimeCandidate *)[MSOrcObjectizer objectizeFromString:returnValue toType: [MSGraphMeetingTimeCandidate  class]];
+        if (e == nil) {
+            MSGraphReminder * result = (MSGraphReminder *)[MSOrcObjectizer objectizeFromString:[[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding] toType: [MSGraphReminder  class]];
             callback(result, e);
-        } 
+        }
         else {
 
             callback(nil, e);
         }
-    }];    
+        
+    }];
     
         
 }
 
-- (void)findMeetingTimesRawWithAttendees:(NSString *)attendees locationConstraint:(NSString *)locationConstraint timeConstraint:(NSString *)timeConstraint meetingDuration:(NSString *)meetingDuration maxCandidates:(NSString *)maxCandidates isOrganizerOptional:(NSString *)isOrganizerOptional callback:(void (^)(NSString *, MSOrcError*))callback {
-        
-    id<MSOrcRequest> request = [super.resolver createOrcRequest];
-    
-    NSArray *parameters = [[NSArray alloc] initWithObjects: [[NSDictionary alloc] initWithObjectsAndKeys:  attendees, @"Attendees", locationConstraint, @"LocationConstraint", timeConstraint, @"TimeConstraint", meetingDuration, @"MeetingDuration", maxCandidates, @"MaxCandidates", isOrganizerOptional, @"IsOrganizerOptional", nil ] , nil];
-    NSData* payload = [[MSOrcBaseContainer generatePayloadWithParameters:parameters dependencyResolver:self.resolver] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setContent:payload];
-    
-    [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"FindMeetingTimes"];
-        	
-    return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
-        
-		if (e == nil) {
-            
-			callback([[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding], e);
-        }
-        else {
-
-            callback([[NSString alloc] initWithFormat:@"%d", response.status], e);
-        }
-    }];
-    
-    }
 
 @end
 
