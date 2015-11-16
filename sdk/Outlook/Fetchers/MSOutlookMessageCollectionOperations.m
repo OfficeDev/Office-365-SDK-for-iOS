@@ -52,9 +52,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Copy"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Copy"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -97,9 +96,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Move"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Move"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -137,9 +135,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"CreateReply"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.CreateReply"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -177,9 +174,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"CreateReplyAll"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.CreateReplyAll"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -217,9 +213,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"CreateForward"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.CreateForward"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -262,9 +257,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Reply"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Reply"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -307,9 +301,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"ReplyAll"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.ReplyAll"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -354,9 +347,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Forward"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Forward"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -394,9 +386,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Send"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Send"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {

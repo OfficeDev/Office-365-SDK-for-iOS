@@ -54,9 +54,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Accept"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Accept"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -101,9 +100,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"Decline"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.Decline"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -148,9 +146,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"TentativelyAccept"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.TentativelyAccept"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -193,9 +190,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"SnoozeReminder"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.SnoozeReminder"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -233,9 +229,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"DismissReminder"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.DismissReminder"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {

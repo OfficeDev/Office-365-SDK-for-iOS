@@ -56,9 +56,8 @@ root for authoritative license information.﻿
     [request setContent:payload];
     
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"copy"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.FileServices.copy"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {

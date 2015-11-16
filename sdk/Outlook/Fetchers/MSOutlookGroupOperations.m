@@ -52,9 +52,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"SubscribeByMail"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.SubscribeByMail"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -92,9 +91,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"UnsubscribeByMail"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.UnsubscribeByMail"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -132,9 +130,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"AddFavorite"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.AddFavorite"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -172,9 +169,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"RemoveFavorite"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.RemoveFavorite"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {
@@ -212,9 +208,8 @@ root for authoritative license information.﻿
     
         
     [request setVerb:HTTP_VERB_POST];
-	     
-	[request.url appendPathComponent:@"ResetUnseenCount"];
-        	
+	 	[request.url appendPathComponent:@"Microsoft.OutlookServices.ResetUnseenCount"];
+     	
     return [super orcExecuteRequest:request callback:^(id<MSOrcResponse> response, MSOrcError *e) {
         
 		if (e == nil) {

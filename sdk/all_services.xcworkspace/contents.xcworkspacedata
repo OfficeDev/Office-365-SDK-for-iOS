@@ -11,10 +11,10 @@
       location = "group:Files/Files.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Graph/Graph.xcodeproj">
+      location = "group:GraphService/GraphService.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:OneNote/OneNote.xcodeproj">
+      location = "group:OneNoteApi/OneNoteApi.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Outlook/Outlook.xcodeproj">

@@ -22,12 +22,12 @@ target :Files do
 xcodeproj 'Files/Files'
 pod 'orc', '=0.11.0'
 end
-target :Graph do
-xcodeproj 'Graph/Graph'
+target :GraphService do
+xcodeproj 'GraphService/GraphService'
 pod 'orc', '=0.11.0'
 end
-target :OneNote do
-xcodeproj 'OneNote/OneNote'
+target :OneNoteApi do
+xcodeproj 'OneNoteApi/OneNoteApi'
 pod 'orc', '=0.11.0'
 end
 target :Outlook do

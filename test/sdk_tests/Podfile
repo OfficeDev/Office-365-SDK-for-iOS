@@ -8,8 +8,8 @@ pod 'orc', :path => '../../../orc-for-ios'
 
 pod 'MSAADGraph-SDK-iOS', :path => '../../sdk/DirectoryServices'
 pod 'MSOffice365-Discovery-SDK-iOS', :path => '../../sdk/Discovery'
-pod 'MSGraph-SDK-iOS', :path => '../../sdk/Graph'
-pod 'MSOneNote-SDK-iOS', :path => '../../sdk/OneNote'
+pod 'MSGraph-SDK-iOS', :path => '../../sdk/GraphService'
+pod 'MSOneNote-SDK-iOS', :path => '../../sdk/OneNoteApi'
 pod 'MSOutlook-SDK-iOS', :path => '../../sdk/Outlook'
 
 
