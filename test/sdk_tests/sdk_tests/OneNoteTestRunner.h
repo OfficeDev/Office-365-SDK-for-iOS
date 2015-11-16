@@ -9,8 +9,8 @@
 
 @interface OneNoteTestRunner : BaseTestRunner
 
-@property (nonatomic, strong) MSOneNoteClient *client;
+@property (nonatomic, strong) MSOneNoteApiClient *client;
 
--(id)initWithClient:(MSOneNoteClient*)client;
+-(id)initWithClient:(MSOneNoteApiClient*)client;
 
 @end

@@ -78,7 +78,7 @@
     }
     
     if ([name isEqualToString:@"OneNote"]) {
-        [baseController getOneNoteClient: self :^(MSOneNoteClient *c) {
+        [baseController getOneNoteClient: self :^(MSOneNoteApiClient *c) {
             
             if (c!= nil) {
                 
@@ -109,7 +109,7 @@
     
     if ([name isEqualToString:@"MSGraph"]) {
         
-        [[[BaseController alloc] init] getMSGraphClient:^(MSGraphClient *c) {
+        [[[BaseController alloc] init] getMSGraphClient:^(MSGraphServiceClient *c) {
             
             MSGraphTestRunner *runner = [[MSGraphTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];

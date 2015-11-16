@@ -6,8 +6,8 @@
 
 @interface MSGraphTestRunner : BaseTestRunner
 @property NSString *TestMail;
-@property MSGraphClient *Client;
+@property MSGraphServiceClient *Client;
 
--(id)initWithClient : (MSGraphClient*)client;
+-(id)initWithClient : (MSGraphServiceClient*)client;
 
 @end

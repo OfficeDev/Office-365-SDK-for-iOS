@@ -9,8 +9,8 @@
 //#import "MSFiles.h"
 #import "MSOutlook.h"
 #import "MSDirectoryServices.h"
-#import "MSOneNote.h"
-#import "MSGraph.h"
+#import "MSOneNoteApi.h"
+#import "MSGraphService.h"
 #import "MSDiscovery.h"
 
 @interface BaseController : NSObject
@@ -18,8 +18,8 @@
 - (void)getMailClient:(void(^)(MSOutlookClient *c))callback;
 //- (void)getFilesClient:(void (^)(MSFilesClient *c))callback;
 - (void)getDiscoveryClient:(void (^)(MSDiscoveryClient *c))callback;
-- (void)getMSGraphClient:(void (^) (MSGraphClient* c))callback;
-- (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteClient *c))callback;
-- (MSOneNoteClient *)getOneNoteClient:(BOOL)authenticated;
+- (void)getMSGraphClient:(void (^) (MSGraphServiceClient* c))callback;
+- (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteApiClient *c))callback;
+- (MSOneNoteApiClient *)getOneNoteClient:(BOOL)authenticated;
 
 @end

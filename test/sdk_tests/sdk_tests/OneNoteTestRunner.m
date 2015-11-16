@@ -12,7 +12,7 @@
 @end
 @implementation OneNoteTestRunner
 
-- (id)initWithClient:(MSOneNoteClient*)client {
+- (id)initWithClient:(MSOneNoteApiClient*)client {
     
     if (self = [super init]) {
 
@@ -71,7 +71,7 @@
     
     return [[self.client.me.notes.notebooks filter:@"name eq 'Test notebook iOS'"] readWithCallback:^(NSArray *notebooks, MSOrcError *error) {
         
-        MSOneNoteNotebook *newNotebook = [[MSOneNoteNotebook alloc] init];
+        MSOneNoteApiNotebook *newNotebook = [[MSOneNoteApiNotebook alloc] init];
         newNotebook.name = @"Test notebook iOS";
         
         Test *test = [Test alloc];
@@ -80,7 +80,7 @@
         
         if ([notebooks count] == 0) {
             
-            [self.client.me.notes.notebooks add:newNotebook callback:^(MSOneNoteNotebook *notebook, MSOrcError *e) {
+            [self.client.me.notes.notebooks add:newNotebook callback:^(MSOneNoteApiNotebook *notebook, MSOrcError *e) {
                 BOOL passed = false;
                 NSString* message = @"";
                 
@@ -148,9 +148,9 @@
         
         if (error == nil && notebooks != nil && [notebooks count] > 0) {
             
-            MSOneNoteNotebook *singleNotebook = [notebooks objectAtIndex:0];
+            MSOneNoteApiNotebook *singleNotebook = [notebooks objectAtIndex:0];
             
-            [[self.client.me.notes.notebooks getById:singleNotebook._id] readWithCallback:^(MSOneNoteNotebook *notebook, MSOrcError *error2) {
+            [[self.client.me.notes.notebooks getById:singleNotebook._id] readWithCallback:^(MSOneNoteApiNotebook *notebook, MSOrcError *error2) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -228,10 +228,10 @@
         
         if (notebooks > 0) {
             
-            MSOneNoteSection *newSection = [[MSOneNoteSection alloc]init];
+            MSOneNoteApiSection *newSection = [[MSOneNoteApiSection alloc]init];
             newSection.name = [@"Section-" stringByAppendingString:[[NSUUID UUID] UUIDString]];
             
-            [[self.client.me.notes.notebooks getById:[[notebooks objectAtIndex:0] _id]].sections add:newSection callback:^(MSOneNoteSection *addedSection, MSOrcError *e) {
+            [[self.client.me.notes.notebooks getById:[[notebooks objectAtIndex:0] _id]].sections add:newSection callback:^(MSOneNoteApiSection *addedSection, MSOrcError *e) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -273,9 +273,9 @@
         
         if ([sections count] > 0) {
             
-            MSOneNoteSection *s =[sections objectAtIndex:0];
+            MSOneNoteApiSection *s =[sections objectAtIndex:0];
             
-            [[self.client.me.notes.sections getById: s._id] readWithCallback:^(MSOneNoteSection *section, MSOrcError *error) {
+            [[self.client.me.notes.sections getById: s._id] readWithCallback:^(MSOneNoteApiSection *section, MSOrcError *error) {
                 
                 BOOL passed = false;
                 NSString* message = @"";
@@ -379,7 +379,7 @@
         /*
          if(error == nil && sections != nil && [sections count] >0)
          {
-         MSOneNoteSection *singleSection= [sections objectAtIndex:0];
+         MSOneNoteApiSection *singleSection= [sections objectAtIndex:0];
          [[[[self.Client getsections] getById:singleSection.id]
          BOOL passed = false;
          NSString* message = @"";
@@ -415,7 +415,7 @@
 - (void)testGetPageContent:(void (^) (Test*))result{
     
     return [[self.client.me.notes.pages top:1] readWithCallback:^(NSArray *pages, MSOrcError *error) {
-        MSOneNotePage *page = [pages objectAtIndex:0];
+        MSOneNoteApiPage *page = [pages objectAtIndex:0];
         
         [[self.client.me.notes.pages getById:page._id] getContentWithCallback:^(NSData *content, MSOrcError *error) {
             BOOL passed = false;

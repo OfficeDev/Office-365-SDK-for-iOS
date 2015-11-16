@@ -59,7 +59,7 @@
     }];
 }
 
--(void) getMSGraphClient:(void (^)(MSGraphClient *))callback{
+-(void) getMSGraphClient:(void (^)(MSGraphServiceClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"00000003-0000-0000-c000-000000000000";
@@ -67,7 +67,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSGraphClient alloc] initWithUrl:@"https://graph.microsoft.com/v1.0/" dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSGraphServiceClient alloc] initWithUrl:@"https://graph.microsoft.com/v1.0/" dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -75,7 +75,7 @@
     }];
 }
 
--(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteClient *))callback{
+-(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteApiClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
 
@@ -84,13 +84,13 @@
     }];
 }
 
--(MSOneNoteClient*) getOneNoteClient: (BOOL) authenticated{
+-(MSOneNoteApiClient*) getOneNoteClient: (BOOL) authenticated{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://www.onenote.com/api/beta/";
     
     if(authenticated){
-        return[[ MSOneNoteClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
+        return[[ MSOneNoteApiClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
     }
     else{
         return nil;

@@ -9,8 +9,8 @@
 #//import "MSFiles.h"
 #import "MSOutlook.h"
 #import "MSDiscovery.h"
-#import "MSOneNote.h"
-#import "MSGraph.h"
+#import "MSOneNoteApi.h"
+#import "MSGraphService.h"
 
 @protocol Runner
 

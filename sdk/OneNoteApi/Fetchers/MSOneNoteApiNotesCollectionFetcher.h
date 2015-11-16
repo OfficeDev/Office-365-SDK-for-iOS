@@ -26,7 +26,7 @@ root for authoritative license information.﻿
 /** MSOneNoteApiNotesCollectionFetcher
  *
  */
-@interface MSOneNoteApiNotesCollectionFetcher : MSOrcCollectionFetcher
+@interface MSOneNoteApiNotesCollectionFetcher : MSOrcMultipartCollectionFetcher
 
 - (instancetype)initWithUrl:(NSString *)urlComponent parent:(id<MSOrcExecutable>)parent;
 
