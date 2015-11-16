@@ -159,8 +159,8 @@
 }
 
 -(void)TestGetContacts:(void (^) (Test*))result{
-  /*
-    return [self.Client.contacts readWithCallback:^(NSArray *contacts, MSOrcError *error) {
+
+    return [self.Client.me.contacts readWithCallback:^(NSArray *contacts, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -183,13 +183,6 @@
         
         result(test);
     }];
-   */
-    Test *test = [Test alloc];
-    
-    test.executionMessages = [NSMutableArray arrayWithObject: @"Test not implemented"];
-    test.passed = false;
-    
-    result(test);
 }
 
 -(void)TestGetDeviceConfiguration:(void (^) (Test*))result{

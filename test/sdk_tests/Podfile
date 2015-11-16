@@ -5,6 +5,11 @@ workspace 'sdk_tests'
 xcodeproj 'sdk_tests'
 
 pod 'orc', :path => '../../../orc-for-ios'
-pod 'Office365', :path => '../..'
+
+pod 'MSAADGraph-SDK-iOS', :path => '../../sdk/DirectoryServices'
+pod 'MSOffice365-Discovery-SDK-iOS', :path => '../../sdk/Discovery'
+pod 'MSGraph-SDK-iOS', :path => '../../sdk/Graph'
+pod 'MSOneNote-SDK-iOS', :path => '../../sdk/OneNote'
+pod 'MSOutlook-SDK-iOS', :path => '../../sdk/Outlook'
 
 

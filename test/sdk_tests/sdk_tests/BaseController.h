@@ -6,7 +6,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MSFiles.h"
+//#import "MSFiles.h"
 #import "MSOutlook.h"
 #import "MSDirectoryServices.h"
 #import "MSOneNote.h"
@@ -16,7 +16,7 @@
 @interface BaseController : NSObject
 
 - (void)getMailClient:(void(^)(MSOutlookClient *c))callback;
-- (void)getFilesClient:(void (^)(MSFilesClient *c))callback;
+//- (void)getFilesClient:(void (^)(MSFilesClient *c))callback;
 - (void)getDiscoveryClient:(void (^)(MSDiscoveryClient *c))callback;
 - (void)getMSGraphClient:(void (^) (MSGraphClient* c))callback;
 - (void)getOneNoteClient:(UIViewController *)viewController :(void(^)(MSOneNoteClient *c))callback;

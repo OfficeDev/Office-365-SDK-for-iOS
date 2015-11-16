@@ -25,6 +25,7 @@
     }];
 }
 
+/*
 -(void) getFilesClient:(void (^)(MSFilesClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
@@ -40,6 +41,7 @@
         }
     }];
 }
+ */
 
 -(void) getDiscoveryClient:(void (^)(MSDiscoveryClient *))callback{
     

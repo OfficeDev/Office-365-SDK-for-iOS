@@ -7,10 +7,10 @@
     "0C78A7FD9BA3EC8863162717FC77C050E83EA13D" : 0,
     "48A908D1748B2B3870C74A8785054DA712F3714E" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CF4E80B9-335E-4D6C-BA03-65FA05885946",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FD2DB162-9AFD-4BC5-8AC9-5DF2433DF9C9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "0C78A7FD9BA3EC8863162717FC77C050E83EA13D" : "Office-365-SDK-for-iOS",
-    "48A908D1748B2B3870C74A8785054DA712F3714E" : "orc-for-ios"
+    "0C78A7FD9BA3EC8863162717FC77C050E83EA13D" : "Office-365-SDK-for-iOS\/",
+    "48A908D1748B2B3870C74A8785054DA712F3714E" : "orc-for-ios\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "sdk_tests",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,

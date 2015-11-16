@@ -59,6 +59,7 @@
         }];
     }
     
+    /*
     if ([name isEqualToString:@"Files"]) {
         
         [[[BaseController alloc]init]getFilesClient:^(MSFilesClient *c) {
@@ -66,6 +67,7 @@
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
     }
+    */
     
     if ([name isEqualToString:@"Discovery"]) {
         

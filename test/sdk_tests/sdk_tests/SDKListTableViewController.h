@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "TestRunnerTableViewController.h"
 #import "MailTestRunner.h"
-#import "FilesTestRunner.h"
+//#import "FilesTestRunner.h"
 #import "DiscoveryTestRunner.h"
 #import "OneNoteTestRunner.h"
 #import "MSGraphTestRunner.h"
