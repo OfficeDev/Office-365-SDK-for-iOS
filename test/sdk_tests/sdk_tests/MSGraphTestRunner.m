@@ -70,7 +70,7 @@
     if([testName isEqualToString: @"TestGetUserDrive"]) return [self TestGetUserDrive:result];
     if([testName isEqualToString: @"TestGetUserFiles"]) return [self TestGetUserFiles:result];
     if([testName isEqualToString: @"TestGetUserFilesById"]) return [self TestGetUserFilesById:result];
-    //if([testName isEqualToString: @"TestCreateFileWithContent"]) return [self TestCreateFileWithContent:result];
+    if([testName isEqualToString: @"TestCreateFileWithContent"]) return [self TestCreateFileWithContent:result];
     
     if([testName isEqualToString:@"TestGetFolders"])return [self testGetFolders:result];
     if([testName isEqualToString:@"TestGetmailFoldersById"])return [self testGetmailFoldersById:result];
@@ -1919,8 +1919,7 @@
 -(void)TestCreateFileWithContent:(void (^) (Test*))result {
     MSGraphServiceDriveItem *itemToAdd = [self getFileItem];
     NSData *content =[@"Test Message content" dataUsingEncoding: NSUTF8StringEncoding];
-    NSInputStream* contentStream = [NSInputStream inputStreamWithData:content];
-    
+
     //Create file
     return [[self.Client.users getById:self.TestMail].drive.root.children add:itemToAdd callback:^(MSGraphServiceDriveItem *addedItem, MSOrcError *error) {
         
