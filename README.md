@@ -26,4 +26,4 @@ For each SDK in particular, please visit their corresponding repository:
 You will need to sign a [Contributor License Agreement](https://cla2.msopentech.com/) before submitting your pull request. To complete the Contributor License Agreement (CLA), you will need to submit a request via the form and then electronically sign the Contributor License Agreement when you receive the email containing the link to the document. This needs to only be done once for any Microsoft Open Technologies OSS project.
 
 ## License
-Copyright (c) Microsoft , Inc. All rights reserved. Licensed under the Apache License, Version 2.0.
+Copyright (c) Microsoft , Corp. All rights reserved. Licensed under the Apache License, Version 2.0.
