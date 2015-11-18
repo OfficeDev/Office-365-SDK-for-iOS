@@ -59,13 +59,15 @@
         }];
     }
     
+    /*
     if ([name isEqualToString:@"Files"]) {
         
-        [[[BaseController alloc]init]getSharePointClient:^(MSSharePointClient *c) {
+        [[[BaseController alloc]init]getFilesClient:^(MSFilesClient *c) {
             FilesTestRunner *runner = [[FilesTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];
         }];
     }
+    */
     
     if ([name isEqualToString:@"Discovery"]) {
         
@@ -76,7 +78,7 @@
     }
     
     if ([name isEqualToString:@"OneNote"]) {
-        [baseController getOneNoteClient: self :^(MSOneNoteClient *c) {
+        [baseController getOneNoteClient: self :^(MSOneNoteApiClient *c) {
             
             if (c!= nil) {
                 
@@ -107,7 +109,7 @@
     
     if ([name isEqualToString:@"MSGraph"]) {
         
-        [[[BaseController alloc] init] getMSGraphClient:^(MSGraphClient *c) {
+        [[[BaseController alloc] init] getMSGraphClient:^(MSGraphServiceClient *c) {
             
             MSGraphTestRunner *runner = [[MSGraphTestRunner alloc] initWithClient:c];
             [self performSegueWithIdentifier:@"segue" sender:runner];

@@ -3,5 +3,5 @@ platform :ios, '7.0'
 
 xcodeproj 'simple-exchange-app'
 
-pod 'orc', '=0.11.0'
+pod 'orc', '=0.10.2'
 pod 'Office365/outlook', :git => 'https://github.com/OfficeDev/Office-365-SDK-for-iOS', :branch => 'master'

@@ -63,7 +63,7 @@
 
 -(void)getMessagesFromInbox{
     
-    [self.client.me.messages readWithCallback:^(NSArray *messages, MSOrcError *error) {
+    [self.client.me.messages readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
         
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),

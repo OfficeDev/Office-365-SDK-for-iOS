@@ -10,7 +10,7 @@
 #import <ADALiOS/ADAuthenticationSettings.h>
 #import <ADALiOS/ADLogger.h>
 #import <ADALiOS/ADInstanceDiscovery.h>
-#import "orc.h"
+#import <office365_odata_base/office365_odata_base.h>
 
 @interface AuthenticationController : NSObject
 

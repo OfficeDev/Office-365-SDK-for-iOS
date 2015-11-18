@@ -62,7 +62,7 @@
 
 - (void)getFolders {
     
-    [self.client.me.folders readWithCallback:^(NSArray *folders, MSOrcError *error) {
+    [self.client.me.folders readWithCallback:^(NSArray<MSOutlookFolder> *folders, MSOrcError *error) {
         
         if (error == nil) {
             

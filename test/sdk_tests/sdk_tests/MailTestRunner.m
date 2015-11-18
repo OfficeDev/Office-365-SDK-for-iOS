@@ -4,9 +4,12 @@
  * See License.txt in the project root for license information.
  ******************************************************************************/
 
+#import "core/MSOCalendarSerializer.h"
 #import "MailTestRunner.h"
 #import "TestParameters.h"
 #import "Test.h"
+
+#define NSLog NSLog(@"%s,%d",__FILE__,__LINE__);NSLog
 
 @interface MailTestRunner()
 
@@ -63,7 +66,7 @@
     if([testName isEqualToString:@"TestUpdateMessages"])return [self testUpdateMessages:result];
     if([testName isEqualToString:@"TestDeleteMessages"])return [self testDeleteMessages:result];
     if([testName isEqualToString:@"TestMoveMessages"])return [self testMoveMessages:result];
-    if([testName isEqualToString:@"TestCopyMessages"])return [self testMoveMessages:result];
+    if([testName isEqualToString:@"TestCopyMessages"])return [self testCopyMessages:result];
     if([testName isEqualToString:@"TestSendMessages"])return [self testSendMessages:result];
     if([testName isEqualToString:@"TestSendWithMessageOperations"])return [self testSendWithMessageOperations:result];
     if([testName isEqualToString:@"TestSendHtmlMessages"])return [self testSendHtmlMessages:result];
@@ -74,8 +77,8 @@
     
     // Folder tests
     if([testName isEqualToString:@"TestGetFolders"])return [self testGetFolders:result];
-    if([testName isEqualToString:@"TestGetFoldersById"])return [self testGetFoldersById:result];
-    if([testName isEqualToString:@"TestGetFoldersByIdOverload"])return [self testGetFoldersByIdOverload:result];
+    if([testName isEqualToString:@"TestGetmailFoldersById"])return [self testGetmailFoldersById:result];
+    if([testName isEqualToString:@"TestGetmailFoldersByIdOverload"])return [self testGetmailFoldersByIdOverload:result];
     if([testName isEqualToString:@"TestCreateFolder"])return [self testCreateFolder:result];
     if([testName isEqualToString:@"TestDeleteFolder"])return [self testDeleteFolder:result];
     if([testName isEqualToString:@"TestMoveFolder"])return [self testMoveFolder:result];
@@ -127,8 +130,8 @@
     
     //Folder tests
     [array addObject:[[Test alloc] initWithData:self name:@"TestGetFolders" displayName:@"Get Folders" ]];
-    [array addObject:[[Test alloc] initWithData:self name:@"TestGetFoldersById" displayName:@"Get Folders by Id" ]];
-    [array addObject:[[Test alloc] initWithData:self name:@"TestGetFoldersByIdOverload" displayName:@"Get Folders by Id (overload)" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetmailFoldersById" displayName:@"Get Folders by Id" ]];
+    [array addObject:[[Test alloc] initWithData:self name:@"TestGetmailFoldersByIdOverload" displayName:@"Get Folders by Id (overload)" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestCreateFolder" displayName:@"Create Folder" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestDeleteFolder" displayName:@"Delete Folders" ]];
     [array addObject:[[Test alloc] initWithData:self name:@"TestMoveFolder" displayName:@"Move Folders" ]];
@@ -214,14 +217,15 @@
 }
 
 - (void)testTop:(void(^)(Test *))result {
-    
+
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc: @""];
     
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[_weakSelf.client.me getFoldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            
+            [[[_weakSelf.client.me mailFoldersById:@"Inbox"].messages top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -245,13 +249,13 @@
                 [test.executionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
                 
                 if(addedMessage2!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage2.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage2._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -308,7 +312,7 @@
         
         [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage2, MSOrcError *e) {
             
-            [[[[_weakSelf.client.me.folders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            [[[[_weakSelf.client.me.mailFolders getById:@"Drafts"].messages filter:@"Subject eq 'My Subject'"] top:1]readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -334,14 +338,14 @@
                 [test.executionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                         
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
                 
                 if(addedMessage2!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage2.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage2._id] delete:^(int status, MSOrcError *error) {
                         
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
@@ -372,7 +376,7 @@
                 NSString* message = @"";
                 MSOutlookMessage *current =(messages!= nil && [messages count] == 1) ? [messages objectAtIndex:0] : nil;
                 
-                if(error==nil && messages!= nil && [messages count] == 1 && current.dateTimeReceived == nil){
+                if(error==nil && messages!= nil && [messages count] == 1 && current.receivedDateTime == nil){
                     passed = true;
                     message =@"Ok - ";
                 }
@@ -386,13 +390,13 @@
                 [test.executionMessages addObject:message];
                 
                 if(addedMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
                 
                 if(addedMessage2!= nil)
-                    [[_weakSelf.client.me.messages getById:addedMessage2.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:addedMessage2._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -445,15 +449,16 @@
                 [test.executionMessages addObject:message];
                 test.passed = passed;
                 
+                
                 //Cleanup
                 if(addedContact1!= nil)
-                    [[_weakSelf.client.me.contacts getById:addedContact1.id] delete:^(int status, MSOrcError * error) {
+                    [[_weakSelf.client.me.contacts getById:addedContact1._id] delete:^(int status, MSOrcError * error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
                 
                 if(addedContact2!= nil)
-                    [[_weakSelf.client.me.contacts getById:addedContact2.id] delete:^(int status, MSOrcError * error) {
+                    [[_weakSelf.client.me.contacts getById:addedContact2._id] delete:^(int status, MSOrcError * error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -513,13 +518,13 @@
                     
                     //Cleanup
                     if(addedContact1!= nil)
-                        [[_weakSelf.client.me.contacts getById:addedContact1.id] delete:^(int status, MSOrcError * error) {
+                        [[_weakSelf.client.me.contacts getById:addedContact1._id] delete:^(int status, MSOrcError * error) {
                             if(error!= nil)
                                 NSLog(@"Error: %@", error);
                         }];
                     
                     if(addedContact2!= nil)
-                        [[_weakSelf.client.me.contacts getById:addedContact2.id] delete:^(int status, MSOrcError * error) {
+                        [[_weakSelf.client.me.contacts getById:addedContact2._id] delete:^(int status, MSOrcError * error) {
                             if(error!= nil)
                                 NSLog(@"Error: %@", error);
                         }];
@@ -548,7 +553,7 @@
         attachment.name = @"TestAttachments.txt";
         
         //Add Attachment
-        [[_weakSelf.client.me.messages getById:addedMessage.id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
+        [[_weakSelf.client.me.messages getById:addedMessage._id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
             //Get Message using expand
             
             NSString *filter = [@"" stringByAppendingFormat: @"Subject eq '%@'", addedMessage.subject];
@@ -600,13 +605,13 @@
         attachment.name = @"TestAttachments.txt";
         
         //Add Attachment
-        [[_weakSelf.client.me.messages getById:addedMessage.id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
+        [[_weakSelf.client.me.messages getById:addedMessage._id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
             
             //Get Message using expand
-            [[[_weakSelf.client.me.messages getById: addedMessage.id] expand:@"Attachments"] readWithCallback:^(MSOutlookMessage *expandedMessage, MSOrcError *error) {
+            [[[_weakSelf.client.me.messages getById: addedMessage._id] expand:@"Attachments"] readWithCallback:^(MSOutlookMessage *expandedMessage, MSOrcError *error) {
                 
                 //Get message without expand
-                [[_weakSelf.client.me.messages getById:addedMessage.id] readWithCallback:^(MSOutlookMessage *notExpandedMessage, MSOrcError *error) {
+                [[_weakSelf.client.me.messages getById:addedMessage._id] readWithCallback:^(MSOutlookMessage *notExpandedMessage, MSOrcError *error) {
                     
                     BOOL passed = false;
                     
@@ -641,7 +646,7 @@
 
 - (void)testGetFolders:(void(^)(Test *))result {
     
-    return [_weakSelf.client.me.folders readWithCallback:^(NSArray *folders, MSOrcError *error) {
+    return [_weakSelf.client.me.mailFolders readWithCallback:^(NSArray *mailFolders, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -649,9 +654,9 @@
         
         test.executionMessages = [NSMutableArray array];
         
-        NSString* message = [folders count]>0  ? @"Ok - ": @"Not - ";
+        NSString* message = [mailFolders count]>0  ? @"Ok - ": @"Not - ";
         
-        if ([folders count] > 0) {
+        if ([mailFolders count] > 0) {
             
             passed = true;
         }
@@ -664,9 +669,9 @@
     }];
 }
 
-- (void)testGetFoldersById:(void(^)(Test *))result {
+- (void)testGetmailFoldersById:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"] readWithCallback:^(MSOutlookFolder *folder, MSOrcError *error) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"] readWithCallback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -693,9 +698,9 @@
     }];
 }
 
-- (void)testGetFoldersByIdOverload:(void(^)(Test *))result {
+- (void)testGetmailFoldersByIdOverload:(void(^)(Test *))result {
     
-    return [[_weakSelf.client.me getFoldersById:@"Inbox"] readWithCallback:^(MSOutlookFolder *folder, MSOrcError *error) {
+    return [[_weakSelf.client.me mailFoldersById:@"Inbox"] readWithCallback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
         
         BOOL passed = false;
         
@@ -726,10 +731,10 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *folder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *folder, MSOrcError *e) {
         
         BOOL passed = false;
         
@@ -760,13 +765,13 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
     //Create folder
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *folder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *folder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:folder.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:folder._id] delete:^(int status, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -795,12 +800,12 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:addedFolder.id].operations moveWithDestinationId:@"Drafts" callback:^(MSOutlookFolder *folder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id].operations moveWithDestinationId:@"Drafts" callback:^(MSOutlookMailFolder *folder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -830,7 +835,7 @@
             
             //Cleanup
             if(folder!= nil)
-                [[_weakSelf.client.me.folders getById:folder.id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.mailFolders getById:folder._id] delete:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
@@ -846,12 +851,12 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
-        [[_weakSelf.client.me.folders getById:addedFolder.id].operations copyWithDestinationId:@"Drafts" callback:^(MSOutlookFolder *copiedFolder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id].operations copyWithDestinationId:@"Drafts" callback:^(MSOutlookMailFolder *copiedFolder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -881,13 +886,13 @@
             //Cleanup
             if(copiedFolder!= nil)
             {
-                [[_weakSelf.client.me.folders getById:copiedFolder.id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.mailFolders getById:copiedFolder._id] delete:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
             }
             
-            [[_weakSelf.client.me.folders getById:addedFolder.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.mailFolders getById:addedFolder._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -904,15 +909,15 @@
     NSString *uuid = [[NSUUID UUID] UUIDString];
     NSString *folderName = [@"A new folder" stringByAppendingString:uuid];
     
-    MSOutlookFolder *newFolder = [[MSOutlookFolder alloc] init];
+    MSOutlookMailFolder *newFolder = [[MSOutlookMailFolder alloc] init];
     newFolder.displayName = folderName;
     
-    return [[_weakSelf.client.me.folders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookFolder *addedFolder, MSOrcError *e) {
+    return [[_weakSelf.client.me.mailFolders getById:@"Inbox"].childFolders add:newFolder callback:^(MSOutlookMailFolder *addedFolder, MSOrcError *e) {
         
         NSString *updatedFolderName = [@"Updated" stringByAppendingString:folderName];
         newFolder.displayName = updatedFolderName;
         
-        [[_weakSelf.client.me.folders getById:addedFolder.id] update:newFolder callback:^(MSOutlookFolder *updatedFolder, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders getById:addedFolder._id] update:newFolder callback:^(MSOutlookMailFolder *updatedFolder, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -967,7 +972,7 @@
     
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc:@""];
     newMessage.body = [[MSOutlookItemBody alloc] init];
-    newMessage.body.contentType = MSOutlook_BodyType_Text;
+    newMessage.body.contentType = MSOutlookBodyTypeText;
     
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
@@ -988,7 +993,7 @@
         [test.executionMessages addObject:message];
         
         if(addedMessage!= nil)
-            [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                 
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
@@ -1002,11 +1007,11 @@
     
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc:@""];
     newMessage.body = [[MSOutlookItemBody alloc] init];
-    newMessage.body.contentType = MSOutlook_BodyType_Text;
+    newMessage.body.contentType = MSOutlookBodyTypeText;
     
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
-        [[_weakSelf.client.me getMessagesById:addedMessage.id] readWithCallback:^(MSOutlookMessage *searchedMessage, MSOrcError *error) {
+        [[_weakSelf.client.me messagesById:addedMessage._id] readWithCallback:^(MSOutlookMessage *searchedMessage, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1016,7 +1021,7 @@
             
             NSString* message = error == nil && addedMessage!= nil  ? @"Ok - ": @"Not - ";
             
-            if(searchedMessage!= nil && [searchedMessage.id isEqualToString:addedMessage.Id]){
+            if(searchedMessage!= nil && [searchedMessage._id isEqualToString:addedMessage._id]){
                 passed = true;
             }
             
@@ -1025,7 +1030,7 @@
             [test.executionMessages addObject:message];
             
             if(addedMessage!= nil)
-                [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                     
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
@@ -1040,7 +1045,7 @@
 - (void)testCreateAndSendHtmlMessages:(void(^)(Test *))result {
     
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject Html" to:self.testMail cc:@""];
-    newMessage.body.contentType = MSOutlook_BodyType_HTML;
+    newMessage.body.contentType = MSOutlookBodyTypeText;
     newMessage.body.content = @"<div>Html Test</div>";
     
     return [_weakSelf.client.me.operations sendMailWithMessage:newMessage saveToSentItems:true callback:^(int returnValue, MSOrcError *error) {
@@ -1081,7 +1086,7 @@
         addedMessage.Subject = updatedSubject;
         
         //Update message
-        [[_weakSelf.client.me.messages getById:addedMessage.id] update:newMessage callback:^(MSOutlookMessage *updatedMessage, MSOrcError *error) {
+        [[_weakSelf.client.me.messages getById:addedMessage._id] update:newMessage callback:^(MSOutlookMessage *updatedMessage, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1100,7 +1105,7 @@
             [test.executionMessages addObject:message];
             
             if(updatedMessage!= nil){
-                [[_weakSelf.client.me.messages getById:updatedMessage.Id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.messages getById:updatedMessage._id] delete:^(int status, MSOrcError *error) {
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
                 }];
@@ -1117,7 +1122,7 @@
     
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
-        [[_weakSelf.client.me.messages getById:addedMessage.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1146,7 +1151,7 @@
     return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
         //Move message
-        [[_weakSelf.client.me.messages getById:addedMessage.Id].operations moveWithDestinationId:@"Inbox" callback:^(MSOutlookMessage *movedMessage, MSOrcError *error) {
+        [[_weakSelf.client.me.messages getById:addedMessage._id].operations moveWithDestinationId:@"Inbox" callback:^(MSOutlookMessage *movedMessage, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1166,7 +1171,53 @@
             
             //Cleanup
             if(movedMessage!= nil) {
-                [[_weakSelf.client.me.messages getById:movedMessage.id] delete:^(int status, MSOrcError *error) {
+                [[_weakSelf.client.me.messages getById:movedMessage._id] delete:^(int status, MSOrcError *error) {
+                    
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }];
+            }
+            
+            result(test);
+        }];
+    }];
+}
+
+- (void)testCopyMessages:(void(^)(Test *))result {
+    
+    MSOutlookMessage *newMessage = [self getSampleMessage:@"My Subject" to:self.testMail cc:@""];
+    
+    //Create message
+    return [_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
+        
+        //Move message
+        [[_weakSelf.client.me.messages getById:addedMessage._id].operations copyWithDestinationId:@"Inbox" callback:^(MSOutlookMessage *copiedMessage, MSOrcError *error) {
+            
+            BOOL passed = false;
+            
+            Test *test = [Test alloc];
+            
+            test.executionMessages = [NSMutableArray array];
+            
+            NSString* message = error == nil ? @"Ok - ": @"Not - ";
+            
+            if(copiedMessage!= nil && [copiedMessage.subject isEqualToString:newMessage.subject]){
+                passed = true;
+            }
+            
+            test.passed = passed;
+            
+            [test.executionMessages addObject:message];
+            
+            //Cleanup
+            if(copiedMessage!= nil) {
+                [[_weakSelf.client.me.messages getById:copiedMessage._id] delete:^(int status, MSOrcError *error) {
+                    
+                    if(error!= nil)
+                        NSLog(@"Error: %@", error);
+                }];
+                
+                [[_weakSelf.client.me.messages getById:addedMessage._id] delete:^(int status, MSOrcError *error) {
                     
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
@@ -1217,7 +1268,7 @@
     //Send Mail
     return[_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *message, MSOrcError *e) {
         
-        [[_weakSelf.client.me.messages getById:message.id].operations sendWithCallback:^(int returnValue, MSOrcError *error) {
+        [[_weakSelf.client.me.messages getById:message._id].operations sendWithCallback:^(int returnValue, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1247,8 +1298,8 @@
 - (void)testSendHtmlMessages:(void (^) (Test *))result{
     
     MSOutlookMessage *newMessage = [self getSampleMessage:@"My Html Subject" to:self.testMail cc:@""];
-    newMessage.body.content = @"<h1>This is an Html body.</h1><a href=\"https://microsoft.com\">With Link!</a>";
-    newMessage.body.contentType = MSOutlook_BodyType_HTML;
+    newMessage.body.content = @"<h1>This is an Html body.</h1><a href='#'>With Link!</a>";
+    newMessage.body.contentType = MSOutlookBodyTypeText;
     
     //Send Mail
     return[_weakSelf.client.me.operations sendMailWithMessage:newMessage saveToSentItems:true callback:^(int returnValue, MSOrcError *error) {
@@ -1293,7 +1344,7 @@
             
             MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
             
-            [[_weakSelf.client.me.messages getById:currentMessage.id].operations createReplyWithCallback:^(MSOutlookMessage *replyMessage, MSOrcError *error) {
+            [[_weakSelf.client.me.messages getById:currentMessage._id].operations createReplyWithCallback:^(MSOutlookMessage *replyMessage, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1319,7 +1370,7 @@
                 
                 //Cleanup
                 if(replyMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:replyMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:replyMessage._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -1344,7 +1395,7 @@
         else{
             MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
             
-            [[_weakSelf.client.me.messages getById:currentMessage.id].operations createReplyAllWithCallback:^(MSOutlookMessage *replyAllMessage, MSOrcError *error) {
+            [[_weakSelf.client.me.messages getById:currentMessage._id].operations createReplyAllWithCallback:^(MSOutlookMessage *replyAllMessage, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1368,7 +1419,7 @@
                 
                 //Cleanup
                 if(replyAllMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:replyAllMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:replyAllMessage._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -1394,7 +1445,7 @@
             
             MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
             
-            [[_weakSelf.client.me.messages getById:currentMessage.id].operations createForwardWithCallback:^(MSOutlookMessage *fwMessage, MSOrcError *error) {
+            [[_weakSelf.client.me.messages getById:currentMessage._id].operations createForwardWithCallback:^(MSOutlookMessage *fwMessage, MSOrcError *error) {
                 
                 BOOL passed = false;
                 
@@ -1417,7 +1468,7 @@
                 
                 //Cleanup
                 if(fwMessage!= nil)
-                    [[_weakSelf.client.me.messages getById:fwMessage.id] delete:^(int status, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:fwMessage._id] delete:^(int status, MSOrcError *error) {
                         if(error!= nil)
                             NSLog(@"Error: %@", error);
                     }];
@@ -1434,26 +1485,26 @@
     NSString *messageSubject =[@"My HTML Email" stringByAppendingString:uuid];
     MSOutlookMessage *message = [self getSampleMessage:messageSubject to:self.testMail cc:@"" ];
     message.body.content = @"<h1>This is an Html body.</h1>";
-    message.body.contentType = MSOutlook_BodyType_HTML;
-    message.body.contentType = MSOutlook_BodyType_HTML;
+    message.body.contentType = MSOutlookBodyTypeText;
+    message.body.contentType = MSOutlookBodyTypeText;
     
     //Send mail with HTML body
     return[_weakSelf.client.me.operations sendMailWithMessage:message saveToSentItems:true callback:^(int returnValue, MSOrcError *error) {
         
         // Get sent mail
-        [[_weakSelf.client.me.folders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray *folders, MSOrcError *error) {
+        [[_weakSelf.client.me.mailFolders filter:@"DisplayName eq 'Sent Items'"] readWithCallback:^(NSArray *mailFolders, MSOrcError *error) {
             
-            MSOutlookFolder *sentItemsFolder = [folders objectAtIndex:0];
+            MSOutlookMailFolder *sentItemsFolder = [mailFolders objectAtIndex:0];
             
             NSString *filter = [[@"Subject eq '" stringByAppendingString:messageSubject] stringByAppendingString:@"'"];
             
-            [[[_weakSelf.client.me.folders getById:sentItemsFolder.id ].messages filter:filter] readWithCallback:^(NSArray *messages, MSOrcError *error) {
+            [[[_weakSelf.client.me.mailFolders getById:sentItemsFolder._id ].messages filter:filter] readWithCallback:^(NSArray *messages, MSOrcError *error) {
                 
-                if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] body] contentType] == MSOutlook_BodyType_HTML){
+                if(error == nil && messages.count == 1 && [[[messages objectAtIndex:0] body] contentType] == MSOutlookBodyTypeText){
                     MSOutlookMessage *currentMessage = [messages objectAtIndex:0];
                     
                     //Reply message
-                    [[_weakSelf.client.me.messages getById:currentMessage.id].operations replyWithComment:self.testMail callback:^(int returnValue, MSOrcError *error) {
+                    [[_weakSelf.client.me.messages getById:currentMessage._id].operations replyWithComment:self.testMail callback:^(int returnValue, MSOrcError *error) {
                         
                         BOOL passed = false;
                         
@@ -1493,6 +1544,7 @@
             }];
         }];
     }];
+     
 }
 
 - (MSOutlookMessage *)getSampleMessage:(NSString*)subject to:(NSString*)to cc:(NSString*)cc {
@@ -1590,7 +1642,7 @@
             
             //Cleanup
             if(addedContact!= nil)
-                [[_weakSelf.client.me.contacts getById:addedContact.id] delete:^(int status, MSOrcError * e) {
+                [[_weakSelf.client.me.contacts getById:addedContact._id] delete:^(int status, MSOrcError * e) {
                     if(e!=nil)
                         NSLog(@"Error: %@", e);
                 }];
@@ -1619,7 +1671,7 @@
             [test.executionMessages addObject: [error localizedDescription]];
         }
         
-        if(addedContact != nil && [addedContact.displayName isEqualToString: newContact.DisplayName]){
+        if(addedContact != nil && [addedContact.displayName isEqualToString: newContact.displayName]){
             passed = true;
         }
         
@@ -1627,7 +1679,7 @@
         
         //Cleanup
         if(addedContact!= nil)
-            [[_weakSelf.client.me.contacts getById:addedContact.id] delete:^(int status, MSOrcError * error) {
+            [[_weakSelf.client.me.contacts getById:addedContact._id] delete:^(int status, MSOrcError * error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -1644,7 +1696,7 @@
     return [_weakSelf.client.me.contacts add:newContact callback:^(MSOutlookContact *addedContact, MSOrcError *e) {
         
         //Delete
-        [[_weakSelf.client.me.contacts getById:addedContact.id] delete:^(int status, MSOrcError * error) {
+        [[_weakSelf.client.me.contacts getById:addedContact._id] delete:^(int status, MSOrcError * error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -1674,7 +1726,7 @@
         
         newContact.displayName = @"New Contact Name";
         
-        [[_weakSelf.client.me.contacts getById:addedContact.id] update:newContact callback:^(MSOutlookContact *updatedEntity, MSOrcError *error) {
+        [[_weakSelf.client.me.contacts getById:addedContact._id] update:newContact callback:^(MSOutlookContact *updatedEntity, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1696,7 +1748,7 @@
             
             //Cleanup
             if(updatedEntity!= nil)
-                [[_weakSelf.client.me.contacts getById:updatedEntity.id] delete:^(int status, MSOrcError * error) {
+                [[_weakSelf.client.me.contacts getById:updatedEntity._id] delete:^(int status, MSOrcError * error) {
                     
                     if(error!= nil)
                         NSLog(@"Error: %@", error);
@@ -1784,7 +1836,7 @@
         [test.executionMessages addObject:message];
         
         //Cleanup
-        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup.Id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup._id] delete:^(int status, MSOrcError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }];
@@ -1805,7 +1857,7 @@
     return [_weakSelf.client.me.calendarGroups add:newCalendarGroup callback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSOrcError *e) {
         
         //Get by id
-        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup.id] readWithCallback:^(MSOutlookCalendarGroup *calendarGroup, MSOrcError *error) {
+        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup._id] readWithCallback:^(MSOutlookCalendarGroup *calendarGroup, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1828,7 +1880,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.calendarGroups getById:calendarGroup.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.calendarGroups getById:calendarGroup._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -1853,7 +1905,7 @@
         newCalendarGroup.name = updatedCalendarGroupName;
         
         //Update Calendar Group
-        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup.id] update:newCalendarGroup callback:^(MSOutlookCalendarGroup *updatedCalendarGroup, MSOrcError *error) {
+        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup._id] update:newCalendarGroup callback:^(MSOutlookCalendarGroup *updatedCalendarGroup, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -1862,7 +1914,7 @@
             test.executionMessages = [NSMutableArray array];
             NSString* message = @"";
             
-            if(e== nil && updatedCalendarGroup != nil && [updatedCalendarGroup.Name isEqualToString:updatedCalendarGroupName] ){
+            if(e== nil && updatedCalendarGroup != nil && [updatedCalendarGroup.name isEqualToString:updatedCalendarGroupName] ){
                 message = @"Ok - ";
                 passed = true;
             }else
@@ -1876,7 +1928,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.calendarGroups getById:updatedCalendarGroup.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.calendarGroups getById:updatedCalendarGroup._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -1899,7 +1951,7 @@
     return [_weakSelf.client.me.calendarGroups add:newCalendarGroup callback:^(MSOutlookCalendarGroup *addedCalendarGroup, MSOrcError *e) {
         
         //Delete Calendar
-        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.calendarGroups getById:addedCalendarGroup._id] delete:^(int status, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2016,7 +2068,7 @@
         [test.executionMessages addObject:message];
         
         //Cleanup
-        [[_weakSelf.client.me.calendars getById:addedCalendar.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.calendars getById:addedCalendar._id] delete:^(int status, MSOrcError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }];
@@ -2037,7 +2089,7 @@
     return [_weakSelf.client.me.calendars add:newCalendar callback:^(MSOutlookCalendar *addedCalendar, MSOrcError *e) {
         
         //Get by id
-        [[_weakSelf.client.me.calendars getById:addedCalendar.id] readWithCallback:^(MSOutlookCalendar *calendar, MSOrcError *error) {
+        [[_weakSelf.client.me.calendars getById:addedCalendar._id] readWithCallback:^(MSOutlookCalendar *calendar, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2060,7 +2112,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.calendars getById:calendar.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.calendars getById:calendar._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -2085,7 +2137,7 @@
         newCalendar.Name = updatedCalendarName;
         
         //Update Calendar
-        [[_weakSelf.client.me.calendars getById:addedCalendar.id] update:newCalendar callback:^(MSOutlookCalendar *updatedCalendar, MSOrcError *error) {
+        [[_weakSelf.client.me.calendars getById:addedCalendar._id] update:newCalendar callback:^(MSOutlookCalendar *updatedCalendar, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2108,7 +2160,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.calendars getById:updatedCalendar.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.calendars getById:updatedCalendar._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -2131,7 +2183,7 @@
     return [_weakSelf.client.me.calendars add:newCalendar callback:^(MSOutlookCalendar *addedCalendar, MSOrcError *e) {
         
         //Delete Calendar
-        [[_weakSelf.client.me.calendars getById:addedCalendar.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.calendars getById:addedCalendar._id] delete:^(int status, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2165,7 +2217,10 @@
     
     return[_weakSelf.client.me.events add:newEvent callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         
-        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:newEvent.start] addCustomParametersWithName:@"enddatetime" value:newEvent.end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
+        NSDate *start = [MSOCalendarSerializer deserialize:addedEvent.start.dateTime];
+        NSDate *end = [MSOCalendarSerializer deserialize:addedEvent.end.dateTime];
+        
+        [[[_weakSelf.client.me.calendarView addCustomParametersWithName:@"startdatetime" value:start] addCustomParametersWithName:@"enddatetime" value:end ] readWithCallback:^(NSArray *events, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2188,7 +2243,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
                 
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
@@ -2231,7 +2286,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.events getById:addedEvent.id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -2271,7 +2326,7 @@
         [test.executionMessages addObject:message];
         
         //Cleanup
-        [[_weakSelf.client.me.events getById:addedEvent.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
             if(error!= nil)
                 NSLog(@"Error: %@", error);
         }];
@@ -2291,7 +2346,7 @@
         event.subject = updatedSubject;
         
         // Update Event
-        [[_weakSelf.client.me.events getById:addedEvent.id] update:event callback:^(MSOutlookEvent *updatedEvent, MSOrcError *error) {
+        [[_weakSelf.client.me.events getById:addedEvent._id] update:event callback:^(MSOutlookEvent *updatedEvent, MSOrcError *error) {
             
             BOOL passed = false;
             
@@ -2314,7 +2369,7 @@
             [test.executionMessages addObject:message];
             
             //Cleanup
-            [[_weakSelf.client.me.events getById:addedEvent.Id] delete:^(int status, MSOrcError *error) {
+            [[_weakSelf.client.me.events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
                 if(error!= nil)
                     NSLog(@"Error: %@", error);
             }];
@@ -2332,7 +2387,7 @@
     return [_weakSelf.client.me.events add:event callback:^(MSOutlookEvent *addedEvent, MSOrcError *e) {
         
         //Delete event
-        [[_weakSelf.client.me.events getById:addedEvent.id] delete:^(int status, MSOrcError *error) {
+        [[_weakSelf.client.me.events getById:addedEvent._id] delete:^(int status, MSOrcError *error) {
             BOOL passed = false;
             
             Test *test = [Test alloc];
@@ -2371,7 +2426,7 @@
             attachment.contentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
             attachment.name = @"TestAttachments.txt";
             
-            [[_weakSelf.client.me.messages getById:addedMessage.Id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
+            [[_weakSelf.client.me.messages getById:addedMessage._id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
                 
                 BOOL passed = false;
                 
@@ -2381,7 +2436,7 @@
                 
                 NSString* message =  @"";
                 
-                if(error == nil && a != nil && [a.Name isEqualToString: attachment.Name]){
+                if(error == nil && a != nil && [a.name isEqualToString: attachment.name]){
                     message =  @"Ok - ";
                     passed = true;
                 }
@@ -2406,16 +2461,16 @@
     
     return[_weakSelf.client.me.messages add:newMessage callback:^(MSOutlookMessage *addedMessage, MSOrcError *error) {
         
-        if(addedMessage!= nil && [addedMessage.Subject isEqualToString:newMessage.Subject]){
+        if(addedMessage!= nil && [addedMessage.subject isEqualToString:newMessage.subject]){
             
             MSOutlookFileAttachment* attachment = [[MSOutlookFileAttachment alloc] init];
             
             attachment.contentBytes = [@"Test Message Attachments" dataUsingEncoding: NSUTF8StringEncoding];
             attachment.name = @"TestAttachments.txt";
             
-            [[_weakSelf.client.me.messages getById:addedMessage.Id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
+            [[_weakSelf.client.me.messages getById:addedMessage._id].attachments add:attachment callback:^(MSOutlookAttachment *a, MSOrcError *e) {
                 
-                [[[[_weakSelf.client.me.messages getById:addedMessage.Id].attachments getById:a.Id] asFileAttachment] readWithCallback:^(MSOutlookFileAttachment *fileAttachment, MSOrcError *error) {
+                [[[[_weakSelf.client.me.messages getById:addedMessage._id].attachments getById:a._id] asFileAttachment] readWithCallback:^(MSOutlookFileAttachment *fileAttachment, MSOrcError *error) {
                     
                     BOOL passed = false;
                     
@@ -2450,20 +2505,28 @@
     }];
 }
 
+
 - (MSOutlookEvent *)getSampleEvent {
     
     MSOutlookEvent *event= [[MSOutlookEvent alloc]init];
     event.subject = @"Today's appointment";
-    event.start = [NSDate date];
-    event.end = [[NSDate date] dateByAddingTimeInterval: 3600];
-    MSOutlookImportance importance = MSOutlook_Importance_High;
+    
+    event.start = [[MSOutlookDateTimeTimeZone alloc] init];
+    event.start.dateTime = [MSOrcObjectizer stringFromDate:[NSDate date]];
+    event.start.timeZone = @"UTC";
+    
+    event.end = [[MSOutlookDateTimeTimeZone alloc] init];
+    event.end.dateTime = [MSOrcObjectizer stringFromDate:[[NSDate date] dateByAddingTimeInterval: 3600]];
+    event.end.timeZone = @"UTC";
+    
+    MSOutlookImportance importance = MSOutlookImportanceHigh;
     event.importance = importance;
     
     //Event Body
     MSOutlookItemBody *itemBody = [[MSOutlookItemBody alloc] init];
     itemBody.content = @"This is the appointment info";
     
-    MSOutlookBodyType bt = MSOutlook_BodyType_Text;
+    MSOutlookBodyType bt = MSOutlookBodyTypeText;
     itemBody.contentType = bt;
     event.body = itemBody;
     
@@ -2480,6 +2543,7 @@
     event.attendees = (NSMutableArray *)attendees;
     
     return event;
+
 }
 
 @end

@@ -26,7 +26,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Office365:
-    :commit: 44e86dd9d00607f5b497d8aa615b195489e14531
+    :commit: a349e1ac6bf2ac5b7b5360afd4bdf2bbd9f8d640
     :git: https://github.com/OfficeDev/Office-365-SDK-for-iOS
 
 SPEC CHECKSUMS:

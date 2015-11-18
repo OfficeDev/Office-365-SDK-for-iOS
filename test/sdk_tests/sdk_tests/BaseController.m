@@ -17,7 +17,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v1.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSOutlookClient alloc] initWithUrl:[hostName stringByAppendingString:@"/api/v2.0"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -25,7 +25,8 @@
     }];
 }
 
--(void) getSharePointClient:(void (^)(MSSharePointClient *))callback{
+/*
+-(void) getFilesClient:(void (^)(MSFilesClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://msopentechtest01-my.sharepoint.com";
@@ -33,13 +34,14 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSSharePointClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSFilesClient alloc] initWithUrl:[hostName stringByAppendingString:@"/_api/v2.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
         }
     }];
 }
+ */
 
 -(void) getDiscoveryClient:(void (^)(MSDiscoveryClient *))callback{
     
@@ -49,7 +51,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSDiscoveryClient alloc] initWithUrl:[hostName stringByAppendingString:@"/v1.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSDiscoveryClient alloc] initWithUrl:[hostName stringByAppendingString:@"/v2.0/me"] dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -57,7 +59,7 @@
     }];
 }
 
--(void) getMSGraphClient:(void (^)(MSGraphClient *))callback{
+-(void) getMSGraphClient:(void (^)(MSGraphServiceClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"00000003-0000-0000-c000-000000000000";
@@ -65,7 +67,7 @@
     [authenticationController initialize:hostName :true completionHandler:^(bool authenticated) {
         
         if(authenticated){
-            callback([[MSGraphClient alloc] initWithUrl:@"https://graph.microsoft.com/beta/myOrganization/" dependencyResolver:[authenticationController getDependencyResolver]]);
+            callback([[MSGraphServiceClient alloc] initWithUrl:@"https://graph.microsoft.com/v1.0/" dependencyResolver:[authenticationController getDependencyResolver]]);
         }
         else{
             NSLog(@"Error in the authentication");
@@ -73,7 +75,7 @@
     }];
 }
 
--(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteClient *))callback{
+-(void) getOneNoteClient: (UIViewController*) viewController :(void (^)(MSOneNoteApiClient *))callback{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
 
@@ -82,13 +84,13 @@
     }];
 }
 
--(MSOneNoteClient*) getOneNoteClient: (BOOL) authenticated{
+-(MSOneNoteApiClient*) getOneNoteClient: (BOOL) authenticated{
     
     AuthenticationController* authenticationController = [AuthenticationController getInstance];
     NSString* hostName = @"https://www.onenote.com/api/beta/";
     
     if(authenticated){
-        return[[ MSOneNoteClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
+        return[[ MSOneNoteApiClient alloc] initWithUrl:hostName dependencyResolver:[authenticationController getLiveSDKDependencyResolver]];
     }
     else{
         return nil;

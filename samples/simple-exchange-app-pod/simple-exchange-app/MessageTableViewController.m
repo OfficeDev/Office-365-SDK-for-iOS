@@ -7,7 +7,7 @@
 
 #import "MessageTableViewController.h"
 #import "BaseController.h"
-#import "outlook_services.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface MessageTableViewController ()
 
@@ -63,7 +63,7 @@
 
 -(void)getMessagesFromInbox{
     
-    [self.client.me.messages readWithCallback:^(NSArray *messages, MSOrcError *error) {
+    [self.client.me.messages readWithCallback:^(NSArray<MSOutlookMessage> *messages, MSOrcError *error) {
         
         if(error == nil){
             dispatch_async(dispatch_get_main_queue(),

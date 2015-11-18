@@ -8,7 +8,7 @@
 
 #import "SendMessageViewController.h"
 #import "BaseController.h"
-#import "outlook_services.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 @interface SendMessageViewController ()
 
@@ -47,9 +47,9 @@
     }];
 }
 
--(NSMutableArray *)getRecipients :(NSString*)text {
+-(NSMutableArray<MSOutlookRecipient>*)getRecipients :(NSString*)text {
     
-    NSMutableArray * result = (NSMutableArray *)[NSMutableArray array];
+    NSMutableArray<MSOutlookRecipient>* result = (NSMutableArray<MSOutlookRecipient> *)[NSMutableArray array];
     
     NSArray* recipients = [text componentsSeparatedByString:@","];
     

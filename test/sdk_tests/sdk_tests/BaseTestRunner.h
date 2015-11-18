@@ -6,11 +6,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "files_services/files_services.h"
-#import "outlook_services.h"
-#import "discovery_services.h"
-#import "onenote_services.h"
-#import "unified_services.h"
+#//import "MSFiles.h"
+#import "MSOutlook.h"
+#import "MSDiscovery.h"
+#import "MSOneNoteApi.h"
+#import "MSGraphService.h"
 
 @protocol Runner
 

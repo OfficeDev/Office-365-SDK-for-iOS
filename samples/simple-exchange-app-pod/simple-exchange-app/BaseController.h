@@ -5,7 +5,7 @@
  ******************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "outlook_services.h"
+#import <office365_exchange_sdk/office365_exchange_sdk.h>
 
 
 @interface BaseController : NSObject

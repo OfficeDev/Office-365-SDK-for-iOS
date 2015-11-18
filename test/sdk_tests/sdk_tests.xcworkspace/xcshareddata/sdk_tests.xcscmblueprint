@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0C78A7FD9BA3EC8863162717FC77C050E83EA13D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0C78A7FD9BA3EC8863162717FC77C050E83EA13D" : 0,
+    "48A908D1748B2B3870C74A8785054DA712F3714E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FD2DB162-9AFD-4BC5-8AC9-5DF2433DF9C9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0C78A7FD9BA3EC8863162717FC77C050E83EA13D" : "Office-365-SDK-for-iOS\/",
+    "48A908D1748B2B3870C74A8785054DA712F3714E" : "orc-for-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "sdk_tests",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "test\/sdk_tests\/sdk_tests.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/OfficeDev\/Office-365-SDK-for-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0C78A7FD9BA3EC8863162717FC77C050E83EA13D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MSOpenTech\/orc-for-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "48A908D1748B2B3870C74A8785054DA712F3714E"
+    }
+  ]
+}

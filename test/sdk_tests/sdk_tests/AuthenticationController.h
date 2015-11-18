@@ -13,8 +13,7 @@
 #import <ADALiOS/ADInstanceDiscovery.h>
 
 #import <LiveSDK/LiveConnectClient.h>
-
-#import "orc.h"
+#import <impl/impl.h>
 
 @interface AuthenticationController : NSObject
 
