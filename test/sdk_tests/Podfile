@@ -4,7 +4,7 @@ platform :ios, '8.0'
 workspace 'sdk_tests'
 xcodeproj 'sdk_tests'
 
-pod 'ADALiOS', :git => 'https://github.com/AzureAD/azure-activedirectory-library-for-objc.git', :branch => 'convergence' , :podspec => 'https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-objc/master/ADALiOS.podspec'
+pod 'ADALiOS'
 
 pod 'orc'
 pod 'MSOutlook-SDK-iOS'
