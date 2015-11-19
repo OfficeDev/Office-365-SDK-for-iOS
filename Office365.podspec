@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "Office365"
-  s.version      = "0.2.0"
+  s.version      = "0.20.0"
   s.summary      = "Client libraries for calling Office 365 service APIs from iOS apps."
   s.description  = <<-DESC
 		   Client libraries for calling Office 365 service APIs from iOS apps.
@@ -28,6 +28,8 @@ Pod::Spec.new do |s|
   s.dependency "MSOneNote-SDK-iOS"
   s.dependency "MSGraph-SDK-iOS"
   s.dependency "MSAADGraph-SDK-iOS"
+  
+end
   
   
   
