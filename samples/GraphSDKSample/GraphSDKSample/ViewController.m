@@ -88,10 +88,19 @@
     __weak typeof(self) weakSelf = self;
     if(self.updateCount!=0) return;
     
+    
+    
     for ( MailEntry *mailEntry in self.mailList ) {
         if(mailEntry.toggle) {
             self.updateCount++;
+            
+            /*
+             * For each mail flagged for update, and the desired target state,
+             * we modify the previously fetched messages and send an update request
+             */
+            
             mailEntry.message.isRead=read;
+            
             [[self.graphClient.me.messages getById:mailEntry.message._id] update:mailEntry.message callback:^(MSGraphServiceMessage *updatedMessage, MSOrcError *error) {
                 
                 weakSelf.updateCount--;
@@ -117,6 +126,9 @@
 
 - (IBAction)selectAll:(id)sender {
     
+    /*
+     * Sets all mail update toggles to true;
+     */
     for ( MailEntry *mailEntry in self.mailList ) {
         mailEntry.toggle=true;
     }
@@ -127,6 +139,11 @@
 
 - (void) updateMailsList {
     __weak typeof(self) weakSelf = self;
+    
+    /* 
+     * Gets the 20 first messages from the inbox, loads them in an array
+     * and reloads the table view
+     */
     
     [[[self.graphClient.me.mailFolders getById:self.inbox._id ].messages top:20] readWithCallback:^(NSArray *messages, MSOrcError *error) {
         
@@ -150,19 +167,36 @@
     
     self.updateCount=0;
     
+    /*
+     * Creates an ADAL auth resolver with settings loaded from 
+     * adal_settings.plist
+     */
     self.resolver = [[ADALDependencyResolver alloc] initWithPlist];
     
+    /*
+     * Creates an MSGraph client setting the url for the endpoint, and using the previusly
+     * created ADAL auth resolver 
+     */
     self.graphClient = [[MSGraphServiceClient alloc] initWithUrl:@"https://graph.microsoft.com/v1.0" dependencyResolver:self.resolver];
 
+    /*
+     * Initiates async ADAL interactive logon (Requests credentials from the user)
+     */
     [self.resolver interactiveLogonWithCallback:^(ADAuthenticationResult *result) {
         if (result.status == AD_SUCCEEDED) {
             
+            /*
+             * Gets the mailfolder "Inbox" from "me" via the graph client.
+             */
             [[self.graphClient.me.mailFolders getById:@"Inbox"] readWithCallback:^(MSGraphServiceMailFolder *folder, MSOrcError *error) {
                 
                 if(error!=nil) {
                     [weakSelf.resolver.logger logMessage:[error localizedDescription] withLevel:LOG_LEVEL_ERROR];
                 }
                 
+                /*
+                 * If not null, saves the inbox folder for later operations
+                 */
                 if (folder != nil) {
                     weakSelf.inbox=folder;
                     [weakSelf updateMailsList];
