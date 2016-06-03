@@ -1,0 +1,7 @@
+source 'https://github.com/Cocoapods/Specs.git'
+platform :ios, '8.3'
+
+xcodeproj 'simple-graph-app'
+
+pod 'Office365/Graph', :head
+
